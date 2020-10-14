@@ -1,0 +1,14 @@
+{%- assign keys = include.content | split: "+" -%}
+{%- if include.content contains "Ctrl" -%}
+  {%- for member in keys -%}
+    <span class="shortcut">{{ member }}</span>{% if forloop.rindex > 1 %}+{% endif %}
+  {%- endfor -%} (Win / Linux) or
+  {%- assign keys = include.content | replace: "Ctrl", "⌘" | split: "+" -%}
+  {%- for member in keys -%}
+    <span class="shortcut">{{ member }}</span>{% if forloop.rindex > 1 %}+{% endif %}
+  {%- endfor -%} (Mac)
+{%- else -%}
+  {%- for member in keys -%}
+    <span class="shortcut">{{ member }}</span>{% if forloop.rindex > 1 %}+{% endif %}
+  {%- endfor -%}
+{%- endif -%}

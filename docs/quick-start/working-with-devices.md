@@ -17,3 +17,4 @@ Score provides a unique window embedding all main features and toolboxes. From i
 
 ![score main window](/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
+![score main window](/assets/images/gridmode.mp4 "score main window")

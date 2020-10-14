@@ -106,3 +106,14 @@ hr {
   background-color: $border-color;
   border: 0;
 }
+.shortcut {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 9pt;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.1em 0.5em;
+    margin: 0 0.2em;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+    background-color: #f7f7f7;
+}

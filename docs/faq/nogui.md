@@ -1,23 +1,19 @@
 ---
 layout: default
-title: "How to"
+title: "How to run score without GUI ?"
 
-nav_order: 99
+parent: FAQ
 
-permalink: /docs/how-to.html
+permalink: /docs/faq/nogui.html
 category: "site-score"
 
-description: "How to - A collection of asked questions"
+description: "Using the commad line API to launch score witht GUI"
 
-tag: "Presentation"
+tag: "FAQ"
 visible: true
 ---
 
-Here is a list of (non necessarily) frequently asked questions. In case none of these answers your question, feel more than welcome to ask for help on the [Ossia.io forum](https://forum.ossia.io) or send a message on [Ossia score Gitter channel](https://gitter.im/OSSIA/score).
-
-{: .fs-6 .fw-300 }
-
-## How to run *score* without GUI ?
+# How to run *score* without GUI ?
 
 Score can run in the background while not opening its full UI (which may be handy for example when running score in a video installation). To do so, you can launch score from the Command line using the following:
 
