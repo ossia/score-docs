@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Available processes
+title: Automation (float)
 nav_order: 1
-has_children: true
+has_children: false
 
-parent: References
+parent: Processes
+grand_parent: References
 
-permalink: /docs/references/processes
+permalink: /docs/references/automation_float
 ---
 
 # Available processes
