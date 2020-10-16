@@ -32,22 +32,20 @@ Right click on the `Device explorer` pane and setup the desired communication pr
 ![Adding a device to *score* project](/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
 Score curently support the following devices types:
-- [OSCQuery](/docs/references/devices-types/oscquery-device.html)
-- [OSC](/docs/references/devices-types/osc-device.html)
-- [Minuit](/docs/references/devices-types/minuit-device.html)
-- [Mapper](/docs/references/devices-types/mapper-device.html)
-- [Local](/docs/references/devices-types/local-device.html)
-- [Midi in](/docs/references/devices-types/midiin-device.html)
-- [Midi out](/docs/references/devices-types/midiout-device.html)
-- [Serial](/docs/references/devices-types/serial-device.html)
-- [Joystick](/docs/references/devices-types/joystick-device.html)
-- [Wiimote](/docs/references/devices-types/wiimote-device.html)
-- [HTTP](/docs/references/devices-types/http-device.html)
-- [WS](/docs/references/devices-types/ws-device.html)
-- [Artnet](/docs/references/devices-types/artnet-device.html)
-- [Audio](/docs/references/devices-types/audio-device.html)
-- [Window](/docs/references/devices-types/window-device.html)
-- [Camera input](/docs/references/devices-types/camera-device.html)
+
+| OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               |
+|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| [OSCQuery](/docs/references/devices-types/oscquery-device.html) | [Mapper](/docs/references/devices-types/mapper-device.html) | [Midi in](/docs/references/devices-types/midiin-device.html)    | [HTTP](/docs/references/devices-types/http-device.html)           |
+| [OSC](/docs/references/devices-types/osc-device.html)           | [Local](/docs/references/devices-types/local-device.html)   | [Midi out](/docs/references/devices-types/midiout-device.html)  | [WS](/docs/references/devices-types/ws-device.html)               |
+| [Minuit](/docs/references/devices-types/minuit-device.html)     |                                                             | [Serial](/docs/references/devices-types/serial-device.html)     |                                                                   |
+|                                                                 |                                                             | [Joystick](/docs/references/devices-types/joystick-device.html) |                                                                   |
+|                                                                 |                                                             | [Wiimote](/docs/references/devices-types/wiimote-device.html)   |                                                                   |
+|                                                                 |                                                             |                                                                 |                                                                   |
+| **Lights**                                                      | **Audio**                                                   | **Video**                                                       |                                                                   |
+|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| [Artnet](/docs/references/devices-types/artnet-device.html)     | [Audio](/docs/references/devices-types/audio-device.html)   | [Window](/docs/references/devices-types/window-device.html)     |                                                                   |
+|                                                                 |                                                             | [Camera](/docs/references/devices-types/camera-device.html)     |                                                                   |
+
 
 Detailed explanations on these various device types and corresponding setup options can be found in the [References pages](/docs/references/devices-types).
 
