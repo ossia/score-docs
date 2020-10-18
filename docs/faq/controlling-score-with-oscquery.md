@@ -13,7 +13,7 @@ tag: "Controls"
 visible: true
 ---
 
-While *score* can synchronise and automate your media softwares and hardware, it can also be remote controlled, should you need to control your scenario execution using some hyper advanced next generation IA software, a custom sensor interface or whatever fits your needs.
+While *score* can synchronise and automate your media softwares and hardware, it can also be remote controlled, should you need to control your scenario execution using some hyper advanced next generation AI software, a custom sensor interface or whatever fits your needs.
 
 # Using score OSCQuery device
 
