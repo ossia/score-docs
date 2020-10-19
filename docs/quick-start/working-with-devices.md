@@ -15,7 +15,7 @@ visible: true
 
 *Score* provides advanced tools to ease the authoring of time exigeant projects involving medias: flexible score for a live performance, interactive scenario for an intermedia installation, game-like state machine scenarios, etc. 
 
-While *score 3.0.0* itself offers a number of way to work with audio or video medias right from the app, it does not aim at being the next "All in one super software. On the contrary, *score* was built from the ground up to be **as interoperable as possible**. Users remain thus free to use their tools of choice, be it their favorite VJing software, custom audio synthesis app or any specialized toolset, leaving score as the central hub of their project. 
+While *score 3.0.0* itself offers a number of way to work with audio or video medias right from the app, it does not aim at being the next "All in one" super software. On the contrary, *score* was built from the ground up to be **as interoperable as possible**. Users remain thus free to use their tools of choice, be it their favorite VJing software, custom audio synthesis app or any specialized toolset, leaving score as the central hub of their project. 
 
 It thus provides a unified place to write automations for the parameters of any of the devices involved in the project, to author efficient mappings from device A to device B, to modulate some devices parameters using generative processes and so on.
 
@@ -30,6 +30,8 @@ These devices, whether they are software or hardware can be freely added to your
 Right click on the `Device explorer` pane and setup the desired communication protocole between *score* and your device.
 
 ![Adding a device to *score* project](/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
+
+> Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the conextual menu
 
 Score curently support the following devices types:
 
@@ -46,9 +48,20 @@ Score curently support the following devices types:
 | [Artnet](/docs/references/devices-types/artnet-device.html)     | [Audio](/docs/references/devices-types/audio-device.html)   | [Window](/docs/references/devices-types/window-device.html)     |                                                                   |
 |                                                                 |                                                             | [Camera](/docs/references/devices-types/camera-device.html)     |                                                                   |
 
-
 Detailed explanations on these various device types and corresponding setup options can be found in the [References pages](/docs/references/devices-types).
 
-> Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the conextual menu
+## Devices' namespace browsing
 
-## Embeded devices browsing
+The `Device explorer` provides a unified view of your devices parameters as a tree-like structure. Devices are exposed as a number of nodes (some key parts of your device) and their related parameters.
+
+From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start](/docs/quick-start/scenario-authoring.html "Scenario authoring").
+
+![Device's namespace browsing](/assets/images/quick-start/working-with-devices/de-browsing.gif "Device's namespace browsing")
+
+## Monitor & remote control of parameters
+
+The `Device explorer` also provides detailed informations about your device parameters. Clicking a parameter from the namespace brings a dedicated inspector at the bottom, displaying it s various attributes, such as its current value (assuming your device echoes back its parameters value to *score*).
+
+You may also use this inspector to remotely change the value of a parameter (e.g. for testing purpose).
+
+![Device's parameter inspector](/assets/images/quick-start/working-with-devices/bi-directionnal.gif "Device's parameter inspector")
