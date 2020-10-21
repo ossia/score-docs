@@ -7,7 +7,7 @@ has_children: false
 parent: Processes
 grand_parent: References
 
-permalink: /docs/references/automation_float
+permalink: /docs/references/processes/automation_float.html
 ---
 
 # Available processes
