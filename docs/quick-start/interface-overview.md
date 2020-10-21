@@ -19,7 +19,7 @@ Score provides a unique window embedding all main features and toolboxes. From i
 
 # Device explorer
 
-On the left of *score* main window is the `Device explorer`. This is where you can setup the devices (hardware or software devices on the network) you want to control from *score*. 
+On the left of *score* main window is the [Device explorer](/score-docs/docs/references/glossary.html#device-explorer). This is where you can setup the [devices](/score-docs/docs/references/glossary.html#device) (hardware or software devices on the network) you want to control from *score*. 
 
 The `Device explorer` also offers a way to monitor or browse devices involved in your project, inspect its parameters and their behaviour.
 
