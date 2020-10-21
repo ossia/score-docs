@@ -25,7 +25,7 @@ The `Device explorer` also offers a way to monitor or browse devices involved in
 
 This also is where you can grab parameters you want to save in a snapshot, write automations on as explained in the following pages.
 
-![Device explorer](/assets/images/quick-start/score-interface/device_explorer.png "Device explorer")
+![Device explorer](/score-docs/assets/images/quick-start/score-interface/device_explorer.png "Device explorer")
 
 # Scenario editor
 
