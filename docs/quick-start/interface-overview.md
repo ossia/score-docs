@@ -4,7 +4,7 @@ title: "Interface overview"
 parent: Quick start
 nav_order: 1
 
-permalink: /quick-start/interface-overview.html
+permalink: /docs/quick-start/interface-overview.html
 category: "site-score"
 
 description: "Interface overview"
@@ -15,7 +15,7 @@ visible: true
 
 Score provides a unique window embedding all main features and toolboxes. From it, you can setup how your media applications and *score* will communicate, observe their parameters value navigate through their namespace in a structured way, store some parameters value in snapshots, draw some automations, structure you scenario in flexible ways, etc. All can be done from one of the 3 UI areas:
 
-![score main window](/assets/images/quick-start/score-interface/score-main-window.png "score main window")
+![score main window](/score-docs/assets/images/quick-start/score-interface/score-main-window.png "score main window")
 
 # Device explorer
 
