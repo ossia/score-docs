@@ -2,7 +2,7 @@
 layout: default
 title: "Working with audio within score"
 parent: Quick start
-nav_order: 4
+nav_order: 6
 
 permalink: /docs/quick-start/working-with-audio.html
 category: "site-score"
