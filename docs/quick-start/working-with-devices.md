@@ -19,17 +19,17 @@ While *score 3.0.0* itself offers a number of way to work with audio or video me
 
 It thus provides a unified place to write automations for the parameters of any of the devices involved in the project, to author efficient mappings from device A to device B, to modulate some devices parameters using generative processes and so on.
 
-![score main window](/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
+![score main window](/score-docs/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
 ## Setting up your devices network
 
 These devices, whether they are software or hardware can be freely added to your current score project from the `Device explorer` pane. Bring up the `Device explorer` pane using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
 
-> ![Device explorer icon](/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
+> ![Device explorer icon](/score-docs/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
 
 Right click on the `Device explorer` pane and setup the desired communication protocole between *score* and your device.
 
-![Adding a device to *score* project](/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
+![Adding a device to *score* project](/score-docs/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
 > Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the conextual menu
 
@@ -56,7 +56,7 @@ The `Device explorer` provides a unified view of your devices parameters as a tr
 
 From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start](/docs/quick-start/scenario-authoring.html "Scenario authoring").
 
-![Device's namespace browsing](/assets/images/quick-start/working-with-devices/de-browsing.gif "Device's namespace browsing")
+![Device's namespace browsing](/score-docs/assets/images/quick-start/working-with-devices/de-browsing.gif "Device's namespace browsing")
 
 ## Monitor & remote control of parameters
 
@@ -64,4 +64,4 @@ The `Device explorer` also provides detailed informations about your device para
 
 You may also use this inspector to remotely change the value of a parameter (e.g. for testing purpose).
 
-![Device's parameter inspector](/assets/images/quick-start/working-with-devices/bi-directionnal.gif "Device's parameter inspector")
+![Device's parameter inspector](/score-docs/assets/images/quick-start/working-with-devices/bi-directionnal.gif "Device's parameter inspector")

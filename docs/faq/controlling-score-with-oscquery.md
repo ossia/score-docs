@@ -19,7 +19,7 @@ While *score* can synchronise and automate your media softwares and hardware, it
 
 score exposes its scenario execution parameters through OSCQuery protocol so they can be monitored and controlled locally or from any device on the network. For example, using score's own Device explorer, you will see when browsing available OSCQuery devices the score application and its address and port. 
 
-![score OSCQuery device](/assets/images/faq/controlling-score-with-oscquery/score_oscquery_device.png "score OSCQuery device")
+![score OSCQuery device](/score-docs/assets/images/faq/controlling-score-with-oscquery/score_oscquery_device.png "score OSCQuery device")
 
 Exposed parameters include:
 
@@ -33,4 +33,4 @@ Exposed parameters include:
 
 Below is a simple Max patcher provided in [ossia-max package](http://ossia.io/site-libossia/download.html#max-binding) illustrating remote control of score's transport.
 
-![Remote transport](/assets/images/faq/controlling-score-with-oscquery/remote_transport.png "Remote transport")
+![Remote transport](/score-docs/assets/images/faq/controlling-score-with-oscquery/remote_transport.png "Remote transport")

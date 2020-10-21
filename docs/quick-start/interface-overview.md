@@ -33,13 +33,13 @@ A the center of score main window is the scenario editor. This is where you can 
 
 From there you can create some snapshots by dragging some parameters from the `Device explorer` at a particular time frame, create some automations by dragging parameters from the `Device explorer` on an interval, drop some audio or video medias from your harddrive to integrate them in your scenario.
 
-![Scenario editor](/assets/images/quick-start/score-interface/scenario_editor.png "Scenario editor")
+![Scenario editor](/score-docs/assets/images/quick-start/score-interface/scenario_editor.png "Scenario editor")
 
 # Objects inspector
 
 On the right part of score main window is the `Object inspector`.It allows to dynamically inspect and setup the selected objects in the scenario.
 
-![Object inspector](/assets/images/quick-start/score-interface/dynamic_inspector.gif "Object inspector")
+![Object inspector](/score-docs/assets/images/quick-start/score-interface/dynamic_inspector.gif "Object inspector")
 
 On the top part of the inspector is the structural context of the selected object. For example, the parent interval a process is attached to, the time point a state is placed on and its linked states, etc.
 
