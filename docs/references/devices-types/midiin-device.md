@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mini in device
+title: Midi in device
 nav_order: 6
 parent: Devices
 grand_parent: References

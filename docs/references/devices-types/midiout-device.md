@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mini out device
+title: Midi out device
 nav_order: 7
 parent: Devices
 grand_parent: References
