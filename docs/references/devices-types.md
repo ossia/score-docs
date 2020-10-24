@@ -17,7 +17,7 @@ visible: true
 
 Devices are pieces of software or hardware used in your project to be controlled from *score* or used as input for your *score* scenario.
 
-Score curently support the following devices types:
+Score currently support the following devices types:
 
 | OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               |
 |:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|

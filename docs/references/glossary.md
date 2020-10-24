@@ -25,7 +25,7 @@ visible: true
 
 ### Device
 
-Devices are pieces of equipment you want to use with *score* in your creative project. These can be hardware (a Midi controller, a synthesiser) or software running locally or on the network.
+Devices are pieces of equipment you want to use with *score* in your creative project. These can be hardware (a Midi controller, a synthesizer) or software running locally or on the network.
 
 ### Device explorer
 
@@ -36,7 +36,7 @@ The device explorer is the left panel. This is where devices involved in your pr
 Some block of time in the scenario. 
 ### Process
 
-### Protocole
+### Protocol
 
 ### Slot
 

@@ -31,7 +31,7 @@ For demo purpose here, we will use Vidvox's handy [OSC Test application](https:/
 
 ![Addresses learning](/score-docs/assets/images/references/devices-types/osc_learning.png "OSC learn")
 
-When done, the Device explorer pane should display all learned OSC addresses. You can browse your device namespace, fold/unfold any node in the namespace hierarchy by clicking the arrow prepending each node. You can also see a parameter current value in your OSC device yb selecting this parameter in *score* Device explorer and check its bottom section.
+When done, the Device explorer pane should display all learned OSC addresses. You can browse your device namespace, fold/unfold any node in the namespace hierarchy by clicking the arrow prepending each node. You can also see a parameter current value in your OSC device by selecting this parameter in *score* Device explorer and check its bottom section.
 
 ![Monitoring value changes](/score-docs/assets/images/references/devices-types/testing_osc.png "Monitoring distant parameter's value"_)
 
@@ -57,10 +57,10 @@ Once declared either using learn function or manually, parameter's general behav
 
 When selecting a parameter in the Device explorer pane, its attributes can be displayed and edited in the bottom section of the pane. A dedicated window can also be opened by choose 'Edit' in the parameter contextual menu.
 
-For each value type, a number of attributes can be defined, such as: value domain (min. and max. value), clip mode (parameter handling of value exceeding its domain), repetition filter,etc.
+For each value type, a number of attributes can be defined, such as: value domain (min. and max. value), clip mode (parameter handling of value exceeding its domain), repetition filter, etc.
 
 ![Parameter attributes](/score-docs/assets/images/references/devices-types/parameter_attributes.png "Parameter's attributes")
 
 # Saving OSC device for later use
 
-When properly set up, your OSC device namespace can be exported and saved to disk for latter use. To do so, choose "Export device" in the device contaxtual menu.
+When properly set up, your OSC device namespace can be exported and saved to disk for latter use. To do so, choose "Export device" in the device contextual menu.

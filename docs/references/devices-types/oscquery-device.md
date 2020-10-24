@@ -10,7 +10,7 @@ permalink: /docs/references/devices-types/oscquery-device.html
 
 # OSCQuery device
 
-*score* can communicate with devices using the OSCQuery protocole.
+*score* can communicate with devices using the OSCQuery protocol.
 
 ## What is OSCQuery ?
 
