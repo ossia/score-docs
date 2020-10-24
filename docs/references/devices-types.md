@@ -11,22 +11,34 @@ tag: "Setup"
 visible: true
 ---
 
-Devices are pieces of software or hardware used in your project to be controlled from *score*.
+# Devices
 
-*Score* currently support various protocoles as well as special devices types to work with. These are:
+## What are devices ?
 
-- OSCQuery
-- OSC
-- Minuit
-- Mapper
-- Local
-- Midi in/out
-- Serial
-- Joystick
-- Wiimote
-- HTTP
-- WS
-- Artnet
-- Audio
-- Window
-- Camera input
+Devices are pieces of software or hardware used in your project to be controlled from *score* or used as input for your *score* scenario.
+
+Score curently support the following devices types:
+
+| OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               |
+|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| [OSCQuery](/docs/references/devices-types/oscquery-device.html) | [Mapper](/docs/references/devices-types/mapper-device.html) | [Midi in](/docs/references/devices-types/midiin-device.html)    | [HTTP](/docs/references/devices-types/http-device.html)           |
+| [OSC](/docs/references/devices-types/osc-device.html)           | [Local](/docs/references/devices-types/local-device.html)   | [Midi out](/docs/references/devices-types/midiout-device.html)  | [WS](/docs/references/devices-types/ws-device.html)               |
+| [Minuit](/docs/references/devices-types/minuit-device.html)     |                                                             | [Serial](/docs/references/devices-types/serial-device.html)     |                                                                   |
+|                                                                 |                                                             | [Joystick](/docs/references/devices-types/joystick-device.html) |                                                                   |
+|                                                                 |                                                             | [Wiimote](/docs/references/devices-types/wiimote-device.html)   |                                                                   |
+|                                                                 |                                                             |                                                                 |                                                                   |
+| **Lights**                                                      | **Audio**                                                   | **Video**                                                       |                                                                   |
+|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| [Artnet](/docs/references/devices-types/artnet-device.html)     | [Audio](/docs/references/devices-types/audio-device.html)   | [Window](/docs/references/devices-types/window-device.html)     |                                                                   |
+|                                                                 |                                                             | [Camera](/docs/references/devices-types/camera-device.html)     |                                                                   |
+
+
+## Setting up devices
+
+From *score* main window, right-click in the `Device explorer` on the left of window and choose `Add device` from the `Device explorer` contextual menu. This brings *score*'s device setup window.
+
+![Device setup window](/score-docs/assets/images/references/devices-types/add-device.gif "score device setup")
+
+In the Device setup window, in the left column, select the desired device type.
+
+{: .toc}
