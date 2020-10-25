@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $sidebar-color;
-
+  padding-right: 1em;
   @include mq(md) {
     flex-wrap: nowrap;
     position: fixed;
@@ -82,7 +82,8 @@
 
 .site-nav {
   display: none;
-
+  padding-left: 0.5em;
+    
   &.nav-open {
     display: block;
   }
