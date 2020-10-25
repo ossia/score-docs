@@ -7,9 +7,9 @@
   z-index: 2;
   flex-grow: 1;
   height: $sp-10;
-  padding: $sp-2;
+  padding: $sp-2; 
   transition: padding linear #{$transition-duration / 2};
-
+  
   @include mq(md) {
     position: relative !important;
     width: auto !important;
@@ -42,11 +42,10 @@
 .search-input {
   position: absolute;
   width: 100%;
-  height: 100%;
-  padding-top: $sp-2;
-  padding-right: $gutter-spacing-sm;
-  padding-bottom: $sp-2;
-  padding-left: #{$gutter-spacing-sm + $sp-5};
+  height: 80%;
+  padding: 0;
+  margin-top: $sp-2;
+  margin-bottom: $sp-2;
   font-size: 16px;
   background-color: $search-background-color;
   border-top: 0;
@@ -55,10 +54,13 @@
   border-left: 0;
   border-radius: 0;
 
+  border: 1px solid $ossia-light-blue;
+  border-radius: 10px;
+  
   @include mq(md) {
     padding-top: $gutter-spacing-sm;
     padding-bottom: $gutter-spacing-sm;
-    padding-left: #{$gutter-spacing + $sp-5};
+    padding-left: #{$gutter-spacing*0.8 + $sp-5};
     font-size: 14px;
     background-color: $body-background-color;
     transition: padding-left linear #{$transition-duration / 2};
@@ -77,10 +79,10 @@
   position: absolute;
   display: flex;
   height: 100%;
-  padding-left: $gutter-spacing-sm;
+  padding-left: $gutter-spacing-sm /2;
 
   @include mq(md) {
-    padding-left: $gutter-spacing;
+    padding-left: $gutter-spacing /2;
     transition: padding-left linear #{$transition-duration / 2};
   }
 
@@ -273,7 +275,7 @@
   .search-input-wrap {
     height: $sp-10;
     border-radius: 0;
-
+    
     @include mq(md) {
       width: $search-results-width;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -282,6 +284,7 @@
 
   .search-input {
     background-color: $search-background-color;
+     padding: 0;
     @include mq(md) {
       padding-left: 2.3rem;
     }
