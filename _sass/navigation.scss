@@ -217,3 +217,21 @@
     }
   }
 }
+
+// scroll bar
+
+::-webkit-scrollbar {
+    width: 0.4em;
+    background-color: $ossia-light-transparent-blue;
+    border-left: 0.5em;
+}
+ 
+::-webkit-scrollbar-track {
+   background-color: $ossia-light-transparent-blue;
+   border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $ossia-light-blue;
+}
