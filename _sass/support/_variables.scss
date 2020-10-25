@@ -3,7 +3,7 @@
 //
 
 $body-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, "Helvetica Neue", Arial, sans-serif !default;
+  Roboto, "Helvetica Neue", "Catamaran", "Catamaran-Bold", Arial, sans-serif !default;
 $mono-font-family: "SFMono-Regular", Menlo, Consolas, Monospace !default;
 $root-font-size: 16px !default; // Base font-size for rems
 $body-line-height: 1.4 !default;
@@ -32,7 +32,17 @@ $font-size-10-sm: 48px !default;
 // Colors
 //
 
+// ossia colors
+$ossia-dark-grey: #1e2225 !default;
+$ossia-orange: #FF7A00 !default;
+$ossia-pale-blue: #58B8C5 !default;
+$ossia-light-blue: #03c3dd !default;
+$ossia-light-background: #f3f6fa ! default;
+$active-link-color: $ossia-orange;
+
+// default colors
 $white: #fff !default;
+$black: #000 !default;
 
 $grey-dk-000: #959396 !default;
 $grey-dk-100: #5c5962 !default;
