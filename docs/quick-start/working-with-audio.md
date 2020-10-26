@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Working with audio within score"
+title: "Working with audio"
 parent: Quick start
 nav_order: 6
 
 permalink: /docs/quick-start/working-with-audio.html
 category: "site-score"
 
-description: "Working with audio"
+description: "Working with audio within score"
 
 tag: "Presentation"
 visible: true
@@ -53,7 +53,7 @@ Contrary to some other softwares, *score* does not rely so much on the studio re
 
 As illustrated below, you can easily add some FX, either from the built-in library or some VST effects installed on your computer to some audio file in your scenario. When dropped, a patch-like workspace is created. 
 
-For demonstration purpose here, we will just add a simple gain controller. Below the soundfile waveform, you can note a red dot. This actually is the audio output. We can just drag a clable from this red dot down to the red circle (its input) at the left of the gain FX. When playing the scenario, audiofile will now play through this simple FX and go out to the main output. Again, when the playhead gets beyond the automation's slot, audio will get fully bypassed (hence preventing from any CPU drain).
+For demonstration purpose here, we will just add a simple gain controller. Below the soundfile waveform, you can note a red dot. This actually is the audio output. We can just drag a cable from this red dot down to the red circle (its input) at the left of the gain FX. When playing the scenario, audiofile will now play through this simple FX and go out to the main output. Again, when the playhead gets beyond the automation's slot, audio will get fully bypassed (hence preventing from any CPU drain).
 
 ![Adding FX](/score-docs/assets/images/quick-start/working-with-audio/simple-audio-fx.gif)
 
