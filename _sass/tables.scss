@@ -10,12 +10,12 @@
   margin-bottom: $sp-5;
   overflow-x: auto;
   border-radius: $border-radius;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+/*   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08); */
 }
 
 table {
   display: table;
-  min-width: 100%;
+/*   min-width: 100%; */
   border-collapse: separate;
 }
 
@@ -49,10 +49,14 @@ tbody {
       }
     }
   }
+  td{
+      font-size: 16px !important;
+  }
 }
 
 thead {
   th {
     border-bottom: $border $border-color;
+    font-size: 17px !important;
   }
 }
