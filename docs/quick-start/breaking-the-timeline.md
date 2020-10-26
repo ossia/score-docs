@@ -42,3 +42,5 @@ To set an input for a trigger point, just grab the desired parameter in the `Dev
 In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller](/score-docs/docs/references/devices-types/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
 
 > You may also drop the parameter on the address field of the trigger point inspector.
+
+When playing your scenario, part of your scenario will now get triggered as you press the dediceted button on your controller.
