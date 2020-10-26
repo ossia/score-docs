@@ -46,37 +46,50 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
-  margin-bottom: 1em;
-  font-weight: 500;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  font-weight: 300;
+  font-family: 'Catamaran', sans-serif;
   line-height: $body-heading-line-height;
   color: $body-heading-color;
 }
 
+h1{
+    font-size: 38px;
+    font-weight: 400;
+}
+    
+h2.software{
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    color: $ossia-light-blue;
+	letter-spacing: 1px;
+	margin: 0;
+    padding-top: 0.1em;
+	padding-left: 0.24em;
+	padding-bottom: 0.1em;
+    line-height: 1;
+    text-transform: none;
+}
 p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
+
 a {
-  color: $link-color;
-  text-decoration: none;
+	color: $link-color;
+    font-weight: 400;
+	text-decoration: none !important;
+	border: 0;
 }
 
 a:not([class]) {
-  text-decoration: none;
-  background-image: linear-gradient($border-color 0%, $border-color 100%);
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  background-size: 1px 1px;
-
-  &:hover {
-    background-image: linear-gradient(
-      rgba($link-color, 0.45) 0%,
-      rgba($link-color, 0.45) 100%
-    );
-    background-size: 1px 1px;
-  }
+  text-decoration: none  !important;
+}
+a:hover, a:active, a.active{
+    text-decoration: none !important;
+    color: $active-link-color;
 }
 
 code {

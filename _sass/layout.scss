@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $sidebar-color;
-
+  padding-right: 1em;
   @include mq(md) {
     flex-wrap: nowrap;
     position: fixed;
@@ -19,7 +19,7 @@
   }
 
   @include mq(lg) {
-    width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width});
+/*     width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}); */
     min-width: $nav-width;
   }
 }
@@ -59,7 +59,6 @@
     justify-content: space-between;
     height: $header-height;
     background-color: $body-background-color;
-    border-bottom: $border $border-color;
   }
 
   &.nav-open {
@@ -83,7 +82,8 @@
 
 .site-nav {
   display: none;
-
+  padding-left: 0.5em;
+    
   &.nav-open {
     display: block;
   }
@@ -128,11 +128,10 @@
 
 @if variable-exists(logo) {
   .site-logo {
-    width: 100%;
+    width: 43px;
     height: 100%;
     background-image: url($logo);
     background-repeat: no-repeat;
-    background-position: left center;
     background-size: contain;
   }
 }

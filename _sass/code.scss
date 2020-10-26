@@ -7,7 +7,7 @@ code {
   padding: 0.2em 0.15em;
   font-weight: 400;
   background-color: $code-background-color;
-  border: $border $border-color;
+/*   border: $border $border-color; */
   border-radius: $border-radius;
 }
 
@@ -318,9 +318,6 @@ figure.highlight {
   padding: $sp-3;
   margin-bottom: $sp-3;
   overflow: auto;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-
   + .highlighter-rouge,
   + figure.highlight {
     position: relative;
