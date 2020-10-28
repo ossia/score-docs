@@ -19,11 +19,11 @@ In previous steps of this Quick start guide, we used *score* to write simple sce
 
 Introducing trigger points in your scenario allows to keep organizing things in time while allowing interactive triggering of elements: when executing the scenario, parts of the scenario starting with a `trigger` point will be put "on hold" until they get triggered. When triggered, following automations and states will get executed at the speed and duration specified in the scenario.
 
-To add a trigger point, simply select a state on the scenario then from its inspector, toggle on the `trigger` icon. 
+To add a trigger point, simply select a state on the scenario, then from its inspector, toggle on the `trigger` icon. 
 
 ![Enabling trigger](/score-docs/assets/images/quick-start/breaking-the-timeline/enabling-trigger.gif "Enabling trigger")
 
-When turning on the `trigger`, you can see a T-like icon is added on top of the selected `state`. You can also note that a dashed line appears on top of the preceeding automation slot. This indicates that the duration of the preceeding automations is now undefined: preceeding automations will get executed up until the trigger is, well... *triggered*.
+When turning on the `trigger`, you can see a T-like icon is added on top of the selected `state`. You can also note that a dashed line appears on top of the preceding automation slot. This indicates that the duration of the preceding automations is now undefined: preceding automations will get executed up until the trigger is, well... *triggered*.
 
 ![Triggering](/score-docs/assets/images/quick-start/breaking-the-timeline/triggering.gif "Triggering")
 
@@ -43,4 +43,4 @@ In the example above, we use as an input, one button of a Korg nanoKontrol [Midi
 
 > You may also drop the parameter on the address field of the trigger point inspector.
 
-When playing your scenario, part of your scenario will now get triggered as you press the dediceted button on your controller.
+When playing your scenario, part of your scenario will now get triggered as you press the dedicated button on your controller.

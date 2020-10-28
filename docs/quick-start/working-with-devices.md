@@ -13,11 +13,11 @@ tag: "Presentation"
 visible: true
 ---
 
-*Score* provides advanced tools to ease the authoring of time exigeant projects involving medias: flexible score for a live performance, interactive scenario for an intermedia installation, game-like state machine scenarios, etc. 
+*Score* provides advanced tools to ease the authoring of time exigent projects involving medias: flexible score for a live performance, interactive scenario for an intermedia installation, game-like state machine scenarios, etc. 
 
 While *score 3.0.0* itself offers a number of way to work with audio or video medias right from the app, it does not aim at being the next "All in one" super software. On the contrary, *score* was built from the ground up to be **as interoperable as possible**. Users remain thus free to use their tools of choice, be it their favorite VJing software, custom audio synthesis app or any specialized toolset, leaving score as the central hub of their project. 
 
-It thus provides a unified place to write automations for the parameters of any of the devices involved in the project, to author efficient mappings from device A to device B, to modulate some devices parameters using generative processes and so on.
+It thus provides a unified place to write automations for the parameters of any of the devices involved in the project, provides means to author efficient mappings from device A to device B or to modulate some devices parameters using generative processes and so on.
 
 ![score main window](/score-docs/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
@@ -27,13 +27,13 @@ These devices, whether they are software or hardware can be freely added to your
 
 > ![Device explorer icon](/score-docs/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
 
-Right click on the `Device explorer` pane and setup the desired communication protocole between *score* and your device.
+Right click on the `Device explorer` pane and setup the desired communication protocol between *score* and your device.
 
 ![Adding a device to *score* project](/score-docs/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
-> Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the conextual menu
+> Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the contextual menu
 
-Score curently support the following devices types:
+Score currently support the following devices types:
 
 | OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               |
 |:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|

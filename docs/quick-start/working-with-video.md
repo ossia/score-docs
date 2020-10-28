@@ -46,7 +46,7 @@ Click on the output port to bring its inspector. From there, select your window 
 
 ## Adding video effects
 
-Again, similarly to audio files, you can easily drag some effects. From the `Processes Library` pane or frome the `User library` pane, select one of the processes in the `GFX` category. In the example below, we will use the `Shader filter` provided in *score* default library.
+Again, similarly to audio files, you can easily drag some effects. From the `Processes Library` pane or from the `User library` pane, select one of the processes in the `GFX` category. In the example below, we will use the `Shader filter` provided in *score* default library.
 
 We now need to route our video file to the video effect rather than from the window. To do so, drag a cable from the video file output port (the white filled circle) to the effect input port (the white framed circle) as shown below. Then from the shader output port inspector, choose `GFX` as output.
 
