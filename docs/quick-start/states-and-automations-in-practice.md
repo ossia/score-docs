@@ -41,4 +41,16 @@ What happens here is two folds:
 
 ![Using auto-sequence mode](/score-docs/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
 
-Oef course, onc these automations got auto-magically created, you can still edit their behavior over time and do whatever pleasing changes to their curve. You may also remove an automation, should you want not to include a parameter continuous change.
+Of course, once these automations get auto-magically created, you can still edit their behavior over time and do whatever pleasing changes to their curve. You may also remove an automation, should you want not to include a parameter continuous change.
+
+### Note on multiple automations editing
+
+In the example above, you can see multiple automation slots actually got superposed. You can bring to front any of the automations in background to edit it. To do so, click on the address bar at the top of the slot to open up the list of superposed parameters 'automation. Select in the contextual menu the one to edit. Once to front (displayed in red), it can be edited.
+
+> When multiple automations are stacked, frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
+
+![Select from stack](/score-docs/assets/images/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
+
+You can also remove an automation from the stack by clicking on a slot background. Bring the contextual menu using right-click and select `remove`.
+
+![Remove automation](/score-docs/assets/images/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")
