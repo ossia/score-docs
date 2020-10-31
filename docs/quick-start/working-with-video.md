@@ -15,7 +15,7 @@ visible: true
 # Working with video in *score*
 
 *score* embeds a number of video related features: media playing and processing, GPU-based processing or synthesis. Just like with audio files, video files can be thus fully integrated to your scenario along with other processes and distant devices controls.
-
+ 
 ## Supported formats
 
 As of version 3.0.0-a19, *Score* supports all video files formats supported by the ffmpeg library. More info on supported files can be found on the [ffmpeg website](https://www.ffmpeg.org/general.html#Video-Codecs).
