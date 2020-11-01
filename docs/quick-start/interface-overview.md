@@ -39,7 +39,7 @@ From there you can create some snapshots by dragging some parameters from the `D
 
 On the right part of score main window is the `Object inspector`.It allows to dynamically inspect and setup the selected objects in the scenario.
 
-![Object inspector](/score-docs/assets/images/quick-start/score-interface/dynamic_inspector.gif "Object inspector")
+![Object inspector](/score-docs/assets/images/quick-start/score-interface/dynamic_inspector.png "Object inspector")
 
 On the top part of the inspector is the structural context of the selected object. For example, the parent interval a process is attached to, the time point a state is placed on and its linked states, etc.
 
