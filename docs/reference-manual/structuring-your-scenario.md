@@ -1,24 +1,21 @@
 ---
 layout: default
-title: "Scenario modes"
-
-parent: In depth
+title: "Structuring your scenario"
+parent: Scenario modes
+grand_parent: Reference manual
 nav_order: 
-has_children: true
 
-permalink: /docs/in-depth/scenario-modes.html
+permalink: /docs/reference-manual/structuring-your-scenario.html
 category: "site-score"
 
-description: "Scenario modes"
+description: "Structuring your scenario"
 
 tag: "Presentation"
 visible: true
 ---
 
-# Scenario modes
+# Structuring your scenario
 
-This pages goes through various features allowing to structure elemnts of a score scenario:
-- temporal relationships between elements on the timeline
-- hierarchy
+![Device setup window](/score-docs/assets/images/references/devices-types/artnet-device.png "score device setup")
 
 Reference is not yet available. Feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.

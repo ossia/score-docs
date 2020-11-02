@@ -2,9 +2,9 @@
 layout: default
 title: Devices
 nav_order: 2
-parent: References
-has_children: true
-permalink: /docs/references/devices-types.html
+parent: Reference manual
+has_children:
+permalink: /docs/references/devices.html
 
 description: The various types of devices in *score*
 tag: "Setup"

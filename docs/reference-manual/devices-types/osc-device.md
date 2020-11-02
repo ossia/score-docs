@@ -2,10 +2,10 @@
 layout: default
 title: OSC device
 nav_order: 2
-parent: Devices
-grand_parent: References
+parent: Devices references
+grand_parent: Reference manual
 has_children: false
-permalink: /docs/references/devices-types/osc-device.html
+permalink: /docs/reference-manual/devices-types/osc-device.html
 ---
 
 # Setting up communication with OSC device

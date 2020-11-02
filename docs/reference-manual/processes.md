@@ -2,11 +2,11 @@
 layout: default
 title: "Processes"
 
-parent: In depth
+parent: Reference manual
 
 nav_order: 
 
-permalink: /docs/in-depth/processes.html
+permalink: /docs/reference-manual/processes.html
 category: "site-score"
 
 description: "Processes"
@@ -29,7 +29,7 @@ Processes are attached to an interval in the scenario.
 
 Processes can be created by drag & dropping parameters from the `Device explorer` onto an existing interval in the scenario. The interval to which processes will be attached turns to yellow as the mouse with selection hovers it.
 
-![Dropping parameters](/score-docs/assets/images/in-depth/processes/dropping-parameters.png "Dropping parameters")
+![Dropping parameters](/score-docs/assets/images/reference-manual/processes/dropping-parameters.png "Dropping parameters")
 
 The `Device explorer` selection may contain one or several parameters. When multiple parameters are dropped, processes get stacked in different layers.
 
@@ -37,7 +37,7 @@ The `Device explorer` selection may contain one or several parameters. When mult
 
 Processes can also be created by drag & dropping the desired process from the `Process library` or the `User library` in the scenario. When doing so, *score* automatically creates the interval to which process will get attached.
 
-![Dropping processes](/score-docs/assets/images/in-depth/processes/dragging-processes.gif "Dropping processes")
+![Dropping processes](/score-docs/assets/images/reference-manual/processes/dragging-processes.gif "Dropping processes")
 
 You may as well drop a process onto an existing interval.
 
@@ -47,11 +47,11 @@ You may as well drop a process onto an existing interval.
 
 Processes can be created from an interval's widgets. Hover the interval to which attach a process to display the widget. Click the `+` widget to open the `Add process` window.
 
-![Process addition widget](/score-docs/assets/images/in-depth/processes/add-process-from-interval.png "Process addition widget")
+![Process addition widget](/score-docs/assets/images/reference-manual/processes/add-process-from-interval.png "Process addition widget")
 
 From the `Add process window`, browse the various Processes types in the left panel, then choose the desired one. When done, click `+` button to attach process to the interval.
 
-![Add process window](/score-docs/assets/images/in-depth/processes/add-process-from-interval-window.png "Add process window")
+![Add process window](/score-docs/assets/images/reference-manual/processes/add-process-from-interval-window.png "Add process window")
 
 <!-- ### TODO Object menu -->
 
@@ -67,7 +67,7 @@ To remove a process, select it (for example by clicking on the slot background) 
 
 Processes can also be deleted from the `Graph inspector` at the top of *score*'s right panel. In the scenario, select the interval the process to remove is attached to. In the `Graph inspector`, browse through the attached processes and select the one to remove. Right-click to open the contextual menu and choose `Remove` (or use {% include shortcut.html content="Suppr" %}/{% include shortcut.html content="Backspace" %} key).
 
-![Remove from Graph inspector](/score-docs/assets/images/in-depth/processes/remove-process-from-graph.png "Remove from Graph inspector")
+![Remove from Graph inspector](/score-docs/assets/images/reference-manual/processes/remove-process-from-graph.png "Remove from Graph inspector")
 
 ## Fullsize edit
 
@@ -77,7 +77,7 @@ To display the process in full size, double-click on the interval the process is
 
 To exit full size mode (go back to parent scenario), click the desired node of the path displayed at the top or use the {% include shortcut.html content="Ctrl+Alt+↑" %} shortcut.
 
-![Edit process in full size](/score-docs/assets/images/in-depth/processes/process-fullsize-edit.gif "Edit process in full size")
+![Edit process in full size](/score-docs/assets/images/reference-manual/processes/process-fullsize-edit.gif "Edit process in full size")
 
 ## Organize processes
 
@@ -87,11 +87,11 @@ Processes attached to an interval can easily be fold/unfold. This comes up espec
 
 To do so, click the blue arrow on top of the processes to fold/unfold.
 
-![Fold/unfold processes](/score-docs/assets/images/in-depth/processes/fold-unfold-processes.gif "Fold/unfold processes")
+![Fold/unfold processes](/score-docs/assets/images/reference-manual/processes/fold-unfold-processes.gif "Fold/unfold processes")
 
 When selecting an interval, attached processes can also be fold/unfold using the `Show processes` & `Hide processes` entries from the `Object` menu.
 
-![Fold/unfold processes](/score-docs/assets/images/in-depth/processes/fold-process-menu.png "Fold/unfold processes")
+![Fold/unfold processes](/score-docs/assets/images/reference-manual/processes/fold-process-menu.png "Fold/unfold processes")
 
 
 <!-- TODO (or NOT TO DO...) contextual menu
@@ -105,14 +105,14 @@ Time-based processes (that is, processes whose *x* represents time, such as auto
 
 To change which process to display top-most, mouse over to the top of the process slot displaying the destination address. Clicking the address bar opens up a contextual menu listing all layered processes. Selecting one in the menu brings it to front.
 
-![Bring process to front](/score-docs/assets/images/in-depth/processes/bring-to-front.png "Bring process to front")
+![Bring process to front](/score-docs/assets/images/reference-manual/processes/bring-to-front.png "Bring process to front")
 
 
 #### Move to new slot
 
 Processes can also be juxtaposed in several slots rather than stacked on top of the other. Grab the handle at the top left corner of the slot and drag & drop it on another slot to move it above another process or between different slots to insert it.
 
-![Moving processes](/score-docs/assets/images/in-depth/processes/moving-processes.gif "Moving processes")
+![Moving processes](/score-docs/assets/images/reference-manual/processes/moving-processes.gif "Moving processes")
 
 
 > Processes can also be dragged & attached to a new interval

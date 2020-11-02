@@ -40,8 +40,8 @@ If you start playing your scenario using the play button from the transport ({% 
 
 You may now make some changes to your device, then store this new state using the same drag & drop workflow.
 
-Note that when storing our device's second state in the timeline, *score* proposes to bind this snapshot to different elements in the timeline, as displayed with a dashed grey line. For now, we will just make sure this snapshot is bound to the first one we placed on the timeline. But be sure to check [dedicated section](/docs/in-depth/structuring-your-scenario.html) in the manual to see the features *score* provides to help you structure elements in your scenario.
+Note that when storing our device's second state in the timeline, *score* proposes to bind this snapshot to different elements in the timeline, as displayed with a dashed grey line. For now, we will just make sure this snapshot is bound to the first one we placed on the timeline. But be sure to check [dedicated section](/docs/reference-manual/structuring-your-scenario.html) in the manual to see the features *score* provides to help you structure elements in your scenario.
 
-You can now start sequencing your devices' states in your scenario or read [detailed informations about states management](/docs/in-depth/store-and-recall-devices-states.html).
+You can now start sequencing your devices' states in your scenario or read [detailed informations about states management](/docs/reference-manual/store-and-recall-devices-states.html).
 
 <!-- ## Pro tip: setting an *init state* for your scenario -->

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: In depth
+title: Reference manual
 nav_order: 4
 has_children: true
-permalink: docs/in-depth
+permalink: docs/reference-manual
 ---
 
-# In depth
+# *score* reference manual
 <!-- {: .no_toc } -->
 
 This section of the manual goes through the various sections of *score* and bring detailed explanations.

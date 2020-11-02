@@ -33,7 +33,7 @@ When done, you are ready to go !
 
 Audio files can easily be integrated to your scenario. Just grab your file on your disk and drop it at the desired place on the timeline. Click the play button (or use {% include shortcut.html content="spacebar" %} shortcut) and that's it.
 
-> By default, *score* will use the main stereo output of your audio interface. Be sure to read the [audio routing](/score-docs/in-depth/audio_routing.html "Audio routing") section for more information.
+> By default, *score* will use the main stereo output of your audio interface. Be sure to read the [audio routing](/score-docs/reference-manual/audio_routing.html "Audio routing") section for more information.
 
 ![Playing audio files](/score-docs/assets/images/quick-start/working-with-audio/reading-audio-file.gif "Playing audio files")
 

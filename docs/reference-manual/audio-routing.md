@@ -2,11 +2,11 @@
 layout: default
 title: "Audio routing"
 
-parent: In depth
+parent: Reference manual
 
 nav_order: 
 
-permalink: /docs/in-depth/audio-routing.html
+permalink: /docs/reference-manual/audio-routing.html
 category: "site-score"
 
 description: "Audio routing"
