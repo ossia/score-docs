@@ -37,8 +37,20 @@ The Graph inspector available in *score*'s top right panel allows to inspect a t
 
 ### Interval
 
-Some block of time in the scenario. 
+Some block of time in the scenario.
+
 ### Process
+
+A process is an action used in the scenario to control some devices' parameter or other processes' parameters. *score* includes a number of processes such as breakpoint function-based automation, sub-scenarios, LFO or modulators or custom scripts.
+
+### Processes explorer
+
+The processes explorer is accessible at the left panel in *score* main window. This is where you can browse and select some [processes](/score-docs/docs/references/glossary.html#process) to use in your scenario.
+
+
+### Project folder
+
+This is where you can browse the content of the current project.
 
 ### Protocol
 
@@ -49,3 +61,7 @@ Some block of time in the scenario.
 ### Timeline
 
 ### Trigger
+
+### User library
+
+The User library can be accessed in the left panel in *score* main window. It can contains various uer defined components such as devices setups, processes, presets.
