@@ -23,11 +23,11 @@ It thus provides a unified place to write automations for the parameters of any 
 
 ## Setting up your devices network
 
-These devices, whether they are software or hardware can be freely added to your current score project from the `Device explorer` pane. Bring up the `Device explorer` pane using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
+These devices, whether they are software or hardware can be freely added to your current score project from the `Device explorer` panel. Bring up the `Device explorer` panel using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
 
-> ![Device explorer icon](/score-docs/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
+![Device explorer icon](/score-docs/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
 
-Right click on the `Device explorer` pane and setup the desired communication protocol between *score* and your device.
+Right click on the `Device explorer` panel and setup the desired communication protocol between *score* and your device.
 
 ![Adding a device to *score* project](/score-docs/assets/images/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
