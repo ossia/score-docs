@@ -110,6 +110,8 @@ li {
 img {
   max-width: 100%;
   height: auto;
+  min-width: 100%;
+  width: 2em;
 }
 
 hr {
@@ -129,4 +131,24 @@ hr {
     margin: 0 0.2em;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
     background-color: #f7f7f7;
+}
+
+ol > li::before {
+/*   content:attr(data-badge);*/
+/*   font-size:.7em;*/
+   background:rgba(0, 255, 200, 0.5);
+   color: #ffffff;
+   width:18px;
+   height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   -webkit-box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+   -moz-box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+
+box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+/*   margin-top: 7px;*/
+   float:left;
+font-weight: bold;
+border: 1px solid #ffffff;
 }
