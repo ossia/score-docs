@@ -12,11 +12,16 @@ permalink: /docs/reference-manual/processes/2Dspline.html
 
 # 2D Spline (X-Y automation)
 
-It is possible to use math formulas to generate a specific spline. 
-To do so, right-click on a spline, and select "Generate curve" in the menu. 
-The available variable is t. It is evaluated between 0 and 1.
+![2D spline](/score-docs/assets/images/reference-manual/processes/2Dspline.png "2D spline example")
 
-The syntax uses ExprTK (see relevant feature page).
+It is possible to use math formulas to generate a specific spline. 
+
+To do so, right-click on a spline, and select `Generate curve` in the menu. 
+
+The available variable is `t`. It is evaluated between 0 and 1.
+
+The syntax uses ExprTK (see [ExprTK support reference page](/score-docs/docs/reference-manual/references/exprtk.html "ExprTK ref page")).
+
 Here are some useful examples:
 
 ## Circle
