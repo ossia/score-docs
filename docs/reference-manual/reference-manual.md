@@ -3,7 +3,7 @@ layout: default
 title: Reference manual
 nav_order: 4
 has_children: true
-permalink: docs/reference-manual
+permalink: /docs/reference-manual
 ---
 
 # *score* reference manual
