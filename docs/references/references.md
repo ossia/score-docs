@@ -1,8 +1,12 @@
 ---
 layout: default
 title: References
-nav_order: 5
+nav_order: 99
 has_children: true
+
+
+parent: Reference manual
+
 permalink: /docs/references
 ---
 

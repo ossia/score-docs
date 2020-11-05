@@ -4,6 +4,7 @@ title:  "Command line API"
 
 nav_order:
 parent: References
+grand_parent: Reference manual
 
 permalink: /docs/references/commandline.html
 category: "site-score"

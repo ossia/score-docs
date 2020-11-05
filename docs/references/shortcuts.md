@@ -4,6 +4,7 @@ title:  "Shortcuts"
 
 nav_order:
 parent: References
+grand_parent: Reference manual
 
 permalink: /docs/references/shortcuts.html
 category: "site-score"

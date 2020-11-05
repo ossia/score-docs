@@ -4,6 +4,7 @@ title:  "Score preferences"
 
 nav_order:
 parent: References
+grand_parent: Reference manual
 
 permalink: /docs/references/preferences.html
 category: "site-score"

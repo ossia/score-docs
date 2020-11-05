@@ -4,6 +4,7 @@ title:  "Glossary"
 
 nav_order: 99
 parent: References
+grand_parent: Reference manual
 
 permalink: /docs/references/glossary.html
 category: "site-score"
