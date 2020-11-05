@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/references/commandline.html
+permalink: /docs/reference-manual/references/commandline.html
 category: "site-score"
 
 description: "Using the control surface to keep an hand on score parameters"
