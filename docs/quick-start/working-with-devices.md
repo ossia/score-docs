@@ -13,17 +13,17 @@ tag: "Presentation"
 visible: true
 ---
 
-*Score* provides advanced tools to ease the authoring of time exigent projects involving medias: flexible score for a live performance, interactive scenario for an intermedia installation, game-like state machine scenarios, etc. 
+# Working with your devices
 
-While *score 3.0.0* itself offers a number of way to work with audio or video medias right from the app, it does not aim at being the next "All in one" super software. On the contrary, *score* was built from the ground up to be **as interoperable as possible**. Users remain thus free to use their tools of choice, be it their favorite VJing software, custom audio synthesis app or any specialized toolset, leaving score as the central hub of their project. 
-
-It thus provides a unified place to write automations for the parameters of any of the devices involved in the project, provides means to author efficient mappings from device A to device B or to modulate some devices parameters using generative processes and so on.
+*score* is built from the ground up to be as interoperatible as possible with other devices involved in a creative project, whether they are software or hardware.
 
 ![score main window](/score-docs/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
+When starting a project in *score* you will most likely want to start by setting up the devices *score* will be used with.
+
 ## Setting up your devices network
 
-These devices, whether they are software or hardware can be freely added to your current score project from the `Device explorer` panel. Bring up the `Device explorer` panel using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
+These devices can be freely added to your current score project from the `Device explorer` panel. Bring up the `Device explorer` panel using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
 
 ![Device explorer icon](/score-docs/assets/images/quick-start/working-with-devices/de-button.png "Device explorer icon")
 
