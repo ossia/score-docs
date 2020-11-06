@@ -49,7 +49,7 @@ From there you can create some snapshots by dragging some parameters from the `D
 
 # Objects inspector panel
 
-On the right part of score main window is the `Object inspector`.It allows to dynamically inspect and setup the selected objects in the scenario.
+On the right part of score main window is the `Object inspector`. It allows to dynamically inspect and setup the selected objects in the scenario.
 
 ![Object inspector](/score-docs/assets/images/quick-start/score-interface/dynamic_inspector.png "Object inspector")
 

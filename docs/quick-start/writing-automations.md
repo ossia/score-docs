@@ -29,7 +29,7 @@ Click on the automation's slot top bar to bring its inspector. Now from the `Dev
 
 When playing the scenario, our device's parameter will get driven by an ascending ramp as the playhead goes across the automation slot.
 
-Of course, you may refine your automation function by double-clicking in the automation slot to add more points or select a segment and use {% include shortcut.html content="Shift+Drag" %} to add curvature to the segment as well as using other advanced features as detailed in the [Automation reference page](/docs/reference-manual/references/processes/automation_float.html).
+Of course, you may refine your automation function by double-clicking in the automation slot to add more points or select a segment and use {% include shortcut.html content="Shift+Drag" %} to add curvature to the segment as well as using other advanced features as detailed in the [Automation reference page](/score-docs/docs/reference-manual/processes/automation_float.html).
 
 > You can extend your automation slot by dragging along the timeline its top right corner (the blue dot). By default, slot will get extended will preserving the automation length so you can further write your automation. You may also drag it using {% include shortcut.html content="Cmd+Drag" %} to scale the automation as the slot gets extended along the timeline
 

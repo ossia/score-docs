@@ -21,4 +21,4 @@ Score can run in the background while not opening its full UI (which may be hand
 `$ ossia-score --no-gui --autoplay /home/oscar/my-score.score`
 {% endhighlight %}
 
-You may find other useful commands in the [command line reference page](/docs/references/commandline.html).
+You may find other useful commands in the [command line reference page](/score-docs/docs/reference-manual/references/commandline.html).
