@@ -24,9 +24,9 @@ When having to author scenarios for interactive art, music and sound performance
 - DAW/timeline-based softwares offering tools for fine time editing and parameters automation
 - cue-based softwares offering great flexibility in live situation
 
-While both approaches have numerous advanges, they also draw some limits in some advanced media-based productions: First type hardly offers (if any) flexibility in live situation and second type makes it hard if possible at all to control precisely processes evolving over time.
+While both approaches have numerous advanges, they also draw some limits in some advanced media-based productions: First type hardly offers (if any) flexibility in live situation regarding how events actually evolve in time. Second type makes it hard if possible at all to control precisely processes evolving over time.
 
-*score* thus aims at bridging the gap between these two models in a unified environment. By combining a flexible timeline with a patch-like authoring process, it allows to write [precisely timed processes such as automations](/score-docs/docs/quick-start/writing-automations.html) or more fancy parameters control and modulation while still [maintaining some variation as the scenario is executed](/score-docs/docs/quick-start/breaking-the-timeline.html). But it also allows to author [open and non linear scenarios](http://localhost:4000/score-docs/docs/quick-start/non-linear-timelines.html) yet still including some time-dependant processes.
+*score* thus aims at bridging the gap between these two models in a unified environment. By combining a flexible timeline with a patch-like authoring process, it allows to write [precisely timed processes such as automations](/score-docs/docs/quick-start/writing-automations.html) or more fancy parameters control and modulation while still [maintaining some variations as the scenario is executed](/score-docs/docs/quick-start/breaking-the-timeline.html). But it also allows to author [open and non linear scenarios](http://localhost:4000/score-docs/docs/quick-start/non-linear-timelines.html) yet still including some time-dependant processes.
 
 ![score scenario](/score-docs/assets/images/quick-start/what-is-score/score-main.png)
 
@@ -40,6 +40,6 @@ While *score* itself offers some audio and video features, it does not aim at be
 
 ![score main window](/score-docs/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
-*score 3.0.0* supports a number of protocols such as [Midi](/score-docs/docs/reference-manual/devices-types/midiin-device.html), [Open Sound Control](/score-docs/docs/reference-manual/devices-types/osc-device.html), [OSCQuery](/score-docs/docs/reference-manual/devices-types/oscquery-device.html) or [serial](/score-docs/docs/reference-manual/devices-types/serial-device.html) making it easy to leaving score as the central hub of a project and thus author fine relationships between medias.
+*score 3.0.0* supports a number of protocols such as [Midi](/score-docs/docs/reference-manual/devices-types/midiin-device.html), [Open Sound Control](/score-docs/docs/reference-manual/devices-types/osc-device.html), [OSCQuery](/score-docs/docs/reference-manual/devices-types/oscquery-device.html) or [serial](/score-docs/docs/reference-manual/devices-types/serial-device.html) making it easy to use score as the central hub of a project and thus author fine relationships between medias.
 
 <!-- ## TODO Practice-based workflow -->
