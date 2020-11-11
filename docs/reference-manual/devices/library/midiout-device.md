@@ -2,7 +2,7 @@
 layout: default
 title: Midi output device
 nav_order: 7
-parent: Devices references
+parent: Devices
 grand_parent: Reference manual
 has_children: false
 permalink: /docs/reference-manual/devices-types/midiout-device.html

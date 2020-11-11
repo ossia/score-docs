@@ -2,7 +2,7 @@
 layout: default
 title: Midi input device
 nav_order: 6
-parent: Devices references
+parent: Devices
 grand_parent: Reference manual
 has_children: false
 permalink: /docs/reference-manual/devices-types/midiin-device.html

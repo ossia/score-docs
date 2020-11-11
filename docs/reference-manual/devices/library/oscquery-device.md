@@ -2,7 +2,7 @@
 layout: default
 title: OSCQuery device
 nav_order: 1
-parent: Devices references
+parent: Devices
 grand_parent: Reference manual
 has_children: false
 permalink: /docs/reference-manual/devices-types/oscquery-device.html
