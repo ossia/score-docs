@@ -2,7 +2,8 @@
 layout: default
 title: "Audio routing"
 
-parent: Reference manual
+parent: References
+grand_parent: Reference manual
 
 nav_order: 
 
