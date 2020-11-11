@@ -5,7 +5,7 @@ nav_order:
 parent: Reference manual
 has_children: true
 
-permalink: /score-docs/docs/reference-manual/devices.html
+permalink: /docs/reference-manual/devices.html
 
 description: The various types of devices in *score*
 tag: "Setup"

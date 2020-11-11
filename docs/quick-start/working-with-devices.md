@@ -44,7 +44,7 @@ Right click on the `Device explorer` panel and setup the desired communication p
 |                                                                 |                                                             | [Wiimote](/score-docs/docs/reference-manual/devices-types/wiimote-device.html)   |
 
 
-Detailed explanations on these various device types and corresponding setup options can be found in the [References pages](/score-docs/docs/reference-manual/devices-references.html).
+Detailed explanations on these various device types and corresponding setup options can be found in the [References pages](/score-docs/docs/reference-manual/devices.html).
 
 ## Devices' namespace browsing
 

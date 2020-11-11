@@ -7,7 +7,7 @@ grand_parent: Reference manual
 
 nav_order: 
 
-permalink: /docs/reference-manual/audio-routing.html
+permalink: /docs/reference-manual/references/audio-routing.html
 category: "site-score"
 
 description: "Audio routing"
