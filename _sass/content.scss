@@ -20,13 +20,13 @@
   
   p > img {
     display: block;
-    margin: 0 auto;
     max-height: 80%;
     max-width: 100%;
+    margin: 0 auto;
   }
   a {
-    text-decoration: none;
     overflow: hidden;
+    text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -53,7 +53,7 @@
         position: absolute;
         top: 0.2em;
         left: -1.6em;
-        color: #ffffff;
+        color: #FFFFFF;
         content: counter(step-counter);
         counter-increment: step-counter;
         @include fs-3;

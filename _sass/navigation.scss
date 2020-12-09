@@ -45,8 +45,8 @@
       }
 
       &.active {
-        text-decoration: none;
         color: $active-link-color;
+        text-decoration: none;
       }
 
       &:hover,
@@ -82,7 +82,7 @@
         padding-left: #{$nav-list-item-height / 4};
       }
 
-      &:hover{
+      &:hover {
         background-image: linear-gradient(
           -90deg,
           rgba($feedback-color, 1) 0%,
@@ -120,11 +120,11 @@
     &.active {
       > .nav-list-expander svg {
         @if $nav-list-expander-right {
+          color: $active-link-color;
           transform: rotate(-90deg);
-          color: $active-link-color;
         } @else {
-          transform: rotate(90deg);
           color: $active-link-color;
+          transform: rotate(90deg);
         }
       }
 
@@ -225,17 +225,17 @@
 // scroll bar
 
 ::-webkit-scrollbar {
-    width: 0.4em;
-    background-color: $ossia-light-transparent-blue;
-    border-left: 0.5em;
+  width: 0.4em;
+  background-color: $ossia-light-transparent-blue;
+  border-left: 0.5em;
 }
  
 ::-webkit-scrollbar-track {
-   background-color: $ossia-light-transparent-blue;
-   border-radius: 10px;
+  background-color: $ossia-light-transparent-blue;
+  border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
   background-color: $ossia-light-blue;
+  border-radius: 10px;
 }

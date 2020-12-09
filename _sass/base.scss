@@ -48,48 +48,51 @@ h5,
 h6 {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
+  font-family: "Catamaran", sans-serif;
   font-weight: 300;
-  font-family: 'Catamaran', sans-serif;
   line-height: $body-heading-line-height;
   color: $body-heading-color;
 }
 
-h1{
+h1 {
     font-size: 38px;
     font-weight: 400;
 }
     
-h2.software{
+h2.software {
     font-size: 42px !important;
     font-weight: 700 !important;
     color: $ossia-light-blue;
-	letter-spacing: 1px;
-	margin: 0;
     padding-top: 0.1em;
-	padding-left: 0.24em;
-	padding-bottom: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.24em;
+    margin: 0;
+    letter-spacing: 1px;
     line-height: 1;
     text-transform: none;
 }
 p {
   margin-top: 1em;
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 
 a {
-	color: $link-color;
     font-weight: 400;
-	text-decoration: none !important;
-	border: 0;
+    color: $link-color;
+    text-decoration: none !important;
+    border: 0;
 }
 
 a:not([class]) {
-  text-decoration: none  !important;
+  text-decoration: none !important;
 }
-a:hover, a:active, a.active{
-    text-decoration: none !important;
+
+a:hover, 
+a:active {
     color: $active-link-color;
+    text-decoration: none !important;
 }
 
 code {
@@ -120,32 +123,32 @@ hr {
   border: 0;
 }
 .shortcut {
-    display: inline-block;
-    font-weight: 400;
-    font-size: 9pt;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0.1em 0.5em;
-    margin: 0 0.2em;
-    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
-    background-color: #f7f7f7;
+  display: inline-block;
+  font-size: 9pt;
+  font-weight: 400;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  background-color: #f7f7f7;
 }
 
 ol > li::before {
-/*   content:attr(data-badge);*/
-/*   font-size:.7em;*/
-   background:$ossia-light-blue;
-   color: #ffffff;
-   width:18px;
-   height:18px;
-   text-align:center;
-   line-height:18px;
-   border-radius:50%;
-/*   margin-top: 7px;*/
-   float:left;
-    font-weight: bold;
+/*   content:attr(data-badge); */
+/*   font-size:.7em; */
+  background:$ossia-light-blue;
+  width:18px;
+  height:18px;
+  color: #ffffff;
+  line-height:18px;
+  text-align:center;
+  float:left;
+  border-radius:50%;
+/*   margin-top: 7px; */
+  font-weight: bold;
 }
 
 p > img {
-    text-align: center;
+  text-align: center;
 }

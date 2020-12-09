@@ -6,8 +6,8 @@
   z-index: 0;
   display: flex;
   flex-wrap: wrap;
-  background-color: $sidebar-color;
   padding-right: 1em;
+  background-color: $sidebar-color;
   @include mq(md) {
     flex-wrap: nowrap;
     position: fixed;
