@@ -17,11 +17,11 @@
   .table-wrapper {
     margin-top: 0.5em;
   }
-  
+
   p > img {
     display: block;
-    max-height: 80%;
     max-width: 100%;
+    max-height: 80%;
     margin: 0 auto;
   }
   a {
@@ -53,7 +53,7 @@
         position: absolute;
         top: 0.2em;
         left: -1.6em;
-        color: #FFFFFF;
+        color: #fff;
         content: counter(step-counter);
         counter-increment: step-counter;
         @include fs-3;

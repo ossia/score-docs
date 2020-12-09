@@ -48,28 +48,28 @@ h5,
 h6 {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
-  font-family: "Catamaran", sans-serif;
+  font-family: Catamaran, sans-serif;
   font-weight: 300;
   line-height: $body-heading-line-height;
   color: $body-heading-color;
 }
 
 h1 {
-    font-size: 38px;
-    font-weight: 400;
+  font-size: 38px;
+  font-weight: 400;
 }
     
 h2.software {
-    font-size: 42px !important;
-    font-weight: 700 !important;
-    color: $ossia-light-blue;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    padding-left: 0.24em;
-    margin: 0;
-    letter-spacing: 1px;
-    line-height: 1;
-    text-transform: none;
+  font-size: 42px !important;
+  line-height: 1;
+  font-weight: 700 !important;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.24em;
+  color: $ossia-light-blue;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: none;
 }
 p {
   margin-top: 1em;
@@ -79,10 +79,10 @@ p {
 
 
 a {
-    font-weight: 400;
-    color: $link-color;
-    text-decoration: none !important;
-    border: 0;
+  font-weight: 400;
+  color: $link-color;
+  text-decoration: none !important;
+  border: 0;
 }
 
 a:not([class]) {
@@ -91,8 +91,8 @@ a:not([class]) {
 
 a:hover, 
 a:active {
-    color: $active-link-color;
-    text-decoration: none !important;
+  color: $active-link-color;
+  text-decoration: none !important;
 }
 
 code {
@@ -124,29 +124,32 @@ hr {
 }
 .shortcut {
   display: inline-block;
-  font-size: 9pt;
-  font-weight: 400;
   padding: 0.1em 0.5em;
   margin: 0 0.2em;
+  font-size: 9pt;
+  font-weight: 400;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  
+/*   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset; */
   background-color: #f7f7f7;
 }
 
 ol > li::before {
-/*   content:attr(data-badge); */
-/*   font-size:.7em; */
+    
+  /*   content:attr(data-badge); */
+  /*   font-size:.7em; */
   background:$ossia-light-blue;
-  width:18px;
-  height:18px;
-  color: #ffffff;
-  line-height:18px;
-  text-align:center;
-  float:left;
-  border-radius:50%;
-/*   margin-top: 7px; */
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  color: #fff;
+  text-align: center;
+  float: left;
   font-weight: bold;
+  border-radius: 50%;
+  
+  /*   margin-top: 7px; */
 }
 
 p > img {
