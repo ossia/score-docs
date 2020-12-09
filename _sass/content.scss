@@ -17,7 +17,13 @@
   .table-wrapper {
     margin-top: 0.5em;
   }
-
+  
+  p > img {
+    display: block;
+    margin: 0 auto;
+    max-height: 80%;
+    max-width: 100%;
+  }
   a {
     text-decoration: none;
     overflow: hidden;
@@ -47,7 +53,7 @@
         position: absolute;
         top: 0.2em;
         left: -1.6em;
-        color: $grey-dk-000;
+        color: #ffffff;
         content: counter(step-counter);
         counter-increment: step-counter;
         @include fs-3;
