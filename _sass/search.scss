@@ -48,13 +48,13 @@
   margin-bottom: $sp-2;
   font-size: 16px;
   background-color: $search-background-color;
+  border: 1px solid $ossia-light-blue;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
   border-left: 0;
-  border: 1px solid $ossia-light-blue;
   border-radius: 10px;
-  
+
   @include mq(md) {
     padding-top: $gutter-spacing-sm;
     padding-bottom: $gutter-spacing-sm;

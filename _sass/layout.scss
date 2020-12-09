@@ -19,7 +19,6 @@
   }
 
   @include mq(lg) {
-
     /*     width: calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}); */
     min-width: $nav-width;
   }
@@ -84,7 +83,7 @@
 .site-nav {
   display: none;
   padding-left: 0.5em;
-    
+
   &.nav-open {
     display: block;
   }

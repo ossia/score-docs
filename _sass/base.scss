@@ -58,25 +58,24 @@ h1 {
   font-size: 38px;
   font-weight: 400;
 }
-    
-h2.software {
-  font-size: 42px !important;
-  line-height: 1;
-  font-weight: 700 !important;
+
+.software {
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   padding-left: 0.24em;
-  color: $ossia-light-blue;
   margin: 0;
-  letter-spacing: 1px;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1;
+  color: $ossia-light-blue;
   text-transform: none;
+  letter-spacing: 1px;
 }
 p {
   margin-top: 1em;
   margin-bottom: 1em;
   text-align: justify;
 }
-
 
 a {
   font-weight: 400;
@@ -89,7 +88,7 @@ a:not([class]) {
   text-decoration: none !important;
 }
 
-a:hover, 
+a:hover,
 a:active {
   color: $active-link-color;
   text-decoration: none !important;
@@ -128,27 +127,28 @@ hr {
   margin: 0 0.2em;
   font-size: 9pt;
   font-weight: 400;
+
+  /*   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset; */
+  background-color: #f7f7f7;
   border: 1px solid #ccc;
   border-radius: 4px;
-  
-/*   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset; */
-  background-color: #f7f7f7;
 }
 
 ol > li::before {
-    
-  /*   content:attr(data-badge); */
-  /*   font-size:.7em; */
-  background:$ossia-light-blue;
+  float: left;
   width: 18px;
   height: 18px;
+  font-weight: bold;
   line-height: 18px;
   color: #fff;
   text-align: center;
-  float: left;
-  font-weight: bold;
+
+  /*   content:attr(data-badge); */
+
+  /*   font-size:.7em; */
+  background: $ossia-light-blue;
   border-radius: 50%;
-  
+
   /*   margin-top: 7px; */
 }
 

@@ -17,7 +17,13 @@
   .table-wrapper {
     margin-top: 0.5em;
   }
-
+  blockquote {
+    width: 90%;
+    padding: 0.5em 1em;
+    font-size: 80%;
+    background-color: #f5f6fa;
+    border-left: 1px solid #7253ed;
+  }
   p > img {
     display: block;
     max-width: 100%;
