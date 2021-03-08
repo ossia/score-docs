@@ -81,7 +81,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "<a href=\"http://www.ossia.io\">ossia.io</a> © ossia 2021"
+footer_content: "<a href=\"https://ossia.io\">ossia.io</a> © ossia 2021"
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -102,8 +102,8 @@ color_scheme: custom
 
 # Google Analytics Tracking (optional)
 # e.g, UA-1234567-89
-ga_tracking: UA-2709176-10
-ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+# ga_tracking: UA-2709176-10
+# ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
 
 plugins:
   - jekyll-seo-tag
