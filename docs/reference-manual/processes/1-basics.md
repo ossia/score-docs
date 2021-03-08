@@ -41,9 +41,9 @@ You may as well drop a process onto an existing interval.
 
 > Note that both namespace selection and processes selection can be dropped onto an interval to which some processes are already attached. Depending on the type of processes, these may be created on top of processes already in place or at a slot below.
 
-Audio, video and sript files (faust dsp, glsl fs, javaScript ...) can also be draged & droped inside a scenario from your desktop's file manager.
-By deffault, droping sevral processes at the same time stacks them in the same interval. 
-Holdig the Maj key while dropping will create sequential intervals for each items in the selection. 
+Audio, video and script files (Faust DSP, GLSL fragment shader, JS script...) can also be drag'n'dropped inside a scenario from your desktop's file manager.
+By default, dropping several processes at the same time stacks them in the same interval. 
+Holding the Maj key while dropping will create sequential intervals for each item in the selection. 
 
 ![Parallel or serial processes](/score-docs/assets/images/reference-manual/processes/parallel-or-serial-processes.gif "Parallel or serial processes")
 
