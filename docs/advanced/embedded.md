@@ -36,7 +36,7 @@ To use ossia score on the Pi, it is necessary to:
 - Update the firmware to the kernel 5.10 at least: `sudo rpi-update` and reboot.
 - Enable `Full KMS` OpenGL settings in `sudo raspi-config`. Launch the utility, go to `6 Advanced Options`, then `GL Driver`, then select `GL (Full KMS)` and reboot. Check [this link](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) for more information on the configuration process.
 
-Then you are good to go. Two scripts are provided: `ossia_score_x11` and `ossia_score_eglfs`.
+Then you are good to go. Two scripts are provided: `ossia-score-x11` and `ossia-score-eglfs`.
 `ossia-score-x11` is for running under the normal desktop environment of the Pi.
 `ossia-score-eglfs` will run the graphics pipeline full-screen, bypassing the desktop environment entirely, which can be much more efficient - you don't even need to run X11 that way. But it is mostly useful in player mode, not for the score edition as there won't be any window borders / chrome.
 
