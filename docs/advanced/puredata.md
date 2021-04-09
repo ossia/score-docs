@@ -21,6 +21,20 @@ Simply drop a patch in the score to add it.
 
 This is done thanks to [libpd](https://github.com/libpd/libpd).
 
+## Example
+
+The following PureData patch:
+
+![Pd patch](/score-docs/assets/images/pd/pd-example-patch.png)
+
+Will look like this when loaded in score:
+
+![Pd patch in score](/score-docs/assets/images/pd/pd-example-score.png)
+
+[This particular example can be downloaded in the user library](https://raw.githubusercontent.com/ossia/score-user-library/master/Presets/PureData/example-synthesizer.pd).
+
+Feel free to contribute your own useful patches [here](https://github.com/ossia/score-user-library/tree/master/Presets/PureData) !
+
 ## Limitations
 
 For now do not use the "Parallel" execution mode when running Pd patches.
@@ -68,6 +82,3 @@ While editing the patch in real-time does not yet work, editing it when the scor
 
 If a Purr Data, Pd-l2ork, or Pure Data binary is detected on the host computer (by looking into their default installations folders and in the PATH),
 then it will be possible to open the patch directly from score.
-
-
-
