@@ -3,7 +3,7 @@ layout: default
 title: WS device
 nav_order: 12
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/ws-device.html
 ---

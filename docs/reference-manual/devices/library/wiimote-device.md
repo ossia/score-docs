@@ -3,7 +3,7 @@ layout: default
 title: Wiimote device
 nav_order: 10
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/wiimote-device.html
 ---

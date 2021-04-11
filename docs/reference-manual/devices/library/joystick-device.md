@@ -3,7 +3,7 @@ layout: default
 title: Joystick device
 nav_order: 9
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/joystick-device.html
 ---

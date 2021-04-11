@@ -3,7 +3,7 @@ layout: default
 title: Audio device
 nav_order: 14
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/audio-device.html
 ---

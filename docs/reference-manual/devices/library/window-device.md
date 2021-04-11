@@ -3,7 +3,7 @@ layout: default
 title: Window device
 nav_order: 15
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/window-device.html
 ---

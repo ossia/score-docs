@@ -3,7 +3,7 @@ layout: default
 title: Local device
 nav_order: 5
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/local-device.html
 ---

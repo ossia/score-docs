@@ -15,10 +15,11 @@ visible: true
 # Working with video in *score*
 
 *score* embeds a number of video related features: media playing and processing, GPU-based processing or synthesis. Just like with audio files, video files can be thus fully integrated to your scenario along with other processes and distant devices controls.
- 
+
 ## Supported formats
 
-As of version 3.0.0-a19, *Score* supports all video files formats supported by the ffmpeg library. More info on supported files can be found on the [ffmpeg website](https://www.ffmpeg.org/general.html#Video-Codecs).
+*Score* supports all video files formats supported by the ffmpeg library. More info on supported files can be found on the [ffmpeg website](https://www.ffmpeg.org/general.html#Video-Codecs).
+
 ## Video setup
 
 First, we need to setup our video output. To do so, we need to add a video window device to our project by right-clicking in the `Device explorer` pane and choose `Add device` from the contextual menu. In the device setup window, mouse over to the video category and choose the `Window device`. You may define a name for the video window or use the default name and click `Add`.
@@ -38,7 +39,7 @@ When done, a slot containing the video file gets created on the timeline. You ca
 
 ![Add video file](/score-docs/assets/images/quick-start/working-with-video/adding-video-file.gif)
 
-We now need to route our video file to our video window so it gets displayed when execution the scenario. Just as with other processes used so far (automation as well as audio), the video slot has an output port at the bottom: the white filled circle. 
+We now need to route our video file to our video window so it gets displayed when execution the scenario. Just as with other processes used so far (automation as well as audio), the video slot has an output port at the bottom: the white filled circle.
 
 Click on the output port to bring its inspector. From there, select your window video device in the dedicated menu. Now when executing your scenario, video file will get properly displayed in window.
 

@@ -3,7 +3,7 @@ layout: default
 title: Minuit device
 nav_order: 3
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
 permalink: /docs/references/devices-types/minuit-device.html
 ---

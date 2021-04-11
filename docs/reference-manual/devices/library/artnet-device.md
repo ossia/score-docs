@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Artnet device
+title: ArtNet device
 nav_order: 13
 parent: Devices
-grand_parent: References
+grand_parent: Reference manual
 has_children: false
-permalink: /docs/references/devices-types/artnet-device.html
+permalink: /docs/reference-manual/devices-types/artnet-device.html
 ---
 
 ![Device setup window](/score-docs/assets/images/references/devices-types/artnet-device.png "score device setup")
