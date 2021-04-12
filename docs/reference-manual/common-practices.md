@@ -43,7 +43,13 @@ For more control and to avoid prpetual looping and branshing, it may be necessar
 
 ### Loop branches 
 
-Transitions actually connect to `Syncs` (vertical doted lines), therefore, transitioning to a specific `Sync` will execute or re-execute all connected branches. This may cause more unpredictible results when sevral treansitions are connected to the same `Sync`.
+Transitions actually connect to `Syncs` (vertical doted lines), therefore, transitioning to a specific `Sync` will execute or re-execute all connected branches. When sevral treansitions are connected to the same `Sync`, the smallest loop will always restart first and cut short all parrallel intervals.
+
+![Loop branches](/score-docs/assets/images/reference-manual/common-practices/loopBranches.gif "Loop branches")
+
+Since transitions are instantaneous intervals, they can also be used to isolate loops without interfering with timming and their original synchronisation.
+
+![Isolate transitions](/score-docs/assets/images/reference-manual/common-practices/isolateTransitions.gif "Isolate transitions")
 
 ## Switches
 
