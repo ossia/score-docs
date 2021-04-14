@@ -8,7 +8,7 @@ has_children: false
 
 nav_order: 1
 
-permalink: /docs/reference-manual/common-practices/looping.html
+permalink: /docs/reference-manual/common-practices/1-looping.html
 category: "site-score"
 
 description: "Looping"
