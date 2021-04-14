@@ -11,7 +11,7 @@ permalink: /docs/reference-manual/common-practices
 
 # Common practices
 
-The Following pages will guide you through reocuring patterns and snipets that can be useful in many different use-cases.
+The Following pages will guide you through reoccuring patterns and snippets that apply to many different use-cases.
 
 Enjoy advanced scenario authoring for your intermedia creation !
 
