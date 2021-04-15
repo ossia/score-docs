@@ -28,3 +28,10 @@ To display the process in full size, double-click on the interval the process is
 To exit full size mode (go back to parent scenario), click the desired node of the path displayed at the top or use the {% include shortcut.html content="Ctrl+Alt+↑" %} shortcut.
 
 ![Edit process in full size](/score-docs/assets/images/reference-manual/processes/process-fullsize-edit.gif "Edit process in full size")
+
+## Process Loops
+
+Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel 
+or by clicking on process header, the loop option will appear in the `Inspector`
+
+![Process looping](/score-docs/assets/images/reference-manual/common-practices/loopProcess.gif "Process looping")
