@@ -44,11 +44,11 @@ When the button is pressed, the first trigger is validated (as by default, it is
 
 ## Consecutive toggles
 
-The section inside the loop can contain more than one interval. Expanding on the prior exemple, switching between an idol state and an interval, a similar structure could enclose two intervals. This switch also requires an extra trigger. 
+The section inside the loop can contain more than one interval. Expanding on the prior exemple, switching between an idle state and an interval, a similar structure could enclose two intervals. This switch also requires an extra trigger. 
 
 ![Consecutive switch](/score-docs/assets/images/reference-manual/common-practices/consecutive.gif "Consecutive switch")
 
-With the default "Pulse" operators to validate each trigger, this structure will return to the idol state after each transition. To avoid this extra step and make sure that the first interval executes every time the button's value is true and that the second executes every time it is false, the expression for the trigger has to be modified. By setting both the start and end triggers to only respond when the value is true, they can be validated in a row, skipping the idol state after the transition.  
+With the default "Pulse" operators to validate each trigger, this structure will return to the idle state after each transition. To avoid this extra step and make sure that the first interval executes every time the button's value is true and that the second executes every time it is false, the expression for the trigger has to be modified. By setting both the start and end triggers to only respond when the value is true, they can be validated in a row, skipping the idle state after the transition.  
 
 ![Consecutive 2 stages switch](/score-docs/assets/images/reference-manual/common-practices/seq2Stage.gif "Consecutive 2 steps switch")
 
@@ -56,13 +56,13 @@ A better way of achieving the same result would be to rely on a [sub-scenario to
 
 ![Consecutive switch isolated](/score-docs/assets/images/reference-manual/common-practices/seqIsolate.gif "Consecutive switch isolated")
 
-In context it may be preferable to switch at evry press of the button, instead of having to hold for the first interval and let go for the second. Adding a minimum duration on each of the toggled intervals ensures that the value of the button can go back to false without validating the next trigger. This method also protects the switch from accidental "double taps".
+It may be preferable to switch at every press of the button, instead of having to hold for the first interval and let go for the second. Adding a minimum duration on each of the toggled intervals ensures that the value of the button can go back to false without validating the next trigger. This method also protects the switch from accidental "double taps".
 
 ![Tap once to switch](/score-docs/assets/images/reference-manual/common-practices/tapToSwitch.gif "Tap once to switch")
 
 ## Parallel switches
 
-Consecutive switches shawn above can sequence an arbitrary number of intervals, but only in the same order every time. To enable switching as well as reordering, we can rely on conditional branches. Let's first create another device for control. For this example we will add a [Mapper Device](/score-docs/docs/references/devices-types/mapper-device.html) by simply copying and pasting the script below. We'll name it "Structure".
+Consecutive switches shown above can sequence an arbitrary number of intervals, but only in the same order every time. To enable switching as well as reordering, we can rely on conditional branches. Let's first create another device for control. For this example we will add a [Mapper Device](/score-docs/docs/references/devices-types/mapper-device.html) by simply copying and pasting the script below. We'll name it "Structure".
 {% highlight qml %}
 import Ossia 1.0 as Ossia
 
@@ -90,6 +90,6 @@ To add conditions for each start state of parallel intervals, they have to be sp
 
 ![Conditions](/score-docs/assets/images/reference-manual/common-practices/conditions.gif "Conditions")
 
-It is now possible to switch between parallel intervals when setting a value to the "Branch" parameter. To control the start of the structure when played the first time, we have to avoid adding a trigger to the start sync of the loop. It would add an idol state as we experienced before and skip the evaluation of every other value. Instead we can isolate this switch from it's initial trigger with another transition, similar to our solution to [looping parallel branches](/score-docs/docs/reference-manual/common-practices/1-looping.html#loop-branches).
+It is now possible to switch between parallel intervals when setting a value to the "Branch" parameter. To control the start of the structure when played the first time, we have to avoid adding a trigger to the start sync of the loop. It would add an idle state as we experienced before and skip the evaluation of every other value. Instead we can isolate this switch from its initial trigger with another transition, similar to our solution to [looping parallel branches](/score-docs/docs/reference-manual/common-practices/1-looping.html#loop-branches).
 
 ![Isolated conditions](/score-docs/assets/images/reference-manual/common-practices/isolateConditions.gif "Isolated conditions")

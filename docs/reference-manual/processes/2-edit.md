@@ -32,6 +32,6 @@ To exit full size mode (go back to parent scenario), click the desired node of t
 ## Process Loops
 
 Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel 
-or by clicking on process header, the loop option will appear in the `Inspector`
+or by clicking on process header, the loop option will appear in the `Inspector`.
 
 ![Process looping](/score-docs/assets/images/reference-manual/common-practices/loopProcess.gif "Process looping")
