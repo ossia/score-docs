@@ -8,7 +8,7 @@ permalink: /
 
 # Score documentation
 
-![score window](/score-docs/assets/images/score-2.png)
+![score window]({{ site.baseurl }}/assets/images/score-2.png)
 
 This is the documentation for *score* v3.0.0
 

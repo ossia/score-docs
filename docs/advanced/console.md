@@ -3,11 +3,8 @@ layout: default
 title:  "Console"
 
 parent: Advanced
-nav_order: 3
 
 permalink: /docs/advanced/console.html
-category: "site-score"
-
 ---
 
 ## Description

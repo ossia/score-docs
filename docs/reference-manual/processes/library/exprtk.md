@@ -17,7 +17,7 @@ Several processes allow to write simple math expressions. Such processes include
 - Value Generator
 - Custom Mapping (Value)
 
-![ExprTK](/score-docs/assets/images/reference-manual/references/exprtk.png)
+![ExprTK]({{ site.baseurl }}/assets/images/reference-manual/references/exprtk.png)
 
 These expressions are solved within *score* using the [ExprTK library](https://www.partow.net/programming/exprtk/index.html "ExprTK website").
 

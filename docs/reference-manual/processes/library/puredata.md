@@ -19,11 +19,11 @@ This is done thanks to [libpd](https://github.com/libpd/libpd).
 
 The following PureData patch:
 
-![Pd patch](/score-docs/assets/images/pd/pd-example-patch.png)
+![Pd patch]({{ site.baseurl }}/assets/images/pd/pd-example-patch.png)
 
 Will look like this when loaded in score:
 
-![Pd patch in score](/score-docs/assets/images/pd/pd-example-score.png)
+![Pd patch in score]({{ site.baseurl }}/assets/images/pd/pd-example-score.png)
 
 [This particular example can be downloaded in the user library](https://raw.githubusercontent.com/ossia/score-user-library/master/Presets/PureData/example-synthesizer.pd).
 

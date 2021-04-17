@@ -9,6 +9,7 @@ permalink: /docs/reference-manual/processes/scenario.html
 ---
 
 The main view in score.
+The Scenario process allows to put a score inside another score, and to nest at an arbitrarily depth: think of it as the traditional DAW groups, on steroids.
 
 ### Features
 

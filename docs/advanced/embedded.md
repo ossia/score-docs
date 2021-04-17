@@ -3,10 +3,8 @@ layout: default
 title: "Embedded devices"
 
 parent: Advanced
-nav_order: 1
 
 permalink: /docs/advanced/embedded.html
-category: "site-score"
 ---
 
 # Hardware support

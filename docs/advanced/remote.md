@@ -3,16 +3,18 @@ layout: default
 title:  "Remote Control"
 
 parent: Advanced
-nav_order: 2
 
 permalink: /docs/advanced/remote.html
-category: "site-score"
-
 ---
 
-## Remote control application
+There are two main ways to remote control score:
 
-https://github.com/iscore-pfa/qml-remote
+- Through OSC and OSCQuery with the [Local device]({{ site.baseurl }}/docs/references/devices-types/local-device.html).
+
+- Through a WebSocket API. The WebSocket API has been used to build a nice [graphical remote application](https://github.com/iscore-pfa/qml-remote).
+
+This page describes the low-level WebSocket API used by score, so that anyone can build their custom
+remotes similar to the one mentioned above..
 
 ## Description
 Exposes some properties of the score over WebSockets:
@@ -193,4 +195,4 @@ and
 
 #### Control surface
 
-See [Control surface](controlsurface.html).
+See [Control surface]({{ site.baseurl }}/docs/reference-manual/processes/controlsurface.html).

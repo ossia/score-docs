@@ -1,19 +1,11 @@
 ---
 layout: default
-title: "Audio plugins"
+title: Audio plugins
 
-parent: References
+parent: Processes
 grand_parent: Reference manual
 
-nav_order:
-
-permalink: /docs/reference-manual/references/audio-plugins.html
-category: "site-score"
-
-description: "Audio plugins"
-
-tag: "Presentation"
-visible: true
+permalink: /docs/reference-manual/processes/audio-plugins.html
 ---
 
 

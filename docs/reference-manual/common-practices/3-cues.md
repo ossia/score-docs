@@ -19,3 +19,6 @@ visible: true
 
 - Play state
 - Start / end cue
+
+- [detailed informations about states management]({{ site.baseurl }}/docs/reference-manual/store-and-recall-devices-states.html)
+- [detailed informations about states management]({{ site.baseurl }}/docs/reference-manual/store-and-recall-devices-states.html)

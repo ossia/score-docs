@@ -12,7 +12,7 @@ permalink: /docs/reference-manual/devices-types/midiout-device.html
 
 To setup a device using Midi output, select `Midi output` in the Protocols column of the `Add device` window.
 
-![Device setup window](/score-docs/assets/images/reference-manual/devices-types/midiout/midiout-device.png "score device setup")
+![Device setup window]({{ site.baseurl }}/assets/images/reference-manual/devices-types/midiout/midiout-device.png "score device setup")
 
 In the `Devices` middle column, you can select your desired Midi input device.
 

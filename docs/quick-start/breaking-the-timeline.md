@@ -21,11 +21,11 @@ Introducing trigger points in your scenario allows to keep organizing things in 
 
 To add a trigger point, simply select a state on the scenario, then from its inspector, toggle on the `trigger` icon. 
 
-![Enabling trigger](/score-docs/assets/images/quick-start/breaking-the-timeline/enabling-trigger.gif "Enabling trigger")
+![Enabling trigger]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/enabling-trigger.gif "Enabling trigger")
 
 When turning on the `trigger`, you can see a T-like icon is added on top of the selected `state`. You can also note that a dashed line appears on top of the preceding automation slot. This indicates that the duration of the preceding automations is now undefined: preceding automations will get executed up until the trigger is, well... *triggered*.
 
-![Triggering](/score-docs/assets/images/quick-start/breaking-the-timeline/triggering.mp4 "Triggering")
+![Triggering]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/triggering.mp4 "Triggering")
 
 In the example above, the scenario start with a simple fade-in. Notice that it gets executed as the scenario playhead goes across the automation slot.  While the scenario playhead continues its progression, you will notice though that the green progression bar at the top of the automation stops as it reaches the trigger point. Execution of the following automations is then on hold until the trigger point is triggered by a mouse click. 
 
@@ -37,9 +37,9 @@ In the example above, we used the mouse to trigger the followup of the scenario 
 
 To set an input for a trigger point, just grab the desired parameter in the `Device explorer` and drop it on the trigger icon.
 
-![Enabling trigger](/score-docs/assets/images/quick-start/breaking-the-timeline/interactive-trigger.gif "Enabling trigger")
+![Enabling trigger]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/interactive-trigger.gif "Enabling trigger")
 
-In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller](/score-docs/docs/reference-manual/devices-types/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
+In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller]({{ site.baseurl }}/docs/reference-manual/devices-types/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
 
 > You may also drop the parameter on the address field of the trigger point inspector.
 

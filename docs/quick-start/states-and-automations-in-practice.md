@@ -14,18 +14,18 @@ visible: true
 ---
 # States & automations in practice
 
-In previous sections of this [Quick start guide](/score-docs/docs/quick-start/quick-start.html), we saw two elementary methods to write scenarios for your project: saving & recalling some device's state as well as writing simple automations for its parameters. While elementary, these two very features still offer a lot of flexibility to author advanced scenarios for your creations project. This is made even more flexible given a handful of *score*'s practice-based workflow features. Rather than separating cue-like execution of messages toward your devices and time evolving processes such as automations, *score* offer a number of ways to easily mix two approaches in a unified workflow.
+In previous sections of this [Quick start guide]({{ site.baseurl }}/docs/quick-start/quick-start.html), we saw two elementary methods to write scenarios for your project: saving & recalling some device's state as well as writing simple automations for its parameters. While elementary, these two very features still offer a lot of flexibility to author advanced scenarios for your creations project. This is made even more flexible given a handful of *score*'s practice-based workflow features. Rather than separating cue-like execution of messages toward your devices and time evolving processes such as automations, *score* offer a number of ways to easily mix two approaches in a unified workflow.
 
 <!-- ## Combining states and automations -->
 
 ## Sequence mode
 
 ### Setting up auto-sequence mode
-A workflow you might find useful is the `auto-sequence` mode. As of *score* version 3.0.0-a19, `auto-sequence` is an option that needs to be activated from *score* preferences. To do so, bring *score* [Preferences window](/score-docs/docs/reference-manual/references/preferences.html "*Score* preferences window").
+A workflow you might find useful is the `auto-sequence` mode. As of *score* version 3.0.0-a19, `auto-sequence` is an option that needs to be activated from *score* preferences. To do so, bring *score* [Preferences window]({{ site.baseurl }}/docs/reference-manual/references/preferences.html "*Score* preferences window").
 
 In the `Preferences` window, select the `User interface tab` then make sure the `auto-sequence` option is toggled on.
 
-![Auto-sequence preference](/score-docs/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence preference")
+![Auto-sequence preference]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence preference")
 
 ### Using auto-sequence
 
@@ -39,7 +39,7 @@ What happens here is two folds:
 
 > You may also store a new state by dragging from the blue `+` icon *without* `auto-sequence` mode activated. In that case, *score* will still use previous namespace selection to store parameters values but no automation will get created for changed parameters.
 
-![Using auto-sequence mode](/score-docs/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
+![Using auto-sequence mode]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
 
 Of course, once these automations get auto-magically created, you can still edit their behavior over time and do whatever pleasing changes to their curve. You may also remove an automation, should you want not to include a parameter continuous change.
 
@@ -49,8 +49,8 @@ In the example above, you can see multiple automation slots actually got superpo
 
 > When multiple automations are stacked, frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
 
-![Select from stack](/score-docs/assets/images/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
+![Select from stack]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
 
 You can also remove an automation from the stack by clicking on a slot background. Bring the contextual menu using right-click and select `remove`.
 
-![Remove automation](/score-docs/assets/images/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")
+![Remove automation]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")

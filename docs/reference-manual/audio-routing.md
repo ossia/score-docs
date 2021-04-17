@@ -5,15 +5,7 @@ title: "Audio routing"
 parent: References
 grand_parent: Reference manual
 
-nav_order: 
-
 permalink: /docs/reference-manual/references/audio-routing.html
-category: "site-score"
-
-description: "Audio routing"
-
-tag: "Presentation"
-visible: true
 ---
 
 # Audio routing

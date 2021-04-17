@@ -27,7 +27,7 @@ Once opened a new score project, right-click in the Device explorer on the left 
 
 From the Protocols column, choose `OSCQuery`. You should see in the `Devices` column all OSCQuery compatibles devices available on the network.
 
-![Device setup window](/score-docs/assets/images/reference-manual/devices-types/oscquery-device.png "score device setup")
+![Device setup window]({{ site.baseurl }}/assets/images/reference-manual/devices-types/oscquery-device.png "score device setup")
 
 Select the desired one from the list and click `Add`.
 

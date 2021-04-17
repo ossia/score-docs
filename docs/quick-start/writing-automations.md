@@ -17,11 +17,11 @@ visible: true
 
 *Score* provides numerous features to control continuously your devices' parameters over time. These are provided through the `Process` library available by clicking on the icon at the bottom left of score window (or using {% include shortcut.html content="Ctrl+Shift+P" %} shortcut).
 
-![Process library panel](/score-docs/assets/images/quick-start/score-authoring/process_library.gif "Process library panel")
+![Process library panel]({{ site.baseurl }}/assets/images/quick-start/score-authoring/process_library.gif "Process library panel")
 
 In the example below, we will just create a basic breakpoint function-based automation for one of our device's parameter, by selecting the `automation (float)` in the Process library, then drag & drop it where we want it on the timeline. 
 
-![Creating automation](/score-docs/assets/images/quick-start/score-authoring/create_automation.gif)
+![Creating automation]({{ site.baseurl }}/assets/images/quick-start/score-authoring/create_automation.gif)
 
 When done, you will see on the timeline a simple 1 segment linear default automation. Let's now assign our device parameter as a destination for this simple automation process.
 
@@ -29,7 +29,7 @@ Click on the automation's slot top bar to bring its inspector. Now from the `Dev
 
 When playing the scenario, our device's parameter will get driven by an ascending ramp as the playhead goes across the automation slot.
 
-Of course, you may refine your automation function by double-clicking in the automation slot to add more points or select a segment and use {% include shortcut.html content="Shift+Drag" %} to add curvature to the segment as well as using other advanced features as detailed in the [Automation reference page](/score-docs/docs/reference-manual/processes/automation_float.html).
+Of course, you may refine your automation function by double-clicking in the automation slot to add more points or select a segment and use {% include shortcut.html content="Shift+Drag" %} to add curvature to the segment as well as using other advanced features as detailed in the [Automation reference page]({{ site.baseurl }}/docs/reference-manual/processes/automation_float.html).
 
 > You can extend your automation slot by dragging along the timeline its top right corner (the blue dot). By default, slot will get extended will preserving the automation length so you can further write your automation. You may also drag it using {% include shortcut.html content="Cmd+Drag" %} to scale the automation as the slot gets extended along the timeline
 
@@ -37,11 +37,11 @@ Of course, you may refine your automation function by double-clicking in the aut
 
 When further precision is required to edit your automation, you can double-click the name above the automation slot (here "automation (float)" to zoom in the slot and edit the automation in full size.
 
-![Full size edit](/score-docs/assets/images/quick-start/score-authoring/fullsize-edit.gif)
+![Full size edit]({{ site.baseurl }}/assets/images/quick-start/score-authoring/fullsize-edit.gif)
 
 When done editing, you can go back to your scenario full view using {% include shortcut.html content="Cmd+↑" %} or clicking on your scenario name beneath the time ruler.
 
-![Leaving full size edit](/score-docs/assets/images/quick-start/score-authoring/leaving_full_size.png)
+![Leaving full size edit]({{ site.baseurl }}/assets/images/quick-start/score-authoring/leaving_full_size.png)
 
 <!-- ### Stacked processes
 

@@ -5,15 +5,7 @@ title: "Automations"
 parent: References
 grand_parent: Reference manual
 
-nav_order:
-
 permalink: /docs/reference-manual/references/automations.html
-category: "site-score"
-
-description: "Automations"
-
-tag: "Presentation"
-visible: true
 ---
 
 
