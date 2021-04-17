@@ -5,7 +5,7 @@ nav_order: 16
 parent: Devices
 grand_parent: Reference manual
 has_children: false
-permalink: /docs/references/devices-types/camera-device.html
+permalink: /devices/camera-device.html
 ---
 
 ## Usage

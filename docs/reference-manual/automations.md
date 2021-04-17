@@ -5,7 +5,7 @@ title: "Automations"
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/automations.html
+permalink: /reference/automations.html
 ---
 
 

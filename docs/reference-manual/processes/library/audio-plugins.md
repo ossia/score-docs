@@ -5,7 +5,7 @@ title: Audio plugins
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/audio-plugins.html
+permalink: /processes/audio-plugins.html
 ---
 
 

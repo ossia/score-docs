@@ -5,7 +5,7 @@ title: Control surface
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/controlsurface.html
+permalink: /processes/controlsurface.html
 ---
 
 - Drop addresses on it

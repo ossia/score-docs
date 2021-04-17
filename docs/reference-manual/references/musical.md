@@ -6,11 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/musical.html
-category: "site-score"
-
-
-visible: true
+permalink: /reference/musical.html
 ---
 
 # Musical metrics

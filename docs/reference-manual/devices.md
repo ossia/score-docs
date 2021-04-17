@@ -5,7 +5,7 @@ title: Devices
 parent: Reference manual
 has_children: true
 
-permalink: /docs/reference-manual/devices.html
+permalink: /devices.html
 ---
 
 # Devices
@@ -19,11 +19,11 @@ Devices are pieces of software or hardware used in your project to be controlled
 
 | OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               | Lights                                                          | Audio                                                   | Video
 |:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------||:----------------------------------------------------------------|:----------------------------------------------------------------|
-| [OSCQuery]({{ site.baseurl }}/docs/reference-manual/devices-types/oscquery-device.html) | [Mapper]({{ site.baseurl }}/docs/reference-manual/devices-types/mapper-device.html) | [Midi in]({{ site.baseurl }}/docs/reference-manual/devices-types/midiin-device.html)    | [HTTP]({{ site.baseurl }}/docs/reference-manual/devices-types/http-device.html)| [Artnet]({{ site.baseurl }}/docs/reference-manual/devices-types/artnet-device.html)     | [Audio]({{ site.baseurl }}/docs/reference-manual/devices-types/audio-device.html)   | [Window]({{ site.baseurl }}/docs/reference-manual/devices-types/window-device.html)     |
-| [OSC]({{ site.baseurl }}/docs/reference-manual/devices-types/osc-device.html)           | [Local]({{ site.baseurl }}/docs/reference-manual/devices-types/local-device.html)   | [Midi out]({{ site.baseurl }}/docs/reference-manual/devices-types/midiout-device.html)  | [WS]({{ site.baseurl }}/docs/reference-manual/devices-types/ws-device.html)               |||[Camera]({{ site.baseurl }}/docs/reference-manual/devices-types/camera-device.html)
-| [Minuit]({{ site.baseurl }}/docs/reference-manual/devices-types/minuit-device.html)     |                                                             | [Serial]({{ site.baseurl }}/docs/reference-manual/devices-types/serial-device.html)     |                                                                   |
-|                                                                 |                                                             | [Joystick]({{ site.baseurl }}/docs/reference-manual/devices-types/joystick-device.html) |                                                                   |
-|                                                                 |                                                             | [Wiimote]({{ site.baseurl }}/docs/reference-manual/devices-types/wiimote-device.html)   |
+| [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) | [Mapper]({{ site.baseurl }}/devices/mapper-device.html) | [Midi in]({{ site.baseurl }}/devices/midiin-device.html)    | [HTTP]({{ site.baseurl }}/devices/http-device.html)| [Artnet]({{ site.baseurl }}/devices/artnet-device.html)     | [Audio]({{ site.baseurl }}/devices/audio-device.html)   | [Window]({{ site.baseurl }}/devices/window-device.html)     |
+| [OSC]({{ site.baseurl }}/devices/osc-device.html)           | [Local]({{ site.baseurl }}/devices/local-device.html)   | [Midi out]({{ site.baseurl }}/devices/midiout-device.html)  | [WS]({{ site.baseurl }}/devices/ws-device.html)               |||[Camera]({{ site.baseurl }}/devices/camera-device.html)
+| [Minuit]({{ site.baseurl }}/devices/minuit-device.html)     |                                                             | [Serial]({{ site.baseurl }}/devices/serial-device.html)     |                                                                   |
+|                                                                 |                                                             | [Joystick]({{ site.baseurl }}/devices/joystick-device.html) |                                                                   |
+|                                                                 |                                                             | [Wiimote]({{ site.baseurl }}/devices/wiimote-device.html)   |
 
 
 
@@ -31,11 +31,11 @@ Devices are pieces of software or hardware used in your project to be controlled
 
 From *score* main window, right-click in the `Device explorer` on the left of window and choose `Add device` from the `Device explorer` contextual menu. This brings *score*'s device setup window.
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference-manual/devices-types/add-device.gif "score device setup")
+![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/add-device.gif "score device setup")
 
 In the Device setup window, in the left column, select the desired device type.
 
-Each device type has its setup panel depending of the used protocol. Please see the [Devices references page]({{ site.baseurl }}/docs/reference-manual/devices-references.html) to setup your device.
+Each device type has its setup panel depending of the used protocol. Please see the [Devices references page]({{ site.baseurl }}/devices-references.html) to setup your device.
 
 ## Rate limiting
 

@@ -2,15 +2,10 @@
 layout: default
 title:  "Mixer"
 
-nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/mixer.html
-category: "site-score"
-
-
-visible: true
+permalink: /reference/mixer.html
 ---
 
 # Mixing busses

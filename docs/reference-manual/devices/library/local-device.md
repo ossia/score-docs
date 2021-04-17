@@ -5,7 +5,7 @@ nav_order: 5
 parent: Devices
 grand_parent: Reference manual
 has_children: false
-permalink: /docs/references/devices-types/local-device.html
+permalink: /devices/local-device.html
 ---
 
 

@@ -18,7 +18,7 @@ In previous example, we used trigger points to add variation during the executio
 
 You remember we noted in the [Saving and recalling devices state]({{ site.baseurl }}/docs/quick-start/saving-and-recalling-devices-state.html "Saving and recalling devices state") page that *score* offers to connect dropped namespace selection to different preceding elements in the scenario. And *score* provides several ways to connect elements, one of them allowing to write and organize elements pretty much like you would do when designing a state machine. 
 
-> To learn about the various connections features, please refer to the full [Reference manual]({{ site.baseurl }}/docs/reference-manual.html "*score* reference manual") to see how *score* engine works and the advanced authoring features it provides
+> To learn about the various connections features, please refer to the full [Reference manual]({{ site.baseurl }}/docs/reference.html "*score* reference manual") to see how *score* engine works and the advanced authoring features it provides
 
 In the scenario editor panel, you may create some elements by dragging a connection to a point in the timeline where you want to store a namespace state or start a process. This is where the `create widget` comes handy.
 

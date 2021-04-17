@@ -4,7 +4,7 @@ title: "How to monitor activity ?"
 
 parent: FAQ
 
-permalink: /docs/faq/monitor-activity.html
+permalink: /faq/monitor-activity.html
 category: "site-score"
 
 description: "Monitoring messages coming in and out"

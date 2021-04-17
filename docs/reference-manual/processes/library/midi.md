@@ -5,7 +5,7 @@ title: MIDI
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/midi.html
+permalink: /processes/midi.html
 ---
 
 

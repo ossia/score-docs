@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/media.html
+permalink: /reference/media.html
 category: "site-score"
 
 description: "Media management"

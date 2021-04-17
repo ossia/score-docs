@@ -5,7 +5,7 @@ title: "Audio routing"
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/audio-routing.html
+permalink: /reference/audio-routing.html
 ---
 
 # Audio routing

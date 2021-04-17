@@ -5,7 +5,7 @@ title: Scenario
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/scenario.html
+permalink: /processes/scenario.html
 ---
 
 The main view in score.

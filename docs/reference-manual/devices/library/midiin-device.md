@@ -5,14 +5,14 @@ nav_order: 6
 parent: Devices
 grand_parent: Reference manual
 has_children: false
-permalink: /docs/reference-manual/devices-types/midiin-device.html
+permalink: /devices/midiin-device.html
 ---
 
 # Midi input device
 
 To setup a device using Midi input, select `Midi input` in the Protocols column of the `Add device` window.
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference-manual/devices-types/midiin-device.png "score device setup")
+![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/midiin-device.png "score device setup")
 
 In the `Devices` middle column, you can select your desired Midi input device.
 
@@ -26,7 +26,7 @@ Under the name of your Midi input device, you can toggle on the `Create whole tr
 
 	<device name>/<channel number>/<message type>/message number>
 
-![Midi in whole tree]({{ site.baseurl }}/assets/images/reference-manual/devices-types/midiin/midi-whole-tree.png "Midi in whole tree")
+![Midi in whole tree]({{ site.baseurl }}/assets/images/reference/devices/midiin/midi-whole-tree.png "Midi in whole tree")
 
 Should you want not to automatically create a whole Midi namespace (i.e. and use Midi learn instead), just leave the option unset.
 
@@ -34,7 +34,7 @@ Should you want not to automatically create a whole Midi namespace (i.e. and use
 
 You can use the learn function to build your Midi input namespace with only the needed Midi message (rather than setting up the whole Midi namespace). To do so, once added the Midi device with the `Create whole tree` option off, in the `Device explorer`, right-click on your Midi input device name and select `Learn` from the contextual menu.
 
-![Usig Midi learn]({{ site.baseurl }}/assets/images/reference-manual/devices-types/midiin/midi-learn-1.png "Using Midi learn")
+![Usig Midi learn]({{ site.baseurl }}/assets/images/reference/devices/midiin/midi-learn-1.png "Using Midi learn")
 
 This opens *score*  Midi learn window. From then, *score* will monitor any incoming Midi message and store it under an address following the pattern mentioned above.
 

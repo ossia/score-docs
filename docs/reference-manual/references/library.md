@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/library.html
+permalink: /reference/library.html
 category: "site-score"
 
 description: "Library"

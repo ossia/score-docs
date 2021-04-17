@@ -7,7 +7,7 @@ has_children: true
 
 parent: Reference manual
 
-permalink: /docs/reference-manual/references
+permalink: /references
 ---
 
 # Quick start

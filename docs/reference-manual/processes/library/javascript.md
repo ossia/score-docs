@@ -5,7 +5,7 @@ title: Javascript
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/javascript.html
+permalink: /processes/javascript.html
 ---
 
 # Javascript support

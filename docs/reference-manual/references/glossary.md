@@ -6,7 +6,7 @@ nav_order: 99
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/glossary.html
+permalink: /reference/glossary.html
 category: "site-score"
 
 description: "score glossary"
@@ -46,7 +46,7 @@ A process is an action used in the scenario to control some devices' parameter o
 
 ### Processes explorer
 
-The processes explorer is accessible at the left panel in *score* main window. This is where you can browse and select some [processes]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#process) to use in your scenario.
+The processes explorer is accessible at the left panel in *score* main window. This is where you can browse and select some [processes]({{ site.baseurl }}/reference/glossary.html#process) to use in your scenario.
 
 
 ### Project folder

@@ -7,6 +7,6 @@ has_children: false
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/signal-display.html
+permalink: /processes/signal-display.html
 ---
 

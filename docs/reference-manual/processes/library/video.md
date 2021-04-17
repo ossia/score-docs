@@ -7,7 +7,7 @@ has_children: false
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/video.html
+permalink: /processes/video.html
 ---
 
 ## Usage

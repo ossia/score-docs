@@ -5,7 +5,7 @@ title: Control utilities
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/control-utilities.html
+permalink: /processes/control-utilities.html
 ---
 
 # Impulse metronome

@@ -6,7 +6,7 @@ has_children: true
 
 parent: Reference manual
 
-permalink: /docs/reference-manual/common-practices
+permalink: /common-practices
 ---
 
 # Common practices

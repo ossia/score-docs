@@ -5,7 +5,7 @@ title: Bytebeat
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/bytebeat.html
+permalink: /processes/bytebeat.html
 ---
 
 # What is bytebeat?

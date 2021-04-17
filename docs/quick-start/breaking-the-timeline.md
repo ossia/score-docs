@@ -39,7 +39,7 @@ To set an input for a trigger point, just grab the desired parameter in the `Dev
 
 ![Enabling trigger]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/interactive-trigger.gif "Enabling trigger")
 
-In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller]({{ site.baseurl }}/docs/reference-manual/devices-types/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
+In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller]({{ site.baseurl }}/devices/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
 
 > You may also drop the parameter on the address field of the trigger point inspector.
 

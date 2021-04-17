@@ -5,14 +5,14 @@ nav_order: 7
 parent: Devices
 grand_parent: Reference manual
 has_children: false
-permalink: /docs/reference-manual/devices-types/midiout-device.html
+permalink: /devices/midiout-device.html
 ---
 
 # Midi output device
 
 To setup a device using Midi output, select `Midi output` in the Protocols column of the `Add device` window.
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference-manual/devices-types/midiout/midiout-device.png "score device setup")
+![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/midiout/midiout-device.png "score device setup")
 
 In the `Devices` middle column, you can select your desired Midi input device.
 

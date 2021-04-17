@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/shortcuts.html
+permalink: /reference/shortcuts.html
 category: "site-score"
 
 description: "Various shortcuts available in score"

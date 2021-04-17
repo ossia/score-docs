@@ -9,7 +9,7 @@ permalink: /docs/advanced/remote.html
 
 There are two main ways to remote control score:
 
-- Through OSC and OSCQuery with the [Local device]({{ site.baseurl }}/docs/references/devices-types/local-device.html).
+- Through OSC and OSCQuery with the [Local device]({{ site.baseurl }}/devices/local-device.html).
 
 - Through a WebSocket API. The WebSocket API has been used to build a nice [graphical remote application](https://github.com/iscore-pfa/qml-remote).
 
@@ -195,4 +195,4 @@ and
 
 #### Control surface
 
-See [Control surface]({{ site.baseurl }}/docs/reference-manual/processes/controlsurface.html).
+See [Control surface]({{ site.baseurl }}/processes/controlsurface.html).

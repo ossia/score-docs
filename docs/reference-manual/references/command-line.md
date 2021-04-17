@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/commandline.html
+permalink: /reference/commandline.html
 category: "site-score"
 
 

@@ -4,7 +4,7 @@ title: "How to run score without GUI ?"
 
 parent: FAQ
 
-permalink: /docs/faq/nogui.html
+permalink: /faq/nogui.html
 category: "site-score"
 
 description: "Using the commad line API to launch score witht GUI"
@@ -21,4 +21,4 @@ Score can run in the background while not opening its full UI (which may be hand
 `$ ossia-score --no-gui --autoplay /home/oscar/my-score.score`
 {% endhighlight %}
 
-You may find other useful commands in the [command line reference page]({{ site.baseurl }}/docs/reference-manual/references/commandline.html).
+You may find other useful commands in the [command line reference page]({{ site.baseurl }}/reference/commandline.html).

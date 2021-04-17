@@ -5,12 +5,12 @@ title: 2D Spline
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/2Dspline.html
+permalink: /processes/2Dspline.html
 ---
 
 # 2D Spline (X-Y automation)
 
-![2D spline]({{ site.baseurl }}/assets/images/reference-manual/processes/2Dspline.png "2D spline example")
+![2D spline]({{ site.baseurl }}/assets/images/reference/processes/2Dspline.png "2D spline example")
 
 It is possible to use math formulas to generate a specific spline.
 
@@ -18,7 +18,7 @@ To do so, right-click on a spline, and select `Generate curve` in the menu.
 
 The available variable is `t`. It is evaluated between 0 and 1.
 
-The syntax uses ExprTK (see [ExprTK support reference page]({{ site.baseurl }}/docs/reference-manual/references/exprtk.html "ExprTK ref page")).
+The syntax uses ExprTK (see [ExprTK support reference page]({{ site.baseurl }}/reference/exprtk.html "ExprTK ref page")).
 
 Here are some useful examples:
 

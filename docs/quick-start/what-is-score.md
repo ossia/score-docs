@@ -40,6 +40,6 @@ While *score* itself offers some audio and video features, it does not aim at be
 
 ![score main window]({{ site.baseurl }}/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
 
-*score 3.0.0* supports a number of protocols such as [Midi]({{ site.baseurl }}/docs/reference-manual/devices-types/midiin-device.html), [Open Sound Control]({{ site.baseurl }}/docs/reference-manual/devices-types/osc-device.html), [OSCQuery]({{ site.baseurl }}/docs/reference-manual/devices-types/oscquery-device.html) or [serial]({{ site.baseurl }}/docs/reference-manual/devices-types/serial-device.html) making it easy to use score as the central hub of a project and thus author fine relationships between medias.
+*score 3.0.0* supports a number of protocols such as [Midi]({{ site.baseurl }}/devices/midiin-device.html), [Open Sound Control]({{ site.baseurl }}/devices/osc-device.html), [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) or [serial]({{ site.baseurl }}/devices/serial-device.html) making it easy to use score as the central hub of a project and thus author fine relationships between medias.
 
 <!-- ## TODO Practice-based workflow -->

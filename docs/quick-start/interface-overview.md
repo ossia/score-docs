@@ -31,12 +31,12 @@ It comprises 4 main sections that can be switched using the icon at the bottom:
 
 ![Explorer main panels]({{ site.baseurl }}/assets/images/quick-start/score-interface/explorer-panels.png)
 
-1. [Device explorer]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#device-explorer): This is where you can setup the [devices]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#device) (hardware or software devices on the network) you want to control from *score*.
+1. [Device explorer]({{ site.baseurl }}/reference/glossary.html#device-explorer): This is where you can setup the [devices]({{ site.baseurl }}/reference/glossary.html#device) (hardware or software devices on the network) you want to control from *score*.
   The `Device explorer` also offers a way to monitor or browse devices involved in your project, inspect its parameters and their behavior.
   This also is where you can grab parameters you want to save in a snapshot, write automations on as explained in the following pages.
-2. [Processes explorer]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#processes-explorer): This is where you can browse and select some [processes]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#process) to use in your scenario to control various parameters of your devices or other processes.
-3. [User library explorer]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#user-library). This is where you can access some user defined assets. These can be devices setups, presets, processes collections amongst other things.
-4. [Project folder]({{ site.baseurl }}/docs/reference-manual/references/glossary.html#project-folder): This is where you can browse the content of the current project.
+2. [Processes explorer]({{ site.baseurl }}/reference/glossary.html#processes-explorer): This is where you can browse and select some [processes]({{ site.baseurl }}/reference/glossary.html#process) to use in your scenario to control various parameters of your devices or other processes.
+3. [User library explorer]({{ site.baseurl }}/reference/glossary.html#user-library). This is where you can access some user defined assets. These can be devices setups, presets, processes collections amongst other things.
+4. [Project folder]({{ site.baseurl }}/reference/glossary.html#project-folder): This is where you can browse the content of the current project.
 
 
 # Scenario editor panel

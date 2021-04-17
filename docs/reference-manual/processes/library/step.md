@@ -7,5 +7,5 @@ has_children: false
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/step.html
+permalink: /processes/step.html
 ---

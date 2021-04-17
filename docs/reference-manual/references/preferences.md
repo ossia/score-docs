@@ -6,7 +6,7 @@ nav_order:
 parent: References
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/preferences.html
+permalink: /reference/preferences.html
 category: "site-score"
 
 description: "score preferences settings"

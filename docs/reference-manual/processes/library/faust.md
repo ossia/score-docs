@@ -5,7 +5,7 @@ title: Faust
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/faust.html
+permalink: /processes/faust.html
 ---
 
 # Important links

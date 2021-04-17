@@ -5,7 +5,7 @@ title:  Math expressions
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/exprtk.html
+permalink: /processes/exprtk.html
 ---
 
 # ExprTK support
@@ -17,7 +17,7 @@ Several processes allow to write simple math expressions. Such processes include
 - Value Generator
 - Custom Mapping (Value)
 
-![ExprTK]({{ site.baseurl }}/assets/images/reference-manual/references/exprtk.png)
+![ExprTK]({{ site.baseurl }}/assets/images/reference/reference/exprtk.png)
 
 These expressions are solved within *score* using the [ExprTK library](https://www.partow.net/programming/exprtk/index.html "ExprTK website").
 

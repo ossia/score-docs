@@ -5,7 +5,7 @@ title: Audio utilities
 parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/processes/audio-utilities.html
+permalink: /processes/audio-utilities.html
 ---
 
 # Gain
