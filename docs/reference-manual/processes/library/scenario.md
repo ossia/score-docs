@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Scenario
+description: "The main process of ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/scenario.html
 ---

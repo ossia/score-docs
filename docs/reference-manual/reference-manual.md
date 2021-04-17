@@ -1,8 +1,12 @@
 ---
 layout: default
+
 title: Reference
+description: "Reference manual"
+
 nav_order: 4
 has_children: true
+
 permalink: /reference
 ---
 

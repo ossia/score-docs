@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "Working with devices"
+description: "Working with devices"
+
 parent: Quick start
 nav_order: 2
 
 permalink: /quick-start/working-with-devices.html
-category: "site-score"
-
-description: "Working with devices"
-
-tag: "Presentation"
-visible: true
 ---
 
 # Working with your devices

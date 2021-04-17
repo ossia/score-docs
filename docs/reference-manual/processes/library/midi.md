@@ -1,9 +1,11 @@
 ---
 layout: default
-title: MIDI
+
+title: MIDI processes
+description: "MIDI processes in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/midi.html
 ---

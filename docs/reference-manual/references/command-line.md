@@ -1,6 +1,8 @@
 ---
 layout: default
-title:  "Command line API"
+
+title: "Command line API"
+description: "Options for the score start-up"
 
 parent: Reference
 

@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "Saving & recalling devices' state"
+description: "Saving & recalling devices' state"
+
 parent: Quick start
 nav_order: 3
 
 permalink: /quick-start/saving-and-recalling-devices-state.html
-category: "site-score"
-
-description: "Saving & recalling devices' state"
-
-tag: "Presentation"
-visible: true
 ---
 
 *Score* provides a number of tools to author precise control of the various devices involved in your project. Here we will focus on two basic elements:

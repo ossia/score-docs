@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Wiimote device
+description: "Using Nintendo Wiimotes as an input device in ossia score"
+
 nav_order: 10
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/wiimote-device.html
 ---
 

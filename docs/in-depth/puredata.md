@@ -1,8 +1,10 @@
 ---
 layout: default
-title: "PureData integration"
 
-parent: Advanced
+title: "PureData integration"
+description: "How to embed PureData patches in ossia score"
+
+parent: In depth
 
 permalink: /in-depth/puredata.html
 ---

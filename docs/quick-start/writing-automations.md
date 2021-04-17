@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "Writing automations"
+description: "Writing automations"
+
 parent: Quick start
 nav_order: 4
 
 permalink: /quick-start/writing-automations.html
-category: "site-score"
-
-description: "Writing automations"
-
-tag: "Presentation"
-visible: true
 ---
 
 ## Writing continuous parameter control

@@ -1,6 +1,8 @@
 ---
 layout: default
-title:  "Media management"
+
+title: "Media management"
+description: "How media files are handled by ossia score"
 
 parent: In depth
 

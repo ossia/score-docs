@@ -1,6 +1,8 @@
 ---
 layout: default
+
 title: FAQ
+description: "Frequently Asked Questions"
 
 nav_order: 99
 has_children: true

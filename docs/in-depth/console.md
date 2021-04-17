@@ -1,8 +1,10 @@
 ---
 layout: default
-title:  "Console"
 
-parent: Advanced
+title: "Console"
+description: "How to use the Javascript console in ossia score"
+
+parent: In depth
 
 permalink: /in-depth/console.html
 ---

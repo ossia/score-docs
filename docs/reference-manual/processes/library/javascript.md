@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Javascript
+description: "Javascript process and syntax in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/javascript.html
 ---
@@ -11,13 +13,13 @@ permalink: /processes/javascript.html
 # Javascript support
 
 ## Scripting in Javascript / QML.
-*score* allows to write scripts using the JavaScript language. Thses scripts can be used to write specific processes such as value mappers, audio generators.
+*score* allows to write scripts using the JavaScript language. These scripts can be used to write specific processes such as value mappers, audio generators.
 
 *score* uses JavaScript version ES7. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about JS language.
 
 It also uses QML (property real, etc.). See the [QML Reference](https://doc.qt.io/qt-5/qmlreference.html) for more information.
 
-Setting the path to a file is possible
+Setting the path to a file is possible.
 
 ## Editing code
 

@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "States & automations in practice"
+description: "States and automations in practice"
+
 parent: Quick start
 nav_order: 5
 
 permalink: /quick-start/states-and-automations-in-practice.html
-category: "site-score"
-
-description: "States and automations in practice"
-
-tag: "Presentation"
-visible: true
 ---
 # States & automations in practice
 

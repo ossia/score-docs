@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Control utilities
+description: "Useful processes for sending control messages"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/control-utilities.html
 ---

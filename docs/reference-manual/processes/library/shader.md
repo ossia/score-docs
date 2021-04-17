@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Shader
-nav_order:
-has_children: false
+description: "Using ISF shaders in the ossia score graphics pipeline"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/shader.html
 ---

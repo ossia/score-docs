@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Audio device
+description: "Using multiple sound card inputs and outputs in a score"
+
 nav_order: 14
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/audio-device.html
 ---
 

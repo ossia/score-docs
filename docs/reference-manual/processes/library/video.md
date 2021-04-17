@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Video
-nav_order:
-has_children: false
+description: "Playing back video files in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/video.html
 ---

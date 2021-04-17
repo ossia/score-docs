@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Control surface
+description: "Using the control surface to keep an hand on score parameters"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/controlsurface.html
 ---

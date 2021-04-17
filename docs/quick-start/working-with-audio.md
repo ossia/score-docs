@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "Working with audio"
+description: "Working with audio within score"
+
 parent: Quick start
 nav_order: 6
 
 permalink: /quick-start/working-with-audio.html
-category: "site-score"
-
-description: "Working with audio within score"
-
-tag: "Presentation"
-visible: true
 ---
 # Working with audio in *score*
 ## Audio setup

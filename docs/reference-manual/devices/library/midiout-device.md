@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Midi output device
+description: "Send MIDI data to an external hardware"
+
 nav_order: 7
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/midiout-device.html
 ---
 

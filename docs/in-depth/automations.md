@@ -1,6 +1,8 @@
 ---
 layout: default
+
 title: "Automations"
+description: "How automations work in ossia score"
 
 parent: In depth
 

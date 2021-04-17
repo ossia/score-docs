@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Mapping (float)
+description: "Mappings in the timeline"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/mapping.html
 ---

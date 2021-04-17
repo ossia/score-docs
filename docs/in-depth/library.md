@@ -1,6 +1,8 @@
 ---
 layout: default
-title:  "Library"
+
+title: "Library"
+description: "Using the media and process library"
 
 parent: In depth
 

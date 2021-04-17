@@ -1,6 +1,8 @@
 ---
 layout: default
-title:  "Score preferences"
+
+title: "Score preferences"
+description: "User preferences and settings of ossia score"
 
 parent: Reference
 

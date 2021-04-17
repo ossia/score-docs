@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Automation (float)
+description: "Automation curve process"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/automation_float.html
 ---

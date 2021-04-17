@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Step sequencer
-nav_order:
-has_children: false
+description: "Sequencing parameters with fixed values"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/step.html
 ---

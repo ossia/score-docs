@@ -1,6 +1,8 @@
 ---
 layout: default
+
 title: "Switches"
+description: "Switches in ossia score"
 
 nav_order: 2
 parent: Common practices
@@ -53,7 +55,7 @@ It may be preferable to switch at every press of the button, instead of having t
 
 ## Parallel switches
 
-Consecutive switches shown above can sequence an arbitrary number of intervals, but only in the same order every time. To enable switching as well as reordering, we can rely on conditional branches. Let's first create another device for control. For this example we will add a [Mapper Device]({{ site.baseurl }}/devices/mapper-device.html) by simply copying and pasting the script below. We'll name it "Structure".
+Consecutive switches shown above can sequence an arbitrary number of intervals, but only in the same order every time. To enable switching as well as reordering, we can rely on conditional branches. Let's first create another device for control. For this example we will add a [Mapper Device]({{ site.baseurl }}/devices/mapper-device.html) by copying and pasting the script below. We will name it "Structure".
 {% highlight qml %}
 import Ossia 1.0 as Ossia
 

@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Signal display
-nav_order:
-has_children: false
+description: "Displaying a control signal in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/signal-display.html
 ---

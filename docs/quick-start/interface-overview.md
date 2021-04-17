@@ -1,16 +1,13 @@
 ---
 layout: default
+
 title: "Interface overview"
+description: "Interface overview"
+
 parent: Quick start
 nav_order: 1
 
 permalink: /quick-start/interface-overview.html
-category: "site-score"
-
-description: "Interface overview"
-
-tag: "Presentation"
-visible: true
 ---
 
 # *score* interface overview

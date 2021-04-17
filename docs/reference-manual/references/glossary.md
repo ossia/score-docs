@@ -1,6 +1,8 @@
 ---
 layout: default
-title:  "Glossary"
+
+title: "Glossary"
+description: "Glossary and terms used in ossia score"
 
 nav_order: 99
 parent: Reference

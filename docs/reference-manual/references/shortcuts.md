@@ -1,13 +1,15 @@
 ---
 layout: default
-title:  "Shortcuts"
+
+title: "Shortcuts"
+description: "Default keyboard shortcuts in ossia score"
 
 parent: Reference
 
 permalink: /reference/shortcuts.html
 ---
 
-Below is a list of shortcuts available in score listed by scope of usage.
+Below is a list of shortcuts available in *score* listed by scope of usage.
 
 # General
 

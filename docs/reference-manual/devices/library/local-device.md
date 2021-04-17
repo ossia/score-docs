@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Local device
+description: "Controlling ossia score with the local device tree"
+
 nav_order: 5
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/local-device.html
 ---
 

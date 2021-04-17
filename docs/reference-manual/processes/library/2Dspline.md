@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: 2D Spline
+description: "Automate 2D X-Y parameters with a spline curve"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/2Dspline.html
 ---

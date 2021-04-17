@@ -1,10 +1,13 @@
 ---
 layout: default
-title: WS device
+
+title: WebSocket device
+description: "Using an external WebSocket API for a score device"
+
 nav_order: 12
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/ws-device.html
 ---
 

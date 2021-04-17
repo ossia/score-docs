@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Serial device
+description: "Controlling serial-port based hardware in ossia score"
+
 nav_order: 8
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/serial-device.html
 ---
 

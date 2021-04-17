@@ -1,6 +1,8 @@
 ---
 layout: default
+
 title: "Looping"
+description: "Looping in ossia score"
 
 nav_order: 1
 parent: Common practices
@@ -34,7 +36,7 @@ Adding a trigger on the last `Sync` of a loop and setting its maximum duration a
 
 ## Loop branches
 
-Transitions actually connect to `Syncs` (vertical doted lines), therefore, transitioning to a specific `Sync` will execute or re-execute all connected branches. When several transitions are connected to the same `Sync`, the smallest loop will then always restart first and cut short all parallel intervals.
+Transitions actually connect to `Syncs` (vertical doted lines), thus, transitioning to a specific `Sync` will execute or re-execute all connected branches. When several transitions are connected to the same `Sync`, the smallest loop will then always restart first and cut short all parallel intervals.
 
 ![Loop branches]({{ site.baseurl }}/assets/images/reference/common-practices/loopBranches.gif "Loop branches")
 

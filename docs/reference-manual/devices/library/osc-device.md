@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: OSC device
+description: "OSC protocol support in ossia score"
+
 nav_order: 2
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/osc-device.html
 ---
 

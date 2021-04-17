@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Faust
+description: "Using Faust in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/faust.html
 ---

@@ -1,9 +1,11 @@
 ---
 layout: default
-title:  Math expressions
+
+title: Math expressions
+description: "Math expression syntax and processes in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/exprtk.html
 ---

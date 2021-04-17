@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: PureData integration
+description: "Using PureData in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/puredata.html
 ---

@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: OSCQuery device
+description: "OSCQuery protocol support in ossia score"
+
 nav_order: 1
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/oscquery-device.html
 ---
 

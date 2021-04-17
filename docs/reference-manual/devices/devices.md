@@ -1,8 +1,9 @@
 ---
 layout: default
+
 title: Devices
 
-parent: Reference manual
+parent: Reference
 has_children: true
 
 permalink: /devices.html

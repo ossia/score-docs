@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Window device
+description: "Opening a window to display visuals"
+
 nav_order: 15
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/window-device.html
 ---
 

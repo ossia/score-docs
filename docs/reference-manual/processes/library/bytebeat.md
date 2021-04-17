@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Bytebeat
+description: "Dope 8-bit sound generator"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/bytebeat.html
 ---

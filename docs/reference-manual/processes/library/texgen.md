@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Texture generator
-nav_order:
-has_children: false
+description: "Generating textures from C code"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/texgen.html
 ---

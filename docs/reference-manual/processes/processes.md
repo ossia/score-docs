@@ -1,8 +1,10 @@
 ---
 layout: default
-title: "Processes"
 
-parent: Reference manual
+title: "Processes"
+description: "Reference of ossia score processes"
+
+parent: Reference
 has_children: true
 
 permalink: /processes.html

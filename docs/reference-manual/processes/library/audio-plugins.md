@@ -1,9 +1,11 @@
 ---
 layout: default
+
 title: Audio plugins
+description: "Using external audio plug-ins in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/audio-plugins.html
 ---

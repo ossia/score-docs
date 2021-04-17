@@ -1,6 +1,8 @@
 ---
 layout: default
+
 title: "Cues"
+description: "Cues in ossia score"
 
 nav_order: 3
 parent: Common practices

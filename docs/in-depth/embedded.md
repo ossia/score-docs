@@ -1,8 +1,10 @@
 ---
 layout: default
-title: "Embedded devices"
 
-parent: Advanced
+title: "Embedded devices"
+description: "How to use ossia score on embedded hardware"
+
+parent: In depth
 
 permalink: /in-depth/embedded.html
 ---

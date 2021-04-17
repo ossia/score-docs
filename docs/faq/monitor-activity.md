@@ -1,16 +1,12 @@
 ---
 layout: default
+
 title: "How to monitor activity ?"
+description: "Monitoring messages coming in and out"
 
 parent: FAQ
 
 permalink: /faq/monitor-activity.html
-category: "site-score"
-
-description: "Monitoring messages coming in and out"
-
-tag: "FAQ"
-visible: true
 ---
 
 # How to monitor messages ?

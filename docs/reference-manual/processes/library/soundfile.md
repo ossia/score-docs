@@ -1,11 +1,11 @@
 ---
 layout: default
+
 title: Soundfiles
-nav_order:
-has_children: false
+description: "Playing sound files in ossia score"
 
 parent: Processes
-grand_parent: Reference manual
+grand_parent: Reference
 
 permalink: /processes/soundfile.html
 ---

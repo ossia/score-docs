@@ -1,10 +1,13 @@
 ---
 layout: default
+
 title: Camera device
+description: "Using a camera as source for visuals in ossia score"
+
 nav_order: 16
 parent: Devices
-grand_parent: Reference manual
-has_children: false
+grand_parent: Reference
+
 permalink: /devices/camera-device.html
 ---
 
