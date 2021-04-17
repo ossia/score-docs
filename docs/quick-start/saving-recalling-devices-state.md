@@ -4,7 +4,7 @@ title: "Saving & recalling devices' state"
 parent: Quick start
 nav_order: 3
 
-permalink: /docs/quick-start/saving-and-recalling-devices-state.html
+permalink: /quick-start/saving-and-recalling-devices-state.html
 category: "site-score"
 
 description: "Saving & recalling devices' state"
@@ -40,8 +40,8 @@ If you start playing your scenario using the play button from the transport ({% 
 
 You may now make some changes to your device, then store this new state using the same drag & drop workflow.
 
-Note that when storing our device's second state in the timeline, *score* proposes to bind this snapshot to different elements in the timeline, as displayed with a dashed grey line. For now, we will just make sure this snapshot is bound to the first one we placed on the timeline. But be sure to check [dedicated section](/structuring-your-scenario.html) in the manual to see the features *score* provides to help you structure elements in your scenario.
+Note that when storing our device's second state in the timeline, *score* proposes to bind this snapshot to different elements in the timeline, as displayed with a dashed grey line. For now, we will just make sure this snapshot is bound to the first one we placed on the timeline. But be sure to check [dedicated section]({{ site.baseurl }}/common-practices.html) in the manual to see the features *score* provides to help you structure elements in your scenario.
 
-<!-- You can now start sequencing your devices' states in your scenario or read [detailed informations about states management]({{ site.baseurl }}/store-and-recall-devices-states.html). -->
+You can now start sequencing your devices' states in your scenario or read [detailed information about managing states and automations]({{ site.baseurl }}/quick-start/states-and-automations-in-practice.html).
 
 <!-- ## Pro tip: setting an *init state* for your scenario -->

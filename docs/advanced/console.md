@@ -4,7 +4,7 @@ title:  "Console"
 
 parent: Advanced
 
-permalink: /docs/advanced/console.html
+permalink: /advanced/console.html
 ---
 
 ## Description

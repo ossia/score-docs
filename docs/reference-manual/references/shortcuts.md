@@ -2,17 +2,10 @@
 layout: default
 title:  "Shortcuts"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/shortcuts.html
-category: "site-score"
-
-description: "Various shortcuts available in score"
-
-tag: "shortcuts"
-visible: true
 ---
 
 Below is a list of shortcuts available in score listed by scope of usage.

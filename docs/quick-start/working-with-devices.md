@@ -4,7 +4,7 @@ title: "Working with devices"
 parent: Quick start
 nav_order: 2
 
-permalink: /docs/quick-start/working-with-devices.html
+permalink: /quick-start/working-with-devices.html
 category: "site-score"
 
 description: "Working with devices"
@@ -44,13 +44,13 @@ Right click on the `Device explorer` panel and setup the desired communication p
 |                                                                 |                                                             | [Wiimote]({{ site.baseurl }}/devices/wiimote-device.html)   |
 
 
-Detailed explanations on these various device types and corresponding setup options can be found in the [References pages]({{ site.baseurl }}/devices.html).
+Detailed explanations on these various device types and corresponding setup options can be found in the [Reference pages]({{ site.baseurl }}/devices.html).
 
 ## Devices' namespace browsing
 
 The `Device explorer` provides a unified view of your devices parameters as a tree-like structure. Devices are exposed as a number of nodes (some key parts of your device) and their related parameters.
 
-From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start]({{ site.baseurl }}/docs/quick-start/saving-and-recalling-devices-state.html "Scenario authoring").
+From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start]({{ site.baseurl }}/quick-start/saving-and-recalling-devices-state.html "Scenario authoring").
 
 ![Device's namespace browsing]({{ site.baseurl }}/assets/images/quick-start/working-with-devices/de-browsing.gif "Device's namespace browsing")
 

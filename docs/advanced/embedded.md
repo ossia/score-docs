@@ -4,7 +4,7 @@ title: "Embedded devices"
 
 parent: Advanced
 
-permalink: /docs/advanced/embedded.html
+permalink: /advanced/embedded.html
 ---
 
 # Hardware support

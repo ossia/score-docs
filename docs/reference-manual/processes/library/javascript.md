@@ -45,7 +45,7 @@ Script {
 
 The tick function's two arguments give both timing and contextual information useful for writing algorithms.
 
-Please read the [Timing](timing.html) page to understand the timing concepts used in ossia score, in particular
+Please read the [Timing]({{ site.baseurl }}/reference/musical.html#timing) page to understand the timing concepts used in ossia score, in particular
 how model, physical and musical dates relate to each other.
 
 ### Token object

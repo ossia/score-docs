@@ -1,17 +1,14 @@
 ---
 layout: default
 title: Common practices
-nav_order:
+nav_order: 2
 has_children: true
-
-parent: Reference manual
-
 permalink: /common-practices
 ---
 
 # Common practices
 
-The Following pages will guide you through reoccuring patterns and snippets that apply to many different use-cases.
+The following pages will guide you through recurring patterns and snippets that apply to many different use-cases.
 
 Enjoy advanced scenario authoring for your intermedia creation !
 

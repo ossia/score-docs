@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Advanced
-
+nav_order: 3
 has_children: true
-permalink: /docs/advanced/advanced.html
+permalink: /advanced
 ---
 
 # Advanced features

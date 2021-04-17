@@ -4,7 +4,7 @@ title: "What is score ?"
 parent: Quick start
 nav_order: 0
 
-permalink: /docs/quick-start/what-is-score.html
+permalink: /quick-start/what-is-score.html
 category: "site-score"
 
 description: "What is score ?"
@@ -26,7 +26,7 @@ When having to author scenarios for interactive art, music and sound performance
 
 While both approaches have numerous advanges, they also draw some limits in some advanced media-based productions: First type hardly offers (if any) flexibility in live situation regarding how events actually evolve in time. Second type makes it hard if possible at all to control precisely processes evolving over time.
 
-*score* thus aims at bridging the gap between these two models in a unified environment. By combining a flexible timeline with a patch-like authoring process, it allows to write [precisely timed processes such as automations]({{ site.baseurl }}/docs/quick-start/writing-automations.html) or more fancy parameters control and modulation while still [maintaining some variations as the scenario is executed]({{ site.baseurl }}/docs/quick-start/breaking-the-timeline.html). But it also allows to author [open and non linear scenarios](http://localhost:4000{{ site.baseurl }}/docs/quick-start/non-linear-timelines.html) yet still including some time-dependant processes.
+*score* thus aims at bridging the gap between these two models in a unified environment. By combining a flexible timeline with a patch-like authoring process, it allows to write [precisely timed processes such as automations]({{ site.baseurl }}/quick-start/writing-automations.html) or more fancy parameters control and modulation while still [maintaining some variations as the scenario is executed]({{ site.baseurl }}/quick-start/breaking-the-timeline.html). But it also allows to author [open and non linear scenarios]({{ site.baseurl }}/quick-start/non-linear-timelines.html) yet still including some time-dependant processes.
 
 ![score scenario]({{ site.baseurl }}/assets/images/quick-start/what-is-score/score-main.png)
 

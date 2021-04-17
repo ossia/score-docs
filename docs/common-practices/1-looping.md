@@ -2,24 +2,15 @@
 layout: default
 title: "Looping"
 
-parent: Common practices
-grand_parent: Reference manual
-has_children: false
-
 nav_order: 1
+parent: Common practices
 
 permalink: /common-practices/1-looping.html
-category: "site-score"
-
-description: "Looping"
-
-tag: "Presentation"
-visible: true
 ---
 
 # Looping
 
-This chapter deals with structure loops, not [Process loops]({{ site.baseurl }}/processes.html##process-loops).
+This chapter deals with structure loops, not [Process loops]({{ site.baseurl }}/processes.html#process-loops).
 
 ## Loop with transitions
 

@@ -2,7 +2,7 @@
 layout: default
 title: "Audio routing"
 
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/audio-routing.html

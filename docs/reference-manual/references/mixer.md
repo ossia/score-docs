@@ -2,7 +2,7 @@
 layout: default
 title:  "Mixer"
 
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/mixer.html

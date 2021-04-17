@@ -4,7 +4,7 @@ title: "Interface overview"
 parent: Quick start
 nav_order: 1
 
-permalink: /docs/quick-start/interface-overview.html
+permalink: /quick-start/interface-overview.html
 category: "site-score"
 
 description: "Interface overview"

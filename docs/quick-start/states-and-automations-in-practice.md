@@ -4,7 +4,7 @@ title: "States & automations in practice"
 parent: Quick start
 nav_order: 5
 
-permalink: /docs/quick-start/states-and-automations-in-practice.html
+permalink: /quick-start/states-and-automations-in-practice.html
 category: "site-score"
 
 description: "States and automations in practice"
@@ -14,7 +14,7 @@ visible: true
 ---
 # States & automations in practice
 
-In previous sections of this [Quick start guide]({{ site.baseurl }}/docs/quick-start/quick-start.html), we saw two elementary methods to write scenarios for your project: saving & recalling some device's state as well as writing simple automations for its parameters. While elementary, these two very features still offer a lot of flexibility to author advanced scenarios for your creations project. This is made even more flexible given a handful of *score*'s practice-based workflow features. Rather than separating cue-like execution of messages toward your devices and time evolving processes such as automations, *score* offer a number of ways to easily mix two approaches in a unified workflow.
+In previous sections of this [Quick start guide]({{ site.baseurl }}/quick-start/quick-start.html), we saw two elementary methods to write scenarios for your project: saving & recalling some device's state as well as writing simple automations for its parameters. While elementary, these two very features still offer a lot of flexibility to author advanced scenarios for your creations project. This is made even more flexible given a handful of *score*'s practice-based workflow features. Rather than separating cue-like execution of messages toward your devices and time evolving processes such as automations, *score* offer a number of ways to easily mix two approaches in a unified workflow.
 
 <!-- ## Combining states and automations -->
 

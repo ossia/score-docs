@@ -35,10 +35,9 @@ From *score* main window, right-click in the `Device explorer` on the left of wi
 
 In the Device setup window, in the left column, select the desired device type.
 
-Each device type has its setup panel depending of the used protocol. Please see the [Devices references page]({{ site.baseurl }}/devices-references.html) to setup your device.
+Each device type has its setup panel depending of the used protocol. Please see the relevant device reference page to setup your device.
 
 ## Rate limiting
-
 
 ## Device explorer
 
@@ -50,4 +49,4 @@ Each device type has its setup panel depending of the used protocol. Please see 
 
 ## Other
 
-- see [libossia protocol details](../site-libossia/features/oscquery.html)
+- see [libossia protocol details](https://ossia.io/site-libossia/features/oscquery.html)

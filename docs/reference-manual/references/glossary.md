@@ -3,16 +3,10 @@ layout: default
 title:  "Glossary"
 
 nav_order: 99
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/glossary.html
-category: "site-score"
-
-description: "score glossary"
-
-tag: "settings"
-visible: true
 ---
 
 - TOC

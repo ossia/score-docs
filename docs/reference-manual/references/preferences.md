@@ -2,17 +2,10 @@
 layout: default
 title:  "Score preferences"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/preferences.html
-category: "site-score"
-
-description: "score preferences settings"
-
-tag: "settings"
-visible: true
 ---
 
 ## Execution

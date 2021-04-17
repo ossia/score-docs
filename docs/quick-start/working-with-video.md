@@ -4,7 +4,7 @@ title: "Working with video"
 parent: Quick start
 nav_order: 7
 
-permalink: /docs/quick-start/working-with-video.html
+permalink: /quick-start/working-with-video.html
 category: "site-score"
 
 description: "Working with video within *score*"
@@ -33,7 +33,7 @@ When done, *score* creates a black video window.
 
 ## Playing a video file
 
-To add a video file to the timeline, just grab your file on disk or in the project library and drop it where you want on the timeline. As seen in the [previous section]({{ site.baseurl }}/docs/quick-start/working-with-audio.html "Working with audio within score"), you may as well drop it on top of some already existing automation's slot so your video file is aligned.
+To add a video file to the timeline, just grab your file on disk or in the project library and drop it where you want on the timeline. As seen in the [previous section]({{ site.baseurl }}/quick-start/working-with-audio.html "Working with audio within score"), you may as well drop it on top of some already existing automation's slot so your video file is aligned.
 
 When done, a slot containing the video file gets created on the timeline. You can adjust the length of the slot to fit the part of the video file to play following the different key frames of the video.
 

@@ -2,16 +2,10 @@
 layout: default
 title:  "Command line API"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/commandline.html
-category: "site-score"
-
-
-tag: "Scripting"
-visible: true
 ---
 
 You can launch ossia score from the command line or shell scripts with various useful options.

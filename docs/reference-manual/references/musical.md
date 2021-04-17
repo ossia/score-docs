@@ -2,8 +2,7 @@
 layout: default
 title:  "Musical metrics"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/musical.html
@@ -29,7 +28,7 @@ given at a deeper nesting level.
 
 
 
-### Low-level timing explanations
+# Timing
 
 How timing works in ossia score.
 

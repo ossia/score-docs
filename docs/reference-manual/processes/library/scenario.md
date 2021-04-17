@@ -15,8 +15,8 @@ The Scenario process allows to put a score inside another score, and to nest at 
 
 - Intervals: Muting intervals
 
-- Triggers: see [the relevant page](triggers.html)
-- Conditions: see [the relevant page](conditions.html)
+- Triggers: below
+- Conditions: below
 - Comment blocks
 
 

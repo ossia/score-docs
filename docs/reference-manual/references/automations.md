@@ -2,7 +2,7 @@
 layout: default
 title: "Automations"
 
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/automations.html

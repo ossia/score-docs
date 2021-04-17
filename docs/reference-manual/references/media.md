@@ -2,17 +2,10 @@
 layout: default
 title:  "Media management"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/media.html
-category: "site-score"
-
-description: "Media management"
-
-tag: "settings"
-visible: true
 ---
 
 # Paths

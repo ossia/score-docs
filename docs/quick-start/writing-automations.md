@@ -4,7 +4,7 @@ title: "Writing automations"
 parent: Quick start
 nav_order: 4
 
-permalink: /docs/quick-start/writing-automations.html
+permalink: /quick-start/writing-automations.html
 category: "site-score"
 
 description: "Writing automations"

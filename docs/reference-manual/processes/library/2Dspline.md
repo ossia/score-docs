@@ -18,7 +18,7 @@ To do so, right-click on a spline, and select `Generate curve` in the menu.
 
 The available variable is `t`. It is evaluated between 0 and 1.
 
-The syntax uses ExprTK (see [ExprTK support reference page]({{ site.baseurl }}/reference/exprtk.html "ExprTK ref page")).
+The syntax uses ExprTK (see [ExprTK support reference page]({{ site.baseurl }}/processes/exprtk.html "ExprTK ref page")).
 
 Here are some useful examples:
 

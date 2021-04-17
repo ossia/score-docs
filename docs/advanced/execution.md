@@ -4,7 +4,7 @@ title: "Execution engine"
 
 parent: Advanced
 
-permalink: /docs/advanced/execution.html
+permalink: /advanced/execution.html
 ---
 
 # Execution engine

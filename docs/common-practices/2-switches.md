@@ -2,19 +2,10 @@
 layout: default
 title: "Switches"
 
-parent: Common practices
-grand_parent: Reference manual
-has_children: false
-
 nav_order: 2
+parent: Common practices
 
 permalink: /common-practices/2-switches.html
-category: "site-score"
-
-description: "Switches"
-
-tag: "Presentation"
-visible: true
 ---
 
 # Switches

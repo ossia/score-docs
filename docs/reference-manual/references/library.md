@@ -2,17 +2,10 @@
 layout: default
 title:  "Library"
 
-nav_order:
-parent: References
+parent: Reference
 grand_parent: Reference manual
 
 permalink: /reference/library.html
-category: "site-score"
-
-description: "Library"
-
-tag: "settings"
-visible: true
 ---
 
 

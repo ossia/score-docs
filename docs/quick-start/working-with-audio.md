@@ -4,7 +4,7 @@ title: "Working with audio"
 parent: Quick start
 nav_order: 6
 
-permalink: /docs/quick-start/working-with-audio.html
+permalink: /quick-start/working-with-audio.html
 category: "site-score"
 
 description: "Working with audio within score"
