@@ -6,5 +6,5 @@ description: "Recording external parameter changes"
 
 parent: In depth
 
-permalink: /recording.html
+permalink: /in-depth/recording.html
 ---
