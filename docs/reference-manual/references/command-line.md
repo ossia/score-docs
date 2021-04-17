@@ -3,7 +3,6 @@ layout: default
 title:  "Command line API"
 
 parent: Reference
-grand_parent: Reference manual
 
 permalink: /reference/commandline.html
 ---

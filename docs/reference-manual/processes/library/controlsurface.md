@@ -15,7 +15,7 @@ permalink: /processes/controlsurface.html
 
 ## Remote control API
 
-The control surface process provides remote control features, through the system discussed in [Remote Control]({{ site.baseurl }}/advanced/remote.html).
+The control surface process provides remote control features, through the system discussed in [Remote Control]({{ site.baseurl }}/in-depth/remote.html).
 When such a process starts executing, the following message is sent:
 
 {% highlight js %}

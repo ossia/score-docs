@@ -2,8 +2,7 @@
 layout: default
 title: "Presets"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
 permalink: /presets.html
 ---

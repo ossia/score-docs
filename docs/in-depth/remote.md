@@ -4,7 +4,7 @@ title:  "Remote Control"
 
 parent: Advanced
 
-permalink: /advanced/remote.html
+permalink: /in-depth/remote.html
 ---
 
 There are two main ways to remote control score:

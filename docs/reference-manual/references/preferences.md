@@ -3,7 +3,6 @@ layout: default
 title:  "Score preferences"
 
 parent: Reference
-grand_parent: Reference manual
 
 permalink: /reference/preferences.html
 ---

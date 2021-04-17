@@ -2,10 +2,9 @@
 layout: default
 title:  "Media management"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/media.html
+permalink: /in-depth/media.html
 ---
 
 # Paths

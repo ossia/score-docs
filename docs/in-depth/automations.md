@@ -2,10 +2,9 @@
 layout: default
 title: "Automations"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/automations.html
+permalink: /in-depth/automations.html
 ---
 
 

@@ -2,10 +2,9 @@
 layout: default
 title:  "MIDI support"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/midi.html
+permalink: /in-depth/midi.html
 ---
 
 # MIDI communication

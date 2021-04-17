@@ -2,10 +2,9 @@
 layout: default
 title:  "Library"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/library.html
+permalink: /in-depth/library.html
 ---
 
 

@@ -2,10 +2,9 @@
 layout: default
 title:  "Mixer"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/mixer.html
+permalink: /in-depth/mixer.html
 ---
 
 # Mixing busses

@@ -2,10 +2,9 @@
 layout: default
 title: "Audio routing"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/audio-routing.html
+permalink: /in-depth/audio-routing.html
 ---
 
 # Audio routing

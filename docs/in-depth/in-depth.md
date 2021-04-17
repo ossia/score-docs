@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Advanced
+title: In depth
 nav_order: 3
 has_children: true
-permalink: /advanced
+permalink: /in-depth
 ---
 
 # Advanced features

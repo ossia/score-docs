@@ -2,10 +2,9 @@
 layout: default
 title:  "Musical metrics"
 
-parent: Reference
-grand_parent: Reference manual
+parent: In depth
 
-permalink: /reference/musical.html
+permalink: /in-depth/musical.html
 ---
 
 # Musical metrics
