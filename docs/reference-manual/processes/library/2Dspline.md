@@ -1,8 +1,6 @@
 ---
 layout: default
 title: 2D Spline
-nav_order:
-has_children: false
 
 parent: Processes
 grand_parent: Reference manual
@@ -14,9 +12,9 @@ permalink: /docs/reference-manual/processes/2Dspline.html
 
 ![2D spline](/score-docs/assets/images/reference-manual/processes/2Dspline.png "2D spline example")
 
-It is possible to use math formulas to generate a specific spline. 
+It is possible to use math formulas to generate a specific spline.
 
-To do so, right-click on a spline, and select `Generate curve` in the menu. 
+To do so, right-click on a spline, and select `Generate curve` in the menu.
 
 The available variable is `t`. It is evaluated between 0 and 1.
 

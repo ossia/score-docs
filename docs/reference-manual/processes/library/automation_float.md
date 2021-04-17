@@ -1,8 +1,6 @@
 ---
 layout: default
 title: Automation (float)
-nav_order:
-has_children: false
 
 parent: Processes
 grand_parent: Reference manual
@@ -90,9 +88,10 @@ When off, points can be freely moved along the whole automation's slot.
 ![Locked between points](/score-docs/assets/images/reference-manual/processes/automation_float/locked-between-points.gif)
 
 ![Unocked between points](/score-docs/assets/images/reference-manual/processes/automation_float/unlocked-between-points.gif)
+
 ### Suppress on overlap
 
-When `Lock between points` option is unset, crossing adjacent points can be handled in two different ways. 
+When `Lock between points` option is unset, crossing adjacent points can be handled in two different ways.
 
 By default, crossing an adjacent point in automation will remove this point. This can be turned off using by unsetting the option in the automation's contextual menu.
 

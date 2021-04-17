@@ -23,7 +23,7 @@ All can be done from one of the 3 UI areas described below.
 
 ## Explorer panel
 
-On the left of *score* main window is the `Explorer panel`. This is where you can browse and manage the various contents needed for your project. 
+On the left of *score* main window is the `Explorer panel`. This is where you can browse and manage the various contents needed for your project.
 
 ![Device explorer](/score-docs/assets/images/quick-start/score-interface/device_explorer.png "Device explorer")
 
@@ -31,8 +31,8 @@ It comprises 4 main sections that can be switched using the icon at the bottom:
 
 ![Explorer main panels](/score-docs/assets/images/quick-start/score-interface/explorer-panels.png)
 
-1. [Device explorer](/score-docs/docs/reference-manual/references/glossary.html#device-explorer): This is where you can setup the [devices](/score-docs/docs/reference-manual/references/glossary.html#device) (hardware or software devices on the network) you want to control from *score*.  
-  The `Device explorer` also offers a way to monitor or browse devices involved in your project, inspect its parameters and their behavior.  
+1. [Device explorer](/score-docs/docs/reference-manual/references/glossary.html#device-explorer): This is where you can setup the [devices](/score-docs/docs/reference-manual/references/glossary.html#device) (hardware or software devices on the network) you want to control from *score*.
+  The `Device explorer` also offers a way to monitor or browse devices involved in your project, inspect its parameters and their behavior.
   This also is where you can grab parameters you want to save in a snapshot, write automations on as explained in the following pages.
 2. [Processes explorer](/score-docs/docs/reference-manual/references/glossary.html#processes-explorer): This is where you can browse and select some [processes](/score-docs/docs/reference-manual/references/glossary.html#process) to use in your scenario to control various parameters of your devices or other processes.
 3. [User library explorer](/score-docs/docs/reference-manual/references/glossary.html#user-library). This is where you can access some user defined assets. These can be devices setups, presets, processes collections amongst other things.
@@ -56,3 +56,8 @@ On the right part of score main window is the `Object inspector`. It allows to d
 1. Top part of the inspector is the structural context of the selected object. For example, the parent interval a process is attached to, the time point a state is placed on and its linked states, etc.
 
 2. Bottom part are the various parameters of the selected object in the scenario: start time, duration and parameter address of an automation, source and target addresses of a mapping, its domain ranges, etc.
+
+
+# General UI considerations
+
+* Use right-click to edit controls precisely.

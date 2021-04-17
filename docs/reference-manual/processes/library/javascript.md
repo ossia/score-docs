@@ -1,18 +1,11 @@
 ---
 layout: default
-title:  "Javascript"
+title: Javascript
 
-nav_order: 
-parent: References
+parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/javascript.html
-category: "site-score"
-
-description: "Javascript in *score*"
-
-tag: "settings"
-visible: true
+permalink: /docs/reference-manual/processes/javascript.html
 ---
 
 # Javascript support
@@ -30,15 +23,15 @@ Setting the path to a file is possible
 
 An important thing to note is that the edited script *won't* be saved in the scenario if there are compilation errors.
 
-## General syntax 
+## General syntax
 
-Every script must contain 
+Every script must contain
 {% highlight qml %}
 import Score 1.0
 {% endhighlight %}
 somewhere at the top.
 
-A script defines a javascript object, with : 
+A script defines a javascript object, with :
 - Input and output ports
 - Callbacks that are called either regularly on every tick, or on special events (start, stop, pause, resume).
 
@@ -52,12 +45,12 @@ Script {
 
 The tick function's two arguments give both timing and contextual information useful for writing algorithms.
 
-Please read the [Timing](timing.html) page to understand the timing concepts used in ossia score, in particular 
+Please read the [Timing](timing.html) page to understand the timing concepts used in ossia score, in particular
 how model, physical and musical dates relate to each other.
 
 ### Token object
 
-Important note: due to the way numbers work in Javascript (that is, double-precision floating point numbers), 
+Important note: due to the way numbers work in Javascript (that is, double-precision floating point numbers),
 and due to the timing units, scripts can only be expected to be accurate for representing durations no greater than 147 days.
 
 That is, if a time interval lasts a year, after 147 days the timing values returned by `prev_date`, `date`, ... may not be accurate anymore.
@@ -91,11 +84,11 @@ Note that this does not affect for instance, scores with normal durations which 
 - `physical_read_duration(ratio)`: how many samples are we reading from the input ports.
 - `physical_write_duration(ratio)`: how many samples are we writing to the output ports.
 - `to_physical_time_in_tick(time, ratio)`: convert a model time into a physical time.
-- `from_physical_time_in_tick(time, ratio)`: convert a time in physical dates, to a time in model dates. 
-  
+- `from_physical_time_in_tick(time, ratio)`: convert a time in physical dates, to a time in model dates.
+
 - `in_range(time)`: check that the model time given is indeed in the range of this tick.
 
-- `position()`: where are we in relation to our parent interval. 0 is the beginning, 1 is the nominal duration. If an interval has a greater max, or is infinite, this will go beyond 1. 
+- `position()`: where are we in relation to our parent interval. 0 is the beginning, 1 is the nominal duration. If an interval has a greater max, or is infinite, this will go beyond 1.
 - `forward()`: is the time going forward in this tick (speed > 0).
 - `backward()`: is the time going backward in this tick (speed < 0).
 - `paused()`: is the time going anywhere in this tick (speed == 0). Note that there is a difference between setting the speed to zero, and pressing the "pause" button - in the first case, processes will still keep being executed, just with no duration.
@@ -119,7 +112,7 @@ The `state` object contains global properties relevant for the whole score execu
 ## Example of a value mapper
 
 {% highlight qml %}
-// Necessary for the Script object. 
+// Necessary for the Script object.
 // It is also possible to import QtQml 2.15
 import Score 1.0
 
@@ -135,7 +128,7 @@ Script {
 
   // This function is called on each tick.
   tick: function(token, state) {
-    // has a message been received ? 
+    // has a message been received ?
     if (typeof in1.value !== 'undefined') {
       // print it in the console
       console.log(in1.value);
@@ -166,7 +159,7 @@ Script {
   // Declare our inputs & outputs
   FloatSlider { id: in1; min: 20; max: 800; init: 440; objectName: "Frequency" }
   AudioOutlet { id: out1 }
-  
+
   // Index to keep track of the phase
   property real phase: 0;
 
@@ -175,7 +168,7 @@ Script {
 
     // How many samples we must write
     var n = token.physical_write_duration(state.model_to_physical);
-    
+
     if(n > 0) {
       // Computer the sin() coefficient
       var freq = in1.value;
@@ -207,7 +200,7 @@ Script {
 
 See the user library: Presets/JS/transpose.qml
 
-## Port types 
+## Port types
 ## Properties common to all ports
 {% highlight qml %}
 FloatSlider {
@@ -218,10 +211,10 @@ FloatSlider {
 {% endhighlight %}
 
 ## Audio
-Create an audio input: 
+Create an audio input:
 {% highlight qml %}
-AudioInlet { 
-    id: in    
+AudioInlet {
+    id: in
 }
 
 ...
@@ -229,7 +222,7 @@ AudioInlet {
 var left = in.channel(0);
 var right = in.channel(1);
 
-console.log(left[0]); // print the first sample of the first channel 
+console.log(left[0]); // print the first sample of the first channel
 
 for (var value in left) { ... }
 {% endhighlight %}
@@ -237,36 +230,36 @@ for (var value in left) { ... }
 Create an audio output:
 
 {% highlight qml %}
-AudioOutlet { 
+AudioOutlet {
     id: out
 }
 
 ...
-// set the data of channel 0 to the following: 
+// set the data of channel 0 to the following:
 out.setChannel(0, [0.1, 0.0, 0.2, 0.0, -0.1, 0.0]);
 
 {% endhighlight %}
 
 ## MIDI
-Create a MIDI input: 
+Create a MIDI input:
 {% highlight qml %}
-MidiInlet { 
-    id: in    
+MidiInlet {
+    id: in
 }
 
 ...
 
 var messages = in.messages();
-for (var message in messages) { 
+for (var message in messages) {
     // Print the MIDI bytes
     console.log(message[0], message[1], message[2]);
 }
 {% endhighlight %}
 
-Create a MIDI output: 
+Create a MIDI output:
 
 {% highlight qml %}
-MidiOutlet { 
+MidiOutlet {
     id: out
 }
 
@@ -275,9 +268,9 @@ MidiOutlet {
 out.add([144, 64, 127]);
 
 // set & replace all the messages to be pushed
-out.setMessages([ 
-    [144, 64, 127], 
-    [144, 68, 127], 
+out.setMessages([
+    [144, 64, 127],
+    [144, 68, 127],
     [127, 30, 0]
 ]);
 {% endhighlight %}
@@ -296,14 +289,14 @@ ValueInlet {
 console.log(in.value());
 
 // Iterate through all the messages received for this tick, with their timestamp
-for (var message in in.values) { 
+for (var message in in.values) {
     console.log(message.timestamp, message.value);
 }
 {% endhighlight %}
 
 Sending:
 {% highlight qml %}
-ValueOutlet { 
+ValueOutlet {
     id: out
 }
 
@@ -311,15 +304,15 @@ ValueOutlet {
 // Use either
 out.setValue(1.234);
 
-// or 
+// or
 out.addValue(timestamp, 1.234);
 {% endhighlight %}
 
 ## Controls
-Controls behave exactly like ValueInlet but show up as actual UI 
+Controls behave exactly like ValueInlet but show up as actual UI
 controls. They have as such relevant properties: min, max, etc.
 {% highlight qml %}
-FloatSlider { 
+FloatSlider {
     min: 0.0
     max: 1.0
     init: 0.5
@@ -327,28 +320,28 @@ FloatSlider {
 {% endhighlight %}
 
 {% highlight qml %}
-IntSlider { 
-    min: 0 
+IntSlider {
+    min: 0
     max: 127
     init: 0
 }
 {% endhighlight %}
 
 {% highlight qml %}
-Enum { 
+Enum {
     choices: ["foo", "bar", "baz"]
     index: 2
 }
 {% endhighlight %}
 
 {% highlight qml %}
-Toggle { 
+Toggle {
     checked: true
 }
 {% endhighlight %}
 
 {% highlight qml %}
-LineEdit { 
+LineEdit {
     text: "Hello world"
 }
 {% endhighlight %}

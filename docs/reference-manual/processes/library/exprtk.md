@@ -1,26 +1,19 @@
 ---
 layout: default
-title:  "ExprTK "
+title:  Math expressions
 
-nav_order: 
-parent: References
+parent: Processes
 grand_parent: Reference manual
 
-permalink: /docs/reference-manual/references/exprtk.html
-category: "site-score"
-
-description: "ExprTK"
-
-tag: "settings"
-visible: true
+permalink: /docs/reference-manual/processes/exprtk.html
 ---
 
 # ExprTK support
 
-Several Processes allow to write simple math expressions. Such processes include:
+Several processes allow to write simple math expressions. Such processes include:
 
 - Audio Generator
-- Audio Mapping 
+- Audio Mapping
 - Value Generator
 - Custom Mapping (Value)
 
@@ -35,11 +28,10 @@ Numerous math functions are available: `sin`, `cos`, `abs`, `log`, as well as th
 ## Value generator
 
 ### Logistic function
-
 {% highlight matlab %}
-if(m1 == 0) { 
-  m2 := 0.8; 
-  m1 := 1; 
+if(m1 == 0) {
+  m2 := 0.8;
+  m1 := 1;
 }
 
 var r := 4 * a;
@@ -50,15 +42,14 @@ m2;
 ## Value mapper
 
 ### Add jitter
-
 {% highlight matlab %}
 var rnd_m := pow(2, 31);
 var rnd_a := 1103515245;
 var rnd_c := 12345;
 
-if(m2 == 0) { 
-  m2 := 1; 
-  m1 := 12345678; 
+if(m2 == 0) {
+  m2 := 1;
+  m1 := 12345678;
 }
 
 var r := (rnd_a * m1 + rnd_c) % rnd_m;
@@ -69,7 +60,6 @@ x + a * r / (2^33);
 ## Audio generator
 
 ### Sine wave
-
 {% highlight matlab %}
 var phi := 2 * pi * (20 + a * 500) / fs;
 
@@ -80,7 +70,6 @@ out[1] := b * cos(m1[0]);
 {% endhighlight %}
 
 ### Square wave
-
 {% highlight matlab %}
 var phi := 2 * pi * (20 + a * 500) / fs;
 
@@ -90,7 +79,6 @@ var f := cos(m1[0]) > 0 ? b : -b;
 out[0] := f;
 out[1] := f;
 {% endhighlight %}
-
 ### Wobbly synth
 
 {% highlight matlab %}
@@ -130,7 +118,6 @@ for (var i := 0; i < n; i += 1) {
 ## Available variables
 
 ### Everywhere
-
 * t: the current time
 * pos: the position in the interval
 * a, b, c: three provided controls
@@ -141,8 +128,8 @@ for (var i := 0; i < n; i += 1) {
 
 * x: the value of the current input
 * dt: the time delta
-  
-### Audio mapping 
+
+### Audio mapping
 
 * x: the value of the current sample
 * out: where to write the output
@@ -153,7 +140,7 @@ for (var i := 0; i < n; i += 1) {
 
 * dt: the time delta
 
-### Audio generator 
+### Audio generator
 
 * out: where to write the output
 * fs: the sampling rate

@@ -7,11 +7,6 @@ nav_order: 1
 
 permalink: /docs/advanced/embedded.html
 category: "site-score"
-
-description: "Running score on embedded devices, such as the Raspberry Pi"
-
-tag: "Hardware"
-visible: true
 ---
 
 # Hardware support
