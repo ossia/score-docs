@@ -8,7 +8,7 @@ has_children: false
 
 nav_order: 1
 
-permalink: /docs/reference-manual/common-practices/looping.html
+permalink: /docs/reference-manual/common-practices/1-looping.html
 category: "site-score"
 
 description: "Looping"
@@ -19,12 +19,7 @@ visible: true
 
 # Looping
 
-## Process Loops
-
-Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel 
-or by clicking on process header, the loop option will appear in the `Inspector`
-
-![Process looping](/score-docs/assets/images/reference-manual/common-practices/loopProcess.gif "Process looping")
+This chapter deals with structure loops, not [Process loops](/docs/reference-manual/processes/edit.html##process-loops).
 
 ## Loop with transitions
 
