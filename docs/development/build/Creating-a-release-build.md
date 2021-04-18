@@ -14,7 +14,7 @@ permalink: /development/build/release.html
 
 This page describes how to build score on various operating systems.
 
-**Dear packagers: here are specific build instructions to make packages for Linux/BSD/... : [[Packaging score for Linux]]**.
+**Dear packagers: here are specific build instructions to make packages for Linux/BSD/... : [Packaging score for Linux]({{ site.baseurl }}/development/build/packaging.html)**.
 
 
 ## Dependencies
@@ -23,10 +23,9 @@ To build, you will need the following dependencies :
  * [CMake](https://cmake.org/) (>= 3.15)
  * [Boost](http://www.boost.org/) (automatically downloaded)
  * (optional) FFMPEG (http://www.ffmpeg.org) (>= 3.3)
- * A **recursive** clone of the score repository : `git clone --recursive https://github.com/OSSIA/score`.
+ * A **recursive** clone of the score repository : `git clone --recursive https://github.com/ossia/score`.
 
-The easiest way to get most dependencies is by downloading our SDK for your platform:
-https://github.com/ossia/sdk/releases/tag/sdk17
+The easiest way to get most dependencies in a prebuilt form is by [downloading our SDK for your platform](https://github.com/ossia/sdk/releases).
 
 **Important:** do not use the source releases produced by GitHub :
 they do not have the submodules and compiling with them won't work.
@@ -35,7 +34,7 @@ Your compiler need to be recent; supported compilers are:
 * gcc >= 8
 * clang >= 8
 * Xcode >= 11
-* Visual Studio 2019 (the very last)
+* Visual Studio 2019 (the very latest version !)
 
 
 What does **not** work :
@@ -87,7 +86,7 @@ sudo apt-get install -qq --force-yes \
       -DCMAKE_C_COMPILER=/usr/bin/gcc-9 \
       -DCMAKE_CXX_COMPILER=/usr/bin/g++-9 \
       -DCMAKE_PREFIX_PATH=/opt/qt513 \
-      -DSCORE_CONFIGURATION=static-release \
+      -DCMAKE_BUILD_TYPE=release \
       -DPORTAUDIO_ONLY_DYNAMIC=1
     make all_unity # you can add -j$(nproc) to make it faster
 
@@ -192,7 +191,7 @@ Then, on a command shell, run :
 ```
 mkdir score-build
 cd score-build
-cmake -T host=x64 -A x64 ../score -DSCORE_CONFIGURATION=static-release -DCMAKE_PREFIX_PATH=path/to/Qt5Config.cmake
+cmake -T host=x64 -A x64 ../score -DCMAKE_BUILD_TYPE=release -DCMAKE_PREFIX_PATH=path/to/Qt5Config.cmake
 cmake --build . --target package
 ```
 
@@ -234,8 +233,8 @@ Build the player library :
 Put the library in the correct folder :
 
     mkdir -p /opt/qt-android/qml/Ossia/
-    ln -s ~/score/API/OSSIA/ossia-qml/Ossia/*.qml  /opt/qt-android/qml/Ossia/
-    cp ~/score/API/OSSIA/ossia-qml/Ossia/qmldir  /opt/qt-android/qml/Ossia/
+    ln -s ~/score/API/ossia/ossia-qml/Ossia/*.qml  /opt/qt-android/qml/Ossia/
+    cp ~/score/API/ossia/ossia-qml/Ossia/qmldir  /opt/qt-android/qml/Ossia/
     ln -s ~/build/libiscore_player_plugin.so /opt/qt-android/qml/Ossia/
 
 Change the name of the library in the qmldir (iscore_player_plugin instead of ossia)

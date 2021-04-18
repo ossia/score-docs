@@ -68,7 +68,7 @@ First get a recursive clone of the repository :
 
     $ git clone --recursive -j16 https://github.com/ossia/score
 
-The prefered way to build when hacking on the software is with [cninja](https://github.com/jcelerier/cninja):
+The preferred way to build when hacking on the software is with [cninja](https://github.com/jcelerier/cninja):
 
     cninja ~/path/to/score developer
 
@@ -96,7 +96,7 @@ For instance, for generating the build files on Ubuntu, Debian or Linux Mint, th
       -DSCORE_PCH=1                              \
       -DSCORE_DYNAMIC_PLUGINS=1
 
-*Note : * Run the cmake command in a separate build folder, especially not in the source directory of score !
+*Note : * Run the `cmake` command in a separate build folder, especially not in the source directory of score !
 
 If you are not using your distribution's Qt version because it's too old, pass the path to a recent version with, for instance,
 
@@ -121,7 +121,7 @@ Refer to this video : https://www.youtube.com/watch?v=LSifHFbuky0
 pacman -S git cmake ninja clang lld boost qt5-base qt5-imageformats qt5-websockets qt5-quickcontrols2 qt5-serialport qt5-declarative qt5-tools  ffmpeg portaudio jack lv2 suil lilv sdl2
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -150,7 +150,7 @@ python3 -m aqt install --outputdir ~/Qt 5.15.1 linux desktop
 apt -y install qtbase5-dev qtdeclarative5-dev qtbase5-private-dev qtdeclarative5-private-dev libqt5websockets5-dev
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -182,7 +182,7 @@ apt -y install qtbase5-dev qtdeclarative5-dev qtbase5-private-dev qtdeclarative5
 apt -y install llvm-dev libbluetooth-dev libqt5serialport5-dev libqt5websockets5-dev libfftw3-dev liblilv-dev libsuil-dev
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -210,7 +210,7 @@ dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-rel
 dnf install cmake clang lld ffmpeg-devel llvm-devel portaudio-devel lilv-devel suil-devel ninja-build git qt5-qtbase-devel qt5-qtsvg-devel qt5-qttools-devel qt5-qtserialport-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtquickcontrols2-devel
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -229,7 +229,7 @@ ninja
 zypper install libqt5-qtbase-devel cmake clang ninja boost-devel lld llvm-devel libjack-devel portaudio-devel lv2-devel liblilv-0-devel suil-devel libSDL2-devel libqt5-qtdeclarative-devel  libqt5-qtwebsockets-devel libqt5-qttools  libqt5-qtserialport-devel libqt5-qtquickcontrols2 libqt5-qtimageformats-devel ffmpeg-4-libavcodec-devel ffmpeg-4-libavdevice-devel ffmpeg-4-libavfilter-devel ffmpeg-4-libavformat-devel ffmpeg-4-libswresample-devel
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -251,7 +251,7 @@ Then :
 brew install git qt5 ninja cmake ffmpeg portaudio boost
 
 # Clone the code
-git clone --recursive -j16 https://github.com/OSSIA/score
+git clone --recursive -j16 https://github.com/ossia/score
 cd score
 
 # Build
@@ -272,7 +272,7 @@ First install:
 * [CMake](https://cmake.org/)
 * [Python](https://www.python.org)
 * Take a few seconds to contemplate the easiness of building on the above Unix platforms
-* Extract https://github.com/OSSIA/sdk/releases/download/sdk14/win-audio-sdk-msvc.zip in your `c:\` so that the folders once extracted look like `c:\score-sdk-msvc\portaudio` and `c:\score-sdk-msvc\ffmpeg`
+* Extract https://github.com/ossia/sdk/releases/download/sdk14/win-audio-sdk-msvc.zip in your `c:\` so that the folders once extracted look like `c:\score-sdk-msvc\portaudio` and `c:\score-sdk-msvc\ffmpeg`
 
 
 Run a `x64 Native Tools Command Prompt for VS 2019`:
@@ -300,7 +300,7 @@ score.exe
 ```
 
 ## Windows (with MSYS2)
-First download https://github.com/OSSIA/sdk/releases/download/sdk14/score-sdk-mingw.7z and extract it in your `c:\` (the folder should look like `c:\score-sdk\ffmpeg`)
+First download https://github.com/ossia/sdk/releases/download/sdk14/score-sdk-mingw.7z and extract it in your `c:\` (the folder should look like `c:\score-sdk\ffmpeg`)
 
 Then, in a mingw-w64 terminal (not an MSYS terminal, this is very important ! if in doubt, run `c:\msys64\mingw64.exe`):
 

@@ -8,3 +8,6 @@ parent: Development
 
 permalink: /development/plug-ins.html
 ---
+
+* Addon tutorial : https://github.com/OSSIA/iscore-addon-tutorial
+* Addon tutorial documentation : https://github.com/OSSIA/iscore-addon-tutorial/tree/master/ReadMe
