@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: ArtNet device
+title: Art-Net device
 description: "Controlling ArtNet and DMX peripherals in ossia score"
 
 nav_order: 13
@@ -11,6 +11,16 @@ grand_parent: Reference
 permalink: /devices/artnet-device.html
 ---
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/artnet-device.png "score device setup")
+# Art-Net device
 
-Reference is not yet available. Feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.
+![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/artnet/artnet-1.png "score device setup")
+
+It is possible to communicate through DMX with ossia score, in order to control and automate light fixtures.
+
+The [user library]({{ site.baseurl }}/in-depth/library.html) contains a built-in fixture library that can be added:
+
+![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/artnet/artnet-2.png "score device setup")
+
+If no fixtures are added, then the device will instead provide the 512 raw DMX channels.
+
+Else, each fixture will appear as a node of the device.
