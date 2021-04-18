@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: PureData integration
+title: Pure Data integration
 description: "Using PureData in ossia score"
 
 parent: Processes
@@ -10,7 +10,7 @@ grand_parent: Reference
 permalink: /processes/puredata.html
 ---
 
-# PureData support
+# Pure Data support
 
 ossia score supports running [Pure Data](http://msp.ucsd.edu/software.html) patches as processes.
 Simply drop a patch in the score to add it.
@@ -19,7 +19,7 @@ This is done thanks to [libpd](https://github.com/libpd/libpd).
 
 ## Example
 
-The following PureData patch:
+The following Pure Data patch:
 
 ![Pd patch]({{ site.baseurl }}/assets/images/pd/pd-example-patch.png)
 

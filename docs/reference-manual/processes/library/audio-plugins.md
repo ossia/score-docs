@@ -10,12 +10,21 @@ grand_parent: Reference
 permalink: /processes/audio-plugins.html
 ---
 
+# Standard plug-in formats
 
-- Types d'effets supportés:
-  - VST2 (c) Steinberg
-  - LV2 (on Linux)
-  - Faust
+vstpuppet
 
-- Instruments virtuels sont détectés aussi
+rescanning plug-ins
 
-- Méthode recommandée: utiliser une effect chain / synth chain
+## VST support
+
+## VST3 support
+
+## LV2 support
+
+# Advanced plug-in and extensions
+## Faust support
+
+## Pure Data support
+
+## C++ JIT

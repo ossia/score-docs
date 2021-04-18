@@ -1,8 +1,8 @@
 ---
 layout: default
 
-title: "PureData integration"
-description: "How to embed PureData patches in ossia score"
+title: "Pure Data integration"
+description: "How to embed Pure Data patches in ossia score"
 
 parent: In depth
 
