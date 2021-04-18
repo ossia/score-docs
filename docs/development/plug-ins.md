@@ -29,6 +29,13 @@ and add it to the list in [this file](https://github.com/ossia/score/blob/master
 
 When building score again, the plug-in should appear in the process list.
 
+A video explains the whole process:
+
+<div class="videoWrapper">
+    <iframe src="" data-src="https://www.youtube.com/embed/LSifHFbuky0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
 ## Score API
 A more advanced API that allows to customize pretty much every aspect of the software, but requires more work.
 
