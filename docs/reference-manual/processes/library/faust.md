@@ -17,5 +17,5 @@ permalink: /processes/faust.html
 
 # Video tutorial
 <div class="videoWrapper">
-    <iframe src="" data-src="https://www.youtube.com/embed/yvTjJMrFxR0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/yvTjJMrFxR0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>

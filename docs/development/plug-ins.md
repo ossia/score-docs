@@ -32,7 +32,7 @@ When building score again, the plug-in should appear in the process list.
 A video explains the whole process:
 
 <div class="videoWrapper">
-    <iframe src="" data-src="https://www.youtube.com/embed/LSifHFbuky0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/LSifHFbuky0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 
