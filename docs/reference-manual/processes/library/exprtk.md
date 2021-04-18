@@ -30,7 +30,7 @@ Numerous math functions are available: `sin`, `cos`, `abs`, `log`, as well as th
 ## Value generator
 
 ### Logistic function
-{% highlight matlab %}
+```matlab
 if(m1 == 0) {
   m2 := 0.8;
   m1 := 1;
@@ -39,12 +39,12 @@ if(m1 == 0) {
 var r := 4 * a;
 m2 := r * m2 * (1 - m2);
 m2;
-{% endhighlight %}
+```
 
 ## Value mapper
 
 ### Add jitter
-{% highlight matlab %}
+```matlab
 var rnd_m := pow(2, 31);
 var rnd_a := 1103515245;
 var rnd_c := 12345;
@@ -57,22 +57,22 @@ if(m2 == 0) {
 var r := (rnd_a * m1 + rnd_c) % rnd_m;
 m1 := r;
 x + a * r / (2^33);
-{% endhighlight %}
+```
 
 ## Audio generator
 
 ### Sine wave
-{% highlight matlab %}
+```matlab
 var phi := 2 * pi * (20 + a * 500) / fs;
 
 m1[0] += phi;
 
 out[0] := b * cos(m1[0]);
 out[1] := b * cos(m1[0]);
-{% endhighlight %}
+```
 
 ### Square wave
-{% highlight matlab %}
+```matlab
 var phi := 2 * pi * (20 + a * 500) / fs;
 
 m1[0] += phi;
@@ -80,10 +80,10 @@ m1[0] += phi;
 var f := cos(m1[0]) > 0 ? b : -b;
 out[0] := f;
 out[1] := f;
-{% endhighlight %}
+```
 ### Wobbly synth
 
-{% highlight matlab %}
+```matlab
 var freq_l := 225 +  cos(t/(100*(a+0.1)));
 freq_l := 2 * pi * m1[0] *  freq_l * b / fs;
 
@@ -94,27 +94,27 @@ m1[0] += 1;
 
 out[0] := b * cos( freq_l );
 out[1] := b * cos( freq_r );
-{% endhighlight %}
+```
 
 ## Audio filter
 
 ### Crude distortion
 
 2-channel version:
-{% highlight matlab %}
+```matlab
 out[0] := clamp(0,  tan(x[0]*log(1 + 200 * a)), 1);
 out[1] := clamp(0,  tan(x[1]*log(1 + 200 * a)), 1);
-{% endhighlight %}
+```
 
 Any number of channel version:
-{% highlight matlab %}
+```matlab
 var n := x[];
 
 for (var i := 0; i < n; i += 1) {
   var dist := tan(x[i]*log(1 + 200 * a));
   out[i] := clamp(0, dist, 1);
 }
-{% endhighlight %}
+```
 
 
 ## Available variables

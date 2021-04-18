@@ -12,7 +12,7 @@ permalink: /processes/texgen.html
 
 
 # Example
-{% highlight cpp %}
+```cpp
 extern "C"
 void score_rgba(unsigned char* rgba, int width, int height, int t)
 {
@@ -28,4 +28,4 @@ void score_rgba(unsigned char* rgba, int width, int height, int t)
     }
   }
 }
-{% endhighlight %}
+```

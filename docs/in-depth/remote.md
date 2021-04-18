@@ -31,31 +31,31 @@ The message format is JSON.
 
 ### Score -> client
 
-{% highlight js %}
+```js
 {
     "Message": "DeviceTree"
 }
-{% endhighlight %}
+```
 
 
 #### When a trigger starts executing:
-{% highlight js %}
+```js
 {
     "Message": "TriggerAdded",
     "Path": "/path/to/the/trigger"
 }
-{% endhighlight %}
+```
 
 #### When a trigger has finished executing:
-{% highlight js %}
+```js
 {
     "Message": "TriggerRemoved",
     "Path": "/path/to/the/trigger"
 }
-{% endhighlight %}
+```
 
 #### When an interval starts executing:
-{% highlight js %}
+```js
 {
     "Message": "IntervalAdded",
     "Path": "/path/to/the/interval",
@@ -64,18 +64,18 @@ The message format is JSON.
     "Comment": "User-readable comment",
     "Speed": 1.2345
 }
-{% endhighlight %}
+```
 
 #### When an interval has finished executing:
-{% highlight js %}
+```js
 {
     "Message": "IntervalRemoved",
     "Path": "/path/to/the/interval"
 }
-{% endhighlight %}
+```
 
 #### Heartbeat sent every few milliseconds:
-{% highlight js %}
+```js
 {
     "Intervals": [ {
         "Path": "/path/to/the/interval",
@@ -85,14 +85,14 @@ The message format is JSON.
     }, ...
     ]
 }
-{% endhighlight %}
+```
 
 
 ### Client -> score
 
 #### Transport messages:
 
-{% highlight js %}
+```js
 { "Message": "Play" }
 
 { "Message": "Pause" }
@@ -103,46 +103,46 @@ The message format is JSON.
     "Message": "Transport",
     "Milliseconds": 40000
 }
-{% endhighlight %}
+```
 
 #### Console control:
 
 See the [Console API](console.html) for the allowed operations.
-{% highlight js %}
+```js
 {
   "Message": "Console",
   "Code": "someJSCodeToExecute()"
 }
-{% endhighlight %}
+```
 
 #### To trigger a trigger:
-{% highlight js %}
+```js
 {
     "Message": "Trigger",
     "Path": "/path/to/the/trigger"
 }
-{% endhighlight %}
+```
 
 #### To slow down or speed up an interval:
-{% highlight js %}
+```js
 {
     "Message": "IntervalSpeed",
     "Path": "/path/to/the/interval",
     "Speed": 0.5
 }
-{% endhighlight %}
+```
 
 #### To change the gain of an interval:
-{% highlight js %}
+```js
 {
     "Message": "IntervalGain",
     "Path": "/path/to/the/interval",
     "Gain": 0.5
 }
-{% endhighlight %}
+```
 
 #### To send a control message:
-{% highlight js %}
+```js
 {
     "Message": "Message",
     "Address": "device:/foo/bar@[color.rgb.r]",
@@ -150,10 +150,10 @@ See the [Console API](console.html) for the allowed operations.
         "Float": 1.23
     }
 }
-{% endhighlight %}
+```
 
 or, to showcase all possible types:
-{% highlight js %}
+```js
 {
     "Message": "Message",
     "Address": "device:/foo/bar",
@@ -171,28 +171,28 @@ or, to showcase all possible types:
         ]
     }
 }
-{% endhighlight %}
+```
 
 #### To enable / disable listening
 
 Listening to an address means that when an address's value changes, the
 new value is forwarded to the remote client.
 
-{% highlight js %}
+```js
 {
     "Message": "EnableListening",
     "Address": "device:/foo/bar"
 }
-{% endhighlight %}
+```
 
 and
 
-{% highlight js %}
+```js
 {
     "Message": "DisableListening",
     "Address": "device:/foo/bar"
 }
-{% endhighlight %}
+```
 
 
 #### Control surface

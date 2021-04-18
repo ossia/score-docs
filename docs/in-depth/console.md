@@ -17,7 +17,7 @@ permalink: /in-depth/console.html
 
 ## Example
 
-{% highlight js %}
+```js
 // Creates an OSC device named foo. Messages will be sent from score to 127.0.0.1:5678.
 // Score will listen to messages on port 1234.
 Score.createOSCDevice("foo", "127.0.0.1", 5678, 1234);
@@ -43,4 +43,4 @@ Score.redo();
 Score.play();
 Score.stop();
 
-{% endhighlight %}
+```

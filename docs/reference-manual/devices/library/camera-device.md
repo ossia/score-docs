@@ -32,13 +32,13 @@ The v4l2loopback kernel module allows for a lot of useful things.
 
 ### Exemple Linux de grabbing d'écran
 
-{% highlight bash %}
+```bash
 $ sudo modprobe v4l2loopback
 $ ffmpeg -f x11grab -framerate 60 -video_size 3840x2160 -i :0.0+0,0 -f v4l2 /dev/video0
-{% endhighlight %}
+```
 
 ### Exemple Linux de forwarding de vidéo
-{% highlight bash %}
+```bash
 $ sudo modprobe v4l2loopback
 $ while 1 ; do ffmpeg -re -i ./test.mp4 -f v4l2 /dev/video0 ; done
-{% endhighlight %}
+```

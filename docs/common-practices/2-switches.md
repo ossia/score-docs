@@ -56,7 +56,7 @@ It may be preferable to switch at every press of the button, instead of having t
 ## Parallel switches
 
 Consecutive switches shown above can sequence an arbitrary number of intervals, but only in the same order every time. To enable switching as well as reordering, we can rely on conditional branches. Let's first create another device for control. For this example we will add a [Mapper Device]({{ site.baseurl }}/devices/mapper-device.html) by copying and pasting the script below. We will name it "Structure".
-{% highlight qml %}
+```qml
 import Ossia 1.0 as Ossia
 
 Ossia.Mapper
@@ -71,7 +71,7 @@ Ossia.Mapper
         ];
     }
 }
-{% endhighlight %}
+```
 
 ![Structure mapper]({{ site.baseurl }}/assets/images/reference/common-practices/structureMapper.gif "Structure mapper")
 

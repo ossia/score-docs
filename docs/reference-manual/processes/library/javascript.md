@@ -28,9 +28,9 @@ An important thing to note is that the edited script *won't* be saved in the sce
 ## General syntax
 
 Every script must contain
-{% highlight qml %}
+```qml
 import Score 1.0
-{% endhighlight %}
+```
 somewhere at the top.
 
 A script defines a javascript object, with :
@@ -38,12 +38,12 @@ A script defines a javascript object, with :
 - Callbacks that are called either regularly on every tick, or on special events (start, stop, pause, resume).
 
 The smallest valid empty script looks like this:
-{% highlight qml %}
+```qml
 import Score 1.0
 Script {
   tick: function(token, state) { }
 }
-{% endhighlight %}
+```
 
 The tick function's two arguments give both timing and contextual information useful for writing algorithms.
 
@@ -113,7 +113,7 @@ The `state` object contains global properties relevant for the whole score execu
 
 ## Example of a value mapper
 
-{% highlight qml %}
+```qml
 // Necessary for the Script object.
 // It is also possible to import QtQml 2.15
 import Score 1.0
@@ -148,13 +148,13 @@ Script {
   pause: function() { console.log("I am called on pause"); }
   resume: function() { console.log("I am called on resume"); }
 }
-{% endhighlight %}
+```
 
 Note: it is also possible to access the list of messages with their precise timing, with `values`.
 
 ## Example of an audio generator
 
-{% highlight qml %}
+```qml
 import Score 1.0
 
 Script {
@@ -196,7 +196,7 @@ Script {
   }
 }
 
-{% endhighlight %}
+```
 
 ## Example of a MIDI transposer
 
@@ -204,17 +204,17 @@ See the user library: Presets/JS/transpose.qml
 
 ## Port types
 ## Properties common to all ports
-{% highlight qml %}
+```qml
 FloatSlider {
     id: myVariableName  // <- how you refer to it in the javascript Code
     objectName: "The name shown in the score UI"
     address: "foo:/bar/baz" // <- default address used when the object is created
 }
-{% endhighlight %}
+```
 
 ## Audio
 Create an audio input:
-{% highlight qml %}
+```qml
 AudioInlet {
     id: in
 }
@@ -227,11 +227,11 @@ var right = in.channel(1);
 console.log(left[0]); // print the first sample of the first channel
 
 for (var value in left) { ... }
-{% endhighlight %}
+```
 
 Create an audio output:
 
-{% highlight qml %}
+```qml
 AudioOutlet {
     id: out
 }
@@ -240,11 +240,11 @@ AudioOutlet {
 // set the data of channel 0 to the following:
 out.setChannel(0, [0.1, 0.0, 0.2, 0.0, -0.1, 0.0]);
 
-{% endhighlight %}
+```
 
 ## MIDI
 Create a MIDI input:
-{% highlight qml %}
+```qml
 MidiInlet {
     id: in
 }
@@ -256,11 +256,11 @@ for (var message in messages) {
     // Print the MIDI bytes
     console.log(message[0], message[1], message[2]);
 }
-{% endhighlight %}
+```
 
 Create a MIDI output:
 
-{% highlight qml %}
+```qml
 MidiOutlet {
     id: out
 }
@@ -275,12 +275,12 @@ out.setMessages([
     [144, 68, 127],
     [127, 30, 0]
 ]);
-{% endhighlight %}
+```
 
 
 ## Messages
 Receiving:
-{% highlight qml %}
+```qml
 ValueInlet {
     id: in
 }
@@ -294,10 +294,10 @@ console.log(in.value());
 for (var message in in.values) {
     console.log(message.timestamp, message.value);
 }
-{% endhighlight %}
+```
 
 Sending:
-{% highlight qml %}
+```qml
 ValueOutlet {
     id: out
 }
@@ -308,52 +308,52 @@ out.setValue(1.234);
 
 // or
 out.addValue(timestamp, 1.234);
-{% endhighlight %}
+```
 
 ## Controls
 Controls behave exactly like ValueInlet but show up as actual UI
 controls. They have as such relevant properties: min, max, etc.
-{% highlight qml %}
+```qml
 FloatSlider {
     min: 0.0
     max: 1.0
     init: 0.5
 }
-{% endhighlight %}
+```
 
-{% highlight qml %}
+```qml
 IntSlider {
     min: 0
     max: 127
     init: 0
 }
-{% endhighlight %}
+```
 
-{% highlight qml %}
+```qml
 Enum {
     choices: ["foo", "bar", "baz"]
     index: 2
 }
-{% endhighlight %}
+```
 
-{% highlight qml %}
+```qml
 Toggle {
     checked: true
 }
-{% endhighlight %}
+```
 
-{% highlight qml %}
+```qml
 LineEdit {
     text: "Hello world"
 }
-{% endhighlight %}
+```
 
 
 <!--
-{% highlight qml %}
+```qml
 ControlInlet { }
-{% endhighlight %}
-{% highlight qml %}
+```
+```qml
 ControlOutlet { }
-{% endhighlight %}
+```
 -->

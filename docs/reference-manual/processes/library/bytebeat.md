@@ -19,9 +19,9 @@ permalink: /processes/bytebeat.html
 - http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html
 
 # Example
-{% highlight cpp %}
+```cpp
 (((t<<1)^((t<<1)+(t>>7)&t>>12))|t>>(4-(1^7&(t>>19)))|t>>7)
-{% endhighlight %}
+```
 
 - Lots of examples here:
   https://www.reddit.com/r/bytebeat/comments/20km9l/cool_equations/
