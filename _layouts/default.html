@@ -137,6 +137,7 @@ layout: table_wrappers
         {% if site.footer_content != nil or site.last_edit_timestamp or site.gh_edit_link %}
           <hr>
           <footer>
+            <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/{{ page.path }}">here</a> !</p>
             {% if site.back_to_top %}
               <p><a href="#top" id="back-to-top">{{ site.back_to_top_text }}</a></p>
             {% endif %}
