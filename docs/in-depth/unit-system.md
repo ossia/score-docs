@@ -24,9 +24,16 @@ If the array contains sub-arrays (for instance for a matrix), it is possible to 
 ```
 aDevice:/anAddress@[1][0]
 ```
-Given `aDevice:/anAddress == [ [a, b], [c, d] ]`, the above address will change the value of `c`.
 
-> Note that without specifying an index, automation sent to array parameter (i.e. `vec2f`, `vec3f`, `list`) will affect all items in the array.
+For instance, given
+
+```
+aDevice:/anAddress == [ [a, b], [c, d] ]
+```
+
+the above address will change the value of `c`.
+
+> Note that without specifying an index, messages and automations sent to array parameters (i.e. `vec2f`, `vec3f`, `list`) will affect all items in the array.
 
 ## Using unit conversion
 
@@ -48,6 +55,22 @@ as the output of an automation will only update the red component.
 This also works with different units: for instance, if the device has a parameter declared with the `color.rgb` unit, it is possible to control its hue with `parameter@[color.hsv.h]`.
 
 ## Pattern matching
+
+It is possible to control a set of addresses with pattern matching.
+
+For instance, given the following OSC device:
+
+![An OSC device with repeated parameters]({{ site.img }}/in-depth/pattern-match.png)
+
+It is possible to send an automation to
+```
+OSCdevice:/sub/*/level
+```
+
+to control all the levels with a single curve.
+
+> The complete reference of the supported pattern matching syntax is available [here](https://ossia.io/ossia-docs/#pattern-matching).
+
 <!-- TODO
 
 	Execution semantics
