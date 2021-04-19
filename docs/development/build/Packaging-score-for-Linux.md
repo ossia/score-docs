@@ -2,7 +2,7 @@
 layout: default
 
 title: "Packaging"
-description: "Packaging score for Linux distros "
+description: "Packaging score for Linux distros"
 
 parent: "Building from source"
 grand_parent: Development
@@ -12,9 +12,9 @@ permalink: /development/build/packaging.html
 
 # General information
 
-Score has many build options, modules, etc... but there is one canonical way to build a release tailored for Unix distros.
+Score has many build options, modules, etc... but there is one canonical way to build a release tailored for Unix distributions.
 
-**Please** use the package versions provided with score / libossia as much as possible and not the distros one, else we get bug reports because the version of tbb / portaudio / ... of $DISTRO has known problems. In particular RtMidi and oscpack have been more or less entirely rewritten.
+**Please** use the package versions provided with score / libossia as much as possible and not the distribution-provided packages, else we get bug reports because the version of TBB / PortAudio / ... of $DISTRO has known problems. In particular RtMidi and oscpack have been more or less entirely rewritten.
 
 If you don't want to, then it's better to let the users use the AppImage because those are known to be working.
 

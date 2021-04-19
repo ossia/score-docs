@@ -30,7 +30,7 @@ In previous sections, we saw how to drag parameters from the `Device explorer` t
 
 In the example below, we will start by storing an initial state for our device. Then after making some changes to our device, rather than dropping again the parameters from the `Device explorer` to the timeline, we will use the blue `+` icon next to the state icon and drag the link to a later point in the timeline.
 
-What happens here is two folds:
+What happens here is twofold:
 * storing a new state using that blue `+` button will store the device's state using the namespace selection defined in the previous stored state
 * using the `auto-sequence` option, *score* will automatically create some automations for the parameter that changed between initial state and newly created state
 

@@ -14,7 +14,7 @@ permalink: /quick-start/working-with-audio.html
 
 Before playing with audio sound files or synthesis in *score* you may want to ensure audio settings are properly set up.
 
-To do so, open the `Preferences` window from the *score* menu and select the "Audio" tab in the left side of the Preferences window.
+To do so, open the `Preferences` window from the *score* menu and select the "Audio" tab on the left side of the Preferences window.
 
 Then select the Driver you want to use as well as the desired audio interface and related options (Buffer size and sample rate).
 
@@ -36,7 +36,7 @@ Audio files can easily be integrated to your scenario. Just grab your file on yo
 
 ## Combining audio medias and devices control
 
-Audio files (and more generally medias) can be fully combined with device's automations or other processes in the scenario. Thus you can write medias playing and distant devices remote control at a one unified and only place.
+Audio files (and more generally medias) can be fully combined with device's automations or other processes in the scenario. Thus you can write medias playing and distant devices remote control at a single place.
 
 In the example below, we just want to play one audio file synchronously with some automations already in place. Rather than dropping our audio file on the timeline and align things by hand, we can just drop it on the automation's slot top bar so it sticks to it.
 
@@ -46,11 +46,11 @@ In this particular case, you may notice though that the dropped sound file is sh
 
 ## Adding audio effects
 
-Contrary to some other softwares, *score* does not rely so much on the studio recording metaphor involving the usual mixing desk, per track FX, fixed busses and so on. Rather, it relies much more on a time-based modular approach. Without going too much into details of *score* engine for now, let's just say that it offers to have a unique sound chain (audio source, FX or modulators) for each block of the scenario involving audio.
+Contrary to some other software, *score* does not rely so much on the studio recording metaphor involving the usual mixing desk, per track FX, fixed busses and so on. Rather, it relies much more on a time-based modular approach. Without going too much into details of *score* engine for now, let's just say that it offers to have a unique sound chain (audio source, FX or modulators) for each block of the scenario involving audio.
 
 As illustrated below, you can easily add some FX, either from the built-in library or some VST effects installed on your computer to some audio file in your scenario. When dropped, a patch-like workspace is created.
 
-For demonstration purpose here, we will just add a simple gain controller. Below the sound file waveform, you can note a red dot. This actually is the audio output. We can just drag a cable from this red dot down to the red circle (its input) at the left of the gain FX. When playing the scenario, audio file will now play through this simple FX and go out to the main output. Again, when the playhead gets beyond the automation's slot, audio will get fully bypassed (hence preventing from any CPU drain).
+For demonstration purpose here, we will just add a simple gain controller. Below the sound file waveform, you can note a red dot. This actually is the audio output. We can just drag a cable from this red dot down to the red circle (its input) at the left of the gain FX. When playing the scenario, audio file will now play through this simple FX and go out to the main output. Again, when the play-head gets beyond the automation's slot, audio will get fully bypassed (hence preventing from any CPU drain).
 
 ![Adding FX]({{ site.img }}/quick-start/working-with-audio/simple-audio-fx.gif)
 

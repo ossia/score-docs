@@ -4,9 +4,10 @@ layout: default
 title: "Mixer"
 description: "How to use the audio mixing busses"
 
-parent: In depth
+parent: Panels
+grand_parent: Reference
 
-permalink: /in-depth/mixer.html
+permalink: /panels/mixer.html
 ---
 
 # Mixing busses

@@ -16,7 +16,7 @@ This chapter deals with structure loops, not [Process loops]({{ site.baseurl }}/
 
 ## Loop with transitions
 
-To enable the repetition of certain parts of a scenario, we use transitions to go "back in time". Transitions are instantaneous intervals that can connect two states regardless of their chronological relationship.
+To enable the repetition of certain parts of a [[scenario]], we use transitions to go "back in time". Transitions are instantaneous intervals that can connect two states regardless of their chronological relationship.
 
 ![Loop with Transitions]({{ site.img }}/reference/common-practices/loopStructure.gif "Loop with transitions")
 

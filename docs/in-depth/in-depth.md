@@ -12,6 +12,6 @@ permalink: /in-depth
 
 # Advanced features
 
-This chapter describes various advanced use cases for ossia score.
+This chapter describes various advanced use cases for *ossia score*.
 
 {: .fs-6 .fw-300 }

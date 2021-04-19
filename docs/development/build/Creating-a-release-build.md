@@ -129,7 +129,7 @@ Then :
 
 ## macOS :
 
-There is a build.sh script at the root of the repo, it requires [Homebrew](http://brew.sh/)
+There is a build.sh script at the root of the repository, it requires [Homebrew](http://brew.sh/)
 
 So either :
 

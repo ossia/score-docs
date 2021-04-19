@@ -71,6 +71,8 @@ Speed sliders appear on intervals while playing. To reset it:  {% include shortc
 
 # Intervals
 
+### Interpolate states
+
 # Graph links
 
 # Conditions

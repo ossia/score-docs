@@ -4,9 +4,10 @@ layout: default
 title: "Console"
 description: "How to use the Javascript console in ossia score"
 
-parent: In depth
+parent: Panels
+grand_parent: Reference
 
-permalink: /in-depth/console.html
+permalink: /panels/console.html
 ---
 
 ## Description

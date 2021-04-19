@@ -9,7 +9,7 @@ nav_order: 9
 
 permalink: /quick-start/non-linear-timelines.html
 ---
-# Non linear timeline
+# Non-linear timeline
 
 In previous example, we used trigger points to add variation during the execution of time-lined contents (device's state recalling as well as automations) in the scenario. While trigger points bring flexibility in a timeline-based approach, things can be pushed a step further.
 
@@ -29,9 +29,9 @@ As seen above, clicking the red cross allows to drag a connection up to anywhere
 
 What does happen here ? Well, we are starting to scratch the surface of *score* special strength.
 
-When playing our scenario, *score* will recall our parameters stored states and execute automations as the playhead runs through the timeline, just like we saw earlier. But when reaching the starting point of this dashed connection, the playhead will kind of *jump* to the connected elements and continue the reading as time regularly passes by.
+When playing our scenario, *score* will recall our parameters stored states and execute automations as the play-head runs through the timeline, just like we saw earlier. But when reaching the starting point of this dashed connection, the play-head will kind of *jump* to the connected elements and continue the reading as time regularly passes by.
 
-This might looks weird coming from a timeline-based approach but is actually extremely useful. While *score* can help to author elements of precise duration and evolution over time using its timeline as a default grid, it also allows to author state machine-like scenarios by *patching* timed processes.
+This might look weird coming from a timeline-based approach but is actually extremely useful. While *score* can help to author elements of precise duration and evolution over time using its timeline as a default grid, it also allows to author state machine-like scenarios by *patching* timed processes.
 
 ## From timeline-based scenario to state machine
 
@@ -39,7 +39,7 @@ This way of *patching* blocks of timed elements offers to construct your scenari
 
 ![Looping scenario]({{ site.img }}/quick-start/non-linear-timeline/looping-scenario.png)
 
-In the simple scenario above, *score* will execute the scenario as an infinite loop alternating a simple fade in, then jumping to the fade out automations then jump back to fade in automations.
+In the simple scenario above, *score* will execute the scenario as an infinite loop alternating a simple fade in, then jumping to the fade-out automations then jump back to fade-in automations.
 
 Of course, you can still use some [trigger points]({{ site.baseurl }}/quick-start/breaking-the-timeline.html) so the scenario waits before jumping to the next point.
 

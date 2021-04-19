@@ -14,7 +14,7 @@ permalink: /common-practices/4-audio.html
 
 ## Playing a sound file
 
-To play a [sound file]({{ site.baseurl }}/processes/soundfile.html), drag'n'drop it in the score, from the library, or from your operating system.
+To play a [[Soundfiles|sound file]], drag'n'drop it in the score, from the library, or from your operating system.
 
 If you don't hear a sound, check that :
 
@@ -82,7 +82,7 @@ to visualize a signal in the time-line.
 
 This makes it possible to use it for instance with large speaker arrays, domes, etc.
 
-A simple and efficient 2D spatialization algorithm is provided with the [Faust](TODO) `spat` preset (which uses the spatialization method devised by Laurent Pottier).
+A simple and efficient 2D spatialization algorithm is provided with the [[Faust]] `spat` preset (which uses the spatialization method devised by Laurent Pottier).
 
 By default, it will spatialize a mono source on a 8-channel circular loudspeaker array.
 
@@ -103,7 +103,7 @@ It is possible to edit the Faust script, to change the number of loudspeakers:
 
 To use a live audio input in a part of the score, follow these steps:
 
-1. Set-up the [audio device]({{ site.baseurl }}/devices/audio-device.html) in the device explorer.
+1. Set-up the [[audio device]] in the device explorer.
 2. Drag'n'drop the input address to use as an input of a sound effect.
 
 In the following example, a stereo bus receiving a stereo guitar signal has been created.

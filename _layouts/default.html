@@ -134,7 +134,7 @@ layout: table_wrappers
           </ul>
         {% endif %}
 
-        {% if site.footer_content != nil or site.last_edit_timestamp or site.gh_edit_link %}
+        {% if site.footer_content != nil or site.last_edit_timestamp %}
           <hr>
           <footer>
             <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/{{ page.path }}">here</a> !</p>
@@ -145,7 +145,7 @@ layout: table_wrappers
               <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0">{{ site.footer_content }}</p>
             {% endif %}
 
-            {% if site.last_edit_timestamp or site.gh_edit_link %}
+            {% if site.last_edit_timestamp %}
               <div class="d-flex mt-2">
                 {% if site.last_edit_timestamp and site.last_edit_time_format and page.last_modified_date %}
                   <p class="text-small text-grey-dk-000 mb-0 mr-2">

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: Midi output device
+title: MIDI output device
 description: "Send MIDI data to an external hardware"
 
 parent: Devices

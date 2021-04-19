@@ -15,7 +15,7 @@ permalink: /quick-start/working-with-video.html
 
 ## Supported formats
 
-*Score* supports all video files formats supported by the ffmpeg library. More info on supported files can be found on the [ffmpeg website](https://www.ffmpeg.org/general.html#Video-Codecs).
+*Score* supports all video files formats supported by the FFMPEG library. More info on supported files can be found on the [FFMPEG website](https://www.ffmpeg.org/general.html#Video-Codecs).
 
 ## Video setup
 

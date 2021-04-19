@@ -36,9 +36,9 @@ It comprises 4 main sections that can be switched using the icon at the bottom:
 4. [Project folder]({{ site.baseurl }}/reference/glossary.html#project-folder): This is where you can browse the content of the current project.
 
 
-# Scenario editor panel
+# Scenario editor
 
-A the center of score main window is the scenario editor. This is where you can write and edit the various parts of your project's flexible and interactive scenario.
+At the center of the *score* window is the scenario editor. This is where you can write and edit the various parts of your project's flexible and interactive scenario.
 
 From there you can create some snapshots by dragging some parameters from the `Device explorer` at a particular time frame, create some automations by dragging parameters from the `Device explorer` on an interval, drop some audio or video medias from your hard drive to integrate them in your scenario.
 

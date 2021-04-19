@@ -12,7 +12,7 @@ permalink: /faq/doesnotwork.html
 # The playback isn't running
 
 If when pressing "Play" you don't see anything moving or becoming green,
-it likely means that the soundcard is improperly configured.
+it likely means that the sound card is improperly configured.
 
 Go to the [settings]({{ site.baseurl}}/reference/preferences.html#audio) and check that you have a valid sound card set.
 

@@ -1,3 +1,6 @@
+namespace
+[Aa]utomation
+[Aa]utomations
 Ctrl
 Suppr
 Esc

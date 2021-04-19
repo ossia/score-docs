@@ -14,7 +14,7 @@ permalink: /common-practices/3-out-of-time.html
 
 By default, `score` works as a time-line: time flows from the start to the end of the score.
 
-As mentioned by [the quick start]({{ site.baseurl }}/quick-start/non-linear-timelines.html), the time-line can be made non-linear
+As mentioned by [[non-linear timelines|the quick start guide]], the time-line can be made non-linear
 by adding triggers and graph connections.
 
 It is possible to go one step further, by entirely removing parts of the score from
@@ -45,7 +45,7 @@ the trigger available for triggering when the score starts, with the right butto
 
 ## Re-triggering
 
-The left button is used to control the re-triggering behaviour.
+The left button in the inspector is used to control the re-triggering behaviour.
 
 If left unchecked, re-triggering the trigger will stop the sub-score that follows it.
 It will need another event to start again.

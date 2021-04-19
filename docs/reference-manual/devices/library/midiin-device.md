@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: Midi input device
+title: MIDI input device
 description: "Read MIDI data from an external hardware"
 
 parent: Devices
@@ -10,7 +10,7 @@ grand_parent: Reference
 permalink: /devices/midiin-device.html
 ---
 
-# Midi input device
+# MIDI input device
 
 To setup a device using Midi input, select `Midi input` in the Protocols column of the `Add device` window.
 

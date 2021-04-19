@@ -12,7 +12,7 @@ permalink: /quick-start/working-with-devices.html
 
 # Working with your devices
 
-*score* is built from the ground up to be as interoperatible as possible with other devices involved in a creative project, whether they are software or hardware.
+*score* is built from the ground up to be as interoperable as possible with other devices involved in a creative project, whether they are software or hardware.
 
 ![score main window]({{ site.img }}/quick-start/working-with-devices/ecosystem.png "score main window")
 
@@ -20,7 +20,7 @@ When starting a project in *score* you will most likely want to start by setting
 
 ## Setting up your devices network
 
-These devices can be freely added to your current score project from the `Device explorer` panel. Bring up the `Device explorer` panel using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
+These devices can be freely added to your current score project from the [[Device explorer]] panel. Bring up the `Device explorer` panel using {% include shortcut.html content="Ctrl+Shift+D" %} shortcut or click on the bottom left icon.
 
 ![Device explorer icon]({{ site.img }}/quick-start/working-with-devices/de-button.png "Device explorer icon")
 
@@ -34,8 +34,8 @@ Right click on the `Device explorer` panel and setup the desired communication p
 
 | OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               | Lights                                                          | Audio                                                   | Video
 |:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------||:----------------------------------------------------------------|:----------------------------------------------------------------|
-| [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) | [Mapper]({{ site.baseurl }}/devices/mapper-device.html) | [Midi in]({{ site.baseurl }}/devices/midiin-device.html)    | [HTTP]({{ site.baseurl }}/devices/http-device.html)| [Artnet]({{ site.baseurl }}/devices/artnet-device.html)     | [Audio]({{ site.baseurl }}/devices/audio-device.html)   | [Window]({{ site.baseurl }}/devices/window-device.html)     |   
-| [OSC]({{ site.baseurl }}/devices/osc-device.html)           | [Local]({{ site.baseurl }}/devices/local-device.html)   | [Midi out]({{ site.baseurl }}/devices/midiout-device.html)  | [WS]({{ site.baseurl }}/devices/ws-device.html)               |||[Camera]({{ site.baseurl }}/devices/camera-device.html)   
+| [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) | [Mapper]({{ site.baseurl }}/devices/mapper-device.html) | [Midi in]({{ site.baseurl }}/devices/midiin-device.html)    | [HTTP]({{ site.baseurl }}/devices/http-device.html)| [Artnet]({{ site.baseurl }}/devices/artnet-device.html)     | [Audio]({{ site.baseurl }}/devices/audio-device.html)   | [Window]({{ site.baseurl }}/devices/window-device.html)     |
+| [OSC]({{ site.baseurl }}/devices/osc-device.html)           | [Local]({{ site.baseurl }}/devices/local-device.html)   | [Midi out]({{ site.baseurl }}/devices/midiout-device.html)  | [WS]({{ site.baseurl }}/devices/ws-device.html)               |||[Camera]({{ site.baseurl }}/devices/camera-device.html)
 | [Minuit]({{ site.baseurl }}/devices/minuit-device.html)     |                                                             | [Serial]({{ site.baseurl }}/devices/serial-device.html)     |                                                                   |
 |                                                                 |                                                             | [Joystick]({{ site.baseurl }}/devices/joystick-device.html) |                                                                   |
 |                                                                 |                                                             | [Wiimote]({{ site.baseurl }}/devices/wiimote-device.html)   |
@@ -53,7 +53,7 @@ From there you can freely browse your distant devices for monitoring or more imp
 
 ## Monitor & remote control of parameters
 
-The `Device explorer` also provides detailed informations about your device parameters. Clicking a parameter from the namespace brings a dedicated inspector at the bottom, displaying it s various attributes, such as its current value (assuming your device echoes back its parameters value to *score*).
+The `Device explorer` also provides detailed information about your device parameters. Clicking a parameter from the namespace brings a dedicated inspector at the bottom, displaying it s various attributes, such as its current value (assuming your device echoes back its parameters value to *score*).
 
 You may also use this inspector to remotely change the value of a parameter (e.g. for testing purpose).
 

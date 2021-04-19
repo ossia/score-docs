@@ -4,9 +4,10 @@ layout: default
 title: "Library"
 description: "Using the media and process library"
 
-parent: In depth
+parent: Panels
+grand_parent: Reference
 
-permalink: /in-depth/library.html
+permalink: /panels/library.html
 ---
 
 

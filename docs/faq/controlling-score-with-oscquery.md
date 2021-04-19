@@ -9,6 +9,6 @@ parent: FAQ
 permalink: /faq/controlling-score-with-oscquery.html
 ---
 
-A score can be controlled through OSC and OSCQuery with the [Local device]({{ site.baseurl }}/devices/local-device.html).
+A score can be controlled through [[osc device|OSC]] and [[oscquery device|OSCQuery]] with the [[Local device]].
 
-See also the WebSocket [remote control protocol]({{ site.baseurl }}/in-depth/remote.html).
+See also the WebSocket [[Remote Control|remote control protocol]].
