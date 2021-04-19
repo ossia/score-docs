@@ -11,3 +11,9 @@ permalink: /common-practices/5-video.html
 ---
 
 # Video
+
+## Playing videos
+
+## Fades
+
+## Making audio-reactive visuals

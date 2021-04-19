@@ -14,11 +14,11 @@ permalink: /quick-start/writing-automations.html
 
 *Score* provides numerous features to control continuously your devices' parameters over time. These are provided through the `Process` library available by clicking on the icon at the bottom left of score window (or using {% include shortcut.html content="Ctrl+Shift+P" %} shortcut).
 
-![Process library panel]({{ site.baseurl }}/assets/images/quick-start/score-authoring/process_library.gif "Process library panel")
+![Process library panel]({{ site.img }}/quick-start/score-authoring/process_library.gif "Process library panel")
 
 In the example below, we will just create a basic breakpoint function-based automation for one of our device's parameter, by selecting the `automation (float)` in the Process library, then drag & drop it where we want it on the timeline. 
 
-![Creating automation]({{ site.baseurl }}/assets/images/quick-start/score-authoring/create_automation.gif)
+![Creating automation]({{ site.img }}/quick-start/score-authoring/create_automation.gif)
 
 When done, you will see on the timeline a simple 1 segment linear default automation. Let's now assign our device parameter as a destination for this simple automation process.
 
@@ -34,11 +34,11 @@ Of course, you may refine your automation function by double-clicking in the aut
 
 When further precision is required to edit your automation, you can double-click the name above the automation slot (here "automation (float)" to zoom in the slot and edit the automation in full size.
 
-![Full size edit]({{ site.baseurl }}/assets/images/quick-start/score-authoring/fullsize-edit.gif)
+![Full size edit]({{ site.img }}/quick-start/score-authoring/fullsize-edit.gif)
 
 When done editing, you can go back to your scenario full view using {% include shortcut.html content="Cmd+↑" %} or clicking on your scenario name beneath the time ruler.
 
-![Leaving full size edit]({{ site.baseurl }}/assets/images/quick-start/score-authoring/leaving_full_size.png)
+![Leaving full size edit]({{ site.img }}/quick-start/score-authoring/leaving_full_size.png)
 
 <!-- ### Stacked processes
 

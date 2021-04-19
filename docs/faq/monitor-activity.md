@@ -13,4 +13,4 @@ permalink: /faq/monitor-activity.html
 
 With `Logging` option activated in *score* preferences, you can for example check messages coming in and out of a selected process in the `Messages log panel` ({% include shortcut.html content="Ctrl+Shift+G" %})
 
-![Messages log panel]({{ site.baseurl }}/assets/images/faq/monitor-activity/log-window.gif "Messages log panel")
+![Messages log panel]({{ site.img }}/faq/monitor-activity/log-window.gif "Messages log panel")

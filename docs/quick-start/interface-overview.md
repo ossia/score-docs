@@ -14,7 +14,7 @@ permalink: /quick-start/interface-overview.html
 
 *Score* provides a unique window embedding all main features and toolboxes. From it, you can setup how your media applications and *score* will communicate, observe their parameters value navigate through their namespace in a structured way, store some parameters value in snapshots, draw some automations, structure you scenario in flexible ways and more.
 
-![score main window]({{ site.baseurl }}/assets/images/quick-start/score-interface/score-main-window.png "score main window")
+![score main window]({{ site.img }}/quick-start/score-interface/score-main-window.png "score main window")
 
 All can be done from one of the 3 UI areas described below.
 
@@ -22,11 +22,11 @@ All can be done from one of the 3 UI areas described below.
 
 On the left of *score* main window is the `Explorer panel`. This is where you can browse and manage the various contents needed for your project.
 
-![Device explorer]({{ site.baseurl }}/assets/images/quick-start/score-interface/device_explorer.png "Device explorer")
+![Device explorer]({{ site.img }}/quick-start/score-interface/device_explorer.png "Device explorer")
 
 It comprises 4 main sections that can be switched using the icon at the bottom:
 
-![Explorer main panels]({{ site.baseurl }}/assets/images/quick-start/score-interface/explorer-panels.png)
+![Explorer main panels]({{ site.img }}/quick-start/score-interface/explorer-panels.png)
 
 1. [Device explorer]({{ site.baseurl }}/reference/glossary.html#device-explorer): This is where you can setup the [devices]({{ site.baseurl }}/reference/glossary.html#device) (hardware or software devices on the network) you want to control from *score*.
   The `Device explorer` also offers a way to monitor or browse devices involved in your project, inspect its parameters and their behavior.
@@ -42,13 +42,13 @@ A the center of score main window is the scenario editor. This is where you can 
 
 From there you can create some snapshots by dragging some parameters from the `Device explorer` at a particular time frame, create some automations by dragging parameters from the `Device explorer` on an interval, drop some audio or video medias from your hard drive to integrate them in your scenario.
 
-![Scenario editor]({{ site.baseurl }}/assets/images/quick-start/score-interface/scenario_editor.png "Scenario editor")
+![Scenario editor]({{ site.img }}/quick-start/score-interface/scenario_editor.png "Scenario editor")
 
 # Objects inspector panel
 
 On the right part of score main window is the `Object inspector`. It allows to dynamically inspect and setup the selected objects in the scenario.
 
-![Object inspector]({{ site.baseurl }}/assets/images/quick-start/score-interface/dynamic_inspector.png "Object inspector")
+![Object inspector]({{ site.img }}/quick-start/score-interface/dynamic_inspector.png "Object inspector")
 
 1. Top part of the inspector is the structural context of the selected object. For example, the parent interval a process is attached to, the time point a state is placed on and its linked states, etc.
 

@@ -37,10 +37,10 @@ This might looks weird coming from a timeline-based approach but is actually ext
 
 This way of *patching* blocks of timed elements offers to construct your scenario in much more flexible ways that traditional DAW or timeline-based sequencers. As illustrated below, it allows to write scenarios running in loop for example as especially useful in interactive installations.
 
-![Looping scenario]({{ site.baseurl }}/assets/images/quick-start/non-linear-timeline/looping-scenario.png)
+![Looping scenario]({{ site.img }}/quick-start/non-linear-timeline/looping-scenario.png)
 
 In the simple scenario above, *score* will execute the scenario as an infinite loop alternating a simple fade in, then jumping to the fade out automations then jump back to fade in automations.
 
 Of course, you can still use some [trigger points]({{ site.baseurl }}/quick-start/breaking-the-timeline.html) so the scenario waits before jumping to the next point.
 
-![State machine scenario]({{ site.baseurl }}/assets/images/quick-start/non-linear-timeline/state-machine.png)
+![State machine scenario]({{ site.img }}/quick-start/non-linear-timeline/state-machine.png)

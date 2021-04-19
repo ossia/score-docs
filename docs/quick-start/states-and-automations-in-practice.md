@@ -22,7 +22,7 @@ A workflow you might find useful is the `auto-sequence` mode. As of *score* vers
 
 In the `Preferences` window, select the `User interface tab` then make sure the `auto-sequence` option is toggled on.
 
-![Auto-sequence preference]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence preference")
+![Auto-sequence preference]({{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence preference")
 
 ### Using auto-sequence
 
@@ -36,7 +36,7 @@ What happens here is two folds:
 
 > You may also store a new state by dragging from the blue `+` icon *without* `auto-sequence` mode activated. In that case, *score* will still use previous namespace selection to store parameters values but no automation will get created for changed parameters.
 
-![Using auto-sequence mode]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
+![Using auto-sequence mode]({{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
 
 Of course, once these automations get auto-magically created, you can still edit their behavior over time and do whatever pleasing changes to their curve. You may also remove an automation, should you want not to include a parameter continuous change.
 
@@ -46,8 +46,8 @@ In the example above, you can see multiple automation slots actually got superpo
 
 > When multiple automations are stacked, frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
 
-![Select from stack]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
+![Select from stack]({{ site.img }}/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
 
 You can also remove an automation from the stack by clicking on a slot background. Bring the contextual menu using right-click and select `remove`.
 
-![Remove automation]({{ site.baseurl }}/assets/images/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")
+![Remove automation]({{ site.img }}/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")

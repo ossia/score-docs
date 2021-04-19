@@ -12,7 +12,7 @@ permalink: /processes/automation_float.html
 
 # Automation (float)
 
-![Automation Float]({{ site.baseurl }}/assets/images/reference/processes/automation_float.png)
+![Automation Float]({{ site.img }}/reference/processes/automation_float.png)
 
 The `Automation (float)` process allows to control single value parameter using a breakpoints function.
 
@@ -22,7 +22,7 @@ The `Automation (float)` process allows to control single value parameter using 
 
 Multiple points can be added on an automation. To add a point, double-click in the automation slot to create a point under the mouse cursor.
 
-![Automation create point]({{ site.baseurl }}/assets/images/reference/processes/automation_float/create-points.gif "Create new points")
+![Automation create point]({{ site.img }}/reference/processes/automation_float/create-points.gif "Create new points")
 
 You can also create a new point using {% include shortcut.html content="Ctrl+click" %} in the automation's slot.
 
@@ -30,7 +30,7 @@ You can also create a new point using {% include shortcut.html content="Ctrl+cli
 
 To delete a point from an automation, click on a point to select it, then from its contextual menu select `Remove`.
 
-![Automation remove point]({{ site.baseurl }}/assets/images/reference/processes/automation_float/remove-points.png "Create new points")
+![Automation remove point]({{ site.img }}/reference/processes/automation_float/remove-points.png "Create new points")
 
 > Multiple points and attached segments can be selected and removed at once using the `Remove` contextual menu entry.
 
@@ -40,20 +40,20 @@ To edit a point value of position in time, select it using the mouse and move it
 
 For fine control, you can also use the dedicated number boxes from the inspector. Click on a point to select it and display its inspector then use the `value` number box to adjust to the desired value.
 
-![Automation adjusting point]({{ site.baseurl }}/assets/images/reference/processes/automation_float/adjusting-points.png "Create new points")
+![Automation adjusting point]({{ site.img }}/reference/processes/automation_float/adjusting-points.png "Create new points")
 
 
 ### Adjust segment's curve
 
 `Power` type segments (default) can be added a curve factor. To do so, click a segment and use {% include shortcut.html content="Shift+Drag" %}. Dragging the curve upward add a log-like curvature to the segment, while dragging downward add a exp-like curvature.
 
-![Adjusting curve]({{ site.baseurl }}/assets/images/reference/processes/automation_float/adjusting-curve.gif)
+![Adjusting curve]({{ site.img }}/reference/processes/automation_float/adjusting-curve.gif)
 
 ## Segment shapes
 
 Segments between two points can be set to various predefined shapes. To do so, click a segment and from its contextual menu, choose the desired segment shape in the `Type` category.
 
-![Segment shapes]({{ site.baseurl }}/assets/images/reference/processes/automation_float/segment-shapes.png)
+![Segment shapes]({{ site.img }}/reference/processes/automation_float/segment-shapes.png)
 
 Shapes include:
 
@@ -75,7 +75,7 @@ Shapes include:
 
 Automation's function can be hand-drawn using {% include shortcut.html content="Alt+Drag" %} in Automation editor. Drawn function will get optimized and transformed onto a beak-point function on mouse release so you can edit various points individually.
 
-![Freehand curve]({{ site.baseurl }}/assets/images/reference/processes/automation_float/freehand.gif)
+![Freehand curve]({{ site.img }}/reference/processes/automation_float/freehand.gif)
 
 ## Advanced edits
 
@@ -83,13 +83,13 @@ Automation's function can be hand-drawn using {% include shortcut.html content="
 
 By default, moving a point in the automation is limited horizontally by previous and next points' position in automation. This can be turned on and off using the `Lock between points` option in the automation contextual menu.
 
-![Lock between points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/lock-between-points-menu.png)
+![Lock between points]({{ site.img }}/reference/processes/automation_float/lock-between-points-menu.png)
 
 When off, points can be freely moved along the whole automation's slot.
 
-![Locked between points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/locked-between-points.gif)
+![Locked between points]({{ site.img }}/reference/processes/automation_float/locked-between-points.gif)
 
-![Unocked between points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/unlocked-between-points.gif)
+![Unocked between points]({{ site.img }}/reference/processes/automation_float/unlocked-between-points.gif)
 
 ### Suppress on overlap
 
@@ -97,12 +97,12 @@ When `Lock between points` option is unset, crossing adjacent points can be hand
 
 By default, crossing an adjacent point in automation will remove this point. This can be turned off using by unsetting the option in the automation's contextual menu.
 
-![Lock between points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/suppress-on-overlap.png)
+![Lock between points]({{ site.img }}/reference/processes/automation_float/suppress-on-overlap.png)
 
 When off, moved point will get inserted at its new position without removing other points in automation.
 
-![Suppress overlapping points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/unlocked-between-points.gif)
+![Suppress overlapping points]({{ site.img }}/reference/processes/automation_float/unlocked-between-points.gif)
 
-![Preserve overlapping points]({{ site.baseurl }}/assets/images/reference/processes/automation_float/dont-suppress-points.gif)
+![Preserve overlapping points]({{ site.img }}/reference/processes/automation_float/dont-suppress-points.gif)
 
 ## Tween mode

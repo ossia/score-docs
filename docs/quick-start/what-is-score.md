@@ -25,7 +25,7 @@ While both approaches have numerous advanges, they also draw some limits in some
 
 *score* thus aims at bridging the gap between these two models in a unified environment. By combining a flexible timeline with a patch-like authoring process, it allows to write [precisely timed processes such as automations]({{ site.baseurl }}/quick-start/writing-automations.html) or more fancy parameters control and modulation while still [maintaining some variations as the scenario is executed]({{ site.baseurl }}/quick-start/breaking-the-timeline.html). But it also allows to author [open and non linear scenarios]({{ site.baseurl }}/quick-start/non-linear-timelines.html) yet still including some time-dependant processes.
 
-![score scenario]({{ site.baseurl }}/assets/images/quick-start/what-is-score/score-main.png)
+![score scenario]({{ site.img }}/quick-start/what-is-score/score-main.png)
 
 ## Interoperability-based
 
@@ -35,7 +35,7 @@ It allows to remotely control various commercial or custom software and hardware
 
 While *score* itself offers some audio and video features, it does not aim at being an "All in one" super software (hence forcing intermedia authors to give up their personnal toolset expertise). On the contrary, *score* was built from the ground up to be **as interoperable as possible**. Users remain thus free to use their tools of choice, be it their favorite VJing software, custom audio synthesis app or any specialized toolset.
 
-![score main window]({{ site.baseurl }}/assets/images/quick-start/working-with-devices/ecosystem.png "score main window")
+![score main window]({{ site.img }}/quick-start/working-with-devices/ecosystem.png "score main window")
 
 *score 3.0.0* supports a number of protocols such as [Midi]({{ site.baseurl }}/devices/midiin-device.html), [Open Sound Control]({{ site.baseurl }}/devices/osc-device.html), [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) or [serial]({{ site.baseurl }}/devices/serial-device.html) making it easy to use score as the central hub of a project and thus author fine relationships between medias.
 

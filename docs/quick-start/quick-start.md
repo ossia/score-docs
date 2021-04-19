@@ -18,7 +18,7 @@ This is the *score* quick start manual. The following pages will guide you throu
 
 These will get you started with the various ways *score* can be used to author flexible and structured scenarios for live performances, art installations or other media-based works.
 
-![*score* scenario]({{ site.baseurl }}/assets/images/quick-start/what-is-score/score-main.png "*score* scenario")
+![*score* scenario]({{ site.img }}/quick-start/what-is-score/score-main.png "*score* scenario")
 
 Enjoy advanced scenario authoring for your intermedia creation !
 

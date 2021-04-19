@@ -18,7 +18,7 @@ Introducing trigger points in your scenario allows to keep organizing things in 
 
 To add a trigger point, simply select a state on the scenario, then from its inspector, toggle on the `trigger` icon.
 
-![Enabling trigger]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/enabling-trigger.gif "Enabling trigger")
+![Enabling trigger]({{ site.img }}/quick-start/breaking-the-timeline/enabling-trigger.gif "Enabling trigger")
 
 When turning on the `trigger`, you can see a T-like icon is added on top of the selected `state`. You can also note that a dashed line appears on top of the preceding automation slot. This indicates that the duration of the preceding automations is now undefined: preceding automations will get executed up until the trigger is, well... *triggered*.
 
@@ -36,7 +36,7 @@ In the example above, we used the mouse to trigger the followup of the scenario 
 
 To set an input for a trigger point, just grab the desired parameter in the `Device explorer` and drop it on the trigger icon.
 
-![Enabling trigger]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/interactive-trigger.gif "Enabling trigger")
+![Enabling trigger]({{ site.img }}/quick-start/breaking-the-timeline/interactive-trigger.gif "Enabling trigger")
 
 In the example above, we use as an input, one button of a Korg nanoKontrol [Midi controller]({{ site.baseurl }}/devices/midiin-device.html). When done, you will see in the inspector the address of the dropped parameter in the address field.
 

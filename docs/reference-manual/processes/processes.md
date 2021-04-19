@@ -33,7 +33,7 @@ Processes are attached to an interval in the scenario.
 
 Processes can be created by drag & dropping parameters from the `Device explorer` onto an existing interval in the scenario. The interval to which processes will be attached turns to yellow as the mouse with selection hovers it.
 
-![Dropping parameters]({{ site.baseurl }}/assets/images/reference/processes/dropping-parameters.png "Dropping parameters")
+![Dropping parameters]({{ site.img }}/reference/processes/dropping-parameters.png "Dropping parameters")
 
 The `Device explorer` selection may contain one or several parameters. When multiple parameters are dropped, processes get stacked in different layers.
 
@@ -41,7 +41,7 @@ The `Device explorer` selection may contain one or several parameters. When mult
 
 Processes can also be created by drag & dropping the desired process from the `Process library` or the `User library` in the scenario. When doing so, *score* automatically creates the interval to which process will get attached.
 
-![Dropping processes]({{ site.baseurl }}/assets/images/reference/processes/dragging-processes.gif "Dropping processes")
+![Dropping processes]({{ site.img }}/reference/processes/dragging-processes.gif "Dropping processes")
 
 You may as well drop a process onto an existing interval.
 
@@ -51,17 +51,17 @@ Audio, video and script files (Faust DSP, GLSL fragment shader, JS script...) ca
 By default, dropping several processes at the same time stacks them in the same interval.
 Holding the Maj key while dropping will create sequential intervals for each item in the selection.
 
-![Parallel or serial processes]({{ site.baseurl }}/assets/images/reference/processes/parallel-or-serial-processes.gif "Parallel or serial processes")
+![Parallel or serial processes]({{ site.img }}/reference/processes/parallel-or-serial-processes.gif "Parallel or serial processes")
 
 ### Create from interval
 
 Processes can be created from an interval's widgets. Hover the interval to which attach a process to display the widget. Click the `+` widget to open the `Add process` window.
 
-![Process addition widget]({{ site.baseurl }}/assets/images/reference/processes/add-process-from-interval.png "Process addition widget")
+![Process addition widget]({{ site.img }}/reference/processes/add-process-from-interval.png "Process addition widget")
 
 From the `Add process window`, browse the various Processes types in the left panel, then choose the desired one. When done, click `+` button to attach process to the interval.
 
-![Add process window]({{ site.baseurl }}/assets/images/reference/processes/add-process-from-interval-window.png "Add process window")
+![Add process window]({{ site.img }}/reference/processes/add-process-from-interval-window.png "Add process window")
 
 <!-- ### TODO Object menu -->
 
@@ -77,7 +77,7 @@ To remove a process, select it (for example by clicking on the slot background) 
 
 Processes can also be deleted from the `Graph inspector` at the top of *score*'s right panel. In the scenario, select the interval the process to remove is attached to. In the `Graph inspector`, browse through the attached processes and select the one to remove. Right-click to open the contextual menu and choose `Remove` (or use {% include shortcut.html content="Suppr" %}/{% include shortcut.html content="Backspace" %} key).
 
-![Remove from Graph inspector]({{ site.baseurl }}/assets/images/reference/processes/remove-process-from-graph.png "Remove from Graph inspector")
+![Remove from Graph inspector]({{ site.img }}/reference/processes/remove-process-from-graph.png "Remove from Graph inspector")
 
 
 # Edit processes
@@ -90,14 +90,14 @@ To display the process in full size, double-click on the interval the process is
 
 To exit full size mode (go back to parent scenario), click the desired node of the path displayed at the top or use the {% include shortcut.html content="Ctrl+Alt+↑" %} shortcut.
 
-![Edit process in full size]({{ site.baseurl }}/assets/images/reference/processes/process-fullsize-edit.gif "Edit process in full size")
+![Edit process in full size]({{ site.img }}/reference/processes/process-fullsize-edit.gif "Edit process in full size")
 
 ## Process Loops
 
 Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel
 or by clicking on process header, the loop option will appear in the `Inspector`.
 
-![Process looping]({{ site.baseurl }}/assets/images/reference/common-practices/loopProcess.gif "Process looping")
+![Process looping]({{ site.img }}/reference/common-practices/loopProcess.gif "Process looping")
 
 # Manage processes
 
@@ -107,11 +107,11 @@ Processes attached to an interval can easily be fold/unfold. This comes up espec
 
 To do so, click the blue arrow on top of the processes to fold/unfold.
 
-![Fold/unfold processes]({{ site.baseurl }}/assets/images/reference/processes/fold-unfold-processes.gif "Fold/unfold processes")
+![Fold/unfold processes]({{ site.img }}/reference/processes/fold-unfold-processes.gif "Fold/unfold processes")
 
 When selecting an interval, attached processes can also be fold/unfold using the `Show processes` & `Hide processes` entries from the `Object` menu.
 
-![Fold/unfold processes]({{ site.baseurl }}/assets/images/reference/processes/fold-process-menu.png "Fold/unfold processes")
+![Fold/unfold processes]({{ site.img }}/reference/processes/fold-process-menu.png "Fold/unfold processes")
 
 
 <!-- TODO (or NOT TO DO...) contextual menu
@@ -125,14 +125,14 @@ Time-based processes (that is, processes whose *x* represents time, such as auto
 
 To change which process to display top-most, mouse over to the top of the process slot displaying the destination address. Clicking the address bar opens up a contextual menu listing all layered processes. Selecting one in the menu brings it to front.
 
-![Bring process to front]({{ site.baseurl }}/assets/images/reference/processes/bring-to-front.png "Bring process to front")
+![Bring process to front]({{ site.img }}/reference/processes/bring-to-front.png "Bring process to front")
 
 
 ### Move to new slot
 
 Processes can also be juxtaposed in several slots rather than stacked on top of the other. Grab the handle at the top left corner of the slot and drag & drop it on another slot to move it above another process or between different slots to insert it.
 
-![Moving processes]({{ site.baseurl }}/assets/images/reference/processes/moving-processes.gif "Moving processes")
+![Moving processes]({{ site.img }}/reference/processes/moving-processes.gif "Moving processes")
 
 
 > Processes can also be dragged & attached to a new interval

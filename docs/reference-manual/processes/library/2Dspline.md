@@ -12,7 +12,7 @@ permalink: /processes/2Dspline.html
 
 # 2D Spline (X-Y automation)
 
-![2D spline]({{ site.baseurl }}/assets/images/reference/processes/2Dspline.png "2D spline example")
+![2D spline]({{ site.img }}/reference/processes/2Dspline.png "2D spline example")
 
 It is possible to use math formulas to generate a specific spline.
 

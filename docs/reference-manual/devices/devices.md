@@ -32,7 +32,7 @@ Devices are pieces of software or hardware used in your project to be controlled
 
 From *score* main window, right-click in the `Device explorer` on the left of window and choose `Add device` from the `Device explorer` contextual menu. This brings *score*'s device setup window.
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/add-device.gif "score device setup")
+![Device setup window]({{ site.img }}/reference/devices/add-device.gif "score device setup")
 
 In the Device setup window, in the left column, select the desired device type.
 

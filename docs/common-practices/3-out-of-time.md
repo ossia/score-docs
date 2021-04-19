@@ -25,23 +25,23 @@ by clicking, ...
 
 To remove a part of the score from the time-line, simply make sure that it isn't connected to the start of the time-line:
 
-![Disconnected interval]({{ site.baseurl }}/assets/images/common-practices/out-of-time-1.png)
+![Disconnected interval]({{ site.img }}/common-practices/out-of-time-1.png)
 
 When playing the score, this interval now won't run anymore:
 
-![Disconnected interval not playing]({{ site.baseurl }}/assets/images/common-practices/out-of-time-2.png)
+![Disconnected interval not playing]({{ site.img }}/common-practices/out-of-time-2.png)
 
 Some *score* users use that mechanism as a sand-box to try various behaviours.
 
 Now, to play this part of the score, we have to tell *score* what is going to trigger it.
 Thus, we have to add a [trigger]({{ site.baseurl }}/processes/scenario.html#triggers) to the start of the interval:
 
-![A trigger]({{ site.baseurl }}/assets/images/common-practices/out-of-time-trigger.png)
+![A trigger]({{ site.img }}/common-practices/out-of-time-trigger.png)
 
 Then, select the trigger, go to the inspector and enable the "Start on play" which will make
 the trigger available for triggering when the score starts, with the right button:
 
-![Trigger inspector]({{ site.baseurl }}/assets/images/common-practices/out-of-time-inspector.png)
+![Trigger inspector]({{ site.img }}/common-practices/out-of-time-inspector.png)
 
 ## Re-triggering
 

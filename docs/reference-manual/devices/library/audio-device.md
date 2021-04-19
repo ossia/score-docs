@@ -15,7 +15,7 @@ permalink: /devices/audio-device.html
 This device allows to expose the physical inputs and outputs of the sound card as device tree nodes,
 which can then be used at any place in the score to route a part of the score to a specific sound card output for instance.
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/audio/audio-0.png)
+![Device setup window]({{ site.img }}/reference/devices/audio/audio-0.png)
 
 ## Audio parameters
 
@@ -27,7 +27,7 @@ Multiple processes sending audio to the same parameter will be summed.
 
 For a sound card with two mono inputs and outputs, creating the device would look like this:
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/audio/audio-1.png)
+![Device setup window]({{ site.img }}/reference/devices/audio/audio-1.png)
 
 * The address `audio:/out/0` will refer to the first channel on the sound card.
 * The addresses `audio:/in/main` and `audio:/out/main` respectively refer to the entirety of the available channels.
@@ -41,7 +41,7 @@ To do so, just add a child to the device :
 
 ### Physical busses
 
-![Device setup window]({{ site.baseurl }}/assets/images/reference/devices/audio/audio-2.png)
+![Device setup window]({{ site.img }}/reference/devices/audio/audio-2.png)
 
 The matrix shows which channels from the soundcard will be mapped to which channels of the port, in ascending order.
 

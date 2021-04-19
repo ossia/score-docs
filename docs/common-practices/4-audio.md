@@ -23,7 +23,7 @@ If you don't hear a sound, check that :
 
 It should look like this:
 
-![Sound file playing]({{ site.baseurl }}/assets/images/common-practices/audio-1.png)
+![Sound file playing]({{ site.img }}/common-practices/audio-1.png)
 
 ## Applying an effect
 
@@ -46,7 +46,19 @@ the audio effect.
 Instead, we can group them in a single [scenario]({{ site.baseurl }}/processes/scenario.html), and rout the scenario's output
 to the audio effects:
 
-![Grouping]({{ site.baseurl }}/assets/images/common-practices/audio-group.png)
+![Grouping]({{ site.img }}/common-practices/audio-group.png)
+
+## Fade-ins and fade-outs
+
+Every audio outlet has a "gain" sub-outlet which can be used to perform fades.
+
+1. Press the audio outlet.
+2. Right-click on the "gain" port.
+3. Select "Create automation".
+
+The created automation can then be used to adjust the volume of that output in time.
+
+![Fading]({{ site.img }}/common-practices/audio-fade.png)
 
 ## Analysing an audio signal
 
