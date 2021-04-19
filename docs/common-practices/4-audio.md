@@ -62,7 +62,7 @@ to visualize a signal in the time-line.
 5. If the signal is too low, add a Custom Mapping process between the envelope and the signal display,
    in order to multiply it by some factor meaningful for your signal.
 
-![Envelope]({{ site.baseurl }}/assets/images/common-practices/audio-group.png)
+![Envelope]({{ site.img }}/common-practices/audio-envelope.png)
 
 ## Sound spatialization
 
@@ -72,15 +72,31 @@ This makes it possible to use it for instance with large speaker arrays, domes, 
 
 A simple and efficient 2D spatialization algorithm is provided with the [Faust](TODO) `spat` preset (which uses the spatialization method devised by Laurent Pottier).
 
-By default, it is to be used with an 8-channel circular loudspeaker array
+By default, it will spatialize a mono source on a 8-channel circular loudspeaker array.
 
+![Spatialization]({{ site.img }}/common-practices/audio-spat.png)
 
-## Routing audio
+It is possible to edit the Faust script, to change the number of loudspeakers:
 
-* Propagate
-* Routing with cables
-* Audio device
-* Routing with addresses
+1. Press the "Window" icon next to the Faust process name, to open its editor.
+2. Edit the following line with the number of wanted loudspeakers instead of `8`:
+
+    ```faust
+    process = vgroup("Spatializer 1x8", sp.spat(8, angle, distance));
+    ```
+
+3. Press "Compile". The Faust process will be compiled and updated automatically.
 
 ## Using live audio input
 
+To use a live audio input in a part of the score, follow these steps:
+
+1. Set-up the [audio device]({{ site.baseurl }}/devices/audio-device.html) in the device explorer.
+2. Drag'n'drop the input address to use as an input of a sound effect.
+
+In the following example, a stereo bus receiving a stereo guitar signal has been created.
+It is sent to a reverb.
+
+<video controls>
+    <source src="{{ site.img }}/common-practices/audio-input.mp4" type="video/mp4">
+</video>
