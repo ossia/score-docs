@@ -20,7 +20,7 @@ url: "https://ossia.io" # the base hostname & protocol for your site, e.g. http:
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"
-, "docs/tests/"
+, "docs/tests/", "Dockerfile", "docker-compose.yml", ".github", "*.sh", "CODE_OF_CONDUCT.md", "styles"
 ]
 
 # Regression tests
