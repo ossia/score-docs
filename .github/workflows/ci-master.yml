@@ -13,9 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Build Jekyll site
-      uses: fabacab/jekyll-builder-for-github-pages-action@v1
+    - name: Bundler Cache
+      uses: actions/cache@v1
       with:
-        pre_build_commands: gem install bundler
-        secret_gh_pages_api_token: ${{ secrets.API_TOKEN_GITHUB }}
-        gh_pages_publishing_source: gh-pages
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Build & Deploy to GitHub Pages
+      uses: joshlarsen/jekyll4-deploy-gh-pages@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+        GITHUB_REPOSITORY: ossia/score-docs
+        GITHUB_ACTOR: oscar
+
