@@ -17,9 +17,5 @@ jobs:
       uses: fabacab/jekyll-builder-for-github-pages-action@v1
       with:
         pre_build_commands: gem install bundler
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.1.1
-      with:
-        branch: gh-pages
-        folder: _site
+        secret_gh_pages_api_token: ${{ secrets.API_TOKEN_GITHUB }}
+        gh_pages_publishing_source: gh-pages
