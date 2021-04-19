@@ -16,11 +16,11 @@ vstpuppet
 
 rescanning plug-ins
 
-## VST support
+## <a name="vst2"></a> VST support
 
-## VST3 support
+## <a name="vst3"></a> VST3 support
 
-## LV2 support
+## <a name="lv2"></a> LV2 support
 
 # Advanced plug-in and extensions
 ## Faust support

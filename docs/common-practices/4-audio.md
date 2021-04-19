@@ -19,7 +19,7 @@ To play a [sound file]({{ site.baseurl }}/processes/soundfile.html), drag'n'drop
 If you don't hear a sound, check that :
 
 * The time cursor is increasing (if not, that means that the sound card is not [properly configured]({{ site.baseurl }}/faq/doesnotwork.html)).
-* The sound file is linked to the beginning of the score via an [interval]({{ site.baseurl }}/processes/scenario.html#interval).
+* The sound file is linked to the beginning of the score via an [interval]({{ site.baseurl }}/processes/scenario.html#intervals).
 
 It should look like this:
 
@@ -38,7 +38,19 @@ To apply an effect to a sound file:
     <source src="{{ site.img }}/common-practices/audio-2.mp4" type="video/mp4">
 </video>
 
+## Applying an effect to multiple audio files
+
+To apply an effect to multiple files, it would be possible but unwieldy to connect a cable from each file to
+the audio effect.
+
+Instead, we can group them in a single [scenario]({{ site.baseurl }}/processes/scenario.html).
 
 ## Routing audio
 
+* Propagate
+* Routing with cables
+* Audio device
+* Routing with addresses
+
 ## Using live audio input
+

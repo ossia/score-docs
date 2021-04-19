@@ -34,7 +34,7 @@ When playing the score, this interval now won't run anymore:
 Some *score* users use that mechanism as a sand-box to try various behaviours.
 
 Now, to play this part of the score, we have to tell *score* what is going to trigger it.
-Thus, we have to add a [trigger]({{ site.baseurl }}/processes/scenario.html#trigger) to the start of the interval:
+Thus, we have to add a [trigger]({{ site.baseurl }}/processes/scenario.html#triggers) to the start of the interval:
 
 ![A trigger]({{ site.baseurl }}/assets/images/common-practices/out-of-time-trigger.png)
 
