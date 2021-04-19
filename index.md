@@ -10,11 +10,12 @@ permalink: /
 
 ![score window]({{ site.baseurl }}/assets/images/score-2.png)
 
-This is the documentation for *score* v3.0.0
+This is the documentation for *ossia score* v3.0.0
 
-Disclaimer: documentation is currently worked on and as such is incomplete.
+Disclaimer: the documentation is currently in-progress. If you spot a missing / incomplete / wrong information, or even just a spelling mistake, you can click the link at the bottom of the page which allows to submit a fix request to the documentation.
+
 {: .text-red-300}
 
-In the mean time, feel more than welcome to ask for help on the [Ossia.io forum](https://forum.ossia.io) or send a message on [Ossia score Gitter channel](https://gitter.im/OSSIA/score) where you will most likely find a handful of *score* users and developers.
+In the mean time, feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [the ossia score gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.
 
-You may also find some information watching these video tutorials (in French): [Score tutoriels](https://vimeo.com/ossia)
+You may also find some information watching these video tutorials (in french): [score tutoriels](https://vimeo.com/ossia).

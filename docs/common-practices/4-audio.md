@@ -43,7 +43,37 @@ To apply an effect to a sound file:
 To apply an effect to multiple files, it would be possible but unwieldy to connect a cable from each file to
 the audio effect.
 
-Instead, we can group them in a single [scenario]({{ site.baseurl }}/processes/scenario.html).
+Instead, we can group them in a single [scenario]({{ site.baseurl }}/processes/scenario.html), and rout the scenario's output
+to the audio effects:
+
+![Grouping]({{ site.baseurl }}/assets/images/common-practices/audio-group.png)
+
+## Analysing an audio signal
+
+*score* provides a simple envelope analyzer. Combined with the signal display process, this allows
+to visualize a signal in the time-line.
+
+1. Add an envelope process (Audio > Envelope).
+2. Add a signal display process (Monitoring > Signal display)
+3. Route the audio output to the input of the envelope process.
+> This means that the entire audio is routed to the envelope process, and thus won't be heard anymore. To prevent this,
+> check "Propagate" in the audio outlet inspector.
+4. Route the envelope output to the signal display input. The first output measures RMS, the second measures peak values.
+5. If the signal is too low, add a Custom Mapping process between the envelope and the signal display,
+   in order to multiply it by some factor meaningful for your signal.
+
+![Envelope]({{ site.baseurl }}/assets/images/common-practices/audio-group.png)
+
+## Sound spatialization
+
+*score* allows arbitrary numbers of audio channels to go through its ports.
+
+This makes it possible to use it for instance with large speaker arrays, domes, etc.
+
+A simple and efficient 2D spatialization algorithm is provided with the [Faust](TODO) `spat` preset (which uses the spatialization method devised by Laurent Pottier).
+
+By default, it is to be used with an 8-channel circular loudspeaker array
+
 
 ## Routing audio
 
