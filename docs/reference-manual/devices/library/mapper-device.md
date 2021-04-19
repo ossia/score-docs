@@ -4,7 +4,6 @@ layout: default
 title: Mapper device
 description: "A device for mapping and combining other device's inputs / outputs"
 
-nav_order: 4
 parent: Devices
 grand_parent: Reference
 

@@ -4,7 +4,6 @@ layout: default
 title: Window device
 description: "Opening a window to display visuals"
 
-nav_order: 15
 parent: Devices
 grand_parent: Reference
 

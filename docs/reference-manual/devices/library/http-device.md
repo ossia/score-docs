@@ -4,7 +4,6 @@ layout: default
 title: HTTP device
 description: "Using HTTP APIs as a basis for a device"
 
-nav_order: 11
 parent: Devices
 grand_parent: Reference
 

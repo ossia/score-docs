@@ -4,7 +4,6 @@ layout: default
 title: Art-Net device
 description: "Controlling ArtNet and DMX peripherals in ossia score"
 
-nav_order: 13
 parent: Devices
 grand_parent: Reference
 

@@ -4,7 +4,6 @@ layout: default
 title: WebSocket device
 description: "Using an external WebSocket API for a score device"
 
-nav_order: 12
 parent: Devices
 grand_parent: Reference
 

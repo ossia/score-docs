@@ -4,7 +4,6 @@ layout: default
 title: OSC device
 description: "OSC protocol support in ossia score"
 
-nav_order: 2
 parent: Devices
 grand_parent: Reference
 

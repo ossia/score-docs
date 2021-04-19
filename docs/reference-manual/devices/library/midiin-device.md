@@ -4,7 +4,6 @@ layout: default
 title: Midi input device
 description: "Read MIDI data from an external hardware"
 
-nav_order: 6
 parent: Devices
 grand_parent: Reference
 

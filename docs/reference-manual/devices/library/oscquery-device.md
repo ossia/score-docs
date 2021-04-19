@@ -4,7 +4,6 @@ layout: default
 title: OSCQuery device
 description: "OSCQuery protocol support in ossia score"
 
-nav_order: 1
 parent: Devices
 grand_parent: Reference
 

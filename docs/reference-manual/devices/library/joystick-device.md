@@ -4,7 +4,6 @@ layout: default
 title: Joystick device
 description: "Using gamepads in ossia score"
 
-nav_order: 9
 parent: Devices
 grand_parent: Reference
 

@@ -4,7 +4,6 @@ layout: default
 title: Minuit device
 description: "Using the Minuit protocol in ossia score"
 
-nav_order: 3
 parent: Devices
 grand_parent: Reference
 

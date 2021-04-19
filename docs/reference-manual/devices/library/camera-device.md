@@ -4,7 +4,6 @@ layout: default
 title: Camera device
 description: "Using a camera as source for visuals in ossia score"
 
-nav_order: 16
 parent: Devices
 grand_parent: Reference
 
