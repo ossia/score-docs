@@ -22,7 +22,9 @@ To add a trigger point, simply select a state on the scenario, then from its ins
 
 When turning on the `trigger`, you can see a T-like icon is added on top of the selected `state`. You can also note that a dashed line appears on top of the preceding automation slot. This indicates that the duration of the preceding automations is now undefined: preceding automations will get executed up until the trigger is, well... *triggered*.
 
-![Triggering]({{ site.baseurl }}/assets/images/quick-start/breaking-the-timeline/triggering.mp4 "Triggering")
+<video controls>
+    <source src="{{ site.img }}/quick-start/breaking-the-timeline/triggering.mp4 " type="video/mp4">
+</video>
 
 In the example above, the scenario start with a simple fade-in. Notice that it gets executed as the scenario playhead goes across the automation slot.  While the scenario playhead continues its progression, you will notice though that the green progression bar at the top of the automation stops as it reaches the trigger point. Execution of the following automations is then on hold until the trigger point is triggered by a mouse click.
 

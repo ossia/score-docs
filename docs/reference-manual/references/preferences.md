@@ -9,6 +9,11 @@ parent: Reference
 permalink: /reference/preferences.html
 ---
 
+## Audio
+Audio settings allow to configure which sound card score is going to use for playback.
+
+If no sound is needed, it is possible to set the "Dummy" engine which won't output sound.
+
 ## Execution
 
 Note that every execution settings change require stopping and restarting the score.
