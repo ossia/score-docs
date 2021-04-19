@@ -10,8 +10,9 @@ permalink: /in-depth/musical.html
 ---
 
 # Musical metrics
+
 Musical metrics are hierarchic
-  * the tempo, and musical position in an interval is either relative to this interval
+  * The tempo, and musical position in an interval is either relative to this interval
     (if the 4/4 button in the inspector is pressed)
     or it's taking the musical information from its closest parent (recursively).
 

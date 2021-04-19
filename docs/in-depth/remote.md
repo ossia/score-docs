@@ -9,6 +9,8 @@ parent: In depth
 permalink: /in-depth/remote.html
 ---
 
+# Remote Control
+
 The two main ways to remote control score from the network are:
 
 - Through OSC and OSCQuery with the [Local device]({{ site.baseurl }}/devices/local-device.html).

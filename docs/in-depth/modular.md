@@ -7,3 +7,5 @@ parent: In depth
 
 permalink: /in-depth/modular-workflow.html
 ---
+
+# Modular workflow

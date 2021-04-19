@@ -35,7 +35,7 @@ in order to allow for smooth transitions. Check the inspector to enable the feat
 
 ## Units
 
-Automations can use the ossia score [[unit system]].
+Automations can use the *ossia* [[Address system|address and unit system]].
 
 ## Recording
 
