@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: "Score 3.0.0 Documentation"
+description: "ossia score 3.0.0 documentation"
 permalink: /
 ---
 
