@@ -63,6 +63,7 @@ For instance, given the following OSC device:
 ![An OSC device with repeated parameters]({{ site.img }}/in-depth/pattern-match.png)
 
 It is possible to send an automation to
+
 ```
 OSCdevice:/sub/*/level
 ```
@@ -70,33 +71,3 @@ OSCdevice:/sub/*/level
 to control all the levels with a single curve.
 
 > The complete reference of the supported pattern matching syntax is available [here](https://ossia.io/ossia-docs/#pattern-matching).
-
-<!-- TODO
-
-	Execution semantics
-	The automation tries to send values that are graphically as close as possible as the shown curve.
-	For the case where the address has no unit :
-
-	 	If the address is integer or floating point, the behavior is as expected.
-	 	If the address is a fixed-width array, then :
-
-	 	If there is no array accessor (such as an:/address[1]), all the values of the array are set to the value of the automation ([1, 1], [2, 2], [3, 3], etc.).
-	 	If there is an array accessor, only the accessed value will be set : [1, 1], [1, 2], [1, 3], etc...
-
-
-
-	For the case where the address has an unit, the value will be converted to the correct unit afterwards.
-
-	An interesting case is the cascading of units.
-	For instance, given this case :
-
-
-
-	First, the current value of aDevice:/light will be fetched, converted to the hue-saturation-value color space and its value will be set according to the first curve.
-	Then, in the red-green-blue color-space, the red component will be increased.
-	The result will be applied.
-	-->
-
-<!-- TODO
-	## Pattern matching
-	-->

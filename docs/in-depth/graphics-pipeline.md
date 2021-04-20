@@ -15,4 +15,4 @@ permalink: /in-depth/video.html
 
 *score* shaders are written with the [Interactive Shader Format](https://isf.video) specification.
 
-Video processes are combined into a dynamic render graph. Each process writes to a render target.
+Video processes are combined into a dynamic render graph which is processed in a separate thread. Each process writes to a render target.

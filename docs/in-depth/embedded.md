@@ -13,7 +13,7 @@ permalink: /in-depth/embedded.html
 
 *ossia score* supports running on ARM under Raspberry Pi 3 and 4. We recommend a Raspberry Pi 4 for much better performance for audio processing, as well as better support for graphics feature due to its more advanced GPU.
 
-Other embedded boards will also likely work, they have just not been tested yet. If [Qt](https://qt.io) runs on the hardware then most likely score will also run - see the following page for the reference hardware supported by Qt:
+Other embedded boards will also likely work, they have just not been tested yet. If [Qt](https://qt.io) runs on the hardware then most likely *score* will also run -- see the following page for the reference hardware supported by Qt:
 
 [https://doc.qt.io/QtForDeviceCreation/qtdc-supported-platforms.html](https://doc.qt.io/QtForDeviceCreation/qtdc-supported-platforms.html)
 
@@ -21,7 +21,7 @@ Please report to us if you try to build and run score on any other kind of exoti
 
 ## Running on the Raspberry Pi
 
-There are pre-made builds for Raspberry Pi 3 and 4 accessible on [Github Actions](https://github.com/ossia/score/actions).
+Raspberry Pi 3 and 4 pre-made builds are accessible on [Github Actions](https://github.com/ossia/score/actions).
 
 Pi Zero, 1, 2 can technically work but no builds are currently being made for them.
 
@@ -39,11 +39,11 @@ Note: we recommend not using the default Pi desktop environment: in our testing,
 
 ## Building for the Raspberry Pi
 
-- ossia score build scripts: [https://github.com/ossia/score/tree/master/ci](https://github.com/ossia/score/tree/master/ci)
+- *ossia score* build scripts: [https://github.com/ossia/score/tree/master/ci](https://github.com/ossia/score/tree/master/ci)
 
-- ossia SDK build scripts (building latest Qt, FFMPEG, etc): [https://github.com/ossia/sdk/tree/master/ARM/RPi4](https://github.com/ossia/sdk/tree/master/ARM/RPi4)
+- *ossia* SDK build scripts (building latest Qt, FFMPEG, etc): [https://github.com/ossia/sdk/tree/master/ARM/RPi4](https://github.com/ossia/sdk/tree/master/ARM/RPi4)
 
-They will produce binaries that are optimized for Pi 4, but will also work on Pi 3.
+They will produce binaries optimized for Pi 4, and that will also work on Pi 3.
 
 ## Caveats
 
