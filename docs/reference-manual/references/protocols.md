@@ -69,7 +69,7 @@ For real-time communication, the following implementations are provided:
 
 In addition, *score* is able to load Standard MIDI files (SMF).
 
-See the [MIDI documentation]({{ site.baseurl }}/in-depth/midi.html) for more information.
+See the [[MIDI|MIDI documentation]] for more information.
 
 # Audio file formats
 
@@ -97,14 +97,18 @@ See the [video process documentation]({{ site.baseurl }}/processes/video.html) f
 
 See the [image process documentation]({{ site.baseurl }}/processes/image.html) for more information.
 
+# Real-time media sharing
+
+*score* supports [Spout](https://spout.zeal.co/). For now it is limited to outputting a texture.
+
 # Graphics APIs
 
 *score* uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d) as graphics abstraction for the video pipeline. It is able to use OpenGL ES 2.0, Vulkan, Metal, and Direct 3D 11 in a very efficient way.
 
 *score* shaders are written with the [Interactive Shader Format](https://isf.video) specification.
 
-See the [shader process documentation]({{ site.baseurl }}/processes/shader.html) for more information on how to write *score* shaders.
-See the [general video documentation]({{ site.baseurl }}/in-depth/video.html) for general information on the *score* graphics rendering pipeline.
+See the [[shader|shader process documentation]] for more information on how to write *score* shaders.
+See the [[graphics pipeline|general video documentation]] for general information on the *score* graphics rendering pipeline.
 
 # Audio plug-ins
 

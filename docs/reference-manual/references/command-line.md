@@ -11,7 +11,9 @@ permalink: /reference/commandline.html
 
 You can launch ossia score from the command line or shell scripts with various useful options.
 
-## Command-line reference
+# Command-line reference
+
+## List of command-line options
 
 ### Getting the list of options
 ```bash
@@ -84,3 +86,9 @@ $ /Applications/Score.app/Contents/MacOS/score --no-gui --no-restore --wait 5 --
 ```dosbatch
 > "c:\Program Files\ossia score\score.exe" --no-gui --no-restore --wait 5 --autoplay "c:\path\to\your\score.score"
 ```
+
+## List of useful environment variables
+
+* `SCORE_DISABLE_ALSA=1`: on Linux, disables the ALSA backend.
+* `SCORE_DISABLE_AUDIOPLUGINS=1`: disables scanning of VST, LV2 plug-ins on startup.
+* `FAUST_LIB_PATH=/some/path`: can override the default path where *score* looks for Faust libraries (by default they ship with *score*).

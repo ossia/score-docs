@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Audio"
+title: "Audio techniques"
 description: "Audio in ossia score"
 
 nav_order: 4
@@ -10,7 +10,7 @@ parent: Common practices
 permalink: /common-practices/4-audio.html
 ---
 
-# Audio
+# Audio techniques
 
 ## Playing a sound file
 
