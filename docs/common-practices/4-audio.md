@@ -4,7 +4,7 @@ layout: default
 title: "Audio techniques"
 description: "Audio in ossia score"
 
-nav_order: 4
+nav_order: 5
 parent: Common practices
 
 permalink: /common-practices/4-audio.html
@@ -112,3 +112,27 @@ It is sent to a reverb.
 <video controls>
     <source src="{{ site.img }}/common-practices/audio-input.mp4" type="video/mp4">
 </video>
+
+## Applying global audio effects
+
+As mentioned in [[audio-routing]], mixing is by default hierarchical:
+objects mix their output in their parent object.
+
+In general, most scores will be built around a top-level scenario, which will contain all the structures:
+
+![Example of score]({{ site.img }}/common-practices/audio-example-1.png)
+
+This scenario is no exception to the rule: if you scroll at the bottom of the score, you'll notice it comes with an output audio port, too.
+
+In this example, we reduce its slots's height so that it is visible:
+
+![Smaller slot]({{ site.img }}/common-practices/audio-example-slot.png)
+
+It is then possible to connect the output of this scenario to another process, to apply a global audio filter:
+
+![Scenario audio output]({{ site.img }}/common-practices/audio-example-global.png)
+
+If complex filtering is necessary, it is of course possible to switch into
+the nodal view to create advanced effect routings:
+
+![Modular scenario view]({{ site.img }}/common-practices/audio-example-modular.png)

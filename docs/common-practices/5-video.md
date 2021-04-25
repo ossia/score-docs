@@ -4,7 +4,7 @@ layout: default
 title: "Video techniques"
 description: "Video in ossia score"
 
-nav_order: 5
+nav_order: 6
 parent: Common practices
 
 permalink: /common-practices/5-video.html
