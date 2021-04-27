@@ -5,9 +5,10 @@ title: "Switches"
 description: "Switches in ossia score"
 
 nav_order: 2
-parent: Common practices
+parent: Working with time
+grand_parent: Quick start
 
-permalink: /common-practices/2-switches.html
+permalink: /working-with-time/2-switches.html
 ---
 
 # Switches

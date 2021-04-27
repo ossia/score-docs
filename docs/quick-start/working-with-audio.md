@@ -5,7 +5,7 @@ title: "Working with audio"
 description: "Working with audio within score"
 
 parent: Quick start
-nav_order: 6
+nav_order: 2
 
 permalink: /quick-start/working-with-audio.html
 ---
@@ -33,16 +33,6 @@ Audio files can easily be integrated to your scenario. Just grab your file on yo
 > By default, *score* will use the main stereo output of your audio interface. Be sure to read the [audio routing]({{ site.baseurl }}/in-depth/audio-routing.html "Audio routing") section for more information.
 
 ![Playing audio files]({{ site.img }}/quick-start/working-with-audio/reading-audio-file.gif "Playing audio files")
-
-## Combining audio medias and devices control
-
-Audio files (and more generally medias) can be fully combined with device's automations or other processes in the scenario. Thus you can write medias playing and distant devices remote control at a single place.
-
-In the example below, we just want to play one audio file synchronously with some automations already in place. Rather than dropping our audio file on the timeline and align things by hand, we can just drop it on the automation's slot top bar so it sticks to it.
-
-In this particular case, you may notice though that the dropped sound file is shorter than the full length of the automation. Just bring the audio file inspector and toggle the loop mode. Now when playing the scenario, the audio file will loop as long as the automation is playing.
-
-![Audio file and other processes]({{ site.img }}/quick-start/working-with-audio/combining-audio-and-other-processes.gif "Audio files and other processes")
 
 ## Adding audio effects
 

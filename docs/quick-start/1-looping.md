@@ -5,9 +5,10 @@ title: "Looping"
 description: "Looping in ossia score"
 
 nav_order: 1
-parent: Common practices
+parent: Working with time
+grand_parent: Quick start
 
-permalink: /common-practices/1-looping.html
+permalink: /working-with-time/1-looping.html
 ---
 
 # Looping

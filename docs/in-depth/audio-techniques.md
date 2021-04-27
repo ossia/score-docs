@@ -4,10 +4,8 @@ layout: default
 title: "Audio techniques"
 description: "Audio in ossia score"
 
-nav_order: 5
-parent: Common practices
-
-permalink: /common-practices/4-audio.html
+parent: In depth
+permalink: /in-depth/audio-techniques.html
 ---
 
 # Audio techniques

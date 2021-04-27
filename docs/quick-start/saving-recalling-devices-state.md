@@ -5,7 +5,7 @@ title: "Saving & recalling devices' state"
 description: "Saving & recalling devices' state"
 
 parent: Quick start
-nav_order: 3
+nav_order: 6
 
 permalink: /quick-start/saving-and-recalling-devices-state.html
 ---
