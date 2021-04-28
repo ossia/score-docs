@@ -11,7 +11,7 @@ permalink: /devices/local-device.html
 ---
 
 
-While *score* can synchronise and automate your media softwares and hardware, it can also be remote controlled, should you need to control your scenario execution using some hyper advanced next generation IA software, a custom sensor interface or whatever fits your needs.
+While *score* can synchronise and automate your media softwares and hardware, it can also be remote-controlled, should you need to control your scenario execution using some hyper advanced next generation IA software, a custom sensor interface or whatever fits your needs.
 
 # Using score OSCQuery device
 
@@ -33,3 +33,12 @@ Exposed parameters include:
 Below is a simple Max patcher provided in [ossia-max package](https://ossia.io/site-libossia/download.html#max-binding) illustrating remote control of score's transport.
 
 ![Remote transport]({{ site.img }}/reference/devices/remote_transport.png "Remote transport")
+
+# More parameters in the local tree
+
+In the [[preferences]] of the software, it is possible to enable the extended tree.
+
+This tree will create nodes for every interval, process, etc. This means that it will become 
+possible to control any parameter in your score from OSC / OSCQuery.
+
+
