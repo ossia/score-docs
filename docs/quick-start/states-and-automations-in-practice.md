@@ -5,7 +5,7 @@ title: "States & automations in practice"
 description: "States and automations in practice"
 
 parent: Quick start
-nav_order: 5
+nav_order: 8
 
 permalink: /quick-start/states-and-automations-in-practice.html
 ---
@@ -51,3 +51,13 @@ In the example above, you can see multiple automation slots actually got superpo
 You can also remove an automation from the stack by clicking on a slot background. Bring the contextual menu using right-click and select `remove`.
 
 ![Remove automation]({{ site.img }}/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")
+
+## Combining audio medias and devices control
+
+Audio files (and more generally medias) can be fully combined with device's automations or other processes in the scenario. Thus you can write medias playing and distant devices remote control at a single place.
+
+In the example below, we just want to play one audio file synchronously with some automations already in place. Rather than dropping our audio file on the timeline and align things by hand, we can just drop it on the automation's slot top bar so it sticks to it.
+
+In this particular case, you may notice though that the dropped sound file is shorter than the full length of the automation. Just bring the audio file inspector and toggle the loop mode. Now when playing the scenario, the audio file will loop as long as the automation is playing.
+
+![Audio file and other processes]({{ site.img }}/quick-start/working-with-audio/combining-audio-and-other-processes.gif "Audio files and other processes")

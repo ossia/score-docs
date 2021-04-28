@@ -4,10 +4,10 @@ layout: default
 title: "Scenes"
 description: "Scenes in ossia score"
 
-nav_order: 4
-parent: Common practices
+nav_order: 0
+parent: In depth
 
-permalink: /common-practices/6-scenes.html
+permalink: /in-depth/0-scenes.html
 ---
 
 # Scenes

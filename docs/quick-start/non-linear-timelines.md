@@ -5,7 +5,7 @@ title: "Non-linear timeline"
 description: "Non-linear timeline"
 
 parent: Quick start
-nav_order: 9
+nav_order: 10
 
 permalink: /quick-start/non-linear-timelines.html
 ---

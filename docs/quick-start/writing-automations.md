@@ -5,7 +5,7 @@ title: "Writing automations"
 description: "Writing automations"
 
 parent: Quick start
-nav_order: 4
+nav_order: 7
 
 permalink: /quick-start/writing-automations.html
 ---

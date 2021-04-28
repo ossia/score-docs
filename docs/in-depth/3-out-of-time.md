@@ -5,9 +5,9 @@ title: "Out-of-time triggering"
 description: "Out-of-time triggering in ossia score"
 
 nav_order: 3
-parent: Common practices
+parent: In depth
 
-permalink: /common-practices/3-out-of-time.html
+permalink: /in-depth/3-out-of-time.html
 ---
 
 # Out-of-time triggering

@@ -5,7 +5,7 @@ title: "Working with video"
 description: "Working with video within *score*"
 
 parent: Quick start
-nav_order: 7
+nav_order: 4
 
 permalink: /quick-start/working-with-video.html
 ---

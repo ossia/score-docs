@@ -5,7 +5,7 @@ title: "Working with devices"
 description: "Working with devices"
 
 parent: Quick start
-nav_order: 2
+nav_order: 5
 
 permalink: /quick-start/working-with-devices.html
 ---
