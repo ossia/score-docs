@@ -73,7 +73,7 @@ The preferred way to build when hacking on the software is with [cninja](https:/
     cninja ~/path/to/score developer
 
 Alternatively, one can build with CMake.
-Pass the following options to `cmake` to ensure maximal build speed :
+Pass the following options to `cmake` to ensure maximal build speed: (note that the instructions later on this page may not be entirely up-to-date)
 
     -GNinja
     -DCMAKE_C_COMPILER=/path/to/clang
@@ -127,7 +127,7 @@ cd score
 # Build
 mkdir build
 cd build
-CC=clang CXX=clang++ cmake .. -DSCORE_CONFIGURATION=debug -GNinja
+CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 ninja
 
 # Run
@@ -156,7 +156,7 @@ cd score
 # Build
 mkdir build
 cd build
-CC=clang CXX=clang++ cmake .. -DCMAKE_PREFIX_PATH=~/Qt/5.15.1/gcc_64 -DSCORE_CONFIGURATION=debug -GNinja
+CC=clang CXX=clang++ cmake .. -DCMAKE_PREFIX_PATH=~/Qt/5.15.1/gcc_64 -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 ninja
 
 # Run
@@ -191,8 +191,7 @@ cd build
 # The line with PREFIX is only necessary if you used the latest Qt
 cmake .. \
   -DCMAKE_PREFIX_PATH=~/Qt/5.15.1/gcc_64 \
-  -DCMAKE_BUILD_TYPE=Debug \
-  -GNinja
+  -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 
 ninja
 
@@ -216,7 +215,7 @@ cd score
 # Build
 mkdir build
 cd build
-CC=clang CXX=clang++ cmake .. -DSCORE_CONFIGURATION=debug -GNinja
+CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 ninja
 
 # Run
@@ -235,7 +234,7 @@ cd score
 # Build
 mkdir build
 cd build
-CC=clang CXX=clang++ cmake .. -DSCORE_CONFIGURATION=debug -DOSSIA_USE_FAST_LINKER=1 -GNinja
+CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 ninja
 
 # Run
@@ -257,7 +256,7 @@ cd score
 # Build
 mkdir build
 cd build
-cmake ~/score -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt -DSCORE_CONFIGURATION=debug -GNinja
+cmake ~/score -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
 ninja
 
 # Run
@@ -290,7 +289,7 @@ pip install aqtinstall
 aqt install --outputdir c:\Qt 5.15.2 windows desktop win64_msvc2019_64
 
 # Build
-cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_CONFIGURATION=static-debug -DCMAKE_INSTALL_PREFIX=installed
+cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed  -DCMAKE_BUILD_TYPE=Release 
 cmake --build . --config Release
 cmake --build . --config Release --target install
 
@@ -311,12 +310,12 @@ pacman -S mingw-w64-x86_64-cmake  mingw-w64-x86_64-ninja
 # Build
 cmake ../score \
   -GNinja \
-  -DCMAKE_C_COMPILER="c:/score-sdk/llvm/bin/clang.exe" \
-  -DCMAKE_CXX_COMPILER="c:/score-sdk/llvm/bin/clang++.exe" \
-  -DCMAKE_PREFIX_PATH="c:/score-sdk/qt5-dynamic" \
-  -DOSSIA_SDK="c:/score-sdk" \
-  -DSCORE_CONFIGURATION=debug \
+  -DCMAKE_C_COMPILER="c:/ossia-sdk/llvm/bin/clang.exe" \
+  -DCMAKE_CXX_COMPILER="c:/ossia-sdk/llvm/bin/clang++.exe" \
+  -DOSSIA_SDK="c:/ossia-sdk" \
+  -DSCORE_PCH=1 \   
   -DOSSIA_USE_FAST_LINKER=1 \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=installed
 
 cmake --build . --config Release
