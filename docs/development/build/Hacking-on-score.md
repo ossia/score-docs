@@ -267,7 +267,7 @@ ninja
 ## Windows (with Visual Studio)
 
 First install:
-* The latest version of Visual Studio 2019 (16.5 as of march 2020)
+* The latest version of Visual Studio 2019 (16.10 as of July 2021)
 * [git](https://gitforwindows.org/)
 * [CMake](https://cmake.org/)
 * [Python](https://www.python.org)
@@ -287,10 +287,10 @@ cd c:\dev
 # Install dependencies
 ## Qt
 pip install aqtinstall
-aqt install --outputdir c:\Qt 5.15.1 windows desktop win64_msvc2017_64
+aqt install --outputdir c:\Qt 5.15.2 windows desktop win64_msvc2019_64
 
 # Build
-cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.1/msvc2017_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_CONFIGURATION=static-debug -DCMAKE_INSTALL_PREFIX=installed
+cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_CONFIGURATION=static-debug -DCMAKE_INSTALL_PREFIX=installed
 cmake --build . --config Release
 cmake --build . --config Release --target install
 
@@ -300,7 +300,7 @@ score.exe
 ```
 
 ## Windows (with MSYS2)
-First download https://github.com/ossia/sdk/releases/download/sdk14/score-sdk-mingw.7z and extract it in your `c:\` (the folder should look like `c:\score-sdk\ffmpeg`)
+First download [the MinGW SDK](https://github.com/ossia/sdk/releases/download/sdk21/sdk-mingw.7z) and extract it in your `c:\` (the folder should look like `c:\ossia-sdk\ffmpeg`)
 
 Then, in a mingw-w64 terminal (not an MSYS terminal, this is very important ! if in doubt, run `c:\msys64\mingw64.exe`):
 
