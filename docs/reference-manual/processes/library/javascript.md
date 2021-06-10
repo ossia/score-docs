@@ -19,11 +19,15 @@ permalink: /processes/javascript.html
 
 It also uses QML (property real, etc.). See the [QML Reference](https://doc.qt.io/qt-5/qmlreference.html) for more information.
 
-Setting the path to a file is possible.
+Either code directly or a path to the file can be added to the Javascript code editor - if it's a file it will be watched for changes.
+
+JS can be used as a process both for intervals, and in states. 
+* To add a JS process to an interval, simply drag'n'drop it from the Process Library to the interval.
+* To add a JS process to a state, right-click on the state in the Object Explorer, and choose "Add Process".
 
 ## Editing code
 
-An important thing to note is that the edited script *won't* be saved in the scenario if there are compilation errors.
+An important thing to note is that the edited script *will not* be saved in the scenario if there are compilation errors. This is a known issue and likely to change.
 
 ## General syntax
 
@@ -49,6 +53,18 @@ The tick function's two arguments give both timing and contextual information us
 
 Please read the [Timing]({{ site.baseurl }}/in-depth/musical.html#timing) page to understand the timing concepts used in ossia score, in particular
 how model, physical and musical dates relate to each other.
+
+### Available functions
+
+For now, only a very simple API to read / write messages from the device explorer is provided: 
+
+```js
+// Reads the current value of an address in the device explorer
+let value = Device.read("an:/address");
+
+// Sends a value to the device explorer
+Device.write("an:/address", 123);
+```
 
 ### Token object
 
