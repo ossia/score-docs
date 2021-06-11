@@ -10,6 +10,12 @@ nav_order: 6
 permalink: /quick-start/working-with-audio.html
 ---
 # Working with audio in *score*
+
+  ## Audio setup
+  ## Playing audio file
+  ## Adding audio effects
+
+
 ## Audio setup
 
 Before playing with audio sound files or synthesis in *score* you may want to ensure audio settings are properly set up.
