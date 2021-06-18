@@ -10,3 +10,6 @@ permalink: /docs/advanced/puredata.html
 ---
 
 This documentation [has moved]({{ site.baseurl }}/processes/puredata.html).
+
+
+// DELETE ALL
