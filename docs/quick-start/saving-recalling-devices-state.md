@@ -10,6 +10,8 @@ nav_order: 3
 permalink: /quick-start/saving-and-recalling-devices-state.html
 ---
 
+# Saving and recailling your device's state
+
 *ossia score* provides a number of tools to author precise control of the various devices involved in your project. Here we will focus on two basic elements:
 - saving some devices' state (aka making snapshots) to be recalled during the execution of your scenario
 - writing automations for some parameters

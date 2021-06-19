@@ -22,6 +22,7 @@ A workflow you might find useful is the `auto-sequence` mode. As of *score* vers
 
 In the `Settings` window, select the `User interface tab` then make sure the `auto-sequence` option is toggled on.
 
+
 ![Auto-sequence Settings]({{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence settings")
 
 ### Using auto-sequence
