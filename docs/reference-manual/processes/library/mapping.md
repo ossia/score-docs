@@ -11,3 +11,5 @@ permalink: /processes/mapping.html
 ---
 
 # Mapping (float)
+
+![Mapping float]({{ site.img }}/reference/processes/mapping_float.png "Mapping float Example")
