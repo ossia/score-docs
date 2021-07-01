@@ -22,7 +22,7 @@ Different options are available when you use the audio looper
 
 ## Recording
 
-	To record the actual sound where the looper is link to
+	To record the actual sound where the looper is linked to
 
 ## Overdub
 
