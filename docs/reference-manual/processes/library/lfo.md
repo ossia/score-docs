@@ -13,7 +13,8 @@ permalink: /processes/lfo.html
 
 ![LFO]({{ site.img }}/reference/processes/lfo.png "LFO Example")
 
-You can use the Low Frequency Oscillator in order to modify a sound.
+You can use the Low Frequency Oscillator in order to generate a value.
+This value can be used later to control other parameters.
 
 ## Frequency
 
