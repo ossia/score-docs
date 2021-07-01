@@ -15,4 +15,4 @@ permalink: /processes/step.html
 
 Score has a separate step sequencer where you can edit the number of rows and the duration of each step.
 
-If the window is stretch beyond the last row, the sequencer will be automatically repeated 
+If the window is stretched beyond the last row, the sequencer will be automatically repeated.
