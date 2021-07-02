@@ -14,8 +14,8 @@ permalink: /processes/patternist.html
 ![Patternist]({{ site.img }}/reference/processes/patternist.png "MIDI Squencer Pattern Example")
 
 Score has a MIDI pattern sequencer that you can use.
-On the left of the squencer, there is te actual note of the lane with a corresponding number.
-Each steps correspond to a measure. If the step is activate ( _yellow_), the note will be played.
+On the left of the squencer, there is the actual note of the lane with a corresponding number.
+Each step correspond to a measure. If the step is activated ( _yellow_), the note will be played.
 
 # Channel
 
