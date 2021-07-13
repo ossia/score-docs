@@ -26,7 +26,7 @@ When done, *score* creates a black video window.
 ![Create window device]({{ site.img }}/quick-start/working-with-video/window-device.gif)
 
 
-> You can see in the `Device explorer` a device with the defined name. You will note that contrary to other devices used so far, this one has no parameters under its root node. This device basically only creates a video output window and rendering context.
+> You can see in the `Device explorer` a device with the defined name. You will note that contrary to other devices used so far, this one has no parameters under its root node. This device basically only creates a video output window and rendering context. If the window is closed, it's possible to open it again with a right-click on the device's name and then click on `show`
 
 ## Playing a video file
 
