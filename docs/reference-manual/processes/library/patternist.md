@@ -9,24 +9,34 @@ grand_parent: Reference
 
 permalink: /processes/patternist.html
 ---
-# MIDI Pattern Squencer
 
-![Patternist]({{ site.img }}/reference/processes/patternist.png "MIDI Squencer Pattern Example")
+# MIDI Pattern Sequencer
 
-Score has a MIDI pattern sequencer that you can use.
-On the left of the squencer, there is the actual note of the lane with a corresponding number.
-Each step correspond to a measure. If the step is activated ( _yellow_), the note will be played.
+![Patternist]({{ site.img }}/reference/processes/patternist.png "MIDI Pattern Sequencer Example")
 
-# Channel
+A classic MIDI pattern sequencer.
+On the left of the sequencer, there is the actual note of the lane with a corresponding number.
+Each step correspond to a measure. If the step is activated (_yellow_), the note will be played.
 
-# Current Pattern
+This process can have multiple distinct patterns which can be switched.
 
-# Lanes 
+## Channel
 
-When you add a squencer, there are 2 lanes. But it can be reduce to 1 and you can have up to 127 differents lanes on your sequencer.
+On which MIDI channel the output goes.
 
-# Step
+## Current Pattern
 
+The index of the current pattern.
+
+## Lanes
+
+Each lane corresponds to one MIDI note.
+
+## Step
+
+How many steps there are in a pattern.
 The minimal amount of steps is 4 and the maximum is 32.
 
-# Rate
+## Rate
+
+To which musical declination corresponds a step: quarter note, 16th note, etc.

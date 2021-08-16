@@ -57,10 +57,10 @@ Or you can install them with your package manager of choice - see the packages f
 
 # Useful documentation
 
-- (Using) CMake : https://cliutils.gitlab.io/modern-cmake/chapters/intro/running.html
-- (Writing) CMake : https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html
-- Qt : https://doc.qt.io/qt-5/gettingstarted.html
-- Qt Creator : https://doc.qt.io/qtcreator/index.html
+- [(Using) CMake](https://cliutils.gitlab.io/modern-cmake/chapters/intro/running.html)
+- [(Writing) CMake](https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html)
+- [Qt](https://doc.qt.io/qt-5/gettingstarted.html)
+- [Qt Creator](https://doc.qt.io/qtcreator/index.html)
 
 # Building on the command line
 
@@ -289,7 +289,7 @@ pip install aqtinstall
 aqt install --outputdir c:\Qt 5.15.2 windows desktop win64_msvc2019_64
 
 # Build
-cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed  -DCMAKE_BUILD_TYPE=Release 
+cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed  -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release
 cmake --build . --config Release --target install
 
@@ -313,7 +313,7 @@ cmake ../score \
   -DCMAKE_C_COMPILER="c:/ossia-sdk/llvm/bin/clang.exe" \
   -DCMAKE_CXX_COMPILER="c:/ossia-sdk/llvm/bin/clang++.exe" \
   -DOSSIA_SDK="c:/ossia-sdk" \
-  -DSCORE_PCH=1 \   
+  -DSCORE_PCH=1 \
   -DOSSIA_USE_FAST_LINKER=1 \
   -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_INSTALL_PREFIX=installed

@@ -15,7 +15,7 @@ permalink: /reference/glossary.html
 
 ### Automation
 
-### Branche
+### Branch
 
 ### Condition
 

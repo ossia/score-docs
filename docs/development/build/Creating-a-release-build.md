@@ -22,7 +22,7 @@ To build, you will need the following dependencies :
  * [Qt 5](http://www.qt.io/) (>= 5.12)
  * [CMake](https://cmake.org/) (>= 3.15)
  * [Boost](http://www.boost.org/) (automatically downloaded)
- * (optional) FFMPEG (http://www.ffmpeg.org) (>= 3.3)
+ * (optional) [FFMPEG](http://www.ffmpeg.org) (>= 3.3)
  * A **recursive** clone of the score repository : `git clone --recursive https://github.com/ossia/score`.
 
 The easiest way to get most dependencies in a prebuilt form is by [downloading our SDK for your platform](https://github.com/ossia/sdk/releases).
