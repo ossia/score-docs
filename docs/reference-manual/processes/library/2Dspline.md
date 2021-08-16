@@ -14,6 +14,11 @@ permalink: /processes/2Dspline.html
 
 ![2D spline]({{ site.img }}/reference/processes/2Dspline.png "2D spline example")
 
+The 2D spline is a process which allows to control a 2D position in time, by modifying a curve
+in the user interface.
+
+# Generating a curve
+
 It is possible to use math formulas to generate a specific spline.
 
 To do so, right-click on a spline, and select `Generate curve` in the menu.
