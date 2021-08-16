@@ -106,3 +106,6 @@ When off, moved point will get inserted at its new position without removing oth
 ![Preserve overlapping points]({{ site.img }}/reference/processes/automation_float/dont-suppress-points.gif)
 
 ## Tween mode
+
+Tweening allows an automation to ramp smoothly from the running value of an address which was assigned to, during the first segment.
+This means that, assuming an OSC address `/foo`, if tweening is enabled, no matter the visual "start value" of the first point of the automation curve, the actual first point during execution will be taken from the value of `/foo` when the score reaches that part. This allows smooth transitions from a live control, to a scripted one.
