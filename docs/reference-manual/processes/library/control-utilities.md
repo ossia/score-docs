@@ -12,14 +12,15 @@ permalink: /processes/control-utilities.html
 
 # Impulse metronome
 
-- A metronome synchronized to its parent interval. Will send an impulse on each beat.
+![Impulse metronome]({{ site.img }}/reference/processes/impulse-metronome.png "Impulse metronome")
+
+The simplest possible metronome, synchronized to its parent interval. Will send an impulse on each beat.
 
 # Free metronome
 
-- A desynchronized metronome. That is, it can ignore the parent interval's tempo and will instead have its own unrelated tempo.
-It Will send an impulse on each beat (depending on the duration setting).
+![Free metronome]({{ site.img }}/reference/processes/free-metronome.png "Free metronome")
+
+A desynchronized metronome. It can ignore the parent interval's tempo and will instead beat at its own unrelated speed, a bit like the `[metro]` objects in PureData or Max/MSP.
 
 If "Quantify" is set on "Free", then the raw frequency in Hertz will be used as tempo source.
 Else, the parent tempo is used. The rate can be chosen with the musical division selector.
-
--
