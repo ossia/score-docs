@@ -15,13 +15,13 @@ permalink: /processes/javascript.html
 ## Scripting in Javascript / QML.
 *score* allows to write scripts using the JavaScript language. These scripts can be used to write specific processes such as value mappers, audio generators.
 
-*score* uses JavaScript version ES7. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about JS language.
+*score* uses JavaScript version ES7. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about the JS language.
 
 It also uses QML (property real, etc.). See the [QML Reference](https://doc.qt.io/qt-5/qmlreference.html) for more information.
 
 Either code directly or a path to the file can be added to the Javascript code editor - if it's a file it will be watched for changes.
 
-JS can be used as a process both for intervals, and in states. 
+JS can be used as a process both for intervals, and in states.
 * To add a JS process to an interval, simply drag'n'drop it from the Process Library to the interval.
 * To add a JS process to a state, right-click on the state in the Object Explorer, and choose "Add Process".
 
@@ -56,7 +56,7 @@ how model, physical and musical dates relate to each other.
 
 ### Available functions
 
-For now, only a very simple API to read / write messages from the device explorer is provided: 
+For now, only a very simple API to read / write messages from the device explorer is provided:
 
 ```js
 // Reads the current value of an address in the device explorer

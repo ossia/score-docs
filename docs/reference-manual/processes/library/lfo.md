@@ -34,4 +34,8 @@ The offset value is between -1000 and 1000.
 
 ## Jitter
 
+Allows to add some amount of noise to the signal.
+
 ## Phase
+
+Allows to alter the phase of the signal.
