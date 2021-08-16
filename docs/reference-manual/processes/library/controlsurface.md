@@ -10,10 +10,16 @@ grand_parent: Reference
 permalink: /processes/controlsurface.html
 ---
 
-- Drop addresses on it
-- It's now possible to control them from the score directly through the UI
-  when this specific process is running.
+# Control surface process
 
+![Control surface]({{ site.img }}/reference/processes/control-surface.png "Control surface")
+
+This process allows to control remote parameters defined in the [[Device explorer]] from the central timeline / nodal view.
+
+To add an address, drag'n'drop it from the explorer to the process's central area.
+This will add it as an automatable and controllable parameter for the duration of the execution of that process, with a meaningful user interface widget depending on the metadata associated with the OSC node (unit, data type, range...).
+
+Note that like every other *score* process, it will only have an effect during the execution of the score.
 
 ## Remote control API
 
