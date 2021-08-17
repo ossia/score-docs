@@ -10,24 +10,28 @@ grand_parent: Reference
 permalink: /processes/video.html
 ---
 
+# Video
+The video process allows to play a video.
+
+Video decoding is done with the help of the GPU as far as possible, e.g. for YUV420P or HAP data.
+Most [common codecs and pixel formats](https://www.ffmpeg.org/general.html#Video-Codecs) are supported ; we use [FFMPEG](https://www.ffmpeg.org/) for decoding plus the HAP library by Vidvox for HAP videos.
+
+If you plan to scrub in the video, it is important to use the HAP codec ; other video codecs make scrubbing very slow (in the worst case, the
+entire video may have to be read from the beginning when scrubbing !).
+
 ## Usage
-- Drag'n'drop video from system or user library
-- Videos loop by default
+- Drag'n'drop the video from the user library or file explorer.
 
-- Simplest way to play a video:
-  * Add a window device
+- Videos loop by default ; otherwise a black screen would be shown when reaching the end.
+
+The simplest way to play a video is as follows:
+  * Add a [[window]] device
   * Drop the video
-  * Select the output port of the video process and assing it to the window device
+  * Select the output port of the video process and assign it to the [[window]] device.
 
-## Support
-- Formats de fichiers supportés: tous ceux supportés par ffmpeg
-  * https://www.ffmpeg.org/general.html#Video-Codecs
+See the example:
+<video controls>
+    <source src="{{ site.img }}/reference/processes/video.mp4 " type="video/mp4">
+</video>
 
-
-- Formats de pixels supportés:
-  * RGB
-  * BGR
-  * RGBA
-  * BGRA
-  * YUV420
-  * YUV422
+Note that for now the sound tracks contained in video files are not handled; this will be done in a later version.
