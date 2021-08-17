@@ -21,3 +21,8 @@ If multiple images are dropped, it will be possible to switch through those with
 
 If those images are GIFs, then the index allows to sift through the gif's frames.
 
+Here is an example of a simple score which loops over a set of images and applies a visual effect to the output, useful for VJ purposes:
+
+<video controls>
+    <source src="{{ site.img }}/reference/processes/images-1.mp4" type="video/mp4">
+</video>
