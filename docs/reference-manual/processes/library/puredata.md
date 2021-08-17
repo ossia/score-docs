@@ -2,7 +2,7 @@
 layout: default
 
 title: Pure Data integration
-description: "Using PureData in ossia score"
+description: "Using Pure Data in ossia score"
 
 parent: Processes
 grand_parent: Reference
@@ -74,7 +74,7 @@ Valid cases would be (not all of them work yet):
 
 ## Editing the patch
 
-While editing the patch in real-time does not yet work, editing it when the score is stopped will reload it when execution is restarted.
+If a Pure Data binary is detected on the host computer (by looking into their default installations folders and in the PATH), then it will be possible to open the patch directly from score.
 
-If a Purr Data, Pd-l2ork, or Pure Data binary is detected on the host computer (by looking into their default installations folders and in the PATH),
-then it will be possible to open the patch directly from score.
+There is one caveat that may be fixed in a future version of the integration: one must *not* close the main Pd UI window by quitting it like other OS windows.
+Instead, the window should be closed by pressing the "window" button in the score node.

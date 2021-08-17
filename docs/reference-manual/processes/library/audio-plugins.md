@@ -36,7 +36,7 @@ VST2 plug-ins can be rescanned from the preferences.
 
 It is also possible to use less common systems for audio processing:
 * [Faust DSPs]({{ site.baseurl }}/processes/faust.html "Faust")
-* [PureData patches]({{ site.baseurl }}/processes/puredata.html "PureData")
+* [Pure Data patches]({{ site.baseurl }}/processes/puredata.html "Pure Data")
 * [Javascript]({{ site.baseurl }}/processes/javascript.html "Javascript")
 * [Math expressions]({{ site.baseurl }}/processes/exprtk.html "ExprTK")
 * [Custom C++ plug-ins]({{ site.baseurl }}/processes/cpp_jit.html "C++ JIT")
