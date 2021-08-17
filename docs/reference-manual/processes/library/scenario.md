@@ -10,17 +10,9 @@ grand_parent: Reference
 permalink: /processes/scenario.html
 ---
 
+# Scenario
 The main view in score.
 The Scenario process allows to put a score inside another score, and to nest at an arbitrarily depth: think of it as the traditional DAW groups, on steroids.
-
-### Features
-
-- Intervals: Muting intervals
-
-- Triggers: below
-- Conditions: below
-- Comment blocks
-
 
 ### Execution
 - Putting stuff on the top start state for it to run with Reinitialize
@@ -70,6 +62,8 @@ Speed sliders appear on intervals while playing. To reset it:  {% include shortc
 
 
 # Intervals
+
+Execution controls: intervals can be started, stopped, and muted.
 
 ### Interpolate states
 
