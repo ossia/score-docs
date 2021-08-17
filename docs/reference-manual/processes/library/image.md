@@ -14,9 +14,12 @@ permalink: /processes/image.html
 
 ![Image Process]({{ site.img }}/reference/processes/image_process.png "Image Process Example")
 
-Several options are available in order to modify the way images are displayed.
+This process displays an image in a viewport.
+Multiple image processes can display their images by outputting in a single port.
 
-The process can be created simply by dropping an image or a set of images on the score.
+# Creating the process
+The process can be created simply by dropping an image or a set of images on the score, or on an interval.
+
 If multiple images are dropped, it will be possible to switch through those with the Index control.
 
 If those images are GIFs, then the index allows to sift through the gif's frames.
