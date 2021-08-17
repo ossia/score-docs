@@ -29,6 +29,17 @@ It is possible to add messages to a cue by dropping on it. Existing messages to 
     <source src="{{ site.img }}/in-depth/cues/cues-2.mp4" type="video/mp4">
 </video>
 
+## Updating a cue
+
+If you want to replace the parameters of a cue with their current value in the explorer, you can click on the state.
+The state inspector has a "Snapshot" feature which will update all the values stored in the cue, with their current live value.
+
+- The first icon with the camera, "Snapshot" ({% include shortcut.html content="Ctrl+L" %}), takes all the parameters currently selected in the [[Device explorer]] and copies them
+to the cue.
+- The second icon, with the circled camera, "Refresh" ({% include shortcut.html content="Ctrl+R" %}), takes all the parameters inside the saved cue, and updates them to their current "live" value as shown in the device explorer.
+
+![Snapshotting and refreshing cues]({{ site.img }}/in-depth/cues/state-inspector.png)
+
 ## Playing a cue
 
 Cues will be played automatically when the score execution reaches them:
