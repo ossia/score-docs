@@ -46,15 +46,5 @@ The [addon tutorial](https://github.com/ossia/score-addon-tutorial) is an exampl
 showcase its capabilities.
 It is [documented here](https://github.com/ossia/score-addon-tutorial/tree/master/ReadMe).
 
-To develop new plug-ins that way, a [set-up script is provided](https://github.com/ossia/score/blob/master/tools/create-addon.sh).
-Simply invoke it with the name of your plug-in and it will create it in the `score/src/addons` folder:
-
-```bash
-$ cd score
-$ tools/create-addon.sh fireworks
-Addon score-addon-fireworks successfully initialized
-$ ls src/addons
-CMakeLists.txt  score-addon-fireworks
-```
-
-All the folders in that `score/src/addons` folder are treated by ossia score as custom addons that must be built along with the software.
+To develop new plug-ins that way, we provide a [set of Github templates](https://github.com/ossia-templates).
+Simply create a repository from the template, and follow the steps in the README.

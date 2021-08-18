@@ -20,7 +20,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 # Network protocols
 
-* [OSC (Open Sound Control)](http://opensoundcontrol.org/): the standard intermedia protocol. It is implemented through a [heavily modified version](https://github.com/jcelerier/oscpack) of [Ross Bencina's oscpack](https://www.rossbencina.com/code/oscpack).
+* OSC (Open Sound Control): the standard intermedia protocol. It is implemented through a [heavily modified version](https://github.com/jcelerier/oscpack) of Ross Bencina's oscpack library.
   * Documented [here]({{ site.baseurl }}/devices/osc-device.html).
 * [OSCQuery](https://vdmx.vidvox.net/blog/oscquery):
   * Documented [here]({{ site.baseurl }}/devices/oscquery-device.html).
@@ -48,7 +48,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 * [JACK](https://jackaudio.org): support is implemented in libossia.
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): experimental support is implemented in libossia.
 * [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/).
-* CoreAudio: the native macOS backend, supported through [PortAudio](https://www.portaudio.com/).
+* CoreAudio: the native macOS backend, supported through PortAudio.
 * MME, WASAPI, WDMKS: the native Windows backends, supported through [PortAudio](https://www.portaudio.com/).
 * [ASIO](https://www.steinberg.net/en/company/technologies.html): the low-latency pro-audio Windows backend developed by [Steinberg](https://www.steinberg.net), supported through [PortAudio](https://www.portaudio.com/).
 * [SDL](https://libsdl.org): support is implemented in libossia. It is mainly used to provide audio for the WebAssembly build of *score*.
