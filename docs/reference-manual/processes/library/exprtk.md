@@ -14,10 +14,11 @@ permalink: /processes/exprtk.html
 
 Several processes allow to write simple math expressions. Such processes include:
 
-- Audio Generator
-- Audio Mapping
-- Value Generator
-- Custom Mapping (Value)
+- Micromap: for very simple math expressions, e.g. `x * 100`.
+- Audio Generator: generates multi-channel audio.
+- Audio Mapping: filters multi-channel audio.
+- Value Generator: generates values suitable for the device explorer.
+- Custom Mapping (Value): filters values suitable for the device explorer.
 
 ![ExprTK]({{ site.img }}/reference/processes/exprtk.png)
 

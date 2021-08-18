@@ -23,7 +23,7 @@ This plug-in simply multiplies its input audio by a gain value.
 This plug-in allows to take the envelope (first outlet is RMS, second outlet is peak) of an input audio signal.
 The output will be an array with as many values than there are channels in the input signal.
 
-The signal is often a small value, which can be boosted for instance with a [mapping]({{ site.baseurl }}/processes/micromap.html "Micromap").
+The signal is often a small value, which can be boosted for instance with a [[Math expressions|mapping]].
 
 # Metronome
 
