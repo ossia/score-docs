@@ -10,33 +10,47 @@ grand_parent: Reference
 permalink: /devices/camera-device.html
 ---
 
-## Usage
+![Device setup window]({{ site.img }}/reference/devices/camera-device.png "score device setup")
+
 Score supports using camera inputs in its VFX graph.
+The camera can be used as the input of a texture port.
 
-## Example
-- Brancher la caméra
-- Faire Add Device > Camera
-- La caméra devrait apparaître dans la liste.
-- Ajouter un shader, par exemple Video.fs (Presets/GLSL_shaders in the user library)
-- Ajouter un device Window pour avoir un endroit ou lire la vidéo.
-- Dans le shader mettre l'entrée à la camera, la sortie à la window.
-- Faire play :-)
+## Example: showing the raw camera feed
 
-## Informations techniques
-## Utiliser les API système sous windows & mac
-Rien de spécial ?
+In this example, we perform the following steps:
+1. Add the camera input through the device explorer.
+2. Likewise, add a window device in which the camera is going to be rendered.
+3. Add a "passthrough" video effect, to connect the camera input to the window output.
+4. Set up the passthrough ports.
+5. Press play and enjoy !
 
-## Utiliser V4L2 sous linux
-The v4l2loopback kernel module allows for a lot of useful things.
+The passthrough effect can be found in the [[library|user library]], in the folder `Presets/GLSL_Shaders/utility`.
 
-### Exemple Linux de grabbing d'écran
+
+<video controls>
+    <source src="{{ site.img }}/reference/devices/camera-example.mp4" type="video/mp4">
+</video>
+
+
+## Technical information
+
+The video input system uses FFMPEG, which itself leverages the operating system's video input decoding mechanism as far as possible.
+
+## V4L2 support
+
+V4L2 is the Linux video subsystem API.
+
+The `v4l2loopback` kernel module allows for a lot of useful things.
+
+### Grabbing the screen with v4l2loopback
 
 ```bash
 $ sudo modprobe v4l2loopback
 $ ffmpeg -f x11grab -framerate 60 -video_size 3840x2160 -i :0.0+0,0 -f v4l2 /dev/video0
 ```
 
-### Exemple Linux de forwarding de vidéo
+### Forwarding an external video file to score through v4l2loopback
+
 ```bash
 $ sudo modprobe v4l2loopback
 $ while 1 ; do ffmpeg -re -i ./test.mp4 -f v4l2 /dev/video0 ; done
