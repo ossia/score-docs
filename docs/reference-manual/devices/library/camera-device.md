@@ -26,11 +26,9 @@ In this example, we perform the following steps:
 
 The passthrough effect can be found in the [[library|user library]], in the folder `Presets/GLSL_Shaders/utility`.
 
-
 <video controls>
     <source src="{{ site.img }}/reference/devices/camera-example.mp4" type="video/mp4">
 </video>
-
 
 ## Technical information
 
@@ -55,3 +53,14 @@ $ ffmpeg -f x11grab -framerate 60 -video_size 3840x2160 -i :0.0+0,0 -f v4l2 /dev
 $ sudo modprobe v4l2loopback
 $ while 1 ; do ffmpeg -re -i ./test.mp4 -f v4l2 /dev/video0 ; done
 ```
+
+## Special camera support
+
+### Microsoft Kinect
+Support for Kinect cameras has been implemented through the Freenect library.
+However, the support is still experimental and requires building `score` from source with the Freenect libraries.
+
+### Spout, Syphon, PipeWire
+Spout is supported as output on Windows. Syphon on Mac is not yet supported, neither is PipeWire on Linux.
+Complete support for both systems is slated for a 3.x release of score.
+
