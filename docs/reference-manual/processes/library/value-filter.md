@@ -24,7 +24,7 @@ The Value Filter can be used to tame a noisy input stream, from a very sensitive
 There are 4 different filters available : 
 * _OneEuro_ for the [one euro filter](https://cristal.univ-lille.fr/~casiez/1euro/) 
 * _LowPass_ that only uses the low pass implementation from the one euro filter
-* _Average_ for a flaoting average
+* _Average_ for a floating average
 * _Medain_ for a floating median
 
 ## Freq (1e/LP)
@@ -37,4 +37,4 @@ Cutoff frequency of the derivative for OneEuro and LowPass, between 0 and 10.
 
 ## Beta (1e only)
 
-Cutoff slope for One Euro, betwee 0 and 10.
+Cutoff slope for OneEuro, betwee 0 and 10.
