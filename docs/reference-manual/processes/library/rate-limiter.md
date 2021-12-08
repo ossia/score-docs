@@ -11,13 +11,13 @@ permalink: /processes/rate-limiter.html
 ---
 # Rate Limiter
 
-![Rate Limiter]({{ site.img }}/reference/processes/rate-limiter.png "Noise from LFO outputed every 300 miliseconds")
+![Rate Limiter]({{ site.img }}/reference/processes/rate-limiter.png "Noise from LFO output every 300 miliseconds")
 
-The rate limiter can be used to syncronise the input stream to a subdivision of the tempo. When "None" is selected in the quantification spin box, an incoming value will only be outputed every N miliseconds specified bi the ms slider.
+The rate limiter can be used to synchronise the input stream to a subdivision of the tempo. When "None" is selected in the quantification spin box, an incoming value will only be output every N miliseconds, as specified by the ms slider.
 
 ## Quantification
 
-Set the subdivision of the tempo to synchonise to.
+Set the subdivision of the tempo to synchronise to.
 
 ## ms.
 
