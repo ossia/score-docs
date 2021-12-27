@@ -34,4 +34,13 @@ See the example:
     <source src="{{ site.img }}/reference/processes/video.mp4 " type="video/mp4">
 </video>
 
-Note that for now the sound tracks contained in video files are not handled; this will be done in a later version.
+Note that for now the sound tracks contained in video files are not handled; this will be done in a later version. 
+
+As a workaround, audio content can be extracted from the video and dropped on the same interval to preserve synchronisation.
+
+![synchronize]({{ site.img }}/reference/processes/video_audio_sync.png "Synchronize")
+
+The  following ffmpeg command can be used to extract audio track from a given input file :
+```
+ffmpeg -i <input_file> extracted_audio.wav
+```
