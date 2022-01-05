@@ -36,10 +36,11 @@ Here is a small example:
 
 A few processes in score use textual scripts:
 - [[Javascript]]
-- [[Shader|Shaders]]
+- [[ISF Shaders|Shaders]]
 - [[Bytebeat]]
 - [[Texgen]]
 - [[Faust]]
+- [[C++ JIT]]
 
 ![Live coding processes]({{ site.img }}/common-practices/live-coding-scripts.png "Live coding processes")
 
