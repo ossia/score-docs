@@ -11,20 +11,38 @@ permalink: /processes/soundfile.html
 ---
 
 
-- Drag'n'drop depuis le système
-- Drag'n'drop depuis la bibliothèque
-- Les fichiers avec information de tempo sont mis en boucle & timestretch automatiquement
-- 4 modes de timestretch:
-  * Raw: pas de timestretch
-  * Timestretch: timestretch normal, adapté aux instrus mélodiques
-  * Timestretch (percussive): timestretch normal, adapté aux instrus percussifs
-  * Repitch: change la hauteur
+# Sound file process
 
-- Les fichiers .wav / .aiff à la même fréquence d'échantillonnage que celle de score sont lus depuis le disque
-- Tous les autres fichiers sont convertis et stockés en RAM
-  - Note : mentionner le ramdisk trick
-- Formats supportés: tous ceux supportés par ffmpeg
-  * https://www.ffmpeg.org/general.html#Audio-Codecs
+To add a sound file, the easiest way is to drag'n'drop it either from the operating system, or from 
+the library.
 
+![Soundfile drop]({{ site.img }}/reference/processes/soundfile-drop.gif "Sound file example")
 
-- VST : scan dans la bibliothèque
+## Timestretching
+
+ossia score supports 4 modes of playback: 
+
+- No stretching at all (Raw).
+- Re-pitching through resampling thanks to the libsamplerate library.
+- Time-stretching (pitch does not change) thanks to the Rubberband library, in a mode optimized for drums and another for tonal instruments.
+
+If a file has any tempo information (either through ACID tags or a BPM present in the filename), 
+it is automatically assumed to be a loop and put in loop mode with the timestretch enabled.
+
+The tempo of the soundfile can be adjusted through the inspector ; the ratio between its tempo and the current playback tempo 
+will be used to timestretch / repitch accordingly.
+
+![Soundfile inspector]({{ site.img }}/reference/processes/soundfile-inspector.png "Sound file inspector")
+
+## RAM / disk playback
+
+score will stream .wav / .aiff files at the same samplerate than the project from disk directly.
+All the other files will be decoded first and read from RAM.
+
+ - Until a choice is implemented, we recommend users who have large .wav files and slow hard drives 
+   to set-up a RAMDisk manually.
+
+## Supported formats
+
+score should be able to read any file supported by FFMPEG. Current releases are built with FFMPEG 4.4.
+The list of supported audio format is available [here](https://www.ffmpeg.org/general.html#Audio-Codecs).

@@ -35,7 +35,7 @@ The metronome sounds used can be changed: they are in the [user library]({{ site
 
 The second outlet outputs an impulse on each tick.
 
-# Merger
+# Stereo merger
 
 ![Merger]({{ site.img }}/reference/processes/merger.png "Stereo merger plug-in")
 
