@@ -19,11 +19,9 @@ Other embedded boards will also likely work, they have just not been tested yet.
 
 Please report to us if you try to build and run score on any other kind of exotic system !
 
-## Running on the Raspberry Pi
+## Running on the Raspberry Pi (Raspbian)
 
-Raspberry Pi 3 and 4 pre-made builds are accessible on [Github Actions](https://github.com/ossia/score/actions).
-
-Pi Zero, 1, 2 can technically work but no builds are currently being made for them.
+Raspberry Pi 3 and 4 pre-made builds are accessible on [Github Actions](https://github.com/ossia/score/actions). Pi Zero, 1, 2 can technically work but no builds are currently being made for them.
 
 To use ossia score on the Pi, it is necessary to:
 
@@ -31,19 +29,55 @@ To use ossia score on the Pi, it is necessary to:
 - Update the firmware to the kernel 5.10 at least: `sudo rpi-update` and reboot.
 - Enable `Full KMS` OpenGL settings in `sudo raspi-config`. Launch the utility, go to `6 Advanced Options`, then `GL Driver`, then select `GL (Full KMS)` and reboot. Check [this link](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) for more information on the configuration process.
 
+If done correctly, `/boot/config.txt` should contain the following uncommented line near the end:
+
+```
+dtoverlay=vc4-kms-v3d
+```
+
 Then you are good to go. Two scripts are provided: `ossia-score-x11` and `ossia-score-eglfs`.
-`ossia-score-x11` is for running under the normal desktop environment of the Pi.
-`ossia-score-eglfs` will run the graphics pipeline full-screen, bypassing the desktop environment entirely, which can be much more efficient - you don't even need to run X11 that way. But it is mostly useful in player mode, not for the score edition as there won't be any window borders / chrome.
 
-Note: we recommend not using the default Pi desktop environment: in our testing, switching to a lighter environment such as `i3wm` or `fluxbox` instead of the default Pi desktop made a large difference in performance and drop-outs for the scores.
+- `ossia-score-x11` is for running under the normal desktop environment of the Pi.
+- `ossia-score-eglfs` will run the graphics pipeline full-screen, bypassing the desktop environment entirely, which can be much more efficient - you don't even need to run X11 that way. But it is mostly useful in player mode, not for the score edition as there won't be any window borders / chrome.
 
-## Building for the Raspberry Pi
+Note that we recommend not using the default Pi desktop environment: in our testing, switching to a lighter environment such as `i3wm` or `fluxbox` instead of the default Pi desktop made a large difference in performance and drop-outs for the scores.
+
+## Configuring the resolution under EGLFS
+
+* First create a `config.json` file with the following content:
+
+```json
+{
+  "device": "/dev/dri/card0",
+  "pbuffers": true,
+  "outputs": [
+    {
+      /* change to HDMI2 depending on the used output */
+      "name": "HDMI1",
+      /* refresh rate can be specified with 1920x1080@60 for instance */
+      "mode": "1280x720"
+    }
+  ]
+}
+```
+
+* Then set the following environment variables before running `ossia-score-eglfs`:
+
+```bash
+export QT_QPA_EGLFS_KMS_ATOMIC=1
+export QT_QPA_EGLFS_KMS_CONFIG=$PWD/config.json
+```
+
+## Building for the Raspberry Pi (Raspbian)
 
 - *ossia score* build scripts: [https://github.com/ossia/score/tree/master/ci](https://github.com/ossia/score/tree/master/ci)
-
 - *ossia* SDK build scripts (building latest Qt, FFMPEG, etc): [https://github.com/ossia/sdk/tree/master/ARM/RPi4](https://github.com/ossia/sdk/tree/master/ARM/RPi4)
 
 They will produce binaries optimized for Pi 4, and that will also work on Pi 3.
+
+## Arch Linux ARM
+
+Experimental builds have been confirmed to work on Arch Linux ARM. The simplest is to use the AUR package `ossia-score`.
 
 ## Caveats
 
