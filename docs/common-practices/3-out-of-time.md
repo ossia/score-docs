@@ -52,5 +52,9 @@ It will need another event to start again.
 
 If checked, it will restart automatically from the beginning every time the trigger is triggered.
 
+## Triggering intervals
 
+When the main score is playing, play / stop buttons will appear on top of intervals when hovered.
+These allow to stop or start an interval while entirely discarding any semantics that may have been set in the score.
 
+This will respect the quantization settings by default.
