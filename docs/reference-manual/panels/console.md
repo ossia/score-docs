@@ -12,13 +12,14 @@ permalink: /panels/console.html
 
 # Console panel
 
-The console panel (Shortcut: {% include shortcut.html content="Ctrl+Shift+C" %}) allows to create and run macros written in Javascript (ES7).
+The console panel (shortcut: {% include shortcut.html content="Ctrl+Shift+C" %}) allows to create and run macros written in Javascript (ES7).
 
 The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/ConsolePanel.hpp#L80).
 
 Scripts ending in `.js` in the user library can be double-clicked: they will be run in this context.
 A script can introduce a function which can then be leveraged by the Javascript processes.
 
+![Console]({{ site.img }}/reference/panels/console.png "Console")
 
 # Examples
 
