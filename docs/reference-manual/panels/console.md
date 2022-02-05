@@ -189,7 +189,7 @@ function gengis_gen(startState, address) {
   // Apply the macro so that it can be un-done in one step.
   Score.endMacro();
 }
-```js
+```
 
 
 ## Advanced example 2
