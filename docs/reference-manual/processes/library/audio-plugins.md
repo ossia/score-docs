@@ -53,6 +53,22 @@ Here is the complete procedure:
 
 This is currently only implemented for VST2, other plug-in APIs have all their parameters shown until the feature is implemented there too.
 
+# Adding JSFX plug-ins
+
+JSFX plug-ins can be added in the user library. Score will look for files ending with the `.jsfx` extension.
+
+If you are on Unix or a system with bash, you can rename the JSFX plugins without extensions this way:
+
+```bash
+$ find . -type f ! -name '*.*' -exec perl-rename 's/$/.jsfx/' {} \;
+```
+
+Here are some links to free JSFX collections:
+- [https://github.com/chkhld/jsfx](https://github.com/chkhld/jsfx)
+- [https://github.com/JoepVanlier/JSFX](https://github.com/JoepVanlier/JSFX)
+- [https://geraintluff.github.io/jsfx](https://geraintluff.github.io/jsfx)
+- [https://github.com/Justin-Johnson/ReJJ](https://github.com/Justin-Johnson/ReJJ)
+
 # Advanced plug-in and extensions formats
 
 It is also possible to use less common systems for audio processing:
