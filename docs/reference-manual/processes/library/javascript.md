@@ -258,6 +258,39 @@ out.setChannel(0, [0.1, 0.0, 0.2, 0.0, -0.1, 0.0]);
 
 ```
 
+## Example of fetching various timings
+
+This example shows how one can access both score-relative and global-time-relative timing information from a JS script.
+
+```qml
+import Score 1.0
+Script {
+  ValueInlet { id: in1 }
+  ValueOutlet { id: out1; objectName: "logical" }
+  ValueOutlet { id: out2; objectName: "physical" }
+
+  property int samples_since_beginning: 0
+  tick: function(token, state) {
+    // Logical time: this time is affected 
+    // by the speed sliders in score.
+    // The unit is the Flick.
+    out1.value = token.date;
+    
+    // Logical time in seconds:
+    out1.value = token.date / 705600000;
+    
+    // Physical time: the time in real-world clock since the interval started playing.
+    // The physical time unit is the audio sample.
+    samples_since_beginning += state.buffer_size;
+    out2.value = samples_since_beginning;
+    
+    // Physical time in seconds:
+    out2.value = samples_since_beginning / state.sample_rate;
+  }
+}
+```
+
+
 ## MIDI
 Create a MIDI input:
 ```qml
