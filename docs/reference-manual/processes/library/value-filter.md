@@ -1,19 +1,19 @@
 ---
 layout: default
 
-title: Value Fliter
+title: Smooth
 description: "Applies filtering to smooth out noisy value streams"
 
 parent: Processes
 grand_parent: Reference
 
-permalink: /processes/value-fliter.html
+permalink: /processes/smooth.html
 ---
-# Value Filter
+# Smooth
 
-![Value Filter]({{ site.img }}/reference/processes/value-filter.png "Noise from LFO smooth out by the value filter")
+![Smooth]({{ site.img }}/reference/processes/value-filter.png "Noise from LFO smoothed out by the filter")
 
-The Value Filter can be used to tame a noisy input stream, from a very sensitive sensor for exemple. The output of this process may be more usable than the raw stream to control other parameters.
+The Smooth process can be used to tame a noisy input stream, coming from a very sensitive sensor for example. The output of this process may be more usable than the raw stream to control other parameters.
 
 ## Amount
 
@@ -21,11 +21,11 @@ The Value Filter can be used to tame a noisy input stream, from a very sensitive
 
 ## Type
 
-There are 4 different filters available : 
-* _OneEuro_ for the [one euro filter](https://cristal.univ-lille.fr/~casiez/1euro/) 
-* _LowPass_ that only uses the low pass implementation from the one euro filter
-* _Average_ for a floating average
-* _Medain_ for a floating median
+There are 4 different filters available: 
+* _OneEuro_ for the [1€ filter](https://cristal.univ-lille.fr/~casiez/1euro/).
+* _LowPass_ that only uses the low pass implementation from the one euro filter.
+* _Average_ for a floating average.
+* _Median_ for a floating median.
 
 ## Freq (1e/LP)
 
@@ -37,4 +37,4 @@ Cutoff frequency of the derivative for OneEuro and LowPass, between 0 and 10.
 
 ## Beta (1e only)
 
-Cutoff slope for OneEuro, betwee 0 and 10.
+Cutoff slope for OneEuro, between 0 and 10.
