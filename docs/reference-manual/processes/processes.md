@@ -18,18 +18,18 @@ This section of the manual covers the general usage of Processes as well a detai
 
 ## General description
 
-*score* allows to handle a number of actions evolving through a defined amount of time. These processes can either be actions evolving during a given duration, such as automation of a given device's parameter, or actions activated only in a defined duration, such as mapping or LFO modulations.
+*score* allows to handle a number of actions evolving either through some amount of time, or at a single instant. These processes can either be actions evolving during a given duration, such as automation of a given device's parameter, or actions activated only in a defined duration, such as mapping or LFO modulations.
 
-Processes are attached to an interval in the scenario.
+Processes are attached to an interval in the scenario when they represent an evolving behaviour, and to a state when they are instantaneous.
 
 
 # Basics
 
-## Create processes
+## Create processes on intervals
 
 ### Using drag & drop
 
-#### From Device explorer
+#### From the Device explorer
 
 Processes can be created by drag & dropping parameters from the `Device explorer` onto an existing interval in the scenario. The interval to which processes will be attached turns to yellow as the mouse with selection hovers it.
 
@@ -37,7 +37,7 @@ Processes can be created by drag & dropping parameters from the `Device explorer
 
 The `Device explorer` selection may contain one or several parameters. When multiple parameters are dropped, processes get stacked in different layers.
 
-#### From Libraries
+#### From the libraries
 
 Processes can also be created by drag & dropping the desired process from the `Process library` or the `User library` in the scenario. When doing so, *score* automatically creates the interval to which process will get attached.
 
@@ -53,15 +53,21 @@ Holding the Maj key while dropping will create sequential intervals for each ite
 
 ![Parallel or serial processes]({{ site.img }}/reference/processes/parallel-or-serial-processes.gif "Parallel or serial processes")
 
-### Create from interval
+If a process is currently selected in the score, it is also possible to create a new process afterwards by double-clicking on it in the library.
+This will only work if the processes are compatible: the first output port of the selected process must be of the same type than the first 
+input port of the process double-clicked in the library. A connection between the two ports will automatically be made. This allows to easily chain effects: 
 
-Processes can be created from an interval's widgets. Hover the interval to which attach a process to display the widget. Click the `+` widget to open the `Add process` window.
+Likewise, if an output port is currently selected in the score, double-clicking on a process in the list will create and connect it afterwards if compatible.
 
-![Process addition widget]({{ site.img }}/reference/processes/add-process-from-interval.png "Process addition widget")
+![Chain processes from the library]({{ site.img }}/reference/processes/create-processes-library.gif "Chain processes from the library")
 
-From the `Add process window`, browse the various Processes types in the left panel, then choose the desired one. When done, click `+` button to attach process to the interval.
+## Create processes on a state
 
-![Add process window]({{ site.img }}/reference/processes/add-process-from-interval-window.png "Add process window")
+Adding processes on a state is a way to run a computation at a single, precise point in the timeline. The processes will not be directly visible in the timeline ; the state has to be selected to edit their properties through the [[inspector]].
+
+It is done by right-clicking on the state in the object inspector, and selecting the `Add process` option.
+
+![Adding a state process]({{ site.img }}/reference/processes/state-process.gif "State processes")
 
 <!-- ### TODO Object menu -->
 
