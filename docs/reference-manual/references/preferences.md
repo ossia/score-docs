@@ -16,7 +16,7 @@ If no sound is needed, it is possible to set the "Dummy" engine which won't outp
 
 ## Execution
 
-Note that every execution settings change require stopping and restarting the score.
+Note that every execution settings change require stopping and restarting the playback of the current score.
 
 ### Enable listening during execution
 This controls whether the Device Explorer panel updates its UI when the score is running. If there are thousands of parameters being updated all the time, monitoring them and updating the UI to show their new value can take some CPU usage which is not always required.

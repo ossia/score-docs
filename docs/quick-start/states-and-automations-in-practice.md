@@ -18,9 +18,9 @@ In previous sections of this [quick start guide]({{ site.baseurl }}/quick-start.
 ## Sequence mode
 
 ### Setting up auto-sequence mode
-A workflow you might find useful is the `auto-sequence` mode. As of *score* version 3.0.0-b2, `auto-sequence` is an option that needs to be activated from *score* settings. To do so, bring *score* [Settings window]({{ site.baseurl }}/reference/preferences.html "*Score* settings window").
+A workflow you might find useful is the `auto-sequence` mode. As of *score* 3, `auto-sequence` is an option that needs to be activated from the software [[preferences]]. To do so, bring up the [Settings window]({{ site.baseurl }}/reference/preferences.html "*Score* settings window").
 
-In the `Settings` window, select the `User interface tab` then make sure the `auto-sequence` option is toggled on.
+In the `Settings` window, select the `User interface tab` then make sure the `auto-sequence` option is toggled.
 
 
 ![Auto-sequence Settings]({{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-pref.png "Auto-sequence settings")

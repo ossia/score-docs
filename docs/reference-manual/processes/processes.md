@@ -71,7 +71,7 @@ From the `Add process window`, browse the various Processes types in the left pa
 
 To remove a process, select it (for example by clicking on the slot background) and choose `Remove` from the `Object` menu ({% include shortcut.html content="Suppr" %}/{% include shortcut.html content="Backspace" %} key).
 
-> As of score v3.0.0-b2, make sure the process you want to remove is properly selected when bringing it to front (for example, check the inspector)
+> Make sure the process you want to remove is properly selected when bringing it to front (for example, check the inspector) !
 
 ### From Graph inspector
 
