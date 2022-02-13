@@ -17,6 +17,14 @@ permalink: /processes/2Dspline.html
 The 2D spline is a process which allows to control a 2D position in time, by modifying a curve
 in the user interface.
 
+# Modifying the spline
+
+Points can be dragged with the mouse.
+
+* To create a new control point, double-click on the curve.
+* To remove a point, double-click on it.
+* Due to the way cubic splines work, there cannot be less than four points. 
+
 # Generating a curve
 
 It is possible to use math formulas to generate a specific spline.
@@ -32,7 +40,7 @@ Here are some useful examples:
 ## Circle
 
 ```matlab
-var tp :=  2 * PI * t;
+var tp := 2 * PI * t;
 x := tp * cos(tp);
 y := tp * sin(tp);
 ```
@@ -40,7 +48,7 @@ y := tp * sin(tp);
 ## Spiral
 
 ```matlab
-var tp :=  2 * PI * t;
+var tp := 2 * PI * t;
 x := tp * cos(tp);
 y := tp * sin(tp);
 ```
@@ -48,7 +56,7 @@ y := tp * sin(tp);
 ## Expanding spiral
 
 ```matlab
-var tp :=  2 * PI * t;
+var tp := 2 * PI * t;
 x := 0.04 * exp(0.3 * tp) * cos(tp);
 y := 0.04 * exp(0.3 * tp) * sin(tp);
 ```
@@ -56,13 +64,13 @@ y := 0.04 * exp(0.3 * tp) * sin(tp);
 ## Lissajoux
 
 ```matlab
-var tp :=  2 * PI * t;
+var tp := 2 * PI * t;
 x := cos(3 * tp);
 y := sin(2 * tp);
 ```
 
 ```matlab
-var tp :=  2 * PI * t;
+var tp := 2 * PI * t;
 x := cos(5 * tp);
 y := sin(3 * tp);
 ```
