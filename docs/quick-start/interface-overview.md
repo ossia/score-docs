@@ -44,6 +44,15 @@ From there you can create some snapshots by dragging some parameters from the `D
 
 ![Scenario editor]({{ site.img }}/quick-start/score-interface/scenario_editor.png "Scenario editor")
 
+## Zooming and dezooming
+
+It is possible to zoom the main score horizontally and vertically.
+
+- Horizontal zoom: {% include shortcut.html content="Ctrl+Mouse Up/Down" %}
+- Vertical zoom: {% include shortcut.html content="Shift+Mouse Up/Down" %}
+
+Note that it is also possible to zoom the entire UI of the software through the [[preferences]].
+
 # Objects inspector panel
 
 On the right part of score main window is the `Object inspector`. It allows to dynamically inspect and setup the selected objects in the scenario.
