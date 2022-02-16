@@ -9,6 +9,8 @@ parent: FAQ
 permalink: /faq/controlling-score-with-oscquery.html
 ---
 
+# Controlling score remotely with OSCQuery 
+
 A score can be controlled through [[osc device|OSC]] and [[oscquery device|OSCQuery]] with the [[Local device]].
 
 See also the WebSocket [[Remote Control|remote control protocol]].

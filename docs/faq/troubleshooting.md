@@ -2,12 +2,16 @@
 layout: default
 
 title: "Troubleshooting"
-description: "Troubleshooting common issues"
+description: "What to do when score does not work"
 
-parent: FAQ
+nav_order: 7
+has_children: false
 
-permalink: /faq/troubleshooting.html
+permalink: /troubleshooting.html
+
 ---
+
+# Troubleshooting score issues
 
 ## score just crashed
 Please send us a detailed bug report of what you were doing at the moment of the crash,
@@ -21,9 +25,12 @@ Check that you do not have the JACK2 ASIO driver installed. It is known to cause
 ## The playback does not start
 Most of the time, this is due to incorrect sound settings.
 
+Go to the [settings]({{ site.baseurl}}/reference/preferences.html#audio) and check that you have a valid sound card set.
+
 ## The score runs but there is no sound
 Most of the time, this is due to incorrect sound settings. Check that you are not using the Dummy driver which does not uses the soundcard.
 
+Go to the [settings]({{ site.baseurl}}/reference/preferences.html#audio) and check that the correct sound-card is selected for audio output (for instance, it happens that the sound card chosen is the HDMI output of the computer monitor, which may not have loudspeakers).
 
 ## Playback seems to hang at random times on Linux
 This is due to a <a href="https://portaudio.music.columbia.narkive.com/3V9hsUak/pa-linux-alsa-c-3636-assertion-failed-with-hack-fix">PortAudio bug</a>.
