@@ -75,15 +75,13 @@ Here is an example pipeline:
 $ export STREAM_URL="rtmp://mrs02.contribute.live-video.net/app/<YOUR_TWITCH_KEY>"
 $ export FPS=30
 $ export CHANNELS=2
-$ export BITRATE=3000
+$ export BITRATE=6000
 
 $ gst-launch-1.0 shmdatasrc socket-path=/tmp/score_shm_video \
-    ! queue \
-    ! video/x-raw,framerate=$FPS/1 \
     ! videoconvert \
     ! video/x-raw, format=NV12 \
-    ! x264enc bitrate=$BITRATE tune=zerolatency key-int-max=30 \
     ! queue \
+    ! x264enc bitrate=$BITRATE tune=zerolatency key-int-max=30 \
     ! flvmux streamable=true name=flvmux \
     ! rtmpsink location="$STREAM_URL" \
       pipewiresrc client-name=my-stream \
