@@ -14,7 +14,7 @@ permalink: /faq/nogui.html
 Score can run in the background while not opening its full UI (which may be handy for example when running score in a video installation). To do so, you can launch score from the Command line using the following:
 
 ```bash
-`$ ossia-score --no-gui --autoplay /home/oscar/my-score.score`
+$ ossia-score --no-gui --autoplay /home/oscar/my-score.score
 ```
 
 You may find other useful commands in the [[Command line API|command line reference page]].

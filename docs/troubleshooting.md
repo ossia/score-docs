@@ -22,6 +22,23 @@ Thanks !
 Check that you do not have the JACK2 ASIO driver installed. It is known to cause <a href="https://github.com/jackaudio/jack2/issues/275">crashes on startup on Windows</a> for many software. You can check the following registry key in the Windows registry editor: <b>HKEY_LOCAL_MACHINE\SOFTWARE\ASIO</b>.
 
 
+## score crashes immediately on first start-up on Linux
+If you get an error from the terminal which looks like:
+
+```
+The program 'ossia-score' received an X Window System error.
+This probably reflects a bug in the program.
+The error was 'BadMatch (invalid parameter attributes)'.
+(Details: serial 363 error_code 8 request_code 154 minor_code 34)
+(Note to programmers: normally, X errors are reported asynchronously;
+that is, you will receive the error a while after causing it.
+To debug your program, run it with the --sync command line
+option to change this behavior. You can then get a meaningful
+backtrace from your debugger if you break on the gdk_x_error() function.) 
+```
+
+Then this is likely an OpenGL driver issue. Try running score with the `--no-opengl` command-line flag.
+
 ## The playback does not start
 Most of the time, this is due to incorrect sound settings.
 
@@ -41,7 +58,6 @@ Use the JACK backend instead.
 You are likely encountering <a href="https://stackoverflow.com/questions/61114738/are-macos-virtual-webcams-inherently-incompatible-with-10-14s-hardened-runtime">security-related macOS issues</a>. 
 
 As a workaround, you can follow the steps given in the above link to remove the code signing of the score binary, which will in turn make macOS allow score to open virtual webcams and any audio plug-ins.
-
 
 ## The minimap is hard to use on Mac
 You are likely encountering <a href="https://stackoverflow.com/questions/61843481/macos-simulated-mouse-event-only-works-when-launching-binary-not-application-b">this macOS issue</a>.
