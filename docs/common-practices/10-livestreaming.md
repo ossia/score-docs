@@ -12,24 +12,24 @@ permalink: /common-practices/10-livestreaming.html
 
 # Livestreaming
 
-This page explains how to set-up a livestream in various manners. [OBS](https://obs.studio) to stream an audio-visual performance made with *score*.
+This page explains how to set-up a livestream in various manners. 
 
 
-## Livestreaming with shmdata and PipeWire under Linux
+# Livestreaming with shmdata and PipeWire under Linux
 
-### Livestreaming through RTP with GStreamer
+## Livestreaming through RTP with GStreamer
 
-RTP is the standard network protocol for streaming media data.
+RTP is the standard low-level network protocol for streaming audio and video data.
 
-To stream to RTP as efficiently as possible from score, we are going to leverage the [[shmdata]] plug-in, and GStreamer.
+To stream to RTP as efficiently as possible from score, we are going to leverage the [[shmdata]] plug-in, and GStreamer. 
+We will stream with the classic MJPEG codec for simplicity in this example ; depending on your system other codecs 
+could be more efficient: x264, HEVC, VP8, etc. Refer to the GStreamer documentation to know how to encode in these formats. 
 
 First, create a Shmdata video output (writing on the `/tmp/score_shm_video` path) on score and some video content to stream, then hit play.
 
-#### Low-latency RTP video with MJPEG 
+Then run GStreamer (the [[shmdata]] plug-in is needed):
 
-Run GStreamer (the [[shmdata]] plug-in is needed):
-
-```
+```bash
 $ gst-launch-1.0 \
     shmdatasrc socket-path=/tmp/score_shm_video \
   ! videoconvert \
@@ -42,7 +42,7 @@ $ gst-launch-1.0 \
 
 Create the following file (`mjpeg.sdp` for instance) which represents the stream: 
 
-```
+```s
 v=0
 m=video 5000 RTP/AVP 26
 a=rtpmap:26 JPEG/90000;
@@ -52,13 +52,13 @@ c=IN IP4 127.0.0.1
 
 You can now read the stream, for instance with `ffplay`, `vlc`, `mpv`... 
 
-```
+```bash
 $ ffplay mjpeg.sdp
 ```
 
 Note: the format of SDP is:
 
-```
+```s
 v=<version>
 o= <owner> IN IP4 <IP4 ADDRESS>
 c=IN IP4 <IP4 ADDRESS>
@@ -68,10 +68,10 @@ a=rtpmap:<payload> <encoding-name>/<clock-rate>[/<encoding-params>]
 a=fmtp:<payload> <param>=<value>;...
 ```
 
-#### Streaming H.264 and audio to Twitch (and other RTMP systems)
+## Livestreaming audio and video to Twitch (and other RTMP systems)
 
-Here is an example pipeline:
-```
+Here is an example pipeline, which assumes PipeWire for audio:
+```bash
 $ export STREAM_URL="rtmp://mrs02.contribute.live-video.net/app/<YOUR_TWITCH_KEY>"
 $ export FPS=30
 $ export CHANNELS=2
@@ -92,3 +92,12 @@ $ gst-launch-1.0 shmdatasrc socket-path=/tmp/score_shm_video \
 ```
 
 Use the following link to choose a correct stream url: [https://stream.twitch.tv/ingests](https://stream.twitch.tv/ingests).
+
+If you are using Jack, use `jackaudiosrc` instead of `pipewiresrc`, and do not forget to connect the score audio outputs to the PipeWire / JACK object's inputs
+(called my-stream in this example).
+
+<!--
+## Livestreaming with OBS Studio
+
+[OBS](https://obs.studio) can be used to stream.
+-->
