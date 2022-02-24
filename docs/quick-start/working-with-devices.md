@@ -32,14 +32,7 @@ Right click on the `Device explorer` panel and setup the desired communication p
 
 *Score* currently support the following devices types:
 
-| OSC                                                             | Utilities                                                   | Hardware                                                        | Web                                                               | Lights                                                          | Audio                                                   | Video
-|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------|:------------------------------------------------------------|:----------------------------------------------------------------||:----------------------------------------------------------------|:----------------------------------------------------------------|
-| [OSCQuery]({{ site.baseurl }}/devices/oscquery-device.html) | [Mapper]({{ site.baseurl }}/devices/mapper-device.html) | [Midi in]({{ site.baseurl }}/devices/midiin-device.html)    | [HTTP]({{ site.baseurl }}/devices/http-device.html)| [Artnet]({{ site.baseurl }}/devices/artnet-device.html)     | [Audio]({{ site.baseurl }}/devices/audio-device.html)   | [Window]({{ site.baseurl }}/devices/window-device.html)     |
-| [OSC]({{ site.baseurl }}/devices/osc-device.html)           | [Local]({{ site.baseurl }}/devices/local-device.html)   | [Midi out]({{ site.baseurl }}/devices/midiout-device.html)  | [WS]({{ site.baseurl }}/devices/ws-device.html)               |||[Camera]({{ site.baseurl }}/devices/camera-device.html)
-| [Minuit]({{ site.baseurl }}/devices/minuit-device.html)     |                                                             | [Serial]({{ site.baseurl }}/devices/serial-device.html)     |                                                                   |
-|                                                                 |                                                             | [Joystick]({{ site.baseurl }}/devices/joystick-device.html) |                                                                   |
-|                                                                 |                                                             | [Wiimote]({{ site.baseurl }}/devices/wiimote-device.html)   |
-
+{% include devices-table.md %}
 
 Detailed explanations on these various device types and corresponding setup options can be found in the [Reference pages]({{ site.baseurl }}/devices.html).
 

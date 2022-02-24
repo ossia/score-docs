@@ -47,11 +47,22 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 * [JACK](https://jackaudio.org): support is implemented in libossia.
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): experimental support is implemented in libossia.
+* [PipeWire](https://pipewire.org): experimental support is implemented in libossia and in score.
 * [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/).
 * CoreAudio: the native macOS backend, supported through PortAudio.
 * MME, WASAPI, WDMKS: the native Windows backends, supported through [PortAudio](https://www.portaudio.com/).
 * [ASIO](https://www.steinberg.net/en/company/technologies.html): the low-latency pro-audio Windows backend developed by [Steinberg](https://www.steinberg.net), supported through [PortAudio](https://www.portaudio.com/).
 * [SDL](https://libsdl.org): support is implemented in libossia. It is mainly used to provide audio for the WebAssembly build of *score*.
+
+# Video protocols
+
+* [Spout](https://spout.zeal.co/) is supported on Windows.
+  * Documented [[Spout|here]].
+* [Syphon](http://syphon.v002.info/) is supported on macOS.
+  * Documented [[Syphon|here]].
+* [Shmdata](https://gitlab.com/sat-metalab/shmdata/) is supported on Linux and macOS.
+  * Documented [[Shmdata|here]].
+* An experimental [NDI](https://www.newtek.com/ndi/) extension is available [here](https://github.com/ossia/score-addon-ndi).
 
 # Transport synchronisation
 

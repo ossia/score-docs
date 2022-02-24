@@ -1,16 +1,16 @@
 ---
 layout: default
 
-title: Shmdata device
+title: Shmdata devices
 description: "Sending and receiving textures via Shmdata"
 
 parent: Devices
 grand_parent: Reference
 
-permalink: /devices/shmdata-device.html
+permalink: /devices/shmdata-devices.html
 ---
 
-# Shmdata device
+# Shmdata
 
 [Shmdata](https://gitlab.com/sat-metalab/shmdata/), developed at the [SAT Metalab](https://sat.qc.ca/fr/recherche/metalab), is a Unix-oriented protocol for sharing memory between applications easily.  
 It is mainly used to share video frames.
@@ -22,7 +22,7 @@ Thanks to it, score can easily send and receive video data from and to GStreamer
 Refer to the latest instructions on the shmdata [Readme](https://gitlab.com/sat-metalab/shmdata/).
 Score comes built-in with shmdata support on Linux and macOS (Windows does not support the necessary Unix primitives).
 
-Test that it works correctly with the gst commands given in that Readme.
+Test that it works correctly with the `gst-launch` commands given in that Readme.
 
 ## Using shmdata in score
 
