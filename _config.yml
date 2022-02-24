@@ -108,6 +108,7 @@ color_scheme: custom
 plugins:
   - jekyll-seo-tag
 
+markdown: kramdown
 kramdown:
   syntax_highlighter_opts:
     block:
