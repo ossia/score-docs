@@ -23,7 +23,7 @@ Assuming a serial device which, whenever bytes are written to it, sends back a s
 with the following textual protocol: 
 
 ```
-10\r\n12\r\n17\r\n5\r\n
+10\r\n12\r\n17\r\n5\r\n...
 ```
 
 A basic QML script for processing that serial device and making the sensor value available to score under a `/sensor` address in the device explorer would look like this:
