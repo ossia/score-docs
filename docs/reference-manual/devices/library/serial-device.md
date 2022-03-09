@@ -26,6 +26,17 @@ with the following textual protocol:
 10\r\n12\r\n17\r\n5\r\n...
 ```
 
+To fetch the sensor value, a `get` message must be written by the computer to the serial port ; a complete communication sessop, in a serial console could for instance look like this: 
+
+```
+get
+10
+get
+12
+get
+17
+```
+
 A basic QML script for processing that serial device and making the sensor value available to score under a `/sensor` address in the device explorer would look like this:
 
 
@@ -45,6 +56,7 @@ Ossia.Serial
         name: "request",
         type: Ossia.Type.Pulse,
         access: Ossia.Access.Set,
+        request: "get"
       },
       {
         name: "sensor",
@@ -142,6 +154,15 @@ Ossia.Serial
         name: "request",
         type: Ossia.Type.Pulse,
         access: Ossia.Access.Set,
+
+        /// request: can be used to customize the serial communication.
+
+        // Option A: the string "$val" will be replaced textually by the value of the message sent by score
+        request: "message sent whenever a message is sent to this address in score"
+        // Option B: the given function will be called, which will return a string which behaves the same
+        request: () => {
+          return Math.random() + " foo "
+        }
       },
 
       // This creates a node "my_device:/sensor" of type "int"
@@ -153,6 +174,8 @@ Ossia.Serial
         max: 255,
         bounding: Ossia.Bounding.Clip,
         repetition_filter: Ossia.Repetitions.Filtered
+
+        // Here without "request:" specified, the int value of the address will be textually written to the serial port
       }
     ]; 
   }
