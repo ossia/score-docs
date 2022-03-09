@@ -185,3 +185,7 @@ Ossia.Serial
   function closeListening(address) { }
 }
 ```
+
+## Examples
+
+Arduino's built-in examples proposes two similar sketches for serial communication: `SerialCallResponse` and `SerialCallResponseASCII`. You can find their companion QML scripts in the [user library](https://github.com/ossia/score-user-library/tree/master/Devices/Serial/Arduino/Examples_BUILT-IN/COMMUNICATION), illustrating the use of the `onRead` and `onMessage` functions respectively.
