@@ -20,7 +20,110 @@ We recommend heavily to use QtCreator as IDE to do so, or at least an IDE with n
 - [For macOS](#macos)
 - [For various Linux distros](#arch-linux)
 
-# System dependencies
+
+# The SDK
+
+Required dependencies and libraries can be downloaded either from here for a pre-built SDK which contains everything needed on Windows (where it is the recommended way) and on Linux: https://github.com/ossia/sdk/releases ; on Mac it contains everything but the compiler (which is Xcode's Clang).
+
+- Windows: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk23/sdk-mingw.7z) and extract it in `c:\ossia-sdk`. You must also install [CMake](https://cmake.org/). [Ninja](https://github.com/ninja-build/ninja/releases) is extremely recommended for build speed - download it and extract `ninja.exe` in `c:\ossia-sdk\llvm\bin\`.
+
+- Linux: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk24/sdk-linux.tar.xz) and extract it in `/opt/ossia-sdk`. You must also install CMake (it's in your repos).
+  
+- macOS: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk24/sdk-macOS.tar.xz) and extract it in `/opt/ossia-sdk-x86_64`. You must also install Xcode (sorry) and CMake+Ninja (for instance through homebrew).
+
+> This [script](https://github.com/ossia/score/blob/master/tools/fetch-sdk.sh) will download the latest version of the sdk automatically.
+
+
+# Quick development build
+
+## Windows
+E.g., on Windows with git bash: 
+
+```bash
+$ export PATH=/c/ossia-sdk/llvm/bin:$PATH
+$ cmake c:/path/to/score                             \
+  -GNinja                                            \
+  -DCMAKE_C_COMPILER=c:/ossia-sdk/llvm/bin/clang     \
+  -DCMAKE_CXX_COMPILER=c:/ossia-sdk/llvm/bin/clang++ \
+  -DOSSIA_SDK=c:/ossia-sdk                           \
+  -DCMAKE_BUILD_TYPE=Debug                           \
+  -DSCORE_PCH=1                                      \
+  -DSCORE_DYNAMIC_PLUGINS=1
+```
+
+Or with cmd.exe, the native command shell:
+
+```batch
+> set PATH=c:\ossia-sdk\llvm\bin;%PATH%
+> cmake c:\path\to\score                             ^
+  -GNinja                                            ^
+  -DCMAKE_C_COMPILER=c:\ossia-sdk\llvm\bin\clang     ^
+  -DCMAKE_CXX_COMPILER=c:\ossia-sdk\llvm\bin\clang++ ^
+  -DOSSIA_SDK=c:\ossia-sdk                           ^
+  -DCMAKE_BUILD_TYPE=Debug                           ^
+  -DSCORE_PCH=1                                      ^
+  -DSCORE_DYNAMIC_PLUGINS=1
+```
+
+> Note: on Windows, the system antivirus slows build times a *lot*. Be sure to exclude: 
+> 
+> - The ossia-sdk folder
+> - The score source folder
+> - The score build folder
+> 
+> from antivirus scans if things are slowas it seems that every file access is checked, and compilers do those a lot.
+
+## Linux
+
+It is harder to give a single set of build instructions for Linux, 
+as every distribution differs.
+
+Check out the build scripts for your distros [here](https://github.com/ossia/score/tree/master/ci).
+
+For instance, for Ubuntu 20.04:
+
+- [focal.deps.sh](https://github.com/ossia/score/blob/master/ci/focal.deps.sh) will install the required dependencies.
+- [focal.build.sh](https://github.com/ossia/score/blob/master/ci/focal.build.sh) will build. 
+
+> You should change the CMake invocation a bit, as the one on the CI scripts is optimized for a fast complete rebuild on the CI server, but changing a single file and rebuilding will be excruciatingly slow:
+
+Instead of 
+
+```bash
+$ cmake .. \
+  -GNinja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=install \
+  -DSCORE_DYNAMIC_PLUGINS=1 \
+  -DCMAKE_UNITY_BUILD=1
+```
+
+You really want
+
+```bash
+$ cmake ~/path/to/score                         \
+    -GNinja                                     \
+    -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld"  \
+    -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"     \
+    -DCMAKE_BUILD_TYPE=Debug                    \
+    -DSCORE_PCH=1                               \
+    -DSCORE_DYNAMIC_PLUGINS=1
+```
+
+which will make individual changes much faster.
+
+## macOS
+
+```
+$ xcrun cmake ~/path/to/score       \
+  -GNinja                           \
+  -DOSSIA_SDK=/opt/ossia-sdk-x86_64 \
+  -DCMAKE_BUILD_TYPE=Debug          \
+  -DSCORE_PCH=1                     \
+  -DSCORE_DYNAMIC_PLUGINS=1
+```
+
+# Installing dependencies manually
 
 Ensure that you have the latest version of Qt, boost, and your C++ compiler installed.
 
@@ -31,10 +134,10 @@ At the time of this writing, this means :
 
 | Software | Version                         |
 |----------|---------------------------------|
-| Compiler | clang 11 or gcc 10 or msvc 2019 |
-| Qt       | 5.15 (Qt6 is not supported yet) |
-| Boost    | 1.75                            |
-| CMake    | 3.20                            |
+| Compiler | clang 13 or gcc 10 or msvc 2019 |
+| Qt       | 5.15 or Qt 6.2+                 |
+| Boost    | 1.78                            |
+| CMake    | 3.23                            |
 
 However, to get a complete build with support for more features, more is needed :
 
@@ -50,8 +153,6 @@ However, to get a complete build with support for more features, more is needed 
 | SDL2          | Latest  | # Required to have gamepad support
 | qt 5.15       | Latest  | # Required for the GFX addon
 | qtshadertools | Latest  | # Required for the GFX addon
-
-They can be downloaded either from here for a pre-built set of packages : https://github.com/ossia/sdk/releases
 
 Or you can install them with your package manager of choice - see the packages for each platform at the end of this document.
 
@@ -84,6 +185,8 @@ Pass the following options to `cmake` to ensure maximal build speed: (note that 
     -DSCORE_PCH=1
     -DSCORE_DYNAMIC_PLUGINS=1
 
+> Important: Run the `cmake` command in a separate build folder, especially not in the source directory of score !
+
 For instance, for generating the build files on Ubuntu, Debian or Linux Mint, that gives :
 
     cmake /path/to/score                         \
@@ -96,7 +199,9 @@ For instance, for generating the build files on Ubuntu, Debian or Linux Mint, th
       -DSCORE_PCH=1                              \
       -DSCORE_DYNAMIC_PLUGINS=1
 
-*Note : * Run the `cmake` command in a separate build folder, especially not in the source directory of score !
+If you are using the SDK mentioned above, add: 
+
+    -DOSSIA_SDK=/path/to/sdk
 
 If you are not using your distribution's Qt version because it's too old, pass the path to a recent version with, for instance,
 
