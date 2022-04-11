@@ -18,6 +18,8 @@ A classic MIDI pattern sequencer.
 On the left of the sequencer, there is the actual note of the lane with a corresponding number.
 Each step correspond to a measure. If the step is activated (_yellow_), the note will be played.
 
+> The note corresponding to each lane can be changed by clicking on it and dragging.
+
 This process can have multiple distinct patterns which can be switched.
 
 ## Channel
