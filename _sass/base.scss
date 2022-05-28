@@ -94,26 +94,6 @@ a:active {
   text-decoration: none !important;
 }
 
-code {
-  font-family: $mono-font-family;
-  font-size: 0.75em;
-  line-height: $body-line-height;
-
-  .highlighter-rouge {
-    display: inline-block;
-    padding: 0.05em 0.3em;
-    margin: 0 0.2em;
-    font-family: Catamaran, sans-serif;
-    font-size: 11pt;
-    font-weight: 700;
-
-    /*   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset; */
-    background-color: #f7f7f7;
-    border: 2px solid $ossia-light-blue;
-    border-radius: 4px;
-  }
-}
-
 figure,
 pre {
   margin: 0;
