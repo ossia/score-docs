@@ -22,6 +22,8 @@ In the `Devices` middle column, you can select your desired Midi input device.
 
 Optionally, you can set a custom name (or use the default one).
 
+On platform that support it (macOS and Linux), you can create a virtual MIDI device.
+
 ## Create whole tree option
 
 Under the name of your Midi input device, you can toggle on the `Create whole tree` option. This option will create all possible Midi messages as parameters of the device as illustrated below. Addresses in the namespace will be created using the following format:

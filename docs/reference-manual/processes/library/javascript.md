@@ -126,6 +126,11 @@ The `state` object contains global properties relevant for the whole score execu
 - `physical_date`: how many samples have elapsed since the score has started playing.
 - `start_date_ns`: the date in nanoseconds when the score started playing.
 - `current_date_ns`: the current date in nanoseconds.
+- `timings(token)`: given the token object, this gives back a timings object, which has the following properties:
+  - `start_sample`: at which index is the first sample to write in an audio buffer.
+  - `length`: how many samples must be written.
+
+`timings` is most of the time what you need !
 
 ## Example of a value mapper
 
@@ -182,27 +187,28 @@ Script {
   property real phase: 0;
 
   tick: function(token, state) {
-    var arr = [ ];
+    // Create an array to store our samples
+    let arr = new Array(state.buffer_size);
+    for (let i = 0; i < state.buffer_size; ++i)
+      arr[i] = 0;
 
-    // How many samples we must write
-    var n = token.physical_write_duration(state.model_to_physical);
+    // How many samples we must write in this array
+    // (the process could run for e.g. only frame 17 through 24 in a 128-frame buffer)
+    const tm = state.timings(token);
 
-    if(n > 0) {
+    if(tm.length > 0) {
       // Computer the sin() coefficient
       var freq = in1.value;
 
       // Notice how we get sample_rate from state.
       var phi = 2 * Math.PI * freq / state.sample_rate;
 
-      // Where we must start to write samples
-      var i0 = token.physical_start(state.model_to_physical);
-
       // Fill our array
       for(var s = 0; s < n; s++) {
         phase += phi;
         var sample = Math.sin(phase);
         sample = freq > 0 ? sample : 0;
-        arr[i0 + s] = 0.3 * sample;
+        arr[tm.start_sample + s] = 0.3 * sample;
       }
     }
 

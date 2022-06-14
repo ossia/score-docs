@@ -21,3 +21,5 @@ In the `Devices` middle column, you can select your desired Midi input device.
 > If you plugged in your Midi device after launching *score*, you may need to restart *score* so your it appears in the Devices column.
 
 Optionally, you can set a custom name (or use the default one).
+
+On platform that support it (macOS and Linux), you can create a virtual MIDI device.

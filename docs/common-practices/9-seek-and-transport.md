@@ -121,3 +121,11 @@ Right now, only JACK is supported. The plan is to include synchronization with S
 The setting is currently in the global software settings: score can act both as a JACK client or master:
 
 ![JACK transport]({{ site.img }}/common-practices/seek/jack-transport.png "JACK transport")
+
+# Setting a start marker
+
+It is possible to set a start marker by right-clicking into the musical metrics area, at the top of the score.
+
+When a start marker is set, play / pause will always start from this point: this is mainly useful to play a specific part of a score quickly in succession.
+
+![Start marker]({{ site.img }}/common-practices/seek/start-marker.gif "Start marker")

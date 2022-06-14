@@ -33,3 +33,10 @@ Faust code can be edited directly from within the user interface, by clicking on
 <div class="videoWrapper">
     <iframe src="https://www.youtube.com/embed/yvTjJMrFxR0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+
+# Faust packages
+
+It is possible to provide new Faust libraries as score packages.
+
+This is done for instance with Alain Bonardi's [abclib](https://github.com/alainbonardi/abclib) which is packaged [here](https://github.com/jcelerier/abclib) : most importantly, the `library` folder in such a package will be added to the Faust library path so that new functions can be provided.
