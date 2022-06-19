@@ -69,6 +69,20 @@ Here are some links to free JSFX collections:
 - [https://geraintluff.github.io/jsfx](https://geraintluff.github.io/jsfx)
 - [https://github.com/Justin-Johnson/ReJJ](https://github.com/Justin-Johnson/ReJJ)
 
+Some JSFX plug-ins need separate data files.
+To ensure that they can find it, the following organization is recommended: 
+
+```
+jsfx_folder/Effects/foo/effect.jsfx
+jsfx_folder/Data/<matching data files>
+```
+
+For instance, a complete path on a Mac with the default user library location would look like:
+
+```
+/Users/you/Documents/ossia/score/packages/jsfx/Effects/dynamics/general_dynamics.jsfx
+/Users/you/Documents/ossia/score/packages/jsfx/Data/amp_models/SomeImpulse.wav
+```
 # Advanced plug-in and extensions formats
 
 It is also possible to use less common systems for audio processing:
