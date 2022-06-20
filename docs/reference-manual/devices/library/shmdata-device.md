@@ -29,9 +29,7 @@ Test that it works correctly with the `gst-launch` commands given in that Readme
 Shmdata can currently be used as a video input and output device.
 Simply create the devices you need, and set your video input / output to the shmdata device's name.
 
-## Examples
-
-These examples assume that the shmdata GStreamer plug-in is installed in `/opt/shmdata`.
+These examples assume that the shmdata GStreamer plug-in is installed in `/opt/shmdata`:
 
 Sending data from GStreamer to score: 
 
@@ -55,3 +53,33 @@ Here is a score that would process the input and write it to the output.
 
 - The score and the GStreamer output which shows the processing done by score:
 ![Score and shmdata output]({{ site.img }}/reference/devices/shmdata/shmdata.png "score")
+
+## Recording score's video output
+
+Here is a GStreamer command-line which will encode the shmdata output as .mkv with relatively low quality: 
+
+```bash
+$ gst-launch-1.0 -e \
+      shmdatasrc socket-path=/tmp/score_shm_video \
+    ! queue \
+    ! videoconvert \
+    ! videorate \
+    ! video/x-raw,framerate=60/1 \
+    ! x264enc \
+    ! matroskamux \
+    ! filesink location=foo.mkv
+```
+
+Or as .mov encoded in Apple ProRes (warning: very, very CPU hungry):
+
+```bash
+$ gst-launch-1.0 -e \
+      shmdatasrc socket-path=/tmp/score_shm_video \
+    ! queue \
+    ! videoconvert \
+    ! videorate \
+    ! video/x-raw,framerate=60/1 \
+    ! avenc_prores_ks \
+    ! qtmux \
+    ! filesink location=foo.mov 
+```
