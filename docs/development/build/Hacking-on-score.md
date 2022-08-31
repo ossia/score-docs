@@ -10,34 +10,46 @@ grand_parent: Development
 permalink: /development/build/hacking.html
 ---
 
+# Very very quickstart
+
+The [developer.sh](https://github.com/ossia/score/blob/master/tools/developer.sh) will try to download and install the required dependencies, and compile score in a way suitable for development.
+
 # Quickstart
 
 This page presents how to start developing things on ossia score.
 
 We recommend heavily to use QtCreator as IDE to do so, or at least an IDE with native support for CMake.
 
-- [For Windows](#windows-with-visual-studio)
-- [For macOS](#macos)
-- [For various Linux distros](#arch-linux)
-
-
 # The SDK
 
-Required dependencies and libraries can be downloaded either from here for a pre-built SDK which contains everything needed on Windows (where it is the recommended way) and on Linux: https://github.com/ossia/sdk/releases ; on Mac it contains everything but the compiler (which is Xcode's Clang).
+Required dependencies and libraries, except CMake and Ninja, can be downloaded from a [pre-built SDK](https://github.com/ossia/sdk/releases). 
+This will give you exactly the library used for the official ossia score releases. This is recommended on Windows and Linux distributions older than Ubuntu 22.04.
 
-- Windows: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk23/sdk-mingw.7z) and extract it in `c:\ossia-sdk`. You must also install [CMake](https://cmake.org/). [Ninja](https://github.com/ninja-build/ninja/releases) is extremely recommended for build speed - download it and extract `ninja.exe` in `c:\ossia-sdk\llvm\bin\`.
+This [script](https://github.com/ossia/score/blob/master/tools/fetch-sdk.sh) will download the latest version of the SDK automatically. Otherwise:
 
-- Linux: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk24/sdk-linux.tar.xz) and extract it in `/opt/ossia-sdk`. You must also install CMake (it's in your repos).
+- On Windows: 
+  * [Install git with git bash](https://git-scm.com/downloads).
+  * [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk26/sdk-mingw.7z) and extract it in `c:\ossia-sdk`. 
+  * You must also install [CMake](https://cmake.org/). 
+  * [Ninja](https://github.com/ninja-build/ninja/releases) is extremely recommended for build speed - download it and extract `ninja.exe` in `c:\ossia-sdk\llvm\bin\`.
+
+
+- On Linux: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk26/sdk-linux.tar.xz) and extract it in `/opt/ossia-sdk`. You must also install CMake (from your distribution's repositories).
   
-- macOS: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk24/sdk-macOS.tar.xz) and extract it in `/opt/ossia-sdk-x86_64`. You must also install Xcode (sorry) and CMake+Ninja (for instance through homebrew).
-
-> This [script](https://github.com/ossia/score/blob/master/tools/fetch-sdk.sh) will download the latest version of the sdk automatically.
-
+- On macOS: [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk26/sdk-macOS.tar.xz) and extract it in `/opt/ossia-sdk-x86_64`. You must also install XCode (sorry) and CMake+Ninja (for instance through Homebrew).
 
 # Quick development build
 
-## Windows
-E.g., on Windows with git bash: 
+## Cloning the project
+
+Make sure to make a *recursive* clone of the project, or you will encounter build issues:
+
+```bash
+$ git clone --recursive -j16 https://github.com/ossia/score
+```
+
+## Build the project on Windows
+With git bash: 
 
 ```bash
 $ export PATH=/c/ossia-sdk/llvm/bin:$PATH
@@ -47,8 +59,9 @@ $ cmake c:/path/to/score                             \
   -DCMAKE_CXX_COMPILER=c:/ossia-sdk/llvm/bin/clang++ \
   -DOSSIA_SDK=c:/ossia-sdk                           \
   -DCMAKE_BUILD_TYPE=Debug                           \
-  -DSCORE_PCH=1                                      \
-  -DSCORE_DYNAMIC_PLUGINS=1
+  -DSCORE_PCH=1
+
+$ cmake --build .
 ```
 
 Or with cmd.exe, the native command shell:
@@ -61,19 +74,20 @@ Or with cmd.exe, the native command shell:
   -DCMAKE_CXX_COMPILER=c:\ossia-sdk\llvm\bin\clang++ ^
   -DOSSIA_SDK=c:\ossia-sdk                           ^
   -DCMAKE_BUILD_TYPE=Debug                           ^
-  -DSCORE_PCH=1                                      ^
-  -DSCORE_DYNAMIC_PLUGINS=1
+  -DSCORE_PCH=1
+
+> cmake --build .
 ```
 
-> Note: on Windows, the system antivirus slows build times a *lot*. Be sure to exclude: 
+> Note: on Windows, the system antivirus slows build times a *lot*. Be sure to exclude recursively: 
 > 
 > - The ossia-sdk folder
 > - The score source folder
 > - The score build folder
 > 
-> from antivirus scans if things are slowas it seems that every file access is checked, and compilers do those a lot.
+> from antivirus scans if things are slow as it seems that every file access is checked, and compilers do those a lot.
 
-## Linux
+## Build the project on Linux
 
 It is harder to give a single set of build instructions for Linux, 
 as every distribution differs.
@@ -90,69 +104,83 @@ For instance, for Ubuntu 20.04:
 Instead of 
 
 ```bash
-$ cmake .. \
-  -GNinja \
-  -DCMAKE_BUILD_TYPE=Release \
+$ cmake ..                       \
+  -GNinja                        \
+  -DCMAKE_BUILD_TYPE=Release     \
   -DCMAKE_INSTALL_PREFIX=install \
-  -DSCORE_DYNAMIC_PLUGINS=1 \
+  -DSCORE_DYNAMIC_PLUGINS=1      \
   -DCMAKE_UNITY_BUILD=1
 ```
 
-You really want
+You really want (adapted with the clang version you have):
 
 ```bash
 $ cmake ~/path/to/score                         \
     -GNinja                                     \
+    -DCMAKE_C_COMPILER="clang-14"               \
+    -DCMAKE_CXX_COMPILER="clang++-14"           \
     -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld"  \
     -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"     \
     -DCMAKE_BUILD_TYPE=Debug                    \
     -DSCORE_PCH=1                               \
     -DSCORE_DYNAMIC_PLUGINS=1
+
+$ cmake --build .
 ```
 
-which will make individual changes much faster.
+which will make individual changes much faster (the difference can be between waiting a couple minutes instead of a couple seconds after each rebuild).
 
-## macOS
+> If you have an up-to-date distribution, you can also install the mold linker 
+> which is even faster than lld, and replace `-fuse-ld=lld` with `-fuse-ld=mold` in the lines above. 
 
-```
+## Build the project on macOS
+
+```bash
 $ xcrun cmake ~/path/to/score       \
   -GNinja                           \
   -DOSSIA_SDK=/opt/ossia-sdk-x86_64 \
   -DCMAKE_BUILD_TYPE=Debug          \
   -DSCORE_PCH=1                     \
   -DSCORE_DYNAMIC_PLUGINS=1
+
+$ xcrun cmake --build .
 ```
+
+## Rebuild the project after an initial build
+
+Once you have a build folder, only the `cmake --build .` command is necessary.
 
 # Installing dependencies manually
 
 Ensure that you have the latest version of Qt, boost, and your C++ compiler installed.
 
 *Note* : to ensure a very fast build time, it is recommended to use clang as compiler and ninja for building, on every platform.
-Additionally, on Linux and Windows `lld` can be used as a linker. It is quite faster than `GNU ld` and `gold`.
+Additionally, on Linux and Windows `lld` can be used as a linker. It is quite faster than `GNU ld` and `gold`. On recent Linux, `mold` can also be 
+used, which is even faster.
 
 At the time of this writing, this means :
 
 | Software | Version                         |
 |----------|---------------------------------|
-| Compiler | clang 13 or gcc 10 or msvc 2019 |
+| Compiler | clang 14 or gcc 12 or msvc 2022 |
 | Qt       | 5.15 or Qt 6.2+                 |
-| Boost    | 1.78                            |
-| CMake    | 3.23                            |
+| Boost    | 1.80                            |
+| CMake    | 3.24                            |
 
 However, to get a complete build with support for more features, more is needed :
 
 | Software      | Version |
 |---------------|---------|
-| FFMPEG        | 4.x     | # Required for sound playback
-| LLVM          | 9.x     | # Required for Faust support
+| FFMPEG        | 5.x     | # Required for sound playback
+| LLVM          | 14.x    | # Required for Faust support
 | OpenSSL       | 1.1.x   | # Required to connect to wss / https
 | Faust         | Latest  | # Required to load Faust plug-ins
 | suil, lilv    | Latest  | # Required to load LV2 plug-ins
 | PortAudio     | Latest  | # Required to playback sound using Coreaudio, ASIO, ALSA, Pulseaudio...
 | JACK2         | Latest  | # Required to playback sound using JACK
 | SDL2          | Latest  | # Required to have gamepad support
-| qt 5.15       | Latest  | # Required for the GFX addon
-| qtshadertools | Latest  | # Required for the GFX addon
+| Qt            | 5.15+   | # Required for the GFX addon
+| qtshadertools | 5.15+   | # Required for the GFX addon
 
 Or you can install them with your package manager of choice - see the packages for each platform at the end of this document.
 
@@ -176,14 +204,14 @@ The preferred way to build when hacking on the software is with [cninja](https:/
 Alternatively, one can build with CMake.
 Pass the following options to `cmake` to ensure maximal build speed: (note that the instructions later on this page may not be entirely up-to-date)
 
-    -GNinja
-    -DCMAKE_C_COMPILER=/path/to/clang
-    -DCMAKE_CXX_COMPILER=/path/to/clang++
-    -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld"
-    -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"
-    -DCMAKE_BUILD_TYPE=Debug
-    -DSCORE_PCH=1
-    -DSCORE_DYNAMIC_PLUGINS=1
+    -GNinja                                     # Makes the build much faster
+    -DCMAKE_C_COMPILER=/path/to/clang           # Makes the build faster (only needed on Linux)
+    -DCMAKE_CXX_COMPILER=/path/to/clang++       # Makes the build faster (only needed on Linux)
+    -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld"  # Makes the linking faster (only needed on Linux)
+    -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"     # Makes the linking faster (only needed on Linux)
+    -DCMAKE_BUILD_TYPE=Debug                    # For having debug symbols
+    -DSCORE_PCH=1                               # Makes the build much much faster
+    -DSCORE_DYNAMIC_PLUGINS=1                   # Makes the linking faster (only on Mac / Linux ; on Windows it does not work without rebuilding every dependency)
 
 > Important: Run the `cmake` command in a separate build folder, especially not in the source directory of score !
 
@@ -213,165 +241,16 @@ Once CMake has ran successfully, do :
 
     cmake --build .
 
-To be safe, you should have at least 15 gigabytes free on your hard drive before starting a build.
+To be safe, you should have at least 8 gigabytes free on your hard drive before starting a build.
 
 # Building with Qt Creator
 
 Refer to this video : https://www.youtube.com/watch?v=LSifHFbuky0
 
-# Quick scripts to get started
-
-## Arch Linux
-```
-pacman -S git cmake ninja clang lld boost qt5-base qt5-imageformats qt5-websockets qt5-quickcontrols2 qt5-serialport qt5-declarative qt5-tools  ffmpeg portaudio jack lv2 suil lilv sdl2
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-ninja
-
-# Run
-./ossia-score
-```
-## Ubuntu 20.10, 20.04, 19.10, 19.04, 18.10, 18.04
-
-```
-# Install dependencies
-snap install cmake --edge --classic
-apt update
-apt -y install clang lld build-essential libavdevice-dev libavformat-dev libswresample-dev ninja-build portaudio19-dev llvm-dev libclang-dev liblilv-dev libsuil-dev git mesa-common-dev
-
-# If you want to use the latest Qt which fixes a lot of bugs present in Debian's old version
-apt -y install python3-pip python3 p7zip-full
-python3 -m pip install aqtinstall
-python3 -m aqt install --outputdir ~/Qt 5.15.1 linux desktop
-
-# Else use that:
-apt -y install qtbase5-dev qtdeclarative5-dev qtbase5-private-dev qtdeclarative5-private-dev libqt5websockets5-dev
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-CC=clang CXX=clang++ cmake .. -DCMAKE_PREFIX_PATH=~/Qt/5.15.1/gcc_64 -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-ninja
-
-# Run
-./run.sh
-```
-
-## Debian stable (also derivatives such as LibraZiK)
-
-```
-# Install dependencies
-apt update
-apt -y install build-essential libboost-dev libavdevice-dev libavformat-dev libswresample-dev cmake ninja-build portaudio19-dev git mesa-common-dev
-
-# If you want to use the latest Qt which fixes a lot of bugs present in Debian's old version
-apt -y install python3-pip python3 p7zip-full
-python3 -m pip install aqtinstall
-python3 -m aqt install --outputdir ~/Qt 5.15.1 linux desktop
-
-# Else use that:
-apt -y install qtbase5-dev qtdeclarative5-dev qtbase5-private-dev qtdeclarative5-private-dev libqt5websockets5-dev
-
-# Also useful but not mandatory (support for LV2, wiimotes, serial port, etc...):
-apt -y install llvm-dev libbluetooth-dev libqt5serialport5-dev libqt5websockets5-dev libfftw3-dev liblilv-dev libsuil-dev
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-# The line with PREFIX is only necessary if you used the latest Qt
-cmake .. \
-  -DCMAKE_PREFIX_PATH=~/Qt/5.15.1/gcc_64 \
-  -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-
-ninja
-
-# Run
-./run.sh
-```
-
-## Fedora
-```
-# Install dependencies
-# RPMFusion repos are required
-dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-dnf install cmake clang lld ffmpeg-devel llvm-devel portaudio-devel lilv-devel suil-devel ninja-build git qt5-qtbase-devel qt5-qtsvg-devel qt5-qttools-devel qt5-qtserialport-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtquickcontrols2-devel
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-ninja
-
-# Run
-./run.sh
-```
-
-## OpenSuse Tumbleweed
-```
-# Install dependencies
-zypper install libqt5-qtbase-devel cmake clang ninja boost-devel lld llvm-devel libjack-devel portaudio-devel lv2-devel liblilv-0-devel suil-devel libSDL2-devel libqt5-qtdeclarative-devel  libqt5-qtwebsockets-devel libqt5-qttools  libqt5-qtserialport-devel libqt5-qtquickcontrols2 libqt5-qtimageformats-devel ffmpeg-4-libavcodec-devel ffmpeg-4-libavdevice-devel ffmpeg-4-libavfilter-devel ffmpeg-4-libavformat-devel ffmpeg-4-libswresample-devel
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-CC=clang CXX=clang++ cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-ninja
-
-# Run
-./run.sh
-```
-
-## macOS
-
-First install XCode and [Homebrew](https://brew.sh).
-Then :
-```
-# Install dependencies
-brew install git qt5 ninja cmake ffmpeg portaudio boost
-
-# Clone the code
-git clone --recursive -j16 https://github.com/ossia/score
-cd score
-
-# Build
-mkdir build
-cd build
-cmake ~/score -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt -GNinja -DCMAKE_BUILD_TYPE=Debug -DSCORE_PCH=1 -DSCORE_DYNAMIC_PLUGINS=1
-ninja
-
-# Run
-./score
-```
-
-## Windows (with Visual Studio)
+# Windows with Visual Studio
 
 First install:
-* The latest version of Visual Studio 2019 (16.10 as of July 2021)
+* The latest version of Visual Studio 2022
 * [git](https://gitforwindows.org/)
 * [CMake](https://cmake.org/)
 * [Python](https://www.python.org)
@@ -379,7 +258,7 @@ First install:
 * Extract https://github.com/ossia/sdk/releases/download/sdk14/win-audio-sdk-msvc.zip in your `c:\` so that the folders once extracted look like `c:\score-sdk-msvc\portaudio` and `c:\score-sdk-msvc\ffmpeg`
 
 
-Run a `x64 Native Tools Command Prompt for VS 2019`:
+Run a `x64 Native Tools Command Prompt for VS 2022`:
 ![Screenshot](https://imgur.com/chDaR6J)
 
 In the command prompt, install Qt:
@@ -391,40 +270,12 @@ cd c:\dev
 # Install dependencies
 ## Qt
 pip install aqtinstall
-aqt install --outputdir c:\Qt 5.15.2 windows desktop win64_msvc2019_64
+aqt install --outputdir c:\Qt 5.15.3 windows desktop win64_msvc2019_64
 
 # Build
-cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed  -DCMAKE_BUILD_TYPE=Release
-cmake --build . --config Release
-cmake --build . --config Release --target install
-
-# Run
-cd installed
-score.exe
-```
-
-## Windows (with MSYS2)
-First download [the MinGW SDK](https://github.com/ossia/sdk/releases/download/sdk21/sdk-mingw.7z) and extract it in your `c:\` (the folder should look like `c:\ossia-sdk\ffmpeg`)
-
-Then, in a mingw-w64 terminal (not an MSYS terminal, this is very important ! if in doubt, run `c:\msys64\mingw64.exe`):
-
-```
-# Install dependencies
-pacman -S mingw-w64-x86_64-cmake  mingw-w64-x86_64-ninja
-
-# Build
-cmake ../score \
-  -GNinja \
-  -DCMAKE_C_COMPILER="c:/ossia-sdk/llvm/bin/clang.exe" \
-  -DCMAKE_CXX_COMPILER="c:/ossia-sdk/llvm/bin/clang++.exe" \
-  -DOSSIA_SDK="c:/ossia-sdk" \
-  -DSCORE_PCH=1 \
-  -DOSSIA_USE_FAST_LINKER=1 \
-  -DCMAKE_BUILD_TYPE=Debug \
-  -DCMAKE_INSTALL_PREFIX=installed
-
-cmake --build . --config Release
-cmake --build . --config Release --target install
+cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.3/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed -DCMAKE_BUILD_TYPE=Debug
+cmake --build . --config Debug
+cmake --build . --config Debug --target install
 
 # Run
 cd installed
