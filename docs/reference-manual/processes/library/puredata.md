@@ -41,7 +41,7 @@ score will detect:
 
 - Audio inlets/outlets: `[adc~]`, `[dac~]` and create a corresponding audio input and output port.
   - Important ! You have to set in the inspector how many audio channels are needed, as they are multiplexed into a single port.
-- MIDI inlets/outlets: `[midiin]`, `[notein]`, `[controlin]`, `[midiout]`, `[noteout]`, `[controlout]` and will create a MIDI input and / or output port.
+- MIDI inlets/outlets: `[midiin]`, `[notein]`, `[ctlin]`, `[midiout]`, `[noteout]`, `[ctlout]` and will create a MIDI input and / or output port.
 - Value inlets/outlets: `[s] / [send]`, `[r] / [receive]`.
 
 It is possible (but still work-in-progress) to use the [libossia ossia.parameter syntax](https://ossia.io/ossia-docs/?plaintext--pd#creating-parameters) for the receives, so that score is able to create nice GUI controls.
