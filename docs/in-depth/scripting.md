@@ -5,6 +5,7 @@ title: "Scripting"
 description: "Writing JS scripts to perform editor actions"
 
 parent: In depth
+has_children: true
 
 permalink: /in-depth/scripting.html
 ---
@@ -12,8 +13,9 @@ permalink: /in-depth/scripting.html
 # Scripting
 
 The software can be scripted with Javascript (ES7).
+The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/Qml/EditContext.hpp).
 
-The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/ConsolePanel.hpp#L80).
+Click here for the [[Scripting API|complete reference]].
 
 These functions will be available under the global `Score` object in the JS contexts.
 Additional utility functions are available under the `Util` object.
