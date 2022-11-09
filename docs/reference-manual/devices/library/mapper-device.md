@@ -95,10 +95,16 @@ Ossia.Mapper
             bind: "MidiDevice:/1/control/45",
             type: Ossia.Type.Float,
             
-            // What happens when the bound parameter (MidiDevice:/1/control/45) is written to
+            // What happens when the bound parameter (MidiDevice:/1/control/45) is written to:
+            //
+            // When MidiDevice:/1/control/45 receives the value 64, 
+            // Mapper:/node/sensor will get the value 64 / 127, roughly 0.5.
             read: function(orig, v) { return v.value / 127.; },
 
-            // What happens when the mapper parameter (Mapper:/node/sensor) is written to
+            // What happens when the mapper parameter (Mapper:/node/sensor) is written to:
+            //
+            // When Mapper:/node/sensor receives the value 0.5, 
+            // MidiDevice:/1/control/45 will get the value 0.5 * 127, roughly 64.
             write: function(v) { return v.value * 127.; }
           }
         ]
