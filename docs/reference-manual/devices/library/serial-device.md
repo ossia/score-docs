@@ -26,7 +26,7 @@ with the following textual protocol:
 10\r\n12\r\n17\r\n5\r\n...
 ```
 
-To fetch the sensor value, a `get` message must be written by the computer to the serial port ; a complete communication sessop, in a serial console could for instance look like this: 
+To fetch the sensor value, a `get` message must be written by the computer to the serial port ; a complete communication session, in a serial console could for instance look like this: 
 
 ```
 get
@@ -38,7 +38,6 @@ get
 ```
 
 A basic QML script for processing that serial device and making the sensor value available to score under a `/sensor` address in the device explorer would look like this:
-
 
 ```qml
 import Ossia 1.0 as Ossia
@@ -72,7 +71,7 @@ Ossia.Serial
 }
 ```
 
-Here is the complete syntax available: the most important thing to note is that: 
+Here is the complete syntax available for reading messages: the most important thing to note is that: 
 
 * `onMessage` is to be used to process messages in text-based protocols.
 * `onBinary` is to be used to process messages in binary protocols.
@@ -159,9 +158,16 @@ Ossia.Serial
 
         // Option A: the string "$val" will be replaced textually by the value of the message sent by score
         request: "message sent whenever a message is sent to this address in score"
+
         // Option B: the given function will be called, which will return a string which behaves the same
         request: () => {
           return Math.random() + " foo "
+        }
+
+        // Option C: same thing with an argument: 
+        // it will be an object { value: /* current value */, type: /* type of the value */ } 
+        request: (val) => {
+          return val.value + " foo "
         }
       },
 
@@ -185,6 +191,46 @@ Ossia.Serial
   function closeListening(address) { }
 }
 ```
+
+## Writing binary data
+
+By default, the values returned from `request` in the device tree are treated as strings and will be written to the serial port in textual, ASCII format. For instance, an "int" parameter with value 1234 will cause the actual integer to be written textually in the serial port: 123 as the bytes `0x31 0x32 0x33`, and not the single-byte value for 123, `0x7B`.
+
+If one wants actual binary data to be written, it is necessary to use a Javascript Typed Array, such as Uint8Array.
+Note that in this case the framing also must be handled manually, to enable for more control.
+
+Here is an example which will write a single byte delimited by `\r\n`. 
+
+```js
+{
+  name: "request",
+  type: Ossia.Type.Int,
+  access: Ossia.Access.Set,
+  min: 0,
+  max: 127,
+  request: (val) => {
+        let auint8 = new ArrayBuffer(3);
+        let uint8 = new Uint8Array(auint8);
+        uint8[0] = val.value; // An integer between 0 and 127
+        uint8[1] = '\r';
+        uint8[2] = '\n';
+        return auint8;
+  }
+}
+```
+
+## Coalescing messages
+
+In case the serial port is too slow and overflows, one can add the property: 
+
+```
+property real coalesce: 15
+```
+
+to the Serial object, to coalesce messages every 15 milliseconds for instance.
+
+If a specific parameter must *not* be coalesced, but always sent, one can simply set `critical: true` on the node.
+One will generally want to use coalescing on parameters such as lights, drives, or anything that more-or-less maps to an electrical voltage, and not for parameters that would trigger the start of an action.
 
 ## Examples
 
