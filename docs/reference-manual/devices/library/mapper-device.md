@@ -141,7 +141,7 @@ Ossia.Mapper
             type: Ossia.Type.Float,
             
             // The first parameter, `orig` is the OSC address of the parameter which 
-            // was changed: it will be either "MidiDevice:/1/control/45" or "MidiDevice:/1/control/55".
+            // was changed: it will be either "/1/control/45" or "/1/control/55".
             // The second parameter is the value.
             read: function(orig, v) { return v.value / 127.; },
 
@@ -200,6 +200,52 @@ Ossia.Mapper
   }
 }
 ```
+
+## Mapping and combining values from multiple addresses
+
+To do this, one can simply add a custom member to the QML object.
+For instance, here we combine two distinct addresses which represent an XY coordinate, in a single parameter of type Vec2.
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  // Our custom member which will contain the current value for the address.
+  property var xy: [0.0, 0.0]
+
+  function createTree() {
+    return [
+      {
+        name: "node",
+        children: [
+          {
+            name: "sensor",
+            bind: ["Millumin:/millumin/layer/x/instance", "Millumin:/millumin/layer/y/instance"],
+            type: Ossia.Type.Vec2f,
+            
+            read: function(orig, v) {
+              // Assign to xy depending on the origin
+              if(orig === "/millumin/layer/x/instance")
+                xy[0] = v.value;
+              if(orig === "/millumin/layer/y/instance")
+                xy[1] = v.value;
+              
+              return xy; 
+            },
+
+            // Write to the correct addresses. "v.value" is a Vec2, so two floats directly
+            write: (v) => { 
+              return [v.value[0], v.value[1]]; 
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 
 ## Using the mapper device as a generator
 
