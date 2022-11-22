@@ -42,6 +42,16 @@ Then you are good to go. Two scripts are provided: `ossia-score-x11` and `ossia-
 
 Note that we recommend not using the default Pi desktop environment: in our testing, switching to a lighter environment such as `i3wm` or `fluxbox` instead of the default Pi desktop made a large difference in performance and drop-outs for the scores.
 
+## Dependencies for minimal RPi installs
+
+If you installed an OS without any GUI on your Raspberry, some packages may be missing at first when launching score.
+
+You can install them with the following command:
+
+```bash
+$ sudo apt install libasound2 libblkid1 libbsd0 libc6 libdbus-1-3 libdouble-conversion1 libdrm2 libevdev2 libexpat1 libffi6 libgbm1 libgcc1 libgcc-8-dev libgcrypt20 libglib2.0-0 libgpg-error0 libgudev-1.0-0 libinput10 libjbig0 libjpeg62-turbo liblz4-1 liblzma5 libmount1 libmtdev1 libpcre3 libselinux1 libstdc++6 libsystemd0 libtiff5 libtinfo6 libudev1 libuuid1 libwacom2 libwayland-client0 libwayland-cursor0 libwayland-egl1 libwayland-server0 libwebp6 libxcb1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render0 libxcb-render-util0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-util0 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon0 libxkbcommon-x11-0 libzstd1 raspi-copies-and-fills zlib1g
+```
+
 ## Configuring the resolution under EGLFS
 
 * First create a `config.json` file with the following content:
