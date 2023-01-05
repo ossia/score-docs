@@ -12,6 +12,7 @@ permalink: /in-depth/embedded.html
 # Hardware support
 
 *ossia score* supports running on ARM under Raspberry Pi 3 and 4. We recommend a Raspberry Pi 4 for much better performance for audio processing, as well as better support for graphics feature due to its more advanced GPU.
+Note that builds are provided for both 32-bit (ARMv7) and 64-bit (AArch64): make sure to download the one matching the OS you installed on your Raspberry Pi. The 32-bit build works on Debian Buster and Bullseye ; the 64-bit build will only work on Debian Bullseye.
 
 Other embedded boards will also likely work, they have just not been tested yet. If [Qt](https://qt.io) runs on the hardware then most likely *score* will also run -- see the following page for the reference hardware supported by Qt:
 
