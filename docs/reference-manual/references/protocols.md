@@ -31,10 +31,15 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 * WebSockets.
   * Documented [here]({{ site.baseurl }}/devices/websockets-device.html).
 
-# Hardware protocols
+# Lighting protocols
 
 * [Art-Net](https://art-net.org.uk/) / DMX: the standard for lighting fixtures. Support is implemented through [libartnet](https://github.com/OpenLightingProject/libartnet), which has been integrated inside libossia. *score* is able to load fixtures definitions in the [open-fixture-library](https://github.com/OpenLightingProject/open-fixture-library) format.
   * Documented [here]({{ site.baseurl }}/devices/artnet-device.html).
+* s.ACN / E1.31 is supported.
+* ENTTEC DMX USB Pro devices are supported.
+
+# Hardware protocols
+
 * Serial port: *score* can read/write directly through serial ports, either directly or through Bluetooth. Support is currently based on the Qt SerialPort library but is being ported to ASIO to allow it to run in environments that cannot use Qt.
   * Documented [here]({{ site.baseurl }}/devices/serial-device.html).
 * Game pads: they are supported through the [SDL2](https://libsdl.org) gamepad library. Most gamepads and joysticks should work without issue.
@@ -48,7 +53,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 * [JACK](https://jackaudio.org): support is implemented in libossia.
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): experimental support is implemented in libossia.
 * [PipeWire](https://pipewire.org): experimental support is implemented in libossia and in score.
-* [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/).
+* [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/). A direct implementation is also provided for instance for working with as low latency as possible on embedded devices, but it only supports output, not duplex / input.
 * CoreAudio: the native macOS backend, supported through PortAudio.
 * MME, WASAPI, WDMKS: the native Windows backends, supported through [PortAudio](https://www.portaudio.com/).
 * [ASIO](https://www.steinberg.net/en/company/technologies.html): the low-latency pro-audio Windows backend developed by [Steinberg](https://www.steinberg.net), supported through [PortAudio](https://www.portaudio.com/).
@@ -62,7 +67,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [[Syphon|here]].
 * [Shmdata](https://gitlab.com/sat-metalab/shmdata/) is supported on Linux and macOS.
   * Documented [[Shmdata|here]].
-* An experimental [NDI](https://www.newtek.com/ndi/) extension is available [here](https://github.com/ossia/score-addon-ndi).
+* [NDI](https://www.newtek.com/ndi/) is supported on Windows, Linux and macOS.
 
 # Transport synchronisation
 
@@ -87,6 +92,7 @@ See the [[MIDI|MIDI documentation]] for more information.
 *score* uses [FFMPEG](https://ffmpeg.org/) for its audio needs.
 
 It should support most codecs and formats listed [at this page](https://ffmpeg.org/general.html#Audio-Codecs).
+Every standard format (AIFF, MP3, OGG Vorbis, FLAC, etc) should be supported without issues.
 
 *score* handles WAV files in a specific way, through the [dr_wav](https://github.com/mackron/dr_libs/) library, to allow for memory-mapping the data for large files.
 
@@ -97,10 +103,32 @@ See the [sound file process documentation]({{ site.baseurl }}/processes/soundfil
 *score* uses [FFMPEG](https://ffmpeg.org/) for its video needs.
 
 It should support most codecs and formats listed [at this page](https://ffmpeg.org/general.html#Video-Codecs).
+In particular, H.264, H.265, Apple ProRes, etc. should be supported.
 
-The exception is the [HAP codecs](https://hap.video): for maximum performance, decoding is done by *score* (which allows doing it on the graphics card, while FFMPEG's HAP decoding happens on the CPU which defeats the point of the codec).
+[HAP codecs](https://hap.video) are handled in a different way: for maximum performance, decoding is done by *score* (which allows doing it on the graphics card, while FFMPEG's HAP decoding happens on the CPU which defeats the point of the codec).
 
 See the [video process documentation]({{ site.baseurl }}/processes/video.html) for more information.
+
+## Hardware decoding
+*score* can use OS video decoding APIs through FFMPEG. This allows for instance to decode H264 video on a Raspberry Pi 4 and apply live effects on it with only 15% CPU usage.
+
+Supported APIs are:
+
+* DXVA2 / D3D11 on Window.
+* VideoToolbox on macOS.
+* V4L2-M2M on Raspberry Pi and embedded.
+
+If one builds *score* from source with a custom FFMPEG version, it is also possible to have CUDA and QuickSync support.
+
+## Hardware rendering
+*score* will try to render some common video texture formats on the GPU with shaders instead of converting them to RGB on the CPU, for maximum performance.
+Make sure that your video frames are in one of these pixel formats: if so, decoding won't take CPU time.
+
+- RGB, RGBA, ARGB, ABGR and any variation thereof, planar or packed, 8 bits (int) or 32 bits (float)
+- YUV420P, YUV422P
+- NV12
+- YUYV422, UYVY422
+- HAP, HAP-Q, HAP-M
 
 # Image file formats
 
@@ -108,9 +136,9 @@ See the [video process documentation]({{ site.baseurl }}/processes/video.html) f
 
 See the [image process documentation]({{ site.baseurl }}/processes/image.html) for more information.
 
-# Real-time media sharing
+# 3D file formats
 
-*score* supports [Spout](https://spout.zeal.co/). For now it is limited to outputting a texture.
+*score* can load `.obj` files.
 
 # Graphics APIs
 
@@ -129,6 +157,8 @@ See the [[graphics pipeline|general video documentation]] for general informatio
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#vst3).
 * [LV2](https://lv2plug.in) on Linux. Note that currently this requires building *score* on your own computer or use a Linux distro package.
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#lv2).
+* [JSFX](https://www.cockos.com/jsfx/) is embedded in *score* through [ysfx](https://github.com/jpcima/ysfx).
+  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#jsfx).
 * [Faust](https://faust.grame.fr/), the Faust programming language developed by GRAME. *score* embeds the Faust compiler and libraries.
   * Documented [here]({{ site.baseurl }}/processes/faust.html).
 * [Pure Data](https://puredata.info/) is embedded in *score* through [libpd](https://github.com/libpd/libpd).
