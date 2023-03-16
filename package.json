@@ -7,7 +7,7 @@
   "bugs": "https://github.com/pmarsceill/just-the-docs/issues",
   "devDependencies": {
     "@primer/css": "^15.1.0",
-    "prettier": "^2.1.1",
+    "prettier": "2.8.4",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-primer": "^9.0.0",
@@ -19,6 +19,5 @@
     "test": "stylelint -f verbose '**/*.scss'",
     "format": "prettier --write '**/*.{scss,js,json}'",
     "stylelint-check": "stylelint-config-prettier-check"
-  },
-  "dependencies": {}
+  }
 }

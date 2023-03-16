@@ -15,6 +15,11 @@ permalink: /processes/smooth.html
 
 The Smooth process can be used to tame a noisy input stream, coming from a very sensitive sensor for example. The output of this process may be more usable than the raw stream to control other parameters.
 
+## Continuous
+
+This setting will keep smoothing the signal at a regular rate even if there is no input, by assuming that the last input value is being continuously fed in.
+This allows to transform a signal with a slow data rate, for instance with a new value every two seconds, into a smooth control signal.
+
 ## Amount
 
 0 applies the least amount of filtering, 1 the most.
