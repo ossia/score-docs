@@ -70,6 +70,10 @@ return [ xv[0] cos(xv[1]), xv[0] sin(xv[1]) ];
 
 will take a vec2 that contains polar coordinates `[r, theta]` and convert it into cartesian coordinates `[x, y]`.
 
+Note that it isn't possible to create dynamic arrays in ExprTK. To return an array, it has to be wrapped in an array itself and then unwrapped with an [[Object filter]]:
+
+![ExprTK]({{ site.img }}/reference/processes/exprtk/vec.png)
+
 # Available variables
 
 ### Everywhere

@@ -16,15 +16,6 @@ permalink: /processes/audio-utilities.html
 
 This plug-in simply multiplies its input audio by a gain value.
 
-# Envelope
-
-![Envelope]({{ site.img }}/reference/processes/envelope.png "Envelope plug-in")
-
-This plug-in allows to take the envelope (first outlet is RMS, second outlet is peak) of an input audio signal.
-The output will be an array with as many values than there are channels in the input signal.
-
-The signal is often a small value, which can be boosted for instance with a [[Math expressions|mapping]].
-
 # Metronome
 
 ![Metronome]({{ site.img }}/reference/processes/metronome.png "Metronome plug-in")
