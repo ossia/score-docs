@@ -54,7 +54,7 @@ Then `[ .foo[2:5].bar ]` will give as output the list `[4, 2, 5]`.
 
 ## Supported syntax and example programs
 
-```
+```ruby
 ## The dot just copies the entire input to the output
 # Example: [ 123, "foo" ] -> [ 123, "foo" ]
 
