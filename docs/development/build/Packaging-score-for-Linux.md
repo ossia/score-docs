@@ -24,10 +24,10 @@ An example of package is the one provided in the ArchLinux AUR : https://aur.arc
 
 # Dependencies
 
-* CMake (>= 3.9)
-* Qt (>= 5.12)
-* Boost (whatever is the latest version, at least 1.68)
-* FFMPEG (libavcodec, etc., at least FFMPEG 3)
+* CMake (>= 3.13)
+* Qt (>= 6.4)
+* Boost (whatever is the latest version, at least 1.81)
+* FFMPEG (libavcodec, etc., at least FFMPEG 4)
 
 # Building a release
 
