@@ -11,7 +11,7 @@ permalink: /development/plugins/plugins-with-avendish.html
 
 # Avendish documentation
 
-Before focusing on writing score plug-ins, read the Avendish documentation to get familiar with what it allows: https://celtera.github.io/avendish.
+Before focusing on writing score plug-ins, read the [Avendish documentation to get familiar with what it allows](https://celtera.github.io/avendish).
 
 In short: this plug-in API leverages C++ reflection to define media objects. 
 The inputs and outputs of objects are simply struct members: here is for instance the entire definition of a simple Avendish audio processing object:
@@ -127,7 +127,7 @@ It contains everything needed to automatically create a plug-in. Whenever you pu
 
 ![Github template creation]({{ site.img }}/development/plugins/avendish/template.png "Github template")
 
-For instance, let's say your personal repository will be: https://github.com/yourself/foobinator and your plug-in name is Foobinator.
+For instance, let's say your personal repository will be: `https://github.com/yourself/foobinator` and your plug-in name is Foobinator.
 
 2. Clone your new repository:
 
@@ -152,7 +152,9 @@ $ git push --set-upstream origin main --force
 
 6. After some minutes, you can check the "SDK" action of the plug-in on Github:
 
+```
 https://github.com/yourself/foobinator/actions/workflows/builds-sdk.yaml
+```
 
 If everything is ok, it should have generated a "plugin" archive which will contain the MacOS, Windows and Linux builds.
 This can be extracted to `Documents/ossia/score/package/foobinator`: the object should become visible the next time you launch score.
@@ -165,7 +167,7 @@ For building a plug-in locally, you need:
 
 - The simplest way is to follow the steps that are done on the CI as they are regularly automatically checked, unlike the instructions on this page :-)
 
-https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml
+[https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml](https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml)
 
 In short: 
 
@@ -177,7 +179,7 @@ $ cd dev
 $ git clone git@github.com:yourself/foobinator
 ```
 
-2. Download and run this script: `https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh` which will download required compilers and libraries.
+2. Download and run this script: [https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh](https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh) which will download required compilers and libraries.
 
 3. From score's package manager, download the SDK which will contain the header files that match this version of score.
 
@@ -252,3 +254,12 @@ Here is a video explanation:
 <video controls>
     <source src="{{ site.img }}/development/plugins/avendish/addon-build.webm" type="video/mp4">
 </video>
+
+In short: 
+
+- Open the CMakeLists.txt file of the source folder
+- Qt Creator should pick up the build folder automatically (it looks for build folders around and inside the source folder)
+- Set up the "Run" configuration in the project pane to run score automatically after each build
+- Enjoy :-)
+
+If you did not use the symlink method, you can easily configure Qt Creator to run the `install` step as deployment step in the `Run` pane, at the top: `Add the Deployment step > CMake install step`. If you followed the recommendations above, this should copy the plug-in files into the score packages folder after each build, to ensure a smooth development experience.
