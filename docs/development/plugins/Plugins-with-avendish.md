@@ -187,7 +187,7 @@ $ git clone git@github.com:yourself/foobinator
 
 It will be installed in `~/Documents/ossia/score/sdk/<VERSION>`
 
-**NOTE** The 3.1.8 version does not support this yet, you need to download and extract the SDK of the `continuous` build (and `continuous` version of score) manually. Starting from 3.1.9 this will be fixed, but until then use this: https://github.com/ossia/score/releases/tag/continuous
+**NOTE** The 3.1.8 version does not support this yet, you need to download and extract the SDK of the `continuous` build (and `continuous` version of score) manually. Starting from 3.1.9 this will be fixed, but until then use this: [https://github.com/ossia/score/releases/tag/continuous](https://github.com/ossia/score/releases/tag/continuous)
 
 For instance on Linux:
 
