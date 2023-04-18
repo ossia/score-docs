@@ -4,7 +4,7 @@ layout: default
 title: "Troubleshooting"
 description: "What to do when score does not work"
 
-nav_order: 7
+nav_order: 8
 has_children: false
 
 permalink: /troubleshooting.html

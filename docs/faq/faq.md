@@ -4,7 +4,7 @@ layout: default
 title: FAQ
 description: "Frequently Asked Questions"
 
-nav_order: 6
+nav_order: 7
 has_children: true
 
 permalink: /faq.html
