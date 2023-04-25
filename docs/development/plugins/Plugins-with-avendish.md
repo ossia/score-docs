@@ -5,6 +5,7 @@ title: "Plug-ins with Avendish"
 description: "Writing plug-ins with the Avendish API"
 
 parent: "Plug-ins"
+grand_parent: Development
 
 permalink: /development/plugins/plugins-with-avendish.html
 ---
