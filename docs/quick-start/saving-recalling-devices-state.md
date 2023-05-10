@@ -28,11 +28,11 @@ You can store at one place all parameters of a device or only part of, as well a
 > - {% include shortcut.html content="Shift+click" %}: Select all parameters between clicked parameter and previously selected one
 > - {% include shortcut.html content="Ctrl+click" %}: Add selected parameter to the current selection
 
-In the illustration below, we will just select the `gain` parameters from our ossia compatible Max synth patch and store their current value at the 5th bar of our scenario. As you drop these `gain` parameters on the timeline, you can see a blue disc circled in white gets created. Clicking this `state` icon, you can see in the inspector panel both parameters and their value listed as a tree-like view.
+In the illustration below, we will select just the `gain` parameters from our ossia compatible Max synth patch and store their current value at the 5th bar of our scenario. As you drop these `gain` parameters on the timeline, you can see a blue disc circled in white gets created. Clicking this `state` icon, you can see in the inspector panel both parameters and their value listed as a tree-like view.
 
 ![Storing your device's current state]({{ site.img }}/quick-start/score-authoring/storing-states.gif)
 
-If you start playing your scenario using the play button from the transport ({% include shortcut.html content="space" %} key), this state will get recalled and sent to your device as the play-head cross its position on the timeline. Should you need this state to be recalled earlier or later, just stop execution of the scenario (using stop button from the transport bar or {% include shortcut.html content="↵" %} key), then select and drag it along the timeline.
+If you start playing your scenario using the play button from the transport ({% include shortcut.html content="space" %} key), this state will get recalled and sent to your device as the play-head crosses its position on the timeline. Should you need this state to be recalled earlier or later, just stop execution of the scenario (using stop button from the transport bar or {% include shortcut.html content="↵" %} key), then select and drag it along the timeline.
 
 > If your device does not echo back its parameters changes to *score*, you can still grab the parameters to store from the `Device explorer` and drop them on the Timeline. Then from the state inspector panel, type the desired value next to each parameter.
 > You may as well type the desired values in the `Device explorer` first, then drag & drop the parameters on the timeline.

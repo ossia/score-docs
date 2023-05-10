@@ -28,9 +28,9 @@ Right click on the `Device explorer` panel and setup the desired communication p
 
 ![Adding a device to *score* project]({{ site.img }}/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
-> Remember you can at any time edit the settings of your device using right-click, then select `Edit` from the contextual menu
+> Remember you can at any time edit the settings of your device using right-click, then selecting `Edit` from the contextual menu
 
-*Score* currently support the following devices types:
+*Score* currently supports the following devices types:
 
 {% include devices-table.md %}
 
@@ -38,7 +38,7 @@ Detailed explanations on these various device types and corresponding setup opti
 
 ## Devices' namespace browsing
 
-The `Device explorer` provides a unified view of your devices parameters as a tree-like structure. Devices are exposed as a number of nodes (some key parts of your device) and their related parameters.
+The `Device explorer` provides a unified view of your device's parameters as a tree-like structure. Devices are exposed as a number of nodes (some key parts of your device) and their related parameters.
 
 From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start]({{ site.baseurl }}/quick-start/saving-and-recalling-devices-state.html "Scenario authoring").
 
@@ -46,7 +46,7 @@ From there you can freely browse your distant devices for monitoring or more imp
 
 ## Monitor & remote control of parameters
 
-The `Device explorer` also provides detailed information about your device parameters. Clicking a parameter from the namespace brings a dedicated inspector at the bottom, displaying it s various attributes, such as its current value (assuming your device echoes back its parameters value to *score*).
+The `Device explorer` also provides detailed information about your device parameters. Clicking a parameter from the namespace brings a dedicated inspector at the bottom displaying it's various attributes, such as its current value (assuming your device echoes back its parameters value to *score*).
 
 You may also use this inspector to remotely change the value of a parameter (e.g. for testing purpose).
 

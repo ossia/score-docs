@@ -24,7 +24,7 @@ Make sure the audio switch is properly lit on.
 
 ![Audio switch]({{ site.img }}/quick-start/working-with-audio/audio_switch.png "Audio setup")
 
-When done, you are ready to go !
+When done, you're ready to go!
 
 ## Playing audio file
 
