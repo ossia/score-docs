@@ -16,7 +16,7 @@ permalink: /quick-start/writing-automations.html
 
 ![Process library panel]({{ site.img }}/quick-start/score-authoring/process_library.gif "Process library panel")
 
-In the example below, we will just create a basic breakpoint function-based automation for one of our device's parameter, by selecting the `automation (float)` in the Process library, then drag & drop it where we want it on the timeline. 
+In the example below, we will just create a basic breakpoint function-based automation for one of our device's parameters by selecting the `automation (float)` in the Process library, then dragging & dropping it where we want it on the timeline. 
 
 ![Creating automation]({{ site.img }}/quick-start/score-authoring/create_automation.gif)
 

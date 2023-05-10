@@ -27,28 +27,28 @@ In the `Settings` window, select the `User interface tab` then make sure the `au
 
 ### Using auto-sequence
 
-In previous sections, we saw how to drag parameters from the `Device explorer` to easily store your device's state on the timeline as well as drag some processes (in this case automation). `Auto-sequence` kind of allows to do both in one go.
+In previous sections, we saw how to drag parameters from the `Device explorer` to easily store your device's state on the timeline as well as drag some processes (in this case automation). `Auto-sequence` kind of allows us to do both in one go.
 
-In the example below, we will start by storing an initial state for our device. Then after making some changes to our device, rather than dropping again the parameters from the `Device explorer` to the timeline, we will use the blue `+` icon next to the state icon and drag the link to a later point in the timeline.
+In the example below, we will start by storing an initial state for our device. Then after making some changes to our device, rather than dropping the parameters from the `Device explorer` to the timeline again, we will instead use the blue `+` icon next to the state icon and drag the link to a later point in the timeline.
 
-What happens here is twofold:
+What's happening here is twofold:
 * storing a new state using that blue `+` button will store the device's state using the namespace selection defined in the previous stored state
 * using the `auto-sequence` option, *score* will automatically create some automations for the parameter that changed between initial state and newly created state
 
-> You may also store a new state by dragging from the blue `+` icon *without* `auto-sequence` mode activated. In that case, *score* will still use previous namespace selection to store parameters values but no automation will get created for changed parameters.
+> You may also store a new state by dragging from the blue `+` icon *without* `auto-sequence` mode activated. In that case, *score* will still use the previous namespace selection to store parameters values but no automation will get created for changed parameters.
 
 ![Using auto-sequence mode]({{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-mode.gif "Using auto-sequence mode")
 
-Of course, once these automations get auto-magically created, you can still edit their behavior over time and do whatever pleasing changes to their curve. You may also remove an automation, should you want not to include a parameter continuous change.
+Of course, once these automations get auto-magically created, you can still edit their behavior over time and make any pleasing changes to their curve. You may also remove an automation should you want not to include a parameter continuous change.
 
 ### Note on multiple automations editing
 
 In the example above, you can see multiple automation slots actually got superposed. You can bring to front any of the automations in background to edit it. To do so, click on the address bar at the top of the slot to open up the list of superposed parameters 'automation. Select in the contextual menu the one to edit. Once to front (displayed in red), it can be edited.
 
-> When multiple automations are stacked, frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
+> When multiple automations are stacked, the frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
 
 ![Select from stack]({{ site.img }}/quick-start/states-and-automations-in-practice/stacked-slots.gif "Select from stack")
 
-You can also remove an automation from the stack by clicking on a slot background. Bring the contextual menu using right-click and select `remove`.
+You can also remove an automation from the stack by clicking on a slot background. Bring up the contextual menu using right-click and select `remove`.
 
 ![Remove automation]({{ site.img }}/quick-start/states-and-automations-in-practice/remove-automation.png "Remove automation")
