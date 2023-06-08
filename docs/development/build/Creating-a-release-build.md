@@ -18,11 +18,11 @@ This page describes how to build score on various operating systems.
 
 
 ## Dependencies
-To build, you will need the following dependencies :
- * [Qt 5](http://www.qt.io/) (>= 5.12)
- * [CMake](https://cmake.org/) (>= 3.15)
+To build, you will need the following dependencies (commands for downloading everything automatically are given below):
+ * [Qt 6](http://www.qt.io/) (>= 6.4)
+ * [CMake](https://cmake.org/) (>= 3.26)
  * [Boost](http://www.boost.org/) (automatically downloaded)
- * (optional) [FFMPEG](http://www.ffmpeg.org) (>= 3.3)
+ * (optional) [FFMPEG](http://www.ffmpeg.org) (>= 5.x)
  * A **recursive** clone of the score repository : `git clone --recursive https://github.com/ossia/score`.
 
 The easiest way to get most dependencies in a prebuilt form is by [downloading our SDK for your platform](https://github.com/ossia/sdk/releases).
@@ -31,15 +31,10 @@ The easiest way to get most dependencies in a prebuilt form is by [downloading o
 they do not have the submodules and compiling with them won't work.
 
 Your compiler need to be recent; supported compilers are:
-* gcc >= 8
-* clang >= 8
-* Xcode >= 11
-* Visual Studio 2019 (the very latest version !)
-
-
-What does **not** work :
-- GCC <= 7.
-- Older MSVC versions
+* gcc >= 12
+* clang >= 14
+* Xcode >= 14
+* Visual Studio 2022 17.6.2 (*exactly* this version due to many bugs in other versions of the compiler)
 
 ## Debian-like systems
 
