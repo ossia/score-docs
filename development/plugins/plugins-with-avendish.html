@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/score-docs/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="/score-docs/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:regular,bold">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCNDFW0NH6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GCNDFW0NH6');
+  </script>
+  
+
+  
+    <script type="text/javascript" src="/score-docs/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/score-docs/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Plug-ins with Avendish | score documentation</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Plug-ins with Avendish" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Writing plug-ins with the Avendish API" />
+<meta property="og:description" content="Writing plug-ins with the Avendish API" />
+<link rel="canonical" href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" />
+<meta property="og:url" content="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" />
+<meta property="og:site_name" content="score documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Plug-ins with Avendish" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Writing plug-ins with the Avendish API","headline":"Plug-ins with Avendish","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ossia.io/score-docs/assets/images/score-logo.png"}},"url":"https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://ossia.io/score-docs/" class="site-title lh-tight">
+  <div class="site-logo">
+  </div>
+  <h2 class="software">ossia</h2>
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://ossia.io/score-docs/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/quick-start" class="nav-list-link">Quick start</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/what-is-score.html" class="nav-list-link">What is score ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/interface-overview.html" class="nav-list-link">Interface overview</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-devices.html" class="nav-list-link">Working with devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/saving-and-recalling-devices-state.html" class="nav-list-link">Saving & recalling devices' state</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/writing-automations.html" class="nav-list-link">Writing automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/states-and-automations-in-practice.html" class="nav-list-link">States & automations in practice</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-audio.html" class="nav-list-link">Working with audio</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-video.html" class="nav-list-link">Working with video</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/breaking-the-timeline.html" class="nav-list-link">Breaking the timeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/non-linear-timelines.html" class="nav-list-link">Non-linear timeline</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/common-practices" class="nav-list-link">Common practices</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/1-looping.html" class="nav-list-link">Looping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/2-switches.html" class="nav-list-link">Switches</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/3-out-of-time.html" class="nav-list-link">Out-of-time triggering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/6-scenes.html" class="nav-list-link">Scenes</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/4-audio.html" class="nav-list-link">Audio techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/5-video.html" class="nav-list-link">Video techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/7-start-stop-cues.html" class="nav-list-link">Start/stop cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/8-live-coding.html" class="nav-list-link">Live coding</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/11-video-mixing-and-mapping.html" class="nav-list-link">Video mixing and mapping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/9-seek-and-transport.html" class="nav-list-link">Seek and transport</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/10-livestreaming.html" class="nav-list-link">Livestreaming</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/12-data-processing.html" class="nav-list-link">Data processing and filtering</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth" class="nav-list-link">In depth</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/unit-system.html" class="nav-list-link">Address system</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/audio-routing.html" class="nav-list-link">Audio routing</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/automations.html" class="nav-list-link">Automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/cues.html" class="nav-list-link">Cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/embedded.html" class="nav-list-link">Embedded devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/execution.html" class="nav-list-link">Execution engine</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/video.html" class="nav-list-link">Graphics pipeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/midi.html" class="nav-list-link">MIDI support</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/media.html" class="nav-list-link">Media management</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/modular-workflow.html" class="nav-list-link">Modular workflow</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/musical.html" class="nav-list-link">Musical metrics</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/presets.html" class="nav-list-link">Presets</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/puredata.html" class="nav-list-link">Pure Data integration</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/recording.html" class="nav-list-link">Recording</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/remote.html" class="nav-list-link">Remote Control</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth/scripting.html" class="nav-list-link">Scripting</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/in-depth/scripting-api.html" class="nav-list-link">Scripting API</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference" class="nav-list-link">Reference</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/commandline.html" class="nav-list-link">Command line API</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/devices.html" class="nav-list-link">Devices</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/artnet-device.html" class="nav-list-link">Art-Net device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/audio-device.html" class="nav-list-link">Audio device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/camera-device.html" class="nav-list-link">Camera device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/http-device.html" class="nav-list-link">HTTP device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/joystick-device.html" class="nav-list-link">Joystick device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/local-device.html" class="nav-list-link">Local device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiin-device.html" class="nav-list-link">MIDI input device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiout-device.html" class="nav-list-link">MIDI output device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mapper-device.html" class="nav-list-link">Mapper device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/minuit-device.html" class="nav-list-link">Minuit device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/osc-device.html" class="nav-list-link">OSC device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/oscquery-device.html" class="nav-list-link">OSCQuery device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/serial-device.html" class="nav-list-link">Serial device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/shmdata-devices.html" class="nav-list-link">Shmdata devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spout-devices.html" class="nav-list-link">Spout devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/syphon-devices.html" class="nav-list-link">Syphon devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ws-device.html" class="nav-list-link">WebSocket device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/wiimote-device.html" class="nav-list-link">Wiimote device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/window-device.html" class="nav-list-link">Window device</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/panels.html" class="nav-list-link">Panels</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/console.html" class="nav-list-link">Console</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/explorer.html" class="nav-list-link">Device explorer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/inspector.html" class="nav-list-link">Inspector</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/library.html" class="nav-list-link">Library</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/mixer.html" class="nav-list-link">Mixer</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/processes.html" class="nav-list-link">Processes</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/2Dspline.html" class="nav-list-link">2D Spline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/adsr.html" class="nav-list-link">ADSR</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/analysis.html" class="nav-list-link">Analysis</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-looper.html" class="nav-list-link">Audio looper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-plugins.html" class="nav-list-link">Audio plugins</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-utilities.html" class="nav-list-link">Audio utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/automation_float.html" class="nav-list-link">Automation (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/bytebeat.html" class="nav-list-link">Bytebeat</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/cpp_jit.html" class="nav-list-link">C++ JIT</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/calibrator.html" class="nav-list-link">Calibrator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/controlsurface.html" class="nav-list-link">Control surface</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/control-utilities.html" class="nav-list-link">Control utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/faust.html" class="nav-list-link">Faust</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient.html" class="nav-list-link">Gradient</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shaders.html" class="nav-list-link">ISF Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/image.html" class="nav-list-link">Image process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/javascript.html" class="nav-list-link">Javascript</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/lfo.html" class="nav-list-link">LFO</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternist.html" class="nav-list-link">MIDI pattern sequencer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-utilities.html" class="nav-list-link">MIDI utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping.html" class="nav-list-link">Mapping (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/exprtk.html" class="nav-list-link">Math expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-filter.html" class="nav-list-link">Object filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-applier.html" class="nav-list-link">Pattern Applier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-combiner.html" class="nav-list-link">Pattern Combiner</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/piano-roll.html" class="nav-list-link">Piano roll</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/puredata.html" class="nav-list-link">Pure Data integration</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/range-filter.html" class="nav-list-link">Range filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rate-limiter.html" class="nav-list-link">Rate Limiter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scenario.html" class="nav-list-link">Scenario</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/signal-display.html" class="nav-list-link">Signal display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/smooth.html" class="nav-list-link">Smooth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/soundfile.html" class="nav-list-link">Soundfiles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/step.html" class="nav-list-link">Step sequencer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sweeper.html" class="nav-list-link">Sweeper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tempo.html" class="nav-list-link">Tempo</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texgen.html" class="nav-list-link">Texture generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video.html" class="nav-list-link">Video</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/preferences.html" class="nav-list-link">Score preferences</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/shortcuts.html" class="nav-list-link">Shortcuts</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/protocols-and-formats.html" class="nav-list-link">Supported protocols and formats</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/integrations" class="nav-list-link">Integrations</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/integrations/blender.html" class="nav-list-link">Integrating with Blender</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development" class="nav-list-link">Development</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/development/architecture.html" class="nav-list-link">Architecture</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/build-from-source.html" class="nav-list-link">Building from source</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/hacking.html" class="nav-list-link">Hacking</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/packaging.html" class="nav-list-link">Packaging</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/release.html" class="nav-list-link">Release build</a>
+                  </li></ul></li><li class="nav-list-item  active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/plug-ins.html" class="nav-list-link">Plug-ins</a><ul class="nav-list"><li class="nav-list-item  active">
+                    <a href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" class="nav-list-link active">Plug-ins with Avendish</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/faq.html" class="nav-list-link">FAQ</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/controlling-score-with-oscquery.html" class="nav-list-link">Controlling score with OSCQuery</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/monitor-activity.html" class="nav-list-link">How to monitor activity ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/nogui.html" class="nav-list-link">How to run score without GUI ?</a></li></ul></li><li class="nav-list-item"><a href="https://ossia.io/score-docs/troubleshooting.html" class="nav-list-link">Troubleshooting</a></li></ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search score documentation" aria-label="Search score documentation" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/development">Development</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/development/plug-ins.html">Plug-ins</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>Plug-ins with Avendish</span></li>
+            </ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <h1 id="avendish-documentation">
+        
+        
+          <a href="#avendish-documentation" class="anchor-heading" aria-labelledby="avendish-documentation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Avendish documentation
+        
+        
+      </h1>
+    
+
+<p>Before focusing on writing score plug-ins, read the <a href="https://celtera.github.io/avendish">Avendish documentation to get familiar with what it allows</a>.</p>
+
+<p>In short: this plug-in API leverages C++ reflection to define media objects. 
+The inputs and outputs of objects are simply struct members: here is for instance the entire definition of a simple Avendish audio processing object:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma once
+#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="k">struct</span> <span class="nc">Distortion</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">name</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"Distortion"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">c_name</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"disto"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">uuid</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"dd4dd880-d525-44fb-9773-325c87b235c0"</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="k">struct</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="p">{</span>
+      <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">name</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"Preamp"</span><span class="p">;</span> <span class="p">}</span>
+      <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">control</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="p">{</span>
+          <span class="k">const</span> <span class="kt">float</span> <span class="n">min</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">;</span>
+          <span class="k">const</span> <span class="kt">float</span> <span class="n">max</span> <span class="o">=</span> <span class="mf">1000.</span><span class="p">;</span>
+          <span class="k">const</span> <span class="kt">float</span> <span class="n">init</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+        <span class="p">}</span> <span class="n">c</span><span class="p">;</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="kt">float</span> <span class="n">value</span><span class="p">{</span><span class="mf">0.5</span><span class="p">};</span>
+    <span class="p">}</span> <span class="n">preamp</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="p">{</span>
+      <span class="k">static</span> <span class="k">consteval</span> <span class="k">auto</span> <span class="n">name</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"Volume"</span><span class="p">;</span> <span class="p">}</span>
+      <span class="kt">float</span> <span class="n">value</span><span class="p">{</span><span class="mf">1.0</span><span class="p">};</span>
+    <span class="p">}</span> <span class="n">volume</span><span class="p">;</span>
+  <span class="p">}</span> <span class="n">inputs</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">double</span><span class="o">**</span> <span class="n">in</span><span class="p">,</span> <span class="kt">double</span><span class="o">**</span> <span class="n">out</span><span class="p">,</span> <span class="kt">int</span> <span class="n">frames</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">double</span> <span class="n">preamp</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">preamp</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">volume</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">channels</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">frames</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">std</span><span class="o">::</span><span class="n">tanh</span><span class="p">(</span><span class="n">in</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">preamp</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Note in particular that Avendish objects implementation do not by themselves require <em>any</em> library to be included, not even the standard C++ one.
+This allows them to be portable to as many platforms as C++ compilers run on, including bare-metal microcontrollers.</p>
+
+<p>Note that in order to reduce verbosity, an helper library is provided, and most examples use it: it is however in no way mandatory.</p>
+      <h1 id="plug-in-types">
+        
+        
+          <a href="#plug-in-types" class="anchor-heading" aria-labelledby="plug-in-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Plug-in types
+        
+        
+      </h1>
+    
+<p>Multiple kind of plug-ins can be written with Avendish:</p>
+
+<ul>
+  <li>Audio processing plug-ins.</li>
+  <li>Message processing plug-ins.</li>
+  <li>CPU-based image processing plug-ins.</li>
+  <li>GPU-based plug-ins (compute pipelines or vertex/fragment draw pipelines).</li>
+</ul>
+
+<p>The reflection-based approach allows various “shapes” of plug-ins to work: for instance, the above sample plug-in passes the audio channels as arguments to the processing function.
+Another way to write the same plug-in, which would use ports for everything, would be:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma once
+#include</span> <span class="cpf">&lt;halp/audio.hpp&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;halp/controls.hpp&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;halp/meta.hpp&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">Distortion</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">halp_meta</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">"Distortion (helpers)"</span><span class="p">)</span>
+  <span class="n">halp_meta</span><span class="p">(</span><span class="n">c_name</span><span class="p">,</span> <span class="s">"disto"</span><span class="p">)</span>
+  <span class="n">halp_meta</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="s">"82bdb9b5-9cf8-440e-8675-c0caf4fc59b9"</span><span class="p">)</span>
+
+  <span class="k">struct</span>
+  <span class="p">{</span>
+    <span class="n">halp</span><span class="o">::</span><span class="n">dynamic_audio_bus</span><span class="o">&lt;</span><span class="s">"Input"</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">audio</span><span class="p">;</span>
+    <span class="n">halp</span><span class="o">::</span><span class="n">hslider_f32</span><span class="o">&lt;</span><span class="s">"Preamp"</span><span class="p">,</span> <span class="n">halp</span><span class="o">::</span><span class="n">range</span><span class="p">{.</span><span class="n">min</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span> <span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="mf">1000.</span><span class="p">,</span> <span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">}</span><span class="o">&gt;</span> <span class="n">preamp</span><span class="p">;</span>
+    <span class="n">halp</span><span class="o">::</span><span class="n">val_port</span><span class="o">&lt;</span><span class="s">"Volume"</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">volume</span><span class="p">;</span>
+  <span class="p">}</span> <span class="n">inputs</span><span class="p">;</span>
+
+  <span class="k">struct</span>
+  <span class="p">{</span>
+    <span class="n">halp</span><span class="o">::</span><span class="n">dynamic_audio_bus</span><span class="o">&lt;</span><span class="s">"Output"</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">audio</span><span class="p">;</span>
+  <span class="p">}</span> <span class="n">outputs</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">tick</span> <span class="o">=</span> <span class="n">halp</span><span class="o">::</span><span class="n">tick</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">halp</span><span class="o">::</span><span class="n">tick</span> <span class="n">t</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">volume</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">double</span> <span class="n">preamp</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">preamp</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">inputs</span><span class="p">.</span><span class="n">audio</span><span class="p">.</span><span class="n">channels</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">auto</span><span class="o">*</span> <span class="n">in</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">audio</span><span class="p">[</span><span class="n">c</span><span class="p">];</span>
+      <span class="k">auto</span><span class="o">*</span> <span class="n">out</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">.</span><span class="n">audio</span><span class="p">[</span><span class="n">c</span><span class="p">];</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">frames</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">outputs</span><span class="p">.</span><span class="n">audio</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">std</span><span class="o">::</span><span class="n">tanh</span><span class="p">(</span><span class="n">inputs</span><span class="p">.</span><span class="n">audio</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">preamp</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+      <h1 id="creating-a-dynamic-score-plug-in-with-the-template">
+        
+        
+          <a href="#creating-a-dynamic-score-plug-in-with-the-template" class="anchor-heading" aria-labelledby="creating-a-dynamic-score-plug-in-with-the-template"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Creating a dynamic score plug-in with the template
+        
+        
+      </h1>
+    
+
+<p>The recommended way to create a plug-in is by using the <a href="https://github.com/ossia-templates/score-avnd-simple-template/">template provided on Github</a>.
+It contains everything needed to automatically create a plug-in. Whenever you push a new commit, Github will automatically compile the plug-in for Mac, Windows and Linux.</p>
+
+<ol>
+  <li>Create a repository from the template by clicking on the green “Use this template” button.</li>
+</ol>
+
+<p><img src="/score-docs/assets/images/development/plugins/avendish/template.png" alt="Github template creation" title="Github template" /></p>
+
+<p>For instance, let’s say your personal repository will be: <code class="language-plaintext highlighter-rouge">https://github.com/yourself/foobinator</code> and your plug-in name is Foobinator.</p>
+
+<ol>
+  <li>Clone your new repository:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:yourself/foobinator
+</code></pre></div></div>
+
+<ol>
+  <li>If your shell is zsh, run <code class="language-plaintext highlighter-rouge">./init.zsh Foobinator</code>, otherwise <code class="language-plaintext highlighter-rouge">./init.sh Foobinator</code></li>
+</ol>
+
+<p>This will replace the generic names in the repository by your custom name, Foobinator and auto-generate unique identifiers.</p>
+
+<ol>
+  <li>
+    <p>Set-up your plug-in’s name and description inside the <code class="language-plaintext highlighter-rouge">addon.json</code> file.</p>
+  </li>
+  <li>
+    <p>Set-up git again – the script removes the existing local git repo to make sure you can start from a clean state, without the template repo git history.</p>
+  </li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote add origin git@github.com:yourself/foobinator
+<span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s1">'First commit'</span>
+<span class="nv">$ </span>git push <span class="nt">--set-upstream</span> origin main <span class="nt">--force</span>
+</code></pre></div></div>
+
+<ol>
+  <li>After some minutes, you can check the “SDK” action of the plug-in on Github:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/yourself/foobinator/actions/workflows/builds-sdk.yaml
+</code></pre></div></div>
+
+<p>If everything is ok, it should have generated a “plugin” archive which will contain the MacOS, Windows and Linux builds.
+This can be extracted to <code class="language-plaintext highlighter-rouge">Documents/ossia/score/package/foobinator</code>: the object should become visible the next time you launch score.</p>
+      <h1 id="building-locally-from-the-command-line">
+        
+        
+          <a href="#building-locally-from-the-command-line" class="anchor-heading" aria-labelledby="building-locally-from-the-command-line"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building locally from the command line
+        
+        
+      </h1>
+    
+
+<p>For building a plug-in locally, you need:</p>
+
+<ul>
+  <li>
+    <p>If you are on a Mac, XCode must be installed. On all platforms you must also install CMake and Ninja.</p>
+  </li>
+  <li>
+    <p>The simplest way is to follow the steps that are done on the CI as they are regularly automatically checked, unlike the instructions on this page :-)</p>
+  </li>
+</ul>
+
+<p><a href="https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml">https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml</a></p>
+
+<p>In short:</p>
+
+<ol>
+  <li>Create an empty “development” folder and clone or move your repository in it</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>dev
+<span class="nv">$ </span><span class="nb">cd </span>dev
+<span class="nv">$ </span>git clone git@github.com:yourself/foobinator
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Download and run this script: <a href="https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh">https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh</a> which will download required compilers and libraries.</p>
+  </li>
+  <li>
+    <p>From score’s package manager, download the SDK which will contain the header files that match this version of score.</p>
+  </li>
+</ol>
+
+<p><img src="/score-docs/assets/images/development/plugins/avendish/settings.png" alt="Score SDK" title="Score SDK download" /></p>
+
+<p>It will be installed in <code class="language-plaintext highlighter-rouge">~/Documents/ossia/score/sdk/&lt;VERSION&gt;</code></p>
+
+<p><strong>NOTE</strong> The 3.1.8 version does not support this yet, you need to download and extract the SDK of the <code class="language-plaintext highlighter-rouge">continuous</code> build (and <code class="language-plaintext highlighter-rouge">continuous</code> version of score) manually. Starting from 3.1.9 this will be fixed, but until then use this: <a href="https://github.com/ossia/score/releases/tag/continuous">https://github.com/ossia/score/releases/tag/continuous</a></p>
+
+<p>For instance on Linux:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/Documents/ossia/score/sdk
+<span class="nv">$ </span><span class="nb">cd</span> ~/Documents/ossia/score/sdk
+<span class="nv">$ </span>wget https://github.com/ossia/score/releases/download/continuous/linux-sdk.zip
+<span class="nv">$ </span>7z x linux-sdk.zip <span class="nt">-ocontinuous</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Run CMake (this step will only be needed the first time)</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd dev
+$ export SCORE_SDK=/path/to/Documents/ossia/score/sdk/3.1.x
+# Or if you downloaded the "continuous" SDK as mentioned above: 
+$ export SCORE_SDK=/path/to/Documents/ossia/score/sdk/continuous
+
+# If on windows:
+$ export OSSIA_SDK=c:/ossia-sdk
+$ export PATH=$OSSIA_SDK/llvm/bin:$PATH
+$ export CC=clang
+$ export CXX=clang++
+
+# If on mac:
+$ export OSSIA_SDK=/opt/ossia-sdk-x86_64
+
+# If on Linux:
+$ export OSSIA_SDK=/opt/ossia-sdk
+$ export PATH=$OSSIA_SDK/llvm/bin:$PATH
+$ export CC=clang
+$ export CXX=clang++
+
+$ cmake -S foobinator \
+        -B foobinator-build-release \
+        -GNinja \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        -DCMAKE_MODULE_PATH="$SCORE_SDK/usr/lib/cmake/score" \
+        -DSCORE_SDK="$SCORE_SDK/usr" \
+        -DOSSIA_SDK="$OSSIA_SDK" \
+        -DCMAKE_INSTALL_PREFIX=/path/to/Documents/ossia/score/packages/my_plugin
+</code></pre></div></div>
+
+<ol>
+  <li>Run a build</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cmake --build foobinator-build-release
+$ cmake --install foobinator-build-release
+</code></pre></div></div>
+
+<p>This should copy the plug-in in the <code class="language-plaintext highlighter-rouge">ossia/score/packages/&lt;your plugin&gt;</code> folder. If everything is correct, the next time you launch score you should see your plug-in show up in the Process library :-)</p>
+
+<p>Another way for fast iteration is to create a symbolic lijnk from the <code class="language-plaintext highlighter-rouge">foobinator-build-release/plugins</code> folder to <code class="language-plaintext highlighter-rouge">ossia/score/packages/&lt;your plugin&gt;</code>. This way, every time you run <code class="language-plaintext highlighter-rouge">ninja</code>, the binary will be updated.</p>
+
+<p>Note that on Windows, you must exit score if you rebuild the DLL as the operating system does not support replacing of currently loaded DLL files.</p>
+      <h1 id="building-locally-from-qt-creator">
+        
+        
+          <a href="#building-locally-from-qt-creator" class="anchor-heading" aria-labelledby="building-locally-from-qt-creator"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building locally from Qt Creator
+        
+        
+      </h1>
+    
+
+<p>Once you have a local build up-and-running, you can configure an IDE to make the edit/compile/run loop easier.
+We will use Qt Creator.</p>
+
+<p>Here is a video explanation:</p>
+
+<video controls="">
+    <source src="/score-docs/assets/images/development/plugins/avendish/addon-build.webm" type="video/mp4" />
+</video>
+
+<p>In short:</p>
+
+<ul>
+  <li>Open the CMakeLists.txt file of the source folder</li>
+  <li>Qt Creator should pick up the build folder automatically (it looks for build folders around and inside the source folder)</li>
+  <li>Set up the “Run” configuration in the project pane to run score automatically after each build</li>
+  <li>Enjoy :-)</li>
+</ul>
+
+<p>If you did not use the symlink method, you can easily configure Qt Creator to run the <code class="language-plaintext highlighter-rouge">install</code> step as deployment step in the <code class="language-plaintext highlighter-rouge">Run</code> pane, at the top: <code class="language-plaintext highlighter-rouge">Add the Deployment step &gt; CMake install step</code>. If you followed the recommendations above, this should copy the plug-in files into the score packages folder after each build, to ensure a smooth development experience.</p>
+
+        
+
+        
+
+        
+          <hr>
+          <footer>
+            <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/docs/development/plugins/Plugins-with-avendish.md">here</a> !</p>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+            
+              <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="https://ossia.io">ossia.io</a> © ossia 2021</p>
+            
+
+            
+              <div class="d-flex mt-2">
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
+
