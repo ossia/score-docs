@@ -53,21 +53,3 @@ aDevice:/anAddress[color.rgb.r]
 as the output of an automation will only update the red component.
 
 This also works with different units: for instance, if the device has a parameter declared with the `color.rgb` unit, it is possible to control its hue with `parameter@[color.hsv.h]`.
-
-## Pattern matching
-
-It is possible to control a set of addresses with pattern matching.
-
-For instance, given the following OSC device:
-
-![An OSC device with repeated parameters]({{ site.img }}/in-depth/pattern-match.png)
-
-It is possible to send an automation to
-
-```
-OSCdevice:/sub/*/level
-```
-
-to control all the levels with a single curve.
-
-> The complete reference of the supported pattern matching syntax is available [here](https://ossia.io/ossia-docs/#pattern-matching).

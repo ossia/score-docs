@@ -13,7 +13,7 @@ permalink: /processes/sweeper.html
 
 ![Sweeper]({{ site.img }}/reference/processes/sweeper.png "Sweeper")
 
-Given an input value, this process periodically sends it to all the OSC addresses matching a specific address.
+Given an input value, this process periodically sends it to all the OSC addresses matching an [[Pattern matching|address pattern]] expression.
 
 For instance: given the addresses: 
 

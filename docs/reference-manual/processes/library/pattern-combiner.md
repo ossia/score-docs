@@ -13,7 +13,7 @@ permalink: /processes/pattern-combiner.html
 
 ![Pattern Combiner]({{ site.img }}/reference/processes/pattern-combiner.png "Pattern Combiner")
 
-This object combines the (numeric) values of a set of address matched by a pattern matching expression.
+This object combines the (numeric) values of a set of address matched by an [[Pattern matching|address pattern]] expression.
 
 For instance, given a set of OSC sensors which all have a value:
 

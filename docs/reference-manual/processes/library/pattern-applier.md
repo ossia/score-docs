@@ -13,7 +13,7 @@ permalink: /processes/pattern-applier.html
 
 ![Pattern Applier]({{ site.img }}/reference/processes/pattern-applier.png "Pattern Applier")
 
-Given an input list, this applies each element of a list to the individual addresses matching an address pattern.
+Given an input list, this applies each element of a list to the individual addresses matching an [[Pattern matching|address pattern]] expression.
 
 For instance, given the list:
 
