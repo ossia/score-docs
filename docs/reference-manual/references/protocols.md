@@ -30,13 +30,19 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [here]({{ site.baseurl }}/devices/http-device.html).
 * WebSockets.
   * Documented [here]({{ site.baseurl }}/devices/websockets-device.html).
+* CoAP.
+  * Documented [here]({{ site.baseurl }}/devices/coap-device.html).
+* MQTT.
+  * Documented [here]({{ site.baseurl }}/devices/mqtt-device.html).
+
 
 # Lighting protocols
 
 * [Art-Net](https://art-net.org.uk/) / DMX: the standard for lighting fixtures. Support is implemented through [libartnet](https://github.com/OpenLightingProject/libartnet), which has been integrated inside libossia. *score* is able to load fixtures definitions in the [open-fixture-library](https://github.com/OpenLightingProject/open-fixture-library) format.
   * Documented [here]({{ site.baseurl }}/devices/artnet-device.html).
-* s.ACN / E1.31 is supported.
-* ENTTEC DMX USB Pro devices are supported.
+* [s.ACN / E1.31](https://wiki.openlighting.org/index.php/E1.31) is supported.
+* ENTTEC DMX USB Pro devices are supported (Mk1 and Mk2).
+* DMX input and output are both supported.
 
 # Hardware protocols
 
@@ -46,13 +52,21 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [here]({{ site.baseurl }}/devices/joystick-device.html).
 * Wiimotes: they are supported through the [WiiUse](https://github.com/wiiuse/wiiuse) library.
   * Documented [here]({{ site.baseurl }}/devices/wiimote-device.html).
+* [LeapMotion / UltraLeap](https://www.ultraleap.com/): they are supported through the UltraLeap SDK (Gemini / Hyperion) which must be installed on the target computer.
+  * Documented [here]({{ site.baseurl }}/devices/leapmotion-device.html).
+* GPIOs, ADCs, PWMs etc.: they are supported through the [SimpleIO library](https://github.com/pmunts/libsimpleio) which is a simple wrapper over the raw kernel access. This feature is only available on Linux with the relevant hardware, for instance on Raspberry Pi. 
+  * Documented [here]({{ site.baseurl }}/devices/rawio-device.html).
+* BLE: Bluetooth Low Energy devices are supported through the [SimpleBLE](https://github.com/OpenBluetoothToolbox/SimpleBLE). Both reading advertisments / beacons / manufacturer data and GATT services is supported.
+  * Documented [here]({{ site.baseurl }}/devices/ble-device.html).
+* GPS: *score* can connect to a [gpsd](https://gpsd.gitlab.io/gpsd/) server and expose the GPS data.
+  * Documented [here]({{ site.baseurl }}/devices/gps-device.html).
 * [Phidgets](https://www.phidgets.com): they are supported through an implementation in libossia. Note that *score* must be built from source with the Phidgets API for the Phidgets protocol to be enabled.
 
 # Audio systems
 
 * [JACK](https://jackaudio.org): support is implemented in libossia.
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): experimental support is implemented in libossia.
-* [PipeWire](https://pipewire.org): experimental support is implemented in libossia and in score.
+* [PipeWire](https://pipewire.org): implemented in libossia and in score.
 * [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/). A direct implementation is also provided for instance for working with as low latency as possible on embedded devices, but it only supports output, not duplex / input.
 * CoreAudio: the native macOS backend, supported through PortAudio.
 * MME, WASAPI, WDMKS: the native Windows backends, supported through [PortAudio](https://www.portaudio.com/).
@@ -80,6 +94,7 @@ All the MIDI support in *score* comes from the [libremidi](https://github.com/jc
 For real-time communication, the following implementations are provided:
 * [ALSA](https://alsa-project.org), through either the raw or sequencer API.
 * [JACK](https://jackaudio.org).
+* [PipeWire](https://pipewire.org).
 * The native operating systems MIDI API: MME for Windows, CoreMIDI for macOS.
 * [WebMIDI](https://www.w3.org/TR/webmidi/).
 
@@ -95,6 +110,8 @@ It should support most codecs and formats listed [at this page](https://ffmpeg.o
 Every standard format (AIFF, MP3, OGG Vorbis, FLAC, etc) should be supported without issues.
 
 *score* handles WAV files in a specific way, through the [dr_wav](https://github.com/mackron/dr_libs/) library, to allow for memory-mapping the data for large files.
+
+*score* is able to read ACID tags to devise for instance BPM info from sound files.
 
 See the [sound file process documentation]({{ site.baseurl }}/processes/soundfile.html) for more information.
 
@@ -132,7 +149,7 @@ Make sure that your video frames are in one of these pixel formats: if so, decod
 
 # Image file formats
 
-*score* uses Qt's [QImage](https://doc.qt.io/qt-5/qimage.html) for decoding images. The supported formats are PNG, GIF, JPEG.
+*score* uses Qt's [QImage](https://doc.qt.io/qt-6/qimage.html) for decoding images. The supported formats are PNG, GIF, JPEG.
 
 See the [image process documentation]({{ site.baseurl }}/processes/image.html) for more information.
 

@@ -10,7 +10,7 @@ grand_parent: Reference
 permalink: /devices/artnet-device.html
 ---
 
-# Art-Net device
+# Art-Net / DMX device
 
 ![Device setup window]({{ site.img }}/reference/devices/artnet/artnet-1.png "score device setup")
 
@@ -47,4 +47,16 @@ For instance:
 - Create a subfolder `my_custom_fixtures`
 - Add your fixtures JSON files to the folder.
 
+# Supported transports
 
+ossia score can exchange DMX over ethernet through:
+
+- ArtNet
+  * Note that only one ArtNet device is supported per ethernet port: for instance, it is not possible to run QLC+ and ossia score on the same ArtNet interface at the same time as they both try to open the same ports for the same DMX universes.
+
+- s/ACN (also known as E1.31)
+
+ossia score can exchange DMX over USB serial through:
+
+- ENTTEC DMX USB Pro Mk1
+- ENTTEC DMX USB Pro Mk2

@@ -35,3 +35,10 @@ Simply drag'n'drop a MIDI file in the score, either on a scenario or on the inte
 
 * See [[MIDI utilities]] for a list of processes that can alter MIDI data: arpeggiator, etc.
 * You can write your custom MIDI processors, for instance with the [[Javascript]] or the [[C++ JIT]] process.
+
+# RTP MIDI / AppleMIDI
+To access MIDI devices over the network, it is recommended to use a custom RTP MIDI daemon.
+
+- On Linux: [rtpmidid](https://github.com/davidmoreno/rtpmidid)
+- On macOS: support is built-in to the operating system.
+- On Windows: [rtpmidi](https://www.tobias-erichsen.de/software/rtpmidi.html)
