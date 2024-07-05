@@ -59,7 +59,8 @@ $ cmake c:/path/to/score                             \
   -DCMAKE_CXX_COMPILER=c:/ossia-sdk/llvm/bin/clang++ \
   -DOSSIA_SDK=c:/ossia-sdk                           \
   -DCMAKE_BUILD_TYPE=Debug                           \
-  -DSCORE_PCH=1
+  -DSCORE_PCH=1                                      \
+  -DCMAKE_COLOR_DIAGNOSTICS=1
 
 $ cmake --build .
 ```
@@ -74,7 +75,8 @@ Or with cmd.exe, the native command shell:
   -DCMAKE_CXX_COMPILER=c:\ossia-sdk\llvm\bin\clang++ ^
   -DOSSIA_SDK=c:\ossia-sdk                           ^
   -DCMAKE_BUILD_TYPE=Debug                           ^
-  -DSCORE_PCH=1
+  -DSCORE_PCH=1                                      ^
+  -DCMAKE_COLOR_DIAGNOSTICS=1
 
 > cmake --build .
 ```
@@ -94,10 +96,10 @@ as every distribution differs.
 
 Check out the build scripts for your distros [here](https://github.com/ossia/score/tree/master/ci).
 
-For instance, for Ubuntu 20.04:
+For instance, for Ubuntu 22.04:
 
-- [focal.deps.sh](https://github.com/ossia/score/blob/master/ci/focal.deps.sh) will install the required dependencies.
-- [focal.build.sh](https://github.com/ossia/score/blob/master/ci/focal.build.sh) will build. 
+- [jammy.deps.sh](https://github.com/ossia/score/blob/master/ci/jammy.deps.sh) will install the required dependencies.
+- [jammy.build.sh](https://github.com/ossia/score/blob/master/ci/jammy.build.sh) will build.
 
 > You should change the CMake invocation a bit, as the one on the CI scripts is optimized for a fast complete rebuild on the CI server, but changing a single file and rebuilding will be excruciatingly slow:
 
@@ -109,7 +111,8 @@ $ cmake ..                       \
   -DCMAKE_BUILD_TYPE=Release     \
   -DCMAKE_INSTALL_PREFIX=install \
   -DSCORE_DYNAMIC_PLUGINS=1      \
-  -DCMAKE_UNITY_BUILD=1
+  -DCMAKE_UNITY_BUILD=1          \
+  -DCMAKE_COLOR_DIAGNOSTICS=1
 ```
 
 You really want (adapted with the clang version you have):
@@ -117,13 +120,14 @@ You really want (adapted with the clang version you have):
 ```bash
 $ cmake ~/path/to/score                         \
     -GNinja                                     \
-    -DCMAKE_C_COMPILER="clang-14"               \
-    -DCMAKE_CXX_COMPILER="clang++-14"           \
+    -DCMAKE_C_COMPILER="clang"                  \
+    -DCMAKE_CXX_COMPILER="clang++"              \
     -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld"  \
     -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld"     \
     -DCMAKE_BUILD_TYPE=Debug                    \
     -DSCORE_PCH=1                               \
-    -DSCORE_DYNAMIC_PLUGINS=1
+    -DSCORE_DYNAMIC_PLUGINS=1                   \
+    -DCMAKE_COLOR_DIAGNOSTICS=1
 
 $ cmake --build .
 ```
@@ -135,13 +139,16 @@ which will make individual changes much faster (the difference can be between wa
 
 ## Build the project on macOS
 
+> note : replace x86_64 by aarch64 if you are on a M1 mac
+
 ```bash
 $ xcrun cmake ~/path/to/score       \
   -GNinja                           \
   -DOSSIA_SDK=/opt/ossia-sdk-x86_64 \
   -DCMAKE_BUILD_TYPE=Debug          \
   -DSCORE_PCH=1                     \
-  -DSCORE_DYNAMIC_PLUGINS=1
+  -DSCORE_DYNAMIC_PLUGINS=1         \
+  -DCMAKE_COLOR_DIAGNOSTICS=1
 
 $ xcrun cmake --build .
 ```
@@ -162,25 +169,26 @@ At the time of this writing, this means :
 
 | Software | Version                         |
 |----------|---------------------------------|
-| Compiler | clang 14 or gcc 12 or msvc 2022 |
-| Qt       | 5.15 or Qt 6.2+                 |
-| Boost    | 1.80                            |
-| CMake    | 3.24                            |
+| Compiler | clang 18 or gcc 14 or msvc 2022 |
+| Qt       | Qt 6.4+ (ideally 6.7 / 6.8)     |
+| Boost    | 1.85                            |
+| CMake    | 3.30                            |
 
 However, to get a complete build with support for more features, more is needed :
 
 | Software      | Version |
 |---------------|---------|
-| FFMPEG        | 5.x     | # Required for sound playback
-| LLVM          | 14.x    | # Required for Faust support
-| OpenSSL       | 1.1.x   | # Required to connect to wss / https
+| FFMPEG        | 7.x     | # Required for sound playback
+| LLVM          | 18.x    | # Required for Faust support. Must be same version than clang used to build.
+| OpenSSL       | 3.x     | # Required to connect to wss / https
 | Faust         | Latest  | # Required to load Faust plug-ins
 | suil, lilv    | Latest  | # Required to load LV2 plug-ins
 | PortAudio     | Latest  | # Required to playback sound using Coreaudio, ASIO, ALSA, Pulseaudio...
+| PipeWire      | Latest  | # Required to playback sound using PipeWire...
 | JACK2         | Latest  | # Required to playback sound using JACK
 | SDL2          | Latest  | # Required to have gamepad support
-| Qt            | 5.15+   | # Required for the GFX addon
-| qtshadertools | 5.15+   | # Required for the GFX addon
+| libbluetooth  | Latest  | # Required to have BLE support on Linux
+| Avahi         | Latest  | # Required to have Bonjour / Zeroconf support on Linux
 
 Or you can install them with your package manager of choice - see the packages for each platform at the end of this document.
 
@@ -212,12 +220,13 @@ Pass the following options to `cmake` to ensure maximal build speed: (note that 
     -DCMAKE_BUILD_TYPE=Debug                    # For having debug symbols
     -DSCORE_PCH=1                               # Makes the build much much faster
     -DSCORE_DYNAMIC_PLUGINS=1                   # Makes the linking faster (only on Mac / Linux ; on Windows it does not work without rebuilding every dependency)
+    -DCMAKE_COLOR_DIAGNOSTICS=1                 # Avoids a rebuild if an IDE injects this when opening the project for the first time.
 
 > Important: Run the `cmake` command in a separate build folder, especially not in the source directory of score !
 
 For instance, for generating the build files on Ubuntu, Debian or Linux Mint, that gives :
 
-    cmake /path/to/score                         \
+    cmake -S /path/to/score -B /path/to/build    \
       -GNinja                                    \
       -DCMAKE_C_COMPILER=/usr/bin/clang          \
       -DCMAKE_CXX_COMPILER=/usr/bin/clang++      \
@@ -233,7 +242,7 @@ If you are using the SDK mentioned above, add:
 
 If you are not using your distribution's Qt version because it's too old, pass the path to a recent version with, for instance,
 
-    -DCMAKE_PREFIX_PATH=/home/yourname/Qt/5.15.3/gcc_64
+    -DCMAKE_PREFIX_PATH=/home/yourname/Qt/6.7.2/gcc_64
 
 The path must contain a `lib` folder in which CMake is going to look for Qt.
 
@@ -270,10 +279,10 @@ cd c:\dev
 # Install dependencies
 ## Qt
 pip install aqtinstall
-aqt install --outputdir c:\Qt 5.15.3 windows desktop win64_msvc2019_64
+aqt install-qt --outputdir c:\Qt 6.7.2 windows desktop 6.7.2 win64_msvc2019_64
 
 # Build
-cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/5.15.3/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed -DCMAKE_BUILD_TYPE=Debug
+cmake ../score -DCMAKE_PREFIX_PATH="c:/Qt/6.7.2/msvc2019_64" -DOSSIA_SDK="c:/score-sdk-msvc" -DSCORE_PCH=1 -DCMAKE_INSTALL_PREFIX=installed -DCMAKE_BUILD_TYPE=Debug
 cmake --build . --config Debug
 cmake --build . --config Debug --target install
 

@@ -20,14 +20,18 @@ If you don't want to, then it's better to let the users use the AppImage because
 
 If your distro has a PortAudio package, please ensure that its PortAudio version is not linking against JACK, because else it can cause hangs (e.g. in Debian, Ubuntu). If it does, then please ensure that score does not link against PortAudio.
 
-An example of package is the one provided in the ArchLinux AUR : https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ossia-score
+Examples of existing packages:
+- [ArchLinux AUR](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ossia-score)
+- [Nix](https://github.com/ossia/score/blob/master/ci/nix.build.nix)
+- [MinGW](https://github.com/msys2/MINGW-packages/blob/master/mingw-w64-ossia-score/PKGBUILD)
+- [Flatpak](https://github.com/ossia/score/blob/master/cmake/Deployment/Linux/Flatpak/io.ossia.score.yml)
 
 # Dependencies
 
-* CMake (>= 3.13)
+* CMake (>= 3.24)
 * Qt (>= 6.4)
-* Boost (whatever is the latest version, at least 1.81)
-* FFMPEG (libavcodec, etc., at least FFMPEG 4)
+* Boost (whatever is the latest version, at least 1.83, otherwise ossia will download the latest version by itself)
+* FFMPEG (libavcodec, etc., at least FFMPEG 5)
 
 # Building a release
 
@@ -52,8 +56,4 @@ cmake --build . # adding -- -j4 at least will greatly increase build speed
 cmake -DCMAKE_INSTALL_DO_STRIP=1 -DCOMPONENT=OssiaScore -P cmake_install.cmake
 ```
 
-### Important note
-Due to a bug not fixed in mainline LLVM yet, we recommend disabling the JIT plug-in which may cause crashes (will be fixed in LLVM-12 ; LLVM-11 and LLVM-10 won't work). Add the following to the CMake invocation:
-
-    -DSCORE_DISABLED_PLUGINS="score-plugin-jit"
 
