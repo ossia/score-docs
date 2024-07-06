@@ -82,6 +82,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 * [Shmdata](https://gitlab.com/sat-metalab/shmdata/) is supported on Linux and macOS.
   * Documented [[Shmdata|here]].
 * [NDI](https://www.newtek.com/ndi/) is supported on Windows, Linux and macOS.
+* NDI PTZ is supported for controlling cameras with PTZ feature.
 
 # Transport synchronisation
 
