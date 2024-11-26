@@ -7,7 +7,7 @@ description: "Sending and receiving textures via Spout"
 parent: Devices
 grand_parent: Reference
 
-permalink: /devices/spout-devices.html
+permalink: /devices/spout-device.html
 ---
 
 # Spout

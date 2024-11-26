@@ -7,7 +7,7 @@ description: "Sending and receiving textures via Sh4lt"
 parent: Devices
 grand_parent: Reference
 
-permalink: /devices/sh4lt-devices.html
+permalink: /devices/sh4lt-device.html
 ---
 
 # Sh4lt

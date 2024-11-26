@@ -7,7 +7,7 @@ description: "Sending and receiving textures via NDI"
 parent: Devices
 grand_parent: Reference
 
-permalink: /devices/NDI-devices.html
+permalink: /devices/ndi-device.html
 ---
 
 # NDI

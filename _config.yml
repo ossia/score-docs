@@ -125,4 +125,5 @@ compress_html:
   #   envs: all
 
 img: "/score-docs/assets/images"
-score_version: "3.0.11"
+scores: "/score-docs/assets/scores"
+score_version: "3.3.2"

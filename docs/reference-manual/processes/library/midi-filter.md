@@ -2,13 +2,15 @@
 layout: default
 
 title: MIDI Filter
-description: "AI-based recognition tools"
+description: "MIDI Filter"
 
 parent: Processes
 grand_parent: Reference
 
-permalink: /processes/ai-recognition.html
+permalink: /processes/midi-filter.html
 ---
 # MIDI Filter
 
-![MIDI Filter]({{ site.img }}/reference/processes/ai-recognition.png "MIDI Filter") 
+![MIDI Filter]({{ site.img }}/reference/processes/midi-filter.png "MIDI Filter") 
+
+Reference is not yet available. Feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.

@@ -7,7 +7,7 @@ description: "Sending and receiving textures via Syphon"
 parent: Devices
 grand_parent: Reference
 
-permalink: /devices/syphon-devices.html
+permalink: /devices/syphon-device.html
 ---
 
 # Syphon
