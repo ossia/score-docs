@@ -4,7 +4,7 @@ layout: default
 title: "Video mixing and mapping"
 description: "Video mixing and mapping"
 
-nav_order: 9
+nav_order: 11
 parent: Common practices
 
 permalink: /common-practices/11-video-mixing-and-mapping.html

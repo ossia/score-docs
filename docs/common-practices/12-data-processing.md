@@ -4,7 +4,7 @@ layout: default
 title: "Data processing and filtering"
 description: "Data processing and filtering"
 
-nav_order: 10
+nav_order: 12
 parent: Common practices
 
 permalink: /common-practices/12-data-processing.html
