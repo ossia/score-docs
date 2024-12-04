@@ -49,14 +49,22 @@ For instance:
 
 # Supported transports
 
-ossia score can exchange DMX over ethernet through:
+ossia score can exchange DMX through:
 
-- ArtNet
-  * Note that only one ArtNet device is supported per ethernet port: for instance, it is not possible to run QLC+ and ossia score on the same ArtNet interface at the same time as they both try to open the same ports for the same DMX universes.
+## ArtNet
 
-- s/ACN (also known as E1.31)
+Note that only one ArtNet device is supported per ethernet port: for instance, it is not possible to run QLC+ and ossia score on the same ArtNet interface at the same time as they both try to open the same port (UDP port 1936). 
 
-ossia score can exchange DMX over USB serial through:
+Note also that ArtNet generally requires to be on IP network 10.x.x.x with DHCP disabled!
 
-- ENTTEC DMX USB Pro Mk1
-- ENTTEC DMX USB Pro Mk2
+## s/ACN (also known as E1.31)
+
+A much cleaner IP-based protocol than ArtNet. Use it if you can :-)
+
+## ENTTEC DMX USB Pro Mk1
+
+This device only supports one universe and can only send DMX.
+
+## ENTTEC DMX USB Pro Mk2
+
+This device supports two universes and can either send or receive DMX.
