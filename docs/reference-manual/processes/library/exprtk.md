@@ -17,8 +17,10 @@ Several processes allow to write simple math expressions. Such processes include
 - Micromap: for very simple math expressions, e.g. `x * 100`.
 - Expression Audio Generator: generates multi-channel audio.
 - Expression Audio Filter: filters multi-channel audio.
-- Expression Value Generator: generates values suitable for the device explorer.
+- Expression Value Generator: generates values suitable for the device explorer on every tick.
 - Expression Value Filter: filters values suitable for the device explorer.
+- Arraygen: generates an array of values.
+- Arraymap: applies the function to each value of the input array.
 
 ![ExprTK]({{ site.img }}/reference/processes/exprtk.png)
 
@@ -49,7 +51,7 @@ for (var i := 0; i < n; i += 1) {
 out := clamp(-1, tan(x * log(1 + 200 * a)), 1);
 ```
 
-## Array handling
+## Using arrays in ExprTK
 
 For value processes, the same expression syntax cannot be used for single-value or array input: 
 
@@ -74,41 +76,76 @@ Note that it isn't possible to create dynamic arrays in ExprTK. To return an arr
 
 ![ExprTK]({{ site.img }}/reference/processes/exprtk/vec.png)
 
+Alternatively, the Arraygen object can be used to create an array from a generator expression.
+
+## Using Arraygen {#arraygen}
+
+![Arraygen]({{ site.img }}/reference/processes/exprtk/arraygen.png)
+
+Arraygen will generate an array with as many elements as chosen.
+The expression will be used to generate each element. 
+`i` represents the current element index, starting from zero and `n` is useable as the total count of elements.
+
+Arraygen can also return arrays: 
+
+![Arraygen used for arrays]({{ site.img }}/reference/processes/exprtk/arraygen-array.png)
+
+[Download the example score here]({{ site.scores }}/reference/processes/arraygen-array.score).
+
+## Using Arraymap {#arraymap}
+
+![Arraymap]({{ site.img }}/reference/processes/exprtk/arraymap.png)
+
+Arraymap applies the expression to every element used as input. 
+The same variables are useable than for Arraygen, the only difference is that triggering 
+is bound to the presence of an input value instead of the timeline.
+
 # Available variables
 
 ### Everywhere
-* `t`: the current time
+* `t`: the current time in flicks.
 * `pos`: the position in the interval
+
+### Value filter, Value generator, Audio filter, Audio generator
 * `a, b, c`: three provided controls
 * `pa, pb, pc`: previous value of a, b, c
 * `m1, m2, m3`: three provided variables (which will keep their value across a tick)
   * In the audio cases they are arrays.
 
-### Value mapping
+### Value filter, Micromap, Arraymap
 
 * `x`: the value of the current input if it's a single value
 * `px`: the value of the previous input if it was a single value
 * `po`: the value of the previous output if it was a single value
-* `xv`: the value of the current input if it's an array
-* `pxv`: the value of the previous input if it was an array
-* `pov`: the value of the previous output if it was an array
 * `dt`: the time delta
 
-### Audio mapping
+### Value filter, Micromap
+
+* `xv`: the value of the current input if it is an array
+* `pxv`: the value of the previous input if it was an array
+* `pov`: the value of the previous output if it was an array
+
+### Value generator
+
+* `dt`: the time delta
+* `po`: the value of the previous output
+
+### Audio filter
 
 * `x`: the value of the current sample
 * `out`: where to write the output
 * `px`: the value of the previous sample
 * `fs`: the sampling rate
 
-### Value generator
-
-* `dt`: the time delta
-
 ### Audio generator
 
 * `out`: where to write the output
 * `fs`: the sampling rate
+
+### Arraymap, Arraygen
+
+* `i`: the current index
+* `n`: the total count
 
 # Available functions
 
@@ -125,7 +162,6 @@ Note that it isn't possible to create dynamic arrays in ExprTK. To return an arr
   * `random(0, 1)` can be 0., 0.3, 0.23455436, 1.
   * `round(random(1, 20))` is a 20-sided dice with lower probabilities for 1, 20.
   * `floor(random(1, 21))` is a 20-sided dice with same probabilities for everyone.
-
 
 * `noise(t, octaves, persistence)`: [Perlin noise](https://adrianb.io/2014/08/09/perlinnoise.html).
   * `t` should be something that increases ; `pos` is generally a good candidate.
@@ -147,6 +183,8 @@ Contributing useful functions to the library is also very welcome.
 - [Value Filter](https://github.com/ossia/score-user-library/tree/master/Presets/Expression%20Value%20Filter)
 - [Value Generator](https://github.com/ossia/score-user-library/tree/master/Presets/Expression%20Value%20Generator)
 - [Micromap](https://github.com/ossia/score-user-library/tree/master/Presets/Micromap)
+- [Arraymap](https://github.com/ossia/score-user-library/tree/master/Presets/Arraymap)
+- [Arraygen](https://github.com/ossia/score-user-library/tree/master/Presets/Arraygen)
 
 ## Value generator
 
