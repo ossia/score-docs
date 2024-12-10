@@ -219,6 +219,39 @@ Here is an example which will write a single byte delimited by `\r\n`.
 }
 ```
 
+## OSC support
+
+If the target device reads OSC natively on its serial port, it is possible to implement support for it quite easily: 
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Serial
+{
+  function createTree() 
+  {
+    return [ 
+      {
+        name: "foo",
+        type: Ossia.Type.Int,
+        access: Ossia.Access.Set,
+        osc_address: "/foo"
+      },
+      {
+        name: "foo_but_as_list",
+        type: Ossia.Type.List,
+        access: Ossia.Access.Set,
+        osc_address: "/foo"
+      }
+    ]; 
+  }
+}
+```
+
+In the above case, sending messages to `foo` and `foo_but_as_list` will both be translated directly as OSC messages, for instance `/foo 1` or `/foo 10 "blah" True`.
+
+If setting `extended_type` to for instance `u8Blob` then a list would be translated in a blob containing a sequence of u8 values.
+
 ## Coalescing messages
 
 In case the serial port is too slow and overflows, one can add the property: 
@@ -231,6 +264,8 @@ to the Serial object, to coalesce messages every 15 milliseconds for instance.
 
 If a specific parameter must *not* be coalesced, but always sent, one can simply set `critical: true` on the node.
 One will generally want to use coalescing on parameters such as lights, drives, or anything that more-or-less maps to an electrical voltage, and not for parameters that would trigger the start of an action.
+
+In case messages use the OSC feature, then non-critical messages will get coalesced as a single bundle.
 
 ## Examples
 
