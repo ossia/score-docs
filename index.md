@@ -19,4 +19,6 @@ Disclaimer: the documentation is currently in-progress. If you spot a missing / 
 
 In the meantime, feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [the ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.
 
+If you see any issue on the documentation, please use the "Edit" link at the bottom of every page and edit directly, we will look quickly at your Github pull request :-)
+
 You may also find some information watching the [french video tutorials](https://vimeo.com/ossia).
