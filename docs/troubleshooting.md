@@ -67,3 +67,7 @@ and then reboot, according to <a href="https://discussions.apple.com/thread/2500
 
 As a workaround, you can try to open score by right-clicking on Score.app, selection "Open contents", navigating to "Score.app/Contents/MacOS" and running the "score" binary from there.
 
+## I don't receive OSC / DMX / ... messages
+
+Check that your operating system does not have a firewall running.
+For instance, in some Linux distributions such as CachyOS, default configurations of firewalls block incoming UDP messages fairly indiscriminately.
