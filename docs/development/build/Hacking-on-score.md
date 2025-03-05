@@ -29,7 +29,7 @@ This [script](https://github.com/ossia/score/blob/master/tools/fetch-sdk.sh) wil
 
 - On Windows: 
   * [Install git with git bash](https://git-scm.com/downloads).
-  * [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk26/sdk-mingw.7z) and extract it in `c:\ossia-sdk`. 
+  * [Download the SDK](https://github.com/ossia/sdk/releases/download/sdk31/sdk-mingw.7z) and extract it in `c:\ossia-sdk`. 
   * You must also install [CMake](https://cmake.org/). 
   * [Ninja](https://github.com/ninja-build/ninja/releases) is extremely recommended for build speed - download it and extract `ninja.exe` in `c:\ossia-sdk\llvm\bin\`.
 
