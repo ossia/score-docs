@@ -26,14 +26,16 @@ We recommend to be in the following groups (and creating them if they aren't wit
  - `render` to be able to use direct rendering through EGLFS, without e.g. X11 or Wayland.
  - `realtime` for enabling low-latency support with e.g. JACK or PipeWire.
  - `gpio` to access GPIO pins, etc.
+ - `i2c` to access other raw devices.
  - `bluetooth` to use the Bluetooth support.
+ - `input` to use the raw evdev input device and for some BLE devices (Bluetooth gamepads).
  - `power` if you want to be able to control e.g. turning off a computer through score directly.
 
  
  This can be done in one command:
  
  ```bash
- $ sudo usermod -a -G dialout,uucp,audio,video,render,realtime,gpio,bluetooth,power $USER
+ $ sudo usermod -a -G dialout,uucp,audio,video,render,realtime,gpio,i2c,bluetooth,input,power $USER
  ```
  
  Note that it is necessary to log-out and log-in again after it as this command does not affect the current user session.
