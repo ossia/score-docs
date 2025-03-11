@@ -20,7 +20,7 @@ The way capabilities are granted to non-root users is through the groups system.
 
 We recommend to be in the following groups (and creating them if they aren't with `groupadd "name_of_the_group"`:
 
- - `uucp` and / or `dialout` depending on the distribution for serial port access
+ - `uucp` and / or `dialout` depending on the distribution for serial port access (including access to DMX devices such as an ENTTEC USB-DMX for instance).
  - `audio` for raw access to sound and MIDI devices (usually this one is by default).
  - `video` for cameras and anything in /dev/video.
  - `render` to be able to use direct rendering through EGLFS, without e.g. X11 or Wayland.
@@ -33,7 +33,9 @@ We recommend to be in the following groups (and creating them if they aren't wit
  This can be done in one command:
  
  ```bash
- $ sudo usermod -a -G dialout,audio,video,render,realtime,gpio,bluetooth,power $USER
+ $ sudo usermod -a -G dialout,uucp,audio,video,render,realtime,gpio,bluetooth,power $USER
  ```
+ 
+ Note that it is necessary to log-out and log-in again after it as this command does not affect the current user session.
 
  
