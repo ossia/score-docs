@@ -82,7 +82,9 @@ $ pacboy -S --needed \
       ffmpeg:p \
       SDL2:p \
       git
+
 $ git clone --recursive -j16 https://github.com/ossia/score
+
 $ cmake -Wno-dev \
   -S score \
   -B build-folder \
@@ -93,6 +95,7 @@ $ cmake -Wno-dev \
   -DCMAKE_OPTIMIZE_DEPENDENCIES=1 \
   -DCMAKE_LINK_DEPENDS_NO_SHARED=1 \
   -DSCORE_DYNAMIC_PLUGINS=0
+
 $ cmake --build build-folder
 ``` 
 
@@ -186,7 +189,6 @@ which will make individual changes much faster (the difference can be between wa
 ## Rebuild the project after an initial build
 
 Once you have a build folder, only the `cmake --build .` command is necessary.
-
 
 # Building with the ossia SDK
 
