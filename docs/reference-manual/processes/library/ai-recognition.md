@@ -28,9 +28,7 @@ Let’s try with **BlazePose Detector**. It can read from a camera or image inpu
 
 - Yolov8 Pose: [Download](https://huggingface.co/Xenova/yolov8-pose-onnx/resolve/main/yolov8n-pose.onnx?download=true)
 
-- RTMPose: [Download](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-s_simcc-body7_pt-body7-halpe26_700e-256x192-7f134165_20230605.zip
-)
-
+- RTMPose: [Download](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-s_simcc-body7_pt-body7-halpe26_700e-256x192-7f134165_20230605.zip)
 ### 3. Add an Input camera device (or video)
 
 Choose a camera resolution that is as **square** as possible ◾  
