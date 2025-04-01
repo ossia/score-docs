@@ -31,8 +31,7 @@ Let’s try with **BlazePose Detector**. It can read from a camera or image inpu
 - RTMPose: [Download](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-s_simcc-body7_pt-body7-halpe26_700e-256x192-7f134165_20230605.zip)
 ### 3. Add an Input camera device (or video)
 
-Choose a camera 
-For BlazePose fullbody model, set the input resolution to **256 x 256**
+Choose a camera
 
 ![Camera input]({{ site.img }}/reference/processes/ai-recognition/input-camera.png)
 
