@@ -31,7 +31,7 @@ Let’s try with **BlazePose Detector**. It can read from a camera or image inpu
 - RTMPose: [Download](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-s_simcc-body7_pt-body7-halpe26_700e-256x192-7f134165_20230605.zip)
 ### 3. Add an Input camera device (or video)
 
-Choose a camera resolution that is as **square** as possible ◾  
+Choose a camera 
 For BlazePose fullbody model, set the input resolution to **256 x 256**
 
 ![Camera input]({{ site.img }}/reference/processes/ai-recognition/input-camera.png)
@@ -72,6 +72,8 @@ For other models like [RTMPose](https://github.com/open-mmlab/mmpose/tree/main/p
 Once keypoints are extracted, you can connect them to any parameter in score for interactive control.
 
 ![Use keypoints example]({{ site.img }}/reference/processes/ai-recognition/parameter-mapping.png)
+
+[Download score]({{ site.scores }}/reference/processes/ai-recognition.score)
 
 #### Send to Wekinator (OSC)
 
