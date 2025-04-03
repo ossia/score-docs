@@ -82,6 +82,7 @@ Here is the complete syntax available for reading messages: the most important t
 Supported framing protocols are: 
 * "none"
 * "slip"
+* "osc-slip"
 * "size"
 * "delimiter" (the default, set as "\r\n")
 
