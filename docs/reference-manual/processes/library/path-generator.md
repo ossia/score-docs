@@ -7,7 +7,7 @@ description: "Automate 2D X-Y parameters with a predefined path"
 parent: Processes
 grand_parent: Reference
 
-permalink: /processes/2Dspline.html
+permalink: /processes/pathgenerator.html
 ---
 
 # Path Generator (X-Y automation)
