@@ -7,7 +7,7 @@ description: "Generate 2D X-Y point arrays with a multi-cursor system."
 parent: Processes
 grand_parent: Reference
 
-permalink: /processes/MultiCursor.html
+permalink: /processes/multicursor.html
 ---
 
 # Multi-Cursor Manager (X-Y point arrays)![2D spline](/home/hacklab_01/Pictures/Screenshots/Screenshot%20from%202025-04-01%2010-32-09.png)
