@@ -15,15 +15,18 @@ permalink: /processes/javascript.html
 ## Scripting in Javascript / QML.
 *score* allows to write scripts using the JavaScript language. These scripts can be used to write specific processes such as value mappers, audio generators.
 
-*score* uses JavaScript version ES7. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about the JS language.
+*score* uses JavaScript version ES7 through QML. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about the JS language.
 
-It also uses QML (property real, etc.). See the [QML Reference](https://doc.qt.io/qt-5/qmlreference.html) for more information.
+QML is a superset language of Javascript which enables very efficient integration with Qt software and thus ossia. 
+It comes with some additional syntax (`property real`, etc.). See the [QML Reference](https://doc.qt.io/qt-6/qmlreference.html) for more information as well as the [QML Book](https://www.qt.io/product/qt6/qml-book/ch01-meetqt-meet-qt) to get started with the language.
 
 Either code directly or a path to the file can be added to the Javascript code editor - if it's a file it will be watched for changes.
 
 JS can be used as a process both for intervals, and in states.
 * To add a JS process to an interval, simply drag'n'drop it from the Process Library to the interval.
 * To add a JS process to a state, right-click on the state in the Object Explorer, and choose "Add Process".
+
+JS can also be used for generative graphics by using the whole power of QtQuick. A basic example is given below.
 
 ## Editing code
 
@@ -33,7 +36,7 @@ An important thing to note is that the edited script *will not* be saved in the 
 
 Every script must contain
 ```qml
-import Score 1.0
+import Score
 ```
 somewhere at the top.
 
@@ -43,7 +46,7 @@ A script defines a javascript object, with :
 
 The smallest valid empty script looks like this:
 ```qml
-import Score 1.0
+import Score
 Script {
   tick: function(token, state) { }
 }
@@ -56,15 +59,19 @@ how model, physical and musical dates relate to each other.
 
 ### Available functions
 
-For now, only a very simple API to read / write messages from the device explorer is provided:
+A very simple API to read / write messages from the device explorer is provided:
 
 ```js
 // Reads the current value of an address in the device explorer
 let value = Device.read("an:/address");
+console.log(JSON.stringify(value));
 
 // Sends a value to the device explorer
 Device.write("an:/address", 123);
 ```
+
+Note that some types (vec2, vec3, vec4) that may be returned from the equivalent types in the device explorer 
+require an import of QtQuick to be useable.
 
 ### Token object
 
@@ -136,8 +143,8 @@ The `state` object contains global properties relevant for the whole score execu
 
 ```qml
 // Necessary for the Script object.
-// It is also possible to import QtQml 2.15
-import Score 1.0
+// It is also possible to import QtQml and QtQuick
+import Score
 
 // Create our script object
 Script {
@@ -176,7 +183,7 @@ Note: it is also possible to access the list of messages with their precise timi
 ## Example of an audio generator
 
 ```qml
-import Score 1.0
+import Score
 
 Script {
   // Declare our inputs & outputs
@@ -269,7 +276,7 @@ out.setChannel(0, [0.1, 0.0, 0.2, 0.0, -0.1, 0.0]);
 This example shows how one can access both score-relative and global-time-relative timing information from a JS script.
 
 ```qml
-import Score 1.0
+import Score
 Script {
   ValueInlet { id: in1 }
   ValueOutlet { id: out1; objectName: "logical" }
@@ -412,3 +419,41 @@ ControlInlet { }
 ControlOutlet { }
 ```
 -->
+
+## Generative graphics
+
+```qml
+TextureOutlet {
+    item: Rectangle { }
+}
+```
+
+Adding a `TextureOutlet` ports turns the JS object into a GPU one - rendering will be performed
+by Qt Quick in the GPU thread. Note that it will not run if not connected to a graphical output!
+
+Any QtQuick item can be put as `item`.
+Here is an example of a basic animated rectangle:
+
+```qml
+import Score 
+import QtQuick
+
+Script {
+    TextureOutlet {
+        objectName: "out"
+        item: Rectangle {
+            id: rect
+            color: "blue"
+            width: 100
+            height: 100
+        }
+    }
+
+  tick: function(token, state) {
+      rect.x = ((rect.x + 1) % 100)
+      rect.y = ((rect.y + 1) % 100)
+  }
+}
+```
+
+![Texture Outlet example]({{ site.img }}/reference/processes/javascript/textureoutlet.gif "Rendering with QtQuick") 
