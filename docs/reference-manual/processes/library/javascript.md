@@ -457,3 +457,62 @@ Script {
 ```
 
 ![Texture Outlet example]({{ site.img }}/reference/processes/javascript/textureoutlet.gif "Rendering with QtQuick") 
+
+When using Qt Quick Controls, it is better to use explicit namespaces as some objects have the same type name between Score and QtQuick.Controls modules.
+
+It is possible to use reactive bindings:
+
+```qml
+import Score as Score
+import QtQuick
+import QtQuick.Controls as QQC
+
+Score.Script {
+  Score.Toggle {
+    id: show_text
+    objectName: "Show text"
+  }
+  
+  Score.TextureOutlet {
+      objectName: "out"
+      item: Item {
+          id: self
+          anchors.fill: parent
+          
+          QQC.Label {
+              anchors.bottom: parent.bottom
+              text: self.height
+              color: "white"
+              visible: show_text.value
+              font.pointSize: 64
+          }
+      }
+  }
+}
+```
+
+As well as interactive widgets:
+
+```
+import Score as Score
+import QtQuick
+import QtQuick.Controls as QQC
+
+Score.Script {
+    Score.TextureOutlet {
+        objectName: "out"
+        item: Item {
+            id: self
+            anchors.fill: parent
+
+            QQC.Button {
+                anchors.centerIn: parent
+                text: "X"
+                onClicked: text = text + "X"
+            }
+        }
+    }
+}
+```
+
+Note however that any internal state will be reset on resolution change as the items will so far be deleted and recreated since they may live on different threads.
