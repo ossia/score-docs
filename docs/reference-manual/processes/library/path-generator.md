@@ -14,9 +14,17 @@ permalink: /processes/pathgenerator.html
 
 <img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_main.png" alt="" width="682">
 
-The path generator is a process that allows you to control 2D positions in time, by choosing predefined paths and moving cursors in the user interface. 
+The **Path Generator** is a process used to automate 2D X-Y positions over time by selecting predefined movement paths and manipulating cursors in the user interface.
+
+Each **source** in the path generator has two cursors:
+
+- The **green cursor** indicates the starting point.
+
+- The **red cursor** indicates the end point of the movement.
 
 ## Modifying Points
+
+You can customize a path by editing its control points directly in the interface:
 
 - Points can be dragged with the mouse.
   
