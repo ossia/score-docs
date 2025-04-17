@@ -79,7 +79,10 @@ Once keypoints are extracted, you can connect them to any parameter in score for
 You can also send keypoints over OSC to external tools like [Wekinator](http://www.wekinator.org/) for gesture recognition or AI-based interaction.
 
 1. Use an **Object Filter** to extract:
-   - left wrist, right wrist, nose (x, y, z)
+   - left wrist, right wrist, nose (x, y, z) with the following formula : 
+   ```
+   [ .keypoints[15].position[0]]
+   ```
 
 2. Combine them into a 9-value OSC message using the [Array Combinor](https://ossia.io/score-docs/processes/array-utilities.html) process
 
