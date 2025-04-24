@@ -14,7 +14,7 @@ permalink: /integrations/wekinator.html
 
 [Wekinator](http://www.wekinator.org/) is a free and open-source software that allows you to use machine learning to build new musical instruments, gestural controllers, computer vision systems, and more. This guide explains how to integrate ossia score with Wekinator for interactive machine learning applications.
 
-## Setup
+## Overview
 
 1. Download and install Wekinator from [the official website](http://www.wekinator.org/downloads/)
 
@@ -22,9 +22,9 @@ permalink: /integrations/wekinator.html
 
 2. Launch Wekinator and configure it to listen for OSC inputs, and/or output OSC messages
 
-## Basic Configuration
+## Basic configuration
 
-### Setting up 
+### Setting up
 
 In Wekinator, set the input port (default is 6448) and start listening. More on this [here](http://www.wekinator.org/detailed-instructions/#Wekinator8217s_default_OSC_messages)
 
@@ -71,7 +71,7 @@ and received in Wekinator, green means it's receiving data.
 
 ![Wekinator port settings]({{ site.img }}/integrations/wekinator/wekinator-output-ports.png "Wekinator port settings") 
 
-<!-- 2. In your score, create OSC output device for Wekinator's output messages:   
+2. In your score, create OSC output device for Wekinator's output messages:   
 ## Example: Training a gesture recognizer
 
 1. Set up Wekinator to receive pose recognition data from ossia score
@@ -80,7 +80,6 @@ and received in Wekinator, green means it's receiving data.
 
 Add example score / link from AI
 
--->
 
 ## Troubleshooting
 
