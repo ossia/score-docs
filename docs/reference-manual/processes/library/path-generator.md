@@ -12,7 +12,7 @@ permalink: /processes/pathgenerator.html
 
 # Path Generator (X-Y automation)
 
-<img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_main.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_main.png" alt="" width="682">
 
 The **Path Generator** is a process used to automate 2D X-Y positions over time by selecting predefined movement paths and manipulating cursors in the user interface.
 
@@ -28,15 +28,15 @@ You can customize a path by editing its control points directly in the interface
 
 - Points can be dragged with the mouse.
   
-  <img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_move.gif" alt="" width="521">
+  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_move.gif" alt="" width="521">
 
 - To create a new point, click on an empty space.
   
-  <img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_add.gif" alt="" width="521">
+  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_add.gif" alt="" width="521">
 
 - To delete a point, right-click on it.
   
-  <img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_remove.gif" alt="" width="521">
+  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_remove.gif" alt="" width="521">
 
 ## Parameters
 
@@ -56,12 +56,12 @@ You can customize a path by editing its control points directly in the interface
 
 To give you more creative freedom when creating movements, you can combine several movements together. In this short tutorial, we'll look at how to combine the following two movements.
 
-<img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_combine_paths.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_combine_paths.png" alt="" width="682">
 
 Once you've created the various movements using the path generator, you can connect each of them to an array flattener, and then connect them to an array of Combinators. In input count, you must indicate the number of path generators you wish to combine. Then choose Append mode, so as not to modify the initial movements.
 
-<img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_arraycombiner.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_arraycombiner.png" alt="" width="682">
 
 Result : 
 
-<img title="" src="../../../../assets/images/reference/processes/pathgenerator/pathgenerator_combine_result.gif" alt="" width="277">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_combine_result.gif" alt="" width="277">

@@ -12,7 +12,7 @@ permalink: /processes/gbap.html
 
 # Grid-Based Amplitude Panning (GBAP)
 
-<img title="" src="../../../../assets/images/reference/processes/gbap/gbap_main.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_main.png" alt="" width="682">
 
 The GBAP process is used to perform audio panning based on a 2D grid of “sinks” (virtual or real loudspeakers) in a spatialized space. It determines the weights (amplitudes) to be applied to each loudspeaker to spatialize a sound according to the position of a cursor.
 
@@ -20,7 +20,7 @@ The GBAP process is used to perform audio panning based on a 2D grid of “sinks
 
 - The cursor can be dragged in 2D space using the mouse. It is also possible to click on an empty area to move the cursor.
 
-<img title="" src="../../../../assets/images/reference/processes/gbap/gbap_move.gif" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_move.gif" alt="" width="682">
 
 ## Parameters
 
@@ -42,6 +42,6 @@ To allow even more creative possibilities in sound spacialization, it is possibl
 
 To do this, when your Multicursor and Pathgenerator are set up, connect its output array to the second GBAP input.
 
-<img title="" src="../../../../assets/images/reference/processes/gbap/gbap_combine.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_combine.png" alt="" width="682">
 
 **NOTE :** When an external panel is connected to the GBAP. The array integrated in the gbap is no longer taken into account and therefore has no effect on the final result.
