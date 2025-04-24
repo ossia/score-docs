@@ -11,7 +11,7 @@ permalink: /processes/ai-recognition.html
 ---
 # AI Recognition
 
-![AI Recognition]({{ site.img }}/reference/processes/ai-recognition.png "AI Recognition") 
+![AI Recognition]({{ site.img }}/reference/processes/ai-recognition/ai-recognition.png "AI Recognition") 
 
 ## How to run ONNX models in score
 
