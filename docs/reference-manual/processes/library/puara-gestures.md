@@ -73,3 +73,25 @@ The **Tilt** process calculates the forward-and-backward tilt (also known as "pi
 | `Magnetometer` | Expects 3D coordinate data (`{x, y, z}`) from a magnetometer.                   |
 | **Outputs**    |                                                                                 |
 | `Output`       | The calculated tilt (pitch) angle in radians, ranging from `-π/2` to `+π/2`.    |
+
+
+
+
+---
+
+## Shake
+
+The **Shake** process detects shaking gestures from 3D accelerometer data. It calculates the overall magnitude of the shake, making it ideal for triggering events or controlling parameters based on energetic motion. The detection algorithm's sensitivity and response curve can be finely tuned using the provided parameters.
+
+### Parameters
+
+| Parameter                   | Description                                                                                                                              |
+| :-------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| **Inputs**                  |                                                                                                                                          |
+| `Acceleration`              | Expects 3D coordinate data (`{x, y, z}`) from an accelerometer.                                                                          |
+| `Integrator Frequency (Hz)` | A `float` from 0.0 to 200.0 Hz that sets the update rate of the internal smoothing filter. Higher values are more responsive. Default is `10.0`. |
+| `Fast Leak`                 | A `float` from 0.0 to 1.0. This controls how quickly the shake value increases when a shake is detected (i.e., when motion exceeds the `Activation Threshold`). A lower value means a faster rise. Default is `0.6`. |
+| `Slow Leak`                 | A `float` from 0.0 to 1.0. This controls how quickly the shake value decays when the device is still. A lower value means a faster decay. Default is `0.3`. |
+| `Activation Threshold`      | A `float` from 0.0 to 1.0 that sets the motion sensitivity. Acceleration above this threshold is considered a shake. Default is `0.1`. |
+| **Outputs**                 |                                                                                                                                          |
+| `Output`                    | The calculated shake magnitude, a single `float` value.                                                                                  |
