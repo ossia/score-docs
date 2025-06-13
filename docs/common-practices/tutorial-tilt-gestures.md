@@ -13,7 +13,7 @@ This tutorial will guide you through a complete example. We will use a smartphon
 
 ### Part 1: Setting Up the Live Sensor Data
 
-To see the Tilt processor in action, we first need a source of motion data. We'll use the [Sensors2OSC](https://sensors2.org) app to stream data from a phone over Wi-Fi.
+To see the Tilt processor in action, we first need a source of motion data. We'll use a smartphone app to stream sensor data over Wi-Fi. This tutorial uses **[Sensors2OSC](https://sensors2.org) (Android)**, but the setup is similar for iPhone apps like **[GyroOSC](https://www.bitshapesoftware.com/instruments/gyrosc/)**.
 
 1.  **Configure the App:** In the Sensors2OSC settings, set the **Host** to your computer's IP address and the **Port** to `9997`.
     <img src="/assets/images/reference/processes/puara/sensors-to-osc-settings.jpeg" alt="Sensors2OSC Settings" width="40%">
