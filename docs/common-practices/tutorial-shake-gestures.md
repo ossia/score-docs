@@ -13,7 +13,7 @@ This tutorial will show you how to set up the `Shake` processor using a smartpho
 
 ### Part 1: Setting Up the Live Sensor Data
 
-We'll use the [Sensors2OSC](https://sensors2.org) app to stream accelerometer data from a phone.
+We'll use a smartphone app to stream accelerometer data from a phone. This tutorial uses **[Sensors2OSC](https://sensors2.org) (Android)**, but the setup is similar for iPhone apps like **[GyroOSC](https://www.bitshapesoftware.com/instruments/gyrosc/)**.
 
 1.  **Configure the App:** In the Sensors2OSC settings, set the **Host** to your computer's IP address and the **Port** to `9997`.
     <img src="/assets/images/reference/processes/puara/sensors-to-osc-settings.jpeg" alt="Sensors2OSC Settings" width="40%">
