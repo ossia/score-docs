@@ -13,7 +13,7 @@ permalink: /in-depth/scripting.html
 # Scripting
 
 The software can be scripted with Javascript (ES7).
-The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/Qml/EditContext.hpp).
+The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/EditContext.hpp).
 
 Click here for the [[Scripting API|complete reference]].
 
