@@ -40,6 +40,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 * [Art-Net](https://art-net.org.uk/) / DMX: the standard for lighting fixtures. Support is implemented through [libartnet](https://github.com/OpenLightingProject/libartnet), which has been integrated inside libossia. *score* is able to load fixtures definitions in the [open-fixture-library](https://github.com/OpenLightingProject/open-fixture-library) format.
   * Documented [here]({{ site.baseurl }}/devices/artnet-device.html).
+* **LED Strip Support**: Comprehensive support for LED strips including NeoPixel (WS2812), individual LED control, and strip/pane/volume layouts through Art-Net. Supports RGB, RGBW, and specialized diode configurations (Warm/Cold White, Amber, UV).
 * [s.ACN / E1.31](https://wiki.openlighting.org/index.php/E1.31) is supported.
 * ENTTEC DMX USB Pro devices are supported (Mk1 and Mk2).
 * DMX input and output are both supported.
@@ -81,6 +82,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [[Syphon|here]].
 * [Shmdata](https://gitlab.com/sat-metalab/shmdata/) is supported on Linux and macOS.
   * Documented [[Shmdata|here]].
+* [Sh4lt](https://gitlab.com/sh4lt/sh4lt): Advanced shared memory video/audio streaming protocol supporting any data type (multichannel audio, video frames, 3D models, messages). Provides zero-copy, server-less communication between applications with dynamic buffer resizing and hot connection/disconnection. Available for input and output.
 * [NDI](https://www.newtek.com/ndi/) is supported on Windows, Linux and macOS.
 * NDI PTZ is supported for controlling cameras with PTZ feature.
 
