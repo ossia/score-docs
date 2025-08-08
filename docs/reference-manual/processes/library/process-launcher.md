@@ -13,9 +13,11 @@ permalink: /processes/process-launcher.html
 
 ![Process Launcher]({{ site.img }}/reference/processes/process-launcher.png "Process Launcher Process")
 
-The Process Launcher enables executing external system processes, applications, and scripts directly from within ossia score. It provides seamless integration with external tools, command-line utilities, and system services, allowing score to orchestrate complex workflows involving multiple applications.
+The Process Launcher allows you to launch and manage external system processes directly from your ossia score timeline. This powerful utility lets you integrate external scripts, commands, or applications into your interactive performances.
 
 ## Overview
+
+The Process Launcher process executes external commands or scripts for the lifetime of the process object. When the process starts in the timeline, the external command is launched. When the process stops or is removed, the external command is terminated.
 
 Process Launcher enables:
 - **External application execution** with command-line arguments
@@ -57,12 +59,22 @@ Perfect for:
 
 | Parameter | Widget | Description | Default | Range |
 |-----------|--------|-------------|---------|-------|
+| **Script** | Text Input | The command line to execute | Empty | Any command |
 | Executable | File Browser | Path to executable | - | Any executable |
 | Arguments | Text | Command line arguments | - | String |
 | Auto Start | Toggle | Start when interval begins | Off | On/Off |
 | Auto Kill | Toggle | Kill when interval ends | On | On/Off |
 | Shell | Toggle | Run through system shell | Off | On/Off |
 | Timeout | Integer | Maximum run time (seconds) | 0 | 0 = no limit |
+
+### Script Parameter Details
+
+The command line to execute. This can be:
+- A simple command: `echo "Hello World"`
+- A script with arguments: `python3 /path/to/script.py --arg1 value1`
+- A complex shell command: `ls -la | grep .txt`
+
+The command uses standard shell parsing, so you can include arguments and options as you would in a terminal.
 
 ## Process States
 
@@ -384,6 +396,16 @@ Manage process lifetime effectively:
 - **Check path format** (forward vs back slashes)
 - **Verify shell availability** and behavior
 - **Handle platform-specific** command differences
+
+## Execution Lifecycle
+
+1. **Process Start**: When the timeline reaches this process, the external command is launched
+2. **Process Active**: The external process runs independently while this object exists
+3. **Process Stop**: When the timeline leaves this process or the process is removed, the external command is terminated
+
+## Technical Implementation
+
+The Process Launcher uses Qt's QProcess internally, ensuring proper cross-platform process management. The external process is launched in a separate thread and managed through Qt's event loop system.
 
 ## Related Processes
 
