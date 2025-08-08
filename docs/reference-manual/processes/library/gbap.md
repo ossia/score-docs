@@ -2,7 +2,7 @@
 layout: default
 
 title: GBAP
-description: "Grid-Based Amplitude Panning process"
+description: "Grid-Based Amplitude Panning for spatial audio"
 
 parent: Processes
 grand_parent: Reference
@@ -14,7 +14,7 @@ permalink: /processes/gbap.html
 
 <img title="" src="{{ site.img }}/reference/processes/gbap/gbap_main.png" alt="" width="682">
 
-The GBAP process is used to perform audio panning based on a 2D grid of “sinks” (virtual or real loudspeakers) in a spatialized space. It determines the weights (amplitudes) to be applied to each loudspeaker to spatialize a sound according to the position of a cursor.
+GBAP (Grid-Based Amplitude Panning) is a spatial audio technique that distributes sound across a regular grid of speakers or virtual sound sources. It calculates amplitude weights based on the proximity of a sound source to grid points, enabling intuitive 2D spatialization for installations, concerts, and immersive audio environments.
 
 ## Moving cursor
 
@@ -45,3 +45,97 @@ To do this, when your Multicursor and Pathgenerator are set up, connect its outp
 <img title="" src="{{ site.img }}/reference/processes/gbap/gbap_combine.png" alt="" width="682">
 
 **NOTE :** When an external panel is connected to the GBAP. The array integrated in the gbap is no longer taken into account and therefore has no effect on the final result.
+
+## Inputs and Outputs
+
+| Port | Type | Description |
+|------|------|-------------|
+| Cursor Position | Vec2 | X,Y position of the sound source |
+| External Cursors | Array | Array of cursor positions from Multi-Cursor or Path Generator |
+
+| Port | Type | Description |
+|------|------|-------------|
+| Gains | Float Array | Amplitude coefficients for each grid point/speaker |
+| Visual | Object | Grid state for visual feedback |
+
+## Usage Examples
+
+### Basic Spatialization Setup
+
+1. **Add GBAP Process**: Drag GBAP from Process Library
+2. **Configure Grid**: Set X and Y sink count for your speaker layout
+3. **Connect Audio**: Route through Matrix process to speakers
+4. **Control Position**: Use mouse, MIDI, or sensors
+
+```
+[Audio Source] → [Matrix] → [Speaker 1-4]
+                    ↑
+[GBAP Gains] ←── [Cursor Control]
+```
+
+### Automated Movement
+
+Create automatic spatial trajectories:
+
+```
+[LFO X] → [Combine] → [GBAP] → [Speaker Gains]
+[LFO Y] →
+```
+
+### Interactive Installation
+
+Use sensor data for positioning:
+
+```
+[Motion Sensor] → [Scale/Filter] → [GBAP] → [Multi-Speaker Array]
+```
+
+## Integration with Other Processes
+
+### With Multi-Cursor
+
+Create multiple simultaneous sound sources:
+
+```
+[Multi-Cursor] → [GBAP] → [Combined Gains] → [Speaker Array]
+```
+
+### With Path Generator
+
+Automate complex spatial trajectories:
+
+```
+[Path Generator] → [GBAP] → [Trajectory Gains] → [Immersive Audio]
+```
+
+### With Audio Sources
+
+Complete spatialization chain:
+
+```
+[Multiple Sources] → [Audio Router] → [GBAP Processing] → [Physical Speakers]
+                                           ↑
+                                  [Position Controllers]
+```
+
+## Best Practices
+
+1. **Grid Size**: Match grid dimensions to your physical speaker layout
+2. **Cursor Size**: Larger cursors create smoother, wider spatialization
+3. **Normalization**: Enable for consistent energy across positions
+4. **Roll-off**: Tune for your room acoustics and desired focus
+5. **Real-time**: GBAP is optimized for real-time performance
+
+## Troubleshooting
+
+- **No output**: Check Matrix routing and speaker connections
+- **Harsh transitions**: Increase cursor size or reduce roll-off
+- **Uneven levels**: Enable normalization
+- **Performance**: Reduce grid size for complex setups
+
+## Related Processes
+
+- [DBAP](/processes/dbap.html) - Distance-based panning for irregular layouts
+- [Matrix](/processes/matrix.html) - Audio routing and mixing
+- [Multi-Cursor](/processes/multi-cursor.html) - Multiple position sources
+- [Path Generator](/processes/path-generator.html) - Automated trajectories
