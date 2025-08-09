@@ -150,6 +150,146 @@ The abclib package provides professional spatial audio tools:
 2. **Browse the ambisonics and spat folders** 
 3. **Drag'n'drop presets** into your score for instant professional spatialization
 
+### Comprehensive Faust spatialization objects
+
+The Faust standard library (`spat.lib`) provides a rich collection of spatial audio algorithms. Here's what's available:
+
+#### Core spatialization functions
+
+**sp.spat** - Multi-channel spatialization with configurable speaker arrays:
+```faust
+// Basic usage
+process = sp.spat(N, angle, distance);
+
+// With custom speaker positions (angles in radians)
+speakers_angles = (0, 45, 90, 135, 180, 225, 270, 315); 
+process = sp.spat(8, angle, distance, speakers_angles);
+```
+
+**sp.stereoize** - Enhanced stereo spatialization:
+```faust
+// Creates natural stereo width with distance simulation
+process = sp.stereoize(angle) : sp.wide;
+```
+
+#### Panning algorithms
+
+**sp.panner** - Linear panning between speakers:
+```faust
+// N-channel panner with angle control (0-1)
+process = sp.panner(N, angle);
+```
+
+**sp.constantPowerPan** - Equal-power panning for consistent loudness:
+```faust
+// Maintains perceived loudness during panning
+process = sp.constantPowerPan(angle);
+```
+
+**sp.pannerMono** - Optimized mono-to-multichannel panning:
+```faust
+// Efficient single-source spatialization
+process = sp.pannerMono(N, angle);
+```
+
+#### Advanced spatial processors
+
+**sp.encoder3D** - 3D ambisonics encoding:
+```faust
+// Encodes to 3D ambisonics (requires x, y, z coordinates)
+process = sp.encoder3D(order, azimuth, elevation, radius);
+```
+
+**sp.decoder** - Ambisonics decoding to speaker arrays:
+```faust
+// Decode ambisonics to your speaker configuration
+process = sp.decoder(order, mode);  // mode: "regular", "maxre", "inphase"
+```
+
+**sp.wider** - Stereo width enhancement:
+```faust
+// Adjustable stereo widening (0 = mono, 1 = normal, >1 = wider)
+process = sp.wider(width);
+```
+
+#### Practical Faust spatial examples
+
+**Moving source with reverb zones:**
+```faust
+import("stdfaust.lib");
+
+angle = hslider("angle", 0, 0, 1, 0.01);
+distance = hslider("distance", 0.5, 0, 1, 0.01);
+reverb_mix = 1 - distance : smooth(0.99);  // More reverb when distant
+
+process = sp.spat(8, angle, distance) 
+        : par(i, 8, _ <: _, *(reverb_mix) : _, re.mono_freeverb : +);
+```
+
+**Frequency-dependent spatialization:**
+```faust
+// High frequencies focused, low frequencies omnidirectional
+splitfreq = 500;
+process = fi.filterbank(3, (splitfreq)) 
+        : sp.spat(8, angle * 0.3, distance),  // Bass: less directional
+          sp.spat(8, angle, distance);        // Treble: fully directional
+```
+
+**Multi-layer ambisonics with decorrelation:**
+```faust
+// 2nd order ambisonics with decorrelation for diffuse field
+process = sp.encoder3D(2, azimuth, elevation, 1)
+        : par(i, 9, de.delay(ma.SR/1000, i*2+1))  // Decorrelate channels
+        : sp.decoder(2, "maxre");
+```
+
+### SPARTA VST integration
+
+The SPARTA (Spatial Audio Real-time Applications) suite provides professional VST plugins for advanced spatial audio processing. These work seamlessly within *score*'s plugin hosting capabilities.
+
+#### Available SPARTA plugins
+
+**AmbiENC** - Ambisonic encoder:
+- **Multi-source encoding** up to 64 simultaneous sources
+- **Up to 7th order ambisonics** (64 channels)
+- **Real-time automation** of source positions via VST parameters
+
+**AmbiDEC** - Ambisonic decoder:
+- **Flexible speaker layouts** including irregular arrays
+- **Multiple decoding methods**: AllRAD, EPAD, MMD
+- **Built-in test signals** for speaker alignment
+
+**COMPASS** - Binaural rendering:
+- **Direct binaural synthesis** from ambisonics
+- **Multiple HRTF datasets** included
+- **Head-tracking support** via OSC
+
+**PowerMap** - Spatial analysis:
+- **Real-time visualization** of spatial sound field
+- **Activity maps** showing sound source directions
+- **Perfect for monitoring** spatial mixes
+
+#### Using SPARTA in *score*
+
+1. **Load as [[VST|VST plugins]]** in your score
+2. **Connect to spatial control data** via parameter automation
+3. **Chain with *score* processes** for hybrid workflows
+
+**Example workflow:**
+```
+[Multi-source audio] → [SPARTA AmbiENC] → [Ambisonic mix] → [SPARTA AmbiDEC] → [Speaker array]
+                              ↑
+                    [Position automation from score]
+```
+
+**Integration benefits:**
+- **Professional algorithms** tested in research and production
+- **Scientific accuracy** for precise spatial reproduction  
+- **CPU efficiency** through optimized C++ implementation
+- **Standard VST automation** for all spatial parameters
+
+**Pro tip:** Combine SPARTA's scientific precision with *score*'s creative control - use [[DBAP]] for artistic spatialization, then encode to ambisonics with SPARTA for archival or binaural rendering.
+
 ## Advanced spatial workflows
 
 ### Multi-source spatialization
