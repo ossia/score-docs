@@ -36,16 +36,16 @@ By the end of this tutorial, you will understand:
 ### Understanding the Interface
 
 You'll see these key panels:
-- **Device Explorer** (left): Shows available devices and their parameters
+- **[[Device explorer]]** (left): Shows available devices and their parameters
 - **Timeline** (center): Where you'll build your score
-- **Inspector** (right): Shows properties of selected objects
+- **[[Inspector]]** (right): Shows properties of selected objects
 
 ## Step 2: Adding Your Video (5 minutes)
 
 ### Import Video File
 
 1. **Drag and drop** your video file directly into the timeline
-2. ossia score automatically creates a **Video** process
+2. *score* automatically creates a **[[Video]]** process
 3. The video appears as an interval in the timeline
 
 ![Video Import]({{ site.img }}/quick-start/first-scene/01-video-import.png)
@@ -53,7 +53,7 @@ You'll see these key panels:
 ### Make It Loop
 
 1. **Select the video interval** by clicking on it
-2. In the **Inspector** (right panel), find "Loop" settings
+2. In the **[[Inspector]]** (right panel), find "Loop" settings
 3. **Enable looping** to make the video play continuously
 4. **Press the spacebar** to start playback
 
@@ -87,8 +87,8 @@ Now let's set up your MIDI controller to control the color.
 ### Add a MIDI Device
 
 1. **Connect your MIDI controller** to your computer
-2. In the **Device Explorer**, right-click and select **"Add device"**
-3. Choose **"MIDI"** from the protocol list
+2. In the **[[Device explorer]]**, right-click and select **"Add device"**
+3. Choose **"[[MIDI]]"** from the protocol list
 4. Select your MIDI controller from the device list
 5. Give it a name like "MyController"
 6. Click **"Add"**
