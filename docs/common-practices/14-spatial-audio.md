@@ -271,7 +271,7 @@ The SPARTA (Spatial Audio Real-time Applications) suite provides professional VS
 
 #### Using SPARTA in *score*
 
-1. **Load as [[VST|VST plugins]]** in your score
+1. **Load as [[audio effects|VST]]** in your score
 2. **Connect to spatial control data** via parameter automation
 3. **Chain with *score* processes** for hybrid workflows
 
