@@ -46,4 +46,4 @@ Works great for overwhelming [[Mapping Tool]] or [[Calibrator]] processes to tes
 
 ## Related processes
 
-Chain with [[Rate Limiter]] for controlled bursts, combine with [[Range Filter]] for selective message passing, or feed into [[Trigger]] for density-based event detection. Use [[Logic]] processes to start and stop spam bursts conditionally.
+Chain with [[Rate Limiter]] for controlled bursts, combine with [[Range Filter]] for selective message passing, or feed into [[Trigger]] for density-based event detection. 

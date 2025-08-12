@@ -17,6 +17,8 @@ Generate complex 3D geometry using rule-based procedural algorithms. Write progr
 
 Perfect for procedural art, architectural visualization, generative design, or any project where you need complex 3D geometry that would be tedious to model by hand.
 
+This is based on the code from the original [Structure Synth](https://structuresynth.sourceforge.net) software, which was ported to ossia.
+
 ## How it works
 
 Structure Synth interprets EisenScript programs that define recursive rules for generating 3D geometry. You write rules that describe how shapes should transform, combine, and multiply, then the system executes these rules to build complex 3D meshes.
@@ -31,7 +33,7 @@ Structure Synth interprets EisenScript programs that define recursive rules for 
 EisenScript is a straightforward language focused on geometric transformations and rule-based generation:
 
 ```eisenscript
-set maxdepth 2000
+set maxdepth 200
 
 { a 0.9 hue 30 } R1
 
@@ -76,27 +78,6 @@ The power of Structure Synth comes from recursive rule application:
 
 **Animation base**: Use Structure Synth to create base geometry, then animate parameters over time for evolving 3D structures.
 
-## Advanced EisenScript features
-
-**Color systems**: Full HSV color control with hue, saturation, and alpha parameters that can be inherited and modified by child rules.
-
-**Random variations**: Built-in randomization ensures that weighted rules create natural-looking variation in generated structures.
-
-**Complex transformations**: Combine multiple transformations in single commands for sophisticated geometric operations.
-
-**Nested structures**: Rules can create both primitive shapes and recursive sub-structures in the same execution.
-
-## Integration with score
-
-Structure Synth integrates perfectly with *score*'s 3D pipeline for visual installations and performances.
-
-**Parameter animation**: Use [[Automation]] to change script parameters over time for animated geometry generation.
-
-**Interactive control**: Connect sensor data or [[OSC]] input to modify generation parameters in real-time.
-
-**3D rendering**: Generated geometry works with all of *score*'s 3D rendering and lighting systems.
-
-**Performance optimization**: Generation happens on background threads to avoid blocking the main interface.
 
 ## Workflow and performance
 
@@ -112,7 +93,7 @@ Structure Synth integrates perfectly with *score*'s 3D pipeline for visual insta
 
 **Script saving**: Structure Synth programs save with your *score* projects and can be edited directly in the interface.
 
-**Library integration**: Save `.es` EisenScript files to your library for reuse across projects.
+**Library integration**: Save `.es` EisenScript files to your library for reuse across projects. A set of examples is provided as part of the score user library.
 
 **Drag and drop**: Drop `.es` files directly into *score* to load them into Structure Synth processes.
 
@@ -126,8 +107,6 @@ Structure Synth integrates perfectly with *score*'s 3D pipeline for visual insta
 
 **Unexpected results**: Remember that rules with the same name combine probabilistically - multiple definitions create random choices.
 
-**Color issues**: HSV values outside normal ranges (hue 0-360, saturation/alpha 0-1) can create unexpected coloring.
-
 ## Related processes
 
-Structure Synth works alongside other 3D processes for complete visual installations. Combine with [[3D Model]] for static elements, use [[Video]] processes for texturing, or integrate with spatial audio systems like [[DBAP]] for immersive audiovisual experiences.
+Structure Synth works alongside other 3D processes for complete visual installations. Combine with [[Meshes|Obj Loader]] for static elements, use [[Video]] processes for texturing, or integrate with shader effects for pixel-level modifications.

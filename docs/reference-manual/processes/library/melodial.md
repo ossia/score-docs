@@ -24,10 +24,10 @@ Melodial interprets nested array patterns where each step can contain single not
 **Pattern** - Nested array structure defining your sequence:  
 ```
 [
-  [[pitch, velocity], [pitch, velocity]],  // Chord in step 1
-  [[pitch, velocity]],                     // Single note in step 2
-  [],                                      // Rest in step 3
-  [[60, 100], [64, 80], [67, 90]]         // C major chord in step 4
+  [ [pitch, velocity], [pitch, velocity]] ,  // Chord in step 1
+  [ [pitch, velocity] ],                     // Single note in step 2
+  [],                                        // Rest in step 3
+  [ [60, 100], [64, 80], [67, 90]]           // C major chord in step 4
 ]
 ```
 

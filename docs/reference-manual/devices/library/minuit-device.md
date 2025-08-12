@@ -17,6 +17,8 @@ Connect to other creative coding applications and automatically discover their p
 
 Perfect for collaborative setups, distributed installations, or any project where multiple applications need to share parameter data seamlessly.
 
+Note that Minuit has been superseded by [[OSCQuery]].
+
 ## Setting up a Minuit device
 
 1. **Add device** in the [[Device explorer]] and choose "Minuit"
@@ -31,9 +33,9 @@ Both applications need to support the Minuit protocol for full bidirectional com
 
 Minuit builds on [[OSC]] but adds automatic tree discovery and rich metadata exchange. Instead of manually creating parameter addresses, Minuit lets applications announce their entire parameter structure and automatically stay synchronized.
 
-**Tree discovery** - Applications broadcast their parameter hierarchies  
-**Metadata exchange** - Share parameter types, ranges, units, and descriptions  
-**Real-time sync** - Changes in one application instantly appear in others  
+**Tree discovery** - Applications broadcast their parameter hierarchies
+**Metadata exchange** - Share parameter types, ranges, units, and descriptions
+**Real-time sync** - Changes in one application instantly appear in others
 **Bidirectional control** - Both applications can control each other's parameters
 
 ## Network configuration
@@ -123,11 +125,3 @@ Minuit devices appear in the [[Device explorer]] just like any other device, but
 **Firewall issues**: Network firewalls may block UDP communication - configure firewall rules to allow Minuit traffic.
 
 **Network latency**: High network latency can affect real-time parameter control - use local networks for best performance.
-
-## Related protocols
-
-Minuit complements other network protocols in *score*. Use alongside plain [[OSC]] for simple one-way communication, [[OSCQuery]] for HTTP-based discovery, or [[WebSocket]] for web-based applications. Each protocol has its strengths for different communication scenarios.
-
-## Related devices
-
-Works perfectly with other network devices like [[OSC]] for simple parameter sending, [[HTTP]] for web integration, or sensor devices like [[Kinect]] for input data that gets shared across the Minuit network.

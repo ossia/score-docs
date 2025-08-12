@@ -75,4 +75,4 @@ Chain multiple filters with different settings to create complex MIDI processing
 
 ## Related processes
 
-Works great with [[MIDI utilities]], [[Mapping Tool]] for parameter shaping, [[Calibrator]] for response curves, or [[Range Mapper]] for simple scaling. Combine with [[Audio Effects]] that respond to MIDI data.
+Works great with [[MIDI utilities]], [[Mapping Tool]] for parameter shaping, [[Calibrator]] for response curves, or [[Mapping]] for simple scaling. Combine with [[Audio Effects]] that respond to MIDI data.

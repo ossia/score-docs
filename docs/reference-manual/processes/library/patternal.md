@@ -21,9 +21,9 @@ Perfect for drum programming, rhythmic experimentation, or any situation where y
 
 Patternal takes pattern arrays where each pattern represents one drum sound (MIDI note) and a sequence of velocity values representing the rhythm. When it plays, each step in the pattern triggers at the right musical timing.
 
-**Pattern input** - Arrays of `[note_number, [velocity, velocity, velocity...]]`  
-**Musical sync** - Automatically quantizes to musical timing  
-**MIDI output** - Note-on/note-off messages sent to MIDI bus  
+**Pattern input** - Arrays of `[note_number, [velocity, velocity, velocity...]]`
+**Musical sync** - Automatically quantizes to musical timing
+**MIDI output** - Note-on/note-off messages sent to MIDI bus
 **Multiple drums** - Handle several drum sounds simultaneously
 
 ## Pattern format
@@ -41,6 +41,11 @@ Each pattern is a simple array with a MIDI note number and velocity sequence:
 **Note numbers**: Standard MIDI drum map (36 = kick, 38 = snare, 42 = hi-hat, etc.)  
 **Velocities**: 0-127 where 0 = silent, 127 = maximum volume  
 **Pattern length**: Can be any length - 4 steps, 8 steps, 16 steps, whatever you need
+
+A simple example of script that generates patterns in the required format is available: the `claves` Javascript preset.
+It showcases how one can use the Total Serialism library shipped with score to support generation of stochastic rhythms.
+
+![claves]({{ site.img }}/reference/processes/patternal/claves.png)
 
 ## Creative applications
 
@@ -60,9 +65,7 @@ Patternal automatically synchronizes to *score*'s musical timing system, which m
 
 **Tempo sync**: Pattern playback follows the project tempo - change the BPM and patterns speed up or slow down accordingly.
 
-**Time signature aware**: Assumes 4/4 time by default, with each pattern step representing a fraction of a bar.
-
-**Quantization**: Pattern steps align perfectly to musical timing - no drift or timing errors.
+**Quantization**: Pattern steps align perfectly to musical timing.
 
 **Frame-accurate**: MIDI messages are generated at precisely the right sample to maintain tight timing.
 
@@ -72,9 +75,7 @@ Works seamlessly with *score*'s MIDI system - connect the output to [[MIDI]] dev
 
 **MIDI routing**: Connect to any MIDI device or application that receives MIDI input.
 
-**Effect processing**: Send the generated patterns through [[MIDI Effects]] for additional processing.
-
-**Pattern automation**: Use [[Automation]] to change pattern data over time for evolving rhythms.
+**Effect processing**: Send the generated patterns through various MIDI Effects for additional processing.
 
 **Multiple instances**: Run several Patternal processes for different drum kits or layered rhythmic elements.
 
@@ -87,16 +88,6 @@ Works seamlessly with *score*'s MIDI system - connect the output to [[MIDI]] dev
 **Ghost notes**: Add subtle low-velocity hits between main beats for more human-like drum patterns.
 
 **Pattern morphing**: Gradually change pattern arrays to create smooth transitions between different rhythmic feels.
-
-## Workflow tips
-
-**Start simple**: Begin with basic 4-step patterns before experimenting with complex polyrhythms.
-
-**Think in layers**: Build patterns one drum sound at a time rather than trying to program everything at once.
-
-**Use standard drum maps**: Stick to General MIDI drum note numbers for compatibility with most drum software and hardware.
-
-**Test timing**: Verify that your patterns align correctly with the musical timing before building complex arrangements.
 
 ## Related processes
 

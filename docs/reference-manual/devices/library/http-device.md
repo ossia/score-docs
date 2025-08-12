@@ -130,4 +130,4 @@ The HTTP device works excellently with [[OSC]] for hybrid network protocols, dat
 
 ## Related devices
 
-Combine with [[OSC]] for comprehensive network communication, use with [[MQTT]] for IoT messaging protocols, or integrate with [[WebSocket]] for real-time bidirectional web communication.
+Combine with [[OSC]] for comprehensive network communication, use with [[MQTT]] for IoT messaging protocols, or integrate with [[WebSocket device]] for real-time bidirectional web communication.
