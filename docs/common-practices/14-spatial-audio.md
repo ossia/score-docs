@@ -14,23 +14,43 @@ permalink: /common-practices/14-spatial-audio.html
 
 *score* comes packed with tools for creating immersive spatial audio experiences: from simple stereo panning to complex 3D installations with dozens of speakers. Whether you're working on a concert hall piece, an art installation, or experimental spatial audio, this guide will get you up and running.
 
-![Spatial Audio Setup]({{ site.img }}/common-practices/spatial-audio-overview.png "Spatial Audio in ossia score")
-
 ## The basics: what is spatialization?
 
-Spatial audio is about placing sounds in 3D space around your audience. Instead of just "left" and "right", you can position sounds anywhere: behind, above, moving in circles, or scattered across a field of speakers.
+Spatial audio is about placing sounds in 3D space around your audience. 
+Instead of just "left" and "right", you can position sounds anywhere: behind, above, moving in circles, or scattered across a field of speakers.
 
-*score* gives you several approaches:
+*score* gives you several approaches to achieve this, and also integrates with multiple industry-standard tools and protocols for spatial audio.
+
+You can either generate object-based spatial audio scenes completely within *score*, leverage industry-standard sound spatialization plug-ins, or act purely as a controller for separate sound spatialization servers such as SpatGRIS.
+
+Some of the main features are:
+
 - **[[DBAP]]** - Works with any speaker layout, handles irregular arrangements.
 - **[[GBAP]]** - Grid-based spatialization for regular speaker arrays.
 - **[[Faust]]** spatialization - Including professional libraries like abclib for VBAP and ambisonics as well as simpler circular spatializers.
-- **[[Matrix]]** routing - Applying a spatialization matrix to the actual speakers.
-- **[[SpatGRIS]]** control - built-in support for the SpatGRIS OSC API.
-- **Channel-based** spatialization - many audio effects will scale to the number of input channels. The Audio Particles synthesizer will randomly generate sounds from a sample folder on a number of channels. 
+- **[[Spatialization Matrix]]** routing - Applying a spatialization matrix to the actual speakers.
+- SpatGRIS control - built-in support for the SpatGRIS OSC API.
+- Channel-based spatialization - many audio effects will scale to the number of input channels and will allow polyphonic controls.
 
-In addition, *score* supports loading VST and JSFX plug-ins: for instance, the SPARTA suite of audio plug-ins is well-suited to sound spatialization ; likewise, it is possible to use the Reaper Ambitools inside ossia, and even combine all these tools together.
+In addition, *score* supports loading many kinds of audio plug-ins: VST, JSFX, etc. For instance, the SPARTA and IEM suites of audio plug-ins are well-suited to sound spatialization ; likewise, it is possible to use the Reaper Ambitools inside ossia, and even combine all these tools together.
 
-## Quick start: your first spatial audio scene
+## Quick start: a first spatial audio scene
+
+![Basic Spatial Setup]({{ site.img }}/common-practices/spatialization/spatialization-dbap.png)
+
+A few tools are required to properly spatialize an audio object: 
+
+- A sound source: generally a mono sound file, synthesizer, etc.
+- A loudspeaker layout: 2D or 3D data representing how loudspeakers are physically located in the space you wish to spatialize audio in.
+
+> Note: it is also possible to simulate sound spatialization with headphones thanks to HRTF plug-ins and objects.
+
+- A spatialization trajectory: 2D or 3D position changes that will move the source over time. 
+- A spatialization algorithm: given trajectories and loudspeakers, computes how much of the signal spreads to each loudspeaker. This can be for instance [[DBAP]], [[GBAP]], VBAP or even a custom algorithm tailored to the use-case at hand.
+
+This can come from instance from pre-written trajectories with the [[2D Spline]] object, or from tools such as [[Path generator]].
+
+Finally, the [[Spatialization Matrix]] object will take the sound source and the loudspeaker weights output by the spatialization algorithm, and output the resulting audio signal.
 
 Let's create a simple moving sound that travels in a circle around a 4-speaker (classic quadriphonic) setup.
 
@@ -38,31 +58,40 @@ Let's create a simple moving sound that travels in a circle around a 4-speaker (
 
 First, tell *score* about your speaker arrangement:
 
-1. **Add a [[DBAP]] process** to your timeline
-2. **Click the DBAP process** to see its parameters
-3. **Set up your speaker positions** in the Speaker Positions parameter: either through a script to get precise positioning, or through a 2D positioning object.
-   ```javascript
-   [
-     [-1, -1],  // Left rear
-     [1, -1],   // Right rear  
-     [1, 1],    // Right front
-     [-1, 1]    // Left front
-   ]
-   ```
-4. **Connect your audio source** to the DBAP input
+1. For this example we will operate mainly in patch mode. Switch to patch mode with the relevant toggle.
+2. Add a [[Multi-Cursor Manager]] object and add four points: these will represent our loudspeakers. Remember that it is possible to visualize the loudspeakers with the [[Point2D View]] object. Alternatively, you can use [[Arraygen]] or [[Math expressions|Expression Value Generator]] to generate position through simple math expressions: for Arraygen, `return [ cos(2pi i / n), sin(2pi i / n) ];` would for instance lay out points on a circle. [[Math expressions|Expression Value Generator]] is the easiest way to directly return coordinates: `return [ 0, 0, 1, -1, 2, -2 ];`
+3. Add a sound file from your collection by dropping it in the interface, and make it loop from the inspector.
 
 ### 2. Add movement
 
-Now let's make the sound move in a circle:
+Now let's make the sound move:
 
-1. **Add a [[Path Generator]]** process
-2. **Set it to circular mode** with radius 0.8
-3. **Connect the Path Generator's XY output** to DBAP's Position input
-4. **Start playback** and hear your sound travel in a circle!
+1. Add a [[Path generator]] object and draw a simple line. The trajectory will loop over that line. Other modes are for circular and spiral motion, with more to be added over time.
+2. Add a [[DBAP]] process.
+3. Add a [[Spatialization Matrix]] process. Set the appropriate number of outputs for your layout.
+4. Now, let's connect everything: 
 
-**Congratulaations!** You're tipping your toes into spatial audio creation.
+ - The multi-cursor or expression defining the loudspeaker layout's output goes to the first DBAP inlet.
+ - The path generator output goes to the "Source" DBAP inlet as it is what defines the movement of our spatialized audio source.
+ - The DBAP output goes into the Matrix's data inlet.
+ - The sound file output goes into the Matrix's audio inlet.
+ 
+Press play, and you should hear the sound move. Congratulations! You're tipping your toes into spatial audio creation.
 
-![Basic Spatial Setup]({{ site.img }}/common-practices/basic-spatial-setup.png)
+
+## Spatial audio file playback
+
+There are two main cases of spatial audio files: classic multi-channel audio (e.g. 5.1, 7.1) and ambisonics.
+
+For traditional sound files, *score* natively supports arbitrary number of channels (as many as your computer can handle).
+Simply route them to the correct output.
+
+For ambisonics, if you have a file providing spatialized audio in e.g. B-format, you will need an ambisonics decoder.
+Multiple free decoders are available. 
+
+The simplest solution in that case is to use one of the Faust ambisonics decoder, provided as part of Alain Bonardi and Paul Goutmann's abclib library. This library of efficient spatialized sound algorithms is provided in the [[Package manager]]: install it.
+Then, you will be able to use objects such as abc_2d_stereodecoder, etc.
+
 
 ## Spatialization algorithms: choosing the right tool
 
@@ -76,17 +105,6 @@ DBAP is your go-to for most spatial audio work. It calculates speaker levels bas
 - When you want natural distance attenuation
 - Small to large speaker arrays (2 to 100+ speakers)
 
-**Key features:**
-- **Position input**: Vec2 for 2D (all speakers on the same plane) or Vec3 for 3D spatialization.
-- **Rolloff control**: How quickly sound fades with distance (0.1-50.0)
-- **Multiple sources**: Can spatialize several sounds simultaneously
-- **3D dome support**: Perfect for planetariums and immersive installations
-
-Try these settings:
-- **Concert hall**: Rolloff 2.0 for realistic distance feel
-- **Installation art**: Rolloff 6.0 for dramatic proximity effects
-- **Ambient spaces**: Rolloff 1.0 for gentle, wide spatialization
-
 ### GBAP (Grid-Based Amplitude Panning)
 
 GBAP works with regular grids of speakers or virtual sources. It's perfect when you want precise control over speaker arrays, or want to control your system through a hierarchical organization of spatialization with multiple GBAP processes in cascade. It is a useful tool to "weigh" an input across a generic grid.
@@ -94,28 +112,13 @@ For instance, a first GBAP process could handle spatialization at the building l
 
 **When to use GBAP:**
 - Regular speaker grids (4x4, 6x2, 8x8 arrays)
-- Integration with [[Multi-Cursor]] for multiple sources
 - Installations with matrix-arranged speakers
-- Hierarchical sound installations
+- Hierarchical sound installations and management
 
-**Interactive control:**
-- **Drag the cursor** in the 2D interface to position sounds
-- **Combine with [[Path Generator]]** for automated movement
-- **Use [[Multi-Cursor]]** to control multiple sound sources simultaneously
+### VBAP
 
-### Matrix routing: the spatial audio backbone
+### Ambisonics
 
-The [[Matrix]] process is essential for spatial audio: it connects spatial algorithms to your actual speakers with individual gain control.
-
-**Basic setup:**
-1. **Connect your spatial algorithm** (DBAP, GBAP) to the Matrix input
-2. **Configure Matrix** for your speaker count (e.g., 4 inputs, 8 outputs)
-3. **Connect Matrix outputs** to your audio interface channels
-4. **Fine-tune levels** for each speaker using the Matrix interface
-
-**Pro tip:** Save Matrix presets for different venues - you can quickly switch between speaker configurations without rebuilding your spatial audio patches.
-
-![Matrix Routing]({{ site.img }}/common-practices/matrix-routing.png)
 
 ## Faust spatialization: professional algorithms
 
@@ -253,6 +256,14 @@ process = sp.encoder3D(2, azimuth, elevation, 1)
         : par(i, 9, de.delay(ma.SR/1000, i*2+1))  // Decorrelate channels
         : sp.decoder(2, "maxre");
 ```
+
+### Ambix VST integration
+
+TODO
+
+### IEM VST integration
+
+TODO
 
 ### SPARTA VST integration
 
