@@ -2,7 +2,7 @@
 layout: default
 
 title: Graphics Utilities
-description: "Graphics Utilities"
+description: "Graphics processing and manipulation tools"
 
 parent: Processes
 grand_parent: Reference

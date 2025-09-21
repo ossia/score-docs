@@ -20,16 +20,19 @@ If the plug-in has a custom UI, it is possible to make it show up with the small
 
 For plug-ins with many controls, controls won't show up by default in the *score* user interface. When changed from the plug-in UI, if any, will show up in score and be automatable. The little "x" allows to remove an unwanted parameter.
 
-# Common formats: VST, VST3, LV2, JSFX
+# Common formats: CLAP, VST, VST3, LV2, JSFX
 
 Common plug-in formats are supported: 
 
 - VST 2.4 on all platforms.
 - VST 3 on all platforms.
-- LV2 on Linux. It is yet not shipped in the official releases, score needs to be built for source for LV2 support (or be used as a distribution package)
+- CLAP on all platforms.
+- LV2 on Linux.
 - JSFX on all platforms.
+- AirWindows on all platforms. AirWindows are a set of built-in plug-ins that cover an extremely wide range of useful audio effects: filters, dynamics, distortions, reverbs, etc.
 
 Plug-ins are started automatically on startup. If for some reason this must be disabled, because the scanning process causes issues, one can set the `SCORE_DISABLE_AUDIOPLUGINS=1` environment variable.
+Since LV2 plug-ins sometimes take a very long time to scan, it is possible to disable them specifically with `SCORE_DISABLE_LV2=1`.
 Already scanned plug-ins will still be available for VST and VST3.
 
 It is possible to save and reload presets ; however the built-in VST presets are not supported yet.

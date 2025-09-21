@@ -1,8 +1,4 @@
-on:
-  push:
-    branches:
-    - master
-
+on: push
 name: Master branch CI
 
 jobs:
@@ -23,8 +19,13 @@ jobs:
 
     - name: Build & Deploy to GitHub Pages
       uses: jcelerier/jekyll4-deploy-gh-pages@master
+      if: ${{ contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main', github.ref) }}
       env:
         GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         GITHUB_REPOSITORY: ossia/score-docs
         GITHUB_ACTOR: oscar
+
+    - name: Build
+      uses: jcelerier/jekyll4-deploy-gh-pages@master
+      if: ${{ !contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main', github.ref) }}
 

@@ -2,7 +2,7 @@
 layout: default
 
 title: Raw I/O device
-description: "Using the raw I/O protocol in ossia score"
+description: "Controlling GPIOs, ADCs, etc."
 
 parent: Devices
 grand_parent: Reference
