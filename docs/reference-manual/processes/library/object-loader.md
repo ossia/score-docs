@@ -71,4 +71,4 @@ Sets the scale factor for the mesh along each axis.
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/3d-pipeline.score)
+Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/3d.score)
