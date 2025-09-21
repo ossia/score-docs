@@ -2,7 +2,7 @@
 layout: default
 
 title: Display Utilities
-description: "Display Utilities"
+description: "Display management and output utilities"
 
 parent: Processes
 grand_parent: Reference

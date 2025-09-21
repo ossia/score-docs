@@ -107,6 +107,7 @@ color_scheme: custom
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-wikirefs
 
 markdown: kramdown
 kramdown:

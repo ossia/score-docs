@@ -29,3 +29,16 @@ ISF filters apply to the whole texture used as their input, which is then render
 We recommend using the official ISF editor to edit shaders for production work ; but it is possible to edit the shader code [[Live coding|live]] during execution of the score, by pressing {% include shortcut.html content="Ctrl+Enter" %} when in the code editor ; the shader will be updated automatically.
 
 The shader editor allows to edit both the fragment and the vertex shader.
+
+It is really important to leverage the ISF built-in functions to access textures: since score's graphics pipeline can leverage OpenGL, Vulkan, Metal and Direct3D, which all have different coordinates system, using the low-level primitives such as gl_FragCoord will yield Y direction inversions when using your shaders on different operating systems or grahpics backend.
+
+## Related Processes
+
+- [[VSA Shader]]: Similar to ISF shaders but for vertex instead of fragment shaders.
+- [[Compute Shader]]: Similar to ISF shaders but for compute instead of fragment shaders.
+- [[Model Display]]: To apply the shader onto a 3D surface.
+- [[Lightness Computer]]: To convert texture data into pixel arrays, for instance for [[LED design]].
+## Try it!
+
+Try it by downloading this [simple example]({{ site.scores }}/reference/processes/shell-command.score)!
+Note that the example requires gzdoom to work.

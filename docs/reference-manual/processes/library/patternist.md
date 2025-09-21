@@ -42,3 +42,14 @@ The minimal amount of steps is 4 and the maximum is 32.
 ## Rate
 
 To which musical declination corresponds a step: quarter note, 16th note, etc.
+
+
+## Workflow tips
+
+**Start simple**: Begin with basic 4-step patterns before experimenting with complex polyrhythms.
+
+**Think in layers**: Build patterns one drum sound at a time rather than trying to program everything at once.
+
+**Use standard drum maps**: Stick to General MIDI drum note numbers for compatibility with most drum software and hardware.
+
+**Test timing**: Verify that your patterns align correctly with the musical timing before building complex arrangements.

@@ -2,7 +2,7 @@
 layout: default
 
 title: Gestures
-description: "Puara-based gesture recognition"
+description: "Puara-based gesture recognition system"
 
 parent: Processes
 grand_parent: Reference

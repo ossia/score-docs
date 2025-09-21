@@ -3,5 +3,25 @@ gemspec
 
 gem "bundler", ">= 2.4.8"
 gem "webrick", "~> 1.7"
-gem "rake"
 gem "html-proofer"
+gem "rake"
+
+
+# gem "github-pages"
+gem "jekyll", "= 4.3.4"
+gem "jekyll-sass-converter", "= 3.0.0"
+gem "sass-embedded"
+# gem "sassc"
+
+group :jekyll_plugins do
+  gem 'jekyll-optional-front-matter'
+  gem "jekyll-sitemap"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-mentions"
+  gem "jekyll-avatar"
+  gem 'jekyll-wikirefs'
+  gem "kramdown"
+  gem "minima", "= 2.5.2"
+end
+

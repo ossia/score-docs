@@ -1,14 +1,26 @@
 ---
 layout: default
 
-title: Signal display
-description: "Displaying a control signal in ossia score"
+title: Signal Display
+description: "Real-time visualization of control signals"
 
 parent: Processes
 grand_parent: Reference
 
 permalink: /processes/signal-display.html
 ---
+# Signal Display
 
+![Signal Display]({{ site.img }}/reference/processes/signal-display.gif "Signal Display")
 
-Reference is not yet available. Feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.
+Visualize control signals in real-time for monitoring, debugging, and performance feedback. Signal Display shows you exactly what's happening with your parameter data, making it easy to understand signal flow and troubleshoot issues.
+
+Essential for understanding complex control systems, monitoring sensor inputs, or providing visual feedback during performances and installations.
+
+## Related processes
+
+*score* comes with multiple processes for monitoring input data [[LED View]], [[Point2D View]], [[Value display]].
+
+## Try it!
+
+Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/signal-display.score)
