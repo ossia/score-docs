@@ -127,4 +127,4 @@ compress_html:
 
 img: "/score-docs/assets/images"
 scores: "/score-docs/assets/scores"
-score_version: "3.3.2"
+score_version: "3.7.1"
