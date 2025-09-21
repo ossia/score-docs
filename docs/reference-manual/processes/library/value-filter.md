@@ -1,45 +1,41 @@
 ---
 layout: default
 
-title: Smooth
-description: "Applies filtering to smooth out noisy value streams"
+title: Value Filter
+description: "Toolbox for filtering incoming values"
 
 parent: Processes
 grand_parent: Reference
 
-permalink: /processes/smooth.html
+permalink: /processes/value-filter.html
 ---
-# Smooth
 
-![Smooth]({{ site.img }}/reference/processes/value-filter.png "Noise from LFO smoothed out by the filter")
+# Value Filter
 
-The Smooth process can be used to tame a noisy input stream, coming from a very sensitive sensor for example. The output of this process may be more usable than the raw stream to control other parameters.
+![Value Filter]({{ site.img }}/reference/processes/value-filter.gif "Value Filter in operation")
 
-## Continuous
+Value filter is a toolkit for letting incoming values go through according to multiple parameters:
 
-This setting will keep smoothing the signal at a regular rate even if there is no input, by assuming that the last input value is being continuously fed in.
-This allows to transform a signal with a slow data rate, for instance with a new value every two seconds, into a smooth control signal.
+- Is the value repeating or close to the last incoming value? (Noise gate)
 
-## Amount
+For instance, to turn the following input: 
 
-0 applies the least amount of filtering, 1 the most.
+> 0 1 1 1 0 1 0 0 1
 
-## Type
+Into 
 
-There are 4 different filters available: 
-* _OneEuro_ for the [1€ filter](https://cristal.univ-lille.fr/~casiez/1euro/).
-* _LowPass_ that only uses the low pass implementation from the one euro filter.
-* _Average_ for a floating average.
-* _Median_ for a floating median.
+> 0 1 0 1 0 1
 
-## Freq (1e/LP)
+or, with some margin:
 
-Minimum cutoff frequency for OneEuro and LowPass, between 0 and 300.
+> 0.1 0.8 1.1 -0.1 -0.08 1.02 
 
-## Cutoff (1e/LP)
+into
 
-Cutoff frequency of the derivative for OneEuro and LowPass, between 0 and 10.
+> 0.1 0.8 -0.1 1.02
 
-## Beta (1e only)
+- Is the value close in time to another value?
 
-Cutoff slope for OneEuro, between 0 and 10.
+- Do we want to clamp this value ?
+
+- If clamped, do we want to filter the repetition of the clamped values too? (Repetition filter)

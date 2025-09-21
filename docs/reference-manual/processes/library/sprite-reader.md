@@ -11,7 +11,7 @@ permalink: /processes/sprite-reader.html
 ---
 # Sprite Reader
 
-![Sprite Reader]({{ site.img }}/reference/processes/sprite-reader.png "Sprite Reader") 
+![Sprite Reader]({{ site.img }}/reference/processes/sprite-reader.gif "Sprite Reader") 
 
 The Sprite Reader process extracts individual sprites from sprite sheets, enabling retro-style animations and efficient texture usage. Perfect for game development aesthetics, pixel art animations, and nostalgic visual effects.
 
@@ -77,43 +77,7 @@ Percentage → Sprite:
 0.0 → 0, 0.125 → 1, 0.25 → 2, etc.
 ```
 
-## Usage Examples
-
-### Character Animation
-```
-[Character Sprite Sheet] → [Sprite Reader] → [Video Output]
-                              ↑
-                    [LFO] → [Image Count]
-```
-
-Animate a character by cycling through walk/run sprites using an LFO.
-
-### Interactive Sprite Selection
-```
-[OSC Controller] → [Sprite Reader] → [ISF Shader]
-                       ↑
-                [Image Count Control]
-```
-
-Let users select different character states or expressions via external control.
-
-### Retro Game UI
-```
-[UI Sprite Sheet] → [Sprite Reader] → [UI Overlay]
-                        ↑
-                [Button State Logic]
-```
-
-Display different button states (normal, hover, pressed) based on interaction.
-
-### Pixel Art Animation
-```
-[Animation Sprites] → [Sprite Reader] → [Pixel Art Effect]
-                          ↑
-                [Tempo-synced Automation]
-```
-
-Create tempo-synchronized pixel art animations for music visualization.
+For instance, you can create tempo-synchronized pixel art animations for music visualization.
 
 ## Sprite Sheet Preparation
 
@@ -136,87 +100,8 @@ Create tempo-synchronized pixel art animations for music visualization.
 - **JPEG**: Acceptable for photos but avoid for pixel art
 - **Use transparency**: PNG alpha channel for transparent backgrounds
 
-## Animation Techniques
 
-### Linear Animation
-Map a linear automation to Image Count for smooth sprite progression:
-```
-Timeline Automation: 0.0 → 1.0 over time
-Result: Plays all sprites in sequence
-```
 
-### Looping Animation
-Use modulo-like behavior by restricting the range:
-```
-LFO (Triangle) → Scale (0.0-0.8) → Image Count
-Result: Loops through first 80% of sprites
-```
+## Try it!
 
-### State-based Animation
-Use conditional logic to select sprite ranges:
-```
-Game State → Logic → Sprite Range Selection → Image Count
-```
-
-### Beat-synchronized Animation
-```
-Tempo → Beat Counter → Sprite Selection → Image Count
-```
-
-## Performance Considerations
-
-### Optimization Tips
-- **Texture size**: Keep sprite sheets reasonably sized (2048x2048 max recommended)
-- **Sprite count**: More sprites = more precise animation but larger memory usage
-- **Format choice**: PNG compression can reduce file size significantly
-- **GPU memory**: Large sprite sheets consume more VRAM
-
-### Memory Usage
-- **Formula**: Width × Height × 4 bytes (RGBA) = memory per sprite sheet
-- **Example**: 512×512 sprite sheet = ~1MB GPU memory
-- **Recommendation**: Monitor total texture memory usage in complex projects
-
-## Integration Examples
-
-### Game Development Pipeline
-```
-Art Software → Export Sprite Sheet → Sprite Reader → Game Logic
-```
-
-### VJ Performance Setup
-```
-Multiple Sprite Sheets → Sprite Readers → Mixer → Output
-                            ↑
-                    MIDI Controller Input
-```
-
-### Educational Content
-```
-Educational Sprites → Sprite Reader → Interactive Learning App
-                         ↑
-                Student Input Control
-```
-
-## Troubleshooting
-
-### Common Issues
-- **Blank output**: Check that Image Count is within 0.0-1.0 range
-- **Wrong sprites**: Verify Sprite Size matches your sprite sheet grid
-- **Distorted sprites**: Ensure sprites are perfectly aligned in source image
-- **Performance issues**: Reduce sprite sheet size or sprite count
-
-### Grid Calculation Problems
-- **Missing sprites**: Check if image dimensions are exactly divisible by sprite size
-- **Incorrect indexing**: Verify sprite layout follows left-to-right, top-to-bottom order
-- **Border artifacts**: Ensure no spacing between sprites in source image
-
-## Related Processes
-
-- **Image Process**: Load and display static images
-- **Video**: Play video files frame by frame
-- **ISF Shader**: Apply effects to sprite output
-- **Texture Generator**: Create procedural sprite-like textures
-
-## Technical Implementation
-
-The Sprite Reader uses Qt's QImage for image processing, providing reliable cross-platform image loading and manipulation. The process efficiently extracts sprite regions without copying the entire source image to GPU memory.
+Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/sprite-reader.score)

@@ -28,7 +28,7 @@ Some of the main features are:
 - **[[DBAP]]** - Works with any speaker layout, handles irregular arrangements.
 - **[[GBAP]]** - Grid-based spatialization for regular speaker arrays.
 - **[[Faust]]** spatialization - Including professional libraries like abclib for VBAP and ambisonics as well as simpler circular spatializers.
-- **[[Spatialization Matrix]]** routing - Applying a spatialization matrix to the actual speakers.
+- **[[Matrix Spatialization]]** for routing - Applying a spatialization matrix to the actual speakers.
 - SpatGRIS control - built-in support for the SpatGRIS OSC API.
 - Channel-based spatialization - many audio effects will scale to the number of input channels and will allow polyphonic controls.
 
@@ -50,7 +50,7 @@ A few tools are required to properly spatialize an audio object:
 
 This can come from instance from pre-written trajectories with the [[2D Spline]] object, or from tools such as [[Path generator]].
 
-Finally, the [[Spatialization Matrix]] object will take the sound source and the loudspeaker weights output by the spatialization algorithm, and output the resulting audio signal.
+Finally, the [[Matrix Spatialization]] object will take the sound source and the loudspeaker weights output by the spatialization algorithm, and output the resulting audio signal.
 
 Let's create a simple moving sound that travels in a circle around a 4-speaker (classic quadriphonic) setup.
 
@@ -68,7 +68,7 @@ Now let's make the sound move:
 
 1. Add a [[Path generator]] object and draw a simple line. The trajectory will loop over that line. Other modes are for circular and spiral motion, with more to be added over time.
 2. Add a [[DBAP]] process.
-3. Add a [[Spatialization Matrix]] process. Set the appropriate number of outputs for your layout.
+3. Add a [[Matrix Spatialization]] process. Set the appropriate number of outputs for your layout.
 4. Now, let's connect everything: 
 
  - The multi-cursor or expression defining the loudspeaker layout's output goes to the first DBAP inlet.

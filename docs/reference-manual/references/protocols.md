@@ -34,7 +34,8 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [here]({{ site.baseurl }}/devices/coap-device.html).
 * MQTT.
   * Documented [here]({{ site.baseurl }}/devices/mqtt-device.html).
-
+* LSL (Lab Streaming Layer).
+  * Documented [here]({{ site.baseurl }}/devices/lsl-device.html).
 
 # Lighting protocols
 
@@ -110,7 +111,7 @@ See the [[MIDI|MIDI documentation]] for more information.
 *score* uses [FFMPEG](https://ffmpeg.org/) for its audio needs.
 
 It should support most codecs and formats listed [at this page](https://ffmpeg.org/general.html#Audio-Codecs).
-Every standard format (AIFF, MP3, OGG Vorbis, FLAC, etc) should be supported without issues.
+Every standard format (WAV, W64, AIFF, MP3, OGG Vorbis, FLAC, etc.) are supported without issues.
 
 *score* handles WAV files in a specific way, through the [dr_wav](https://github.com/mackron/dr_libs/) library, to allow for memory-mapping the data for large files.
 
@@ -123,7 +124,7 @@ See the [sound file process documentation]({{ site.baseurl }}/processes/soundfil
 *score* uses [FFMPEG](https://ffmpeg.org/) for its video needs.
 
 It should support most codecs and formats listed [at this page](https://ffmpeg.org/general.html#Video-Codecs).
-In particular, H.264, H.265, Apple ProRes, etc. should be supported.
+In particular, H.264, H.265, Apple ProRes, AVCHD, etc. should be supported.
 
 [HAP codecs](https://hap.video) are handled in a different way: for maximum performance, decoding is done by *score* (which allows doing it on the graphics card, while FFMPEG's HAP decoding happens on the CPU which defeats the point of the codec).
 
@@ -138,17 +139,24 @@ Supported APIs are:
 * VideoToolbox on macOS.
 * V4L2-M2M on Raspberry Pi and embedded.
 
-If one builds *score* from source with a custom FFMPEG version, it is also possible to have CUDA and QuickSync support.
+If one builds *score* from source with a custom FFMPEG version, or through a Linux distribution, it is also possible to have CUDA and QuickSync support.
 
 ## Hardware rendering
 *score* will try to render some common video texture formats on the GPU with shaders instead of converting them to RGB on the CPU, for maximum performance.
 Make sure that your video frames are in one of these pixel formats: if so, decoding won't take CPU time.
 
 - RGB, RGBA, ARGB, ABGR and any variation thereof, planar or packed, 8 bits (int) or 32 bits (float)
-- YUV420P, YUV422P
+- YUV420P
+- YUV420P10
+- YUV420P12
+- YUV422P
+- YUV422P10
+- YUV422P12
 - NV12
 - YUYV422, UYVY422
 - HAP, HAP-Q, HAP-M
+
+Supported color spaces for source videos are BT.601, BT.709 and BT.2020.
 
 # Image file formats
 
@@ -158,11 +166,12 @@ See the [image process documentation]({{ site.baseurl }}/processes/image.html) f
 
 # 3D file formats
 
-*score* can load `.obj` files.
+*score* can load `.obj` and `.ply` files through the [[Object Loader]] process.
+In addition, the JS object allows to leverage Qt3D and QtQuick3D which both support loading many more formats (most importantly glTF / GLB).
 
 # Graphics APIs
 
-*score* uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d) as graphics abstraction for the video pipeline. It is able to use OpenGL ES 2.0, Vulkan, Metal, and Direct 3D 11 in a very efficient way.
+*score* uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d) as graphics abstraction for the video pipeline. It is able to use OpenGL ES 2.0, Vulkan, Metal, Direct3D 11 and Direct3D 12 in a very efficient way.
 
 *score* shaders are written with the [Interactive Shader Format](https://isf.video) specification.
 
@@ -173,10 +182,14 @@ See the [[graphics pipeline|general video documentation]] for general informatio
 
 *score* supports the following audio plug-in systems:
 
+* [AirWindows](https://www.airwindows.com/) on all platforms.
+  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
+* [CLAP](https://github.com/free-audio/clap) on all platforms.
+  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
 * [Steinberg VST3](https://www.steinberg.net/en/company/technologies/vst3.html) on all platforms.
-  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#vst3).
+  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
 * [LV2](https://lv2plug.in) on Linux. Note that currently this requires building *score* on your own computer or use a Linux distro package.
-  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#lv2).
+  * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
 * [JSFX](https://www.cockos.com/jsfx/) is embedded in *score* through [ysfx](https://github.com/jpcima/ysfx).
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html#jsfx).
 * [Faust](https://faust.grame.fr/), the Faust programming language developed by GRAME. *score* embeds the Faust compiler and libraries.

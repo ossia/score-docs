@@ -15,6 +15,7 @@ permalink: /processes/qwen-llm.html
 
 The Qwen LLM process enables local inference of Qwen language models for text generation, conversation, and creative applications within score.
 
+
 ## Overview
 
 Qwen (通义千问) is a series of large language models that can be run locally for:
@@ -26,35 +27,28 @@ Qwen (通义千问) is a series of large language models that can be run locally
 
 ## Inputs
 
-| Port | Type | Description |
-|------|------|-------------|
-| Prompt | String | Input text or question |
-| System Message | String | System-level instructions |
-| Context | String Array | Conversation history |
-| Temperature | Float | Randomness control |
-| Max Tokens | Integer | Maximum response length |
+| Port | Type | Description | Default | Range |
+|------|------|-------------|---------|-------|
+| Prompt | String | Input text or question | - | - |
+| Model | File Selector | Path to Qwen ONNX model | - | .onnx files |
+| Tokenizer | File Selector | Path to Qwen tokenizer | - | .json files |
+| Temperature | Float | Randomness control | - | - |
+| Top P | Float | Nucleus sampling | 0.9 | 0.0-1.0 |
+| Max Tokens | Integer | Maximum response length | - | - |
+| Top K | Integer | Top-k sampling | 50 | 1-100 |
 
 ## Outputs
 
 | Port | Type | Description |
 |------|------|-------------|
 | Response | String | Generated text |
-| Tokens Used | Integer | Number of tokens processed |
-| Generation Info | Object | Detailed generation statistics |
-| Stream | String | Token-by-token output stream |
-
-## Parameters
-
-| Parameter | Widget | Description | Default | Range |
-|-----------|--------|-------------|---------|-------|
-| Model | File Selector | Path to Qwen ONNX model | - | .onnx files |
-| Temperature | Float | Response randomness | 0.7 | 0.0-2.0 |
-| Top P | Float | Nucleus sampling | 0.9 | 0.0-1.0 |
-| Top K | Integer | Top-k sampling | 50 | 1-100 |
-| Repetition Penalty | Float | Reduce repetition | 1.1 | 1.0-2.0 |
-| Stream Output | Toggle | Enable streaming | Off | On/Off |
+| Tokens/second | Float | Number of tokens processed |
+| Generation Info | Float | Generation statistics |
 
 ## Model Variants
+
+There are multiple variants of Qwen, all with different tradeoffs.
+For instance, you can download the smallest, 0.6B, [on HuggingFace](https://huggingface.co/onnx-community/Qwen3-0.6B-ONNX).
 
 ### Qwen-1.8B
 - Lightweight, fast inference
@@ -155,18 +149,6 @@ Combine with other AI processes:
               [Poetic Interpretation] → [Display]
 ```
 
-### Interactive Installation
-
-Create responsive text environments:
-
-```
-[Visitor Input] → [Qwen LLM] → [Response]
-                      ↑             ↓
-              [Context Manager]  [Projection]
-                      ↑
-              [Conversation History]
-```
-
 ### Code Generation
 
 Generate live code for other processes:
@@ -177,38 +159,19 @@ Generate live code for other processes:
                                             [JS Process]
 ```
 
-## Advanced Features
-
-### Context Management
-- Maintain conversation history
-- Implement sliding window contexts
-- Clear context on specific triggers
-
-### Token Control
-- Monitor token usage for costs
-- Implement token limits
-- Use token-aware truncation
-
-### Output Filtering
-- Implement content filtering
-- Format output for specific uses
-- Parse structured responses
-
 ## Best Practices
 
-1. **Model Selection**: Choose model size based on quality/performance needs
-2. **Temperature Tuning**: Lower for consistency, higher for creativity
-3. **Context Length**: Balance context with performance
-4. **Error Handling**: Implement fallbacks for failed generations
-5. **Resource Monitoring**: Watch memory and CPU/GPU usage
+1.  Model Selection : Choose model size based on quality/performance needs
+2.  Temperature Tuning : Lower for consistency, higher for creativity
+3.  Context Length : Balance context with performance
+4.  Error Handling : Implement fallbacks for failed generations
+5.  Resource Monitoring : Watch memory and CPU/GPU usage
 
 ## Troubleshooting
 
 ### Slow Generation
 - Use smaller models
 - Reduce max token length
-- Enable GPU acceleration
-- Implement streaming
 
 ### Poor Quality Output
 - Adjust temperature and sampling parameters
@@ -246,5 +209,5 @@ Generate live code for other processes:
 
 - [AI Prompt Composer](/processes/ai-prompt-composer.html) - Build complex prompts
 - [FastVLM](/processes/fastvlm.html) - Video understanding
-- [Text](/processes/text.html) - Text manipulation
+- [Text](/processes/text.html) - Text display
 - [JavaScript](/processes/javascript.html) - Process generated code

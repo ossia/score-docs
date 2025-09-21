@@ -317,7 +317,6 @@ Handle building models:
 
 ## Related Processes
 
-- [3D Model Display](/processes/3d-model-display.html) - Basic 3D model rendering
-- [Shader](/processes/shaders.html) - Fragment shader effects
-- [Computer Vision](/processes/computer-vision-utilities.html) - Image-based geometry
+- [[Model Display]] - Basic 3D model rendering
+- [[ISF Shader]](/processes/shaders.html) - Fragment shader effects
 - [Point Cloud](/processes/point-cloud.html) - Point cloud processing

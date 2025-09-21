@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: Signal Display
+title: Value Display
 description: "Real-time visualization of input data"
 
 parent: Processes
@@ -16,6 +16,8 @@ permalink: /processes/value-display.html
 Visualize control signals in real-time for monitoring, debugging, and performance feedback. Value Display shows you the current value being ouput from a given node, or an input OSC or network message.
 
 Simply connect it to an output and watch the result.
+
+The inspector allows to select how many recent values are retained.
 
 ## Related processes
 

@@ -9,7 +9,7 @@ grand_parent: Reference
 
 permalink: /processes/trigger.html
 ---
-# Range filter
+# Trigger
 
 ![Trigger]({{ site.img }}/reference/processes/trigger.png "Trigger")
 
@@ -30,3 +30,9 @@ then given a min of 2 and max of 4, there will be:
 
 - An "enter" trigger when the 3.6 message is received (we entered the range)
 - A "leave" trigger when the 1457 message is received (we left the range).
+
+The second operation mode, "Outside/Inside" instead sends messages whenever the values enter or exit the range.
+
+## Try it!
+
+Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/trigger.score)
