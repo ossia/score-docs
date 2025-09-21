@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 gemspec
 
-gem "bundler", ">= 2.4.8"
+gem "bundler"
 gem "webrick", "~> 1.7"
 gem "html-proofer"
 gem "rake"
