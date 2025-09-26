@@ -8,8 +8,9 @@ gem "rake"
 
 
 # gem "github-pages"
-gem "jekyll", "= 4.3.4"
-gem "jekyll-sass-converter", "= 3.0.0"
+gem "jekyll", ">= 4.3.4"
+gem "jekyll-sass-converter", ">= 3.0.0"
+gem "google-protobuf", ">= 4.31.0"
 gem "sass-embedded"
 # gem "sassc"
 

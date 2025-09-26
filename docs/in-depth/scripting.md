@@ -31,7 +31,7 @@ A script can introduce a function which can then be leveraged by the Javascript 
 
 ## Scripting in the console panel
 
-The [[console]] (shortcut: {% include shortcut.html content="Ctrl+Shift+C" %}) allows to quickly test scripts in a REPL fashion.
+The [[Console]] (shortcut: {% include shortcut.html content="Ctrl+Shift+C" %}) allows to quickly test scripts in a REPL fashion.
 
 It is also useful as a simple calculator :-)
 
