@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Working with devices"
+title: Working with devices
 description: "Working with devices"
 
 parent: Quick start

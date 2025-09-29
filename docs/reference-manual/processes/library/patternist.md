@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: MIDI pattern sequencer
+title: Patternist
 description: "Send MIDI messages according to rhythmic patterns"
 
 parent: Processes

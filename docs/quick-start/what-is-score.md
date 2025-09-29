@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "What is score ?"
+title: What is score ?
 description: "What is score ?"
 
 parent: Quick start

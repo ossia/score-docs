@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Out-of-time triggering"
+title: Out-of-time triggering
 description: "Out-of-time triggering in ossia score"
 
 nav_order: 3
@@ -14,7 +14,7 @@ permalink: /common-practices/3-out-of-time.html
 
 By default, `score` works as a time-line: time flows from the start to the end of the score.
 
-As mentioned by [[non-linear timelines|the quick start guide]], the time-line can be made non-linear
+As mentioned by [[non-linear timeline|the quick start guide]], the time-line can be made non-linear
 by adding triggers and graph connections.
 
 It is possible to go one step further, by entirely removing parts of the score from

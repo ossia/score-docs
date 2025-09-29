@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Integrating with Blender"
+title: Integrating with Blender
 description: "Integrating with Blender"
 
 nav_order: 1

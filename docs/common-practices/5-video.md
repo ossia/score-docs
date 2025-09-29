@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Video techniques"
+title: Video techniques
 description: "Video in ossia score"
 
 nav_order: 6

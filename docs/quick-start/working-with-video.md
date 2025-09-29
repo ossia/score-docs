@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Working with video"
+title: Working with video
 description: "Working with video within *score*"
 
 parent: Quick start

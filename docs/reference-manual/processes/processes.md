@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Processes"
+title: Processes
 description: "Reference of ossia score processes"
 
 parent: Reference

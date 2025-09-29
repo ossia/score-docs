@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Breaking the timeline"
+title: Breaking the timeline
 description: "Breaking the timeline"
 
 parent: Quick start

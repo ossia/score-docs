@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Audio routing"
+title: Audio routing
 description: "How audio goes from a process to another"
 
 parent: In depth

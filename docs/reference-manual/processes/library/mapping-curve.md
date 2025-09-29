@@ -60,7 +60,7 @@ Mapping Curve presents a visual editor where you can draw or edit curves that de
 
 ## Integration with score
 
-Mapping Curve works perfectly with any control source - [[MIDI]] controllers, sensor data from device protocols, [[LFO]] output, or any other parameter data that needs custom shaping.
+Mapping Curve works perfectly with any control source - [[MIDI support|MIDI]] controllers, sensor data from device protocols, [[LFO]] output, or any other parameter data that needs custom shaping.
 
 **Cascading curves**: Chain multiple Mapping Curve processes for complex transformations that build on each other.
 

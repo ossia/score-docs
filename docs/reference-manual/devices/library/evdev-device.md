@@ -123,4 +123,4 @@ Evdev works perfectly with [[Mapping Tool]] to shape raw input data into useful 
 
 ## Related devices
 
-Evdev provides low-level access that complements higher-level device protocols. Use alongside [[MIDI]] for musical devices, [[OSC]] for network communication, or [[Joystick]] device for standardized game controller access.
+Evdev provides low-level access that complements higher-level device protocols. Use alongside [[MIDI support|MIDI]] for musical devices, [[OSC]] for network communication, or [[Joystick]] device for standardized game controller access.

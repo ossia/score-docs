@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Device explorer"
+title: Device explorer
 description: "How to use the device explorer in ossia score"
 
 parent: Panels

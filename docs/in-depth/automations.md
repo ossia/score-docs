@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Automations"
+title: Automations
 description: "How automations work in ossia score"
 
 parent: In depth
@@ -39,6 +39,6 @@ Automations can use the *ossia* [[Address system|address and unit system]].
 
 ## Recording
 
-It is possible to [[record]] messages from external devices as automations.
+It is possible to [[Recording|record]] messages from external devices as automations.
 
 See also the [[preferences]] for various options concerning the way these automations are recorded.

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Spatial audio techniques"
+title: Spatial audio techniques
 description: "Sound spatialization workflows in ossia score"
 
 nav_order: 15
@@ -59,7 +59,7 @@ Let's create a simple moving sound that travels in a circle around a 4-speaker (
 First, tell *score* about your speaker arrangement:
 
 1. For this example we will operate mainly in patch mode. Switch to patch mode with the relevant toggle.
-2. Add a [[Multi-Cursor Manager]] object and add four points: these will represent our loudspeakers. Remember that it is possible to visualize the loudspeakers with the [[Point2D View]] object. Alternatively, you can use [[Arraygen]] or [[Math expressions|Expression Value Generator]] to generate position through simple math expressions: for Arraygen, `return [ cos(2pi i / n), sin(2pi i / n) ];` would for instance lay out points on a circle. [[Math expressions|Expression Value Generator]] is the easiest way to directly return coordinates: `return [ 0, 0, 1, -1, 2, -2 ];`
+2. Add a [[Multi-Cursor Manager]] object and add four points: these will represent our loudspeakers. Remember that it is possible to visualize the loudspeakers with the [[Point2D View]] object. Alternatively, you can use [[Math expressions|Arraygen]] or [[Math expressions|Expression Value Generator]] to generate position through simple math expressions: for Arraygen, `return [ cos(2pi i / n), sin(2pi i / n) ];` would for instance lay out points on a circle. [[Math expressions|Expression Value Generator]] is the easiest way to directly return coordinates: `return [ 0, 0, 1, -1, 2, -2 ];`
 3. Add a sound file from your collection by dropping it in the interface, and make it loop from the inspector.
 
 ### 2. Add movement
@@ -345,7 +345,7 @@ Go beyond simple circular movement with [[Path Generator]] combinations:
 
 **Interactive control:**
 - **Map sensors** to path parameters using [[Mapping Tool]]
-- **Use [[MIDI]] controllers** to adjust trajectory in real-time
+- **Use [[MIDI support|MIDI]] controllers** to adjust trajectory in real-time
 - **Connect [[OSC]]** devices for gestural control of spatial movement
 
 ![Complex Trajectories]({{ site.img }}/common-practices/complex-trajectories.png)

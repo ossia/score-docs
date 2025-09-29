@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Supported protocols and formats"
+title: Supported protocols and formats
 description: "With which protocols, files, software, hardware is score compatible ?"
 
 parent: Reference

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Remote Control"
+title: Remote Control
 description: "Remote control through a WebSocket API"
 
 parent: In depth

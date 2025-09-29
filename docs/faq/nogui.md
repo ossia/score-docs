@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "How to run score without GUI ?"
+title: How to run score without GUI ?
 description: "Using the command line API to launch score witht GUI"
 
 parent: FAQ

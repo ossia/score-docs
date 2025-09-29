@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "States & automations in practice"
+title: States & automations in practice
 description: "States and automations in practice"
 
 parent: Quick start

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Running on Linux"
+title: Running on Linux
 description: "Linux configurations options to use ossia scoreefficiently"
 
 parent: FAQ

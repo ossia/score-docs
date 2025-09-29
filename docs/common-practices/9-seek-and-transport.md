@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Seek and transport"
+title: Seek and transport
 description: "Seek and transport"
 
 nav_order: 9

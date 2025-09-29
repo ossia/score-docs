@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Custom UI"
+title: Custom UI
 description: "How to create custom UIs for your scores"
 
 parent: In depth

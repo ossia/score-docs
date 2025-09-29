@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "LED design"
+title: LED design
 description: "Design LED shows with ossia"
 
 nav_order: 13
@@ -20,7 +20,7 @@ permalink: /common-practices/13-led-design.html
 ## Tools of the trade
 ### List of useful devices
 
-- [[Artnet Device]]: when created without any fixture, the raw DMX channels will be available, as well as the ability to send raw messages to the whole device.
+- [[Art-Net Device]]: when created without any fixture, the raw DMX channels will be available, as well as the ability to send raw messages to the whole device.
 
 ### List of useful objects
 

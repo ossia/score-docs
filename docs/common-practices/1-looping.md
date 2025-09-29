@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Looping"
+title: Looping
 description: "Looping in ossia score"
 
 nav_order: 1

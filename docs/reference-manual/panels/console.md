@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Console"
+title: Console
 description: "How to use the Javascript console in ossia score"
 
 parent: Panels

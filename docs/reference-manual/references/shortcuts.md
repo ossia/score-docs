@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Shortcuts"
+title: Shortcuts
 description: "Default keyboard shortcuts in ossia score"
 
 parent: Reference

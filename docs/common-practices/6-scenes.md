@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Scenes"
+title: Scenes
 description: "Scenes in ossia score"
 
 nav_order: 4

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Video mixing and mapping"
+title: Video mixing and mapping
 description: "Video mixing and mapping"
 
 nav_order: 11

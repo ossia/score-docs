@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Scripting"
+title: Scripting
 description: "Writing JS scripts to perform editor actions"
 
 parent: In depth

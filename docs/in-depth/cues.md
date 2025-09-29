@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Cues"
+title: Cues
 description: "How to store and recall cues"
 
 parent: In depth

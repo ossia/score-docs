@@ -13,7 +13,7 @@ permalink: /processes/audio-effects.html
 
 ![Audio Effects]({{ site.img }}/reference/processes/audio-effects.png "Audio Effects")
 
-*score* comes with a built-in collection of professional audio effects that you can drag'n'drop directly into your projects. These effects are based on established DSP libraries including Lance Putnam's Gamma library and the ofxTonic framework.
+*score* comes with a built-in collection of professional audio effects that you can drag'n'drop directly into your projects. These effects are based on established DSP libraries including Lance Putnam's Gamma library.
 
 You'll find five main types of audio processing:
 - **Flanger** - Classic jet-like sweeping effects
@@ -22,7 +22,7 @@ You'll find five main types of audio processing:
 - **Limiter** - Transparent level limiting
 - **Bitcrush** - Lo-fi digital destruction
 
-All effects are optimized for real-time performance and can be combined with [[Faust]] processes or [[CLAP Plugins]] to create complex audio processing chains.
+All effects are optimized for real-time performance and can be combined with [[Faust]] processes or [[Audio Plugins]] to create complex audio processing chains.
 
 ## Flanger {#flanger}
 
@@ -107,4 +107,4 @@ Try Rate: 8000Hz, Crush: 0.2 for subtle lo-fi character. For extreme 8-bit destr
 
 ## Related processes
 
-These audio effects work great with [[Audio Utilities]], [[CLAP Plugins]], and [[Faust]] processes. You can also chain them with the [[Audio Looper]] for creative sound design.
+These audio effects work great with [[Audio Utilities]], [[Audio Plugins]], and [[Faust]] processes. 

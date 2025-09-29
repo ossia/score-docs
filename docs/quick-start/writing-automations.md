@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Writing automations"
+title: Writing automations
 description: "Writing automations"
 
 parent: Quick start

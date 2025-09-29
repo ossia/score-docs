@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Recording"
+title: Recording
 description: "Recording external parameter changes"
 
 parent: In depth

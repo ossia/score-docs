@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Audio techniques"
+title: Audio techniques
 description: "Audio in ossia score"
 
 nav_order: 5

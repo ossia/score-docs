@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "How to monitor activity ?"
+title: How to monitor activity ?
 description: "Monitoring messages coming in and out"
 
 parent: FAQ

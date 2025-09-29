@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Start/stop cues"
+title: Start/stop cues
 description: "Actions when playing and stopping the score"
 
 nav_order: 7

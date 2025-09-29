@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Switches"
+title: Switches
 description: "Switches in ossia score"
 
 nav_order: 2

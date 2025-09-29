@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Musical metrics"
+title: Musical metrics
 description: "How to use the musical features of ossia score"
 
 parent: In depth

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Plug-ins with Avendish"
+title: Plug-ins with Avendish
 description: "Writing plug-ins with the Avendish API"
 
 parent: "Plug-ins"

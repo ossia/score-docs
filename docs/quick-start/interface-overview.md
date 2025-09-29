@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Interface overview"
+title: Interface overview
 description: "Interface overview"
 
 parent: Quick start

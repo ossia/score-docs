@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Graphics pipeline"
+title: Graphics pipeline
 description: "Understanding the ossia score graphics pipeline"
 
 parent: In depth

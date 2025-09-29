@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Controlling score with OSCQuery"
+title: Controlling score with OSCQuery
 description: "How to trigger events in a score from the network"
 
 parent: FAQ

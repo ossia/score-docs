@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Non-linear timeline"
+title: Non-linear timeline
 description: "Non-linear timeline"
 
 parent: Quick start

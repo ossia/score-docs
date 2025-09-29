@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Mixer"
+title: Mixer
 description: "How to use the audio mixing busses"
 
 parent: Panels

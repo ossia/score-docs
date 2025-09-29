@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Panels"
+title: Panels
 description: "Reference of ossia score panels"
 
 parent: Reference

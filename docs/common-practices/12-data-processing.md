@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Data processing and filtering"
+title: Data processing and filtering
 description: "Data processing and filtering"
 
 nav_order: 12

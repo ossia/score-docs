@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Release build"
+title: Release build
 description: "Creating a release build of score for production"
 
 parent: "Building from source"

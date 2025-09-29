@@ -107,6 +107,7 @@ color_scheme: custom
 
 plugins:
   - jekyll-seo-tag
+# - jekyll-graph
   - jekyll-wikirefs
 
 markdown: kramdown
@@ -124,6 +125,26 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
+
+wikirefs:
+  attributes:
+    enabled: true
+  case: 'none'
+  css:
+    exclude: []
+    name:
+      typed: 'typed'
+      wiki: 'wiki-link'
+      web: 'web-link'
+      invalid_wiki: 'invalid-wiki-link'
+      embed_container: 'embed-container'
+      embed_title: 'embed-title'
+      embed_content: 'embed-content'
+      embed_link: 'embed-wiki-link'
+      embed_image_container: 'embed-image-container'
+      embed_image: 'embed-image'
+  enabled: true
+  exclude: []
 
 img: "/score-docs/assets/images"
 scores: "/score-docs/assets/scores"

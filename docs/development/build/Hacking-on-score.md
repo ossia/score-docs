@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Hacking"
+title: Hacking
 description: "Creating a development build of score"
 
 parent: "Building from source"

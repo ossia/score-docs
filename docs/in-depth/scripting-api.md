@@ -1,8 +1,8 @@
 ---
 layout: default
 
-title: "Scripting API"
-description: "JS scriptingAPI reference"
+title: Scripting API
+description: "JS scripting API reference"
 
 parent: Scripting
 grand_parent: In depth

@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Building from source"
+title: Building from source
 description: "Building ossia score from source"
 
 parent: Development

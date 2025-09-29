@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Troubleshooting"
+title: Troubleshooting
 description: "What to do when score does not work"
 
 nav_order: 8

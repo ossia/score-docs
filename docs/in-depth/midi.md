@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "MIDI support"
+title: MIDI support
 description: "How to use MIDI software, hardware, and data"
 
 parent: In depth

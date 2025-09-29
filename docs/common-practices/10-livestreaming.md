@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Livestreaming"
+title: Livestreaming
 description: "How to stream a performance over the network"
 
 nav_order: 10

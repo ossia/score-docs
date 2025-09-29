@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Polyphonic behaviours"
+title: Polyphonic behaviours
 description: "Leveraging multi-channel data efficiently"
 
 parent: In depth

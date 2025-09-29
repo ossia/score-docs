@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Package manager"
+title: Package manager
 description: "Managing additional content packages"
 
 parent: In depth

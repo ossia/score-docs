@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: Mapping tool
+title: "Mapping tool"
 description: "Advanced parameter mapping with range learning and curve shaping"
 
 parent: Processes

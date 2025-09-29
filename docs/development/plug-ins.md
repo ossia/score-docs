@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Plug-ins"
+title: Plug-ins
 description: "Writing ossia score plug-ins in C++"
 
 parent: Development

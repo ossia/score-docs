@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Packaging"
+title: Packaging
 description: "Packaging score for Linux distros"
 
 parent: "Building from source"

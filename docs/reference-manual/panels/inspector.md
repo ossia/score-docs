@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Inspector"
+title: Inspector
 description: "How the ossia score inspector works"
 
 parent: Panels

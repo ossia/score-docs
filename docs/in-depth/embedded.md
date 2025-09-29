@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Embedded devices"
+title: Embedded devices
 description: "How to use ossia score on embedded hardware"
 
 parent: In depth

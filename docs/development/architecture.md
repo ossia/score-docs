@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Architecture"
+title: Architecture
 description: "Software architecture of ossia score"
 
 parent: Development

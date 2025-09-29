@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Working with audio"
+title: Working with audio
 description: "Working with audio within score"
 
 parent: Quick start

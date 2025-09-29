@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Live coding"
+title: Live coding
 description: "Working on a score while it executes"
 
 nav_order: 8
@@ -38,7 +38,7 @@ A few processes in score use textual scripts:
 - [[Javascript]]
 - [[ISF Shaders|Shaders]]
 - [[Bytebeat]]
-- [[Texgen]]
+- [[Texture generator]]
 - [[Faust]]
 - [[C++ JIT]]
 

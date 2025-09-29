@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Saving & recalling devices' state"
+title: Saving & recalling devices' state
 description: "Saving & recalling devices' state"
 
 parent: Quick start

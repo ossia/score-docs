@@ -150,7 +150,7 @@ void main() {
 - [[ISF Shader]]: Classic ISF fragment shaders.
 - [[Compute Shader]]: Similar to ISF and VSA shaders but for compute instead of fragment shaders.
 - [[Model Display]]: To apply the shader onto a 3D surface.
-- [[Lightness Computer]]: To convert texture data into pixel arrays, for instance for [[LED design]].
+- [[Pixel Utilities|Lightness Computer]]: To convert texture data into pixel arrays, for instance for [[LED design]].
 
 ## Try it!
 

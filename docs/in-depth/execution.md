@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: "Execution engine"
+title: Execution engine
 description: "How the execution engine works"
 
 parent: In depth

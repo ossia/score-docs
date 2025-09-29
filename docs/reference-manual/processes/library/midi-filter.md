@@ -13,7 +13,7 @@ permalink: /processes/midi-filter.html
 
 ![MIDI Filter]({{ site.img }}/reference/processes/midi-filter.png "MIDI Filter")
 
-Extract exactly the MIDI data you need from complex MIDI streams. This process acts like a precision tool for filtering, converting, and organizing MIDI messages, with multiple output formats and polyphonic note tracking.
+Extract exactly the [[MIDI support|MIDI]] data you need from complex MIDI streams. This process acts like a precision tool for filtering, converting, and organizing MIDI messages, with multiple output formats and polyphonic note tracking.
 
 Essential when you're dealing with multi-channel MIDI keyboards, complex controllers, or when you need to convert MIDI data into control signals for other processes.
 
@@ -75,4 +75,4 @@ Chain multiple filters with different settings to create complex MIDI processing
 
 ## Related processes
 
-Works great with [[MIDI utilities]], [[Mapping Tool]] for parameter shaping, [[Calibrator]] for response curves, or [[Mapping]] for simple scaling. Combine with [[Audio Effects]] that respond to MIDI data.
+Works great with [[MIDI utilities]], [[Mapping Tool]] for parameter shaping, [[Calibrator]] for response curves, or [[Mapping Curve]] for simple scaling. Combine with [[Audio Effects]] that respond to MIDI data.
