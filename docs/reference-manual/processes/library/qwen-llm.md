@@ -207,6 +207,6 @@ Generate live code for other processes:
 
 ## Related Processes
 
-- [AI Prompt Composer](/processes/ai-prompt-composer.html) - Build complex prompts
-- [Text](/processes/text.html) - Text display
-- [JavaScript](/processes/javascript.html) - Process generated code
+- [AI Prompt Composer]({{ site.baseurl }}/processes/ai-prompt-composer.html) - Build complex prompts
+- [Text]({{ site.baseurl }}/processes/text.html) - Text display
+- [JavaScript]({{ site.baseurl }}/processes/javascript.html) - Process generated code

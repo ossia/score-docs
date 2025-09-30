@@ -47,7 +47,7 @@ The Process Launcher uses Qt's QProcess internally, ensuring proper cross-platfo
 ## Related Processes
 
 - [[Shell Command]] - Bash shell script
-- [JavaScript](/processes/javascript.html) - Scripting within score
+- [JavaScript]({{ site.baseurl }}/processes/javascript.html) - Scripting within score
 - [[HTTP Device]] - Web service integration
 
 ## Try it!

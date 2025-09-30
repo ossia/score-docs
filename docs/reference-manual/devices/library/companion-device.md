@@ -58,6 +58,6 @@ Each device will present different controls, organized in the same categories.
 
 ## Related Documentation
 
-- [OSC Device](/devices/osc-device.html) - Direct OSC communication
-- [Control Surface](/processes/controlsurface.html) - UI control surfaces to control specific modules in the timeline.
-- [Remote Control](/in-depth/remote.html) - score remote control
+- [OSC Device]({{ site.baseurl }}/devices/osc-device.html) - Direct OSC communication
+- [Control Surface]({{ site.baseurl }}/processes/controlsurface.html) - UI control surfaces to control specific modules in the timeline.
+- [Remote Control]({{ site.baseurl }}/in-depth/remote.html) - score remote control

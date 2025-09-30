@@ -91,7 +91,7 @@ Try with the public CoAP server at **coap.me**:
 
 ## Related Documentation
 
-- [MQTT Device](/devices/mqtt-device.html) - Alternative IoT messaging protocol
-- [HTTP Device](/devices/http-device.html) - Full-featured query-based web protocol
-- [WS Device](/devices/http-device.html) - Full-featured streaming web protocol
-- [OSC Device](/devices/osc-device.html) - Real-time multimedia control
+- [MQTT Device]({{ site.baseurl }}/devices/mqtt-device.html) - Alternative IoT messaging protocol
+- [HTTP Device]({{ site.baseurl }}/devices/http-device.html) - Full-featured query-based web protocol
+- [WS Device]({{ site.baseurl }}/devices/ws-device.html) - Full-featured streaming web protocol
+- [OSC Device]({{ site.baseurl }}/devices/osc-device.html) - Real-time multimedia control

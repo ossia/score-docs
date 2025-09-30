@@ -159,7 +159,7 @@ $ mosquitto_sub -t /controls/# -h 127.0.0.1
 
 ## Related Documentation
 
-- [OSC Device](/devices/osc-device.html) - Alternative real-time protocol
-- [HTTP Device](/devices/http-device.html) - REST API communication  
-- [WebSocket Device](/devices/ws-device.html) - Real-time web communication
-- [Serial Device](/devices/serial-device.html) - Direct hardware communication
+- [OSC Device]({{ site.baseurl }}/devices/osc-device.html) - Alternative real-time protocol
+- [HTTP Device]({{ site.baseurl }}/devices/http-device.html) - REST API communication  
+- [WebSocket Device]({{ site.baseurl }}/devices/ws-device.html) - Real-time web communication
+- [Serial Device]({{ site.baseurl }}/devices/serial-device.html) - Direct hardware communication

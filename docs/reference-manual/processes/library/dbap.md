@@ -16,7 +16,7 @@ TODO
 
 ## Related Processes
 
-- [GBAP](/processes/dbap.html) - Distance-based panning for irregular layouts
-- [Matrix](/processes/matrix.html) - Audio routing and mixing
+- [GBAP]({{ site.baseurl }}/processes/dbap.html) - Distance-based panning for irregular layouts
+- [Matrix]({{ site.baseurl }}/processes/matrix.html) - Audio routing and mixing
 - [Multi-Cursor](/processes/multi-cursor.html) - Multiple position sources
-- [Path Generator](/processes/path-generator.html) - Automated trajectories
+- [Path Generator]({{ site.baseurl }}/processes/path-generator.html) - Automated trajectories

@@ -216,10 +216,10 @@ Good features are crucial for classification performance:
 
 ## Related Processes
 
-- [Regressor](/processes/regressor.html) - For continuous value prediction
-- [Analysis](/processes/analysis.html) - Feature extraction from audio
-- [Computer Vision Utilities](/processes/computer-vision-utilities.html) - Visual features
-- [Array Utilities](/processes/array-utilities.html) - Feature preprocessing
+- [Regressor]({{ site.baseurl }}/processes/regressor.html) - For continuous value prediction
+- [Analysis]({{ site.baseurl }}/processes/analysis.html) - Feature extraction from audio
+- [Computer Vision Utilities]({{ site.baseurl }}/processes/computer-vision-utilities.html) - Visual features
+- [Array Utilities]({{ site.baseurl }}/processes/array-utilities.html) - Feature preprocessing
 
 
 ## Try it!

@@ -232,10 +232,10 @@ Efficient training:
 
 ## Related Processes
 
-- [Classifier](/processes/classifier.html) - For discrete category prediction
-- [Interpolator](/processes/interpolator.html) - Simple linear interpolation
-- [Mapping](/processes/mapping.html) - Basic parameter mapping
-- [Analysis](/processes/analysis.html) - Feature extraction
+- [Classifier]({{ site.baseurl }}/processes/classifier.html) - For discrete category prediction
+- [Interpolator]({{ site.baseurl }}/processes/interpolator.html) - Simple linear interpolation
+- [Mapping]({{ site.baseurl }}/processes/mapping.html) - Basic parameter mapping
+- [Analysis]({{ site.baseurl }}/processes/analysis.html) - Feature extraction
 
 
 ## Try it!

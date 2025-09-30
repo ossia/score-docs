@@ -46,7 +46,7 @@ The Alesis MIDIVerb series (1987-1990s) was revolutionary for making digital rev
 
 ## Related Processes
 
-- [Audio Effects](/processes/audio-effects.html) - Other reverb and effects
-- [Delay](/processes/delay.html) - Echo and delay effects  
-- [Chorus](/processes/chorus.html) - Modulated effects
-- [BitCrusher](/processes/bitcrusher.html) - Vintage digital artifacts
+- [Audio Effects]({{ site.baseurl }}/processes/audio-effects.html) - Other reverb and effects
+- [Delay]({{ site.baseurl }}/processes/delay.html) - Echo and delay effects  
+- [Chorus]({{ site.baseurl }}/processes/chorus.html) - Modulated effects
+- [BitCrusher]({{ site.baseurl }}/processes/bitcrusher.html) - Vintage digital artifacts

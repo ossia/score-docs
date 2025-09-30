@@ -35,7 +35,7 @@ It will blend over time to enable controlling prompt-based systems: given the me
 
 ## Related Processes
 
-- [AI Prompt Composer](/processes/ai-prompt-composer.html) - Create structured prompts
-- [Interpolator](/processes/interpolator.html) - General value interpolation
-- [Tweener](/processes/tweener.html) - Advanced easing functions
-- [Nodes](/processes/nodes.html) - 2D interpolation space
+- [AI Prompt Composer]({{ site.baseurl }}/processes/ai-prompt-composer.html) - Create structured prompts
+- [Interpolator]({{ site.baseurl }}/processes/interpolator.html) - General value interpolation
+- [Tweener]({{ site.baseurl }}/processes/tweener.html) - Advanced easing functions
+- [Nodes]({{ site.baseurl }}/processes/nodes.html) - 2D interpolation space

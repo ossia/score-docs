@@ -66,8 +66,8 @@ Sets the scale factor for the mesh along each axis.
 
 ## Related Processes
 
-- [Model Display](/processes/model-display.html) - Displays a 3D model
-- [Structure Synth](/processes/structure-synth.html) - Generative procedural geometry
+- [Model Display]({{ site.baseurl }}/processes/model-display.html) - Displays a 3D model
+- [Structure Synth]({{ site.baseurl }}/processes/structure-synth.html) - Generative procedural geometry
 
 ## Try it!
 

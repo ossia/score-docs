@@ -272,7 +272,7 @@ Flexible routing for live shows:
 
 ## Related Processes
 
-- [GBAP](/processes/gbap.html) - Grid-based panning
-- [DBAP](/processes/dbap.html) - Distance-based panning
-- [Audio Mixer](/processes/audio-mixer.html) - Simple mixing
-- [Mapping](/processes/mapping.html) - Parameter control
+- [GBAP]({{ site.baseurl }}/processes/gbap.html) - Grid-based panning
+- [DBAP]({{ site.baseurl }}/processes/dbap.html) - Distance-based panning
+- [Audio Mixer]({{ site.baseurl }}/processes/audio-mixer.html) - Simple mixing
+- [Mapping]({{ site.baseurl }}/processes/mapping.html) - Parameter control
