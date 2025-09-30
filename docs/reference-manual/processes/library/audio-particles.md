@@ -13,7 +13,7 @@ permalink: /processes/audio-particles.html
 
 ![Audio Particles]({{ site.img }}/reference/processes/audio-particles.png "Audio Particles")
 
-A granular synthesizer that creates swarms of audio "particles" by randomly triggering samples from a folder. Think of it as controlled chaos - you set the rules, and Audio Particles creates organic, ever-changing textures.
+A granular synthesizer that creates swarms of audio particles by randomly triggering samples from a folder. Think of it as controlled chaos: you set the rules, and Audio Particles creates organic, ever-changing textures.
 
 Perfect for ambient soundscapes, percussive textures, or any time you want to transform a collection of samples into something completely new and alive.
 
@@ -50,7 +50,3 @@ Audio Particles uses exponential distribution for organic timing - particles don
 The process automatically monitors your folder for changes, so you can add new samples while performing and they'll become part of the particle pool immediately.
 
 Works beautifully with [[Matrix]] routing for sending particles to different speaker arrays, or chain with [[Audio Effects]] for processed particle clouds.
-
-## Related processes
-
-Combine with [[DBAP]] or [[GBAP]] for spatial particle distributions, use [[Audio Utilities]] for channel management, or feed into [[Envelope Follower]] to control other parameters based on particle activity.

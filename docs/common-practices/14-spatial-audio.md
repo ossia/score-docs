@@ -348,7 +348,7 @@ Go beyond simple circular movement with [[Path Generator]] combinations:
 - **Use [[MIDI support|MIDI]] controllers** to adjust trajectory in real-time
 - **Connect [[OSC]]** devices for gestural control of spatial movement
 
-![Complex Trajectories]({{ site.img }}/common-practices/complex-trajectories.png)
+![Complex Trajectories]({{ site.img }}/common-practices/spatialization/complex-paths.gif)
 
 ### Polyphonic spatial effects
 

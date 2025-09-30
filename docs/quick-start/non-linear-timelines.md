@@ -22,7 +22,7 @@ In the scenario editor panel, you may create some elements by dragging a connect
 In the illustration below, we can see that selecting a namespace state stored in the timeline brings the `create` widget: the yellow, blue and red crosses icons. We will focus here on the red one: it allows to *escape the timeline constraint* and automatically trigger elements attached to that connection.
 
 <video controls>
-    <source src="{{ site.img }}/quick-start/non-linear-timeline/timeless-interval.mp4 " type="video/mp4">
+    <source src="{{ site.img }}/quick-start/non-linear-timeline/timeless-interval.mp4" type="video/mp4">
 </video>
 
 As seen above, clicking the red cross allows us to drag a connection up to anywhere in the timeline. From there, we may adjust our device settings and drag a namespace selection from the `Device explorer` to store its state [as seen earlier]({{ site.baseurl }}/quick-start/states-and-automations-in-practice.html "Store & recall devices' state").

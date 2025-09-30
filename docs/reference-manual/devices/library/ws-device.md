@@ -85,7 +85,8 @@ wss.on('connection', function connection(ws) {
 ```
 
 The following QML code is able to interact with it:
-```qml
+
+```js
 import Ossia 1.0 as Ossia
 
 // Note: to run this example you need to run the RoadTrafficServer.js 
@@ -188,6 +189,7 @@ Ossia.WebSockets
 # Creating a device from existing JSON
 
 Consider an API which regularly updates its clients with the following JSON:
+
 ```json
 {
 "widget": {

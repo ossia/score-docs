@@ -56,7 +56,7 @@ Here is the complete procedure:
 
 This is currently only implemented for VST2, other plug-in APIs have all their parameters shown until the feature is implemented there too.
 
-# Adding JSFX plug-ins
+# Adding JSFX plug-ins {#jsfx}
 
 JSFX plug-ins can be added in the user library. Score will look for files ending with the `.jsfx` extension.
 

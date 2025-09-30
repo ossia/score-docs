@@ -29,7 +29,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 * HTTP.
   * Documented [here]({{ site.baseurl }}/devices/http-device.html).
 * WebSockets.
-  * Documented [here]({{ site.baseurl }}/devices/websockets-device.html).
+  * Documented [here]({{ site.baseurl }}/devices/ws-device.html).
 * CoAP.
   * Documented [here]({{ site.baseurl }}/devices/coap-device.html).
 * MQTT.

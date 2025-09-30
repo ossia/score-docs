@@ -11,7 +11,7 @@ permalink: /processes/mapping-curve.html
 ---
 # Mapping Curve
 
-![Mapping Curve]({{ site.img }}/reference/processes/mapping-curve.png "Mapping Curve")
+![Mapping Curve]({{ site.img }}/reference/processes/mapping-example.png "Mapping Curve")
 
 Create custom parameter mappings using an interactive curve editor. Draw curves to define exactly how input values should be transformed into output values, giving you precise control over parameter response characteristics.
 

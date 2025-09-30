@@ -28,7 +28,7 @@ The simplest way to play a video is as follows:
 
 See the example:
 <video controls>
-    <source src="{{ site.img }}/reference/processes/video.mp4 " type="video/mp4">
+    <source src="{{ site.img }}/reference/processes/video.mp4" type="video/mp4">
 </video>
 
 Note that for now the sound tracks contained in video files are not handled; this will be done in a later version. 

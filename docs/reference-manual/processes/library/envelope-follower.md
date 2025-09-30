@@ -36,5 +36,5 @@ Perfect for:
 
 - [Analysis](/processes/analysis.html) - Audio feature extraction
 - [Gate](/processes/gate.html) - Amplitude gating
-- [Compressor](/processes/compressor.html) - Dynamic range control
+- [Compressor](/processes/audio-effects.html) - Dynamic range control
 - [LFO](/processes/lfo.html) - Alternative modulation source

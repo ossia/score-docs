@@ -52,7 +52,7 @@ Here is a score that would process the input and write it to the output.
 ![Sh4lt output window]({{ site.img }}/reference/devices/sh4lt/output.png "sh4lt output")
 
 - The score and the GStreamer output which shows the processing done by score:
-![Score and sh4lt output]({{ site.img }}/reference/devices/sh4lt/sh4lt.png "score")
+![Score and sh4lt output]({{ site.img }}/reference/devices/shmdata/shmdata.png "score")
 
 ## Recording score's video output
 

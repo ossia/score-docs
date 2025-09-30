@@ -29,7 +29,7 @@ will keep running their processes forever, like for instance would a Max or Pure
 Here is a small example:
 
 <video controls>
-    <source src="{{ site.img }}/common-practices/livecode-1.mp4 " type="video/mp4">
+    <source src="{{ site.img }}/common-practices/livecode-1.mp4" type="video/mp4">
 </video>
 
 # Code-based processes

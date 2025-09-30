@@ -208,6 +208,5 @@ Generate live code for other processes:
 ## Related Processes
 
 - [AI Prompt Composer](/processes/ai-prompt-composer.html) - Build complex prompts
-- [FastVLM](/processes/fastvlm.html) - Video understanding
 - [Text](/processes/text.html) - Text display
 - [JavaScript](/processes/javascript.html) - Process generated code

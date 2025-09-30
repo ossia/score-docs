@@ -11,7 +11,7 @@ permalink: /devices/companion-device.html
 ---
 # Bitfocus Companion Device
 
-![Companion Device]({{ site.img }}/reference/devices/companion-device.png "Bitfocus Companion Integration")
+![Companion Device]({{ site.img }}/reference/devices/bitfocus/companion-device.png "Bitfocus Companion Integration")
 
 Bitfocus Companion is a professional application for controlling streaming, broadcast, and AV equipment through hardware controllers like Stream Deck. ossia score's Companion integration enables seamless interaction between your interactive scores and Companion-compatible devices.
 
@@ -37,7 +37,7 @@ For instance, this integration makes it possible to send messages to Slack and D
 3. Install the Bitfocus Companion Modules package (it will take some times as it is roughly a 1 gigabyte download).
 4. Restart ossia score
 
-![Bitfocus Example]({{ site.img }}/reference/devices/bitfocus/bitfoucs.png "Installed Bitfocus packaage")
+![Bitfocus Example]({{ site.img }}/reference/devices/bitfocus/bitfocus.png "Installed Bitfocus package")
 
 ## Device Setup
 
@@ -59,6 +59,5 @@ Each device will present different controls, organized in the same categories.
 ## Related Documentation
 
 - [OSC Device](/devices/osc-device.html) - Direct OSC communication
-- [TCP Device](/devices/tcp-device.html) - Raw TCP connections
-- [Controlsurface](/processes/controlsurface.html) - UI control surfaces to control specific modules in the timeline.
+- [Control Surface](/processes/controlsurface.html) - UI control surfaces to control specific modules in the timeline.
 - [Remote Control](/in-depth/remote.html) - score remote control

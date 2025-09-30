@@ -107,4 +107,4 @@ Try Rate: 8000Hz, Crush: 0.2 for subtle lo-fi character. For extreme 8-bit destr
 
 ## Related processes
 
-These audio effects work great with [[Audio Utilities]], [[Audio Plugins]], and [[Faust]] processes. 
+These audio effects work great with [[Audio Utilities]] and [[Audio Plugins]]. 

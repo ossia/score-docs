@@ -11,7 +11,7 @@ permalink: /processes/led-view.html
 ---
 # LED View
 
-![LED View]({{ site.img }}/reference/processes/led-view.png "LED View")
+![LED View]({{ site.img }}/reference/processes/led-view.gif "LED View")
 
 Visualize control signals in real-time for monitoring, debugging, and performance feedback. 
 LED View is a monitoring tool specialized for visualizing an input array as either RGB, RGBA, or individual values between [0; 1] or [0; 255].
