@@ -12,15 +12,15 @@ permalink: /devices/sh4lt-device.html
 
 # Sh4lt
 
-[Sh4lt](https://gitlab.com/sh4lt/sh4lt/), the successor of the [[Shmdata]] protocol originally developed at the [SAT Metalab](https://sat.qc.ca/fr/recherche/metalab), is a Unix-oriented protocol for sharing memory between applications easily.  
-It is mainly used to share video frames.
+[Sh4lt](https://gitlab.com/sh4lt/sh4lt/) , is a Unix-oriented protocol for sharing data frames between applications easily. It is developped by the [Lab148 coop](https://lab148.ca), and is the successor of the [[Shmdata]] protocol originally developed at the [SAT Metalab](https://sat.qc.ca/fr/recherche/metalab).
+Its integration in Ossia supports video frames sharing.
 
-Thanks to it, score can easily send and receive video data from and to GStreamer for instance.
+Thanks to it, score can easily send and receive video data from and to GStreamer, as well as other Sh4lt enabled software, such as the [](). Some other software integration are available [here](https://gitlab.com/sh4lt/).
 
 ## Compiling and installing Sh4lt
 
-Refer to the latest instructions on the Sh4lt [Readme](https://gitlab.com/sh4lt/sh4lt/).
-Score comes built-in with Sh4lt support on Linux and macOS (Windows does not support the necessary Unix primitives).
+Sh4lts is already integrated in Ossia without extra installation. However, testing with GStreamer require to install the GStreamer Sh4lt element. It is available [here](https://gitlab.com/sh4lt/gst-sh4lt).
+Score comes built-in with Sh4lt support only on Linux (Windows does not support the necessary Unix primitives).
 
 Test that it works correctly with the `gst-launch` commands given in that Readme.
 
@@ -34,13 +34,13 @@ These examples assume that the Sh4lt GStreamer plug-in is installed in `/opt/sh4
 Sending data from GStreamer to score: 
 
 ```bash
-$ gst-launch-1.0 --gst-plugin-path=/opt/sh4lt videotestsrc pattern=snow ! queue ! videoconvert ! sh4ltsink socket-path=/tmp/score_sh4lt_input
+$ gst-launch-1.0 --gst-plugin-path=/opt/sh4lt videotestsrc pattern=snow ! queue ! videoconvert ! sh4ltsink label=to_score
 ```
 
 Sending data from score to GStreamer:
 
 ```bash
-$ gst-launch-1.0 --gst-plugin-path=/opt/sh4lt sh4ltsrc socket-path=/tmp/score_sh4lt_output ! videoconvert ! xvimagesink
+$ gst-launch-1.0 --gst-plugin-path=/opt/sh4lt sh4ltsrc label=score_output ! videoconvert ! autovideosink
 ```
 
 Here is a score that would process the input and write it to the output.
@@ -60,7 +60,7 @@ Here is a GStreamer command-line which will encode the sh4lt output as .mkv with
 
 ```bash
 $ gst-launch-1.0 -e \
-      sh4ltsrc socket-path=/tmp/score_shm_video \
+      sh4ltsrc label=score_output \
     ! queue \
     ! videoconvert \
     ! videorate \
@@ -74,7 +74,7 @@ Or as .mov encoded in Apple ProRes (warning: very, very CPU hungry):
 
 ```bash
 $ gst-launch-1.0 -e \
-      sh4ltsrc socket-path=/tmp/score_shm_video \
+      sh4ltsrc label=score_output \
     ! queue \
     ! videoconvert \
     ! videorate \
