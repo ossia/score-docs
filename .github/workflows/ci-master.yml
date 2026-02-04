@@ -8,6 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
+    - run: git config --global --add safe.directory /github/workspace
 
     - name: Bundler Cache
       uses: actions/cache@v4
