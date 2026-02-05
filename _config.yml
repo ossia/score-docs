@@ -148,4 +148,10 @@ wikirefs:
 
 img: "/score-docs/assets/images"
 scores: "/score-docs/assets/scores"
-score_version: "3.7.1"
+score_version: "3.8.0"
+
+defaults:
+  - scope:
+      type: recipes
+    values:
+      layout: recipe
