@@ -12,6 +12,8 @@ permalink: /examples/tempo/tempo-control.html
 
 # Tempo Manipulation
 
+![Tempo Control Example]({{ site.img }}/examples/tempo/tempo.png "Tempo manipulation in ossia score")
+
 This example demonstrates tempo control and musical timing features in ossia score.
 
 ## Overview

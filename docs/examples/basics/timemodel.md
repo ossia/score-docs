@@ -13,11 +13,11 @@ permalink: /examples/basics/timemodel.html
 
 # Time Model example
 
-![Time Model]({{ site.img }}/examples/basic/timemodel.png "Time Model") 
+![Time Model]({{ site.img }}/examples/basics/timemodel.png "Time Model") 
 
 This example showcases the different interactive features in the *score* timeline: Triggers, interactive conditions, loops.
 
-[Download this example]({{ site.scores }}/examples/basic/timemodel.score)
+[Download this example]({{ site.scores }}/examples/basics/timemodel.score)
 
 ## Learn more
 

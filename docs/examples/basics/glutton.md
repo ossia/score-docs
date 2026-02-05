@@ -12,6 +12,8 @@ permalink: /examples/basics/glutton.html
 
 # Temporal Patching (Glutton Mode)
 
+![Glutton Patching Mode]({{ site.img }}/examples/basics/glutton.png "Glutton temporal patching in ossia score")
+
 This example demonstrates ossia score's "glutton" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times.
 
 ## Try it

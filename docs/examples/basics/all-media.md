@@ -12,6 +12,10 @@ permalink: /examples/basics/all-media.html
 
 # Multi-media Patching
 
+<video controls>
+    <source src="{{ site.img }}/examples/basics/all-media.mp4" type="video/mp4">
+</video>
+
 This example demonstrates ossia score's ability to patch together diverse media types including audio, video, 3D geometries, and textures in a unified workflow.
 
 ## Overview

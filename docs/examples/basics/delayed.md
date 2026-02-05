@@ -12,8 +12,9 @@ permalink: /examples/basics/delayed.html
 
 # Temporal Patching (Delayed Mode)
 
-This example demonstrates ossia score's "delayed" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times and be delayed according to the 
-time at which the data sources started executing..
+![Delayed Patching Mode]({{ site.img }}/examples/basics/delayed.png "Delayed temporal patching in ossia score")
+
+This example demonstrates ossia score's "delayed" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times and be delayed according to the time at which the data sources started executing.
 
 ## Try it
 

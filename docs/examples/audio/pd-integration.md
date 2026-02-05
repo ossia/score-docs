@@ -12,6 +12,8 @@ permalink: /examples/audio/pd-integration.html
 
 # PureData Integration
 
+![PureData Integration Example]({{ site.img }}/examples/audio/puredata.png "PureData patch running in ossia score")
+
 This example demonstrates how to integrate PureData (Pd) patches into ossia score projects.
 
 ## Overview

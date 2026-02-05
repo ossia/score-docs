@@ -12,6 +12,10 @@ permalink: /examples/3d/threedim.html
 
 # 3D Meshes
 
+<video controls>
+    <source src="{{ site.img }}/examples/3d/threedim.mp4" type="video/mp4">
+</video>
+
 This example demonstrates loading and displaying 3D meshes in ossia score.
 
 ## Overview

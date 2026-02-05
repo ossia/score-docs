@@ -14,7 +14,7 @@ permalink: /reference/changelog.html
 
 This page lists all releases of *ossia score* with links to detailed changelogs on GitHub.
 
-For the current version, see [[What is score?]]. To download the latest release, visit the [[Installation]] page.
+For the current version, see [[What is score ?]]. To download the latest release, visit the [[Installation]] page.
 
 ---
 

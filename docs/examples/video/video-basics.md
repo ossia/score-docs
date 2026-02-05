@@ -12,6 +12,10 @@ permalink: /examples/video/video-basics.html
 
 # Video Manipulation
 
+<video controls>
+    <source src="{{ site.img }}/examples/video/video.mp4" type="video/mp4">
+</video>
+
 This example demonstrates basic video playback and effects processing in ossia score.
 
 ## Overview

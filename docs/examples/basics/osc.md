@@ -12,23 +12,26 @@ permalink: /examples/basics/osc.html
 
 # Basic OSC Example
 
-This example demonstrates setting up OSC (Open Sound Control) communication in ossia score.
+![OSC]({{ site.img }}/examples/basics/osc.png "Composing OSC messages in ossia score")
+
+This example demonstrates setting up OSC (Open Sound Control) communication in *score*.
 
 ## Overview
 
-OSC is a protocol for communication between multimedia devices, software, and instruments. ossia score provides native OSC support for sending and receiving messages.
+OSC is a protocol for communication between multimedia devices, software, and instruments. 
+*score* provides native OSC support for sending and receiving messages.
 
 ## Setting up an OSC device
 
-To use OSC in ossia score:
+To use OSC in *score*:
 
 1. Open the **Device Explorer** panel
 2. Click **Add Device**
 3. Select **OSC** from the protocol list
 4. Configure the connection:
    - **Host**: IP address of the remote device (or localhost)
-   - **Input port**: Port to receive messages
-   - **Output port**: Port to send messages
+   - **Input port**: Port to receive messages (from the device to *score*)
+   - **Output port**: Port to send messages (from *score* to the device)
 
 ## OSC addresses
 
@@ -42,7 +45,7 @@ OSC uses a hierarchical address system similar to file paths:
 
 ## Sending OSC messages
 
-To send OSC from ossia score:
+To send OSC from *score*:
 
 1. Create an automation or process that outputs values
 2. Connect it to an OSC address in the Device Explorer
@@ -50,9 +53,9 @@ To send OSC from ossia score:
 
 ## Receiving OSC messages
 
-To receive OSC in ossia score:
+To receive OSC in *score*:
 
-1. Configure the input port on your OSC device
+1. Configure the input port on your [[OSC device]]
 2. Addresses received appear in the Device Explorer
 3. Use them as triggers or parameter sources
 
@@ -68,7 +71,7 @@ OSC is used to communicate with:
 
 ## OSCQuery
 
-ossia score also supports OSCQuery, an extension that allows:
+ossia score also supports [[OSCQuery]], an extension that allows:
 - Automatic parameter discovery
 - Type information
 - Value ranges
@@ -76,7 +79,7 @@ ossia score also supports OSCQuery, an extension that allows:
 
 ## Try it
 
-Set up an OSC device and connect it to another application to see messages flowing between them!
+[Download this example]({{ site.scores }}/examples/basics/osc.score)
 
 ## Learn more
 

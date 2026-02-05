@@ -12,6 +12,10 @@ permalink: /examples/automation/modulation.html
 
 # Device Modulation
 
+<video controls>
+    <source src="{{ site.img }}/examples/automation/automating.mp4" type="video/mp4">
+</video>
+
 This example demonstrates automating external devices and internal processes using various modulation sources.
 
 ## Overview

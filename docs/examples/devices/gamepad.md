@@ -12,6 +12,8 @@ permalink: /examples/devices/gamepad.html
 
 # Gamepad Control
 
+![Gamepad Control Example]({{ site.img }}/examples/devices/gamepad.png "Gamepad controller setup in ossia score")
+
 This example demonstrates how to use a gamepad (Xbox controller, PlayStation controller, etc.) to control sounds and processes in ossia score.
 
 ## Overview

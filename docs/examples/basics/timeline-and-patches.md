@@ -12,6 +12,8 @@ permalink: /examples/basics/timeline-and-patches.html
 
 # Timeline and Patches
 
+![Timeline and Patches]({{ site.img }}/examples/basics/timeline-and-patches.png "Combining timeline and patches in ossia score")
+
 This example demonstrates how ossia score combines timeline-based composition with dataflow patching.
 
 ## Overview

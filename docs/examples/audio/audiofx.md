@@ -12,6 +12,8 @@ permalink: /examples/audio/audiofx.html
 
 # Audio Effects
 
+![Audio Effects Example]({{ site.img }}/examples/audio/audiofx.png "Audio effects chain in ossia score")
+
 This example demonstrates the diverse audio effect technologies supported by ossia score.
 
 ## Overview

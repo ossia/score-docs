@@ -12,6 +12,10 @@ permalink: /examples/video/audioreactive.html
 
 # Audio-Reactive Visuals
 
+<video controls>
+    <source src="{{ site.img }}/examples/video/audioreactive.mp4" type="video/mp4">
+</video>
+
 This example demonstrates creating visuals that respond dynamically to audio input.
 
 ## Overview

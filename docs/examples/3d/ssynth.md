@@ -12,6 +12,10 @@ permalink: /examples/3d/ssynth.html
 
 # Structure Synth
 
+<video controls>
+    <source src="{{ site.img }}/examples/3d/ssynth.mp4" type="video/mp4">
+</video>
+
 This example demonstrates using Structure Synth for procedural 3D geometry generation.
 
 ## Overview

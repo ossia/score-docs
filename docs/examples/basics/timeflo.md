@@ -12,6 +12,8 @@ permalink: /examples/basics/timeflo.html
 
 # Basic Timeline Example
 
+![Basic Timeline]({{ site.img }}/examples/basics/timeflo.png "Timeline-based composition in ossia score")
+
 This example demonstrates fundamental timeline-based composition in ossia score, combining audio file playback with effects processing.
 
 ## Overview
