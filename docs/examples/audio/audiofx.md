@@ -49,7 +49,7 @@ Faust code can be:
 
 Open this example to hear how different effect technologies work together. Try swapping in your own VST plugins!
 
-[Download this example]({{ site.scores }}/examples/audio/audiofx.score)
+[Download this example]({{ site.scores }}/examples/audio/audiofx.zip)
 
 ## Learn more
 

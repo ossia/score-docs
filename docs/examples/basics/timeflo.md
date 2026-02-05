@@ -35,7 +35,7 @@ Open this example to explore basic timeline composition. Try:
 - Adjusting the automation curve
 - Adding new sound files
 
-[Download this example]({{ site.scores }}/examples/basics/timeflo.score)
+[Download this example]({{ site.scores }}/examples/basics/timeflo.zip)
 
 ## Learn more
 

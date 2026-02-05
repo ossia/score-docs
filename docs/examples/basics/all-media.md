@@ -26,7 +26,7 @@ Unlike traditional software where audio, video, and 3D are handled separately, o
 
 Open this example to see how different media types flow through the same patching interface.
 
-[Download this example]({{ site.scores }}/examples/basics/all-media.score)
+[Download this example]({{ site.scores }}/examples/basics/all-media.zip)
 
 ## Learn more
 

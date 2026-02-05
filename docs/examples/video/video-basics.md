@@ -43,7 +43,7 @@ To use video in your projects:
 
 Open this example to see video effects in action. Try adjusting the effect parameters!
 
-[Download this example]({{ site.scores }}/examples/video/video.score)
+[Download this example]({{ site.scores }}/examples/video/video.zip)
 
 ## Learn more
 

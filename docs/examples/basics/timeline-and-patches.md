@@ -28,7 +28,7 @@ The score shows how audio processes can be chained together using cables while s
 
 Download and open this example in ossia score to explore the timeline structure and patch connections.
 
-[Download this example]({{ site.scores }}/examples/basics/timeline-and-patches.score)
+[Download this example]({{ site.scores }}/examples/basics/timeline-and-patches.zip)
 
 ## Learn more
 
