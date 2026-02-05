@@ -4,7 +4,7 @@ layout: default
 title: Integrations
 description: "Using ossia score to control other systems and software"
 
-nav_order: 5
+nav_order: 6
 has_children: true
 
 permalink: /integrations
