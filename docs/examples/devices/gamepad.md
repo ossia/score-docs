@@ -22,17 +22,19 @@ Gamepads provide an accessible and expressive control interface with buttons, tr
 
 To use this example:
 
-1. Connect your gamepad before starting ossia score
-2. The device should appear automatically in the Device Explorer
-3. Gamepad addresses use a standardized naming scheme
+1. Connect your gamepad
+2. Open the device explorer and add the Gamepad device. It should appear automatically in the Device Explorer's Gamepad list.
+3. Gamepad addresses use a standardized naming scheme: you can drag and drop any address from it to a port in the timeline.
 
 ## Supported controllers
 
-ossia score supports most standard gamepad controllers including:
+ossia score supports most standard gamepad controllers, wired and Bluetooth, including:
 - Xbox Series X/S controllers
 - Xbox One controllers
 - PlayStation DualShock/DualSense
 - Generic USB/Bluetooth gamepads
+
+It is also possible to control rumble.
 
 ## Try it
 

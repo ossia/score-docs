@@ -16,7 +16,8 @@ This example demonstrates using Structure Synth for procedural 3D geometry gener
 
 ## Overview
 
-Structure Synth is a tool for creating complex 3D structures using a simple rule-based grammar. ossia score integrates Structure Synth, allowing real-time generative geometry.
+[[Structure Synth]] is a tool for creating complex 3D structures using a simple rule-based grammar. 
+*score* integrates Structure Synth, allowing real-time generative geometry.
 
 ## What is Structure Synth?
 
@@ -39,26 +40,9 @@ rule R1 {
 
 This creates a spiral of boxes.
 
-## Parameters
-
-Structure Synth processes expose parameters for:
-- Iteration depth
-- Transformation amounts
-- Color variations
-- Seed values
-
-## Creative applications
-
-Structure Synth is great for:
-- Architectural visualizations
-- Abstract art
-- Music visualizations
-- Generative design
-- Data visualization
-
 ## Try it
 
-Open this example to see generative 3D geometry in action. Modify the LFO to change the animation!
+Open this example to see generative 3D geometry in action. 
 
 [Download this example]({{ site.scores }}/examples/3d/ssynth.score)
 

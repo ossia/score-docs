@@ -16,15 +16,14 @@ This example demonstrates the diverse audio effect technologies supported by oss
 
 ## Overview
 
-ossia score can load and use audio effects from multiple plugin formats, allowing you to combine tools from different ecosystems in a single project.
+ossia score can load and use [[Audio plugins|audio effects]] from multiple plugin formats, allowing you to combine tools from different ecosystems in a single project.
 
 ## Using external plugins
 
-To use VST/VST3/LV2 plugins:
+To use VST/VST3/LV2/CLAP/Faust/JSFX plugins:
 
-1. Set your plugin search paths in Settings
-2. Plugins appear in the process library
-3. Drag them onto the timeline or into the nodal view
+1. Plugins are scanned on startup and appear in the process library
+2. Drag them onto the timeline or into the nodal view
 
 ## Built-in effects
 
@@ -34,6 +33,8 @@ ossia score includes many built-in effects:
 - Delays and reverbs
 - Distortion and bitcrush
 - Granular processing
+
+Many built-in audio effects come from the [Airwindows](https://www.airwindows.com/) library of audio plug-ins. Thanks Chris and Paul!
 
 ## Faust integration
 

@@ -21,8 +21,7 @@ PureData is a visual programming language for audio and multimedia. ossia score 
 ## Integration features
 
 - Load existing .pd patch files
-- Audio input/output between ossia and Pd
-- Control messages via OSCQuery protocol
+- Audio and MIDI input/output between ossia and Pd
 - Real-time parameter control
 
 ## Use cases
@@ -41,34 +40,17 @@ PureData integration is useful for:
 3. The patch's receive objects become controllable parameters
 4. Audio flows through the patch
 
-## OSCQuery communication
-
-ossia score and PureData can communicate via OSCQuery:
-
-- Pd's parameters appear in ossia's device explorer
-- Changes sync bidirectionally
-- Enables complex control scenarios
-
-## Example patches
-
-Common uses for Pd in ossia score:
-
-- Granular synthesis engines
-- Physical modeling instruments
-- Complex modulation systems
-- Audio analysis tools
-- Generative sequencers
-
 ## Try it
 
-If you have PureData installed, open this example to see how Pd patches integrate with the ossia timeline.
+Open this example to see how Pd patches integrate with the ossia timeline.
+The patches are loaded from the user library.
+If you have PureData installed, you can also edit the patches directly from within ossia.
 
 [Download this example]({{ site.scores }}/examples/audio/puredata.score)
 
 ## Learn more
 
 - [[Pure Data integration]] - Full PureData process reference
-- [[OSCQuery device]] - How OSCQuery enables Pd communication
 - [[Audio routing]] - Audio signal flow in ossia score
 
 ## External resources

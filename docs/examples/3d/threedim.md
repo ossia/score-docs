@@ -18,37 +18,10 @@ This example demonstrates loading and displaying 3D meshes in ossia score.
 
 ossia score can load 3D models and render them in real-time, with parameters that can be animated and modulated.
 
-## Procedural mesh generators
-
-Built-in geometry primitives include:
-- Icosahedron
-- Sphere
-- Cube
-- Torus
-- Plane
-- Custom parametric shapes
-
-## 3D rendering features
-
-The Model Display process supports:
-- Diffuse textures
-- Normal mapping
-- PBR materials
-- Custom shaders
-- Multiple light sources
-
-## Animating 3D objects
-
-3D parameters can be controlled by:
-- Timeline automation
-- LFOs and modulators
-- Audio analysis
-- External devices (OSC, MIDI)
-- Script processes
 
 ## Try it
 
-Open this example to see animated 3D geometry. Try changing the LFO parameters to alter the animation!
+Open this example to see a basic animated 3D geometry.
 
 [Download this example]({{ site.scores }}/examples/3d/threedim.score)
 

@@ -1,22 +1,22 @@
 ---
 layout: default
 
-title: Device automation
-description: "An example showing how to automate devices and processes over time"
+title: Device modulation
+description: "An example showing how to modulate devices and processes over time"
 
 parent: Automation
 grand_parent: Examples
 
-permalink: /examples/automation/automating.html
+permalink: /examples/automation/modulation.html
 ---
 
-# Device Automation
+# Device Modulation
 
 This example demonstrates automating external devices and internal processes using various modulation sources.
 
 ## Overview
 
-ossia score can control devices (lights, motors, software) over time using automations, LFOs, step sequencers, and other modulation sources.
+ossia score can control devices (lights, motors, software) over time using automations, LFOs, step sequencers, and other modulation sources which evolve over time.
 
 ## Automation sources
 
@@ -48,18 +48,11 @@ Internal processes can also be automated:
 2. Connect a modulation source
 3. The parameter changes in real-time
 
-## ArtNet integration
-
-ArtNet is a protocol for controlling stage lighting:
-- DMX over Ethernet
-- Control LED fixtures, moving lights, etc.
-- Each channel is an address
-
 ## Try it
 
-If you have ArtNet-compatible lighting, connect it and open this example to see device automation in action!
+Open this example to see modulation in action!
 
-[Download this example]({{ site.scores }}/examples/automation/automating.score)
+[Download this example]({{ site.scores }}/examples/automation/modulating.score)
 
 ## Learn more
 
@@ -67,5 +60,4 @@ If you have ArtNet-compatible lighting, connect it and open this example to see 
 - [[Automations]] - In-depth guide to automations
 - [[LFO]] - Low-frequency oscillator
 - [[Step sequencer]] - Step sequencer process
-- [[Art-Net device]] - ArtNet/DMX lighting control
 - [[Working with devices]] - General device setup
