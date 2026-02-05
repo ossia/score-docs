@@ -1,13 +1,13 @@
 ---
 layout: default
 
-title: PureData integration
+title: PureData Example
 description: "An example showing how to use PureData patches within ossia score"
 
 parent: Audio
 grand_parent: Examples
 
-permalink: /examples/audio/puredata.html
+permalink: /examples/audio/pd-integration.html
 ---
 
 # PureData Integration
