@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/score-docs/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="/score-docs/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:regular,bold">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCNDFW0NH6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GCNDFW0NH6');
+  </script>
+  
+
+  
+    <script type="text/javascript" src="/score-docs/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/score-docs/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Supported protocols and formats | score documentation</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Supported protocols and formats" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With which protocols, files, software, hardware is score compatible ?" />
+<meta property="og:description" content="With which protocols, files, software, hardware is score compatible ?" />
+<link rel="canonical" href="https://ossia.io/score-docs/reference/protocols-and-formats.html" />
+<meta property="og:url" content="https://ossia.io/score-docs/reference/protocols-and-formats.html" />
+<meta property="og:site_name" content="score documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Supported protocols and formats" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"With which protocols, files, software, hardware is score compatible ?","headline":"Supported protocols and formats","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ossia.io/score-docs/assets/images/score-logo.png"}},"url":"https://ossia.io/score-docs/reference/protocols-and-formats.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://ossia.io/score-docs/" class="site-title lh-tight">
+  <div class="site-logo">
+  </div>
+  <h2 class="software">ossia</h2>
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://ossia.io/score-docs/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/quick-start" class="nav-list-link">Quick start</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/installation.html" class="nav-list-link">Installation</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/what-is-score.html" class="nav-list-link">What is score ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/interface-overview.html" class="nav-list-link">Interface overview</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-devices.html" class="nav-list-link">Working with devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/saving-and-recalling-devices-state.html" class="nav-list-link">Saving & recalling devices' state</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/writing-automations.html" class="nav-list-link">Writing automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/states-and-automations-in-practice.html" class="nav-list-link">States & automations in practice</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-audio.html" class="nav-list-link">Working with audio</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-video.html" class="nav-list-link">Working with video</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/breaking-the-timeline.html" class="nav-list-link">Breaking the timeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/non-linear-timelines.html" class="nav-list-link">Non-linear timeline</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/common-practices" class="nav-list-link">Common practices</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/1-looping.html" class="nav-list-link">Looping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/2-switches.html" class="nav-list-link">Switches</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/3-out-of-time.html" class="nav-list-link">Out-of-time triggering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/6-scenes.html" class="nav-list-link">Scenes</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/4-audio.html" class="nav-list-link">Audio techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/5-video.html" class="nav-list-link">Video techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/7-start-stop-cues.html" class="nav-list-link">Start/stop cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/8-live-coding.html" class="nav-list-link">Live coding</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/9-seek-and-transport.html" class="nav-list-link">Seek and transport</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/10-livestreaming.html" class="nav-list-link">Livestreaming</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/11-video-mixing-and-mapping.html" class="nav-list-link">Video mixing and mapping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/12-data-processing.html" class="nav-list-link">Data processing and filtering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/13-led-design.html" class="nav-list-link">LED design</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/14-spatial-audio.html" class="nav-list-link">Spatial audio techniques</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth" class="nav-list-link">In depth</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/unit-system.html" class="nav-list-link">Address system</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/audio-routing.html" class="nav-list-link">Audio routing</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/automations.html" class="nav-list-link">Automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/cues.html" class="nav-list-link">Cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/custom-ui.html" class="nav-list-link">Custom UI</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/embedded.html" class="nav-list-link">Embedded devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/execution.html" class="nav-list-link">Execution engine</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/video.html" class="nav-list-link">Graphics pipeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/midi.html" class="nav-list-link">MIDI support</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/media.html" class="nav-list-link">Media management</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/modular-workflow.html" class="nav-list-link">Modular workflow</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/musical.html" class="nav-list-link">Musical metrics</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/package-manager.html" class="nav-list-link">Package manager</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/pattern-matching.html" class="nav-list-link">Pattern matching</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/polyphony.html" class="nav-list-link">Polyphonic behaviours</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/presets.html" class="nav-list-link">Presets</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/puredata.html" class="nav-list-link">Pure Data (redirect)</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/recording.html" class="nav-list-link">Recording</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/remote.html" class="nav-list-link">Remote Control</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth/scripting.html" class="nav-list-link">Scripting</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/in-depth/scripting-api.html" class="nav-list-link">Scripting API</a>
+                  </li></ul></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference" class="nav-list-link">Reference</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/changelog.html" class="nav-list-link">Changelog</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/commandline.html" class="nav-list-link">Command line API</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/devices.html" class="nav-list-link">Devices</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/artnet-device.html" class="nav-list-link">Art-Net device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/audio-device.html" class="nav-list-link">Audio device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ble-device.html" class="nav-list-link">BLE device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/companion-device.html" class="nav-list-link">Bitfocus Companion Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/camera-device.html" class="nav-list-link">Camera device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/coap-device.html" class="nav-list-link">CoAP Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/evdev-device.html" class="nav-list-link">Evdev device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gps-device.html" class="nav-list-link">GPS device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/http-device.html" class="nav-list-link">HTTP device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/joystick-device.html" class="nav-list-link">Joystick device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/kinect-device.html" class="nav-list-link">Kinect device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/led-device.html" class="nav-list-link">LED device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/lsl-device.html" class="nav-list-link">LSL device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/leapmotion-device.html" class="nav-list-link">Leapmotion device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libav-device.html" class="nav-list-link">Libav device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/local-device.html" class="nav-list-link">Local device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiin-device.html" class="nav-list-link">MIDI input device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiout-device.html" class="nav-list-link">MIDI output device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mqtt-device.html" class="nav-list-link">MQTT Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mapper-device.html" class="nav-list-link">Mapper device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/minuit-device.html" class="nav-list-link">Minuit device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ndi-device.html" class="nav-list-link">NDI devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/osc-device.html" class="nav-list-link">OSC device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/oscquery-device.html" class="nav-list-link">OSCQuery device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/rawio-device.html" class="nav-list-link">Raw I/O device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/serial-device.html" class="nav-list-link">Serial device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/sh4lt-device.html" class="nav-list-link">Sh4lt devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/shmdata-device.html" class="nav-list-link">Shmdata devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spatgris-device.html" class="nav-list-link">SpatGris device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spout-device.html" class="nav-list-link">Spout devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/syphon-device.html" class="nav-list-link">Syphon devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ws-device.html" class="nav-list-link">WebSocket device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/wiimote-device.html" class="nav-list-link">Wiimote device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/window-device.html" class="nav-list-link">Window device</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/panels.html" class="nav-list-link">Panels</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/console.html" class="nav-list-link">Console</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/explorer.html" class="nav-list-link">Device explorer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/inspector.html" class="nav-list-link">Inspector</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/library.html" class="nav-list-link">Library</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/mixer.html" class="nav-list-link">Mixer</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/processes.html" class="nav-list-link">Processes</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/2Dspline.html" class="nav-list-link">2D Spline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/adsr.html" class="nav-list-link">ADSR</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-composer.html" class="nav-list-link">AI Prompt Composer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-interpolator.html" class="nav-list-link">AI Prompt Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-recognition.html" class="nav-list-link">AI Recognition</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/analysis.html" class="nav-list-link">Analysis</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-utilities.html" class="nav-list-link">Array utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-effects.html" class="nav-list-link">Audio Effects</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-particles.html" class="nav-list-link">Audio Particles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-looper.html" class="nav-list-link">Audio looper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-plugins.html" class="nav-list-link">Audio plugins</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-utilities.html" class="nav-list-link">Audio utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/automation_float.html" class="nav-list-link">Automation (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/barrverb.html" class="nav-list-link">BarrVerb</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/bytebeat.html" class="nav-list-link">Bytebeat</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/cpp_jit.html" class="nav-list-link">C++ JIT</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/csv-recorder.html" class="nav-list-link">CSV recorder</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/calibrator.html" class="nav-list-link">Calibrator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/classifier.html" class="nav-list-link">Classifier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/compute-shaders.html" class="nav-list-link">Compute Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/computer-vision-utilities.html" class="nav-list-link">Computer Vision utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/context-free-art.html" class="nav-list-link">Context-Free Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/controlsurface.html" class="nav-list-link">Control surface</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/control-utilities.html" class="nav-list-link">Control utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/dbap.html" class="nav-list-link">DBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/display-utilities.html" class="nav-list-link">Display Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/easetanbul.html" class="nav-list-link">Easetanbul</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/envelope-follower.html" class="nav-list-link">Envelope Follower</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/faust.html" class="nav-list-link">Faust</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gbap.html" class="nav-list-link">GBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geo-zones.html" class="nav-list-link">Geo Zones</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gestures.html" class="nav-list-link">Gestures</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient.html" class="nav-list-link">Gradient</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient-scrubber.html" class="nav-list-link">Gradient Scrubber</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/graphics-utilities.html" class="nav-list-link">Graphics Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/hdf5.html" class="nav-list-link">HDF5 Support</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shaders.html" class="nav-list-link">ISF Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/image.html" class="nav-list-link">Image process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/interpolator.html" class="nav-list-link">Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/javascript.html" class="nav-list-link">Javascript</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/led-view.html" class="nav-list-link">LED View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/lfo.html" class="nav-list-link">LFO</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-reader.html" class="nav-list-link">MIDI File Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scaler.html" class="nav-list-link">MIDI File Scaler</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scroller.html" class="nav-list-link">MIDI File Scroller</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-filter.html" class="nav-list-link">MIDI Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-utilities.html" class="nav-list-link">MIDI utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping.html" class="nav-list-link">Mapping (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-curve.html" class="nav-list-link">Mapping Curve</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-tool.html" class="nav-list-link">Mapping tool</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-utilities.html" class="nav-list-link">Mapping utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/exprtk.html" class="nav-list-link">Math expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix.html" class="nav-list-link">Matrix</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix-spatialization.html" class="nav-list-link">Matrix Spatialization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/melodial.html" class="nav-list-link">Melodial</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/model-display.html" class="nav-list-link">Model display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multicursor.html" class="nav-list-link">Multi-Cursor Manager</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/nodes.html" class="nav-list-link">Nodes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-filter.html" class="nav-list-link">Object filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-loader.html" class="nav-list-link">Object loader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pathgenerator.html" class="nav-list-link">Path Generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-applier.html" class="nav-list-link">Pattern Applier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-combiner.html" class="nav-list-link">Pattern Combiner</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternal.html" class="nav-list-link">Patternal</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternist.html" class="nav-list-link">Patternist</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/piano-roll.html" class="nav-list-link">Piano roll</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pixel-utilities.html" class="nav-list-link">Pixel Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point2d-view.html" class="nav-list-link">Point2D View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/poles.html" class="nav-list-link">Poles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/process-launcher.html" class="nav-list-link">Process Launcher</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/puredata.html" class="nav-list-link">Pure Data integration</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/qwen-llm.html" class="nav-list-link">Qwen LLM</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/range-filter.html" class="nav-list-link">Range filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rate-limiter.html" class="nav-list-link">Rate Limiter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regressor.html" class="nav-list-link">Regressor</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scenario.html" class="nav-list-link">Scenario</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shell-command.html" class="nav-list-link">Shell command</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/signal-display.html" class="nav-list-link">Signal Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/smooth.html" class="nav-list-link">Smooth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/soundfile.html" class="nav-list-link">Soundfiles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/spammer.html" class="nav-list-link">Spammer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sprite-reader.html" class="nav-list-link">Sprite Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/step.html" class="nav-list-link">Step sequencer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/structure-synth.html" class="nav-list-link">Structure Synth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sweeper.html" class="nav-list-link">Sweeper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/teleplot.html" class="nav-list-link">Teleplot</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tempo.html" class="nav-list-link">Tempo</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text.html" class="nav-list-link">Text process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texgen.html" class="nav-list-link">Texture generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/trigger.html" class="nav-list-link">Trigger</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tweener.html" class="nav-list-link">Tweener</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-display.html" class="nav-list-link">Value Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-filter.html" class="nav-list-link">Value Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video.html" class="nav-list-link">Video</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/wavecycle.html" class="nav-list-link">Wavecycle</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/preferences.html" class="nav-list-link">Score preferences</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/shortcuts.html" class="nav-list-link">Shortcuts</a></li><li class="nav-list-item  active"><a href="https://ossia.io/score-docs/reference/protocols-and-formats.html" class="nav-list-link active">Supported protocols and formats</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples" class="nav-list-link">Examples</a><ul class="nav-list "><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/3d" class="nav-list-link">3D Graphics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/threedim.html" class="nav-list-link">3D meshes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/curl-noise.html" class="nav-list-link">Curl Noise Geometry Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/extract-attribute.html" class="nav-list-link">Extract Attribute</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generate-array.html" class="nav-list-link">Generate Array</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/maxicube.html" class="nav-list-link">Massive Particle System</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza.html" class="nav-list-link">Sponza Palace</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/ssynth.html" class="nav-list-link">Structure Synth Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/js-texture-inlet.html" class="nav-list-link">Texture Inlet in Qt Quick 3D</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/gltf-checkers.html" class="nav-list-link">glTF Scene with Effects</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/advanced" class="nav-list-link">Advanced</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/audio" class="nav-list-link">Audio</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/audiofx.html" class="nav-list-link">Audio Effects Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/faust-synthesis.html" class="nav-list-link">Faust Synthesis example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/pd-integration.html" class="nav-list-link">PureData Example</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/automation" class="nav-list-link">Automation</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/modulation.html" class="nav-list-link">Device modulation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/smoothing.html" class="nav-list-link">Smoothing and filtering</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/basics" class="nav-list-link">Basics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/osc.html" class="nav-list-link">Basic OSC example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeflo.html" class="nav-list-link">Basic timeline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/all-media.html" class="nav-list-link">Multi-media patching</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/delayed.html" class="nav-list-link">Temporal patching (delayed)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/glutton.html" class="nav-list-link">Temporal patching (glutton)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel.html" class="nav-list-link">Time model</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeline-and-patches.html" class="nav-list-link">Timeline and patches</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/devices" class="nav-list-link">Device Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/gamepad.html" class="nav-list-link">Gamepad control</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/tempo" class="nav-list-link">Tempo Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/tempo/tempo-control.html" class="nav-list-link">Tempo manipulation</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/video" class="nav-list-link">Video Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/audioreactive.html" class="nav-list-link">Audio-reactive visuals</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/camera.html" class="nav-list-link">Camera input</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-basics.html" class="nav-list-link">Video manipulation</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/integrations" class="nav-list-link">Integrations</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/integrations/blender.html" class="nav-list-link">Integrating with Blender</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development" class="nav-list-link">Development</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/development/architecture.html" class="nav-list-link">Architecture</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/build-from-source.html" class="nav-list-link">Building from source</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/hacking.html" class="nav-list-link">Hacking</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/packaging.html" class="nav-list-link">Packaging</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/release.html" class="nav-list-link">Release build</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/plug-ins.html" class="nav-list-link">Plug-ins</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" class="nav-list-link">Plug-ins with Avendish</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/faq.html" class="nav-list-link">FAQ</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/controlling-score-with-oscquery.html" class="nav-list-link">Controlling score with OSCQuery</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/monitor-activity.html" class="nav-list-link">How to monitor activity ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/nogui.html" class="nav-list-link">How to run score without GUI ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/linux.html" class="nav-list-link">Running on Linux</a></li></ul></li><li class="nav-list-item"><a href="https://ossia.io/score-docs/troubleshooting.html" class="nav-list-link">Troubleshooting</a></li></ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search score documentation" aria-label="Search score documentation" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/reference">Reference</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>Supported protocols and formats</span></li>
+            </ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <p>This page lists all the systems, file formats, etc… that <em>score</em> is able to inter-operate with.</p>
+      <h1 id="operating-systems">
+        
+        
+          <a href="#operating-systems" class="anchor-heading" aria-labelledby="operating-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operating systems
+        
+        
+      </h1>
+    
+
+<p><em>score</em> works on Linux, macOS, Windows, and partially on the web platform.</p>
+
+<p>Its development mainly happens on an <a href="https://archlinux.org/" class="web-link">ArchLinux</a> system.
+As <em>score</em> is built with <a href="https://qt-project.org" class="web-link">Qt</a>, it should be portable to <a href="https://doc.qt.io/qt-5/qpa.html" class="web-link">any system where Qt runs</a>.</p>
+      <h1 id="network-protocols">
+        
+        
+          <a href="#network-protocols" class="anchor-heading" aria-labelledby="network-protocols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Network protocols
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>OSC (Open Sound Control): the standard intermedia protocol. It is implemented through a <a href="https://github.com/jcelerier/oscpack" class="web-link">heavily modified version</a> of Ross Bencina’s oscpack library.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/osc-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://vdmx.vidvox.net/blog/oscquery" class="web-link">OSCQuery</a>:
+    <ul>
+      <li>Documented <a href="/score-docs/devices/oscquery-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://github.com/Minuit/minuit" class="web-link">Minuit</a>.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/minuit-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>HTTP.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/http-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>WebSockets.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/ws-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>CoAP.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/coap-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>MQTT.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/mqtt-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>LSL (Lab Streaming Layer).
+    <ul>
+      <li>Documented <a href="/score-docs/devices/lsl-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+</ul>
+      <h1 id="lighting-protocols">
+        
+        
+          <a href="#lighting-protocols" class="anchor-heading" aria-labelledby="lighting-protocols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lighting protocols
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>
+<a href="https://art-net.org.uk/" class="web-link">Art-Net</a> / DMX: the standard for lighting fixtures. Support is implemented through <a href="https://github.com/OpenLightingProject/libartnet" class="web-link">libartnet</a>, which has been integrated inside libossia. <em>score</em> is able to load fixtures definitions in the <a href="https://github.com/OpenLightingProject/open-fixture-library" class="web-link">open-fixture-library</a> format.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/artnet-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<strong>LED Strip Support</strong>: Comprehensive support for LED strips including NeoPixel (WS2812), individual LED control, and strip/pane/volume layouts through Art-Net. Supports RGB, RGBW, and specialized diode configurations (Warm/Cold White, Amber, UV).</li>
+  <li>
+<a href="https://wiki.openlighting.org/index.php/E1.31" class="web-link">s.ACN / E1.31</a> is supported.</li>
+  <li>ENTTEC DMX USB Pro devices are supported (Mk1 and Mk2).</li>
+  <li>DMX input and output are both supported.</li>
+</ul>
+      <h1 id="hardware-protocols">
+        
+        
+          <a href="#hardware-protocols" class="anchor-heading" aria-labelledby="hardware-protocols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hardware protocols
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>Serial port: <em>score</em> can read/write directly through serial ports, either directly or through Bluetooth. Support is currently based on the Qt SerialPort library but is being ported to ASIO to allow it to run in environments that cannot use Qt.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/serial-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>Game pads: they are supported through the <a href="https://libsdl.org" class="web-link">SDL2</a> gamepad library. Most gamepads and joysticks should work without issue.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/joystick-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>Wiimotes: they are supported through the <a href="https://github.com/wiiuse/wiiuse" class="web-link">WiiUse</a> library.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/wiimote-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://www.ultraleap.com/" class="web-link">LeapMotion / UltraLeap</a>: they are supported through the UltraLeap SDK (Gemini / Hyperion) which must be installed on the target computer.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/leapmotion-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>GPIOs, ADCs, PWMs etc.: they are supported through the <a href="https://github.com/pmunts/libsimpleio" class="web-link">SimpleIO library</a> which is a simple wrapper over the raw kernel access. This feature is only available on Linux with the relevant hardware, for instance on Raspberry Pi.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/rawio-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>BLE: Bluetooth Low Energy devices are supported through the <a href="https://github.com/OpenBluetoothToolbox/SimpleBLE" class="web-link">SimpleBLE</a>. Both reading advertisments / beacons / manufacturer data and GATT services is supported.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/ble-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>GPS: <em>score</em> can connect to a <a href="https://gpsd.gitlab.io/gpsd/" class="web-link">gpsd</a> server and expose the GPS data.
+    <ul>
+      <li>Documented <a href="/score-docs/devices/gps-device.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://www.phidgets.com" class="web-link">Phidgets</a>: they are supported through an implementation in libossia. Note that <em>score</em> must be built from source with the Phidgets API for the Phidgets protocol to be enabled.</li>
+</ul>
+      <h1 id="audio-systems">
+        
+        
+          <a href="#audio-systems" class="anchor-heading" aria-labelledby="audio-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Audio systems
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>
+<a href="https://jackaudio.org" class="web-link">JACK</a>: support is implemented in libossia.</li>
+  <li>
+<a href="https://www.freedesktop.org/wiki/Software/PulseAudio/" class="web-link">PulseAudio</a>: experimental support is implemented in libossia.</li>
+  <li>
+<a href="https://pipewire.org" class="web-link">PipeWire</a>: implemented in libossia and in score.</li>
+  <li>
+<a href="https://alsa-project.org" class="web-link">ALSA</a>, the native Linux backend, supported through <a href="https://www.portaudio.com/" class="web-link">PortAudio</a>. A direct implementation is also provided for instance for working with as low latency as possible on embedded devices, but it only supports output, not duplex / input.</li>
+  <li>CoreAudio: the native macOS backend, supported through PortAudio.</li>
+  <li>MME, WASAPI, WDMKS: the native Windows backends, supported through <a href="https://www.portaudio.com/" class="web-link">PortAudio</a>.</li>
+  <li>
+<a href="https://www.steinberg.net/en/company/technologies.html" class="web-link">ASIO</a>: the low-latency pro-audio Windows backend developed by <a href="https://www.steinberg.net" class="web-link">Steinberg</a>, supported through <a href="https://www.portaudio.com/" class="web-link">PortAudio</a>.</li>
+  <li>
+<a href="https://libsdl.org" class="web-link">SDL</a>: support is implemented in libossia. It is mainly used to provide audio for the WebAssembly build of <em>score</em>.</li>
+</ul>
+      <h1 id="video-protocols">
+        
+        
+          <a href="#video-protocols" class="anchor-heading" aria-labelledby="video-protocols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Video protocols
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>
+<a href="https://spout.zeal.co/" class="web-link">Spout</a> is supported on Windows.
+    <ul>
+      <li>Documented <a class="wiki-link" href="/score-docs/devices/spout-device.html">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="http://syphon.v002.info/" class="web-link">Syphon</a> is supported on macOS.
+    <ul>
+      <li>Documented <a class="wiki-link" href="/score-docs/devices/syphon-device.html">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://gitlab.com/sat-metalab/shmdata/" class="web-link">Shmdata</a> is supported on Linux and macOS.
+    <ul>
+      <li>Documented <a class="wiki-link" href="/score-docs/devices/shmdata-device.html">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://gitlab.com/sh4lt/sh4lt" class="web-link">Sh4lt</a>: Advanced shared memory video/audio streaming protocol supporting any data type (multichannel audio, video frames, 3D models, messages). Provides zero-copy, server-less communication between applications with dynamic buffer resizing and hot connection/disconnection. Available for input and output.</li>
+  <li>
+<a href="https://www.newtek.com/ndi/" class="web-link">NDI</a> is supported on Windows, Linux and macOS.</li>
+  <li>NDI PTZ is supported for controlling cameras with PTZ feature.</li>
+</ul>
+      <h1 id="transport-synchronisation">
+        
+        
+          <a href="#transport-synchronisation" class="anchor-heading" aria-labelledby="transport-synchronisation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transport synchronisation
+        
+        
+      </h1>
+    
+
+<ul>
+  <li>
+<a href="https://jackaudio.org" class="web-link">JACK</a> transport: <em>score</em> can act as a master or a slave.</li>
+</ul>
+      <h1 id="midi">
+        
+        
+          <a href="#midi" class="anchor-heading" aria-labelledby="midi"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> MIDI
+        
+        
+      </h1>
+    
+
+<p>All the MIDI support in <em>score</em> comes from the <a href="https://github.com/jcelerier/libremidi" class="web-link">libremidi</a> library:</p>
+
+<p>For real-time communication, the following implementations are provided:</p>
+<ul>
+  <li>
+<a href="https://alsa-project.org" class="web-link">ALSA</a>, through either the raw or sequencer API.</li>
+  <li>
+<a href="https://jackaudio.org" class="web-link">JACK</a>.</li>
+  <li>
+<a href="https://pipewire.org" class="web-link">PipeWire</a>.</li>
+  <li>The native operating systems MIDI API: MME for Windows, CoreMIDI for macOS.</li>
+  <li>
+<a href="https://www.w3.org/TR/webmidi/" class="web-link">WebMIDI</a>.</li>
+</ul>
+
+<p>In addition, <em>score</em> is able to load Standard MIDI files (SMF).</p>
+
+<p>See the <a class="wiki-link" href="/score-docs/in-depth/midi.html">MIDI documentation</a> for more information.</p>
+      <h1 id="audio-file-formats">
+        
+        
+          <a href="#audio-file-formats" class="anchor-heading" aria-labelledby="audio-file-formats"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Audio file formats
+        
+        
+      </h1>
+    
+
+<p><em>score</em> uses <a href="https://ffmpeg.org/" class="web-link">FFMPEG</a> for its audio needs.</p>
+
+<p>It should support most codecs and formats listed <a href="https://ffmpeg.org/general.html#Audio-Codecs" class="web-link">at this page</a>.
+Every standard format (WAV, W64, AIFF, MP3, OGG Vorbis, FLAC, etc.) are supported without issues.</p>
+
+<p><em>score</em> handles WAV files in a specific way, through the <a href="https://github.com/mackron/dr_libs/" class="web-link">dr_wav</a> library, to allow for memory-mapping the data for large files.</p>
+
+<p><em>score</em> is able to read ACID tags to devise for instance BPM info from sound files.</p>
+
+<p>See the <a href="/score-docs/processes/soundfile.html" class="web-link">sound file process documentation</a> for more information.</p>
+      <h1 id="video-file-formats">
+        
+        
+          <a href="#video-file-formats" class="anchor-heading" aria-labelledby="video-file-formats"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Video file formats
+        
+        
+      </h1>
+    
+
+<p><em>score</em> uses <a href="https://ffmpeg.org/" class="web-link">FFMPEG</a> for its video needs.</p>
+
+<p>It should support most codecs and formats listed <a href="https://ffmpeg.org/general.html#Video-Codecs" class="web-link">at this page</a>.
+In particular, H.264, H.265, Apple ProRes, AVCHD, etc. should be supported.</p>
+
+<p><a href="https://hap.video" class="web-link">HAP codecs</a> are handled in a different way: for maximum performance, decoding is done by <em>score</em> (which allows doing it on the graphics card, while FFMPEG’s HAP decoding happens on the CPU which defeats the point of the codec).</p>
+
+<p>See the <a href="/score-docs/processes/video.html" class="web-link">video process documentation</a> for more information.</p>
+      <h2 id="hardware-decoding">
+        
+        
+          <a href="#hardware-decoding" class="anchor-heading" aria-labelledby="hardware-decoding"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hardware decoding
+        
+        
+      </h2>
+    
+<p><em>score</em> can use OS video decoding APIs through FFMPEG. This allows for instance to decode H264 video on a Raspberry Pi 4 and apply live effects on it with only 15% CPU usage.</p>
+
+<p>Supported APIs are:</p>
+
+<ul>
+  <li>DXVA2 / D3D11 on Window.</li>
+  <li>VideoToolbox on macOS.</li>
+  <li>V4L2-M2M on Raspberry Pi and embedded.</li>
+</ul>
+
+<p>If one builds <em>score</em> from source with a custom FFMPEG version, or through a Linux distribution, it is also possible to have CUDA and QuickSync support.</p>
+      <h2 id="hardware-rendering">
+        
+        
+          <a href="#hardware-rendering" class="anchor-heading" aria-labelledby="hardware-rendering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hardware rendering
+        
+        
+      </h2>
+    
+<p><em>score</em> will try to render some common video texture formats on the GPU with shaders instead of converting them to RGB on the CPU, for maximum performance.
+Make sure that your video frames are in one of these pixel formats: if so, decoding won’t take CPU time.</p>
+
+<ul>
+  <li>RGB, RGBA, ARGB, ABGR and any variation thereof, planar or packed, 8 bits (int) or 32 bits (float)</li>
+  <li>YUV420P</li>
+  <li>YUV420P10</li>
+  <li>YUV420P12</li>
+  <li>YUV422P</li>
+  <li>YUV422P10</li>
+  <li>YUV422P12</li>
+  <li>NV12</li>
+  <li>YUYV422, UYVY422</li>
+  <li>HAP, HAP-Q, HAP-M</li>
+</ul>
+
+<p>Supported color spaces for source videos are BT.601, BT.709 and BT.2020.</p>
+      <h1 id="image-file-formats">
+        
+        
+          <a href="#image-file-formats" class="anchor-heading" aria-labelledby="image-file-formats"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Image file formats
+        
+        
+      </h1>
+    
+
+<p><em>score</em> uses Qt’s <a href="https://doc.qt.io/qt-6/qimage.html" class="web-link">QImage</a> for decoding images. The supported formats are PNG, GIF, JPEG.</p>
+
+<p>See the <a href="/score-docs/processes/image.html" class="web-link">image process documentation</a> for more information.</p>
+      <h1 id="3d-file-formats">
+        
+        
+          <a href="#3d-file-formats" class="anchor-heading" aria-labelledby="3d-file-formats"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3D file formats
+        
+        
+      </h1>
+    
+
+<p><em>score</em> can load <code class="language-plaintext highlighter-rouge">.obj</code> and <code class="language-plaintext highlighter-rouge">.ply</code> files through the <a class="wiki-link" href="/score-docs/processes/object-loader.html">Object Loader</a> process.
+In addition, the JS object allows to leverage Qt3D and QtQuick3D which both support loading many more formats (most importantly glTF / GLB).</p>
+      <h1 id="graphics-apis">
+        
+        
+          <a href="#graphics-apis" class="anchor-heading" aria-labelledby="graphics-apis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Graphics APIs
+        
+        
+      </h1>
+    
+
+<p><em>score</em> uses <a href="https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d" class="web-link">Qt RHI</a> as graphics abstraction for the video pipeline. It is able to use OpenGL ES 2.0, Vulkan, Metal, Direct3D 11 and Direct3D 12 in a very efficient way.</p>
+
+<p><em>score</em> shaders are written with the <a href="https://isf.video" class="web-link">Interactive Shader Format</a> specification.</p>
+
+<p>See the <a class="wiki-link" href="/score-docs/processes/shaders.html">shader process documentation</a> for more information on how to write <em>score</em> shaders.
+See the <a class="wiki-link" href="/score-docs/in-depth/video.html">general video documentation</a> for general information on the <em>score</em> graphics rendering pipeline.</p>
+      <h1 id="audio-plug-ins">
+        
+        
+          <a href="#audio-plug-ins" class="anchor-heading" aria-labelledby="audio-plug-ins"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Audio plug-ins
+        
+        
+      </h1>
+    
+
+<p><em>score</em> supports the following audio plug-in systems:</p>
+
+<ul>
+  <li>
+<a href="https://www.airwindows.com/" class="web-link">AirWindows</a> on all platforms.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/audio-plugins.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://github.com/free-audio/clap" class="web-link">CLAP</a> on all platforms.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/audio-plugins.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://www.steinberg.net/en/company/technologies/vst3.html" class="web-link">Steinberg VST3</a> on all platforms.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/audio-plugins.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://lv2plug.in" class="web-link">LV2</a> on Linux. Note that currently this requires building <em>score</em> on your own computer or use a Linux distro package.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/audio-plugins.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://www.cockos.com/jsfx/" class="web-link">JSFX</a> is embedded in <em>score</em> through <a href="https://github.com/jpcima/ysfx" class="web-link">ysfx</a>.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/audio-plugins.html#jsfx" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://faust.grame.fr/" class="web-link">Faust</a>, the Faust programming language developed by GRAME. <em>score</em> embeds the Faust compiler and libraries.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/faust.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://puredata.info/" class="web-link">Pure Data</a> is embedded in <em>score</em> through <a href="https://github.com/libpd/libpd" class="web-link">libpd</a>.
+    <ul>
+      <li>Documented <a href="/score-docs/processes/puredata.html" class="web-link">here</a>.</li>
+    </ul>
+  </li>
+  <li>It is possible to write simple audio instruments and effects with the <a href="/score-docs/processes/exprtk.html" class="web-link">various math-expression processes</a>.</li>
+  <li>It is possible to write simple audio instruments and effects with <a href="/score-docs/processes/javascript.html" class="web-link">the JavaScript process</a>.</li>
+  <li>It is possible to write more advanced instruments and effects in C++ with <a href="/score-docs/processes/cpp_jit.html" class="web-link">the C++ JIT process</a>.</li>
+</ul>
+
+        
+
+        
+
+        
+          <hr>
+          <footer>
+            <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/docs/reference-manual/references/protocols.md">here</a> !</p>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+            
+              <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="https://ossia.io">ossia.io</a> © ossia 2021</p>
+            
+
+            
+              <div class="d-flex mt-2">
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
+
