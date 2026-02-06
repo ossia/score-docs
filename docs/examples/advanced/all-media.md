@@ -20,7 +20,7 @@ This example demonstrates ossia score's ability to patch together diverse media 
 
 ## Overview
 
-Unlike traditional software where audio, video, and 3D are handled separately, ossia score allows you to connect them all using the same cable-based patching system.
+ossia score allows you to manage audio, video, data and 3D, and process them all using the same cable-based patching system.
 
 ## Try it
 
