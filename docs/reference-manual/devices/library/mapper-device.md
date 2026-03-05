@@ -290,6 +290,156 @@ Ossia.Mapper
 }
 ```
 
+## Using the Device object
+
+The Mapper device scripts have access to a `Device` object which allows reading and writing parameter values on any device in the current *score* document. Addresses can refer to the mapper's own nodes (using a local path like `"/foo"`) or to other devices (using the full `DeviceName:/path` form).
+
+### Writing to the mapper's own nodes
+
+This is useful when incoming network data or a timer should update a parameter exposed by the mapper itself:
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  property var udpIn: Protocols.inboundUDP({
+    Transport: { Port: 9000 },
+    onMessage: function(bytes) {
+      // Parse the raw bytes and write the result to the mapper's own node
+      var val = parseInt(bytes);
+      Device.write("/parsed_sensor", val);
+    }
+  })
+
+  function createTree() {
+    return [
+      {
+        name: "parsed_sensor",
+        type: Ossia.Type.Int
+      }
+    ];
+  }
+}
+```
+
+### Writing to other devices
+
+The mapper can push values to any device parameter known to *score*:
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  function createTree() {
+    return [
+      {
+        name: "trigger",
+        type: Ossia.Type.Float,
+
+        // When Mapper:/trigger is written to, forward the value
+        // to two different devices at once
+        write: function(v) {
+          Device.write("Lights:/dimmer/1", v.value);
+          Device.write("OSCdevice:/fx/intensity", v.value * 100);
+        }
+      }
+    ];
+  }
+}
+```
+
+### Reading from other devices
+
+Use `Device.read` to query the current value of any parameter:
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  function createTree() {
+    return [
+      {
+        name: "snapshot",
+        type: Ossia.Type.Float,
+        interval: 500,
+        read: function() {
+          // Poll a parameter from another device every 500ms
+          return Device.read("OSCdevice:/sensor/temperature");
+        }
+      }
+    ];
+  }
+}
+```
+
+### Combining Device reads and writes
+
+A common pattern is to read several parameters, combine them, and write the result somewhere:
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  function createTree() {
+    return [
+      {
+        name: "average",
+        type: Ossia.Type.Float,
+        interval: 100,
+        read: function() {
+          var a = Device.read("SensorA:/value");
+          var b = Device.read("SensorB:/value");
+          var avg = (a + b) / 2.0;
+
+          // Write the computed average to a light controller
+          Device.write("Lights:/master", avg);
+
+          // Also expose it on this mapper node
+          return avg;
+        }
+      }
+    ];
+  }
+}
+```
+
+### Reacting to incoming network data and dispatching to multiple devices
+
+This example listens for OSC messages over UDP and routes them to different devices depending on the OSC address:
+
+```qml
+import Ossia 1.0 as Ossia
+
+Ossia.Mapper
+{
+  property var oscParser: Protocols.osc({
+    onOsc: function(address, args) {
+      if(address === "/sensor/x")
+        Device.write("Millumin:/millumin/layer/x/instance", args[0]);
+      else if(address === "/sensor/y")
+        Device.write("Millumin:/millumin/layer/y/instance", args[0]);
+      else if(address === "/sensor/button")
+        Device.write("/button_state", args[0]); // write to the mapper's own node
+    }
+  })
+
+  property var udpIn: Protocols.inboundUDP({
+    Transport: { Port: 7000 },
+    onMessage: function(bytes) { oscParser.processMessage(bytes); }
+  })
+
+  function createTree() {
+    return [
+      { name: "button_state", type: Ossia.Type.Bool }
+    ];
+  }
+}
+```
+
 ## Using the Protocols object
 
 The Mapper device scripts have access to a `Protocols` object which provides low-level networking primitives directly from QML. This allows the Mapper to communicate with external systems over UDP, TCP, WebSockets, Unix sockets, HTTP, and MIDI, going beyond the simple parameter binding mechanism.
@@ -303,14 +453,12 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  property var udpSocket
+  // Open an outbound UDP socket as a QML property
+  property var udpSocket: Protocols.outboundUDP({
+    Transport: { Host: "127.0.0.1", Port: 9000 }
+  })
 
   function createTree() {
-    // Open an outbound UDP socket
-    udpSocket = Protocols.outboundUDP({
-      Transport: { Host: "127.0.0.1", Port: 9000 }
-    });
-
     return [
       {
         name: "send",
@@ -331,14 +479,14 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  function createTree() {
-    Protocols.inboundUDP({
-      Transport: { Bind: "0.0.0.0", Port: 7000 },
-      onMessage: function(bytes) {
-        console.log("Received:", bytes);
-      }
-    });
+  property var udpIn: Protocols.inboundUDP({
+    Transport: { Bind: "0.0.0.0", Port: 7000 },
+    onMessage: function(bytes) {
+      console.log("Received:", bytes);
+    }
+  })
 
+  function createTree() {
     return [];
   }
 }
@@ -355,19 +503,17 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  property var tcpSocket
+  property var tcpSocket: Protocols.outboundTCP({
+    Transport: { Host: "127.0.0.1", Port: 5000 },
+    onOpen: function(socket) {
+      console.log("Connected!");
+      socket.write("hello");
+    },
+    onClose: function() { console.log("Disconnected"); },
+    onFail: function() { console.log("Connection failed"); }
+  })
 
   function createTree() {
-    tcpSocket = Protocols.outboundTCP({
-      Transport: { Host: "127.0.0.1", Port: 5000 },
-      onOpen: function(socket) {
-        console.log("Connected!");
-        socket.write("hello");
-      },
-      onClose: function() { console.log("Disconnected"); },
-      onFail: function() { console.log("Connection failed"); }
-    });
-
     return [];
   }
 }
@@ -380,20 +526,20 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  function createTree() {
-    Protocols.inboundTCP({
-      Transport: { Bind: "0.0.0.0", Port: 5000 },
-      onOpen: function() { console.log("Server started"); },
-      onConnection: function(socket) {
-        console.log("New client connected");
-        socket.onClose = function() { console.log("Client disconnected"); };
-        socket.receive(function(bytes) {
-          console.log("Received:", bytes);
-        });
-      },
-      onClose: function() { console.log("Server closed"); }
-    });
+  property var tcpServer: Protocols.inboundTCP({
+    Transport: { Bind: "0.0.0.0", Port: 5000 },
+    onOpen: function() { console.log("Server started"); },
+    onConnection: function(socket) {
+      console.log("New client connected");
+      socket.onClose = function() { console.log("Client disconnected"); };
+      socket.receive(function(bytes) {
+        console.log("Received:", bytes);
+      });
+    },
+    onClose: function() { console.log("Server closed"); }
+  })
 
+  function createTree() {
     return [];
   }
 }
@@ -408,15 +554,13 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  property var ws
+  property var ws: Protocols.outboundWS({
+    Transport: { Host: "127.0.0.1", Port: 8080 },
+    onTextMessage: function(msg) { console.log("Text:", msg); },
+    onBinaryMessage: function(msg) { console.log("Binary:", msg); }
+  })
 
   function createTree() {
-    ws = Protocols.outboundWS({
-      Transport: { Host: "127.0.0.1", Port: 8080 },
-      onTextMessage: function(msg) { console.log("Text:", msg); },
-      onBinaryMessage: function(msg) { console.log("Binary:", msg); }
-    });
-
     return [];
   }
 }
@@ -429,14 +573,14 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  function createTree() {
-    Protocols.inboundWS({
-      Transport: { Bind: "0.0.0.0", Port: 8080 },
-      onConnection: function(socket) {
-        console.log("Client connected");
-      }
-    });
+  property var wsServer: Protocols.inboundWS({
+    Transport: { Bind: "0.0.0.0", Port: 8080 },
+    onConnection: function(socket) {
+      console.log("Client connected");
+    }
+  })
 
+  function createTree() {
     return [];
   }
 }
@@ -447,23 +591,34 @@ Ossia.Mapper
 On systems that support Unix domain sockets, datagram and stream variants are available:
 
 ```qml
-// Outbound datagram
-Protocols.outboundUnixDatagram({ Transport: { Path: "/tmp/my_socket" } });
+import Ossia 1.0 as Ossia
 
-// Inbound datagram
-Protocols.inboundUnixDatagram({
-  Transport: { Path: "/tmp/my_socket" },
-  onMessage: function(bytes) { console.log(bytes); }
-});
+Ossia.Mapper
+{
+  // Outbound datagram
+  property var unixOut: Protocols.outboundUnixDatagram({
+    Transport: { Path: "/tmp/my_socket" }
+  })
 
-// Outbound stream
-Protocols.outboundUnixStream({ Transport: { Path: "/tmp/my_socket" } });
+  // Inbound datagram
+  property var unixIn: Protocols.inboundUnixDatagram({
+    Transport: { Path: "/tmp/my_socket" },
+    onMessage: function(bytes) { console.log(bytes); }
+  })
 
-// Inbound stream (server)
-Protocols.inboundUnixStream({
-  Transport: { Path: "/tmp/my_socket" },
-  onConnection: function(socket) { /* ... */ }
-});
+  // Outbound stream
+  property var unixStreamOut: Protocols.outboundUnixStream({
+    Transport: { Path: "/tmp/my_stream" }
+  })
+
+  // Inbound stream (server)
+  property var unixStreamIn: Protocols.inboundUnixStream({
+    Transport: { Path: "/tmp/my_stream" },
+    onConnection: function(socket) { /* ... */ }
+  })
+
+  function createTree() { return []; }
+}
 ```
 
 ### HTTP requests
@@ -505,20 +660,20 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
+  property var oscParser: Protocols.osc({
+    onOsc: function(address, args) {
+      console.log("OSC:", address, args);
+    }
+  })
+
+  property var udpIn: Protocols.inboundUDP({
+    Transport: { Port: 9000 },
+    onMessage: function(bytes) {
+      oscParser.processMessage(bytes);
+    }
+  })
+
   function createTree() {
-    var oscParser = Protocols.osc({
-      onOsc: function(address, args) {
-        console.log("OSC:", address, args);
-      }
-    });
-
-    Protocols.inboundUDP({
-      Transport: { Port: 9000 },
-      onMessage: function(bytes) {
-        oscParser.processMessage(bytes);
-      }
-    });
-
     return [];
   }
 }
@@ -533,32 +688,27 @@ import Ossia 1.0 as Ossia
 
 Ossia.Mapper
 {
-  function createTree() {
-    // List available MIDI input and output ports
-    var inputs = Protocols.inboundMIDIDevices();
-    var outputs = Protocols.outboundMIDIDevices();
+  // List available MIDI input and output ports
+  property var midiInputs: Protocols.inboundMIDIDevices()
+  property var midiOutputs: Protocols.outboundMIDIDevices()
 
-    for(var i = 0; i < inputs.length; i++)
-      console.log("Input:", JSON.stringify(inputs[i]));
-
-    // Open the first available input
-    if(inputs.length > 0) {
-      Protocols.inboundMIDI({
-        Transport: inputs[0],
+  // Open the first available input (if any)
+  property var midiIn: midiInputs.length > 0
+    ? Protocols.inboundMIDI({
+        Transport: midiInputs[0],
         onMessage: function(bytes) {
           console.log("MIDI in:", bytes);
         }
-      });
-    }
+      })
+    : null
 
-    // Open the first available output
-    if(outputs.length > 0) {
-      var midiOut = Protocols.outboundMIDI({
-        Transport: outputs[0]
-      });
-      // midiOut.write(...) can be used to send MIDI bytes
-    }
+  // Open the first available output (if any)
+  property var midiOut: midiOutputs.length > 0
+    ? Protocols.outboundMIDI({ Transport: midiOutputs[0] })
+    : null
 
+  function createTree() {
+    // midiOut.write(...) can be used to send MIDI bytes
     return [];
   }
 }
