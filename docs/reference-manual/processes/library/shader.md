@@ -38,7 +38,3 @@ It is really important to leverage the ISF built-in functions to access textures
 - [[Compute Shader]]: Similar to ISF shaders but for compute instead of fragment shaders.
 - [[Model Display]]: To apply the shader onto a 3D surface.
 - [[Pixel Utilities|Lightness Computer]]: To convert texture data into pixel arrays, for instance for [[LED design]].
-## Try it!
-
-Try it by downloading this [simple example]({{ site.scores }}/reference/processes/shell-command.score)!
-Note that the example requires gzdoom to work.
