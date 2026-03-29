@@ -159,7 +159,7 @@
   word-wrap: break-word;
 
   &.search-result-doc-parent {
-    opacity: 0.5;
+    opacity: 0.75;
     @include fs-3;
 
     @include mq(md) {
@@ -229,6 +229,7 @@
   padding-right: $sp-3;
   padding-bottom: $sp-2;
   padding-left: $sp-3;
+  color: $link-color;
   @include fs-3;
 }
 
@@ -283,6 +284,7 @@
   .search-input {
     padding: 0;
     background-color: $search-background-color;
+    color: $link-color;
     @include mq(md) {
       padding-left: 2.3rem;
     }
