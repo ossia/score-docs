@@ -101,7 +101,7 @@ $ cmake --build build-folder
 
 ### Building ossia score on macOS
 
-On Windows we recommend using Homebrew.
+On macOS we recommend using Homebrew.
 
 ```
 $ brew install ninja qt boost cmake ffmpeg fftw portaudio jack sdl lv2 lilv suil freetype
