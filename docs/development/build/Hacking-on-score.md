@@ -285,14 +285,19 @@ $ xcrun cmake --build build-folder
 
 ### Build the project on Linux with the SDK
 
+> note : Use linker script and static plugins to isolate a built-in different version LLVM from system LLVM symbols namespace. This allow the use of Vulkan graphics API when loading jit or faust addons, similar to official AppImage build.
+
 ```bash
-$ cmake -S ~/path/to/score   \
-  -B build-folder            \
-  -GNinja                    \
-  -DOSSIA_SDK=/opt/ossia-sdk \
-  -DCMAKE_BUILD_TYPE=Debug   \
-  -DSCORE_PCH=1              \
-  -DSCORE_DYNAMIC_PLUGINS=1  \
+$ cmake -S ~/path/to/score                                                  \
+  -B build-folder                                                           \
+  -GNinja                                                                   \
+  -DOSSIA_SDK=/opt/ossia-sdk-x86_64                                         \
+  -DCMAKE_C_COMPILER=/opt/ossia-sdk-x86_64/llvm/bin/clang                   \
+  -DCMAKE_CXX_COMPILER=/opt/ossia-sdk-x86_64/llvm/bin/clang++               \
+  -DSCORE_LINKER_SCRIPT="${PWD}/cmake/Deployment/Linux/AppImage/version"    \
+  -DCMAKE_BUILD_TYPE=Debug                                                  \
+  -DSCORE_PCH=1                                                             \
+  -DSCORE_DYNAMIC_PLUGINS=0                                                 \
   -DCMAKE_COLOR_DIAGNOSTICS=1
 
 $ cmake --build build-folder
