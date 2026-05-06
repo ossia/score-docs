@@ -272,7 +272,7 @@ Or with cmd.exe, the native command shell:
 
 ```bash
 $ xcrun cmake -S ~/path/to/score     \
-  -B build-foldere                   \
+  -B build-folder                   \
   -GNinja                            \
   -DOSSIA_SDK=/opt/ossia-sdk-aarch64 \
   -DCMAKE_BUILD_TYPE=Debug           \
