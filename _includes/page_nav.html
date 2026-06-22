@@ -1,0 +1,74 @@
+{%- comment -%}
+  Renders "Previous" / "Next" buttons that follow the sidebar navigation order.
+
+  It rebuilds the flat, depth-first order of the sidebar (top-level pages, then
+  their children, then grand-children — each level sorted like nav.html), finds
+  the current page in that order, and links to the pages immediately before and
+  after it.
+{%- endcomment -%}
+{%- include sort_pages.html pages=site.html_pages -%}
+
+{%- comment -%} Flatten pages_list into sidebar (depth-first) order. {%- endcomment -%}
+{%- assign flat_pages = "" | split:"X" -%}
+{%- for node in pages_list -%}
+  {%- if node.parent == nil -%}
+    {%- assign node_arr = pages_list | where:"url", node.url -%}
+    {%- assign flat_pages = flat_pages | concat: node_arr -%}
+    {%- if node.has_children -%}
+      {%- assign children = pages_list | where:"parent", node.title -%}
+      {%- for child in children -%}
+        {%- assign child_arr = pages_list | where:"url", child.url -%}
+        {%- assign flat_pages = flat_pages | concat: child_arr -%}
+        {%- if child.has_children -%}
+          {%- assign grand_children = pages_list | where:"parent", child.title | where:"grand_parent", node.title -%}
+          {%- assign flat_pages = flat_pages | concat: grand_children -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} Locate the current page in the flattened order. {%- endcomment -%}
+{%- assign found = false -%}
+{%- assign cur_index = 0 -%}
+{%- for p in flat_pages -%}
+  {%- if p.url == page.url -%}
+    {%- assign found = true -%}
+    {%- assign cur_index = forloop.index0 -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if found -%}
+  {%- assign prev_page = nil -%}
+  {%- assign next_page = nil -%}
+  {%- if cur_index > 0 -%}
+    {%- assign prev_index = cur_index | minus: 1 -%}
+    {%- assign prev_page = flat_pages[prev_index] -%}
+  {%- endif -%}
+  {%- assign next_index = cur_index | plus: 1 -%}
+  {%- if next_index < flat_pages.size -%}
+    {%- assign next_page = flat_pages[next_index] -%}
+  {%- endif -%}
+
+  {%- if prev_page or next_page -%}
+    <nav class="page-nav" aria-label="Page navigation">
+      {%- if prev_page -%}
+        <a class="page-nav-link page-nav-prev" href="{{ prev_page.url | absolute_url }}" rel="prev">
+          <span class="page-nav-label">Previous</span>
+          <span class="page-nav-title">{{ prev_page.title }}</span>
+        </a>
+      {%- else -%}
+        <span class="page-nav-link page-nav-empty"></span>
+      {%- endif -%}
+      {%- if next_page -%}
+        <a class="page-nav-link page-nav-next" href="{{ next_page.url | absolute_url }}" rel="next">
+          <span class="page-nav-label">Next</span>
+          <span class="page-nav-title">{{ next_page.title }}</span>
+        </a>
+      {%- else -%}
+        <span class="page-nav-link page-nav-empty"></span>
+      {%- endif -%}
+    </nav>
+  {%- endif -%}
+{%- endif -%}

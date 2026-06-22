@@ -134,6 +134,10 @@ layout: table_wrappers
           </ul>
         {% endif %}
 
+        {% unless page.url == "/" %}
+          {% include page_nav.html %}
+        {% endunless %}
+
         {% if site.footer_content != nil or site.last_edit_timestamp %}
           <hr>
           <footer>
