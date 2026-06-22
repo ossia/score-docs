@@ -6,6 +6,7 @@ description: "Crop a normalized rectangle from the input image and stretch it to
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/crop.html
 ---

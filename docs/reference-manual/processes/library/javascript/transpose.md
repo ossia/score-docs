@@ -6,6 +6,7 @@ description: "JavaScript preset: Transpose"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/transpose.html
 ---

@@ -6,6 +6,7 @@ description: "Draws a small (80x48 pixel) time / date stamp."
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/tiny-date-time-overlay.html
 ---

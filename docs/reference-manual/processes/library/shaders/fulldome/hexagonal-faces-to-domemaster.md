@@ -6,6 +6,7 @@ description: "Hexagonal Prism Domemaster. 6 side faces (split into top/bottom ha
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/hexagonal-faces-to-domemaster.html
 ---

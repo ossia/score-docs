@@ -6,6 +6,7 @@ description: "Applies a customizable Domemaster mask defined by a polar angle ra
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/domemaster-mask.html
 ---

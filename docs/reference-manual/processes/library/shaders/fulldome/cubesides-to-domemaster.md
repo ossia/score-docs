@@ -6,6 +6,7 @@ description: "Generates a Domemaster output by projecting a rotated cubemap (6 i
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/cubesides-to-domemaster.html
 ---

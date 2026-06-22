@@ -6,6 +6,7 @@ description: "JavaScript preset: Read CSV"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/read-csv.html
 ---

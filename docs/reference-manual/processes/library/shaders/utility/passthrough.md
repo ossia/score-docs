@@ -6,6 +6,7 @@ description: "Copy the input texture without changes"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/passthrough.html
 ---

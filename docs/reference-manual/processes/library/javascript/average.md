@@ -6,6 +6,7 @@ description: "JavaScript preset: Average"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/average.html
 ---

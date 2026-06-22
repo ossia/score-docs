@@ -6,6 +6,7 @@ description: "JavaScript preset: Advanced Text"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/advanced-text.html
 ---

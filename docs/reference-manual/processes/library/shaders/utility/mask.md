@@ -6,6 +6,7 @@ description: "Apply a mask"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/mask.html
 ---

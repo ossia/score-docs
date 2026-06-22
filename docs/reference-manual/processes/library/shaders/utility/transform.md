@@ -6,6 +6,7 @@ description: "2D image transform with translate, rotate, scale, pivot, tiling, a
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/transform.html
 ---

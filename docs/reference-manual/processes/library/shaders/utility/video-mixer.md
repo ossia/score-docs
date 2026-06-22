@@ -6,6 +6,7 @@ description: "8-channel video mixer (Optimized)"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/video-mixer.html
 ---

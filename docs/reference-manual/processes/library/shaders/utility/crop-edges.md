@@ -6,6 +6,7 @@ description: "Crop an image by its left, right, bottom, and top edges. The cropp
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/crop-edges.html
 ---

@@ -6,6 +6,7 @@ description: "JavaScript preset: Euclidean Melody"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/euclidean-melody.html
 ---

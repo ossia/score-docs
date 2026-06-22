@@ -6,6 +6,7 @@ description: "Moves the vertex points to the specified locations without correct
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/video-mapper.html
 ---

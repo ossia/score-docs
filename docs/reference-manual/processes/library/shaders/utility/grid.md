@@ -6,6 +6,7 @@ description: "Display up to 16 image inputs in a mosaic grid for previsualizatio
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/grid.html
 ---

@@ -6,6 +6,7 @@ description: "Converts an equirectangular image to a cubemap atlas (strip or cro
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/equirectangular-to-cubemap.html
 ---

@@ -6,6 +6,7 @@ description: "JavaScript preset: JS 3D Example"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/js-3d-example.html
 ---

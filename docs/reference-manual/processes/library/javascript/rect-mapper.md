@@ -6,6 +6,7 @@ description: "JavaScript preset: Rect Mapper"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/rect-mapper.html
 ---

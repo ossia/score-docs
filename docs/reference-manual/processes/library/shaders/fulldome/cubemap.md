@@ -6,6 +6,7 @@ description: "Arranges six input cube face images into a selectable layout (Hori
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/cubemap.html
 ---

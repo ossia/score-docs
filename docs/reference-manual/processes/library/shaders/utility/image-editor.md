@@ -6,6 +6,7 @@ description: "Transforms an input image: scale, rotate (positive angle for CW im
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/image-editor.html
 ---

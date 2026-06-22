@@ -6,6 +6,7 @@ description: "Overlays an image onto an equirectangular projection with true sph
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/image-to-equirectangular.html
 ---

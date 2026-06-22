@@ -6,6 +6,7 @@ description: "JavaScript preset: Presentation"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/presentation.html
 ---

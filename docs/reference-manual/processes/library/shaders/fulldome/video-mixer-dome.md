@@ -6,6 +6,7 @@ description: "8-channel video mixer with Aspect Ratio control"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/video-mixer-dome.html
 ---

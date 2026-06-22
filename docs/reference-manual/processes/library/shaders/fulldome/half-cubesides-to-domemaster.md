@@ -6,6 +6,7 @@ description: "Optimized single-pass Domemaster. Maps raw 2:1 images to top/botto
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/half-cubesides-to-domemaster.html
 ---

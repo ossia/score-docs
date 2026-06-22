@@ -6,6 +6,7 @@ description: "Layer videos on top of each other. First texture is at the bottom.
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/layer.html
 ---

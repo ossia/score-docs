@@ -6,6 +6,7 @@ description: "JavaScript preset: Claves"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/claves.html
 ---

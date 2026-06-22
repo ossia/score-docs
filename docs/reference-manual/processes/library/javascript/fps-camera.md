@@ -6,6 +6,7 @@ description: "JavaScript preset: FPS Camera"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/fps-camera.html
 ---

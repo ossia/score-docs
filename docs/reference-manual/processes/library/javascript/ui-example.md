@@ -6,6 +6,7 @@ description: "JavaScript preset: UI Example"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/javascript/ui-example.html
 ---

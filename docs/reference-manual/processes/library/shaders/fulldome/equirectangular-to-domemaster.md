@@ -6,6 +6,7 @@ description: "Generates a Domemaster output by projecting a rotated equirectangu
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/equirectangular-to-domemaster.html
 ---

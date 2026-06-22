@@ -6,6 +6,7 @@ description: "Video switcher"
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/utility/video-switcher-16.html
 ---

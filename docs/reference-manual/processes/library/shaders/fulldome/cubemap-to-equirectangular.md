@@ -6,6 +6,7 @@ description: "Converts a cubemap atlas (strip or cross layout) to an equirectang
 
 parent: Processes
 grand_parent: Reference
+nav_exclude: true
 
 permalink: /processes/shaders/fulldome/cubemap-to-equirectangular.html
 ---
