@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/teleplot.html
+score: /reference/processes/teleplot.score
 ---
 # Teleplot
 
@@ -26,4 +27,4 @@ Perfect for system monitoring, performance analysis, debugging complex control s
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/teleplot.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

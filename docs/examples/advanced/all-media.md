@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/all-media.html
+score: /examples/basics/all-media.zip
 ---
 
 # Multi-media Patching
@@ -26,7 +27,7 @@ ossia score allows you to manage audio, video, data and 3D, and process them all
 
 Open this example to see how different media types flow through the same patching interface.
 
-[Download this example]({{ site.scores }}/examples/basics/all-media.zip)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

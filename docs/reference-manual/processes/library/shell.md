@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/shell-command.html
+score: /reference/processes/shell-command.score
 ---
 # Shell command
 
@@ -65,5 +66,5 @@ The Process Launcher uses Qt's QProcess internally, ensuring proper cross-platfo
 
 ## Try it!
 
-Try it by downloading this [simple example]({{ site.scores }}/reference/processes/shell-command.score)!
+Try it by downloading this [simple example]({{ site.scores }}{{ page.score }})!
 Note that the example requires gzdoom to work.

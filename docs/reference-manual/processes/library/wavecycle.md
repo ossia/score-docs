@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/wavecycle.html
+score: /reference/processes/wavecycle.score
 ---
 # Wavecycle
 
@@ -31,4 +32,4 @@ To plug for instance MIDI notes, one needs to take the MIDI pitch and convert it
 ![Wavecycle MIDI to frequency example]({{ site.img }}/reference/processes/wavecycle/wavecycle-mtof.png "Wavecycle MIDI to Frequency")
 
 
-[Try it !]({{ site.scores }}/reference/processes/wavecycle.score)
+[Try it !]({{ site.scores }}{{ page.score }})

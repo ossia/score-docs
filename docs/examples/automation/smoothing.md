@@ -8,6 +8,7 @@ parent: Automation
 grand_parent: Examples
 
 permalink: /examples/automation/smoothing.html
+score: /examples/automation/smoothing-and-filtering.score
 ---
 
 # Smoothing and filtering
@@ -20,7 +21,7 @@ This example demonstrates how to turn noisy, uncontrolled data into data easy to
 
 Open this example to see smoothing in action!
 
-[Download this example]({{ site.scores }}/examples/automation/smoothing-and-filtering.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

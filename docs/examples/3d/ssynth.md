@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/ssynth.html
+score: /examples/3d/ssynth.score
 ---
 
 # Structure Synth
@@ -48,7 +49,7 @@ This creates a spiral of boxes.
 
 Open this example to see generative 3D geometry in action. 
 
-[Download this example]({{ site.scores }}/examples/3d/ssynth.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

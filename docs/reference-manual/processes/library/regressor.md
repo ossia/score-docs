@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/regressor.html
+score: /reference/processes/regressor.score
 ---
 # Regressor
 
@@ -240,4 +241,4 @@ Efficient training:
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/regressor.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

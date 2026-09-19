@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/timeflo.html
+score: /examples/basics/timeflo.zip
 ---
 
 # Basic Timeline Example
@@ -35,7 +36,7 @@ Open this example to explore basic timeline composition. Try:
 - Adjusting the automation curve
 - Adding new sound files
 
-[Download this example]({{ site.scores }}/examples/basics/timeflo.zip)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

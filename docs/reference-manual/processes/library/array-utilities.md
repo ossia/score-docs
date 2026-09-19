@@ -8,13 +8,14 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/array-utilities.html
+score: /reference/processes/array-combiner.score
 ---
 
 # Array combiner {#sum}  
 
 ![Array Combiner]({{ site.img }}/reference/processes/array-combiner.png "Array Combiner") 
 
-[Try it !]({{ site.scores }}/reference/processes/array-combiner.score)
+[Try it !]({{ site.scores }}{{ page.score }})
 
 This process combines multiple input arrays in one output array through various modes: 
 
@@ -27,6 +28,6 @@ This process combines multiple input arrays in one output array through various 
 
 ![Array Tool]({{ site.img }}/reference/processes/array-tool.png "Array Tool") 
 
-[Try it !]({{ site.scores }}/reference/processes/array-tool.score)
+[Try it !]({{ site.scores }}{{ page.score }})
 
 An efficient multi-tool for all your array needs.

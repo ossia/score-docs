@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/glutton.html
+score: /examples/basics/glutton.score
 ---
 
 # Temporal Patching (Glutton Mode)
@@ -20,7 +21,7 @@ This example demonstrates ossia score's "glutton" patching mode, which allows au
 
 Connect an audio input device and open this example to hear how audio flows through the temporal effect chain.
 
-[Download this example]({{ site.scores }}/examples/basics/glutton.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

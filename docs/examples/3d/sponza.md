@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/sponza.html
+score: /examples/3d/sponza.score
 ---
 
 # Sponza Palace
@@ -33,7 +34,7 @@ The [Sponza Palace](https://en.wikipedia.org/wiki/Sponza_Palace) atrium is a cla
 
 Open this example and give an antique mood to your score!
 
-[Download this example]({{ site.scores }}/examples/3d/sponza.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

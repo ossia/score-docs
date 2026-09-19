@@ -7,6 +7,7 @@ description: "How to create custom UIs for your scores"
 parent: In depth
 
 permalink: /custom-ui.html
+score: /in-depth/custom-ui.score
 ---
 
 # Custom UIs
@@ -40,7 +41,7 @@ $ ./score --ui path/to/my/ui.qml path/to/my/document.score
 
 ## Basic example
 
-This example will create a basic UI which interoperates with the following score: [download it here]({{ site.scores }}/in-depth/custom-ui.score).
+This example will create a basic UI which interoperates with the following score: [download it here]({{ site.scores }}{{ page.score }}).
 
 Save the content of the QML file below as custom-ui.qml and run with: 
 
