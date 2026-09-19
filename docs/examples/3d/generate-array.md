@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/generate-array.html
+score: /examples/3d/generate-array.score
 ---
 
 # Generate Array
@@ -42,7 +43,7 @@ An [[Math expressions|Arraygen]] process generates arbitrary values. The resulti
 
 Open this example to see a procedurally generated point cloud animated in real-time.
 
-[Download this example]({{ site.scores }}/examples/3d/generate-array.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

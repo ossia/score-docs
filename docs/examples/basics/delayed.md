@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/delayed.html
+score: /examples/basics/delayed.score
 ---
 
 # Temporal Patching (Delayed Mode)
@@ -20,7 +21,7 @@ This example demonstrates ossia score's "delayed" patching mode, which allows au
 
 Open this example to hear how audio flows through the temporal effect chain.
 
-[Download this example]({{ site.scores }}/examples/basics/delayed.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

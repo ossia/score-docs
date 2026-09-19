@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/maxicube.html
+score: /examples/3d/maxicube.score
 ---
 
 # Massive Particle System
@@ -42,7 +43,7 @@ A compute shader generates a noise buffer of up to ~179 million points directly 
 
 Open this example to see a massive GPU-generated particle system with dynamic blur effects.
 
-[Download this example]({{ site.scores }}/examples/3d/maxicube.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

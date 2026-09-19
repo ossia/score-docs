@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/classifier.html
+score: /reference/processes/classifier.score
 ---
 # Classifier
 
@@ -224,4 +225,4 @@ Good features are crucial for classification performance:
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/classifier.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/sprite-reader.html
+score: /reference/processes/sprite-reader.score
 ---
 # Sprite Reader
 
@@ -104,4 +105,4 @@ For instance, you can create tempo-synchronized pixel art animations for music v
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/sprite-reader.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

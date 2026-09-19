@@ -8,6 +8,7 @@ parent: Video Examples
 grand_parent: Examples
 
 permalink: /examples/video/camera.html
+score: /examples/video/camera.score
 ---
 
 # Camera input
@@ -34,7 +35,7 @@ This type of patch is ideal for:
 Connect an audio source (microphone or music), check that your webcam is connected and not in use by another software,
 and open this example to see real-time audio-reactive graphics!
 
-[Download this example]({{ site.scores }}/examples/video/camera.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

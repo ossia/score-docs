@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/timemodel.html
+score: /examples/basics/timemodel.score
 ---
 
 
@@ -17,7 +18,7 @@ permalink: /examples/basics/timemodel.html
 
 This example showcases the different interactive features in the *score* timeline: Triggers, interactive conditions, loops.
 
-[Download this example]({{ site.scores }}/examples/basics/timemodel.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

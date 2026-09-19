@@ -8,6 +8,7 @@ parent: Video Examples
 grand_parent: Examples
 
 permalink: /examples/video/audioreactive.html
+score: /examples/video/audioreactive.score
 ---
 
 # Audio-Reactive Visuals
@@ -42,7 +43,7 @@ This type of patch is ideal for:
 
 Connect an audio source (microphone or music) and open this example to see real-time audio-reactive graphics!
 
-[Download this example]({{ site.scores }}/examples/video/audioreactive.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

@@ -8,6 +8,7 @@ parent: Tempo Examples
 grand_parent: Examples
 
 permalink: /examples/tempo/tempo-control.html
+score: /examples/tempo/tempo.score
 ---
 
 # Tempo Manipulation
@@ -61,7 +62,7 @@ Variable tempo is useful for:
 
 Open this example to hear tempo changes affecting audio playback!
 
-[Download this example]({{ site.scores }}/examples/tempo/tempo.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/gltf-checkers.html
+score: /examples/3d/gltf-checkers.score
 ---
 
 # glTF Scene with Effects
@@ -34,7 +35,7 @@ The camera  is controllable through mouse and WASD, while post-processing effect
 
 Open this example to see a glTF chess scene with dynamic camera movement and shader effects.
 
-[Download this example]({{ site.scores }}/examples/3d/gltf-checkers.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

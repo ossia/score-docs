@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/extract-attribute.html
+score: /examples/3d/extract-attribute.score
 ---
 
 # Extract Attribute
@@ -41,7 +42,7 @@ A OBJ model is loaded, and its geometry attributes (position, normals, UVs, etc.
 
 Open this example to see GPU-side geometry attribute extraction and mesh reconstruction.
 
-[Download this example]({{ site.scores }}/examples/3d/extract-attribute.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

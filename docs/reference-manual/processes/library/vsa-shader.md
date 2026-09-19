@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/vertex-shader-art.html
+score: /reference/processes/vertex-shader-art.score
 ---
 
 # Vertex Shader Art
@@ -154,5 +155,5 @@ void main() {
 
 ## Try it!
 
-Try it by downloading this [simple example]({{ site.scores }}/reference/processes/vertex-shader-art.score)!
+Try it by downloading this [simple example]({{ site.scores }}{{ page.score }})!
 Note that the example requires gzdoom to work.

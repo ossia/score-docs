@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/timeline-and-patches.html
+score: /examples/basics/timeline-and-patches.zip
 ---
 
 # Timeline and Patches
@@ -28,7 +29,7 @@ The score shows how audio processes can be chained together using cables while s
 
 Download and open this example in ossia score to explore the timeline structure and patch connections.
 
-[Download this example]({{ site.scores }}/examples/basics/timeline-and-patches.zip)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

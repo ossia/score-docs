@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/js-texture-inlet.html
+score: /examples/3d/js-texture-inlet.score
 ---
 
 # Texture Inlet in Qt Quick 3D
@@ -32,7 +33,7 @@ A [[Javascript]] process defines a Qt Quick 3D scene containing a sphere and a c
 
 Open this example to see a procedural shader texture applied to a 3D object in real-time.
 
-[Download this example]({{ site.scores }}/examples/3d/js-texture-inlet.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 
