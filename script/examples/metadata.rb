@@ -291,6 +291,129 @@ def cmd_relativize(opts)
   end
 end
 
+# A default install has the "default" package and nothing else, so an example
+# that reaches into dirt-samples or a glTF sample set only opens for whoever
+# installed the same packages. Vendoring copies what a document actually
+# references next to it and rewrites the reference to a relative path, which is
+# what makes the archive self-contained -- and what makes the example openable
+# on the web, where there is no library at all.
+#
+# Some formats are an index rather than a media: a Hydrogen drumkit.xml names
+# the samples beside it, so the directory travels as a whole.
+VENDOR_DIRECTORY_FORMATS = %w[.xml .sfz .gltf].freeze
+
+def cmd_vendor(opts)
+  root = opts[:library_root]&.chomp("/")
+  abort "vendor needs --library-root <path to the user library>" unless root
+
+  limit = opts[:max_size] ? opts[:max_size] * 1024 * 1024 : nil
+  vendored = 0
+  missing = Hash.new { |h, k| h[k] = [] }
+  skipped = Hash.new { |h, k| h[k] = [] }
+
+  Dir.glob(File.join(ROOT, "assets/scores/**/*.score")).sort.each do |path|
+    label = path.sub("#{ROOT}/assets/scores/", "")
+    next if opts[:only] && !label.include?(opts[:only])
+
+    doc = JSON.parse(File.read(path))
+    dir = File.dirname(path)
+    copies = {} # source in the library => path relative to the document
+
+    walk_strings(doc) do |s|
+      rel = vendorable_reference(s)
+      next s unless rel
+
+      source = File.join(root, rel)
+      source = File.dirname(source) if VENDOR_DIRECTORY_FORMATS.include?(File.extname(source).downcase)
+      unless File.exist?(source)
+        missing[label] << s
+        next s
+      end
+
+      size = directory_size(source)
+      if limit && size > limit
+        skipped[label] << format("%s (%.1f MB)", rel, size / 1024.0 / 1024)
+        next s
+      end
+
+      copies[source] = File.dirname(rel) == "." ? rel : rel
+      rel
+    end
+
+    next if copies.empty?
+
+    if opts[:dry_run]
+      total = copies.keys.sum { |src| directory_size(src) }
+      puts format("  would vendor   %-46s %6.1f MB", label, total / 1024.0 / 1024)
+      copies.each_value { |rel| puts "                     #{rel}" }
+      next
+    end
+
+    entries = []
+    copies.each do |source, rel|
+      target = File.join(dir, File.directory?(source) ? File.dirname(rel) : rel)
+      FileUtils.mkdir_p(File.directory?(source) ? File.dirname(target) : File.dirname(target))
+      FileUtils.cp_r(source, target)
+      entries << (File.directory?(source) ? File.dirname(rel) : rel)
+    end
+
+    write_json(path, doc)
+
+    zip = path.sub(/\.score\z/, ".zip")
+    member = File.basename(path)
+    Dir.chdir(dir) do
+      system("zip", "-qr", File.basename(zip), member, *entries.uniq) \
+        or abort "#{label}: zip failed"
+    end
+    repoint_page(label)
+    vendored += 1
+    puts format("  vendored       %-46s -> %s", label, File.basename(zip))
+  end
+
+  puts
+  puts "#{vendored} example(s) vendored"
+  report_group("no such file in the library", missing)
+  report_group("over --max-size, left as a library reference", skipped)
+end
+
+# "<LIBRARY>:packages/dirt-samples/x.wav" => "packages/dirt-samples/x.wav",
+# and nil for anything a default install already has or that is not a library
+# reference at all.
+def vendorable_reference(s)
+  return nil unless s.start_with?("<LIBRARY>:packages/")
+  rel = s.delete_prefix("<LIBRARY>:")
+  return nil if rel.start_with?("packages/default/")
+  rel
+end
+
+def directory_size(path)
+  return File.size(path) unless File.directory?(path)
+  Dir.glob(File.join(path, "**", "*")).select { |f| File.file?(f) }.sum { |f| File.size(f) }
+end
+
+# The page's `score:` front matter names the exact asset it links to and the
+# generator joins on it, so a document that just became an archive has to be
+# followed there too.
+def repoint_page(label)
+  asset = "/#{label}"
+  Dir.glob(File.join(ROOT, "docs/**/*.md")).each do |page|
+    text = File.read(page)
+    next unless text.include?("score: #{asset}")
+    File.write(page, text.sub("score: #{asset}", "score: #{asset.sub(/\.score\z/, ".zip")}"))
+    puts "  repointed      #{page.sub("#{ROOT}/", "")}"
+  end
+end
+
+def report_group(title, group)
+  return if group.empty?
+  puts
+  puts "#{title}:"
+  group.each do |label, refs|
+    puts "  #{label}"
+    refs.uniq.each { |r| puts "      #{r}" }
+  end
+end
+
 # A document holds plenty of strings that begin with a slash and are not paths:
 # a GLSL or Faust source whose first line is a `//` comment, an OSC address, a
 # regular expression. A path is one line, starts at the root or at ~, and names
@@ -471,14 +594,15 @@ end
 
 opts = { settle: 4000, geometry: "1920x1080" }
 parser = OptionParser.new do |o|
-  o.banner = "usage: ruby script/examples/metadata.rb <status|prepare|describe|capture|sync|relativize|platforms> [options]"
+  o.banner = "usage: ruby script/examples/metadata.rb <status|prepare|describe|capture|sync|relativize|vendor|platforms> [options]"
   o.on("--force", "overwrite project information that is already set") { opts[:force] = true }
   o.on("--author NAME", "set the Author field (shown as the card subtitle)") { |v| opts[:author] = v }
   o.on("--only ID", "act on one example, e.g. basics/osc") { |v| opts[:only] = v }
   o.on("--score PATH", "ossia-score binary to drive (capture)") { |v| opts[:score] = v }
   o.on("--settle MS", Integer, "event loop time before saving (capture, default 4000)") { |v| opts[:settle] = v }
   o.on("--library-root PATH", "user library root (relativize)") { |v| opts[:library_root] = v }
-  o.on("--dry-run", "report what would change without writing (relativize)") { opts[:dry_run] = true }
+  o.on("--dry-run", "report what would change without writing (relativize, vendor)") { opts[:dry_run] = true }
+  o.on("--max-size MB", Integer, "leave media bigger than this alone (vendor)") { |v| opts[:max_size] = v }
   o.on("--set LIST", "platforms the score runs on (platforms)") { |v| opts[:set] = v }
   o.on("--not LIST", "platforms it does not run on (platforms)") { |v| opts[:not] = v }
   o.on("--geometry WxH", "virtual screen size (capture, default 1920x1080)") { |v| opts[:geometry] = v }
@@ -491,6 +615,7 @@ when "prepare" then cmd_prepare(opts)
 when "capture" then cmd_capture(opts)
 when "sync" then cmd_sync(opts)
 when "relativize" then cmd_relativize(opts)
+when "vendor" then cmd_vendor(opts)
 when "platforms" then cmd_platforms(opts)
 when "describe" then cmd_describe(opts)
 else
