@@ -8,6 +8,7 @@ parent: Audio
 grand_parent: Examples
 
 permalink: /examples/audio/pd-integration.html
+score: /examples/audio/puredata.score
 ---
 
 # PureData Integration
@@ -48,7 +49,7 @@ Open this example to see how Pd patches integrate with the ossia timeline.
 The patches are loaded from the user library.
 If you have PureData installed, you can also edit the patches directly from within ossia.
 
-[Download this example]({{ site.scores }}/examples/audio/puredata.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

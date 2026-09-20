@@ -8,6 +8,7 @@ parent: Basics
 grand_parent: Examples
 
 permalink: /examples/basics/osc.html
+score: /examples/basics/osc.score
 ---
 
 # Basic OSC Example
@@ -79,7 +80,7 @@ ossia score also supports [[OSCQuery]], an extension that allows:
 
 ## Try it
 
-[Download this example]({{ site.scores }}/examples/basics/osc.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

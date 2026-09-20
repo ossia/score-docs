@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/easetanbul.html
+score: /reference/processes/easetanbul.score
 
 ---
 
@@ -27,4 +28,4 @@ Essential for creating smooth animations, gentle parameter transitions, or any t
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/easetanbul.score).
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }}).

@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/object-loader.html
+score: /reference/processes/3d.score
 ---
 
 # Object loader
@@ -71,4 +72,4 @@ Sets the scale factor for the mesh along each axis.
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/3d.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

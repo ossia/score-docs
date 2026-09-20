@@ -8,6 +8,7 @@ parent: Audio
 grand_parent: Examples
 
 permalink: /examples/audio/faust-synthesis.html
+score: /examples/audio/faust-synthesis.score
 ---
 
 # Faust Synthesis
@@ -25,7 +26,7 @@ directly for your processor's architecture using LLVM's state-of-the-art compile
 
 Open this example to hear the synthesis example.
 
-[Download this example]({{ site.scores }}/examples/audio/faust-synthesis.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

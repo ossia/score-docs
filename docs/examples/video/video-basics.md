@@ -8,6 +8,7 @@ parent: Video Examples
 grand_parent: Examples
 
 permalink: /examples/video/video-basics.html
+score: /examples/video/video.zip
 ---
 
 # Video Manipulation
@@ -43,7 +44,7 @@ To use video in your projects:
 
 Open this example to see video effects in action. Try adjusting the effect parameters!
 
-[Download this example]({{ site.scores }}/examples/video/video.zip)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

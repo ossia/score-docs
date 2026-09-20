@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/texgen.html
+score: /reference/processes/texgen.score
 ---
 
 # C++ Texture generator
@@ -51,4 +52,4 @@ Here are some examples from the presets that are part of the user library:
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/texgen.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

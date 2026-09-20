@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/ai-recognition.html
+score: /reference/processes/ai-recognition.score
 ---
 # AI Recognition
 
@@ -78,7 +79,7 @@ Once keypoints are extracted, you can connect them to any parameter in score for
 
 ![Use keypoints example]({{ site.img }}/reference/processes/ai-recognition/parameter-mapping.gif)
 
-[Download score]({{ site.scores }}/reference/processes/ai-recognition.score)
+[Download score]({{ site.scores }}{{ page.score }})
 
 
 

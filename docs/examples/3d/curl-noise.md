@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/curl-noise.html
+score: /examples/3d/curl-noise.score
 ---
 
 # Curl Noise Geometry Filter
@@ -40,7 +41,7 @@ A 3D model is loaded and its vertices are displaced each frame by a curl noise f
 
 Open this example to see real-time vertex deformation driven by curl noise.
 
-[Download this example]({{ site.scores }}/examples/3d/curl-noise.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

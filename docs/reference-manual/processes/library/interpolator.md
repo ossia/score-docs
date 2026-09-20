@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/interpolator.html
+score: /reference/processes/interpolator.score
 ---
 
 # Interpolator
@@ -22,4 +23,4 @@ This process interpolates between multiple values according to weights.
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/interpolator.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

@@ -8,6 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/threedim.html
+score: /examples/3d/threedim.score
 ---
 
 # 3D Meshes
@@ -27,7 +28,7 @@ ossia score can load 3D models and render them in real-time, with parameters tha
 
 Open this example to see a basic animated 3D geometry.
 
-[Download this example]({{ site.scores }}/examples/3d/threedim.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

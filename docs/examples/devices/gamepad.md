@@ -8,6 +8,7 @@ parent: Device Examples
 grand_parent: Examples
 
 permalink: /examples/devices/gamepad.html
+score: /examples/devices/gamepad.score
 ---
 
 # Gamepad Control
@@ -42,7 +43,7 @@ It is also possible to control rumble.
 
 Connect a gamepad and open this example. Press buttons A and B to trigger drum sounds!
 
-[Download this example]({{ site.scores }}/examples/devices/gamepad.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

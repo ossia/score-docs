@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/nodes.html
+score: /reference/processes/nodes.score
 ---
 
 # Nodes
@@ -31,4 +32,4 @@ An input cursors moves in a 2D space. Its distance to each node will be its cont
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/nodes.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

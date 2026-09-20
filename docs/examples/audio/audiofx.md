@@ -8,6 +8,7 @@ parent: Audio
 grand_parent: Examples
 
 permalink: /examples/audio/audiofx.html
+score: /examples/audio/audiofx.zip
 ---
 
 # Audio Effects
@@ -49,7 +50,7 @@ Faust code can be:
 
 Open this example to hear how different effect technologies work together. Try swapping in your own VST plugins!
 
-[Download this example]({{ site.scores }}/examples/audio/audiofx.zip)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

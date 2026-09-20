@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/trigger.html
+score: /reference/processes/trigger.score
 ---
 # Trigger
 
@@ -35,4 +36,4 @@ The second operation mode, "Outside/Inside" instead sends messages whenever the 
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/trigger.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

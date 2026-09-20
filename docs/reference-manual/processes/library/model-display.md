@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/model-display.html
+score: /reference/processes/3d.score
 ---
 
 # Model display
@@ -23,4 +24,4 @@ Model display is the base object for displaying 3D geometry: objects, point clou
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/3d.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

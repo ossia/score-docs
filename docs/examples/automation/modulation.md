@@ -8,6 +8,7 @@ parent: Automation
 grand_parent: Examples
 
 permalink: /examples/automation/modulation.html
+score: /examples/automation/automating.score
 ---
 
 # Device Modulation
@@ -56,7 +57,7 @@ Internal processes can also be automated:
 
 Open this example to see modulation in action!
 
-[Download this example]({{ site.scores }}/examples/automation/modulating.score)
+[Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
 

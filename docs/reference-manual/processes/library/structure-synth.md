@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/structure-synth.html
+score: /reference/processes/structure-synth.score
 ---
 # Structure Synth
 
@@ -48,4 +49,4 @@ rule R1 w 10 {
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/structure-synth.score)
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})

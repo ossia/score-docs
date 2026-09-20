@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/process-launcher.html
+score: /reference/processes/process-launcher.score
 ---
 # Process Launcher
 
@@ -52,5 +53,5 @@ The Process Launcher uses Qt's QProcess internally, ensuring proper cross-platfo
 
 ## Try it!
 
-Try it by downloading this [simple example!]({{ site.scores }}/reference/processes/process-launcher.score).
+Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }}).
 Note that the example requires the xeyes binary. On windows you can replace with explorer.exe and on Mac, something in your /Applications. 

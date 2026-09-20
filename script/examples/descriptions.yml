@@ -1,0 +1,144 @@
+# One-line descriptions for the scores that have no documentation page yet, to
+# fill the Description field their start-screen card shows.
+#
+# Each is condensed from the score itself: the text boxes its author wrote
+# where there are any, its processes otherwise. Applied with
+#   ruby script/examples/metadata.rb describe
+# which never overwrites a description already in a document.
+#
+# A score that gains a documentation page does not need an entry here: `prepare`
+# takes the description from the page's front matter instead.
+
+common-practices/3d/generative-3d: >-
+  Builds a 3D scene procedurally: an arc sphere deformed by geometry filters,
+  with its colour and motion driven by LFOs and an expression generator.
+
+common-practices/led-design/led-combination: >-
+  Combines several shader-generated colour arrays into one LED layout,
+  previewed with LED View.
+
+common-practices/led-design/led-with-arrays: >-
+  Drives an LED strip from plain value arrays, building the red, green and blue
+  channels separately and merging them with Array Combiner.
+
+common-practices/sound-spatialization/spat-example-dbap: >-
+  Spatialises sound over a 2D speaker layout with DBAP, moving the sources
+  along generated paths and showing the resulting gain matrix.
+
+examples/3d/example-big-cube: >-
+  A compute shader generates random positions inside a box, which are turned
+  into a mesh with Pointcloud to mesh. The shader is editable in place.
+
+examples/advanced/cpu-data-bending: >-
+  CPU-based data moshing and degradation effects from the Bendage toolkit,
+  applied to the camera input at reduced resolution.
+
+examples/advanced/gpu-data-bending: >-
+  An assortment of destructive shaders from the official ISF library, applied
+  to the camera input on the GPU.
+
+examples/advanced/pipeline-switching: >-
+  Switches between two video pipelines in time with the music, one LFO changing
+  on every beat and another on every bar.
+
+examples/ai/pose-detection: >-
+  Runs GPU pose detection on a video input, giving both the complete tracking
+  data and ready-made geometry for the detected points.
+
+examples/ai/tracking-to-midi: >-
+  Turns tracked positions into MIDI: zones defined in 2D or 3D trigger notes as
+  they are entered and left.
+
+examples/audio/looper: >-
+  Records and plays back audio live with the Looper process, over a drum
+  machine part.
+
+examples/basics/cues: >-
+  Shows how cues work: individual states that can be triggered independently to
+  change parameters in the device tree.
+
+examples/basics/timemodel-patterns: >-
+  A collection of temporal patterns and behaviours built with score's time
+  model.
+
+examples/devices/http-llm: >-
+  Talks to an OpenAI-compatible LLM API over an HTTP device, assembling the
+  request with string utilities.
+
+examples/devices/midi-mapping: >-
+  Maps MIDI controller parameters onto visual effects, using Learn to discover
+  the controls of your own device.
+
+examples/devices/midi-to-synths: >-
+  Plays the built-in synths from a MIDI device: channel 1 to a lead synth,
+  channel 10 to a drum synth.
+
+examples/devices/osc: >-
+  Receives OSC from an external source and maps its values onto a 3D scene.
+
+examples/devices/samplers: >-
+  Plays SF2 soundfonts and Hydrogen drum kits through score's samplers, driven
+  by a piano roll and an arpeggiator.
+
+examples/devices/sensors2osc: >-
+  Receives phone sensor data over OSC with the Sensors2OSC app and maps the
+  rotation vector onto a 3D scene.
+
+examples/devices/slack: >-
+  Sends a message to a Slack channel through the Bitfocus Companion
+  integration.
+
+examples/devices/synths: >-
+  A chain of built-in synths and effects: Synthimi and Kaboom through chorus,
+  vibrato, saturation and filtering.
+
+examples/video/ffmpeg-streaming: >-
+  Sends and receives video streams over UDP with the FFMPEG integration.
+
+examples/video/video-mapping-multi-projector: >-
+  Maps one texture across several projectors with edge blending, configured in
+  the Window device's multi-window mode.
+
+examples/video/video-mapping-rect: >-
+  Maps and positions several textures in a single viewport with the rect-mapper
+  object.
+
+reference/processes/array-tool: >-
+  Reference score for the Array Tool process, reshaping a generated array and
+  showing the result on an LED view.
+
+reference/processes/arraygen: >-
+  Reference score for the Arraygen process, generating a value array and
+  plotting it.
+
+reference/processes/audio-channel-extractor: >-
+  Reference score for the Audio Channel Extractor process, pulling individual
+  channels out of a multi-channel file.
+
+reference/processes/audio-merger: >-
+  Reference score for the Audio Merger process, combining several audio sources
+  into one multi-channel stream.
+
+reference/processes/combine-spread: >-
+  Reference score for the Combine and Spread processes, which gather values
+  into an array and distribute them back out.
+
+reference/processes/geometry-filter: >-
+  Reference score for the Geometry Filter process, deforming a sphere before it
+  is displayed and shaded.
+
+reference/processes/hdf5: >-
+  Reference score for the HDF5 processes, reading numeric data and textures out
+  of an HDF5 file.
+
+reference/processes/led-view: >-
+  Reference score for the LED View process, displaying a generated array as a
+  strip of coloured LEDs.
+
+reference/processes/mapping-tool: >-
+  Reference score for the Mapping Tool process, reshaping an incoming signal
+  through a learned range and a curve.
+
+reference/processes/point-cloud: >-
+  Reference score for point cloud display, loading a model and rendering its
+  points.

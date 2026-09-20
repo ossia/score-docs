@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/exprtk.html
+score: /reference/processes/arraygen-array.score
 ---
 
 # ExprTK support
@@ -90,7 +91,7 @@ Arraygen can also return arrays:
 
 ![Arraygen used for arrays]({{ site.img }}/reference/processes/exprtk/arraygen-array.png)
 
-[Download the example score here]({{ site.scores }}/reference/processes/arraygen-array.score).
+[Download the example score here]({{ site.scores }}{{ page.score }}).
 
 ## Using Arraymap {#arraymap}
 
