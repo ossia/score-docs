@@ -8,7 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/maxicube.html
-score: /examples/3d/maxicube.score
+score: /examples/3d/example-big-cube.score
 ---
 
 # Massive Particle System
