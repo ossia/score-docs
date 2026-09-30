@@ -8,7 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/extract-attribute.html
-score: /examples/3d/extract-attribute.score
+score: /examples/3d/extract-attribute.zip
 ---
 
 # Extract Attribute

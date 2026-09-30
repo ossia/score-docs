@@ -8,7 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/sprite-reader.html
-score: /reference/processes/sprite-reader.score
+score: /reference/processes/sprite-reader.zip
 ---
 # Sprite Reader
 

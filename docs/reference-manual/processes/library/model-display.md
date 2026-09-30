@@ -8,7 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/model-display.html
-score: /reference/processes/3d.score
+score: /reference/processes/3d.zip
 ---
 
 # Model display

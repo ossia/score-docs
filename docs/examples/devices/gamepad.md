@@ -8,7 +8,7 @@ parent: Device Examples
 grand_parent: Examples
 
 permalink: /examples/devices/gamepad.html
-score: /examples/devices/gamepad.score
+score: /examples/devices/gamepad.zip
 ---
 
 # Gamepad Control
