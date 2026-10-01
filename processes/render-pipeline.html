@@ -1,0 +1,1209 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/score-docs/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="/score-docs/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:regular,bold">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCNDFW0NH6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GCNDFW0NH6');
+  </script>
+  
+
+  
+    <script type="text/javascript" src="/score-docs/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/score-docs/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.1 -->
+<title>Render Pipeline | score documentation</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Render Pipeline" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using raw raster render pipelines in the ossia score graphics pipeline" />
+<meta name="twitter:description" property="og:description" content="Using raw raster render pipelines in the ossia score graphics pipeline" />
+<link rel="canonical" href="https://ossia.io/score-docs/processes/render-pipeline.html" />
+<meta property="og:url" content="https://ossia.io/score-docs/processes/render-pipeline.html" />
+<meta property="og:site_name" content="score documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Render Pipeline" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Using raw raster render pipelines in the ossia score graphics pipeline","headline":"Render Pipeline","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ossia.io/score-docs/assets/images/score-logo.png"}},"url":"https://ossia.io/score-docs/processes/render-pipeline.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://ossia.io/score-docs/" class="site-title lh-tight">
+  <div class="site-logo">
+  </div>
+  <h2 class="software">ossia</h2>
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://ossia.io/score-docs/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/quick-start" class="nav-list-link">Quick start</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/installation.html" class="nav-list-link">Installation</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/what-is-score.html" class="nav-list-link">What is score ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/interface-overview.html" class="nav-list-link">Interface overview</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-devices.html" class="nav-list-link">Working with devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/saving-and-recalling-devices-state.html" class="nav-list-link">Saving & recalling devices' state</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/writing-automations.html" class="nav-list-link">Writing automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/states-and-automations-in-practice.html" class="nav-list-link">States & automations in practice</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-audio.html" class="nav-list-link">Working with audio</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-video.html" class="nav-list-link">Working with video</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/breaking-the-timeline.html" class="nav-list-link">Breaking the timeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/non-linear-timelines.html" class="nav-list-link">Non-linear timeline</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/common-practices" class="nav-list-link">Common practices</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/1-looping.html" class="nav-list-link">Looping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/2-switches.html" class="nav-list-link">Switches</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/3-out-of-time.html" class="nav-list-link">Out-of-time triggering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/6-scenes.html" class="nav-list-link">Scenes</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/4-audio.html" class="nav-list-link">Audio techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/5-video.html" class="nav-list-link">Video techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/7-start-stop-cues.html" class="nav-list-link">Start/stop cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/8-live-coding.html" class="nav-list-link">Live coding</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/9-seek-and-transport.html" class="nav-list-link">Seek and transport</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/10-livestreaming.html" class="nav-list-link">Livestreaming</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/11-video-mixing-and-mapping.html" class="nav-list-link">Video mixing and mapping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/12-data-processing.html" class="nav-list-link">Data processing and filtering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/13-led-design.html" class="nav-list-link">LED design</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/14-spatial-audio.html" class="nav-list-link">Spatial audio techniques</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth" class="nav-list-link">In depth</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/unit-system.html" class="nav-list-link">Address system</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/audio-routing.html" class="nav-list-link">Audio routing</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/automations.html" class="nav-list-link">Automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/cues.html" class="nav-list-link">Cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/custom-ui.html" class="nav-list-link">Custom UI</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/embedded.html" class="nav-list-link">Embedded devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/execution.html" class="nav-list-link">Execution engine</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/video.html" class="nav-list-link">Graphics pipeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/midi.html" class="nav-list-link">MIDI support</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/media.html" class="nav-list-link">Media management</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/modular-workflow.html" class="nav-list-link">Modular workflow</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/musical.html" class="nav-list-link">Musical metrics</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/package-manager.html" class="nav-list-link">Package manager</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/pattern-matching.html" class="nav-list-link">Pattern matching</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/polyphony.html" class="nav-list-link">Polyphonic behaviours</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/presets.html" class="nav-list-link">Presets</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/puredata.html" class="nav-list-link">Pure Data (redirect)</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/recording.html" class="nav-list-link">Recording</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/remote.html" class="nav-list-link">Remote Control</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth/scripting.html" class="nav-list-link">Scripting</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/in-depth/scripting-api.html" class="nav-list-link">Scripting API</a>
+                  </li></ul></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference" class="nav-list-link">Reference</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/changelog.html" class="nav-list-link">Changelog</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/commandline.html" class="nav-list-link">Command line API</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/devices.html" class="nav-list-link">Devices</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/artnet-device.html" class="nav-list-link">Art-Net device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/audio-device.html" class="nav-list-link">Audio device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ble-device.html" class="nav-list-link">BLE device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/companion-device.html" class="nav-list-link">Bitfocus Companion Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/camera-device.html" class="nav-list-link">Camera device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/coap-device.html" class="nav-list-link">CoAP Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/evdev-device.html" class="nav-list-link">Evdev device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gps-device.html" class="nav-list-link">GPS device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/http-device.html" class="nav-list-link">HTTP device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/joystick-device.html" class="nav-list-link">Joystick device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/kinect-device.html" class="nav-list-link">Kinect device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/led-device.html" class="nav-list-link">LED device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/lsl-device.html" class="nav-list-link">LSL device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/leapmotion-device.html" class="nav-list-link">Leapmotion device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libav-device.html" class="nav-list-link">Libav device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/local-device.html" class="nav-list-link">Local device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiin-device.html" class="nav-list-link">MIDI input device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiout-device.html" class="nav-list-link">MIDI output device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mqtt-device.html" class="nav-list-link">MQTT Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mapper-device.html" class="nav-list-link">Mapper device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/minuit-device.html" class="nav-list-link">Minuit device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ndi-device.html" class="nav-list-link">NDI devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/osc-device.html" class="nav-list-link">OSC device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/oscquery-device.html" class="nav-list-link">OSCQuery device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/rawio-device.html" class="nav-list-link">Raw I/O device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/serial-device.html" class="nav-list-link">Serial device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/sh4lt-device.html" class="nav-list-link">Sh4lt devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/shmdata-device.html" class="nav-list-link">Shmdata devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spatgris-device.html" class="nav-list-link">SpatGris device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spout-device.html" class="nav-list-link">Spout devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/syphon-device.html" class="nav-list-link">Syphon devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ws-device.html" class="nav-list-link">WebSocket device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/wiimote-device.html" class="nav-list-link">Wiimote device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/window-device.html" class="nav-list-link">Window device</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/panels.html" class="nav-list-link">Panels</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/console.html" class="nav-list-link">Console</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/explorer.html" class="nav-list-link">Device explorer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/inspector.html" class="nav-list-link">Inspector</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/library.html" class="nav-list-link">Library</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/mixer.html" class="nav-list-link">Mixer</a>
+                  </li></ul></li><li class="nav-list-item  active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/processes.html" class="nav-list-link">Processes</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/2Dspline.html" class="nav-list-link">2D Spline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/adsr.html" class="nav-list-link">ADSR</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-composer.html" class="nav-list-link">AI Prompt Composer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-interpolator.html" class="nav-list-link">AI Prompt Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-recognition.html" class="nav-list-link">AI Recognition</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/analysis.html" class="nav-list-link">Analysis</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-utilities.html" class="nav-list-link">Array utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-effects.html" class="nav-list-link">Audio Effects</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-particles.html" class="nav-list-link">Audio Particles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-looper.html" class="nav-list-link">Audio looper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-plugins.html" class="nav-list-link">Audio plugins</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-utilities.html" class="nav-list-link">Audio utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/automation_float.html" class="nav-list-link">Automation (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/barrverb.html" class="nav-list-link">BarrVerb</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/bytebeat.html" class="nav-list-link">Bytebeat</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/cpp_jit.html" class="nav-list-link">C++ JIT</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/csv-recorder.html" class="nav-list-link">CSV recorder</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/calibrator.html" class="nav-list-link">Calibrator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/classifier.html" class="nav-list-link">Classifier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/compute-shaders.html" class="nav-list-link">Compute Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/computer-vision-utilities.html" class="nav-list-link">Computer Vision utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/context-free-art.html" class="nav-list-link">Context-Free Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/controlsurface.html" class="nav-list-link">Control surface</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/control-utilities.html" class="nav-list-link">Control utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/dbap.html" class="nav-list-link">DBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/display-utilities.html" class="nav-list-link">Display Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/easetanbul.html" class="nav-list-link">Easetanbul</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/envelope-follower.html" class="nav-list-link">Envelope Follower</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/faust.html" class="nav-list-link">Faust</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gbap.html" class="nav-list-link">GBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geo-zones.html" class="nav-list-link">Geo Zones</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gestures.html" class="nav-list-link">Gestures</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient.html" class="nav-list-link">Gradient</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient-scrubber.html" class="nav-list-link">Gradient Scrubber</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/graphics-utilities.html" class="nav-list-link">Graphics Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/hdf5.html" class="nav-list-link">HDF5 Support</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shaders.html" class="nav-list-link">ISF Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/image.html" class="nav-list-link">Image process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/interpolator.html" class="nav-list-link">Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/javascript.html" class="nav-list-link">Javascript</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/led-view.html" class="nav-list-link">LED View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/lfo.html" class="nav-list-link">LFO</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-reader.html" class="nav-list-link">MIDI File Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scaler.html" class="nav-list-link">MIDI File Scaler</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scroller.html" class="nav-list-link">MIDI File Scroller</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-filter.html" class="nav-list-link">MIDI Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-utilities.html" class="nav-list-link">MIDI utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping.html" class="nav-list-link">Mapping (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-curve.html" class="nav-list-link">Mapping Curve</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-tool.html" class="nav-list-link">Mapping tool</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-utilities.html" class="nav-list-link">Mapping utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/exprtk.html" class="nav-list-link">Math expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix.html" class="nav-list-link">Matrix</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix-spatialization.html" class="nav-list-link">Matrix Spatialization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/melodial.html" class="nav-list-link">Melodial</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/model-display.html" class="nav-list-link">Model display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multicursor.html" class="nav-list-link">Multi-Cursor Manager</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/nodes.html" class="nav-list-link">Nodes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-filter.html" class="nav-list-link">Object filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-loader.html" class="nav-list-link">Object loader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pathgenerator.html" class="nav-list-link">Path Generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-applier.html" class="nav-list-link">Pattern Applier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-combiner.html" class="nav-list-link">Pattern Combiner</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternal.html" class="nav-list-link">Patternal</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternist.html" class="nav-list-link">Patternist</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/piano-roll.html" class="nav-list-link">Piano roll</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pixel-utilities.html" class="nav-list-link">Pixel Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point2d-view.html" class="nav-list-link">Point2D View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/poles.html" class="nav-list-link">Poles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/process-launcher.html" class="nav-list-link">Process Launcher</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/puredata.html" class="nav-list-link">Pure Data integration</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/qwen-llm.html" class="nav-list-link">Qwen LLM</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/range-filter.html" class="nav-list-link">Range filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rate-limiter.html" class="nav-list-link">Rate Limiter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regressor.html" class="nav-list-link">Regressor</a>
+                  </li><li class="nav-list-item  active">
+                    <a href="https://ossia.io/score-docs/processes/render-pipeline.html" class="nav-list-link active">Render Pipeline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scenario.html" class="nav-list-link">Scenario</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shell-command.html" class="nav-list-link">Shell command</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/signal-display.html" class="nav-list-link">Signal Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/smooth.html" class="nav-list-link">Smooth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/soundfile.html" class="nav-list-link">Soundfiles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/spammer.html" class="nav-list-link">Spammer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sprite-reader.html" class="nav-list-link">Sprite Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/step.html" class="nav-list-link">Step sequencer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/structure-synth.html" class="nav-list-link">Structure Synth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sweeper.html" class="nav-list-link">Sweeper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/teleplot.html" class="nav-list-link">Teleplot</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tempo.html" class="nav-list-link">Tempo</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text.html" class="nav-list-link">Text process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texgen.html" class="nav-list-link">Texture generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/trigger.html" class="nav-list-link">Trigger</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tweener.html" class="nav-list-link">Tweener</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-display.html" class="nav-list-link">Value Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-filter.html" class="nav-list-link">Value Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video.html" class="nav-list-link">Video</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/wavecycle.html" class="nav-list-link">Wavecycle</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/preferences.html" class="nav-list-link">Score preferences</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/shortcuts.html" class="nav-list-link">Shortcuts</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/protocols-and-formats.html" class="nav-list-link">Supported protocols and formats</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples" class="nav-list-link">Examples</a><ul class="nav-list "><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/3d" class="nav-list-link">3D Graphics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/threedim.html" class="nav-list-link">3D meshes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/curl-noise.html" class="nav-list-link">Curl Noise Geometry Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/extract-attribute.html" class="nav-list-link">Extract Attribute</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generate-array.html" class="nav-list-link">Generate Array</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/maxicube.html" class="nav-list-link">Massive Particle System</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza.html" class="nav-list-link">Sponza Palace</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/ssynth.html" class="nav-list-link">Structure Synth Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/js-texture-inlet.html" class="nav-list-link">Texture Inlet in Qt Quick 3D</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/gltf-checkers.html" class="nav-list-link">glTF Scene with Effects</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/advanced" class="nav-list-link">Advanced</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/audio" class="nav-list-link">Audio</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/audiofx.html" class="nav-list-link">Audio Effects Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/faust-synthesis.html" class="nav-list-link">Faust Synthesis example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/pd-integration.html" class="nav-list-link">PureData Example</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/automation" class="nav-list-link">Automation</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/modulation.html" class="nav-list-link">Device modulation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/smoothing.html" class="nav-list-link">Smoothing and filtering</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/basics" class="nav-list-link">Basics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/osc.html" class="nav-list-link">Basic OSC example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeflo.html" class="nav-list-link">Basic timeline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/all-media.html" class="nav-list-link">Multi-media patching</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/delayed.html" class="nav-list-link">Temporal patching (delayed)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/glutton.html" class="nav-list-link">Temporal patching (glutton)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel.html" class="nav-list-link">Time model</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeline-and-patches.html" class="nav-list-link">Timeline and patches</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/devices" class="nav-list-link">Device Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/gamepad.html" class="nav-list-link">Gamepad control</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/tempo" class="nav-list-link">Tempo Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/tempo/tempo-control.html" class="nav-list-link">Tempo manipulation</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/video" class="nav-list-link">Video Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/audioreactive.html" class="nav-list-link">Audio-reactive visuals</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/camera.html" class="nav-list-link">Camera input</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-basics.html" class="nav-list-link">Video manipulation</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/integrations" class="nav-list-link">Integrations</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/integrations/blender.html" class="nav-list-link">Integrating with Blender</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development" class="nav-list-link">Development</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/development/architecture.html" class="nav-list-link">Architecture</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/build-from-source.html" class="nav-list-link">Building from source</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/hacking.html" class="nav-list-link">Hacking</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/packaging.html" class="nav-list-link">Packaging</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/release.html" class="nav-list-link">Release build</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/plug-ins.html" class="nav-list-link">Plug-ins</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" class="nav-list-link">Plug-ins with Avendish</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/faq.html" class="nav-list-link">FAQ</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/controlling-score-with-oscquery.html" class="nav-list-link">Controlling score with OSCQuery</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/monitor-activity.html" class="nav-list-link">How to monitor activity ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/nogui.html" class="nav-list-link">How to run score without GUI ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/linux.html" class="nav-list-link">Running on Linux</a></li></ul></li><li class="nav-list-item"><a href="https://ossia.io/score-docs/troubleshooting.html" class="nav-list-link">Troubleshooting</a></li></ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search score documentation" aria-label="Search score documentation" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/reference">Reference</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/processes.html">Processes</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>Render Pipeline</span></li>
+            </ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <h1 id="render-pipeline-raw-raster">
+        
+        
+          <a href="#render-pipeline-raw-raster" class="anchor-heading" aria-labelledby="render-pipeline-raw-raster"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Render Pipeline (Raw Raster)
+        
+        
+      </h1>
+    
+
+<p>The Render Pipeline process provides a raw vertex/fragment shader pipeline with full control over vertex inputs, outputs, blending, and topology. Unlike <a class="wiki-link" href="/score-docs/processes/shaders.html">ISF shaders</a> which operate on a fullscreen quad, the Render Pipeline renders arbitrary geometry received through its input port.</p>
+
+<p>This is the process to use when you need custom 3D rendering: connect a geometry source (e.g., a <a class="wiki-link" href="/score-docs/processes/compute-shaders.html">CSF compute shader</a>, <a class="wiki-link" href="/score-docs/processes/model-display.html">Model Display</a>, or geometry loader) and write your own vertex and fragment shaders.</p>
+      <h1 id="file-structure">
+        
+        
+          <a href="#file-structure" class="anchor-heading" aria-labelledby="file-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> File structure
+        
+        
+      </h1>
+    
+
+<p>A Render Pipeline consists of two files with the same base name:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">MyShader.fs</code> — Fragment shader (contains the JSON header)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">MyShader.vs</code> — Vertex shader</li>
+</ul>
+
+<p>Place these files in the <a class="wiki-link" href="/score-docs/panels/library.html">user library</a> and they will be detected automatically.</p>
+      <h1 id="json-header">
+        
+        
+          <a href="#json-header" class="anchor-heading" aria-labelledby="json-header"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> JSON header
+        
+        
+      </h1>
+    
+
+<p>The JSON header is placed in the <strong>fragment shader</strong> (<code class="language-plaintext highlighter-rouge">.fs</code>) file, enclosed in <code class="language-plaintext highlighter-rouge">/*{ ... }*/</code>.</p>
+      <h2 id="required-fields">
+        
+        
+          <a href="#required-fields" class="anchor-heading" aria-labelledby="required-fields"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Required fields
+        
+        
+      </h2>
+    
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MODE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RAW_RASTER_PIPELINE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"VERTEX_INPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"VERTEX_OUTPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"FRAGMENT_INPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"FRAGMENT_OUTPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="optional-fields">
+        
+        
+          <a href="#optional-fields" class="anchor-heading" aria-labelledby="optional-fields"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Optional fields
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">"DESCRIPTION"</code>: Human-readable description.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">"CREDIT"</code>: Author credit.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">"ISFVSN"</code>: Version string (use <code class="language-plaintext highlighter-rouge">"2"</code>).</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">"CATEGORIES"</code>: Array of category strings.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">"INPUTS"</code>: Array of scalar input declarations (same as ISF: <code class="language-plaintext highlighter-rouge">float</code>, <code class="language-plaintext highlighter-rouge">bool</code>, <code class="language-plaintext highlighter-rouge">long</code>, <code class="language-plaintext highlighter-rouge">point2D</code>, <code class="language-plaintext highlighter-rouge">point3D</code>, <code class="language-plaintext highlighter-rouge">color</code>, <code class="language-plaintext highlighter-rouge">event</code>, <code class="language-plaintext highlighter-rouge">image</code>).</li>
+</ul>
+      <h1 id="attribute-declarations">
+        
+        
+          <a href="#attribute-declarations" class="anchor-heading" aria-labelledby="attribute-declarations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Attribute declarations
+        
+        
+      </h1>
+    
+      <h2 id="vertex_inputs">
+        
+        
+          <a href="#vertex_inputs" class="anchor-heading" aria-labelledby="vertex_inputs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> VERTEX_INPUTS
+        
+        
+      </h2>
+    
+
+<p>Declares what vertex attributes the vertex shader expects. These are matched against the incoming geometry by <strong>semantic</strong> (attribute name → known semantic) or by <strong>name</strong> (for custom attributes).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"VERTEX_INPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"position"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">"NAME"</code></td>
+      <td>Variable name in the vertex shader. Also used for semantic matching (see below).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">"TYPE"</code></td>
+      <td>GLSL type (<code class="language-plaintext highlighter-rouge">float</code>, <code class="language-plaintext highlighter-rouge">vec2</code>, <code class="language-plaintext highlighter-rouge">vec3</code>, <code class="language-plaintext highlighter-rouge">vec4</code>, <code class="language-plaintext highlighter-rouge">mat4</code>, <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">ivec2</code>, etc.)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">"LOCATION"</code></td>
+      <td>
+<em>(optional)</em> Explicit location. Auto-assigned sequentially if omitted.</td>
+    </tr>
+  </tbody>
+</table></div>
+      <h3 id="semantic-matching">
+        
+        
+          <a href="#semantic-matching" class="anchor-heading" aria-labelledby="semantic-matching"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Semantic matching
+        
+        
+      </h3>
+    
+
+<p>When the pipeline receives geometry, vertex inputs are matched to geometry attributes by name-to-semantic mapping. The following names are recognized as standard semantics:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Semantic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">position</code></td>
+      <td>Position</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">normal</code></td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">texcoord</code></td>
+      <td>Texture coordinate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>Color</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tangent</code></td>
+      <td>Tangent</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Any other name is treated as a custom semantic and matched by exact name against the geometry’s attribute names. This means that if a <a class="wiki-link" href="/score-docs/processes/compute-shaders.html">CSF compute shader</a> outputs an attribute with <code class="language-plaintext highlighter-rouge">"SEMANTIC": "translation"</code>, your vertex shader should declare a <code class="language-plaintext highlighter-rouge">VERTEX_INPUT</code> named <code class="language-plaintext highlighter-rouge">translation</code> to receive it.</p>
+      <h2 id="vertex_outputs">
+        
+        
+          <a href="#vertex_outputs" class="anchor-heading" aria-labelledby="vertex_outputs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> VERTEX_OUTPUTS
+        
+        
+      </h2>
+    
+
+<p>Declares what the vertex shader passes to the fragment shader.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"VERTEX_OUTPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec3"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v_normal"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v_color"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="fragment_inputs">
+        
+        
+          <a href="#fragment_inputs" class="anchor-heading" aria-labelledby="fragment_inputs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> FRAGMENT_INPUTS
+        
+        
+      </h2>
+    
+
+<p>Declares what the fragment shader receives from the vertex shader. Must match <code class="language-plaintext highlighter-rouge">VERTEX_OUTPUTS</code> in order and types.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"FRAGMENT_INPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec3"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v_normal"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v_color"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="fragment_outputs">
+        
+        
+          <a href="#fragment_outputs" class="anchor-heading" aria-labelledby="fragment_outputs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> FRAGMENT_OUTPUTS
+        
+        
+      </h2>
+    
+
+<p>Declares the fragment shader outputs.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"FRAGMENT_OUTPUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="nl">"TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vec4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isf_FragColor"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If omitted, defaults to a single <code class="language-plaintext highlighter-rouge">vec4</code> output named <code class="language-plaintext highlighter-rouge">isf_FragColor</code> at location 0.</p>
+      <h1 id="built-in-controls">
+        
+        
+          <a href="#built-in-controls" class="anchor-heading" aria-labelledby="built-in-controls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Built-in controls
+        
+        
+      </h1>
+    
+
+<p>The Render Pipeline automatically adds the following controls to the process inspector (they do not need to be declared in <code class="language-plaintext highlighter-rouge">"INPUTS"</code>):</p>
+      <h2 id="topology">
+        
+        
+          <a href="#topology" class="anchor-heading" aria-labelledby="topology"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Topology
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>
+<strong>Mode</strong>: <code class="language-plaintext highlighter-rouge">Triangles</code> (default), <code class="language-plaintext highlighter-rouge">Points</code>, or <code class="language-plaintext highlighter-rouge">Lines</code>
+</li>
+</ul>
+      <h2 id="blending">
+        
+        
+          <a href="#blending" class="anchor-heading" aria-labelledby="blending"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Blending
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>
+<strong>EnableBlend</strong>: Toggle alpha blending</li>
+  <li>
+<strong>SrcColor</strong> / <strong>DstColor</strong>: Source and destination color blend factors</li>
+  <li>
+<strong>OpColor</strong>: Color blend operation</li>
+  <li>
+<strong>SrcAlpha</strong> / <strong>DstAlpha</strong>: Source and destination alpha blend factors</li>
+  <li>
+<strong>OpAlpha</strong>: Alpha blend operation</li>
+</ul>
+      <h3 id="blend-factors">
+        
+        
+          <a href="#blend-factors" class="anchor-heading" aria-labelledby="blend-factors"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Blend factors
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">Zero</code>, <code class="language-plaintext highlighter-rouge">One</code>, <code class="language-plaintext highlighter-rouge">SrcColor</code>, <code class="language-plaintext highlighter-rouge">OneMinusSrcColor</code>, <code class="language-plaintext highlighter-rouge">DstColor</code>, <code class="language-plaintext highlighter-rouge">OneMinusDstColor</code>, <code class="language-plaintext highlighter-rouge">SrcAlpha</code>, <code class="language-plaintext highlighter-rouge">OneMinusSrcAlpha</code>, <code class="language-plaintext highlighter-rouge">DstAlpha</code>, <code class="language-plaintext highlighter-rouge">OneMinusDstAlpha</code>, <code class="language-plaintext highlighter-rouge">ConstantColor</code>, <code class="language-plaintext highlighter-rouge">OneMinusConstantColor</code>, <code class="language-plaintext highlighter-rouge">ConstantAlpha</code>, <code class="language-plaintext highlighter-rouge">OneMinusConstantAlpha</code>, <code class="language-plaintext highlighter-rouge">SrcAlphaSaturate</code></p>
+      <h3 id="blend-operations">
+        
+        
+          <a href="#blend-operations" class="anchor-heading" aria-labelledby="blend-operations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Blend operations
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">Add</code>, <code class="language-plaintext highlighter-rouge">Subtract</code>, <code class="language-plaintext highlighter-rouge">ReverseSubtract</code>, <code class="language-plaintext highlighter-rouge">Min</code>, <code class="language-plaintext highlighter-rouge">Max</code></p>
+
+<p>Changing any blend or topology setting recreates the GPU pipeline, so these are best treated as setup parameters rather than animated values.</p>
+      <h1 id="built-in-uniforms">
+        
+        
+          <a href="#built-in-uniforms" class="anchor-heading" aria-labelledby="built-in-uniforms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Built-in uniforms
+        
+        
+      </h1>
+    
+
+<p>The Render Pipeline provides the following uniforms:</p>
+      <h2 id="standard-uniforms-same-as-isf">
+        
+        
+          <a href="#standard-uniforms-same-as-isf" class="anchor-heading" aria-labelledby="standard-uniforms-same-as-isf"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Standard uniforms (same as ISF)
+        
+        
+      </h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Uniform</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TIME</code></td>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td>Playback time in seconds</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TIMEDELTA</code></td>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td>Time since last frame</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PROGRESS</code></td>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td>Timeline progress 0-1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FRAMEINDEX</code></td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td>Frame counter</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RENDERSIZE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vec2</code></td>
+      <td>Output size in pixels</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DATE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vec4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">(year, month, day, seconds)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">clipSpaceCorrMatrix</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mat4</code></td>
+      <td>Platform clip space correction matrix</td>
+    </tr>
+  </tbody>
+</table></div>
+      <h2 id="model-transform">
+        
+        
+          <a href="#model-transform" class="anchor-heading" aria-labelledby="model-transform"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Model transform
+        
+        
+      </h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Uniform</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MODEL_MATRIX</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mat4</code></td>
+      <td>Model transform matrix from upstream geometry source</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Multiply your view/projection matrices with <code class="language-plaintext highlighter-rouge">clipSpaceCorrMatrix</code> and use <code class="language-plaintext highlighter-rouge">MODEL_MATRIX</code> for the object transform:</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">clipSpaceCorrMatrix</span> <span class="o">*</span> <span class="n">proj</span> <span class="o">*</span> <span class="n">view</span> <span class="o">*</span> <span class="n">MODEL_MATRIX</span> <span class="o">*</span> <span class="n">position</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">clipSpaceCorrMatrix</code> is <strong>not</strong> a projection matrix — it only corrects for platform differences in clip space conventions. You must build your own view and projection matrices in the vertex shader (see examples below).</p>
+      <h1 id="depth-testing">
+        
+        
+          <a href="#depth-testing" class="anchor-heading" aria-labelledby="depth-testing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Depth testing
+        
+        
+      </h1>
+    
+
+<p>The Render Pipeline enables depth testing and depth writing by default, unlike ISF shaders. This is necessary for correct 3D rendering with overlapping geometry.</p>
+      <h1 id="writing-shaders">
+        
+        
+          <a href="#writing-shaders" class="anchor-heading" aria-labelledby="writing-shaders"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Writing shaders
+        
+        
+      </h1>
+    
+      <h2 id="vertex-shader-vs">
+        
+        
+          <a href="#vertex-shader-vs" class="anchor-heading" aria-labelledby="vertex-shader-vs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vertex shader (.vs)
+        
+        
+      </h2>
+    
+
+<p>The vertex shader receives geometry attributes as <code class="language-plaintext highlighter-rouge">in</code> variables and must write <code class="language-plaintext highlighter-rouge">gl_Position</code>. Pass data to the fragment shader via <code class="language-plaintext highlighter-rouge">out</code> variables declared in <code class="language-plaintext highlighter-rouge">VERTEX_OUTPUTS</code>.</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Build your own view/projection, then apply clipSpaceCorrMatrix</span>
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">clipSpaceCorrMatrix</span> <span class="o">*</span> <span class="n">proj</span> <span class="o">*</span> <span class="n">view</span> <span class="o">*</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">xyz</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">v_normal</span> <span class="o">=</span> <span class="n">normal</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+    <span class="n">v_color</span> <span class="o">=</span> <span class="n">color</span><span class="p">;</span>
+
+<span class="cp">#if defined(QSHADER_SPIRV) || defined(QSHADER_HLSL) || defined(QSHADER_MSL)
+</span>    <span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="cp">#endif
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>The Y-flip guard is necessary for correct rendering across graphics backends (Vulkan, Metal, Direct3D flip Y relative to OpenGL).</p>
+      <h2 id="fragment-shader-fs">
+        
+        
+          <a href="#fragment-shader-fs" class="anchor-heading" aria-labelledby="fragment-shader-fs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fragment shader (.fs)
+        
+        
+      </h2>
+    
+
+<p>The fragment shader receives interpolated values from the vertex shader and writes the output color:</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">vec3</span> <span class="n">n</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">v_normal</span><span class="p">);</span>
+    <span class="kt">vec3</span> <span class="n">lightDir</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="kt">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">));</span>
+    <span class="kt">float</span> <span class="n">diffuse</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lightDir</span><span class="p">),</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">isf_FragColor</span> <span class="o">=</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">v_color</span><span class="p">.</span><span class="n">rgb</span> <span class="o">*</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span> <span class="o">+</span> <span class="mi">0</span><span class="p">.</span><span class="mi">75</span> <span class="o">*</span> <span class="n">diffuse</span><span class="p">),</span> <span class="n">v_color</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h1 id="examples">
+        
+        
+          <a href="#examples" class="anchor-heading" aria-labelledby="examples"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Examples
+        
+        
+      </h1>
+    
+      <h2 id="instanced-cubes-with-diffuse-lighting">
+        
+        
+          <a href="#instanced-cubes-with-diffuse-lighting" class="anchor-heading" aria-labelledby="instanced-cubes-with-diffuse-lighting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Instanced cubes with diffuse lighting
+        
+        
+      </h2>
+    
+
+<p>This example renders instanced geometry from a <a class="wiki-link" href="/score-docs/processes/compute-shaders.html">CSF compute shader</a> with per-vertex positions/normals and per-instance translations/colors.</p>
+      <h3 id="fragment-shader-instancedgridfs">
+        
+        
+          <a href="#fragment-shader-instancedgridfs" class="anchor-heading" aria-labelledby="fragment-shader-instancedgridfs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fragment shader (InstancedGrid.fs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*{
+  "DESCRIPTION": "Renders instanced geometry with simple diffuse lighting",
+  "ISFVSN": "2",
+  "MODE": "RAW_RASTER_PIPELINE",
+  "CATEGORIES": ["3D"],
+  "VERTEX_INPUTS": [
+    { "TYPE": "vec4", "NAME": "position" },
+    { "TYPE": "vec4", "NAME": "normal" },
+    { "TYPE": "vec4", "NAME": "translation" },
+    { "TYPE": "vec4", "NAME": "color" }
+  ],
+  "VERTEX_OUTPUTS": [
+    { "TYPE": "vec3", "NAME": "v_normal" },
+    { "TYPE": "vec4", "NAME": "v_color" }
+  ],
+  "FRAGMENT_INPUTS": [
+    { "TYPE": "vec3", "NAME": "v_normal" },
+    { "TYPE": "vec4", "NAME": "v_color" }
+  ],
+  "FRAGMENT_OUTPUTS": [
+    { "TYPE": "vec4", "NAME": "isf_FragColor" }
+  ],
+  "INPUTS": []
+}*/</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">vec3</span> <span class="n">n</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">v_normal</span><span class="p">);</span>
+    <span class="kt">vec3</span> <span class="n">lightDir</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="kt">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">));</span>
+    <span class="kt">float</span> <span class="n">diffuse</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lightDir</span><span class="p">),</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">isf_FragColor</span> <span class="o">=</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">v_color</span><span class="p">.</span><span class="n">rgb</span> <span class="o">*</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span> <span class="o">+</span> <span class="mi">0</span><span class="p">.</span><span class="mi">75</span> <span class="o">*</span> <span class="n">diffuse</span><span class="p">),</span> <span class="n">v_color</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h3 id="vertex-shader-instancedgridvs">
+        
+        
+          <a href="#vertex-shader-instancedgridvs" class="anchor-heading" aria-labelledby="vertex-shader-instancedgridvs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vertex shader (InstancedGrid.vs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Simple perspective projection matrix</span>
+<span class="kt">mat4</span> <span class="nf">perspective</span><span class="p">(</span><span class="kt">float</span> <span class="n">fovy</span><span class="p">,</span> <span class="kt">float</span> <span class="n">aspect</span><span class="p">,</span> <span class="kt">float</span> <span class="n">near</span><span class="p">,</span> <span class="kt">float</span> <span class="n">far</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">/</span> <span class="n">tan</span><span class="p">(</span><span class="n">fovy</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">nf</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">/</span> <span class="p">(</span><span class="n">near</span> <span class="o">-</span> <span class="n">far</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kt">mat4</span><span class="p">(</span>
+        <span class="n">f</span> <span class="o">/</span> <span class="n">aspect</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>                    <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>        <span class="n">f</span><span class="p">,</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>                    <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">far</span> <span class="o">+</span> <span class="n">near</span><span class="p">)</span> <span class="o">*</span> <span class="n">nf</span><span class="p">,</span>     <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span> <span class="o">*</span> <span class="n">far</span> <span class="o">*</span> <span class="n">near</span> <span class="o">*</span> <span class="n">nf</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Look-at view matrix</span>
+<span class="kt">mat4</span> <span class="nf">lookAt</span><span class="p">(</span><span class="kt">vec3</span> <span class="n">eye</span><span class="p">,</span> <span class="kt">vec3</span> <span class="n">center</span><span class="p">,</span> <span class="kt">vec3</span> <span class="n">up</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">vec3</span> <span class="n">f</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">center</span> <span class="o">-</span> <span class="n">eye</span><span class="p">);</span>
+    <span class="kt">vec3</span> <span class="n">s</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">up</span><span class="p">));</span>
+    <span class="kt">vec3</span> <span class="n">u</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kt">mat4</span><span class="p">(</span>
+         <span class="n">s</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>          <span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>         <span class="o">-</span><span class="n">f</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>         <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+         <span class="n">s</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>          <span class="n">u</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>         <span class="o">-</span><span class="n">f</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>         <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+         <span class="n">s</span><span class="p">.</span><span class="n">z</span><span class="p">,</span>          <span class="n">u</span><span class="p">.</span><span class="n">z</span><span class="p">,</span>         <span class="o">-</span><span class="n">f</span><span class="p">.</span><span class="n">z</span><span class="p">,</span>         <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+        <span class="o">-</span><span class="n">dot</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">eye</span><span class="p">),</span> <span class="o">-</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">eye</span><span class="p">),</span>  <span class="n">dot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">eye</span><span class="p">),</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">vec3</span> <span class="n">worldPos</span> <span class="o">=</span> <span class="n">position</span><span class="p">.</span><span class="n">xyz</span> <span class="o">+</span> <span class="n">translation</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+
+    <span class="kt">float</span> <span class="n">aspect</span> <span class="o">=</span> <span class="n">RENDERSIZE</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="n">RENDERSIZE</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+    <span class="kt">mat4</span> <span class="n">proj</span> <span class="o">=</span> <span class="n">perspective</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">aspect</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="kt">mat4</span> <span class="n">view</span> <span class="o">=</span> <span class="n">lookAt</span><span class="p">(</span><span class="kt">vec3</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span> <span class="kt">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span> <span class="kt">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">clipSpaceCorrMatrix</span> <span class="o">*</span> <span class="n">proj</span> <span class="o">*</span> <span class="n">view</span> <span class="o">*</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">worldPos</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">v_normal</span> <span class="o">=</span> <span class="n">normal</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+    <span class="n">v_color</span> <span class="o">=</span> <span class="n">color</span><span class="p">;</span>
+
+<span class="cp">#if defined(QSHADER_SPIRV) || defined(QSHADER_HLSL) || defined(QSHADER_MSL)
+</span>    <span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="cp">#endif
+</span><span class="p">}</span>
+</code></pre></div></div>
+      <h2 id="simple-textured-mesh">
+        
+        
+          <a href="#simple-textured-mesh" class="anchor-heading" aria-labelledby="simple-textured-mesh"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Simple textured mesh
+        
+        
+      </h2>
+    
+
+<p>Renders a mesh with a texture input.</p>
+      <h3 id="fragment-shader-texturedmeshfs">
+        
+        
+          <a href="#fragment-shader-texturedmeshfs" class="anchor-heading" aria-labelledby="fragment-shader-texturedmeshfs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fragment shader (TexturedMesh.fs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*{
+  "DESCRIPTION": "Renders a textured mesh",
+  "ISFVSN": "2",
+  "MODE": "RAW_RASTER_PIPELINE",
+  "VERTEX_INPUTS": [
+    { "TYPE": "vec4", "NAME": "position" },
+    { "TYPE": "vec2", "NAME": "texcoord" }
+  ],
+  "VERTEX_OUTPUTS": [
+    { "TYPE": "vec2", "NAME": "v_uv" }
+  ],
+  "FRAGMENT_INPUTS": [
+    { "TYPE": "vec2", "NAME": "v_uv" }
+  ],
+  "FRAGMENT_OUTPUTS": [
+    { "TYPE": "vec4", "NAME": "isf_FragColor" }
+  ],
+  "INPUTS": [
+    { "NAME": "tex", "TYPE": "image" }
+  ]
+}*/</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">isf_FragColor</span> <span class="o">=</span> <span class="n">IMG_NORM_PIXEL</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span> <span class="n">v_uv</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h3 id="vertex-shader-texturedmeshvs">
+        
+        
+          <a href="#vertex-shader-texturedmeshvs" class="anchor-heading" aria-labelledby="vertex-shader-texturedmeshvs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vertex shader (TexturedMesh.vs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">clipSpaceCorrMatrix</span> <span class="o">*</span> <span class="n">MODEL_MATRIX</span> <span class="o">*</span> <span class="n">position</span><span class="p">;</span>
+    <span class="n">v_uv</span> <span class="o">=</span> <span class="n">texcoord</span><span class="p">;</span>
+
+<span class="cp">#if defined(QSHADER_SPIRV) || defined(QSHADER_HLSL) || defined(QSHADER_MSL)
+</span>    <span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="cp">#endif
+</span><span class="p">}</span>
+</code></pre></div></div>
+      <h2 id="point-cloud-renderer">
+        
+        
+          <a href="#point-cloud-renderer" class="anchor-heading" aria-labelledby="point-cloud-renderer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Point cloud renderer
+        
+        
+      </h2>
+    
+
+<p>Renders point geometry with per-vertex colors. Set the topology to <strong>Points</strong> in the inspector.</p>
+      <h3 id="fragment-shader-pointcloudfs">
+        
+        
+          <a href="#fragment-shader-pointcloudfs" class="anchor-heading" aria-labelledby="fragment-shader-pointcloudfs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fragment shader (PointCloud.fs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*{
+  "DESCRIPTION": "Renders colored point cloud",
+  "ISFVSN": "2",
+  "MODE": "RAW_RASTER_PIPELINE",
+  "VERTEX_INPUTS": [
+    { "TYPE": "vec4", "NAME": "position" },
+    { "TYPE": "vec4", "NAME": "color" }
+  ],
+  "VERTEX_OUTPUTS": [
+    { "TYPE": "vec4", "NAME": "v_color" }
+  ],
+  "FRAGMENT_INPUTS": [
+    { "TYPE": "vec4", "NAME": "v_color" }
+  ],
+  "FRAGMENT_OUTPUTS": [
+    { "TYPE": "vec4", "NAME": "isf_FragColor" }
+  ],
+  "INPUTS": [
+    { "NAME": "pointSize", "TYPE": "float", "DEFAULT": 3.0, "MIN": 1.0, "MAX": 20.0 }
+  ]
+}*/</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Circular point shape</span>
+    <span class="kt">vec2</span> <span class="n">pt</span> <span class="o">=</span> <span class="nb">gl_PointCoord</span> <span class="o">*</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span> <span class="n">pt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">discard</span><span class="p">;</span>
+    <span class="n">isf_FragColor</span> <span class="o">=</span> <span class="n">v_color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h3 id="vertex-shader-pointcloudvs">
+        
+        
+          <a href="#vertex-shader-pointcloudvs" class="anchor-heading" aria-labelledby="vertex-shader-pointcloudvs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vertex shader (PointCloud.vs)
+        
+        
+      </h3>
+    
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="n">clipSpaceCorrMatrix</span> <span class="o">*</span> <span class="n">MODEL_MATRIX</span> <span class="o">*</span> <span class="n">position</span><span class="p">;</span>
+    <span class="nb">gl_PointSize</span> <span class="o">=</span> <span class="n">pointSize</span><span class="p">;</span>
+    <span class="n">v_color</span> <span class="o">=</span> <span class="n">color</span><span class="p">;</span>
+
+<span class="cp">#if defined(QSHADER_SPIRV) || defined(QSHADER_HLSL) || defined(QSHADER_MSL)
+</span>    <span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="nb">gl_Position</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="cp">#endif
+</span><span class="p">}</span>
+</code></pre></div></div>
+      <h2 id="related-processes">
+        
+        
+          <a href="#related-processes" class="anchor-heading" aria-labelledby="related-processes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Related Processes
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>
+<a class="wiki-link" href="/score-docs/processes/shaders.html">ISF Shader</a>: Fragment shaders with automatic fullscreen quad rendering.</li>
+  <li>
+<a class="wiki-link" href="/score-docs/processes/compute-shaders.html">Compute Shader</a>: Compute shaders for generating geometry, processing images, or GPU computation.</li>
+  <li>
+<a class="wiki-link" href="/score-docs/processes/model-display.html">Model Display</a>: Built-in 3D model renderer with standard lighting.</li>
+  <li>
+<a class="wiki-link" href="/score-docs/processes/vertex-shader-art.html">VSA Shader</a>: Procedural vertex-based rendering.</li>
+</ul>
+
+        
+
+        
+
+        
+          <hr>
+          <footer>
+            <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/docs/reference-manual/processes/library/render-pipeline.md">here</a> !</p>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+            
+              <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="https://ossia.io">ossia.io</a> © ossia 2021</p>
+            
+
+            
+              <div class="d-flex mt-2">
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
+
