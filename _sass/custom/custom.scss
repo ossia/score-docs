@@ -9,3 +9,61 @@
 video {
     max-width: 100%;
 }
+
+
+// Previous / Next page navigation buttons (see _includes/page_nav.html)
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+}
+
+.page-nav-link {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    max-width: 48%;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 150ms ease, background-color 150ms ease;
+
+    &:hover {
+        border-color: $link-color;
+        background-color: $sidebar-color;
+    }
+}
+
+.page-nav-empty {
+    border: none;
+    background: none;
+    pointer-events: none;
+}
+
+.page-nav-next {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.page-nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $grey-dk-100;
+}
+
+.page-nav-prev .page-nav-label::before {
+    content: "← ";
+}
+
+.page-nav-next .page-nav-label::after {
+    content: " →";
+}
+
+.page-nav-title {
+    font-weight: 500;
+}

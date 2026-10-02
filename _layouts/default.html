@@ -134,8 +134,12 @@ layout: table_wrappers
           </ul>
         {% endif %}
 
+        {% unless page.url == "/" %}
+          {% include page_nav.html %}
+        {% endunless %}
+
         {% if site.footer_content != nil or site.last_edit_timestamp %}
-          <hr>
+          {% if page.url == "/" %}<hr>{% endif %}
           <footer>
             <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/{{ page.path }}">here</a> !</p>
             {% if site.back_to_top %}
