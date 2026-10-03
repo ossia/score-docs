@@ -23,6 +23,11 @@ These changes affect the documentation website, not a score application release:
 - Corrected 11 internal page links and removed 16 image references with no corresponding illustration. Existing relevant screenshots are retained.
 - Removed the duplicate local copy of the wiki-link document manager. The pinned plugin supplies that implementation; the site's title matching and link diagnostics remain in its dedicated patch.
 - Migrated the light, dark, custom and default stylesheets to Sass modules and namespaced built-ins, retaining the existing themes without suppressing compiler warnings.
+- Integrated the native-process portions of [PR #87](https://github.com/ossia/score-docs/pull/87): seven geometry help destinations and Accumulator, LTC, XWax DVS, Synthimi and StreamDiffusion references. Existing overlapping manuals remain authoritative; preset catalogues and bundled navigation changes are deferred.
+- Adapted [PR #92](https://github.com/ossia/score-docs/pull/92) project names, descriptions and documentation links into 82 current example documents without replacing their graphs or media. The metadata helper now preserves nested archive member paths; its regression test covers read-only inspection, metadata replacement, retained media and repeat runs.
+- Integrated source-correct Puara references and the corrected [Leaky Integrator tutorial](https://github.com/ossia/score-docs/pull/71). A synthetic runtime check exposed unstable Tilt output, so the [Roll](https://github.com/ossia/score-docs/pull/73) and [Tilt](https://github.com/ossia/score-docs/pull/74) tutorials remain deferred. The [Shake](https://github.com/ossia/score-docs/pull/76) reference records the ineffective threshold control and gravity behavior instead of publishing the unsupported phone exercise.
+- Adapted [PR #53](https://github.com/ossia/score-docs/pull/53) into theme-aware search foregrounds, readable previews and parent titles, and explicit placeholder, hover and keyboard-selection colors.
+- The incomplete [Wekinator guide](https://github.com/ossia/score-docs/pull/63) remains deferred; [PR #27](https://github.com/ossia/score-docs/pull/27) adds no substantive content beyond the existing interface overview.
 
 ---
 

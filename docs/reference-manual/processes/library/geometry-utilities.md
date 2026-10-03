@@ -11,6 +11,20 @@ permalink: /processes/geometry-utilities.html
 
 Use these tools at the boundaries between value arrays, GPU buffers, geometry and textures. A buffer contains bytes, not a self-describing mesh. Its element type, stride, offset and count must agree with the consumer. Start with a small dataset and inspect the result before increasing counts.
 
+## Choose a conversion path
+
+| Starting data | Goal | Process |
+|---|---|---|
+| XYZ value array | Geometry positions or reconstructed surface | [[Array to mesh]] |
+| Numeric pixel array | Texture | [[Array to texture]] |
+| GPU vertex/index buffers | Geometry with an explicit layout | [[Buffers to geometry]] |
+| Geometry | One attribute or an existing buffer | [[Extract buffer]] |
+| Geometry | A new interleaved attribute buffer | [[Repack attributes]] |
+| Texture | Pixel bytes in a GPU buffer | [[Texture to buffer]] |
+| Geometry | Counts and layout diagnostics | [[Geometry Info]] |
+
+Keep resource boundaries explicit: value arrays live on the CPU, buffers contain typed-by-convention bytes, geometry adds a draw description, and scenes carry hierarchy and resources. The individual references above are the canonical control and port manuals; the sections below locate them within a workflow.
+
 ## Array to buffer and Buffer to array
 
 **Array to buffer** accepts a numeric array or string on **Input** and exposes it as **Output** buffer data. **Type** selects Float32, Float64, signed/unsigned 32-bit, 16-bit or 8-bit elements. Numeric values are converted to that type; strings supply bytes.
@@ -19,9 +33,7 @@ Use these tools at the boundaries between value arrays, GPU buffers, geometry an
 
 ## Array to mesh
 
-Interpret **Input** as consecutive XYZ triples: `[x0, y0, z0, x1, y1, z1, …]`. Supply complete triples. **Triangulate** requests surface reconstruction from the points; otherwise the points supply the geometry positions. **Position**, **Rotation** and **Scale** place the output.
-
-This is not an importer for arbitrary indexed-mesh JSON. Use **Buffers to geometry** when you already have vertex/index buffers and a known layout.
+See [[Array to mesh]] for the XYZ-array contract, placement controls and limits of its optional surface reconstruction. For explicit attribute layouts, use [[Buffers to geometry]] instead.
 
 ## Pointcloud to mesh
 
@@ -29,13 +41,11 @@ Wrap a **Buffer** in a point-cloud geometry description. **Buffer type** selects
 
 ## Buffers to geometry
 
-Connect up to eight inputs, **Buffer 0–7**, and describe up to eight attributes. Each attribute has a buffer selection, byte offset, byte stride, data format, semantic and instanced flag. Configure **Index Buffer**, **Index Format** and **Index Offset** when using indexed geometry, and set **Vertices** and **Instances** consistently with the data.
-
-The current **Buffers to geometry** uses named semantics. **Buffers to geometry (v1)** is also registered for existing documents and uses numeric attribute locations instead. They are distinct library entries. Use the semantic version for new patches unless a specific existing layout requires the older one.
+See [[Buffers to geometry]] for named-semantic attribute setup, indexed draws, instances and topology. Its reference also distinguishes the separately registered **Buffers to geometry (v1)**, which uses numeric attribute locations.
 
 ## Extract buffer
 
-Select an **Attribute** from the incoming **Geometry** and emit a **Buffer**. **Pad vec3 to vec4** changes three-component attributes into four-component records when required by a downstream buffer layout. Account for that changed stride in the consumer.
+See [[Extract buffer]] for semantic/index selection and vec3 padding. Use the by-name variant below when selecting custom names or scene auxiliary resources.
 
 ## Extract buffer (by name)
 
@@ -48,7 +58,7 @@ Auxiliary names allow explicit access to resources carried by [[Scene Preprocess
 
 ## Repack attributes
 
-Take **Geometry** and build a **Buffer** with a chosen packing for **Position**, **Normal**, **Color**, **TexCoord** and **Tangent**. The **Stride** outlet reports the resulting byte stride. Use this to match a downstream compute/raster layout rather than assuming every loader packs attributes identically.
+See [[Repack attributes]] for attribute selection, packing order and the byte-stride outlet. This creates a new layout rather than selecting a whole existing buffer.
 
 ## Merge Geometries
 
@@ -56,11 +66,11 @@ Combine eight **Geometry 1–8** inputs into **Merged**. This composes geometry 
 
 ## Array to texture
 
-Turn a float **Input** array into an image with **Size** and **Format**, emitted through **Output**. The selected format determines the pixel representation: the number of supplied values must match the intended image layout. This is useful for generated scalar/color fields, not encoded PNG/JPEG bytes.
+See [[Array to texture]] for pixel component counts, formats and numeric ranges. It uploads numeric pixels, not encoded image-file bytes.
 
 ## Texture to buffer
 
-Expose a **Texture**'s pixel data as a GPU **Buffer**. It does not create position, normal or UV attributes. Match the texture's pixel format and dimensions when interpreting the bytes, and expect a transfer path rather than assuming a zero-copy GPU image alias.
+See [[Texture to buffer]] for the pixel-byte transfer path and downstream layout requirements. It does not create mesh attributes and is not the direct inverse of Array to texture.
 
 ## Inject Buffer and Inject Texture
 
@@ -78,7 +88,7 @@ Read an auxiliary texture from **Geometry**, using **Name** (for example `skybox
 
 | Process | Input | Outputs useful for debugging |
 |---|---|---|
-| Geometry Info | Geometry | Vertices, Indices, Instances, Attributes, Bindings, Inputs and Readable layout report. |
+| [[Geometry Info]] | Geometry | Integer counts, structured attribute/binding/input lists and a Readable layout report; see its reference for details. |
 | Buffer Info | Buffer | Byte size, Byte offset, Handle, Changed and Readable summary. |
 | Texture Info | Texture | Width, Height, Format, Handle and Readable summary. |
 

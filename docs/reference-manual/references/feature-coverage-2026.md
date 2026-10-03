@@ -30,13 +30,14 @@ Evidence levels used by this map:
 
 ### Exclusions and availability corrections
 
-**xwax — not verified; no feature page.** The audio/MIDI source audit found no xwax implementation or registration in this checkout. The proposed evidence commit `83cea1165e` changes VST widgets rather than establishing xwax support. This proposed plan item is therefore excluded from documented capabilities; its omission is intentional, not evidence of an unfinished xwax page.
+**XWax DVS — optional, registered and documented.** The LTC add-on registers `XWaxDVS` in `src/addons/score-addon-ltc/CMakeLists.txt` and implements it in `LTC/XWax.hpp` and `LTC/XWax.cpp`. [XWax DVS]({{ site.baseurl }}/processes/xwax-dvs.html) documents the decoded position, speed, output units and quality heuristic. This corrects the earlier exclusion, which missed the optional add-on; registration is not a claim that a control-vinyl workflow has been hardware-tested.
 
 - **Historical `TRANSPARENCY` shader key:** absent from the current parser. [[Shader cookbook]] documents the current `QUEUE` and `LAYER` controls instead.
 - **Tracking protocols:** the optional add-on returns from CMake before building in this snapshot. [[Add-ons]] records this restriction rather than claiming its devices ship.
 - **Libmapper:** conditional registration exists, but the audited factory has a header/implementation interface mismatch. [[Libmapper client]] records the prerequisite instead of treating source presence as working support.
 - **Phidgets:** the optional integration's wrapper has a stale include path. [[Phidgets device]] describes its intended channel model while requiring a compatible enabled build before use.
 - **High-contrast preset:** no named built-in preset was verified. [[Appearance and skins]] documents the available per-role colour and font controls, not an accessibility certification.
+- **User-library preset documentation:** deferred until the software-side discovery and help workflow is defined. The new native process references do not add shader or JavaScript preset catalogues or imply preset-specific F1 support.
 
 ## Coverage map
 
@@ -83,5 +84,7 @@ The audit checked implementations, registrations, controls and build conditions.
 - The development `ossia-score` binary ran an offscreen scripting smoke covering scenario, interval and automation creation, command macros, curve points, comments, outlet lookup, preset serialization, object-path round trips, undo state and time conversion; it exited successfully.
 - Startup-script checks observed successful exit, explicit exit status `7`, evaluation-error status `3` and unreadable-script status `2`. Core command-line help was inspected.
 - `tools/create-app.sh --help` was run to verify the packaging interface; no packaged application was created or validated.
+- The development application's process inventory exposed all 13 newly documented native entries: the seven geometry utilities, Accumulator, LTC Generator/Input, XWax DVS, Synthimi and StreamDiffusion. This checks registration and help destinations, not execution of their external backends.
+- The corrected Leaky Integrator download was loaded and played through the application; its pulse accumulated and then decayed. Synthetic three-stream OSC input exercised Roll, but Tilt produced unstable values outside its nominal range. The shared orientation workflows remain withheld pending investigation; this is a failed runtime check, not a successful phone/hardware validation.
 
 These checks do not establish hardware, GPU, plug-in, browser-application or target-platform compatibility. Examples and workflows elsewhere are source-inspected unless their page states otherwise. Publication checks validate the documentation's build, navigation and rendering, not score's multimedia behavior.
