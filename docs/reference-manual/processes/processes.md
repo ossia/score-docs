@@ -36,10 +36,13 @@ For video capture, streaming and display outputs, start with [Devices]({{ site.b
 - **Convert and parse data:** [Regex]({{ site.baseurl }}/processes/regex.html), [String / byte conversion]({{ site.baseurl }}/processes/string-bytes.html), [Value serialization]({{ site.baseurl }}/processes/value-serialization.html) and [Array utilities]({{ site.baseurl }}/processes/array-utilities.html).
 - **Record or annotate:** [Audio recorder]({{ site.baseurl }}/processes/audio-recorder.html), [CSV recorder]({{ site.baseurl }}/processes/csv-recorder.html) and [Text Box]({{ site.baseurl }}/processes/text-box.html). Text Box is a document annotation; use [Text]({{ site.baseurl }}/processes/text.html) to generate an image.
 - **Store and select data:** [Tables]({{ site.baseurl }}/processes/table.html) provide editable data tables; availability depends on the compiler/build.
+- **Accumulate statistics:** [Accumulator]({{ site.baseurl }}/processes/accumulator.html) provides running statistics with selectable output timing.
 - **Turn observations into music:** [Point Tracker]({{ site.baseurl }}/processes/point-tracker.html), [Beat Tracker]({{ site.baseurl }}/processes/beat-tracker.html) and [Entity To MIDI]({{ site.baseurl }}/processes/entity-to-midi.html).
 - **Shape MIDI expression:** [MIDI Envelope]({{ site.baseurl }}/processes/midi-envelope.html) and [MIDI Humanize]({{ site.baseurl }}/processes/midi-humanize.html).
 - **Follow an external time position:** [Timecode Synchronizer]({{ site.baseurl }}/processes/timecode-synchronizer.html). This is separate from simply generating metronome ticks.
 - **Send or decode synchronization:** [MIDI Sync Out]({{ site.baseurl }}/processes/midi-sync.html) and [MIDI Sync In]({{ site.baseurl }}/processes/midi-timecode-input.html).
+- **Decode audio timecode:** [LTC Input]({{ site.baseurl }}/processes/ltc-input.html) and [XWax DVS]({{ site.baseurl }}/processes/xwax-dvs.html); generate it with [LTC Generator]({{ site.baseurl }}/processes/ltc-generator.html). These require the optional LTC add-on and do not automatically synchronize score's transport.
+- **Describe sensor gestures:** [Puara Gestures]({{ site.baseurl }}/processes/gestures.html) covers Leaky Integrator, Roll, Tilt and Shake, including input units and current implementation limits.
 - **Inspect signals:** [MIDI display]({{ site.baseurl }}/processes/midi-display.html), [VU Meter]({{ site.baseurl }}/processes/vu-meter.html) and [Signal display]({{ site.baseurl }}/processes/signal-display.html).
 - **Run external tools:** [Shell command]({{ site.baseurl }}/processes/shell-command.html) and [Process Launcher]({{ site.baseurl }}/processes/process-launcher.html), subject to platform and installed-program requirements.
 
@@ -54,6 +57,10 @@ For procedural content and data conversion, see [Mesh generators and splats]({{ 
 For choosing media decoding, pixel formats, color conversion and HDR output, see [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).
 
 [Sink]({{ site.baseurl }}/processes/sink.html) runs an upstream graphics chain at a chosen rate without displaying its image, useful when only a data result is needed.
+
+### Optional synthesis and image generation
+
+[Synthimi]({{ site.baseurl }}/processes/synthimi.html) is a MIDI-driven synthesizer provided by an optional add-on. [StreamDiffusion]({{ site.baseurl }}/processes/streamdiffusion.html) processes images through the optional LibreDiffusion runtime on supported systems. Neither entry is guaranteed to be installed in every build.
 
 ## General description
 
