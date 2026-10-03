@@ -66,7 +66,8 @@ def with_score_document(ex)
   if ex.format == "zip"
     Dir.mktmpdir do |tmp|
       member = `unzip -Z1 #{ex.asset.inspect} "*.score" 2>/dev/null`.lines.map(&:strip).first or abort "#{ex.id}: no .score in archive"
-      unless system("unzip", "-q", "-o", "-j", ex.asset, member, "-d", tmp, out: File::NULL)
+      # Keep nested member paths: the same path is used below when replacing it.
+      unless system("unzip", "-q", "-o", ex.asset, member, "-d", tmp, out: File::NULL)
         abort "#{ex.id}: cannot extract #{member} from #{ex.asset}"
       end
       extracted = File.join(tmp, member)

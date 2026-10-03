@@ -42,8 +42,9 @@ examples/advanced/pipeline-switching: >-
   on every beat and another on every bar.
 
 examples/ai/pose-detection: >-
-  Runs GPU pose detection on a video input, giving both the complete tracking
-  data and ready-made geometry for the detected points.
+  Detects faces and five facial keypoints from camera input with the Pose
+  Detector process, then displays and filters the resulting data.
+  Requires the pose-detector model package.
 
 examples/ai/tracking-to-midi: >-
   Turns tracked positions into MIDI: zones defined in 2D or 3D trigger notes as

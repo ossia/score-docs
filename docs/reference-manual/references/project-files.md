@@ -68,3 +68,10 @@ Inspect the per-file reasons and estimated saving before pressing **Trim**. Refe
 Library collection is **off** in the archive command's default consolidation. For a portable handoff, first consolidate manually with **Also collect files from the user library**, repair missing files and review external dependencies. The archive completion message warns about missing files and dependencies such as plug-ins or folders that must be installed separately.
 
 In the browser, archiving produces a download and can include an unsaved document. It can only include media available to the browser's filesystem; it does not gain access to the desktop's files. See [Using score in the browser]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html).
+
+### Downloaded example archives
+
+Keep a downloaded archive's directory structure intact: the `.score` member can be inside a project subdirectory beside its media. Project names, descriptions and documentation links do not replace required add-ons, model packages or external files.
+
+In the source snapshot used for this documentation, the online-example installer can initially open a nested score but its installed-file lookup searches only the archive's top-level directory. Selecting that example again may therefore download it again. The preserved nested project is not necessarily broken or missing media; this is a separate installed-example lookup limitation.
+
