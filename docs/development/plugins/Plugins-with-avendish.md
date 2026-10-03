@@ -10,257 +10,93 @@ grand_parent: Development
 permalink: /development/plugins/plugins-with-avendish.html
 ---
 
-# Avendish documentation
+# Writing a processor with Avendish
 
-Before focusing on writing score plug-ins, read the [Avendish documentation to get familiar with what it allows](https://celtera.github.io/avendish).
+[Avendish](https://celtera.github.io/avendish/) describes a media processor through a C++ type: members declare its inputs, outputs and controls, and a processing function performs the work. The optional `halp` helpers reduce boilerplate. Audio, MIDI, values, CPU images, GPU resources and geometry have different port contracts; choosing the right one lets score supply the corresponding cables and controls.
 
-In short: this plug-in API leverages C++ reflection to define media objects. 
-The inputs and outputs of objects are simply struct members: here is for instance the entire definition of a simple Avendish audio processing object:
+Start with the [upstream introduction](https://celtera.github.io/avendish/getting_started/hello_world.html) and [examples](https://github.com/celtera/avendish/tree/main/examples). Use the Avendish revision bundled with the score version you target. New interfaces in a development build need not exist in the latest released SDK.
 
-```c++
-#pragma once
-#include <cmath>
-struct Distortion
-{
-  static consteval auto name() { return "Distortion"; }
-  static consteval auto c_name() { return "disto"; }
-  static consteval auto uuid() { return "dd4dd880-d525-44fb-9773-325c87b235c0"; }
+## Create an add-on
 
-  struct {
-    struct {
-      static consteval auto name() { return "Preamp"; }
-      static consteval auto control() {
-        struct {
-          const float min = 0.001;
-          const float max = 1000.;
-          const float init = 1.;
-        } c; return c;
-      }
-
-      float value{0.5};
-    } preamp;
-
-    struct {
-      static consteval auto name() { return "Volume"; }
-      float value{1.0};
-    } volume;
-  } inputs;
-
-  void operator()(double** in, double** out, int frames)
-  {
-    const double preamp = inputs.preamp.value;
-    const double volume = inputs.volume.value;
-
-    for (int c = 0; c < channels; c++)
-      for (int i = 0; i < frames; i++)
-        out[c][i] = volume * std::tanh(in[c][i] * preamp);
-  }
-};
-```
-
-Note in particular that Avendish objects implementation do not by themselves require *any* library to be included, not even the standard C++ one.
-This allows them to be portable to as many platforms as C++ compilers run on, including bare-metal microcontrollers.
-
-Note that in order to reduce verbosity, an helper library is provided, and most examples use it: it is however in no way mandatory.
-
-# Plug-in types
-Multiple kind of plug-ins can be written with Avendish:
-
-- Audio processing plug-ins.
-- Message processing plug-ins.
-- CPU-based image processing plug-ins.
-- GPU-based plug-ins (compute pipelines or vertex/fragment draw pipelines).
-
-The reflection-based approach allows various "shapes" of plug-ins to work: for instance, the above sample plug-in passes the audio channels as arguments to the processing function.
-Another way to write the same plug-in, which would use ports for everything, would be: 
-
-```c++
-#pragma once
-#include <halp/audio.hpp>
-#include <halp/controls.hpp>
-#include <halp/meta.hpp>
-
-#include <cmath>
-
-class Distortion
-{
-public:
-  halp_meta(name, "Distortion (helpers)")
-  halp_meta(c_name, "disto")
-  halp_meta(uuid, "82bdb9b5-9cf8-440e-8675-c0caf4fc59b9")
-
-  struct
-  {
-    halp::dynamic_audio_bus<"Input", double> audio;
-    halp::hslider_f32<"Preamp", halp::range{.min = 0.001, .max = 1000., .init = 0.5}> preamp;
-    halp::val_port<"Volume", float> volume;
-  } inputs;
-
-  struct
-  {
-    halp::dynamic_audio_bus<"Output", double> audio;
-  } outputs;
-
-  using tick = halp::tick;
-  void operator()(halp::tick t)
-  {
-    const double volume = inputs.volume;
-    const double preamp = inputs.preamp;
-
-    for(int c = 0; c < inputs.audio.channels; c++)
-    {
-      auto* in = inputs.audio[c];
-      auto* out = outputs.audio[c];
-
-      for (int i = 0; i < t.frames; i++)
-        outputs.audio[c][i] = volume * std::tanh(inputs.audio[c][i] * preamp);
-    }
-  }
-};
-```
-
-# Creating a dynamic score plug-in with the template
-
-The recommended way to create a plug-in is by using the [template provided on Github](https://github.com/ossia-templates/score-avnd-simple-template/).
-It contains everything needed to automatically create a plug-in. Whenever you push a new commit, Github will automatically compile the plug-in for Mac, Windows and Linux.
-
-1. Create a repository from the template by clicking on the green "Use this template" button.
+Use the [score Avendish template](https://github.com/ossia-templates/score-avnd-simple-template/) and follow its README to initialize names and UUIDs. Keep those UUIDs stable after distributing the plug-in: documents use them to identify processes. Set the name, description and other package metadata in `addon.json`.
 
 ![Github template creation]({{ site.img }}/development/plugins/avendish/template.png "Github template")
 
-For instance, let's say your personal repository will be: `https://github.com/yourself/foobinator` and your plug-in name is Foobinator.
+The template's [SDK workflow](https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml) is the reference for supported build jobs and artifacts. A binary for one operating system or architecture cannot be loaded on another. Install the generated package, including its manifest, in the **Packages** directory configured in score; the usual location is `Documents/ossia/score/packages/<your-addon>`.
 
-2. Clone your new repository:
+## Build against a matching SDK
 
-```bash
-$ git clone git@github.com:yourself/foobinator
-```
+Two SDK paths serve different purposes:
 
-3. If your shell is zsh, run `./init.zsh Foobinator`, otherwise `./init.sh Foobinator`
-
-This will replace the generic names in the repository by your custom name, Foobinator and auto-generate unique identifiers.
-
-4. Set-up your plug-in's name and description inside the `addon.json` file.
-
-5. Set-up git again -- the script removes the existing local git repo to make sure you can start from a clean state, without the template repo git history.
-
-```bash
-$ git remote add origin git@github.com:yourself/foobinator
-$ git add .
-$ git commit -m 'First commit'
-$ git push --set-upstream origin main --force
-```
-
-6. After some minutes, you can check the "SDK" action of the plug-in on Github:
-
-```
-https://github.com/yourself/foobinator/actions/workflows/builds-sdk.yaml
-```
-
-If everything is ok, it should have generated a "plugin" archive which will contain the MacOS, Windows and Linux builds.
-This can be extracted to `Documents/ossia/score/package/foobinator`: the object should become visible the next time you launch score.
-
-# Building locally from the command line
-
-For building a plug-in locally, you need: 
-
-- If you are on a Mac, XCode must be installed. On all platforms you must also install CMake and Ninja.
-
-- The simplest way is to follow the steps that are done on the CI as they are regularly automatically checked, unlike the instructions on this page :-)
-
-[https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml](https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml)
-
-In short: 
-
-1. Create an empty "development" folder and clone or move your repository in it
-
-```bash
-$ mkdir dev
-$ cd dev
-$ git clone git@github.com:yourself/foobinator
-```
-
-2. Download and run this script: [https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh](https://github.com/ossia/score/raw/master/tools/fetch-sdk.sh) which will download required compilers and libraries.
-
-3. From score's package manager, download the SDK which will contain the header files that match this version of score.
+- `OSSIA_SDK` points to the compiler and third-party dependency SDK used to build score.
+- `SCORE_SDK` points to the exported score SDK's **`usr` directory**, containing `include` and `lib/cmake/score`. Obtain the platform/architecture SDK from the same release or development build as the application, or through the package manager's SDK entry.
 
 ![Score SDK]({{ site.img }}/development/plugins/avendish/settings.png "Score SDK download")
 
-It will be installed in `~/Documents/ossia/score/sdk/<VERSION>`
+See [Release build]({{ site.baseurl }}/development/build/release.html#matching-the-official-sdk) for selecting the dependency SDK. The fetch script has a pinned default, not automatic latest-version selection. On Linux and Windows, use the SDK's compiler and put its `llvm/bin` first on `PATH`; Windows absolute compiler paths include `.exe`. On macOS use the Xcode toolchain expected by the SDK. Do not mix unrelated Qt/LLVM/standard-library headers with the exported SDK.
 
-**NOTE** The 3.1.8 version does not support this yet, you need to download and extract the SDK of the `continuous` build (and `continuous` version of score) manually. Starting from 3.1.9 this will be fixed, but until then use this: [https://github.com/ossia/score/releases/tag/continuous](https://github.com/ossia/score/releases/tag/continuous)
-
-For instance on Linux:
+For example, after setting `SCORE_SDK` and `OSSIA_SDK` to the correct directories and selecting that compiler:
 
 ```bash
-$ mkdir -p ~/Documents/ossia/score/sdk
-$ cd ~/Documents/ossia/score/sdk
-$ wget https://github.com/ossia/score/releases/download/continuous/linux-sdk.zip
-$ 7z x linux-sdk.zip -ocontinuous
+cmake -S /path/to/your-addon -B addon-build -GNinja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_MODULE_PATH="$SCORE_SDK/lib/cmake/score" \
+  -DSCORE_SDK="$SCORE_SDK" \
+  -DOSSIA_SDK="$OSSIA_SDK" \
+  -DCMAKE_INSTALL_PREFIX=/path/to/Documents/ossia/score/packages/your-addon
+cmake --build addon-build --parallel
+cmake --install addon-build
 ```
 
-4. Run CMake (this step will only be needed the first time)
+Restart score to load a rebuilt binary. On Windows, close score **before** replacing a loaded DLL. SDK compatibility includes the score build, architecture and compiler ABI, not just a similar-looking version number. The generated `localaddon.json` records the loadable binary and architecture; keep it with the installed files.
 
-```
-$ cd dev
-$ export SCORE_SDK=/path/to/Documents/ossia/score/sdk/3.1.x
-# Or if you downloaded the "continuous" SDK as mentioned above: 
-$ export SCORE_SDK=/path/to/Documents/ossia/score/sdk/continuous
+For development against your own score checkout, follow the template's developer-build configuration instead of combining a locally changed application with unrelated released headers. [ScoreExternalAddon.cmake](https://github.com/ossia/score/blob/master/cmake/ScoreExternalAddon.cmake) selects the supported build modes.
 
-# If on windows:
-$ export OSSIA_SDK=c:/ossia-sdk
-$ export PATH=$OSSIA_SDK/llvm/bin:$PATH
-$ export CC=clang
-$ export CXX=clang++
+## Compile at run time
 
-# If on mac:
-$ export OSSIA_SDK=/opt/ossia-sdk-x86_64
+Current desktop development builds with the JIT plug-in support run-time compilation of source add-ons, including the Windows LLVM/MinGW path. This is separate from building score's own core plug-ins as shared libraries. It needs the compatible score headers/toolchain support; it is not a way to load arbitrary MSVC binaries into a MinGW application.
 
-# If on Linux:
-$ export OSSIA_SDK=/opt/ossia-sdk
-$ export PATH=$OSSIA_SDK/llvm/bin:$PATH
-$ export CC=clang
-$ export CXX=clang++
+A source package in the configured Packages directory is recognized by `addon.json` with `"kind": "addon"`. Use a supported template: the run-time compiler understands selected add-on CMake declarations, not every possible CMake project. Restart after source changes rather than relying on automatic hot reload.
 
-$ cmake -S foobinator \
-        -B foobinator-build-release \
-        -GNinja \
-        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-        -DCMAKE_MODULE_PATH="$SCORE_SDK/usr/lib/cmake/score" \
-        -DSCORE_SDK="$SCORE_SDK/usr" \
-        -DOSSIA_SDK="$OSSIA_SDK" \
-        -DCMAKE_INSTALL_PREFIX=/path/to/Documents/ossia/score/packages/my_plugin
+For a one-file compilation check:
+
+```bash
+ossia-score --no-restore --compile-node /absolute/path/to/MyProcessor.hpp
 ```
 
-5. Run a build
+`--compile-node` accepts `.hpp` or `.cpp` and now wraps an **Avendish object**, registering its generated process factories. The source must identify its enclosing class or struct and contain a UUID declaration recognized by the loader, normally `halp_meta(uuid, "…")`. Use the template's real generated UUID, not the placeholder shown here. This is not an arbitrary C++ program with `main()`.
 
+For a complete source add-on:
+
+```bash
+ossia-score --no-restore --compile-addon /absolute/path/to/your-addon
 ```
-$ cmake --build foobinator-build-release
-$ cmake --install foobinator-build-release
-```
 
-This should copy the plug-in in the `ossia/score/packages/<your plugin>` folder. If everything is correct, the next time you launch score you should see your plug-in show up in the Process library :-)
+These developer commands compile/register and then exit; they do not install a reusable binary package. Compiler failures are reported in the log. The commands are parsed by the JIT plug-in and are not listed in the core `--help` output. Merely putting standalone headers in a library `Nodes` directory does **not** enable automatic discovery in the current implementation.
 
-Another way for fast iteration is to create a symbolic lijnk from the `foobinator-build-release/plugins` folder to `ossia/score/packages/<your plugin>`. This way, every time you run `ninja`, the binary will be updated.
+## Ports, scheduling and layouts
 
-Note that on Windows, you must exit score if you rebuild the DLL as the operating system does not support replacing of currently loaded DLL files.
+The links below are the API reference; the table explains how the interfaces map to score rather than duplicating their implementations.
 
-# Building locally from Qt Creator
+| Need | Interface and score behavior |
+|---|---|
+| Variable number of ports | `halp::dynamic_port<T>` represents repeated ports of one type. Read the actual instances through its `ports` collection; do not treat it as one list-valued cable. See the [dynamic-port example](https://github.com/celtera/avendish/blob/main/examples/Tests/TestDynamicPort.hpp). |
+| Time-dependent processing | Use the appropriate tick information for frames, musical time or logical time rather than a wall-clock timer. Temporal metadata controls whether the process has timeline content; it is distinct from `single_exec` (once per execution) and `process_exec` (start/stop callbacks). See [temporality concepts](https://github.com/celtera/avendish/blob/main/include/avnd/concepts/temporality.hpp) and [playback state](https://celtera.github.io/avendish/writing_processors/audio.arguments.html). |
+| Files and directories | [File ports](https://celtera.github.io/avendish/advanced/port_types.file.html) and `halp::folder_port` expose file/folder controls. `halp::folder_combobox` names a sibling folder port and optional extension filter; score populates the choices at edit/load time and refreshes them when the folder changes. Its value is the selected file name, not the folder itself. See [folder combobox](https://github.com/celtera/avendish/blob/main/include/halp/folder_combobox.hpp). |
+| GPU processing | Use [draw](https://celtera.github.io/avendish/gpu/draw.html) or [compute](https://celtera.github.io/avendish/gpu/compute.html) interfaces and their resource/layout contracts. Backend capabilities still apply; a C++ wrapper does not make every shader portable. |
+| Scene processing | The score binding recognizes a port member carrying `ossia::scene_spec scene` and transports it through geometry ports. This is currently a **score-specific extension**, not a portable upstream Avendish scene API. See [SceneConcepts.hpp](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-avnd/Crousti/SceneConcepts.hpp) for scene dirty flags and [GpuUtils.hpp](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-avnd/Crousti/GpuUtils.hpp) for transport. |
+| Custom controls layout | A nested `ui` structure arranges controls using [layout-based UIs](https://celtera.github.io/avendish/advanced/ui.layout.html). In addition to boxes, grids, groups and tabs, current score supports `section` (titled padded vertical group), `table` (rows under shared column titles), and `strip_detail` (summary cells selecting a detail page). See [layout.hpp](https://github.com/celtera/avendish/blob/main/include/halp/layout.hpp) and the [score binding](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-avnd/Crousti/Layer.hpp). |
 
-Once you have a local build up-and-running, you can configure an IDE to make the edit/compile/run loop easier.
-We will use Qt Creator.
+In score's default metadata mapping, the `temporal` tag sets `Process::ProcessFlags::SupportsTemporal`; otherwise the object gets `SupportsLasting`. A dynamic-port interface sets `DynamicPorts`. If you override `Info::flags()`, you replace that default mapping and must describe the process's capabilities yourself. Controls which change port counts are marked as changing ports by the binding. See [Metadata.hpp](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-avnd/Crousti/Metadata.hpp) before overriding these flags; they describe editor/process capabilities, not a substitute for implementing timed execution.
 
-Here is a video explanation: 
+Avendish can target other hosts, but the supported port and UI features differ between bindings. Consult the “Supported bindings” notes in the [upstream manual](https://celtera.github.io/avendish/) rather than assuming a score-specific scene or layout works everywhere.
+
+## Qt Creator workflow
+
+Open the add-on's `CMakeLists.txt` in Qt Creator, reuse the configured build directory, and set the run executable to the matching score application. Add a **CMake install step** to the deployment configuration so a build updates the package directory before launch.
 
 <video controls>
-    <source src="{{ site.img }}/development/plugins/avendish/addon-build.webm" type="video/mp4">
+    <source src="{{ site.img }}/development/plugins/avendish/addon-build.mp4" type="video/mp4">
 </video>
 
-In short: 
-
-- Open the CMakeLists.txt file of the source folder
-- Qt Creator should pick up the build folder automatically (it looks for build folders around and inside the source folder)
-- Set up the "Run" configuration in the project pane to run score automatically after each build
-- Enjoy :-)
-
-If you did not use the symlink method, you can easily configure Qt Creator to run the `install` step as deployment step in the `Run` pane, at the top: `Add the Deployment step > CMake install step`. If you followed the recommendations above, this should copy the plug-in files into the score packages folder after each build, to ensure a smooth development experience.
+For direct editing of a low-level graph node inside a document, see [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html); that process uses a different entry point from the Avendish object command above.

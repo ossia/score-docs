@@ -17,6 +17,21 @@ This protocol allows to communicate through custom serial port protocols defined
 
 Multiple examples are available in the user library.
 
+## Connection and framing
+
+In **Add device → Serial**, select the **Port**, match the hardware's **Baud rate**, and load or edit the QML definition. **Validate** checks that the QML component can be loaded; it does not confirm that the hardware understands the resulting bytes.
+
+Serial is a byte stream: a read operation is not necessarily one complete message. Use `onRead` when your script must handle raw chunks, or choose explicit framing for `onMessage` / `onBinary`. For a line-based protocol, declare both properties, for example:
+
+```qml
+property string framing: "delimiter"
+property string delimiter: "\r\n"
+```
+
+The current development build also offers **COBS** in the **OSC** device's serial transport. That is a separate configuration path: choose **OSC → Serial port → Framing → COBS** for hardware exchanging COBS-framed OSC packets. The Serial QML parser does not expose COBS merely because the shared socket layer supports it. See [OSC transports and framing]({{ site.baseurl }}/devices/osc-device.html#transports-and-framing).
+
+Only one application/device should own a serial port at a time. Check operating-system permissions and close serial monitors before connecting. Port names can change between machines; review the saved port when moving a project.
+
 ## QML API
 
 Assuming a serial device which, whenever bytes are written to it, sends back a sensor reading 
@@ -79,12 +94,13 @@ Here is the complete syntax available for reading messages: the most important t
 * `property string delimiter: "\n\n"` and  `property string framing: "<FRAMING>"` can be used 
   to configure the framing of messages. 
   
-Supported framing protocols are: 
-* "none"
-* "slip"
-* "osc-slip"
-* "size"
-* "delimiter" (the default, set as "\r\n")
+The Serial QML parser recognizes these explicit framing names:
+* `"slip"`
+* `"osc-slip"` (SLIP framing with OSC message handling)
+* `"size"`
+* `"delimiter"` (set `delimiter` explicitly)
+
+Do not use `"none"` or `"cobs"` as an assumed raw-framing mode in this parser: unrecognized names take its fallback branch. For raw byte handling, use the `onRead` callback described below.
 
 ```qml
 import Ossia 1.0 as Ossia

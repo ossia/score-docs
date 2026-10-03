@@ -2,7 +2,7 @@
 layout: default
 
 title: Shell command
-description: "Run a bash script from score"
+description: "Launch an external script with a selected interpreter"
 
 parent: Processes
 grand_parent: Reference
@@ -14,57 +14,25 @@ score: /reference/processes/shell-command.score
 
 ![Shell command]({{ site.img }}/reference/processes/shell-command.gif "Shell command")
 
-The Shell command allows you to launch and manage external system processes directly from your ossia score timeline. This powerful utility lets you integrate external scripts, commands, or applications into your interactive performances.
+Shell command launches **Script** once when its process starts executing. It can also be placed in a state to run a command as a cue. The external command is detached: ending the interval does not manage its lifetime. Use [[Process Launcher]] when process lifetime and communication need explicit control.
 
-## Overview
+## Interpreter and inputs
 
-The Shell Command starts a script when its execution start. When the process starts in the timeline, the external command is launched. 
-It is possible to use the Shell Command as part of a state to run a script as part of a cue.
-If you need precise control over the process's duration and lifetime, use a [[Process Launcher]] instead.
+**Interpreter** selects System, Bash, Zsh, Fish, Sh, Python, PowerShell, Cmd or Custom. Write Script in the language of the selected interpreter; a shell pipeline is not automatically Python code.
 
+- **System** uses the operating system's command interpreter.
+- The named interpreters invoke their corresponding executable. Python uses `python3`; PowerShell uses `powershell` on Windows and `pwsh` elsewhere.
+- **Custom command** supplies the executable and arguments for Custom. `%s` is replaced with the complete Script text. If absent, the script is appended as a final argument. Quote the custom command's arguments as required by its interpreter.
 
-Shell Command enables:
-- **External application execution** with command-line arguments
-- **System process integration** for complex workflows  
-- **Script execution** (Python, shell scripts, etc.)
-- **Process lifetime management** tied to score timeline
-- **Cross-platform compatibility** (macOS, Linux, Windows if bash is in $PATH)
+The chosen executable must be installed and discoverable on the machine running score. Selecting Cmd on a non-Windows machine does not install Windows command support. This process is not available in the WebAssembly build and has no output ports for stdout or exit status.
 
-Perfect for:
-- Integrating external tools and utilities
-- Running analysis scripts and data processing
-- Launching companion applications
-- System administration tasks
-- Custom automation workflows
-- Educational and research applications
+Only execute scripts from trusted scores: they run with your user account's filesystem and system permissions.
 
+## Related processes
 
-# Script Parameter Details
+- [[Process Launcher]]: communicate with and manage an external process.
+- [JavaScript]({{ site.baseurl }}/processes/javascript.html): script within score rather than launching an external interpreter.
 
-The command line to execute. This can be:
-- A simple command: `echo "Hello World"`
-- A script with arguments: `python3 /path/to/script.py --arg1 value1`
-- A complex shell command: `ls -la | grep .txt`
+## Existing example
 
-The command is saved as a bash script and then executed.
-
-## Inputs
-
-| Port | Type | Description |
-|------|------|-------------|
-| Script | String | Executable bash script |
-
-## Technical Implementation
-
-The Process Launcher uses Qt's QProcess internally, ensuring proper cross-platform process management. The external process is launched in a separate thread and managed through Qt's event loop system.
-
-## Related Processes
-
-- [[Process Launcher]]
-- [JavaScript]({{ site.baseurl }}/processes/javascript.html) - Scripting within score
-- [[HTTP device]] - Web service integration
-
-## Try it!
-
-Try it by downloading this [simple example]({{ site.scores }}{{ page.score }})!
-Note that the example requires gzdoom to work.
+The [Shell command example]({{ site.scores }}{{ page.score }}) launches an external application and requires gzdoom to be installed.

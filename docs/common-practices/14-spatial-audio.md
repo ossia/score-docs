@@ -396,9 +396,9 @@ The `par(i, 2, voice)` command instantiates the effect for two channels for ster
 
 ### SpatGris connection
 
-*score* can control external spatialization software via the [[SpatGris Device]]:
+*score* can control external spatialization software via the optional [[Spatialization device]]:
 
-1. **Add SpatGris device** in the [[Device explorer]]
+1. **Add Spatialization** in the [[Device explorer]] and select the **SpatGRIS** format
 2. **Configure OSC connection** to your SpatGris instance
 3. **Control spatial parameters** from *score* while using SpatGRIS algorithms
 4. **Best of both worlds**: *score*'s temporal control with SpatGRIS' spatial processing
@@ -448,4 +448,4 @@ Spatial audio in *score* is designed to grow with your artistic vision - start s
 
 ## Related processes
 
-Essential spatial audio processes: [[DBAP]], [[GBAP]], [[Matrix]], [[Path Generator]], [[Multi-Cursor]], [[Faust]], [[Audio Utilities]], [[Mapping Tool]], and [[SpatGris Device]].
+Related references: [[DBAP]], [[GBAP]], [[Matrix]], [[Path Generator]], [[Multi-Cursor]], [[Faust]], [[Audio Utilities]], [[Mapping Tool]], and [[Spatialization device]]. The last is a control device, not an audio spatialization process.

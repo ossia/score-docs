@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "sass:map";
+@use "../support/support" as *;
+
 //
 // Utility classes for margins and padding
 //
@@ -12,8 +16,8 @@
   margin-left: auto !important;
 }
 
-@for $i from 1 through length($spacers) {
-  $size: #{map-get($spacers, sp-#{$i - 1})};
+@for $i from 1 through list.length($spacers) {
+  $size: #{map.get($spacers, sp-#{$i - 1})};
   $scale: #{$i - 1};
 
   // .m-0, .m-1, .m-2...
@@ -53,10 +57,10 @@
   }
 }
 
-@each $media-query in map-keys($media-queries) {
-  @for $i from 1 through length($spacers) {
+@each $media-query in map.keys($media-queries) {
+  @for $i from 1 through list.length($spacers) {
     @include mq($media-query) {
-      $size: #{map-get($spacers, sp-#{$i - 1})};
+      $size: #{map.get($spacers, sp-#{$i - 1})};
       $scale: #{$i - 1};
 
       // .m-sm-0, .m-md-1, .m-lg-2...
@@ -96,8 +100,8 @@
 
 // Padding spacer utilities
 
-@for $i from 1 through length($spacers) {
-  $size: #{map-get($spacers, sp-#{$i - 1})};
+@for $i from 1 through list.length($spacers) {
+  $size: #{map.get($spacers, sp-#{$i - 1})};
   $scale: #{$i - 1};
 
   // .p-0, .p-1, .p-2...
@@ -128,10 +132,10 @@
   }
 }
 
-@each $media-query in map-keys($media-queries) {
+@each $media-query in map.keys($media-queries) {
   @include mq($media-query) {
-    @for $i from 1 through length($spacers) {
-      $size: #{map-get($spacers, sp-#{$i - 1})};
+    @for $i from 1 through list.length($spacers) {
+      $size: #{map.get($spacers, sp-#{$i - 1})};
       $scale: #{$i - 1};
 
       // .p-sm-0, .p-md-1, .p-lg-2...

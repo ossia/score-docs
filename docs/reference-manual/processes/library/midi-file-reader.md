@@ -11,8 +11,6 @@ permalink: /processes/midi-file-reader.html
 ---
 # MIDI File Reader
 
-![MIDI File Reader]({{ site.img }}/reference/processes/midi-file-reader.png "MIDI File Reader")
-
 Play MIDI files in perfect sync with your score's timeline. This process loads standard MIDI files and plays them back with sample-accurate timing, automatically following tempo changes and providing track selection.
 
 Perfect for incorporating existing MIDI compositions into your scores, backing tracks for live performance, or using MIDI files as control data sources for other processes.

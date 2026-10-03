@@ -17,6 +17,20 @@ This page explains how to set-up a livestream in various manners.
 * TOC
 {:toc}
 
+## Choosing the output path
+
+In current development builds, a window is only one possible destination for a texture outlet:
+
+- [Spout]({{ site.baseurl }}/devices/spout-device.html) on Windows and [Syphon]({{ site.baseurl }}/devices/syphon-device.html) on macOS share video with compatible local applications. Spout includes Direct3D/Vulkan paths; Syphon includes Metal. Their availability depends on the build and graphics backend.
+- [PipeWire video]({{ site.baseurl }}/devices/pipewire-device.html) publishes or receives Linux video nodes, with shared-memory fallback and optional DMA-BUF transport. A receiver must support and connect to that video node; this is not automatically an OBS source or a V4L2 camera.
+- [GStreamer]({{ site.baseurl }}/devices/gstreamer-device.html) runs an input/output pipeline inside score. Output pipelines use `appsrc name=video` and optionally `appsrc name=audio`.
+- [Libav]({{ site.baseurl }}/devices/libav-device.html) encodes to a file or URL using the available FFmpeg encoders and muxers.
+- [Shmdata]({{ site.baseurl }}/devices/shmdata-device.html) and [Sh4lt]({{ site.baseurl }}/devices/sh4lt-device.html) remain useful bridges to external GStreamer pipelines.
+
+Choose the output first, then assign it to the **last texture outlet** in the effect chain. Audio is a separate route: texture-sharing protocols do not automatically carry score's audio mix. For GStreamer audio outputs, the source caps use the audio engine's rate; insert `audioresample` before requesting a different rate.
+
+Check alpha, color space and full/limited range at the receiver, not only in score's preview. For HDR, match the upstream texture representation to the encoder's **Input Transfer** and the destination; see [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html). The following external-pipeline recipes require their named plug-ins and are not a guarantee for every installation.
+
 # Livestreaming with OBS Studio
 
 [OBS Studio](https://obs.studio) is a leading free software streaming solution, which is supported on Linux, Windows and macOS.
@@ -40,12 +54,10 @@ making OBS unable to record the audio output coming from *score*.
 On macOS, we recommend using Syphon (available since *score 3.0.4*) to stream a video output to
 OBS.
 
-You will need the free [Syphon Virtual Webcam](https://troikatronix.com/add-ons/syphon-virtual-webcam/) to 
-be able to see Syphon video streams in OBS.
+Use an OBS Syphon input plug-in or a compatible bridge such as [Syphon Virtual Webcam](https://troikatronix.com/add-ons/syphon-virtual-webcam/), according to the versions supported by your macOS and OBS installation. Create a Syphon output in score, route the final texture outlet to it, and select that server in the receiver. Route audio separately.
 
 ## On Linux
-We recommend using GStreamer with shmdata and V4L2 to stream a video output from *score* to OBS ; 
-this will create a virtual camera that can also be used in web browsers, etc.
+For a Linux application that accepts PipeWire video, use the native [PipeWire Video Output]({{ site.baseurl }}/devices/pipewire-device.html) and connect the nodes. For applications needing a V4L2 camera, GStreamer plus v4l2loopback remains a useful bridge. The recipe below uses shmdata as its raw-video source; the native [GStreamer device]({{ site.baseurl }}/devices/gstreamer-device.html) is another option when available.
 
 ### Streaming video outputs
 
@@ -68,7 +80,7 @@ If it fails, consider reloading the module with the additional option `max_buffe
 
 ```bash
 $ sudo gst-launch-1.0 shmdatasrc socket-path=/tmp/score_shm_video \
-    ! videoconvert \                                                       
+    ! videoconvert \
     ! video/x-raw, format=NV12 \
     ! queue \
     ! v4l2sink device=/dev/video0

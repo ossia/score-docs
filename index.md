@@ -10,8 +10,11 @@ permalink: /
 
 ![score window]({{ site.baseurl }}/assets/images/score-2.png)
 
-This is the documentation for *ossia score* {{ site.score_version }}. Browse by categories on the left, or if you are looking for a specific topic,
-check out the search bar at the top of the page.
+This is the documentation for *ossia score* 3, including features from current development builds.
+Some capabilities require a newer build or an optional add-on; check the availability notes on each page.
+Browse by categories on the left, or use the search bar at the top of the page.
+
+The [[Feature coverage 2025–2026]] guide links the updated reference areas and records the source snapshot used for their availability notes.
 
 {: .text-red-300}
 Disclaimer: the documentation is currently in-progress. If you spot a missing / incomplete / wrong information, or even just a spelling mistake, you can click the link at the bottom of the page which allows to submit a fix request to the documentation.

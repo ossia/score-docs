@@ -32,6 +32,30 @@ Presets can also be dragged to the score.
 
 The bottom part shows information on the selected process.
 
+### Categories and preset descriptions
+
+In current development builds, file-backed process entries can be grouped into nested
+categories derived from their containing folders. Expand the category tree to find
+related shaders, scripts and other supported library files; the exact entries depend
+on the installed packages and process plug-ins. Files in a process's default preset
+folder can appear directly beneath that process rather than beneath another wrapper.
+
+The preset list remains associated with the selected process. A preset may carry an
+optional `Description` in its `.scp` JSON metadata; hover over that preset to read it
+as a tooltip. A missing description does not prevent a preset from loading.
+See [Presets]({{ site.baseurl }}/presets.html) for saving and reusing presets.
+
+### Package and source updates
+
+When an installed package has an update, the Process library can display a notice
+with an **Update** link to the **Packages** settings page.
+
+This is separate from the inspector's **Update** button for a process taken from an
+external file. For process types that support source refresh, that button appears
+when the source is out of date and replaces the process with the current file version.
+It is an undoable edit, not an automatic rewrite of every existing process when a
+package changes. Review the result before continuing playback.
+
 ### Fast creation of effect chains
 
 To allow easy experimentation, double-clicking on a process or preset will 
@@ -47,13 +71,22 @@ If nothing is selected, the process will be added to the currently displayed int
 
 ## System library
 
-This pane displays content shared across all scores. By default, it will be in `<Documents>/ossia/score/packages`
+This pane displays content shared across all scores. In a normal installation its
+folder is `<Documents>/ossia/score/packages`. The **Library** settings change the root
+directory above `packages`.
 
-The location can be changed in the settings.
+On first interactive launch, score offers to download the
+[User Library](https://github.com/ossia/score-user-library), containing pre-existing
+presets and other content. It is installed in `packages/default`.
+Personal content belongs in `packages/user`.
 
-The [User Library](https://github.com/ossia/score-user-library) which contains pre-existing presets will be downloaded on first launch. Please contribute to it!
+Content installed through the [package manager]({{ site.baseurl }}/package-manager.html)
+also appears here. SDKs and native support packages are stored separately and are not
+ordinary library items.
 
-Packages installed through the package manager will also go there.
+The process-library scan is asynchronous, so large packages may take time to appear.
+Restart if manually copied content is not discovered. A library rescan does not replace
+running native libraries: restart after installing or changing native support packages.
 
 Various actions are possible:
 - Dragging and dropping one or multiple files to the score.

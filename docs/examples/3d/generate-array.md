@@ -28,6 +28,7 @@ An [[Math expressions|Arraygen]] process generates arbitrary values. The resulti
 - **Array Generator**: Computes an array of values from an ExprTK expression each frame, where `i` iterates over the array and `pos` tracks playback position.
 - **Array to Buffer**: Converts a CPU-side array into a GPU buffer suitable for rendering.
 - **Pointcloud to Mesh**: Interprets a GPU buffer as XYZ vertex coordinates and produces renderable geometry.
+- **Element layout**: Keep the array as complete XYZ triples and choose Float32 in Array to buffer for a float-coordinate consumer. See [[Geometry and buffer utilities]] for other supported layouts.
 - **Post-processing**: Bloom adds glow to bright areas, while long exposure creates persistent motion trails through a feedback buffer.
 
 ## Data flow

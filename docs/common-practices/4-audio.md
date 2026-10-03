@@ -18,7 +18,7 @@ To play a [[Soundfiles|sound file]], drag'n'drop it in the score, from the libra
 
 If you don't hear a sound, check that :
 
-* The time cursor is increasing (if not, that means that the sound card is not [properly configured]({{ site.baseurl }}/faq/doesnotwork.html)).
+* The time cursor is increasing (if not, that means that the sound card is not [properly configured]({{ site.baseurl }}/quick-start/working-with-audio.html#audio-setup)).
 * The sound file is linked to the beginning of the score via an [interval]({{ site.baseurl }}/processes/scenario.html#intervals).
 
 It should look like this:

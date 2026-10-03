@@ -1,3 +1,5 @@
+@use "./support/support" as *;
+
 //
 // The basic two column layout
 //
@@ -126,7 +128,7 @@
   }
 }
 
-@if variable-exists(logo) {
+@if $logo != null {
   .site-logo {
     width: 43px;
     height: 100%;

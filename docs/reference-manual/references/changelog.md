@@ -16,6 +16,14 @@ This page lists all releases of *ossia score* with links to detailed changelogs 
 
 For the current version, see [[What is score ?]]. To download the latest release, visit the [[Installation]] page.
 
+## Documentation maintenance
+
+These changes affect the documentation website, not a score application release:
+
+- Corrected 11 internal page links and removed 16 image references with no corresponding illustration. Existing relevant screenshots are retained.
+- Removed the duplicate local copy of the wiki-link document manager. The pinned plugin supplies that implementation; the site's title matching and link diagnostics remain in its dedicated patch.
+- Migrated the light, dark, custom and default stylesheets to Sass modules and namespaced built-ins, retaining the existing themes without suppressing compiler warnings.
+
 ---
 
 ## Version 3.x (Current)

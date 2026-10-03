@@ -26,6 +26,24 @@ Note: Should you need to change settings of your OSC device, the setup panel can
 
 We can then setup our device's OSC addresses we want to automate within *score*.
 
+## Transports and framing
+
+In the current development build, **Protocol** selects **UDP**, **TCP**, **Serial port**, **Unix Datagram**, **Unix Stream**, **Websocket Client**, **Websocket Server** or **TCP Server**. Transport availability also depends on the platform. These options carry OSC packets; they do not turn OSC into an arbitrary text or JSON protocol.
+
+For stream transports, both ends must agree on packet boundaries. **TCP**, **TCP Server**, **Serial port** and **Unix Stream** expose **Framing** choices:
+
+| Framing | Use |
+|---|---|
+| **Size prefixing** | A packet length precedes each OSC packet. |
+| **SLIP** | Packet delimiters and byte escaping separate OSC packets. |
+| **COBS** | Consistent Overhead Byte Stuffing encodes packets for delimiter-based framing. |
+
+COBS is framing around binary OSC, not an alternative OSC address syntax. UDP already preserves datagram boundaries and does not use this stream framing selector.
+
+For **Serial port**, **Host** is the operating-system serial-port path/name and **Baud rate** must match the device. Do not open the same port simultaneously with a Serial device or a serial monitor. Use the [Serial device]({{ site.baseurl }}/devices/serial-device.html) instead when the hardware speaks a custom protocol requiring a QML decoder.
+
+The **OSC Version** selector offers **1.0**, **1.1** and **Extended**; choose what the peer accepts. **Bundle** and **Rate limit** affect outgoing traffic. **Bonjour** advertises the endpoint, while a nonzero **OSCQuery** port exposes this device over OSCQuery; neither feature automatically invents the remote application's address tree.
+
 ## Setting up OSC addresses
 ### Using OSC learn
 

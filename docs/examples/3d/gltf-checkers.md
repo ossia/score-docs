@@ -26,10 +26,14 @@ The camera  is controllable through mouse and WASD, while post-processing effect
 
 ## Key concepts
 
-- **glTF loading**: The [[Object loader]] node loads a `.glb` file at runtime, supporting full PBR materials and scene hierarchies.
+- **glTF loading**: QML's `RuntimeLoader` from `QtQuick3D.AssetUtils` loads the model inside the JavaScript/QML process. This is not the native Geometry Loader (historically Object Loader).
 - **Environment mapping**: An HDR [environment map](https://polyhaven.com/a/resting_place) (`.exr`) provides realistic reflections and ambient lighting via a light probe.
 - **Post-processing effects**: Bloom, color blowout, and optical flow distortion shaders are chained as post-processing passes on the rendered scene.
 - **Audio integration**: An audio input is analyzed with a peak detector, allowing visual parameters to react to sound levels.
+
+This download uses the **Qt Quick 3D** path, including its HDR light-probe support. It is not an example of the native Asset Loader pipeline. For a new native patch, see [[Asset Loader]] and [[3D scene pipeline]]; cameras, materials and environment resources must be wired for that renderer rather than copied across as QML objects.
+
+The score references model/environment URLs. Obtain the referenced assets and update those values for your machine; the download is not a claim that external assets or network URLs are available. The asset and rendering dependencies have not been exercised as part of this documentation update.
 
 ## Try it
 

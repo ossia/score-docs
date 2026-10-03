@@ -11,8 +11,6 @@ permalink: /processes/matrix.html
 ---
 # Matrix
 
-![Matrix]({{ site.img }}/reference/processes/matrix.png "Audio Matrix Router")
-
 The Matrix process provides flexible audio routing and mixing capabilities, allowing you to route any input to any output with individual gain control. It's essential for complex spatialization setups and multi-channel audio routing.
 
 ## Overview
@@ -274,5 +272,5 @@ Flexible routing for live shows:
 
 - [GBAP]({{ site.baseurl }}/processes/gbap.html) - Grid-based panning
 - [DBAP]({{ site.baseurl }}/processes/dbap.html) - Distance-based panning
-- [Audio Mixer]({{ site.baseurl }}/processes/audio-mixer.html) - Simple mixing
+- [Stereo merger]({{ site.baseurl }}/processes/audio-utilities.html#stereo-merger) - Combine channels into a multichannel bus
 - [Mapping]({{ site.baseurl }}/processes/mapping.html) - Parameter control

@@ -9,7 +9,7 @@ parent: Reference
 permalink: /reference/protocols-and-formats.html
 ---
 
-This page lists all the systems, file formats, etc... that *score* is able to inter-operate with.
+This page summarizes the systems and file formats that *score* can interoperate with. Availability depends on the operating system, build options, installed add-ons and external runtimes. Newer features described here refer to current development builds, not necessarily the latest stable release.
 
 # Operating systems
 
@@ -34,8 +34,15 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [here]({{ site.baseurl }}/devices/coap-device.html).
 * MQTT.
   * Documented [here]({{ site.baseurl }}/devices/mqtt-device.html).
-* LSL (Lab Streaming Layer).
+* LSL (Lab Streaming Layer), through the optional LSL add-on.
   * Documented [here]({{ site.baseurl }}/devices/lsl-device.html).
+
+* [Bitfocus Companion modules]({{ site.baseurl }}/devices/companion-device.html) expose supported module controls through a device; the module's own dependencies and configuration still apply.
+* [Spatialization]({{ site.baseurl }}/devices/spatgris-device.html), provided by the SpatGRIS add-on, is a device integration for external spatial-audio software.
+
+The optional [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html) is a separate integration from the scriptable [Mapper device]({{ site.baseurl }}/devices/mapper-device.html). Its current source integration has a build-interface mismatch; do not treat it as an available working protocol in an ordinary installation.
+
+[Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) records the TUIO, PSN, RTTrP, OpenTrackIO and optional OpenXR implementations. The tracking add-on is disabled in the audited checkout, so this source inventory is **not** a list of working devices available in that build.
 
 # Lighting protocols
 
@@ -48,7 +55,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 # Hardware protocols
 
-* Serial port: *score* can read/write directly through serial ports, either directly or through Bluetooth. Support is currently based on the Qt SerialPort library but is being ported to ASIO to allow it to run in environments that cannot use Qt.
+* Serial port: *score* can read and write serial ports, including Bluetooth connections exposed by the operating system as serial ports.
   * Documented [here]({{ site.baseurl }}/devices/serial-device.html).
 * Game pads: they are supported through the [SDL2](https://libsdl.org) gamepad library. Most gamepads and joysticks should work without issue.
   * Documented [here]({{ site.baseurl }}/devices/joystick-device.html).
@@ -62,7 +69,8 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [here]({{ site.baseurl }}/devices/ble-device.html).
 * GPS: *score* can connect to a [gpsd](https://gpsd.gitlab.io/gpsd/) server and expose the GPS data.
   * Documented [here]({{ site.baseurl }}/devices/gps-device.html).
-* [Phidgets](https://www.phidgets.com): they are supported through an implementation in libossia. Note that *score* must be built from source with the Phidgets API for the Phidgets protocol to be enabled.
+* [Phidgets]({{ site.baseurl }}/devices/phidgets-device.html) has an optional Phidget22 integration in libossia. The audited wrapper contains a stale include path; establish a compatible enabled build before relying on its discovered hardware channels. See the reference for channel activation and input/output limitations.
+* [CAN / DBC]({{ site.baseurl }}/devices/can-device.html) receives and decodes CAN signals through Linux SocketCAN. It is receive-only and requires a DBC database; it does not provide CAN transmission or CANopen control services.
 
 # Audio systems
 
@@ -83,13 +91,21 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
   * Documented [[Syphon|here]].
 * [Shmdata](https://gitlab.com/sat-metalab/shmdata/) is supported on Linux and macOS.
   * Documented [[Shmdata|here]].
-* [Sh4lt](https://gitlab.com/sh4lt/sh4lt): Advanced shared memory video/audio streaming protocol supporting any data type (multichannel audio, video frames, 3D models, messages). Provides zero-copy, server-less communication between applications with dynamic buffer resizing and hot connection/disconnection. Available for input and output.
-* [NDI](https://www.newtek.com/ndi/) is supported on Windows, Linux and macOS.
-* NDI PTZ is supported for controlling cameras with PTZ feature.
+* [Sh4lt](https://gitlab.com/sh4lt/sh4lt) provides shared-memory video input and output when built with the Sh4lt backend. See the [Sh4lt device]({{ site.baseurl }}/devices/sh4lt-device.html); the wider Sh4lt library's data types are not a promise that every type is exposed by this device.
+* [NDI](https://ndi.video/) video input and output require the NDI add-on and a loadable NDI runtime. Platform and format support depend on that runtime and build.
+  * See the [NDI device]({{ site.baseurl }}/devices/ndi-device.html), including PTZ controls for compatible cameras.
+
+* [PipeWire video]({{ site.baseurl }}/devices/pipewire-device.html) provides input and output on Linux builds with that backend. It is distinct from the PipeWire audio and MIDI backends.
+* [GStreamer]({{ site.baseurl }}/devices/gstreamer-device.html) bridges user-defined media pipelines; capabilities depend on the GStreamer runtime and installed elements.
+* [FFmpeg / libav]({{ site.baseurl }}/devices/libav-device.html) provides media-device input and output for supported files and streams. Available codecs, muxers and network protocols depend on the FFmpeg build.
+* [Camera and screen capture]({{ site.baseurl }}/devices/camera-device.html) use platform-specific capture backends.
+* [GPhoto2 DSLR]({{ site.baseurl }}/devices/gphoto-device.html) provides camera live-view preview and device-reported configuration when libgphoto2, its camera driver and suitable hardware are available.
 
 # Transport synchronisation
 
 * [JACK](https://jackaudio.org) transport: *score* can act as a master or a slave.
+* [Timecode Synchronizer]({{ site.baseurl }}/processes/timecode-synchronizer.html) follows an incoming time position. Musical pulse generation and timestamp synchronization are different operations; choose the process appropriate to the source.
+* [MIDI Sync Out]({{ site.baseurl }}/processes/midi-sync.html) sends MIDI clock, transport messages and timecode. [MIDI Sync In]({{ site.baseurl }}/processes/midi-timecode-input.html) decodes incoming synchronization into control values; it does not automatically make the whole score follow an external transport.
 
 # MIDI
 
@@ -104,7 +120,7 @@ For real-time communication, the following implementations are provided:
 
 In addition, *score* is able to load Standard MIDI files (SMF).
 
-See the [[MIDI|MIDI documentation]] for more information.
+Use [MIDI input]({{ site.baseurl }}/devices/midiin-device.html) and [MIDI output]({{ site.baseurl }}/devices/midiout-device.html) for MIDI streams. [MIDI Controller]({{ site.baseurl }}/devices/midi-controller-device.html) additionally provides named device-map controls and a Mackie Control surface mode; these are two modes of one protocol, not separate processes.
 
 # Audio file formats
 
@@ -121,72 +137,68 @@ See the [sound file process documentation]({{ site.baseurl }}/processes/soundfil
 
 # Video file formats
 
-*score* uses [FFMPEG](https://ffmpeg.org/) for its video needs.
+*score* uses [FFmpeg](https://ffmpeg.org/) to read video files. Available demuxers and codecs depend on the FFmpeg build; common choices include H.264, H.265, ProRes and transport streams (`.ts`).
 
-It should support most codecs and formats listed [at this page](https://ffmpeg.org/general.html#Video-Codecs).
-In particular, H.264, H.265, Apple ProRes, AVCHD, etc. should be supported.
+[HAP](https://hap.video) and supported DXV variants have specialized GPU texture-decoding paths. This differs from hardware video decoding: compressed texture blocks can be sampled on the GPU, while the file still needs to be read and unpacked.
 
-[HAP codecs](https://hap.video) are handled in a different way: for maximum performance, decoding is done by *score* (which allows doing it on the graphics card, while FFMPEG's HAP decoding happens on the CPU which defeats the point of the codec).
-
-See the [video process documentation]({{ site.baseurl }}/processes/video.html) for more information.
+The [Video process]({{ site.baseurl }}/processes/video.html) provides **Auto**, **Direct (seek)** and **Frame queue** playback modes. Auto selects the playback path using the stream's keyframe layout. Direct playback is useful for independently decodable frames; inter-frame codecs generally need the frame queue.
 
 ## Hardware decoding
-*score* can use OS video decoding APIs through FFMPEG. This allows for instance to decode H264 video on a Raspberry Pi 4 and apply live effects on it with only 15% CPU usage.
 
-Supported APIs are:
+The video decoder can use FFmpeg hardware-acceleration backends, including Direct3D / DXVA on Windows, VideoToolbox on macOS, and Linux options such as VAAPI, V4L2-M2M, CUDA or QuickSync where available. Vulkan decoding is also build- and driver-dependent. Selecting a graphics renderer does not by itself guarantee hardware video decoding.
 
-* DXVA2 / D3D11 on Window.
-* VideoToolbox on macOS.
-* V4L2-M2M on Raspberry Pi and embedded.
-
-If one builds *score* from source with a custom FFMPEG version, or through a Linux distribution, it is also possible to have CUDA and QuickSync support.
+Support depends on the codec, pixel format, FFmpeg version, driver and GPU. Use the video decoding preference to select a backend; unsupported streams may still need software decoding.
 
 ## Hardware rendering
-*score* will try to render some common video texture formats on the GPU with shaders instead of converting them to RGB on the CPU, for maximum performance.
-Make sure that your video frames are in one of these pixel formats: if so, decoding won't take CPU time.
+*score* can convert many decoded pixel formats with GPU shaders rather than converting every frame to RGB on the CPU. This reduces conversion work; it does **not** make file decoding or transfer free.
 
-- RGB, RGBA, ARGB, ABGR and any variation thereof, planar or packed, 8 bits (int) or 32 bits (float)
-- YUV420P
-- YUV420P10
-- YUV420P12
-- YUV422P
-- YUV422P10
-- YUV422P12
-- NV12
-- YUYV422, UYVY422
-- HAP, HAP-Q, HAP-M
+Supported paths cover packed and planar RGB / RGBA, grayscale, YUV and YUVA; common examples include NV12, P010 / P016, planar 4:2:0 / 4:2:2 / 4:4:4, YUYV / UYVY, high-bit-depth and floating-point images, and DCI XYZ12. The precise path depends on the source format and graphics backend; other formats can require a software conversion.
 
-Supported color spaces for source videos are BT.601, BT.709 and BT.2020.
+## Color and HDR
+
+The video pipeline interprets source color metadata, including BT.601, BT.709, BT.2020, P3, PQ and HLG. The Video inspector's **Format** and **Tonemap (HDR)** controls choose conversion to SDR, HDR passthrough or linear output, and the tone-mapping operator.
+
+Decoding an HDR file is not the same as displaying HDR. The output window format, graphics backend, operating system and display must also support the requested output. For SDR displays, use tone mapping rather than assuming passthrough will produce the intended image.
+
+See [Video]({{ site.baseurl }}/processes/video.html), [Window]({{ site.baseurl }}/devices/window-device.html) and the [graphics pipeline]({{ site.baseurl }}/in-depth/video.html) for the processing and output controls.
+
+For detailed choices and limitations, see [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).
 
 # Image file formats
 
-*score* uses Qt's [QImage](https://doc.qt.io/qt-6/qimage.html) for decoding images. The supported formats are PNG, GIF, JPEG.
-
-See the [image process documentation]({{ site.baseurl }}/processes/image.html) for more information.
+The [Image process]({{ site.baseurl }}/processes/image.html) reads raster images through Qt's image readers and handles SVG through a scalable SVG renderer. Common formats include PNG, JPEG and GIF; additional formats depend on installed Qt image-format support.
 
 # 3D file formats
 
-*score* can load `.obj` and `.ply` files through the [[Object Loader]] process.
-In addition, the JS object allows to leverage Qt3D and QtQuick3D which both support loading many more formats (most importantly glTF / GLB).
+Native 3D processes are separate from QtQuick3D content embedded in a JavaScript / QML process:
+
+* [Geometry Loader (Object Loader reference)]({{ site.baseurl }}/processes/object-loader.html) imports geometry for mesh-oriented processing.
+* [Asset Loader]({{ site.baseurl }}/processes/asset-loader.html) imports scenes from glTF / GLB and FBX, as well as OBJ, PLY, STL, OFF, SPLAT and SPZ assets. It preserves scene data where the format and importer support it; USD-family files require the optional parser add-on.
+* Scene data can be processed and rendered through the native [Render Pipeline]({{ site.baseurl }}/processes/render-pipeline.html). A simple geometry path can use [Model Display]({{ site.baseurl }}/processes/model-display.html).
+* [JavaScript / QML]({{ site.baseurl }}/processes/javascript.html) can host QtQuick3D scenes when the required Qt modules are installed. This is a separate rendering path, not a requirement for native glTF / FBX import.
 
 # Graphics APIs
 
-*score* uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d) as graphics abstraction for the video pipeline. It is able to use OpenGL ES 2.0, Vulkan, Metal, Direct3D 11 and Direct3D 12 in a very efficient way.
+*score* uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d) to target OpenGL, Vulkan, Metal, Direct3D 11 and Direct3D 12. Available backends depend on the platform and build. Advanced features such as compute shaders, storage buffers and particular texture formats additionally depend on GPU and driver support.
 
-*score* shaders are written with the [Interactive Shader Format](https://isf.video) specification.
+The shader processes cover several jobs:
 
-See the [[shader|shader process documentation]] for more information on how to write *score* shaders.
-See the [[graphics pipeline|general video documentation]] for general information on the *score* graphics rendering pipeline.
+- [ISF shaders]({{ site.baseurl }}/processes/shaders.html) generate and filter images.
+- [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html) work with GPU data, textures and geometry.
+- [Render Pipeline]({{ site.baseurl }}/processes/render-pipeline.html) provides custom raster rendering for geometry and scenes.
+- [Vertex Shader Art]({{ site.baseurl }}/processes/vertex-shader-art.html) generates visuals from a vertex shader.
+
+See the [graphics pipeline]({{ site.baseurl }}/in-depth/video.html) for how these processes connect.
 
 # Audio plug-ins
 
-*score* supports the following audio plug-in systems:
+Desktop builds support the following audio plug-in and embedded-language systems when the corresponding backend is included. A plug-in binary must match the operating system and architecture; desktop plug-in support does not imply availability in the browser build.
 
-* [AirWindows](https://www.airwindows.com/) on all platforms.
+* [AirWindows](https://www.airwindows.com/).
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
-* [CLAP](https://github.com/free-audio/clap) on all platforms.
+* [CLAP](https://github.com/free-audio/clap).
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
-* [Steinberg VST3](https://www.steinberg.net/en/company/technologies/vst3.html) on all platforms.
+* [Steinberg VST3](https://www.steinberg.net/en/company/technologies/vst3.html).
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).
 * [LV2](https://lv2plug.in) on Linux. Note that currently this requires building *score* on your own computer or use a Linux distro package.
   * Documented [here]({{ site.baseurl }}/processes/audio-plugins.html).

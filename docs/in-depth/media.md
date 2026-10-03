@@ -13,15 +13,22 @@ permalink: /in-depth/media.html
 
 ## Paths to media
 
-If the path to a media is relative, it will looked for in the project folder first.
-The project folder is the folder which contains the saved `.score` file.
+The project folder is the folder containing the saved score document. A plain relative path is resolved against that folder; it is not a recursive search for a matching filename. An unsaved document has no project folder, so save before relying on portable relative paths.
 
-Special information in paths can also influence where the file is searched:
+Stored paths can explicitly name one of two roots:
 
-    <PROJECT>:/foo/bar
+| Path | Root |
+|---|---|
+| `<PROJECT>:Audio/kick.wav` | The saved document's folder |
+| `<LIBRARY>:...` | The configured user library root |
+| An absolute path | That location on the local filesystem |
 
-will look in the project directory.
+The library root comes from score's library settings, not necessarily the same location on another machine. A remote stream URL is not a local file to collect or relink. Qt resource URLs used by custom application code are also distinct from these project and library path tokens.
 
-    <LIBRARY>:/foo/bar
+## Collecting and repairing media
 
-will look in the user library.
+The current development build groups media operations under **File → Project files**. Use **Consolidate project...** to copy known dependencies into the project and rewrite their references, or **Locate missing files...** to repair broken references. **Archive project...** produces a ZIP of the document and known referenced project media rather than every file beside it.
+
+When **Save As** moves a document to a different folder, score asks whether to copy project-relative media. Declining keeps media at its original location through absolute references: it does not make a portable copy.
+
+See [Project files]({{ site.baseurl }}/reference/project-files.html) for library and kit/sample dependencies, reports, archiving, audio trimming and the safeguards and limitations of unused-file cleanup.

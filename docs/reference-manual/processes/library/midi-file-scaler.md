@@ -11,8 +11,6 @@ permalink: /processes/midi-file-scaler.html
 ---
 # MIDI File Scaler
 
-![MIDI File Scaler]({{ site.img }}/reference/processes/midi-file-scaler.png "MIDI File Scaler")
-
 Transform MIDI notes into microtonal frequencies using Scala tuning files. This process converts standard MIDI note numbers into precise frequency values based on custom scales and keyboard mappings.
 
 Essential for microtonal music, historical temperaments, just intonation, or any musical system that goes beyond 12-tone equal temperament.

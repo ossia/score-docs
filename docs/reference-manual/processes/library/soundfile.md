@@ -36,13 +36,34 @@ will be used to timestretch / repitch accordingly.
 
 ## RAM / disk playback
 
-score will stream .wav / .aiff files at the same samplerate than the project from disk directly.
-All the other files will be decoded first and read from RAM.
+The current development build chooses a decoder automatically:
 
- - Until a choice is implemented, we recommend users who have large .wav files and slow hard drives 
-   to set-up a RAMDisk manually.
+| Source | Usual playback path |
+| --- | --- |
+| WAV / W64 supported by the WAV decoder | Memory-mapped disk access, without decoding the whole file into RAM |
+| AIFF / AIF / AIFC / CAF up to 4 GiB, supported by libsndfile | Decoded into RAM |
+| Other audio up to 4 GiB | Decoded into RAM through FFmpeg |
+| Files above 4 GiB that cannot use the memory-mapped path | Streaming through FFmpeg |
+| Audio taken from a supported video container | Streaming through FFmpeg |
 
-## Supported formats
+The size threshold concerns the source file, not the size of decoded samples.
+Disk speed and decoder cost still matter for streaming, especially with seeking.
+The browser build uses a different policy: video and files above 48 MiB use
+streaming decode, while smaller audio files are decoded into RAM.
 
-score should be able to read any file supported by FFMPEG. Current releases are built with FFMPEG 4.4.
-The list of supported audio format is available [here](https://www.ffmpeg.org/general.html#Audio-Codecs).
+Sample-rate mismatches are normally converted in the audio graph rather than by
+resampling the entire file on import. Builds without graph resampling fall back
+to a suitable decoding path. This conversion is distinct from the musical
+time-stretch mode above.
+
+## Supported formats and video soundtracks
+
+The audio file drop handler recognizes WAV, W64, MP3, M4A, OGG, FLAC, AIF, AIFF,
+AIFC, CAF, APE, WV, WMA, AAC, OPUS, AC3, DTS and DTSHD extensions. Actual decoding
+depends on the codec and the libraries included in the build; an extension alone
+does not guarantee that a particular file is readable.
+
+The sound-file loader also accepts audio from supported video containers. Select
+the video file as the sound process's source when only its soundtrack is needed;
+this does not create a video output. Route the process's audio outlet to an effect
+or an [Audio device]({{ site.baseurl }}/devices/audio-device.html) bus as usual.

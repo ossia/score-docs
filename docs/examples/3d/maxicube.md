@@ -23,12 +23,13 @@ This example demonstrates generating and rendering millions of particles entirel
 
 A compute shader generates a noise buffer of up to ~179 million points directly in GPU memory. The buffer is converted to a point cloud mesh and rendered in Points mode with a corner-color gradient texture. 
 
-> **Note**: This example requires approximately 2 GB of available VRAM. Reduce the noise buffer size for lower-spec hardware.
+> **Memory warning:** The configured point count can require roughly 2 GB for position data alone, before render targets and other buffers. Reduce the count before running on a smaller GPU; this is not a verified minimum-VRAM guarantee.
 
 ## Key concepts
 
 - **[[Compute Shaders]]**: Generate massive amounts of data directly on the GPU without CPU involvement. Here, a noise buffer fills GPU memory with random particle positions each frame.
 - **Pointcloud to Mesh**: Interprets the GPU buffer as XYZ coordinates and produces renderable geometry.
+- **Buffer layout**: The Pointcloud to mesh Buffer type must match the generated coordinates and their stride. See [[Geometry and buffer utilities]] before changing the compute output format.
 - **Post-processing**: Edge blur applies a multi-pass Gaussian blur with Sobel edge detection. Motion blur uses a persistent feedback buffer for temporal smearing.
 
 ## Data flow

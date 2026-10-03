@@ -26,5 +26,5 @@ Open this example to see smoothing in action!
 ## Learn more
 
 - [[Smooth]] - Smooth process
-- [[Exp Smoothing]] - Simple exponential average
+- [[Smooth|Exp Smoothing]] - Simple exponential average
 - [[Calibrator]] - Adapt to live input with unknown or variable range over a time span

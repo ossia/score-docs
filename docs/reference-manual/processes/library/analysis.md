@@ -54,3 +54,15 @@ These processes allow to extract parameters related to the spectrum and the timb
 
 These processes convert the input audio signal in an "audio" signal containing the spectra, and are mainly useful for further processing
 in custom processes.
+
+## Beat and tempo following
+
+[Beat Tracker]({{ site.baseurl }}/processes/beat-tracker.html) combines onset analysis with a tempo estimate and a beat clock. It also accepts external beat events. Tempo, Speed, beat/bar phase, timing pulses and confidence outputs support live following; monitor confidence rather than treating every audio onset as a reliable beat.
+
+## Point tracking
+
+[Point Tracker]({{ site.baseurl }}/processes/point-tracker.html) associates incoming 2D or 3D detections with stable identities, smooths their motion and reports entry, confirmation, disappearance and revival. It consumes detections rather than detecting objects itself. Its records can directly drive [Entity To MIDI]({{ site.baseurl }}/processes/entity-to-midi.html).
+
+## Pixel analysis and result selection
+
+[Pixel Utilities]({{ site.baseurl }}/processes/pixel-utilities.html) extract image lightness or color components as arrays. For a list of scores or distances, [Array Best Match]({{ site.baseurl }}/processes/array-utilities.html#best-match) selects an extremum and produces probabilities. [Multi-choice]({{ site.baseurl }}/processes/multi-choice.html) instead smooths several inputs and requires a winner to exceed both a threshold and a margin.

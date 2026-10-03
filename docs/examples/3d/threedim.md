@@ -32,8 +32,9 @@ Open this example to see a basic animated 3D geometry.
 
 ## Learn more
 
-- [[3D primitive]] - Built-in procedural mesh generators
+- [[Mesh generators and splats]] - Built-in primitives and geometry sources
 - [[Object loader]] - Loading 3D models and supported formats
 - [[Model display]] - 3D mesh rendering process
 - [[Graphics pipeline]] - How rendering works in ossia score
 - [[Supported protocols and formats]] - Complete list of supported 3D formats
+- [[3D scene pipeline]] - Why direct mesh rendering differs from native scene rendering

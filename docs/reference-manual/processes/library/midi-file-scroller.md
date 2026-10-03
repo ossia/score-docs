@@ -11,8 +11,6 @@ permalink: /processes/midi-file-scroller.html
 ---
 # MIDI File Scroller
 
-![MIDI File Scroller]({{ site.img }}/reference/processes/midi-file-scroller.png "MIDI File Scroller")
-
 Scrub through MIDI files manually with position control. Instead of playing back MIDI files in real-time, MIDI File Scroller lets you "seek" to any position and hear exactly what notes would be playing at that moment.
 
 Perfect for exploring MIDI file content, creating position-based interactions, or building systems where MIDI playback is controlled by sensors, gestures, or other continuous input.

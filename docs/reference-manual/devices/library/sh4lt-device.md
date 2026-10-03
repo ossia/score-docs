@@ -15,19 +15,21 @@ permalink: /devices/sh4lt-device.html
 [Sh4lt](https://gitlab.com/sh4lt/sh4lt/) , is a Unix-oriented protocol for sharing data frames between applications easily. It is developped by the [Lab148 coop](https://lab148.ca), and is the successor of the [[Shmdata]] protocol originally developed at the [SAT Metalab](https://sat.qc.ca/fr/recherche/metalab).
 Its integration in Ossia supports video frames sharing.
 
-Thanks to it, score can easily send and receive video data from and to GStreamer, as well as other Sh4lt enabled software, such as the [](). Some other software integration are available [here](https://gitlab.com/sh4lt/).
+It can exchange video with GStreamer and other Sh4lt-enabled software. See the [Sh4lt projects](https://gitlab.com/sh4lt/) for available integrations.
 
 ## Compiling and installing Sh4lt
 
-Sh4lts is already integrated in Ossia without extra installation. However, testing with GStreamer require to install the GStreamer Sh4lt element. It is available [here](https://gitlab.com/sh4lt/gst-sh4lt).
-Score comes built-in with Sh4lt support only on Linux (Windows does not support the necessary Unix primitives).
+Sh4lt support depends on the score build and is intended for Unix systems, notably Linux. Check that **Sh4lt Input** / **Sh4lt Output** appear in the device chooser. External GStreamer examples also require the [Sh4lt GStreamer elements](https://gitlab.com/sh4lt/gst-sh4lt); support in score does not install those elements for other applications.
 
 Test that it works correctly with the `gst-launch` commands given in that Readme.
 
 ## Using Sh4lt in score
 
-Sh4lt can currently be used as a video input and output device.
-Simply create the devices you need, and set your video input / output to the Sh4lt device's name.
+Create a **Sh4lt Input**, select the producer, and assign it to a texture inlet. For **Sh4lt Output**, set **Sh4lt label**, **Width**, **Height** and **Rate**, then assign it as the destination of the final texture outlet. The producer/consumer labels must agree.
+
+The output publishes raw RGBA frames via shared memory after GPU readback. This is not a compressed stream or a zero-copy GPU transport. Input caps can describe different supported pixel formats; do not infer output format support from the input converter.
+
+See [GStreamer]({{ site.baseurl }}/devices/gstreamer-device.html), [PipeWire video]({{ site.baseurl }}/devices/pipewire-device.html) and [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html) for other routes and their limitations.
 
 These examples assume that the Sh4lt GStreamer plug-in is installed in `/opt/sh4lt`:
 

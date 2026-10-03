@@ -24,6 +24,10 @@ permalink: /quick-start/installation.html
 
 For video processing and complex scenarios, a more powerful system is recommended.
 
+Official x86_64 Windows and Linux downloads require an AVX2-capable CPU. For older CPUs, use a suitable distribution build rather than assuming the official binary will run.
+
+Choose between the [stable downloads](https://ossia.io/score/download.html) and [Continuous development builds](https://github.com/ossia/score/releases/tag/continuous). Features described for the current development version may not be present in a stable release or distribution package. Check the requirements of the particular asset you download.
+
 ---
 
 ## Windows
@@ -37,6 +41,8 @@ Download the installer directly:
 **Requirements:**
 - Windows 10 or Windows 11
 - For the OSCQuery feature, install [Bonjour Print Services](https://support.apple.com/kb/DL999){:target="_blank"}
+
+Native **Windows ARM64** installers are available among the Continuous development assets (`aarch64.exe`); this is distinct from the stable x86_64 installer. Use architecture-compatible add-ons and external plug-ins. The ARM64 build is not merely a source-only target, but availability in Continuous does not imply that every stable release includes it.
 
 ### Alternative Installation Methods
 
@@ -60,8 +66,10 @@ pacman -S mingw-w64-x86_64-ossia-score
 
 Choose the appropriate version for your Mac:
 
-- **Apple Silicon (M1/M2/M3):** works on any M1 or more recent Mac.
-- **Intel:** Download `ossia.score-X.X.X-macOS-Intel.dmg`: Requires macOS 10.15 (Catalina) or later
+- **Apple Silicon (M1 and later):** choose the AppleSilicon disk image.
+- **Intel:** choose the Intel disk image.
+
+Use **macOS Ventura 13 or later** for current downloads, following the [download page's system requirements](https://ossia.io/score/download.html). Do not assume an older “10.15” label on an Intel download guarantees compatibility with all bundled libraries. Older score releases have different requirements. The current source packaging recipe's macOS deployment target is also not a substitute for the downloaded application's requirements.
 
 ### Installation Steps
 
@@ -150,13 +158,17 @@ Available through the ports system.
 
 For headless or embedded deployments, see the [[Embedded]] documentation.
 
+## In a web browser
+
+The [browser edition](https://ossia.io/score-web/) runs without installing a desktop application. It has different browser, persistence, networking and hardware-access constraints; read [Using score in the browser]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html) before choosing it for a project.
+
 ---
 
 ## Building from Source
 
 For developers who want to build *score* from source:
 
-- Source archives (`.tar.xz`) are available on the [releases page](https://github.com/ossia/score/releases){:target="_blank"}
+- The separately uploaded `ossia.score-…-src.tar.xz` assets on the [releases page](https://github.com/ossia/score/releases){:target="_blank"} include the source distribution. GitHub's automatic “Source code” archives do not include submodules; use the uploaded asset or a recursive Git clone.
 - See the [[Building from source]] documentation for detailed instructions
 
 ---

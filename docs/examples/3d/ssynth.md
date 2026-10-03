@@ -22,7 +22,7 @@ This example demonstrates using Structure Synth for procedural 3D geometry gener
 ## Overview
 
 [[Structure Synth]] is a tool for creating complex 3D structures using a simple rule-based grammar. 
-*score* integrates Structure Synth, allowing real-time generative geometry.
+*score* integrates Structure Synth as a geometry producer. Editing the program or requesting Regenerate builds a new mesh; this is not a per-frame GPU grammar evaluation. Keep recursion bounded when changing the program during playback.
 
 ## What is Structure Synth?
 
@@ -43,7 +43,7 @@ rule R1 {
 }
 ```
 
-This creates a spiral of boxes.
+The rule describes a spiral of boxes when invoked. A runnable program also needs a bounded recursion setting and a call to `R1`; see the complete program in [[Structure Synth]].
 
 ## Try it
 

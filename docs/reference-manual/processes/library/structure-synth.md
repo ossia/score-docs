@@ -26,6 +26,14 @@ Structure Synth interprets EisenScript programs that define recursive rules for 
 
 Be careful about having too much recursion: this will cause the mesh generation to take sometimes multiple seconds.
 
+## Ports and controls
+
+**Program** contains the EisenScript source. **Regenerate** requests a new build, including a new realization of randomized rules. **Position**, **Rotation** and **Scale** place the generated mesh. The **Geometry** outlet can feed [[Model display]], [[Render Pipeline]] or geometry filters.
+
+Dropping an `.es` file creates a Structure Synth process with that program. Generation is an asynchronous mesh build, not per-frame shader evaluation: keep recursive rules bounded when automating program changes.
+
+To add scene materials, connect Geometry to **PBR Mesh**, then [[Scene Preprocessor]] and a scene-aware renderer. See [[Instancing and materials]] and [[3D scene pipeline]].
+
 ## EisenScript basics
 
 EisenScript is a straightforward language focused on geometric transformations and rule-based generation:

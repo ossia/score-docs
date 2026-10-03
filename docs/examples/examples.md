@@ -18,11 +18,15 @@ The following pages provide practical examples of ossia score features and workf
 
 ## Categories
 
-- **[[Basics]]** - Fundamental concepts: timeline, patching, media integration
-- **[[Device Examples]]** - Device protocols: OSC, MIDI, Gamepad, ArtNet
-- **[[Audio]]** - Audio playback, effects, and synthesis
-- **[[Video Examples]]** - Video manipulation and audio-reactive visuals
-- **[[3D Graphics]]** - 3D meshes, procedural geometry
-- **[[Automation]]** - Parameter control and device automation
-- **[[Tempo Examples]]** - Musical timing and tempo control
-- **[[Advanced]]** - Machine learning, scripting, and more
+- **[Basics]({{ site.baseurl }}/examples/basics)** — Timeline, patching and media integration.
+- **[Device Examples]({{ site.baseurl }}/examples/devices)** — Connecting physical controllers and external applications.
+- **[Audio]({{ site.baseurl }}/examples/audio)** — Playback, effects and synthesis.
+- **[Video Examples]({{ site.baseurl }}/examples/video)** — Video manipulation, camera input and audio-reactive visuals.
+- **[3D Graphics]({{ site.baseurl }}/examples/3d)** — Meshes, procedural geometry, native scene processing and QtQuick3D examples.
+- **[Automation]({{ site.baseurl }}/examples/automation)** — Parameter control and device automation.
+- **[Tempo Examples]({{ site.baseurl }}/examples/tempo)** — Musical timing and tempo control.
+- **[Advanced]({{ site.baseurl }}/examples/advanced)** — Routes into scripting and specialized processing references.
+
+## Find the current reference
+
+Example projects illustrate particular workflows; they are not an exhaustive list of currently available features. For newer processes and device backends, browse [Processes]({{ site.baseurl }}/processes.html), [Devices]({{ site.baseurl }}/devices.html), and [Supported protocols and formats]({{ site.baseurl }}/reference/protocols-and-formats.html). Check each page's build, platform and add-on requirements before using an example on another system.

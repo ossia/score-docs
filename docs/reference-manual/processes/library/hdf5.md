@@ -11,8 +11,6 @@ permalink: /processes/hdf5.html
 ---
 # HDF5 Data Processing
 
-![HDF5 Support]({{ site.img }}/reference/processes/hdf5.png "HDF5 Support") 
-
 HDF5 (Hierarchical Data Format version 5) is a powerful file format designed for storing and managing large datasets. Ossia score provides comprehensive HDF5 support through specialized processes that can read time series data, textures, and complex multi-dimensional datasets.
 
 ## Overview

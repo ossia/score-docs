@@ -18,6 +18,8 @@ This is the *ossia score* quick start manual. The following pages will guide you
 
 These will get you started with the various ways *score* can be used to author flexible and structured scenarios for live performances, art installations or other media-based works.
 
+To try score without installing the desktop application, see [[Using score in the browser]]. That guide explains browser requirements, permissions, project archives and desktop-only limitations.
+
 ![*score* scenario]({{ site.img }}/quick-start/what-is-score/score-main.png "*score* scenario")
 
 Enjoy advanced scenario authoring for your intermedia creation !

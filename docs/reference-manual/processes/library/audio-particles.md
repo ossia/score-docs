@@ -13,40 +13,35 @@ permalink: /processes/audio-particles.html
 
 ![Audio Particles]({{ site.img }}/reference/processes/audio-particles.png "Audio Particles")
 
-A granular synthesizer that creates swarms of audio particles by randomly triggering samples from a folder. Think of it as controlled chaos: you set the rules, and Audio Particles creates organic, ever-changing textures.
+**Audio particles** randomly selects samples from a folder and scatters their playback across a multichannel **Output** audio port. It can build overlapping textures from percussion hits, field recordings or other short sounds. It plays samples rather than exposing a grain-size or sample-fragment editor.
 
-Perfect for ambient soundscapes, percussive textures, or any time you want to transform a collection of samples into something completely new and alive.
+## Setup and controls
 
-## How it works
+1. Set **Folder** to a directory containing `.wav` files before starting playback.
+2. Set **Channels** to the output channel count you need, using at least one channel.
+3. Route **Output** to your audio destinations, optionally through [[Matrix]] or [[Audio Effects]].
+4. Adjust **Frequency** and **Density** to set the timing and sparsity.
 
-Audio Particles scans a folder for `.wav` files and randomly triggers them across multiple output channels. Each "particle" is a brief playback of one of your samples, scattered across time and space according to your settings.
+| Control | Range; default | Behavior |
+|---|---|---|
+| **Folder** | Directory path | Files ending in lowercase `.wav` are decoded when the process is prepared. |
+| **Channels** | Control range 0–128; **16** | Number of output channels. Use 1–128 for playback; 0 is not a useful silent mode. |
+| **Frequency** | Free numeric range 0.00001–30; **0.2** | Free-mode rate, or a synchronized note interval; see the unit caveat below. |
+| **Density** | 0.001–1; **0.7** | Higher values make a scheduled opportunity more likely to start a sound. |
 
-**Folder** - Point this to any folder containing `.wav` files  
-Your samples become the raw material for particle generation. Mix and match different types of sounds - percussion hits, field recordings, vocal fragments, synth stabs.
+## Synchronized timing
 
-**Channels** (0-128, default 16)  
-How many output channels to scatter particles across. More channels = wider spatial distribution. Perfect for surround sound or feeding into [[DBAP]] spatialization.
+In current development builds, Frequency has the [time chooser]({{ site.baseurl }}/reference/time-chooser.html) interface. Select a straight, dotted or triplet note value to schedule particle opportunities on the musical grid. Density can skip an opportunity, so synchronization does not mean every grid point produces a sound.
 
-**Frequency** (0.001-30 Hz, default 0.2)  
-Rate of particle generation. Low values create sparse, meditative textures. High values build dense clouds of sound.
+**Free-mode unit caveat:** this process still interprets Frequency's free numeric value as **hertz**, although the shared chooser displays time units and its numeric editor is time-oriented. A free value of `0.2` means approximately one opportunity every five seconds, not a 0.2-second period. In synchronized mode the note value correctly represents the interval between opportunities. Do not apply the free-duration interpretation of other time-chooser processes to this control.
 
-**Density** (0.001-1.0, default 0.7)  
-Probability that a particle actually triggers when scheduled. Lower density creates more irregular, organic timing patterns.
+Density is compared with an exponentially distributed random draw. It is not a direct percentage probability, and a low setting does not imply near-silence. Opportunities are periodically scheduled; the exponential randomness affects whether a sound is started, not the spacing of the grid itself.
 
-## Creative applications
+## Playback limits
 
-**Ambient textures**: Load a folder of field recordings, set Frequency to 0.1Hz, Density to 0.3, and let it create sparse, atmospheric soundscapes.
+- Each selected file plays from its start to its end. Only its first audio channel is used, routed to one randomly selected output channel.
+- Sounds may overlap, up to **1024 active playheads**. Further opportunities are ignored at that limit.
+- At most one new sound starts per processing buffer. Very dense grids can therefore skip opportunities, and this is not a sample-accurate drum sequencer.
+- Files are loaded during preparation. There is no live folder watcher in the current implementation; do not expect added files to become immediately available during playback.
 
-**Rhythmic elements**: Use short percussion samples with higher Frequency (2-5Hz) and high Density (0.9) for polyrhythmic patterns.
-
-**Vocal clouds**: Process speech recordings into ethereal, whispered textures by fragmenting words into particles.
-
-**Orchestral dispersion**: Take orchestral samples and scatter them across many channels for impossible ensemble effects.
-
-## Technical details
-
-Audio Particles uses exponential distribution for organic timing - particles don't arrive on a rigid grid but with natural, breathing rhythms. Each sample gets randomly assigned to output channels, and multiple samples can play simultaneously for rich polyphonic textures.
-
-The process automatically monitors your folder for changes, so you can add new samples while performing and they'll become part of the particle pool immediately.
-
-Works beautifully with [[Matrix]] routing for sending particles to different speaker arrays, or chain with [[Audio Effects]] for processed particle clouds.
+Unlike the separately versioned LFO and envelope processes, Audio particles retains its existing process identity. Its synchronized control behavior is updated in place; it has no separately registered “v2” replacement.

@@ -18,10 +18,16 @@ permalink: /devices/syphon-device.html
 
 This device allows receiving a video stream directly from a Syphon-compatible input.
 
-Simply choose the wanted input in the list, and put the output at the end of the video chain.
+Choose a published Syphon source and assign the device to a **texture inlet**. Connect the receiving process's texture outlet to a window or another destination.
 
 # Syphon output device
 
 This device allows to create a Syphon stream that other Syphon-compatible software will be able to display or modify.
 
-Simply choose the viewport options, a rendering rate, and a name for the output. You can then use the device as input to video filters.
+Choose the output name, width, height and rendering rate, then assign the device as the destination of the final **texture outlet**. Select the published server in the other application.
+
+## Backends and limitations
+
+Syphon requires a macOS build with Syphon support. Current development builds have native **Metal** and **OpenGL** input/output paths; Metal no longer requires rendering the whole project through OpenGL. The available path follows the graphics backend and the installed Syphon framework.
+
+Syphon carries textures, not the audio mix. The receiving application must support Syphon directly or through a compatible plug-in/bridge. For OBS workflows see [Livestreaming]({{ site.baseurl }}/common-practices/10-livestreaming.html); for color/HDR considerations see [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).

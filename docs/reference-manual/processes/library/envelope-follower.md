@@ -35,6 +35,6 @@ Perfect for:
 ## Related Processes
 
 - [Analysis]({{ site.baseurl }}/processes/analysis.html) - Audio feature extraction
-- [Gate]({{ site.baseurl }}/processes/gate.html) - Amplitude gating
+- [Gain]({{ site.baseurl }}/processes/audio-utilities.html#gain) - Audio amplitude control
 - [Compressor]({{ site.baseurl }}/processes/audio-effects.html) - Dynamic range control
 - [LFO]({{ site.baseurl }}/processes/lfo.html) - Alternative modulation source
