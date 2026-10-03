@@ -16,7 +16,7 @@ permalink: /devices/artnet-device.html
 
 It is possible to communicate through DMX with ossia score, in order to control and automate light fixtures.
 
-The [user library]({{ site.baseurl }}/in-depth/library.html) contains a built-in fixture library that can be added.
+The [user library]({{ site.baseurl }}/panels/library.html#system-library) contains a built-in fixture library that can be added.
 The fixture library is based on [Open Fixture Library](https://open-fixture-library.org) and uses the same JSON format.
 
 ![Device setup window]({{ site.img }}/reference/devices/artnet/artnet-2.png "score device setup")

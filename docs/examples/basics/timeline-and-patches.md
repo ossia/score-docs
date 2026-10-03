@@ -29,6 +29,10 @@ The score shows how audio processes can be chained together using cables while s
 
 Download and open this example in ossia score to explore the timeline structure and patch connections.
 
+Switching between timeline and nodal views changes how the same processes are presented: the timeline controls when an interval runs, while cables define the connections between processes. A connected process in an inactive interval does not run merely because its cables are visible.
+
+In current development builds, use **Ctrl+click** or **Ctrl+drag** in the nodal view to select several processes, then move or copy them together. Cable drags can start from a port's name as well as its circle. See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for replacement, auto-scrolling and nested paste behavior.
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

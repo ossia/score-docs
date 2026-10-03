@@ -12,13 +12,9 @@ permalink: /in-depth/scripting.html
 
 # Scripting
 
-The software can be scripted with Javascript (ES7).
-The available functions are defined by the following C++ class: [EditJsContext](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/EditContext.hpp).
+The console runs JavaScript through Qt's QML engine. Use it for editor automation; use a [Javascript process]({{ site.baseurl }}/processes/javascript.html) for scheduled execution, audio, MIDI or graphics. These are different engines: console variables and functions are not automatically shared with executing processes.
 
-Click here for the [[Scripting API|complete reference]].
-
-These functions will be available under the global `Score` object in the JS contexts.
-Additional utility functions are available under the `Util` object.
+Start with the [Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html), then choose its document editing, device, utility or view reference. Editor functions are exposed as `Score` in the console and as `Score.Editor` after `import Score as Score` in QML interfaces. Additional helpers are available as `Util`.
 
 ```js
 let data = Util.readFile("/Users/me/foo.txt");
@@ -26,8 +22,9 @@ let data = Util.readFile("/Users/me/foo.txt");
 
 ## Putting scripts in the User Library
 
-Scripts ending in `.js` in the user library can be double-clicked: they will be run in the global application context.
-A script can introduce a function which can then be leveraged by the Javascript processes.
+Scripts ending in `.js` in the user library can be double-clicked: they run in the application context. Put reusable execution code in QML/JavaScript modules imported by the process instead of relying on console globals.
+
+For startup automation, run `ossia-score --script /path/to/script.js /path/to/document.score`. `.mjs` modules are supported too: they are imported and their exported `initialize()` function is called. Startup scripts run after application startup and honor `--wait`; script failures are reported. These scripts have application-level permissions, including filesystem and shell access, so load only trusted code.
 
 ## Scripting in the console panel
 
@@ -89,16 +86,16 @@ is [an example of script that randomizes a process's controls](https://github.co
 ```js
 // Creates an OSC device named foo. Messages will be sent from score to 127.0.0.1:5678.
 // Score will listen to messages on port 1234.
-Score.createOSCDevice("foo", "127.0.0.1", 5678, 1234);
+Score.createOSCDevice("foo", "127.0.0.1", 1234, 5678);
 
 // Creates an OSC address on the device foo, named /bar/baz. It will receive color.rgba types.
 // All the usual ossia unit names are accessible,
-// as well as useful names such as the ones found in [addresses](addresses doc)
+// such as color.rgba and position.cart2D.
 Score.createAddress("foo:/bar/baz", "color.rgba");
 
 // Finds an object in the current score.
 // The name is the object name, put in the inspector
-var myObject = Score.find("the object name");
+var myInterval = Score.find("the object name");
 
 // Creates an automation. The first argument must be a valid pointer to an interval
 // found by Score.find(...).
@@ -153,8 +150,8 @@ function randomizeLFO(lfo) {
       const values = Score.enumValues(inl); // ["Sin", "Square", ...]
 
       // Pick an enum value at random
-      const val = Math.round(Math.random() * (N - 1));
       const N = values.length;
+      const val = Math.floor(Math.random() * N);
 
       // Apply it
       Score.setValue(inl, values[val]);

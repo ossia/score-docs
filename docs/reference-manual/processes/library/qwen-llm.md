@@ -11,8 +11,6 @@ permalink: /processes/qwen-llm.html
 ---
 # Qwen LLM
 
-![Qwen LLM]({{ site.img }}/reference/processes/qwen-llm.png "Qwen Language Model")
-
 The Qwen LLM process enables local inference of Qwen language models for text generation, conversation, and creative applications within score.
 
 

@@ -11,68 +11,56 @@ permalink: /processes/midi-filter.html
 ---
 # MIDI Filter
 
-![MIDI Filter]({{ site.img }}/reference/processes/midi-filter.png "MIDI Filter")
 
-Extract exactly the [[MIDI support|MIDI]] data you need from complex MIDI streams. This process acts like a precision tool for filtering, converting, and organizing MIDI messages, with multiple output formats and polyphonic note tracking.
+MIDI Filter extracts messages from a MIDI stream and converts their contents into
+values for controls. Connect a MIDI source to **MIDI messages**, then use either
+the MIDI outlet or the value outlets below. It does not synthesize audio.
 
-Essential when you're dealing with multi-channel MIDI keyboards, complex controllers, or when you need to convert MIDI data into control signals for other processes.
+## Controls
 
-## How it works
+| Control | Meaning |
+| --- | --- |
+| **Filter type** | CC, PitchBend, AfterTouch, PolyPressure, NoteOn, NoteOff, NoteAny or NoteRunning |
+| **Channel** | 0 processes all channels; see the current limitation below before using a nonzero value |
+| **Index** | 0 accepts all indices; a nonzero value matches the actual CC/note number, not a one-based offset |
+| **Mode** | Index, Value or Both for the extracted data |
+| **Zero to note off** | Interpret zero-velocity note-ons as releases for filtering and held-note tracking |
+| **Note off to zero** | In NoteRunning mode, include zero-valued release data in the value outputs |
 
-MIDI Filter examines incoming MIDI messages and extracts specific types of data based on your filter settings. It can track running notes, convert between formats, and output data in several different ways simultaneously.
+**Current development-build limitation:** the implementation's nonzero Channel
+test skips the selected channel rather than isolating it. Use Channel 0 when
+inspecting a stream, and do not rely on this control for selected-channel-only
+routing. The running-note collection is indexed by pitch rather than by
+channel/pitch, so identical pitches from multiple channels are not tracked
+independently.
 
-**Filter type** - What kind of MIDI messages to extract:
-- **CC**: Control Change messages (knobs, faders, mod wheels)
-- **PitchBend**: Pitch bend wheel data
-- **AfterTouch**: Channel pressure (mono aftertouch)
-- **PolyPressure**: Polyphonic aftertouch (per-note pressure)
-- **NoteOn**: Note-on messages only
-- **NoteOff**: Note-off messages only  
-- **NoteAny**: Both note-on and note-off
-- **NoteRunning**: Currently held notes (polyphonic state)
+Because Index 0 means “all”, this control cannot isolate only CC 0 or note 0.
 
-**Channel** (0-16) - Filter by MIDI channel (0 = all channels)
+## Outputs
 
-**Index** (0-128) - Filter by parameter number (0 = all, 1-128 for specific CC numbers, note numbers, etc.)
+* **MIDI messages**: the matching original messages.
+* **Raw Output**: integer data or a note/index and value pair, depending on Mode.
+* **Normalized value**: a floating-point value, or a note/index paired with a
+  normalized value. Note velocity and CC values use the 0–1 range.
+* **Raw poly output**: a list of held notes, velocities, or note/velocity pairs.
 
-**Mode** - What data to output:
-- **Index**: Output the parameter number (which CC, which note)
-- **Value**: Output the parameter value (CC value, velocity, etc.)
-- **Both**: Output both index and value
+The note-zero toggles affect interpretation and extracted values; they are not
+a general MIDI-message rewriting stage. In particular, **Note off to zero** does
+not replace the MIDI outlet's note-off bytes with a note-on message. Use the
+[MIDI output device]({{ site.baseurl }}/devices/midiout-device.html) policy when
+the receiving hardware requires that wire representation.
 
-**Note off to zero** - Convert note-off messages to zero velocity note-ons (useful for some synths)
+## Example workflows
 
-## Multiple output formats
+For a CC control, use **CC**, **Channel 0**, **Index 74** and **Mode Value**.
+Cable **Normalized value** to a suitable parameter or a mapping process.
 
-MIDI Filter provides several outputs simultaneously:
+For a single-channel chord stream, use **NoteRunning** and **Mode Both** to obtain
+held note/velocity pairs. Enable **Zero to note off** if the source encodes
+releases as note-ons with velocity zero. Stop or restart the source carefully:
+the filter can only release notes whose release messages reach it.
 
-**Filtered MIDI** - Clean MIDI stream with only your selected message types
-**Raw output** - Integer values or note structures  
-**Normalized output** - Floating-point values scaled 0-1
-**Polyphonic output** - Arrays of all currently active notes (perfect for chord analysis)
-
-## Practical uses
-
-**CC extraction**: Set Filter to "CC", Channel to 1, Index to 74 to extract filter cutoff from a specific synthesizer channel.
-
-**Polyphonic analysis**: Use "NoteRunning" mode to get arrays of all currently held notes - perfect for chord recognition or harmony analysis.
-
-**Multi-channel routing**: Filter by channel to separate different instruments from a single MIDI stream.
-
-**Velocity to control**: Extract note velocities and convert to 0-1 range for controlling audio effects intensity.
-
-**Aftertouch control**: Use "AfterTouch" or "PolyPressure" to control parameters based on key pressure.
-
-## Advanced techniques
-
-**Chord detection**: Use NoteRunning mode with the polyphonic output to analyze chord progressions in real-time.
-
-**Multi-parameter control**: Run multiple MIDI Filters in parallel to extract different CC numbers for controlling different aspects of your score.
-
-**Format conversion**: Use this to convert between MIDI note formats and control signals - great for using keyboards to control non-musical parameters.
-
-Chain multiple filters with different settings to create complex MIDI processing workflows, or combine with [[Mapping Tool]] to shape the extracted data for perfect parameter control.
-
-## Related processes
-
-Works great with [[MIDI utilities]], [[Mapping Tool]] for parameter shaping, [[Calibrator]] for response curves, or [[Mapping Curve]] for simple scaling. Combine with [[Audio Effects]] that respond to MIDI data.
+See also [MIDI utilities]({{ site.baseurl }}/processes/midi-utilities.html) and
+[Piano roll]({{ site.baseurl }}/processes/piano-roll.html).
+To inspect the original message stream alongside a filter, branch it to
+[MIDI display]({{ site.baseurl }}/processes/midi-display.html).

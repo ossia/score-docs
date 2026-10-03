@@ -30,6 +30,10 @@ The [Sponza Palace](https://en.wikipedia.org/wiki/Sponza_Palace) atrium is a cla
 - **Camera animation**: Three [[LFO]] processes feed a [[Math expressions]] node that outputs animated 3D coordinates, controlling where the camera looks in the scene.
 - **Interactive navigation**: The scene supports real-time WASD keyboard and mouse navigation for free camera control.
 
+This score uses QML `RuntimeLoader` from `QtQuick3D.AssetUtils`; it does not use the native Asset Loader or Geometry Loader. Its `.exr` environment is handled by Qt Quick 3D, not the native LDR Cubemap Loader. See [[3D scene pipeline]] for the native alternative and [[Environments and cubemaps]] for its resource requirements.
+
+The score contains model/environment URL controls. Supply the referenced assets and adjust those controls for your machine. This documentation update does not establish that the external assets are reachable or that the downloaded scene has been rendered on your platform.
+
 ## Try it
 
 Open this example and give an antique mood to your score!

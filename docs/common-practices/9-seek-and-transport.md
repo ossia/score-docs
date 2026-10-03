@@ -14,13 +14,13 @@ permalink: /common-practices/9-seek-and-transport.html
 
 This page explains all the possible ways to control the transport in score.
 
-There are three ways to control transport:
+Transport can be controlled manually, programmatically or through an external transport system:
 
-- Manually, with the "play from here" feature which allows to seek at a given point explicitly.
+- Use **Play from here**, a time-ruler double-click or the Play tool to seek; drag to scrub.
+- Change an interval's speed, or use a process such as [[Tempo]] to control its parent's timing.
+- Use JACK transport for global transport synchronization. MIDI synchronization processes are a separate mechanism; receiving MIDI timing data does not automatically make the global score transport a slave.
 
-- In a pre-determined or processed way with a specific process which allows to control the speed of its parent interval.
-
-- Through an external transport system. For now only JACK transport is supported.
+See [[MIDI Sync In]] and [[MIDI Sync Out]] for receiving and generating MIDI timing messages. [[Timecode Synchronizer]] converts numeric position/speed inputs into smoothed playback-control signals; it requires explicit downstream connections.
 
 # Semantics of transport
 
@@ -105,6 +105,12 @@ You can also use the "Play" tool:
 
 ![Play tool]({{ site.img }}/common-practices/seek/pfh.gif "Play tool")
 
+In current development builds, double-clicking the time ruler also plays from that position. Keep the second click held and drag to scrub: dragging backwards can run the interval backwards, rather than merely moving a stopped cursor. On release the previous speed is restored and playback continues from near the release point.
+
+Dragging on the scenario background with the Play tool also scrubs. Clicking an interval with that tool plays it from the clicked date; **Alt+click** plays the interval from its beginning. A subsequent ordinary start of an interval does not retain an earlier play-from-here offset.
+
+Reverse time is not an undo operation: it does not reverse external hardware actions or guarantee that every stateful plug-in reconstructs its history. VST, VST3 and LV2 processing can continue during reverse timeline execution, but each process still determines what negative time means for its content.
+
 ## Playing a single state
 
 Either the play tool or a right-click menu allow to launch the content of a single state at any point.
@@ -116,9 +122,7 @@ See the documentation of the [[Tempo|Tempo process]].
 
 # Controlling global transport through an external API
 
-Right now, only JACK is supported. The plan is to include synchronization with SMTPE, Midi Clock, Ableton Link, etc. over time.
-
-The setting is currently in the global software settings: score can act both as a JACK client or master:
+JACK transport can control the global transport when using the JACK audio backend. Configure whether score acts as a client or master in the software settings:
 
 ![JACK transport]({{ site.img }}/common-practices/seek/jack-transport.png "JACK transport")
 
@@ -129,3 +133,9 @@ It is possible to set a start marker by right-clicking into the musical metrics 
 When a start marker is set, play / pause will always start from this point: this is mainly useful to play a specific part of a score quickly in succession.
 
 ![Start marker]({{ site.img }}/common-practices/seek/start-marker.gif "Start marker")
+
+## Starting playback while recording waits
+
+When address recording is armed and waiting for its first message, pressing Play starts the recording context with playback. It no longer needs a later message to establish the recording's start time. The **Play while recording** preference controls whether the first received message also launches playback automatically. See [Recording]({{ site.baseurl }}/in-depth/recording.html) for the full workflow.
+
+For related editing gestures and focus-dependent shortcuts, see [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html).

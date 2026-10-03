@@ -21,19 +21,19 @@ This example demonstrates the two main tools for GPU-side geometry processing: e
 
 ## Overview
 
-A OBJ model is loaded, and its geometry attributes (position, normals, UVs, etc.) are extracted into separate GPU buffers using the *Extract Attribute* process. These buffers are then reassembled into a new mesh with the *Buffers to Geometry* process. An [[LFO]] drives a rotation animation through a micro-mapping expression. All data stays on the GPU throughout the pipeline.
+An OBJ model is loaded, and its geometry attributes (position, normals, UVs, etc.) are extracted into separate buffers and reassembled into geometry. An [[LFO]] drives a rotation animation through a micro-mapping expression. In current development builds, search for **Extract buffer** or **Extract buffer (by name)** rather than the older “Extract Attribute” label.
 
 ## Key concepts
 
-- **Extract Attribute**: Takes a geometry and fetches a specific attribute by name (position, color, UV, normal, tangent...), by index (attribute 0 to 8), or as a raw buffer from the source geometry data.
-- **Buffers to Geometry**: Takes multiple GPU buffers as input and recreates a renderable mesh, with configurable attribute layout (buffer, offset, stride, format, location), topology, and culling.
-- **Geometry Info**: Reports vertex count, index count, instance count, and attribute count from a geometry.
-- **GPU-side processing**: As far as possible, everything stays in GPU memory: geometry is never transferred back to the CPU, for maximum performance.
+- **Extract buffer**: Selects a geometry attribute; **Extract buffer (by name)** additionally selects attributes or whole buffers by semantic, custom name or index.
+- **Buffers to geometry**: Describes input buffers through offset, stride, format and semantic. The separately registered **Buffers to geometry (v1)** uses numeric locations for older patches.
+- **Geometry Info**: Reports vertex/index/instance counts and attribute/binding layout.
+- **Data movement**: These processes expose GPU buffer paths, but extraction strategy depends on the source layout. Do not assume every conversion is zero-copy.
 
 ## Data flow
 
 1. [[Object loader]] loads the goblet mesh
-2. *Extract Attribute* pulls position data into a GPU buffer
+2. The attribute-extraction process pulls position data into a buffer
 3. *Geometry Info* reads the vertex count
 4. *Buffers to Geometry* rebuilds a mesh from the extracted buffer
 5. A solid color texture is applied, and [[Model display]] renders the result
@@ -50,3 +50,4 @@ Open this example to see GPU-side geometry attribute extraction and mesh reconst
 - [[Model display]] - 3D mesh rendering process
 - [[LFO]] - Low-frequency oscillator for animation
 - [[Graphics pipeline]] - How rendering works in ossia score
+- [[Geometry and buffer utilities]] - Current process names, byte layouts and conversion controls

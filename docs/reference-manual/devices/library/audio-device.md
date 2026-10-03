@@ -17,6 +17,22 @@ which can then be used at any place in the score to route a part of the score to
 
 ![Device setup window]({{ site.img }}/reference/devices/audio/audio-0.png)
 
+## Selecting the audio interface
+
+The Audio device describes routing inside the document; select the actual driver,
+capture device, playback device, sample rate and buffer size in **Preferences → Audio**.
+
+On Windows, current development builds default to **WASAPI (miniaudio)**.
+Its **Default device** entry follows the Windows system default, including changes
+made in the Windows mixer. Selecting a named interface instead pins that endpoint.
+On a fresh configuration, capture also follows the system default where the
+backend supports it; existing saved device choices are preserved.
+
+Check the capture selection before routing `audio:/in/main`: it is the selected
+input device, not necessarily the interface used for playback. Enable the audio
+engine, then connect the input bus to a process audio inlet. Avoid connecting a
+live microphone straight to loudspeakers without controlling gain.
+
 ## Audio parameters
 
 It is possible to set a float value between 0 and 1 on the audio parameters, for instance to automate the global volume of a given output.

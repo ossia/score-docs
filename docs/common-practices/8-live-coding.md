@@ -15,13 +15,11 @@ The timeline nature of *ossia score* may make it look like it is not very amenab
 
 # Editing the score during playback
 
-It is possible to edit every part of the score while it plays, and most importantly, start or restart those parts.
+Processes, sounds and scripts can be added, removed and edited while the score plays. They still need an active containing interval and appropriate routing to produce output.
 
-Most places in a score should be editable during playback ; if you encounter issues, please file a [bug report](https://github.com/ossia/score) !
-In particular, processes, sounds, shaders, etc. can all be added, removed, altered during playback.
+Current development builds also allow adding a new device during playback. Stop execution before removing a device or changing its configuration or namespace: those operations remain restricted. In particular, the ability to add a device is not a guarantee that every hardware reconfiguration is interruption-free.
 
-> There is *one* important exception, that we have not lifted yet: it is not possible to add a new device during playback ; you must prepare the devices to be used before hitting play.
-> For instance, it is not possible as of *ossia score 3.0.0-b1* to open a new window for visuals or plug a new MIDI keyboard in the middle of a performance.
+See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for node selection, cable replacement, editor placement and the restrictions on live changes.
 
 A very simple trick is then to use triggers to keep the parts running forever: this way, the intervals that are running that way
 will keep running their processes forever, like for instance would a Max or Pure Data patch.
@@ -44,14 +42,13 @@ A few processes in score use textual scripts:
 
 ![Live coding processes]({{ site.img }}/common-practices/live-coding-scripts.png "Live coding processes")
 
-In all cases, the script can be edited with the small "Window" button on the header of each of the corresponding nodes
-(the second button).
+Open the code editor using the editor button on the process header or in its inspector. Processes that provide a custom UI have a separate UI toggle.
+
+The placement menu offers **Window**, **Side panel** and **Central**. A central editor can be shown over a background visual output for live coding with the result behind the code; see [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html#place-code-editors-and-custom-uis).
 
 ## Editing scripts
 
-When that button is pressed, this opens the script editor, which can be used to change the code.
-When you are done editing, press "Compile" ; this will update the code for the execution engine.
-Invalid code won't change the current state to prevent unwanted loud noises and flashes :-)
+When you are done editing, press **Compile** to submit the code to the execution engine. Read the error log before assuming a change has taken effect; validation and failure handling depend on the process. Test substantial edits before a performance rather than relying on a compile failure to protect the output.
 
 It is possible to use the {% include shortcut.html content="Ctrl+Enter" %} shortcut to update the execution engine
 with the current code.
@@ -59,3 +56,7 @@ with the current code.
 The pane at the bottom of the window will display the error log: here, we have some slightly invalid code on line 9 for instance.
 
 ![Script editor]({{ site.img }}/common-practices/live-coding-editor.png "Live-coding editor")
+
+## Updating a linked source
+
+For a JavaScript process linked to a QML source file, an **Update** button appears in the inspector when its stored code differs from the available source. This replaces the document's copy with the file's current version; it is separate from compiling the code you are editing. See [Source update notices]({{ site.baseurl }}/reference/editing-workflow.html#source-update-notices).

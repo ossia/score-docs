@@ -10,50 +10,42 @@ grand_parent: Development
 permalink: /development/build/packaging.html
 ---
 
-# General information
+# Packaging for Linux distributions
 
-Score has many build options, modules, etc... but there is one canonical way to build a release tailored for Unix distributions.
+Use a recursive checkout or the project's uploaded source tarball, not GitHub's automatically generated source archive. Dependencies and compiler requirements are summarized in [Release build]({{ site.baseurl }}/development/build/release.html); the scripts from the version being packaged are the authoritative recipe.
 
-**Please** use the package versions provided with score / libossia as much as possible and not the distribution-provided packages, else we get bug reports because the version of TBB / PortAudio / ... of $DISTRO has known problems. In particular RtMidi and oscpack have been more or less entirely rewritten.
+## Vendored or system libraries
 
-If you don't want to, then it's better to let the users use the AppImage because those are known to be working.
+By default, score uses its selected dependency versions where appropriate. This avoids mismatches with libraries whose APIs or behavior differ between distributions. Current builds also support an explicit system-library configuration with `SCORE_USE_SYSTEM_LIBRARIES=ON` (which enables the corresponding libossia option). Optional dependencies can fall back to vendored copies; inspect the configure output rather than assuming every dependency came from the system.
 
-If your distro has a PortAudio package, please ensure that its PortAudio version is not linking against JACK, because else it can cause hangs (e.g. in Debian, Ubuntu). If it does, then please ensure that score does not link against PortAudio.
+See [ScoreConfiguration.cmake](https://github.com/ossia/score/blob/master/cmake/ScoreConfiguration.cmake) and the [Debian system-library recipe](https://github.com/ossia/score/blob/master/ci/debian.trixie-system.build.sh). Package managers should record the enabled feature set: omitting LLVM/Clang, Faust, FFmpeg or a device SDK can remove user-visible functionality without preventing a build.
 
-Examples of existing packages:
-- [ArchLinux AUR](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ossia-score)
-- [Nix](https://github.com/ossia/score/blob/master/ci/nix.build.nix)
-- [MinGW](https://github.com/msys2/MINGW-packages/blob/master/mingw-w64-ossia-score/PKGBUILD)
-- [Flatpak](https://github.com/ossia/score/blob/master/cmake/Deployment/Linux/Flatpak/io.ossia.score.yml)
+## Build and stage the application
 
-# Dependencies
-
-* CMake (>= 3.24)
-* Qt (>= 6.4)
-* Boost (whatever is the latest version, at least 1.83, otherwise ossia will download the latest version by itself)
-* FFMPEG (libavcodec, etc., at least FFMPEG 5)
-
-# Building a release
-
-The procedure is straightforward:
+A distribution-style configuration uses the current `SCORE_DEPLOYMENT_BUILD` and `SCORE_FHS_BUILD` options. The old unprefixed `DEPLOYMENT_BUILD` option is not the current recipe.
 
 ```bash
-# Configure step
-cmake -Wno-dev \
+cmake -S /path/to/score -B build-package -GNinja \
   -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_UNITY_BUILD=1 \
-  -DDEPLOYMENT_BUILD=1 \
-  -DCMAKE_SKIP_RPATH=ON \
-  -DCMAKE_INSTALL_PREFIX="/usr" \
-  "srcdir"
-
-# Build step
-# Just running make is possible but will be much slower.
-cmake --build . # adding -- -j4 at least will greatly increase build speed
-
-# Install step
-# do **not** just run make install, else score will install a lot of unneeded headers (boost, etc).
-cmake -DCMAKE_INSTALL_DO_STRIP=1 -DCOMPONENT=OssiaScore -P cmake_install.cmake
+  -DCMAKE_INSTALL_PREFIX=/usr \
+  -DSCORE_DEPLOYMENT_BUILD=ON \
+  -DSCORE_FHS_BUILD=ON \
+  -DSCORE_STATIC_PLUGINS=ON \
+  -DBUILD_SHARED_LIBS=OFF
+cmake --build build-package --parallel
+DESTDIR=/path/to/package-root cmake --install build-package \
+  --strip --component OssiaScore
 ```
 
+`OssiaScore` installs the application component rather than all development headers from score and its dependencies. Exported add-on headers belong to the separate `Devel` component. Add `SCORE_USE_SYSTEM_LIBRARIES=ON` when required by distribution policy; the example above otherwise retains the default dependency selection.
 
+For CPack-generated packages, use the matching distribution recipe and its staging settings rather than treating the command above as a universal binary package. Ubuntu 26.04 has dedicated [dependency](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.deps.sh), [build](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.build.sh) and [deployment](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.deploy.sh) scripts.
+
+## Reference recipes
+
+- [Arch Linux system build](https://github.com/ossia/score/blob/master/ci/archlinux.system.build.sh) and [AUR package](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ossia-score).
+- [Nix recipe](https://github.com/ossia/score/blob/master/ci/nix.build.nix).
+- [Flatpak manifest](https://github.com/ossia/score/blob/master/cmake/Deployment/Linux/Flatpak/io.ossia.score.yml).
+- [AppImage build](https://github.com/ossia/score/blob/master/ci/appimage.build.sh), for a bundled distribution rather than an FHS system package.
+
+An application package and its exported score SDK must come from the same build if users are expected to load binary add-ons. Preserve the build's compiler/standard-library and dependency compatibility when distributing that SDK.

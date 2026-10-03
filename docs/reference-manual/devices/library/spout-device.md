@@ -18,10 +18,14 @@ permalink: /devices/spout-device.html
 
 This device allows receiving a video stream directly from a Spout-compatible input.
 
-Simply choose the wanted input in the list, and put the output at the end of the video chain.
+Choose the sending application in the input list and assign the device to a **texture inlet**. Route the receiving process's texture outlet to a window or another output.
 
 # Spout output device
 
-This device allows to create a Spout stream that other sPout-compatible software will be able to display or modify.
+This device publishes a Spout stream for another application. Choose the output name, width, height and rendering rate, then assign it as the destination of the final **texture outlet**. Select this sender in the receiving application.
 
-Simply choose the viewport options, a rendering rate, and a name for the output. You can then use the device as input to video filters.
+## Backends and limitations
+
+Spout support must be included in the Windows build. Current development code includes OpenGL, D3D11, D3D12 (through a D3D11 bridge) and Vulkan sharing paths; Vulkan additionally needs the appropriate build headers and external-memory capabilities. These are backend-specific interop paths, not a promise that every GPU/driver combination can exchange textures without copies.
+
+Spout shares video, not score's audio mix. Route audio separately when streaming to OBS. See [Livestreaming]({{ site.baseurl }}/common-practices/10-livestreaming.html) and [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).

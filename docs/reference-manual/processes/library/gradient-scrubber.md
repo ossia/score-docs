@@ -11,8 +11,6 @@ permalink: /processes/gradient-scrubber.html
 ---
 # Gradient Scrubber
 
-![Gradient Scrubber]({{ site.img }}/reference/processes/gradient-scrubber.png "Gradient Scrubber")
-
 Scrub through color gradients interactively to extract colors and create dynamic color sequences. This process lets you define color gradients and then "scrub" through them with a position control, outputting the resulting colors for use in lighting, video effects, or other visual applications.
 
 Perfect for dynamic lighting control, color-based installations, or any project where you need smooth color transitions controlled by sensors, automation, or user interaction.

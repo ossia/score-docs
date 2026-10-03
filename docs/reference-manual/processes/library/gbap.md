@@ -137,5 +137,5 @@ Complete spatialization chain:
 
 - [DBAP]({{ site.baseurl }}/processes/dbap.html) - Distance-based panning for irregular layouts
 - [Matrix]({{ site.baseurl }}/processes/matrix.html) - Audio routing and mixing
-- [Multi-Cursor](/processes/multi-cursor.html) - Multiple position sources
-- [Path Generator]({{ site.baseurl }}/processes/path-generator.html) - Automated trajectories
+- [Multi-Cursor]({{ site.baseurl }}/processes/multicursor.html) - Multiple position sources
+- [Path Generator]({{ site.baseurl }}/processes/pathgenerator.html) - Automated trajectories

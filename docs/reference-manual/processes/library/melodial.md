@@ -11,8 +11,6 @@ permalink: /processes/melodial.html
 ---
 # Melodial
 
-![Melodial]({{ site.img }}/reference/processes/melodial.png "Melodial")
-
 Generate MIDI sequences from pattern data with full polyphonic support. Melodial takes nested arrays of musical information and converts them into properly timed MIDI output, complete with chord support and musical quantization.
 
 Perfect for algorithmic composition, pattern-based sequencing, or converting data structures into musical sequences.

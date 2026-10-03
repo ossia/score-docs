@@ -12,9 +12,48 @@ permalink: /processes.html
 
 # Processes
 
-*score* comes with a number of included processes. These cover various needs of action for advanced parameter control.
+*score* processes generate, transform and route control values, audio, MIDI, images and 3D data. Place them on intervals for continuous processing, or on states for instantaneous actions.
 
-This section of the manual covers the general usage of Processes as well a detailed documentation of each included Processes.
+## Find a process
+
+The reference pages below are grouped by task. Some pages describe a family of related processes rather than a single entry in the Process Library. Available entries depend on the build and installed add-ons; newer capabilities described here require a current development build.
+
+| Task | Starting points |
+|---|---|
+| Timeline and parameter control | [Scenario]({{ site.baseurl }}/processes/scenario.html), [Automation]({{ site.baseurl }}/processes/automation_float.html), [Mapping]({{ site.baseurl }}/processes/mapping.html), [LFO]({{ site.baseurl }}/processes/lfo.html), [Tempo]({{ site.baseurl }}/processes/tempo.html) |
+| Audio and MIDI | [Sound files]({{ site.baseurl }}/processes/soundfile.html), [Audio effects]({{ site.baseurl }}/processes/audio-effects.html), [Audio utilities]({{ site.baseurl }}/processes/audio-utilities.html), [Audio plug-ins]({{ site.baseurl }}/processes/audio-plugins.html), [MIDI utilities]({{ site.baseurl }}/processes/midi-utilities.html) |
+| Video and images | [Video]({{ site.baseurl }}/processes/video.html), [Images]({{ site.baseurl }}/processes/image.html), [ISF shaders]({{ site.baseurl }}/processes/shaders.html), [Text]({{ site.baseurl }}/processes/text.html), [Sprite Reader]({{ site.baseurl }}/processes/sprite-reader.html) |
+| Native 3D and GPU processing | [Geometry Loader (Object Loader reference)]({{ site.baseurl }}/processes/object-loader.html), [Asset Loader]({{ site.baseurl }}/processes/asset-loader.html), [Model Display]({{ site.baseurl }}/processes/model-display.html), [Render Pipeline]({{ site.baseurl }}/processes/render-pipeline.html), [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html) |
+| Data and routing | [Array utilities]({{ site.baseurl }}/processes/array-utilities.html), [Control utilities]({{ site.baseurl }}/processes/control-utilities.html), [Mapping utilities]({{ site.baseurl }}/processes/mapping-utilities.html), [Value Filter]({{ site.baseurl }}/processes/value-filter.html) |
+| Scripting and synthesis | [JavaScript / QML]({{ site.baseurl }}/processes/javascript.html), [Expressions]({{ site.baseurl }}/processes/exprtk.html), [Faust]({{ site.baseurl }}/processes/faust.html), [Pure Data]({{ site.baseurl }}/processes/puredata.html), [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html) |
+
+For video capture, streaming and display outputs, start with [Devices]({{ site.baseurl }}/devices.html). The [supported protocols and formats]({{ site.baseurl }}/reference/protocols-and-formats.html) page distinguishes file support from platform-dependent device backends.
+
+### Timing, routing and utility tools
+
+- **Generate and reshape musical events:** [Free Metronome]({{ site.baseurl }}/processes/metronome.html), [Arpeggiator]({{ site.baseurl }}/processes/arpeggiator.html) and [Midi Quantify]({{ site.baseurl }}/processes/midi-quantify.html).
+- **Choose when values leave a patch:** [Buffer queue]({{ site.baseurl }}/processes/buffer-queue.html), [Value delay]({{ site.baseurl }}/processes/value-delay.html), [Rendezvous]({{ site.baseurl }}/processes/rendezvous.html), [Switch]({{ site.baseurl }}/processes/switch.html) and [Multi-choice]({{ site.baseurl }}/processes/multi-choice.html).
+- **Convert and parse data:** [Regex]({{ site.baseurl }}/processes/regex.html), [String / byte conversion]({{ site.baseurl }}/processes/string-bytes.html), [Value serialization]({{ site.baseurl }}/processes/value-serialization.html) and [Array utilities]({{ site.baseurl }}/processes/array-utilities.html).
+- **Record or annotate:** [Audio recorder]({{ site.baseurl }}/processes/audio-recorder.html), [CSV recorder]({{ site.baseurl }}/processes/csv-recorder.html) and [Text Box]({{ site.baseurl }}/processes/text-box.html). Text Box is a document annotation; use [Text]({{ site.baseurl }}/processes/text.html) to generate an image.
+- **Store and select data:** [Tables]({{ site.baseurl }}/processes/table.html) provide editable data tables; availability depends on the compiler/build.
+- **Turn observations into music:** [Point Tracker]({{ site.baseurl }}/processes/point-tracker.html), [Beat Tracker]({{ site.baseurl }}/processes/beat-tracker.html) and [Entity To MIDI]({{ site.baseurl }}/processes/entity-to-midi.html).
+- **Shape MIDI expression:** [MIDI Envelope]({{ site.baseurl }}/processes/midi-envelope.html) and [MIDI Humanize]({{ site.baseurl }}/processes/midi-humanize.html).
+- **Follow an external time position:** [Timecode Synchronizer]({{ site.baseurl }}/processes/timecode-synchronizer.html). This is separate from simply generating metronome ticks.
+- **Send or decode synchronization:** [MIDI Sync Out]({{ site.baseurl }}/processes/midi-sync.html) and [MIDI Sync In]({{ site.baseurl }}/processes/midi-timecode-input.html).
+- **Inspect signals:** [MIDI display]({{ site.baseurl }}/processes/midi-display.html), [VU Meter]({{ site.baseurl }}/processes/vu-meter.html) and [Signal display]({{ site.baseurl }}/processes/signal-display.html).
+- **Run external tools:** [Shell command]({{ site.baseurl }}/processes/shell-command.html) and [Process Launcher]({{ site.baseurl }}/processes/process-launcher.html), subject to platform and installed-program requirements.
+
+### Native scenes and graphics
+
+Use [Scene tools]({{ site.baseurl }}/processes/scene-tools.html) to select and organize imported scenes, [Scene animation]({{ site.baseurl }}/processes/scene-animation.html) to drive them over time, and [Scene Preprocessor]({{ site.baseurl }}/processes/scene-preprocessor.html) to prepare them for GPU rendering. This native scene path is distinct from QtQuick3D hosted inside a JavaScript / QML process.
+
+Continue with [Instancing and materials]({{ site.baseurl }}/processes/scene-instancing-materials.html), [Cameras and lighting]({{ site.baseurl }}/processes/scene-camera-light.html), and [Environments and cubemaps]({{ site.baseurl }}/processes/scene-environment.html) for scene composition.
+
+For procedural content and data conversion, see [Mesh generators and splats]({{ site.baseurl }}/processes/meshes.html), [3D text]({{ site.baseurl }}/processes/3d-text.html), and [Geometry and buffer utilities]({{ site.baseurl }}/processes/geometry-utilities.html).
+
+For choosing media decoding, pixel formats, color conversion and HDR output, see [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).
+
+[Sink]({{ site.baseurl }}/processes/sink.html) runs an upstream graphics chain at a chosen rate without displaying its image, useful when only a data result is needed.
 
 ## General description
 

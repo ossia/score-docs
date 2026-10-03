@@ -32,7 +32,25 @@ The passthrough effect can be found in the [[library|user library]], in the fold
 
 ## Technical information
 
-The video input system uses FFMPEG, which itself leverages the operating system's video input decoding mechanism as far as possible.
+Camera capture uses the platform's available input mechanisms and FFmpeg conversion/decoding paths. Supported camera modes depend on the device, driver and score build; camera access may require operating-system permission.
+
+The device chooser includes **Default Camera**, which selects an available camera and suitable mode when connected. Select a specific enumerated camera/mode when repeatable resolution, frame rate or device identity matters. “Default” is a convenience selection, not a guarantee that the same physical camera is present on another machine.
+
+Texture outlet inspectors can preview the rendered result. Some capture-specific dialogs, notably Window Capture and NDI, also offer a live preview; this does not mean every camera settings dialog has identical preview controls.
+
+## Window and screen capture
+
+Current development builds with capture support register **Window Capture** as a separate video input. Its **Mode** choices are **Window**, **All Screens**, **Single Screen** and **Region**, with unsupported modes disabled by the current backend. Select the window or screen, or set **Region X**, **Region Y**, **Region Width** and **Region Height**. **Refresh** updates the available sources; **Frame Rate** and **Preview** help configure the feed.
+
+On Wayland a system picker appears when capture starts, and portal permission governs the selection. On macOS, grant **Screen Recording** permission in System Settings → Privacy & Security, then refresh. Windows and X11 use their own capture backends. Do not assume that a window identifier or capture mode is portable across these systems.
+
+Route Window Capture to a texture inlet just like a camera; it is not the [Window output device]({{ site.baseurl }}/devices/window-device.html).
+
+## GPhoto2 DSLR
+
+Builds with GPhoto2 support expose **GPhoto2 DSLR** for compatible cameras. **Camera Model** and **Port** identify the camera; its live-preview images feed the texture graph and camera-reported configuration entries become typed device parameters. This needs the libgphoto2 runtime and a camera with supported preview/configuration operations, not merely USB connectivity.
+
+See [[GPhoto2 DSLR device]] for discovery, runtime libraries and the configuration tree.
 
 ## V4L2 support
 
@@ -60,7 +78,7 @@ $ while 1 ; do ffmpeg -re -i ./test.mp4 -f v4l2 /dev/video0 ; done
 Support for Kinect cameras has been implemented through the Freenect library.
 However, the support is still experimental and requires building `score` from source with the Freenect libraries.
 
-### Spout, Syphon, PipeWire
-Spout is supported as output on Windows. Syphon on Mac is not yet supported, neither is PipeWire on Linux.
-Complete support for both systems is slated for a 3.x release of score.
+### Shared video sources
+
+Use the dedicated [Spout]({{ site.baseurl }}/devices/spout-device.html) devices on Windows, [Syphon]({{ site.baseurl }}/devices/syphon-device.html) on macOS, or [PipeWire video]({{ site.baseurl }}/devices/pipewire-device.html) on Linux. These are available input/output paths in compatible builds, not camera-driver modes. [GStreamer]({{ site.baseurl }}/devices/gstreamer-device.html) and [Libav]({{ site.baseurl }}/devices/libav-device.html) provide additional streaming inputs.
 

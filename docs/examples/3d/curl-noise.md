@@ -37,6 +37,8 @@ A 3D model is loaded and its vertices are displaced each frame by a curl noise f
 4. [[Model display]] renders the deformed geometry
 5. Bloom and long exposure shaders are applied as post-processing
 
+This is a direct geometry workflow, not a native scene-graph filter. **Scene Graph Filter** selects scene nodes; it does not evaluate this vertex-deformation shader. See [[3D scene pipeline]] for the representation boundary and [[Geometry and buffer utilities]] when adapting attribute layouts.
+
 ## Try it
 
 Open this example to see real-time vertex deformation driven by curl noise.

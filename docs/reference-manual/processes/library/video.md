@@ -11,10 +11,9 @@ permalink: /processes/video.html
 ---
 
 # Video
-The video process allows to play a video.
+The Video process plays a video file into a texture output, which can feed effects or a video output device.
 
-Video decoding is done with the help of the GPU as far as possible, e.g. for YUV420P or HAP data.
-Most [common codecs and pixel formats](https://www.ffmpeg.org/general.html#Video-Codecs) are supported ; we use [FFMPEG](https://www.ffmpeg.org/) for decoding plus the [HAP library](https://github.com/Vidvox/hap) by Vidvox for HAP videos.
+FFmpeg decodes the media; score then converts its pixels for the graphics pipeline. These are separate operations: GPU YUV-to-RGB conversion does **not** mean that the codec itself is hardware-decoded. See [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html) for format, hardware-decoder and HDR details.
 
 ## Usage
 
@@ -31,9 +30,7 @@ See the example:
     <source src="{{ site.img }}/reference/processes/video.mp4" type="video/mp4">
 </video>
 
-Note that for now the sound tracks contained in video files are not handled; this will be done in a later version. 
-
-As a workaround, audio content can be extracted from the video and dropped on the same interval to preserve synchronization.
+The Video process exposes a texture output, not an audio output. Extract the soundtrack and place an audio process on the same interval when sound is needed:
 
 ![synchronize]({{ site.img }}/reference/processes/video_audio_sync.png "Synchronize")
 
@@ -48,19 +45,35 @@ The video inspector allows to set a stretch mode and the timing behaviour:
 
 ![video inspector]({{ site.img }}/reference/processes/video_inspector.png "Video inspector")
 
-- Stretch modes can be the usual stretch / fill / keep original.
+- **Scale** offers **Original size**, **Expand (Black bars)**, **Expand (Fill)** and **Stretch**.
 - Tempo is used to map the video to the score tempo, and to enable time-stretching with the [[Tempo]] process. 
-  If **Use tempo** is not set, then the video will play at its internal rate. Otherwise, it will assume that the video is 
+  If **Enable tempo** is not set, then the video will play at its internal rate. Otherwise, it will assume that the video is
   at the given tempo, and play it faster / slower depending on the difference between that tempo and the score's actual playback speed: 
   a video set at 120 will play twice as slow if the score tempo is at 60.
 
+### Playback mode
+
+Current development builds offer three modes:
+
+- **Auto** selects Direct playback for HAP/DXV and streams classified as having a keyframe at every frame; other streams use the frame queue. Selection follows the actual stream layout, not simply its filename extension.
+- **Direct (seek)** requests the frame containing the current timeline time. It suits scrubbing and independently decodable frames, but forcing it on long-GOP footage can be expensive.
+- **Frame queue** is the normal buffered playback path: frames are decoded ahead and selected according to playback time. Prefer this for sequential playback of inter-frame codecs.
+
+This setting is independent of **Hardware Video Decoding** in graphics preferences. **None** uses software codec decoding; **Auto** attempts available hardware backends. Hardware and graphics-backend compatibility can require a CPU transfer even when decoding is accelerated.
+
+### Color output
+
+**Format** offers **SDR**, **Passthrough**, **Linear** and **Normalized**. **Tonemap (HDR)** offers **Clamp**, **BT.2390**, **BT.2446**, **Reinhard**, **Hable**, **ACES2**, **AgX**, **PBR Neutral** and **Auto**. These controls prepare the texture for downstream effects; they do not configure a monitor or turn an SDR window into an HDR output.
+
+See [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html#hdr-and-color-output) before combining HDR sources, shaders and output devices.
+
 ## Limitations
 
-While for simple playback any video format should work, we recommend using a seek-optimized format such as HAP or MJPEG when working on 
-a score. This is because usual video formats for playback, such as H.264 or HEVC (H.265) make tradeoffs for better compression that make seeking much more complicated: 
-in the theoretical worst case, the decoder needs to decode the entire video from the beginning when seeking which of course takes too long.
+Support depends on the FFmpeg build, codec profile and graphics backend. HAP, DXV and intra-frame formats are useful for interactive seeking; H.264 or HEVC footage with long groups of pictures may require decoding from an earlier keyframe when seeking.
 
-To reencode a video into HAP, you can use ffmpeg from the command-line (or the Handbrake GUI).
+The importer recognizes transport-stream files including `.ts`, `.mts` and `.m2ts`, as well as common containers such as MOV, MP4, MKV and MXF. A container extension does not identify its codec.
+
+To re-encode a video into HAP, use an FFmpeg build with the HAP encoder:
 
 ```
 $ ffmpeg -i source.mov -c:v hap <OPTIONS> output.mov

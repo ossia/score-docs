@@ -15,12 +15,12 @@ permalink: /processes/javascript.html
 ## Scripting in Javascript / QML.
 *score* allows to write scripts using the JavaScript language. These scripts can be used to write specific processes such as value mappers, audio generators.
 
-*score* uses JavaScript version ES7 through QML. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for more information about the JS language.
+*score* executes JavaScript through Qt's QML engine. Language and Qt module availability follow the Qt version bundled with the application; this is not a browser or Node.js environment. See the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for language concepts.
 
 QML is a superset language of Javascript which enables very efficient integration with Qt software and thus ossia. 
 It comes with some additional syntax (`property real`, etc.). See the [QML Reference](https://doc.qt.io/qt-6/qmlreference.html) for more information as well as the [QML Book](https://www.qt.io/product/qt6/qml-book/ch01-meetqt-meet-qt) to get started with the language.
 
-Either code directly or a path to the file can be added to the Javascript code editor - if it's a file it will be watched for changes.
+Enter QML code or a source-file path in the Javascript code editor. File-backed scripts keep their source location so that relative imports, images and companion UIs resolve correctly.
 
 JS can be used as a process both for intervals, and in states.
 * To add a JS process to an interval, simply drag'n'drop it from the Process Library to the interval.
@@ -30,7 +30,21 @@ JS can also be used for generative graphics by using the whole power of QtQuick.
 
 ## Editing code
 
-An important thing to note is that the edited script *will not* be saved in the scenario if there are compilation errors. This is a known issue and likely to change.
+The editor validates QML before applying it to the process. Resolve reported compilation errors before expecting the new program or its ports to be used; keep substantial code in an external source file as well as in the document.
+
+### Files, relative resources and presets
+
+The source location (`rootPath` internally) supplies a QML base URL, not a new JavaScript filesystem global. Use `Qt.resolvedUrl("image.png")` and relative imports next to the source file. The companion `name.ui.qml` supplies a `ScriptUI` for `name.qml`; see [Custom UI]({{ site.baseurl }}/custom-ui.html).
+
+Source files are watched. If a saved/edited program differs from its external source, the inspector can offer an **Update** action rather than silently discarding the document's copy. An unreadable source does not replace the saved program with empty text. See [source update notices]({{ site.baseurl }}/reference/editing-workflow.html#source-update-notices). When moving projects, retain the source's neighboring assets and imported modules.
+
+JavaScript presets include program code, companion UI and persisted script state. `Script.commitState(key, value)` queues an undoable persistent state edit; `loadState` and `stateUpdated` callbacks restore it. Plain temporary QML properties are not automatically saved as document state.
+
+### Execution and build limitations
+
+Ports are declared as children of `Script`: `ValueInlet` / `ValueOutlet` carry messages, `AudioInlet` / `AudioOutlet` carry audio buffers, and `MidiInlet` / `MidiOutlet` carry MIDI messages. Score controls declare stored control inlets; `TextureInlet` / `TextureOutlet` require GPU JavaScript support.
+
+GPU scripts use the graphics execution path; CPU scripts run with execution, not on the GUI thread. Do not open native dialogs or directly edit the document from `tick`. The current WebAssembly build does not insert Javascript processes into the execution graph: desktop examples should not be assumed to execute in the browser build.
 
 ## General syntax
 
@@ -54,8 +68,7 @@ Script {
 
 The tick function's two arguments give both timing and contextual information useful for writing algorithms.
 
-Please read the [Timing]({{ site.baseurl }}/in-depth/musical.html#timing) page to understand the timing concepts used in ossia score, in particular
-how model, physical and musical dates relate to each other.
+Please read [[Musical metrics]] for tempo and quantization, and the timing fields below for how model, physical and musical dates relate to each other.
 
 ### Available functions
 
@@ -211,7 +224,7 @@ Script {
       var phi = 2 * Math.PI * freq / state.sample_rate;
 
       // Fill our array
-      for(var s = 0; s < n; s++) {
+      for(var s = 0; s < tm.length; s++) {
         phase += phi;
         var sample = Math.sin(phase);
         sample = freq > 0 ? sample : 0;
@@ -411,15 +424,6 @@ LineEdit {
 ```
 
 
-<!--
-```qml
-ControlInlet { }
-```
-```qml
-ControlOutlet { }
-```
--->
-
 ## Generative graphics
 
 ```qml
@@ -515,4 +519,39 @@ Score.Script {
 }
 ```
 
-Note however that any internal state will be reset on resolution change as the items will so far be deleted and recreated since they may live on different threads.
+The current GPU runtime keeps interactive QML state across output resizing and graph reconstruction instead of treating every resize as a fresh script. Editing the program still replaces its objects. For state that must survive save/load or be undoable, use the explicit state callbacks and `commitState`, not only temporary QML properties.
+
+### Canvas2D
+
+A `Canvas` can be the visual content of a texture outlet. This minimal QML draws a solid frame; connect its outlet to a graphical output and play:
+
+```qml
+import QtQuick
+import Score as Score
+
+Score.Script {
+  Score.TextureOutlet {
+    objectName: "Drawing"
+    item: Canvas {
+      anchors.fill: parent
+      onWidthChanged: requestPaint()
+      onHeightChanged: requestPaint()
+      onPaint: {
+        var ctx = getContext("2d");
+        ctx.fillStyle = "#204060";
+        ctx.fillRect(0, 0, width, height);
+      }
+    }
+  }
+}
+```
+
+For animated drawing, change the data used by `onPaint` and call `requestPaint()` from `tick`. Canvas drawing is part of Qt Quick rendering; it is not an audio-rate drawing API.
+
+### Texture input and render size
+
+Declare `TextureInlet { id: source; objectName: "Texture" }`, cable a texture-producing process into it, then use `source.item` as the visual input (for example `Texture.sourceItem` in Qt Quick 3D). The item is owned by the inlet: do not destroy it yourself. See the [Qt Quick 3D texture example]({{ site.baseurl }}/examples/3d/js-texture-inlet.html).
+
+Rendering follows the connected output and texture-inlet resolution settings. To set an inlet's override from an editor script, obtain its model with `Score.inlet(process, index)` and assign `renderSize = Qt.size(width, height)`. This is distinct from an item's logical QML width/height. `Score.UI.TextureSource` previews a process's texture outlet in a custom UI; it does not declare a cable inlet.
+
+Source: [`QmlObjects.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/QmlObjects.hpp), [`JSProcessModel.cpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/JSProcessModel.cpp) and [`score_plugin_js.cpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/score_plugin_js.cpp).

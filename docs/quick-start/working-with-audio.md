@@ -18,6 +18,12 @@ To do so, open the `Preferences` window from the *score* menu and select the "Au
 
 Then select the Driver you want to use as well as the desired audio interface and related options (Buffer size and sample rate).
 
+On Windows, current development builds offer **WASAPI (miniaudio)** as the
+default driver. Choose **Default device** to follow the Windows mixer default,
+or a named interface for fixed routing. Check both capture and playback:
+first-run capture follows the system default on backends which support it,
+but saved settings may name another device.
+
 ![Audio setup]({{ site.img }}/quick-start/working-with-audio/audio-preferences.png "Audio setup")
 
 Make sure the audio switch is properly lit on.
@@ -33,6 +39,15 @@ Audio files can easily be integrated to your scenario. Just grab your file on yo
 > By default, *score* will use the main stereo output of your audio interface. Be sure to read the [audio routing]({{ site.baseurl }}/in-depth/audio-routing.html "Audio routing") section for more information.
 
 ![Playing audio files]({{ site.img }}/quick-start/working-with-audio/reading-audio-file.gif "Playing audio files")
+
+The [Soundfiles reference]({{ site.baseurl }}/processes/soundfile.html) explains
+automatic disk/RAM selection. Large files need not be decoded entirely into RAM:
+supported WAV files can be memory-mapped, and other files above 4 GiB use streaming
+in the current desktop implementation. Sample-rate conversion normally happens
+in the audio graph, so the file need not match the interface's sample rate.
+
+For live input, route an [Audio device]({{ site.baseurl }}/devices/audio-device.html)
+input bus to the effect's audio inlet rather than adding a sound file.
 
 ## Combining audio medias and devices control
 
@@ -57,3 +72,9 @@ For demonstration purpose here, we will just add a simple gain controller. Below
 Feel free to get familiar with this patch workspace using other audio FX or VST of your own collection.
 
 > You may also note some yellow circle and frames. These are respectively control input and output of some processes parameter. Should you feel adventurous, have fun checking the `Control` folder in the `Process library` to add modulation to your FX's parameters.
+
+For a level check in current development builds, branch the audio output to a
+[VU Meter]({{ site.baseurl }}/processes/vu-meter.html) while keeping its normal
+output connection. The meter has no audio-through outlet. For external effects
+and instruments, see the per-format settings in
+[Audio plugins]({{ site.baseurl }}/processes/audio-plugins.html).

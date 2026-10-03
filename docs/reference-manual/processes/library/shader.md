@@ -14,260 +14,290 @@ permalink: /processes/shaders.html
 
 ![Shader]({{ site.img }}/reference/processes/shader.png "Shader Example")
 
-The shader process allows you to add and [[Live coding|live-code]] your own shader to an image or video.
-A shader is a visual effect or generator program, which is processed with the graphics card for maximum performance.
+The ISF Shader process runs [Interactive Shader Format](https://isf.video) fragment shaders on the GPU. Use it for video filters, generators, feedback effects, post-processing, texture conversion, and Shadertoy-style visuals.
 
-Shaders are written with the [Interactive Shader Format (ISF)](https://isf.video), using GLSL.
-A lot of nice shaders are already provided as part of the [[library|user library]], courtesy of Vidvox.
+ISF shaders can be drag-and-dropped from the process library, user library, or file explorer. *score* reads the JSON header, creates controls and texture ports automatically, and recompiles the shader while the score is running.
 
-They can be drag'n'dropped from the library, or from the explorer ; controls and inputs will be created automatically.
+## When to use ISF
 
-ISF filters apply to the whole texture used as their input, which is then rendered to a texture used as output (or directly to the viewport).
+Use ISF when the shader renders a fullscreen image pass. Use a different process when the work is not a fullscreen fragment pass:
 
-# Editing shaders
+| Goal | Better process |
+|---|---|
+| Run arbitrary compute, write storage images, generate geometry | [[Compute Shaders]] |
+| Draw custom 3D geometry with a vertex shader | [[Render Pipeline]] |
+| Display existing geometry quickly | [[Model Display]] |
+| Write Vertex Shader Art-style point / line visuals | [[Vertex Shader Art]] |
 
-We recommend using the official ISF editor to edit shaders for production work ; but it is possible to edit the shader code [[Live coding|live]] during execution of the score, by pressing {% include shortcut.html content="Ctrl+Enter" %} when in the code editor ; the shader will be updated automatically.
+## Files and live editing
 
-The shader editor allows to edit both the fragment and the vertex shader.
+An ISF shader is usually a `.fs` or `.frag` file with a JSON header followed by GLSL. A custom vertex shader can be paired with the fragment shader; the editor can live-code both stages.
 
-It is really important to leverage the ISF built-in functions to access textures: since score's graphics pipeline can leverage OpenGL, Vulkan, Metal and Direct3D, which all have different coordinate systems, using the low-level primitives such as `gl_FragCoord` will yield Y direction inversions when using your shaders on different operating systems or graphics backends.
+Press {% include shortcut.html content="Ctrl+Enter" %} in the shader editor to recompile during playback. For production authoring, the official ISF editor remains useful, but *score* supports the runtime-specific features documented here.
 
-# JSON header
+Shader sources can use `#include`; include paths are resolved before parsing.
 
-Every ISF shader starts with a JSON block enclosed in `/*{ ... }*/`. This header declares inputs, passes, and metadata.
+## JSON header
 
-## Required fields
+Every shader starts with a JSON block enclosed in `/*{ ... }*/`.
 
-- `"ISFVSN"`: ISF version string (use `"2"`).
-
-## Optional fields
-
-- `"DESCRIPTION"`: Human-readable description.
-- `"CREDIT"`: Author credit.
-- `"CATEGORIES"`: Array of category strings (e.g. `["Color", "Filter"]`).
-- `"INPUTS"`: Array of input declarations (see below).
-- `"PASSES"`: Array of pass declarations for multi-pass rendering (see below).
-- `"OUTPUTS"`: Array of output declarations for MRT (Multiple Render Targets) rendering (see below).
-
-# Input types
-
-Inputs are declared in the `"INPUTS"` array. Each input has a `"NAME"` and a `"TYPE"`, plus type-specific fields.
-
-## float
-
-A floating-point slider.
-
-```json
-{ "NAME": "brightness", "TYPE": "float", "DEFAULT": 1.0, "MIN": 0.0, "MAX": 2.0 }
+```glsl
+/*{
+  "ISFVSN": "2",
+  "DESCRIPTION": "Brightness filter",
+  "CATEGORIES": ["Color", "Filter"],
+  "INPUTS": [
+    { "NAME": "inputImage", "TYPE": "image" },
+    { "NAME": "brightness", "TYPE": "float", "DEFAULT": 1.0, "MIN": 0.0, "MAX": 2.0 }
+  ]
+}*/
 ```
 
-In the shader: `uniform float brightness;` (accessed directly as `brightness`).
+### Common fields
 
-## bool
+| Field | Description |
+|---|---|
+| `ISFVSN` | ISF version. Use `"2"`. |
+| `DESCRIPTION` | Description shown in browsers and inspectors. |
+| `CREDIT` | Author credit. |
+| `CATEGORIES` | Library categories. |
+| `INPUTS` | UI controls, texture inputs, audio textures, buffers, and uniforms. |
+| `PASSES` | Multipass render plan. |
+| `OUTPUTS` | Explicit output textures: multiple color outputs, depth, layers, cubemaps, formats, MSAA. |
+| `ALPHA` | Output alpha convention: `"straight"` or `"premultiplied"`. |
+| `COMPOSITE` | Default composition mode: `"over"`, `"add"`, `"multiply"`, `"screen"`, `"replace"`. |
+| `EXTENSIONS` | GLSL extensions to require. |
 
-A toggle.
+If `MODE` is omitted, the file is treated as an ISF shader. `MODE` is reserved for other shader families such as CSF and raw raster.
 
-```json
-{ "NAME": "invert", "TYPE": "bool", "DEFAULT": true }
-```
+## Scalar input types
 
-## event
+Scalar inputs create UI controls and uniforms with the same name.
 
-A trigger button (true for one frame when pressed).
+| ISF type | GLSL type | Typical fields |
+|---|---|---|
+| `float` | `float` | `DEFAULT`, `MIN`, `MAX` |
+| `bool` | `bool` | `DEFAULT` |
+| `event` | `bool` for one frame | none |
+| `long` | `int` | `VALUES`, `LABELS`, `DEFAULT` |
+| `point2D` | `vec2` | `DEFAULT`, `MIN`, `MAX` |
+| `point3D` | `vec3` | `DEFAULT`, `MIN`, `MAX` |
+| `color` | `vec4` | `DEFAULT`, `MIN`, `MAX` |
 
-```json
-{ "NAME": "reset", "TYPE": "event" }
-```
+An `event` input fires for one rendered frame on `true` or an ossia impulse. Connect a trigger/message cable to it when an effect needs a reset or one-shot action; unlike a `bool`, it is not a latched switch.
 
-## long
-
-An integer dropdown with labels.
-
-```json
-{
-  "NAME": "mode", "TYPE": "long",
-  "VALUES": [0, 1, 2],
-  "LABELS": ["Normal", "Add", "Multiply"],
-  "DEFAULT": 0
-}
-```
-
-## point2D
-
-A 2D point control.
-
-```json
-{ "NAME": "center", "TYPE": "point2D", "DEFAULT": [0.5, 0.5], "MIN": [0, 0], "MAX": [1, 1] }
-```
-
-In the shader: `uniform vec2 center;`.
-
-## point3D
-
-A 3D point control.
+Example:
 
 ```json
-{ "NAME": "position", "TYPE": "point3D", "DEFAULT": [0, 0, 0] }
+"INPUTS": [
+  { "NAME": "gain", "TYPE": "float", "DEFAULT": 1.0, "MIN": 0.0, "MAX": 4.0 },
+  { "NAME": "mode", "TYPE": "long", "VALUES": [0, 1], "LABELS": ["Normal", "Invert"], "DEFAULT": 0 },
+  { "NAME": "tint", "TYPE": "color", "DEFAULT": [1, 0.8, 0.4, 1] }
+]
 ```
 
-In the shader: `uniform vec3 position;`.
+## Texture inputs
 
-## color
-
-An RGBA color picker.
-
-```json
-{ "NAME": "tint", "TYPE": "color", "DEFAULT": [1, 0, 0, 1] }
-```
-
-In the shader: `uniform vec4 tint;`.
-
-## image
-
-A texture input. Creates an input port that accepts video or texture connections.
+### 2D image
 
 ```json
 { "NAME": "inputImage", "TYPE": "image" }
 ```
 
-Access in shader using ISF macros (see below).
+Use the ISF sampling macros:
 
-3D textures are supported with `"DIMENSIONS": 3`:
+```glsl
+vec4 c = IMG_THIS_NORM_PIXEL(inputImage);
+```
+
+### 3D image / volume
 
 ```json
 { "NAME": "volume", "TYPE": "image", "DIMENSIONS": 3 }
 ```
 
-3D texture inputs use `texture(volume, vec3(u, v, w))` directly in the shader instead of ISF macros.
+3D inputs are GLSL `sampler3D` values. Sample them with `texture(volume, vec3(u, v, w))`.
 
-## cubemap
-
-A cubemap texture input.
+### Cubemap
 
 ```json
 { "NAME": "environment", "TYPE": "cubemap" }
 ```
 
-In the shader: `uniform samplerCube environment;`, accessed with `texture(environment, vec3(...))`.
+Cubemaps are GLSL `samplerCube` values. Sample with `texture(environment, dir)` or `IMG_CUBE(environment, dir)`.
 
-## audio
+### Sampleable depth
 
-An audio waveform texture.
+For inputs that carry a depth companion, set `DEPTH: true`. This exposes a depth sampler next to the color sampler where the upstream producer provides one.
 
-```json
-{ "NAME": "audio", "TYPE": "audio", "MAX": 256 }
-```
+### Sampler state
 
-## audioFFT
-
-An FFT frequency spectrum texture.
+Texture inputs can declare sampler state directly on the input object:
 
 ```json
-{ "NAME": "spectrum", "TYPE": "audioFFT", "MAX": 256 }
-```
-
-## audioHist
-
-An audio histogram texture.
-
-```json
-{ "NAME": "audioHistory", "TYPE": "audioHist", "MAX": 256 }
-```
-
-# Built-in texture macros
-
-ISF provides cross-platform texture sampling macros. **Always use these instead of raw `texture()` calls** to ensure correct behavior across all graphics backends (OpenGL, Vulkan, Metal, Direct3D).
-
-| Macro | Description |
-|---|---|
-| `IMG_PIXEL(tex, coord)` | Sample texture at pixel coordinate `ivec2` |
-| `IMG_NORM_PIXEL(tex, coord)` | Sample texture at normalized coordinate `vec2` in `[0,1]` |
-| `IMG_THIS_PIXEL(tex)` | Sample texture at the current fragment's pixel coordinate |
-| `IMG_THIS_NORM_PIXEL(tex)` | Sample texture at the current fragment's normalized coordinate |
-| `IMG_SIZE(tex)` | Returns `ivec2` size of texture in pixels |
-| `TEX_DIMENSIONS(tex)` | Same as `IMG_SIZE` |
-
-# Built-in uniforms
-
-All ISF shaders have access to the following uniforms:
-
-| Uniform | Type | Description |
-|---|---|---|
-| `TIME` | `float` | Playback time in seconds |
-| `TIMEDELTA` | `float` | Time since last frame in seconds |
-| `PROGRESS` | `float` | Timeline progress from 0 to 1 |
-| `FRAMEINDEX` | `int` | Frame counter |
-| `PASSINDEX` | `int` | Current rendering pass index |
-| `RENDERSIZE` | `vec2` | Output size in pixels |
-| `DATE` | `vec4` | Current date: `(year, month, day, seconds)` |
-| `SAMPLERATE` | `float` | Audio sample rate in Hz |
-| `isf_FragNormCoord` | `vec2` | Current fragment's normalized coordinate `[0,1]` |
-| `isf_FragCoord` | `vec2` | Platform-corrected fragment coordinate in pixels |
-| `clipSpaceCorrMatrix` | `mat4` | Clip space correction matrix (for vertex shaders) |
-
-# Built-in outputs
-
-## Single output (default)
-
-By default, the shader writes to `gl_FragColor` (ISF 1) or `isf_FragColor` (ISF 2):
-
-```glsl
-void main() {
-    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+{
+  "NAME": "tex",
+  "TYPE": "image",
+  "FILTER": "nearest",
+  "WRAP": "clamp_to_edge",
+  "MIPMAP_MODE": "linear",
+  "ANISOTROPY": 8.0
 }
 ```
 
-## Multiple Render Targets (MRT)
+Supported fields include `WRAP`, `WRAP_S`, `WRAP_T`, `WRAP_R`, `FILTER`, `MIN_FILTER`, `MAG_FILTER`, `MIPMAP_MODE`, `BORDER_COLOR`, `COMPARE`, `ANISOTROPY`, `LOD_BIAS`, `MIN_LOD`, and `MAX_LOD`.
 
-Declare multiple outputs in the `"OUTPUTS"` array to render to several textures simultaneously:
+Audio inputs only use `FILTER` and `WRAP`.
+
+## Audio textures
+
+ISF audio inputs create GPU textures from audio data:
+
+```json
+{ "NAME": "wave", "TYPE": "audio", "MAX": 512, "FILTER": "nearest" }
+{ "NAME": "fft", "TYPE": "audioFFT", "MAX": 512 }
+{ "NAME": "hist", "TYPE": "audioHist", "MAX": 512 }
+```
+
+Use `FILTER: "nearest"` when FFT bin accuracy matters.
+
+## Texture macros
+
+Use the helpers instead of raw `gl_FragCoord` coordinate math. They keep orientation correct across OpenGL, Vulkan, Metal, and Direct3D.
+
+| Macro | Description |
+|---|---|
+| `IMG_PIXEL(tex, coord)` | Sample at pixel coordinate. |
+| `IMG_NORM_PIXEL(tex, coord)` | Sample at normalized `[0, 1]` coordinate. |
+| `IMG_THIS_PIXEL(tex)` | Sample at this fragment's pixel coordinate. |
+| `IMG_THIS_NORM_PIXEL(tex)` | Sample at this fragment's normalized coordinate. |
+| `IMG_TEXEL(tex, coord)` | Texel fetch at integer coordinate. |
+| `IMG_SIZE(tex)` / `TEX_DIMENSIONS(tex)` | Texture size in pixels. |
+| `IMG_CUBE(tex, dir)` | Cubemap sample. |
+
+Straight-alpha helpers are available when a source must be unpremultiplied before math:
+
+```glsl
+vec4 c = ISF_STRAIGHT_NORM_PIXEL(inputImage, isf_FragNormCoord);
+```
+
+## Built-in uniforms
+
+| Uniform | Type | Description |
+|---|---|---|
+| `TIME` | `float` | Playback time in seconds. |
+| `TIMEDELTA` | `float` | Time since previous frame. |
+| `PROGRESS` | `float` | Timeline progress from 0 to 1. |
+| `FRAMEINDEX` | `int` | Frame counter. |
+| `PASSINDEX` | `int` | Current pass index. |
+| `RENDERSIZE` | `vec2` | Current render target size. |
+| `DATE` | `vec4` | `(year, month, day, seconds)`. |
+| `SAMPLERATE` | `float` | Audio sample rate. |
+| `isf_FragNormCoord` | `vec2` | Current normalized fragment coordinate. |
+| `isf_FragCoord` | `vec4` | Platform-corrected fragment coordinate. |
+| `clipSpaceCorrMatrix` | `mat4` | Clip-space correction matrix for custom vertex shaders. |
+| `MSAA_SAMPLES` | `int` | Active sample count when MSAA is enabled. |
+
+## Outputs
+
+Without an `OUTPUTS` array, an ISF shader writes one color output named `isf_FragColor`.
+
+```glsl
+void main() {
+    isf_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+```
+
+`gl_FragColor` is accepted for compatibility and rewritten to `isf_FragColor`.
+
+### Multiple render targets
 
 ```json
 "OUTPUTS": [
   { "NAME": "color", "TYPE": "color" },
-  { "NAME": "normals", "TYPE": "color" },
-  { "NAME": "sceneDepth", "TYPE": "depth" }
+  { "NAME": "luma", "TYPE": "color", "FORMAT": "r16f" },
+  { "NAME": "depth", "TYPE": "depth", "FORMAT": "d32f" }
 ]
 ```
 
-Each color output becomes a `layout(location = N) out vec4 name;`. A depth output writes to `gl_FragDepth`.
-The first color output is also aliased as `isf_FragColor` for backward compatibility.
+Color outputs become `layout(location = N) out vec4 name;`. A depth output is written through `gl_FragDepth`.
 
-# Multi-pass rendering
+### Output fields
 
-ISF supports multi-pass rendering where each pass renders to an intermediate texture that can be sampled by subsequent passes.
+| Field | Description |
+|---|---|
+| `NAME` | Output name. |
+| `TYPE` | `"color"` or `"depth"`. Defaults to `"color"`. |
+| `FORMAT` | Texture format such as `rgba8`, `rgba16f`, `rgba32f`, `r32f`, `d32f`. |
+| `WIDTH`, `HEIGHT` | Fixed size or expression. |
+| `LAYERS` | Texture array layer count. |
+| `DEPTH` | 3D texture depth. |
+| `CUBEMAP` | Allocate as cubemap. |
+| `GENERATE_MIPS` | Generate mipmaps after rendering. |
+| `SAMPLES` | MSAA sample count. |
+| `ALPHA` | Per-output alpha convention. |
+| `COMPOSITE` | Per-output compositing mode. |
+
+All color outputs in one pass share the render target size. Cubemap outputs are square.
+
+## Multipass rendering
+
+`PASSES` defines intermediate passes and feedback buffers.
 
 ```json
 "PASSES": [
-  { "TARGET": "bufferA", "PERSISTENT": true, "FLOAT": true },
+  { "TARGET": "feedback", "PERSISTENT": true, "FLOAT": true },
   {}
 ]
 ```
 
 | Pass field | Description |
 |---|---|
-| `"TARGET"` | Name of the intermediate texture this pass renders to |
-| `"PERSISTENT"` | `true` to preserve the texture content across frames (for feedback effects) |
-| `"FLOAT"` | `true` to use 32-bit float texture format |
-| `"NEAREST"` | `true` to use nearest-neighbor filtering (default is linear) |
-| `"WIDTH"` | Width expression (default: viewport width) |
-| `"HEIGHT"` | Height expression (default: viewport height) |
+| `TARGET` | Intermediate output to render. Missing target means final output. |
+| `PERSISTENT` | Preserve the target across frames. |
+| `FLOAT` | Use floating-point storage. |
+| `FILTER` | `"NEAREST"` for nearest sampling. |
+| `WIDTH`, `HEIGHT` | Fixed size or expression. |
+| `LAYER` | Render into a texture-array layer. |
+| `Z` | Render into a 3D texture slice. |
+| `FORMAT` | Per-pass intermediate format. |
+| `PIPELINE_STATE` | Per-pass raster state override. |
 
-### Pass size expressions
+ISF v1 `PERSISTENT_BUFFERS` are converted to persistent passes internally. The legacy field accepts an array of target names or an object mapping names to `WIDTH`, `HEIGHT` and `FLOAT` settings. Each name must match a pass's `TARGET`; an unmatched name is ignored with a diagnostic. Prefer `PERSISTENT: true` on the pass in new shaders.
 
-The `"WIDTH"` and `"HEIGHT"` fields accept math expressions:
+The last pass normally renders to the process output. Use `PASSINDEX` to branch between pass code paths.
 
-- Integer literals: `"512"`
-- `$WIDTH`, `$HEIGHT`: Current viewport dimensions
-- `$inputName`: Value of a scalar input (`float` or `long`)
-- Arithmetic: `"$WIDTH / 2"`, `"$WIDTH * $scaleFactor"`
+## Size expressions
 
-The expression evaluator supports standard arithmetic operators and common math functions (`min`, `max`, `sqrt`, `ceil`, `floor`, `pow`, `sin`, `cos`, etc.).
+`WIDTH`, `HEIGHT`, and related size fields accept numbers or expressions:
 
-The last pass (with no `TARGET`) renders to the final output. Use `PASSINDEX` to branch logic per pass, and sample previous pass targets as textures using `IMG_PIXEL()` or `IMG_NORM_PIXEL()`.
+```json
+{ "TARGET": "half", "WIDTH": "$WIDTH / 2", "HEIGHT": "$HEIGHT / 2" }
+```
 
-# Examples
+Available variables include `$WIDTH`, `$HEIGHT`, `$inputName` for scalar controls, and `$WIDTH_inputImage` / `$HEIGHT_inputImage` for input texture sizes. Expressions support standard arithmetic and common functions such as `min`, `max`, `sqrt`, `ceil`, `floor`, `pow`, `sin`, and `cos`.
 
-## Simple color filter
+The texture inlet inspector also provides an explicit size checkbox with width and height controls. Uncheck it for **Auto** sizing; this is distinct from allocating a fixed-size target in the shader header. The **Show shader previews** toolbar action controls library and inspector previews. See [[Graphics pipeline]] for sizing and backend limits, and [[Shader cookbook]] for feedback, MRT and sampler recipes.
+
+## Alpha and compositing
+
+Declare the alpha convention your shader writes:
+
+```json
+{
+  "ALPHA": "straight",
+  "COMPOSITE": "over"
+}
+```
+
+- `ALPHA`: `"straight"` or `"premultiplied"`.
+- `COMPOSITE`: `"over"`, `"add"`, `"multiply"`, `"screen"`, or `"replace"`.
+
+This is especially important when mixing shader outputs with text, videos, transparent 3D renders, or layered raw raster passes.
+
+## Examples
+
+### Simple color filter
 
 ```glsl
 /*{
@@ -284,11 +314,11 @@ void main() {
     vec4 color = IMG_THIS_NORM_PIXEL(inputImage);
     color.rgb = (color.rgb - 0.5) * contrast + 0.5;
     color.rgb *= brightness;
-    gl_FragColor = color;
+    isf_FragColor = color;
 }
 ```
 
-## Generator (no input)
+### Generator
 
 ```glsl
 /*{
@@ -304,11 +334,11 @@ void main() {
     vec2 uv = isf_FragNormCoord - 0.5;
     float d = length(uv);
     float circle = smoothstep(radius, radius - 0.01, d + sin(TIME * 3.0) * 0.05);
-    gl_FragColor = mix(vec4(0), color, circle);
+    isf_FragColor = mix(vec4(0), color, circle);
 }
 ```
 
-## Feedback effect (persistent buffer)
+### Feedback trail
 
 ```glsl
 /*{
@@ -328,25 +358,25 @@ void main() {
     if (PASSINDEX == 0) {
         vec4 prev = IMG_THIS_NORM_PIXEL(feedback);
         vec4 curr = IMG_THIS_NORM_PIXEL(inputImage);
-        gl_FragColor = max(curr, prev * decay);
+        isf_FragColor = max(curr, prev * decay);
     } else {
-        gl_FragColor = IMG_THIS_NORM_PIXEL(feedback);
+        isf_FragColor = IMG_THIS_NORM_PIXEL(feedback);
     }
 }
 ```
 
-## MRT deferred rendering
+### MRT output
 
 ```glsl
 /*{
-  "DESCRIPTION": "Simple deferred output",
+  "DESCRIPTION": "Color and luminance outputs",
   "ISFVSN": "2",
   "INPUTS": [
     { "NAME": "inputImage", "TYPE": "image" }
   ],
   "OUTPUTS": [
     { "NAME": "color", "TYPE": "color" },
-    { "NAME": "luminance", "TYPE": "color" }
+    { "NAME": "luminance", "TYPE": "color", "FORMAT": "r16f" }
   ]
 }*/
 
@@ -360,8 +390,8 @@ void main() {
 
 ## Related Processes
 
-- [[Vertex Shader Art|VSA Shader]]: Similar to ISF shaders but for vertex instead of fragment shaders.
-- [[Compute Shader]]: Similar to ISF shaders but for compute instead of fragment shaders.
-- [[Render Pipeline]]: Raw vertex/fragment pipeline for custom geometry rendering.
-- [[Model Display]]: To apply the shader onto a 3D surface.
-- [[Pixel Utilities|Lightness Computer]]: To convert texture data into pixel arrays, for instance for [[LED design]].
+- [[Compute Shaders]]: Compute shaders for images, buffers, volumes, and geometry.
+- [[Render Pipeline]]: Raw vertex / fragment pipeline for custom 3D rendering.
+- [[Vertex Shader Art]]: Vertex Shader Art-compatible generative shaders.
+- [[Model Display]]: Built-in renderer for geometry.
+- [[Pixel Utilities|Lightness Computer]]: Convert textures to pixel arrays for LED workflows.

@@ -13,29 +13,38 @@ permalink: /processes/lfo.html
 
 ![LFO]({{ site.img }}/reference/processes/lfo.png "LFO Example")
 
-You can use the Low Frequency Oscillator in order to generate a value.
-This value can be used later to control other parameters.
+The **LFO** generates a control value at its **Out** port: connect it to a parameter to make that parameter oscillate. It does not generate an audio signal.
 
-## Frequency
+This page describes the current development-build LFO (v3). Older scores may contain **LFO (old)** or **LFO (v2)**, which retain their own controls rather than automatically becoming v3.
 
-You can change the value between 0.10 and 100 Hz.
+## Period and synchronization
 
-## Wave Shape
+**Period** is the duration of one cycle, not its frequency: free range **0.01–60 seconds**, default **1 second**. A one-second period corresponds to 1 Hz; a two-second period to 0.5 Hz.
 
-There are 8 different wafeforms available : _sinusoidal_, _triangle_, _saw_, _square_, _sample_ _&_ _hold_ and  3 _noise_ form.
+Use the [time chooser]({{ site.baseurl }}/reference/time-chooser.html) readout to select straight, dotted or triplet note values. **Lock to bars** affects synchronized mode only:
 
-## Range
+- Off: cycles accumulate from the playback start or the last **Retrigger**.
+- On: cycles are calculated from the timeline's musical position, keeping their alignment through tempo changes, jumps and loops. **Retrigger** establishes a new origin at the current musical position.
 
-This value can take values between 0 and 1000.
+**Retrigger** restarts the cycle; **Phase** still applies to its starting position. Musical periods are whole-note fractions: a `1/1` cycle is four quarter notes, not necessarily one bar in a different time signature.
 
-## Offset
+## Waveform and shape
 
-The offset value is between -1000 and 1000.
+The waveform selector offers sine, triangle, rising saw, falling ramp, square, sample-and-hold, three noise variants and drift. Square and sample-and-hold each have an **every-tick** and an **on-change** variant. Choose on-change when a downstream process should receive only the steps, rather than repeated copies of the held value. Sample-and-hold chooses a new random value at each of the cycle's two steps.
 
-## Jitter
+**Shape** ranges from 0 to 1 (default **0.5**). It changes the rise/fall balance of sine and triangle, the step width of square and sample-and-hold, the curve of the ramps, and the roughness of drift.
 
-Allows to add some amount of noise to the signal.
+## Output range and phase
 
-## Phase
+| Control | Range; default | Meaning |
+|---|---|---|
+| **Ampl.** | 0–2; **0.5** | Multiplies the waveform, whose base range is −1 to 1. |
+| **Offset** | −1–1; **0.5** | Added after amplitude scaling. |
+| **Phase** | 0–360 degrees; **0** | Constant phase offset. 0 and 360 represent the same point; values outside the range wrap. |
+| **Jitter** | 0–180 degrees; **0** | Adds a random phase offset within ±this amount on each execution tick. This is phase variation, not output-amplitude noise. |
 
-Allows to alter the phase of the signal.
+The default amplitude and offset produce values from 0 to 1. For a bipolar modulation around zero, set Offset to 0. The destination's own range still determines which values are useful.
+
+## Older saved LFOs
+
+The earlier variants remain separately registered for saved scores and are marked deprecated. Their frequency-based timing and phase controls must not be interpreted using the v3 units above. To use the new Period, Shape or Lock to bars controls, add a current LFO and deliberately re-create the desired modulation and connections.

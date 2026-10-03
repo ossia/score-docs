@@ -22,7 +22,7 @@ This plug-in simply multiplies its input audio by a gain value.
 
 This plug-in outputs a metronome sound, based on the time signature of its parent interval.
 
-The metronome sounds used can be changed: they are in the [user library]({{ site.baseurl }}/in-depth/library.html), in the folder "Util" ; the process looks for files named `metro_tick.wav` and `metro_tock.wav`.
+The metronome sounds used can be changed: they are in the [user library]({{ site.baseurl }}/panels/library.html), in the folder "Util" ; the process looks for files named `metro_tick.wav` and `metro_tock.wav`.
 
 The second outlet outputs an impulse on each tick.
 
@@ -38,3 +38,15 @@ That is, in the example below, the output of the Merger process will be a 4-chan
 * Channel 2, 3: the drum loop.
 
 ![Merger example]({{ site.img }}/reference/processes/merger-2.png "Stereo merger plug-in")
+
+# Audio Splitter {#splitter}
+
+Splits the channels of **Input** into separate mono **Channel** outlets. **Channels** sets the number of outlets; input channels beyond that count are not copied. Use it to route a multichannel bus to separate effects or recorder paths. It separates channels, not frequency bands.
+
+# Audio recorder
+
+[Audio recorder]({{ site.baseurl }}/processes/audio-recorder.html) records an audio bus to a 16-bit WAV file. Set **File pattern**, enable **Record**, then disable it to close the take and receive its **Filename**. `%n` and `%t` keep numbered or dated takes.
+
+# Beat following
+
+[Beat Tracker]({{ site.baseurl }}/processes/beat-tracker.html) extracts tempo and beat phase from audio or incoming control events. Unlike the metronome above, it follows an external performance; connect its outputs deliberately to tempo, speed or other controls.

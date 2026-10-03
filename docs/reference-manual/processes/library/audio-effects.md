@@ -11,7 +11,6 @@ permalink: /processes/audio-effects.html
 ---
 # Audio Effects
 
-![Audio Effects]({{ site.img }}/reference/processes/audio-effects.png "Audio Effects")
 
 *score* comes with a built-in collection of professional audio effects that you can drag'n'drop directly into your projects. These effects are based on established DSP libraries including Lance Putnam's Gamma library.
 
@@ -28,26 +27,21 @@ All effects are optimized for real-time performance and can be combined with [[F
 
 ![Flanger]({{ site.img }}/reference/processes/flanger.png "Flanger Effect")
 
-The classic flanger effect that you hear on countless recordings. This process mixes your original signal with a delayed copy, using an [[LFO]] to continuously modulate the delay time. The result is that signature "whoosh" sound - think jet planes or the intro to "Itchycoo Park".
+The **Flanger** mixes audio with a short, continuously modulated delay. Connect an audio source to its audio input and route its audio output onward.
 
-You can shape the flanging effect with these controls:
+The current development-build version (v2) replaces the sweep's Frequency control with a tempo-syncable **Period**.
 
-**Amount** (0.0 - 0.01)  
-How deep the delay modulation goes. Start around 0.001 for subtle effects, push to 0.003+ for dramatic swooshes.
+| Control | Range; default | Meaning |
+|---|---|---|
+| **Amount** | 0–0.01; **0.001** | Delay modulation depth, in seconds. |
+| **Delay** | Free 0–0.02 seconds; **0.002 seconds** | Centre of the delay sweep; a time chooser. |
+| **Period** | Free 0.01–60 seconds; **2 seconds** | Duration of one modulation cycle; a time chooser. |
+| **Feed-forward** | −0.99–0.99; **0.7** | Delayed-signal contribution; the sign changes its polarity. |
+| **Feed-back** | −0.99–0.99; **0.7** | Recirculates delayed audio for resonance; the sign changes its polarity. |
 
-**Delay** (0.0 - 10.0 ms)  
-The center delay time that the LFO sweeps around. Short delays (0.5-2ms) give tight flanging, longer delays approach chorus territory.
+Click Period's [time chooser]({{ site.baseurl }}/reference/time-chooser.html) readout to synchronize the sweep to straight, dotted or triplet notes. Period controls cycle length, not a bar-locked phase reset. Delay can also use a note value, but the actual sweep is clamped within the **50 ms delay line**, with a two-sample safety margin at either end. A long synchronized Delay therefore does not turn this into a long echo.
 
-**Frequency** (0.001 - 100.0 Hz)  
-Speed of the sweep. Try 0.2 Hz for slow, hypnotic sweeps or crank it up to 5+ Hz for tremolo-like effects.
-
-**Feed-forward** (-0.99 - 0.99)  
-Mixes the delayed signal with the original. Positive values create upward sweeps, negative creates downward swooshes.
-
-**Feed-back** (-0.99 - 0.99)  
-Sends the output back into the delay line for resonance and emphasis. Higher values make the effect more pronounced.
-
-Try these settings: For that classic jet plane sound, use Amount: 0.003, Delay: 2.0ms, Frequency: 0.2Hz, Feed-forward: 0.8, Feed-back: 0.6. For a subtle chorus-like effect, dial back to Amount: 0.001, Delay: 8.0ms, Frequency: 0.1Hz, Feed-forward: 0.3, Feed-back: 0.1.
+**Flanger (old)** remains registered for saved scores and retains its Frequency control and earlier delay settings. It is not automatically replaced with v2; do not copy a frequency number directly into Period.
 
 ## Echo {#echo}
 
@@ -75,25 +69,42 @@ Try a short slap echo with Delay: 0.08s, Feedback: 0.3, Filter: 0.7, Dry/Wet: 0.
 
 ![Compressor]({{ site.img }}/reference/processes/compressor.png "Compressor Effect")
 
-A full-featured compressor that evens out your audio levels. It makes quiet parts louder and loud parts quieter, plus it supports sidechain compression for pumping effects.
+The **Compressor** reduces the gain of audio above a threshold. Connect the signal to **Audio** and take the result from **Output**. An optional **Sidechain** audio input supplies the detector signal instead of the main input; without it, the compressor detects the main audio's peaks across its channels.
 
-You get standard compressor controls: **Threshold** sets where compression kicks in, **Ratio** controls how hard it compresses (2:1 is gentle, 10:1+ is heavy limiting), **Attack** and **Release** shape the timing, and **Makeup** gain compensates for level reduction.
+The current development-build version (v2) has tempo-syncable Attack and Release controls:
 
-The **Sidechain** input lets you trigger compression from external sources - connect a kick drum here for that classic pumping EDM sound. **Lookahead** (0.001-0.005s) helps catch fast transients transparently.
+| Control | Range; default | Meaning |
+|---|---|---|
+| **Threshold** | 0–1; **0.5** | Linear amplitude at which gain reduction begins, not decibels. |
+| **Ratio** | 0.05–50; **1** | Compression ratio; 1 leaves the detected level unchanged. Values above 1 compress. |
+| **Attack** | Free 0–1 second; **0.001 seconds** | Response time when the level rises; time chooser. |
+| **Release** | Free 0–2 seconds; **0.05 seconds** | Recovery time when the level falls; time chooser. |
+| **Makeup** | 0–30; **0** | Post-compression multiplier is `1 + Makeup`, not a dB gain. |
+| **Lookahead** | 0.001–0.005 seconds; **0.001 seconds** | Delays the audio relative to detection to anticipate transients. This remains a seconds-based knob. |
 
-Try these settings: For vocals, use Threshold: 0.6, Ratio: 3:1, Attack: 0.003s, Release: 0.1s. For sidechain pumping, connect your kick to the sidechain input and try Ratio: 8:1 with fast Attack and slower Release around 0.2s.
+For tempo-related sidechain pumping, connect a rhythmic source to Sidechain and select a note value on Release. This sets the recovery duration at the current tempo; it does not quantize the incoming audio or force recovery to start on a grid point.
+
+**Compressor (old)** keeps its plain Attack and release knobs when loading older scores; those processes are not automatically migrated. The new control is spelled **Release** rather than the older **Relase**.
 
 ## Limiter {#limiter}
 
 ![Limiter]({{ site.img }}/reference/processes/limiter.png "Limiter Effect")
 
-A transparent brick-wall limiter that prevents clipping while maintaining musical character. Perfect for mastering chains or protecting your speakers from unexpected peaks.
+The **Limiter** is a lookahead, sample-peak limiter. Its **Audio** input is delayed and gain-reduced so that the absolute output sample value does not exceed **Threshold**. Take the result from **Output**. **Sidechain** is optional: its peaks can request additional attenuation, while the main signal remains included in peak detection.
 
-This uses soft limiting algorithms with hyperbolic tangent curves instead of harsh clipping. The **Threshold** (default 0.98) sets the maximum level, while **Lookahead** (0.001-0.005s) lets it anticipate peaks for smooth gain reduction.
+| Control | Range; default | Meaning |
+|---|---|---|
+| **Threshold** | 0–1; **0.98** | Output sample-peak ceiling in linear amplitude. |
+| **Makeup** | 0–30; **0** | Input drive multiplier `1 + Makeup`, before limiting; not a dB value. |
+| **Attack** | Free 0–1 second; **0.003 seconds** | Gain-ramp duration; time chooser in the current v2 process. |
+| **Release** | Free 0–2 seconds; **0.08 seconds** | Gain recovery duration; time chooser in v2. |
+| **Lookahead** | 0.001–0.005 seconds; **0.003 seconds** | Audio delay used to anticipate peaks; a seconds-based knob. |
 
-**Attack** should stay very fast (0.0001s) for transparent limiting, and **Release** (around 0.05-0.08s) controls how quickly it lets go. The **Makeup** gain boosts the signal before limiting - use it carefully.
+The effective Attack ramp cannot exceed the Lookahead duration plus one sample. Choosing a long note value for Attack therefore does not produce a beat-long ramp. Release is useful for tempo-related recovery through the [time chooser]({{ site.baseurl }}/reference/time-chooser.html).
 
-For master bus limiting, try Threshold: 0.95, Release: 0.05s, Lookahead: 0.003s with minimal Makeup gain.
+This is a sample-peak ceiling, not a claim of inter-sample true-peak protection or a substitute for safe monitoring levels. The current implementation uses peak-based gain reduction and a final ceiling clamp, not the previously described hyperbolic-tangent soft saturation.
+
+**Limiter (old)** remains loadable with its earlier plain timing controls and **Relase** spelling. It also uses the current peak-limiter engine; retaining a saved process identity does not mean every historical DSP implementation is frozen. To use the new timing controls, insert the current Limiter explicitly.
 
 ## Bitcrush {#bitcrush}
 

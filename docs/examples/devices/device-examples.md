@@ -14,4 +14,6 @@ permalink: /examples/devices
 
 These examples demonstrate how to connect and use various input/output devices in ossia score.
 
-ossia score supports a wide range of device protocols including OSC, MIDI, ArtNet, Gamepad, WebSocket, HTTP, and Serial.
+Start with [Gamepad control]({{ site.baseurl }}/examples/devices/gamepad.html). The [Devices reference]({{ site.baseurl }}/devices.html) lists setup guides for network control, MIDI, hardware and video I/O.
+
+The reference includes more protocols than these downloadable examples cover. Check [Supported protocols and formats]({{ site.baseurl }}/reference/protocols-and-formats.html) for build, platform and external-library requirements.

@@ -11,8 +11,6 @@ permalink: /processes/poles.html
 ---
 # Poles
 
-![Poles]({{ site.img }}/reference/processes/poles.png "Poles") 
-
 The Poles process generates smooth Gaussian curve distributions centered around adjustable positions. Perfect for creating natural-feeling transitions, smooth value distributions, and organic control curves in interactive systems.
 
 ## Parameters

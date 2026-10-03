@@ -14,9 +14,7 @@ permalink: /processes/csv-recorder.html
 
 ![CSV Recorder]({{ site.img }}/reference/processes/csv-recorder.png "CSV recorder Example")
 
-This process allows to record a set of addresses matching an [[Pattern matching|address pattern]] expression.
-
-It will create a CSV file containing the recorded data, one row per address matched by the pattern.
+The **CSV** process records and replays device parameters matching an [[Pattern matching|address pattern]] expression. Each matched address becomes a column; each sampling time becomes a row.
 
 For instance, in the screenshot above, the following configuration would recreate a CSV file on each playback of the score called `/tmp/save.csv` with content such as :
 
@@ -35,8 +33,14 @@ timestamp,/0/co2,/1/co2,/2/co2
 639,0.65690416,0.42720786,0.7897841
 ```
 
-with a row of data saved every 0.05 seconds (50 milliseconds).
+## Controls and replay
 
-For archiving purposes, it is possible to use the `%t` macro in the filename which will be replaced by the date of recording in the filename.
+**Interval** sets the sampling interval with a [Time Chooser]({{ site.baseurl }}/reference/time-chooser.html). The recording samples current parameter values at that interval; it is not a log of every intervening message. **Timestamped** uses the first column for timestamps in milliseconds. **Mode** selects recording, Playback or Loop. During playback, column addresses must resolve to parameters in the current device tree.
 
-Given an existing CSV file, `Playback` or `Loop` mode will play the content back.
+**Separator** selects comma, semicolon or pipe. The comma option is currently labelled **Colon** in the control, despite writing `,`. Strings containing separators or quotes are escaped, and the player reads quoted strings and pipe-separated data back. Match the separator to the file when importing.
+
+## Filenames and takes
+
+**File pattern** accepts `%t`, replaced by the current UTC date/time with colons changed to underscores, and `%n`, replaced by an available number in the resolved destination directory. A path ending in `capture-%n.csv` keeps separate takes; a fixed filename can be overwritten when recording starts again.
+
+For playback, select the actual recorded filename rather than a template that generates a new name. Keep the destination directory writable and the recorded device addresses available for replay. For audio rather than device values, use [Audio recorder]({{ site.baseurl }}/processes/audio-recorder.html).

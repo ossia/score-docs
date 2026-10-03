@@ -11,8 +11,6 @@ permalink: /processes/patternal.html
 ---
 # Patternal
 
-![Patternal]({{ site.img }}/reference/processes/patternal.png "Patternal")
-
 Turn rhythmic patterns into MIDI drums and percussion. Feed it arrays of velocities and it spits out perfectly timed MIDI notes - think of it as your digital drum machine that synchronizes to *score*'s musical timing.
 
 Perfect for drum programming, rhythmic experimentation, or any situation where you want to convert pattern data into MIDI percussion tracks.

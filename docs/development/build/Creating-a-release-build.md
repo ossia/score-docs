@@ -10,236 +10,75 @@ grand_parent: Development
 permalink: /development/build/release.html
 ---
 
-# Build
+# Building a release
 
-This page describes how to build score on various operating systems.
+These instructions describe the current source tree. Use the scripts from the tag you are building: a development checkout can require newer dependencies than the latest published release. Distribution maintainers should use [Packaging]({{ site.baseurl }}/development/build/packaging.html); for frequent code changes, use [Hacking]({{ site.baseurl }}/development/build/hacking.html).
 
-**Dear packagers: here are specific build instructions to make packages for Linux/BSD/... : [Packaging score for Linux]({{ site.baseurl }}/development/build/packaging.html)**.
-
-
-## Dependencies
-To build, you will need the following dependencies (commands for downloading everything automatically are given below):
- * [Qt 6](http://www.qt.io/) (>= 6.4)
- * [CMake](https://cmake.org/) (>= 3.26)
- * [Boost](http://www.boost.org/) (automatically downloaded)
- * (optional) [FFMPEG](http://www.ffmpeg.org) (>= 5.x)
- * A **recursive** clone of the score repository : `git clone --recursive https://github.com/ossia/score`.
-
-The easiest way to get most dependencies in a prebuilt form is by [downloading our SDK for your platform](https://github.com/ossia/sdk/releases).
-
-**Important:** do not use the source releases produced by GitHub :
-they do not have the submodules and compiling with them won't work.
-
-Your compiler need to be recent; supported compilers are:
-* gcc >= 12
-* clang >= 14
-* Xcode >= 14
-* Visual Studio 2022 17.6.2 (*exactly* this version due to many bugs in other versions of the compiler)
-
-## Debian-like systems
-
-### Ubuntu, Debian
-
-#### Dependencies
+## Source and dependencies
 
 ```bash
-sudo apt-get update -qq
-sudo apt-get install wget software-properties-common
-
-wget -nv https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Linux-x86_64.tar.gz -O cmake-linux.tgz
-tar xaf cmake-linux.tgz
-rm cmake-linux.tgz
-mv cmake* /opt/
-
-echo 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-9 main' | sudo tee /etc/apt/sources.list.d/llvm.list
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 1397BC53640DB551
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 15CF4D18AF4F7421
-
-sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-sudo add-apt-repository --yes ppa:beineri/opt-qt-5.13.2-bionic
-
-sudo apt-get update -qq
-sudo apt-get install -qq --force-yes \
-    g++-9 binutils libasound-dev ninja-build \
-    gcovr lcov \
-    qt513-meta-minimal qt513svg qt513quickcontrols2 qt513websockets qt513serialport \
-    qt513base qt513declarative \
-    libgl1-mesa-dev \
-    libavcodec-dev libavutil-dev libavfilter-dev libavformat-dev libswresample-dev \
-    portaudio19-dev clang-9 lld-9 \
-    libbluetooth-dev \
-    libsdl2-dev libsdl2-2.0-0 libglu1-mesa-dev libglu1-mesa \
-    libgles2-mesa-dev \
-    libavahi-compat-libdnssd-dev
+git clone --recursive https://github.com/ossia/score
+cd score
 ```
 
-#### Build
+After switching tags or branches, run `git submodule update --init --recursive`. GitHub's automatically generated “Source code” archives omit submodules. Use a recursive clone or the separately uploaded `ossia.score-…-src.tar.xz` release asset.
 
-    mkdir -p build_folder
-    cd build_folder
-    /opt/cmake-3.19.1-Linux-x86_64/bin/cmake path/to/score \
-      -DCMAKE_C_COMPILER=/usr/bin/gcc-9 \
-      -DCMAKE_CXX_COMPILER=/usr/bin/g++-9 \
-      -DCMAKE_PREFIX_PATH=/opt/qt513 \
-      -DCMAKE_BUILD_TYPE=release \
-      -DPORTAUDIO_ONLY_DYNAMIC=1
-    make all_unity # you can add -j$(nproc) to make it faster
+The current build requests **C++23** and **CMake 3.25 or newer**. Use a recent compiler and its matching standard library, preferably the toolchain selected by the platform's CI recipe rather than the old GCC 9 / Qt 5 instructions.
 
-NOTE : if you have installed Qt with Qt installer instead of your distro package manager, then you may need to specify where CMake should look for Qt with, for example :
+- **Qt 6**: Core, Widgets, Gui, Network, Xml, StateMachine, OpenGL, OpenGLWidgets, Qml, Quick, QmlModels and ShaderTools are required. Private development headers and optional modules enable additional features. The top-level CMake check accepts Qt 6.2; this is not a promise that every optional graphics feature works with that version. Follow the dependency recipe for the checkout and platform.
+- **Boost and vendored libraries**: initialize the submodules and let CMake use the versions selected by the source tree, or deliberately choose the system-library configuration when packaging.
+- **FFmpeg, audio backends, device and plug-in libraries**: required for their respective media capabilities. A successful minimal build is not necessarily equivalent to an official release.
+- **C++ JIT**: requires LLVM 20 or newer and compatible Clang development libraries. Missing dependencies cause the JIT plug-in to be skipped. Faust additionally needs libfaust built against a compatible LLVM.
 
-    cmake -GNinja -DCMAKE_PREFIX_PATH=~/Qt/5.13.2/gcc_64 ../score/
+The authoritative requirements are [CMakeLists.txt](https://github.com/ossia/score/blob/master/CMakeLists.txt), [the CI dependency scripts](https://github.com/ossia/score/tree/master/ci), and the configure summary.
 
-### Run
+## Linux: system dependencies
 
-    ./score
+Use the dependency script for the distribution you actually run. In particular, Ubuntu 26.04 uses [ubuntu.2604.deps.sh](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.deps.sh), not the Ubuntu 24.04 package list. Its Qt WebSockets, SerialPort and ShaderTools packages are named `qt6-websockets-dev`, `qt6-serialport-dev` and `qt6-shadertools-dev`.
 
-### Raspberry Pi
+The simplest dependency setup is the [developer script]({{ site.baseurl }}/development/build/hacking.html), which also makes a debug build. For a release build using those installed dependencies, configure a **separate** directory:
 
-#### Dependencies
-
-First edit `/etc/apt/sources.list`.
-
-Replace :
-
-    deb http://archive.raspbian.org/raspbian jessie main
-
-By :
-
-    deb http://archive.raspbian.org/raspbian stretch main
-
-Then :
-
-    sudo apt -y install git cmake wget ninja-build libqt5websockets5-dev qtbase5-dev qtdeclarative5-dev qt5-default qtbase5-dev-tools qttools5-dev libqt5svg5-dev g++-7 libportmidi0 libasound-dev mesa-common-dev libboost-dev libavahi-compat-libdnssd-dev
-
-#### Build
-
-    mkdir -p build_folder
-    cd build_folder
-    cmake -GNinja -DCMAKE_C_COMPILER=/usr/bin/gcc-7 -DCMAKE_CXX_COMPILER=/usr/bin/g++-7 path/to/score
-    ninja
-
-### Run :
-
-    $ ./score
-
-## macOS :
-
-There is a build.sh script at the root of the repository, it requires [Homebrew](http://brew.sh/)
-
-So either :
-
-    ./build.sh
-    open build/score.app
-
-Or
-
-    ./build.sh release
-    open build-release/score.app
-
-
-
-## Build on Windows with Clang
-
-- Download and extract the latest MinGW SDK here : https://github.com/ossia/sdk/releases/tag/sdk16
-in `c:\score-sdk` (so you should have a `c:\score-sdk\llvm\` folder for instance).
-
-- Install dependencies: CMake and ninja.
-
-With chocolatey:
-
-    cinst -y cmake ninja
-
-- Build from a cmd shell (note: this will take 10-15 minutes on a good machine)
-
-```
-mkdir build
-cd build
-
-set PATH=%PATH%;c:\score-sdk\llvm\bin
-cmake -GNinja c:/path/to/score ^
-  -DCMAKE_C_COMPILER=c:/score-sdk/llvm/bin/clang.exe ^
-  -DCMAKE_CXX_COMPILER=c:/score-sdk/llvm/bin/clang++.exe ^
-  -DCMAKE_BUILD_TYPE=Release ^
-  -DOSSIA_SDK=c:\score-sdk ^
-  -DCMAKE_INSTALL_PREFIX=release ^
-  -DCMAKE_PREFIX_PATH="c:/score-sdk/qt5-static;c:/score-sdk/llvm-libs;c:/score-sdk/SDL2;c:/score-sdk" ^
-  -DCMAKE_UNITY_BUILD=1 ^
-  -DOSSIA_STATIC_EXPORT=1 ^
-  -DSCORE_INSTALL_HEADERS=1 ^
-  -DDEPLOYMENT_BUILD=1
-
-cmake --build .
-cmake --build . --target package
+```bash
+cmake -S . -B build-release -GNinja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_UNITY_BUILD=ON
+cmake --build build-release --parallel
+./build-release/ossia-score
 ```
 
-This will create an installer for the latest version.
-Alternatively, replace `cmake --build . --target package` by `cmake --build . --target install` to install the executable directly in the
-`release` subfolder of your build folder.
+This produces a local executable, not a portable AppImage. Use [appimage.build.sh](https://github.com/ossia/score/blob/master/ci/appimage.build.sh) and its matching dependencies/deployment scripts for the official packaging configuration. Read those scripts before running them: they assume a packaging environment and may recreate build directories.
 
-## Build on Windows with MSVC (currently broken !)
+## Matching the official SDK
 
-This requires at least Visual Studio 2017 15.9.6, freely available from Microsoft's website.
+There are two different SDKs:
 
-First, install the dependencies with the mechanism of your choice.
+- **`OSSIA_SDK`**: compilers and third-party dependencies, published in [ossia/score-sdk](https://github.com/ossia/score-sdk/releases).
+- **`SCORE_SDK`**: score headers and build support exported by a particular score build, used for [external add-ons]({{ site.baseurl }}/development/plugins/plugins-with-avendish.html).
 
-Then, on a command shell, run :
+Select the dependency SDK used by the checkout's CI scripts. [tools/fetch-sdk.sh](https://github.com/ossia/score/blob/master/tools/fetch-sdk.sh) accepts the SDK tag as its first argument; its default is a pinned tag, **not a lookup of the newest release**, and can lag behind the CI recipes. Check the script's extraction paths and required tools before running it. Never mix an arbitrary score header SDK with a different application build.
+
+For a Linux SDK extracted to `/opt/ossia-sdk-x86_64`, a local release configuration is:
+
+```bash
+cmake -S . -B build-sdk -GNinja \
+  -DOSSIA_SDK=/opt/ossia-sdk-x86_64 \
+  -DCMAKE_C_COMPILER=/opt/ossia-sdk-x86_64/llvm/bin/clang \
+  -DCMAKE_CXX_COMPILER=/opt/ossia-sdk-x86_64/llvm/bin/clang++ \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DSCORE_DYNAMIC_PLUGINS=OFF
+cmake --build build-sdk --parallel
 ```
-mkdir score-build
-cd score-build
-cmake -T host=x64 -A x64 ../score -DCMAKE_BUILD_TYPE=release -DCMAKE_PREFIX_PATH=path/to/Qt5Config.cmake
-cmake --build . --target package
-```
 
-The relevant folders are :
-* For boost : the path to the folder contained in the archive downloaded, for instance c:\Libraries\boost_1_63_0 ; it should contain `boost`, `libs`, `doc` subfolders. e.g. `-DBOOST_ROOT=c:/Libraries/boost_1_63_0`.
-* For Qt : the path to the `Qt5Config.cmake`, e.g. `-DCMAKE_PREFIX_PATH=c:/Libraries/Qt/5.7/msvc2015/lib/cmake/Qt5`.
+Use the appropriate architecture directory rather than copying the x86_64 path to an ARM machine. Keep SDK headers and libraries together; mixing them with system Qt, FFmpeg or LLVM can compile successfully and still fail at run time.
 
-This creates an installable package, install it and run score from your desktop. Else you have to copy the Qt DLLs and plug-ins to the folder where `score.exe` was built.
+## Windows
 
+For development with system packages, use an **MSYS2 CLANG64** shell and `tools/developer.sh`. Official SDK builds use the LLVM/MinGW toolchain, not an interchangeable MSVC SDK. Put the selected SDK's `llvm/bin` first on `PATH` and follow [win32.build.sh](https://github.com/ossia/score/blob/master/ci/win32.build.sh) with [win32.deps.sh](https://github.com/ossia/score/blob/master/ci/win32.deps.sh).
 
-## Android
+The current Windows target is Windows 10 or newer. CI has separate x86_64 and ARM64 builds; use the matching SDK and binaries. The fetch script's Windows branch is x86_64-specific, so it is not an ARM64 installation recipe. Visual Studio builds have their own [CI recipe](https://github.com/ossia/score/blob/master/ci/win32.msvc.build.cmd); do not reuse obsolete instructions pinned to Visual Studio 2022 17.6.2.
 
-Clone qt5 from git :
+## macOS
 
-    git clone https://github.com/qt/qt5
-    cd qt5
-    git submodule update --init --recursive
+Choose either a Homebrew build (`tools/developer.sh`) or a matching ossia SDK, not a mixture of both. SDK builds use Xcode and an architecture-specific `/opt/ossia-sdk-aarch64` or `/opt/ossia-sdk-x86_64` directory. Both architectures have [CI build jobs](https://github.com/ossia/score/blob/master/.github/workflows/mac-builds.yaml).
 
-Apply the following patch : https://bugreports.qt.io/browse/QTBUG-60455
-if it has not been merged, in the folder qt5/qtbase :
-
-    cd qt5/qtbase
-    git-apply 0001-Android-....patch
-
-Also add `#include <QtMath>` in `qtbase/src/plugins/platforms/android/androidjniinput.cpp`.
-
-Configure and build Qt5 :
-
-    ../qt5/configure -opensource -confirm-license -xplatform 'android-clang-libc++' -nomake tests -nomake examples -android-ndk /opt/android-ndk-r15b -android-sdk /opt/android/sdk -android-arch armeabi-v7a -no-warnings-are-errors -opengl es2 -opengles3 -android-ndk-platform android-22 -prefix /opt/qt-android
-
-    make -j8
-    make install
-
-Build the player library :
-
-    cd ~/build
-    cmake ~/score -DCMAKE_TOOLCHAIN_FILE=~/score/API/CMake/android_toolchain.cmake -DCMAKE_PREFIX_PATH=/opt/qt-android/lib/cmake/Qt5  -DISCORE_CONFIGURATION=android-debug -DISCORE_PLAYER=1 -Wno-dev -DOSSIA_PROTOCOL_MIDI=0
-
-Put the library in the correct folder :
-
-    mkdir -p /opt/qt-android/qml/Ossia/
-    ln -s ~/score/API/ossia/ossia-qml/Ossia/*.qml  /opt/qt-android/qml/Ossia/
-    cp ~/score/API/ossia/ossia-qml/Ossia/qmldir  /opt/qt-android/qml/Ossia/
-    ln -s ~/build/libiscore_player_plugin.so /opt/qt-android/qml/Ossia/
-
-Change the name of the library in the qmldir (iscore_player_plugin instead of ossia)
-
-To run with QtCreator, add the following library in the android build :
-
-    /opt/android-ndk-r14b/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/libc++_shared.so
-
-(adapt the architecture, paths, etc... for your phone / tablet)
-
-## Sanitization
-
-    clang-tidy -p ~/iscore-tidy/compile_commands.json  base/**/*.cpp --header-filter=base/
+The current [packaging script](https://github.com/ossia/score/blob/master/ci/osx.package.build.sh) selects the `macos-release-12.0` configuration. That deployment target is not a guarantee that all bundled SDK libraries run on macOS 12: use the [published installation requirements]({{ site.baseurl }}/quick-start/installation.html) for downloaded applications. Code signing and notarization are separate packaging steps, not prerequisites for a local development build.

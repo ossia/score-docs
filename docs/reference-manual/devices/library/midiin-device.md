@@ -12,13 +12,15 @@ permalink: /devices/midiin-device.html
 
 # MIDI input device
 
-To setup a device using Midi input, select `Midi input` in the Protocols column of the `Add device` window.
+To receive MIDI, select **MIDI Input** in the Protocols column of the **Add device** window.
 
 ![Device setup window]({{ site.img }}/reference/devices/midiin-device.png "score device setup")
 
-In the `Devices` middle column, you can select your desired Midi input device.
-
-> If you plugged in your Midi controller after launching *score*, you may need to restart *score* so your controller appears in the Devices column.
+In the **Devices** column, select the desired input. Current development builds
+separate hardware, software and network inputs and include **Default MIDI In**.
+The default selector resolves to the first available input reported by the backend;
+it is not a guarantee that a particular keyboard will be selected. Choose a named
+port for a performance setup.
 
 Optionally, you can set a custom name (or use the default one).
 
@@ -26,7 +28,10 @@ On platform that support it (macOS and Linux), you can create a virtual MIDI dev
 
 ## Create whole tree option
 
-Under the name of your Midi input device, you can toggle on the `Create whole tree` option. This option will create all possible Midi messages as parameters of the device as illustrated below. Addresses in the namespace will be created using the following format:
+The **Create whole tree** setting creates the complete MIDI namespace where available.
+In the current input settings widget this checkbox is disabled for editing; use
+**Learn** to build the namespace interactively. A whole-tree namespace uses addresses
+of the following form:
 
 	<device name>/<channel number>/<message type>/message number>
 
@@ -45,3 +50,23 @@ This opens *score*  Midi learn window. From then, *score* will monitor any incom
 When you are done sending the needed Midi message, click `Done` on the Midi learn window.
 
 All received Midi messages should now appear under your Midi input device name in the `Device explorer`.
+
+## Note-on with zero velocity
+
+**Velocity = 0 -> Note Off** interprets incoming zero-velocity note-on messages as
+note-offs. It is off by default in newly created settings. Enable it for a controller
+that uses this MIDI convention, particularly when driving note-lifetime tracking.
+This is an input policy, separate from the output device's inverse conversion and
+the [MIDI Filter]({{ site.baseurl }}/processes/midi-filter.html) controls.
+
+## Reopening on another machine
+
+Saved MIDI ports are matched against available ports when reopening a document,
+including name-based recovery when backend identifiers change. A missing backend
+or device can still leave the connection unavailable: edit the device and select
+the actual input instead of assuming the saved mapping is portable.
+
+For named controls from a manufacturer/model description, use
+[MIDI Controller]({{ site.baseurl }}/devices/midi-controller-device.html)
+rather than this raw MIDI Input protocol. Device maps describe controls; they do
+not install a driver or make an absent hardware port available.

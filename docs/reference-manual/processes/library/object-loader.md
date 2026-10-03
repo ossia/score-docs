@@ -2,74 +2,65 @@
 layout: default
 
 title: Object loader
-description: "Loader 3D geometry files (OBJ, PLY)"
+description: "Load mesh geometry files"
 
 parent: Processes
 grand_parent: Reference
 
 permalink: /processes/object-loader.html
-score: /reference/processes/3d.zip
 ---
 
-# Object loader
+# Object Loader
 
 ![Object loader]({{ site.img }}/reference/processes/object-filter.png "Object loader")
 
-Ossia score provides comprehensive support for loading and processing 3D mesh data through the **Object Loader** process, supporting both traditional mesh formats and point cloud data.
+This page covers the process historically called Object Loader. In current development builds its library name is **Geometry Loader**. It loads mesh files and outputs geometry for *score*'s graphics pipeline. Use it for direct mesh / point-cloud workflows with [[Model display]], [[Render Pipeline]], [[Compute Shaders]] or geometry utilities.
 
-The Object Loader process loads 3D geometry from external files and makes it available for rendering in ossia score's graphics pipeline.
+For full 3D scene files with materials, lights, animation, skinning, and hierarchy, use [[Asset Loader]] when available.
 
-### Supported Formats
+## Supported formats
 
-#### OBJ Files (.obj)
-- Complete Wavefront OBJ specification support
-- Vertex positions, normals, color, texture coordinates
-- Multi-geometry support
+The geometry loader supports:
 
-#### PLY Files (.ply)
-- Stanford PLY format support
-- Point cloud data with positions and colors
-- Mesh data with connectivity information
-- Binary and ASCII PLY formats
-- Vertex properties: position, normal, color, texture coordinates
+| Format | Notes |
+|---|---|
+| `.obj` | Wavefront OBJ through tinyobjloader. Positions, normals, colors, texture coordinates, multiple mesh parts. |
+| `.ply` | PLY through miniply. Meshes and point clouds, common point attributes and aliases such as intensity / confidence. |
+| `.stl` | STL through vcglib. Triangle meshes with generated normals. |
+| `.off` | OFF through vcglib. Meshes with optional colors. |
 
-### Parameters
+Loaded meshes are converted to *score* geometry buffers with standard semantics such as position, normal, color, and texture coordinate.
 
-#### 3D File
-**Type**: File input  
-**Supported Extensions**: `*.obj`, `*.ply`
+## Parameters
 
-Select the 3D file to load. The process will automatically detect the format and parse the geometry data accordingly.
+| Parameter | Type | Description |
+|---|---|---|
+| 3D File | File input | Select the mesh file. |
+| Position | 3D vector | Translation applied to the loaded geometry. |
+| Rotation | 3D vector | Euler rotation in degrees. |
+| Scale | 3D vector | Per-axis scale. |
 
-#### Position
-**Type**: 3D Vector (X, Y, Z)  
-**Default**: (0, 0, 0)
+The output is a dynamic geometry collection that can be rendered directly or modified by CSF geometry filters.
 
-Sets the world position of the loaded mesh in 3D space.
+## Usage
 
-#### Rotation
-**Type**: 3D Vector (X, Y, Z) - Euler angles  
-**Default**: (0, 0, 0)
+```text
+[Object Loader] -> [Model Display] -> [Window]
+[Object Loader] -> [Compute Shader geometry filter] -> [Render Pipeline]
+```
 
-Sets the rotation of the loaded mesh around each axis in degrees.
+## Object Loader vs Asset Loader
 
-#### Scale
-**Type**: 3D Vector (X, Y, Z)  
-**Default**: (1, 1, 1)
+| Process | Use it for |
+|---|---|
+| Object Loader | Simple mesh / point-cloud files; direct geometry output; shader experiments. |
+| Asset Loader | glTF / GLB / FBX / scene assets; materials; textures; lights; animation; scene graph workflows. |
 
-Sets the scale factor for the mesh along each axis.
-
-### Output
-
-#### Geometry
-**Type**: Dynamic 3D geometry collection  
-
+For MagicaVoxel `.vox` files use **Voxel loader**, documented in [[Mesh generators and splats]]. To give ordinary geometry a PBR material and enter the native scene workflow, connect it to **PBR Mesh**; see [[Instancing and materials]] and [[3D scene pipeline]].
 
 ## Related Processes
 
-- [Model Display]({{ site.baseurl }}/processes/model-display.html) - Displays a 3D model
-- [Structure Synth]({{ site.baseurl }}/processes/structure-synth.html) - Generative procedural geometry
-
-## Try it!
-
-Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+- [[Model Display]]: Quick geometry rendering.
+- [[Render Pipeline]]: Custom rendering of loaded geometry.
+- [[Compute Shaders]]: Geometry generation and filtering.
+- [[Structure Synth]]: Procedural geometry.
