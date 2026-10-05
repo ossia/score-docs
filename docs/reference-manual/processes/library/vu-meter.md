@@ -13,8 +13,7 @@ permalink: /processes/vu-meter.html
 # VU Meter
 
 **VU Meter**, in **Monitoring**, displays the level of each channel of an audio
-bus, with peak, RMS and peak-hold indications. It is available in current
-development builds.
+bus, with peak, RMS and peak-hold indications.
 
 ## Connections
 

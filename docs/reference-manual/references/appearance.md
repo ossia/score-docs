@@ -11,7 +11,7 @@ permalink: /reference/appearance.html
 
 # Appearance and skins
 
-The current development version provides a live skin editor in **Preferences → User interface → Skin**. Older releases may have fewer presets or controls. A skin changes the editor's appearance, not the colours of your video output.
+The live skin editor is in **Preferences → User interface → Skin**. A skin changes the editor's appearance, not the colours of your video output.
 
 ## Choose and combine skins
 

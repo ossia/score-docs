@@ -88,7 +88,7 @@ They will produce binaries optimized for Pi 4, and that will also work on Pi 3.
 
 ## Arch Linux ARM
 
-Experimental builds have been confirmed to work on Arch Linux ARM. The simplest is to use the AUR package `ossia-score`.
+Builds have been confirmed to work on Arch Linux ARM. The simplest is to use the AUR package `ossia-score`.
 
 ## Caveats
 

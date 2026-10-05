@@ -16,7 +16,7 @@ Use a recursive checkout or the project's uploaded source tarball, not GitHub's 
 
 ## Vendored or system libraries
 
-By default, score uses its selected dependency versions where appropriate. This avoids mismatches with libraries whose APIs or behavior differ between distributions. Current builds also support an explicit system-library configuration with `SCORE_USE_SYSTEM_LIBRARIES=ON` (which enables the corresponding libossia option). Optional dependencies can fall back to vendored copies; inspect the configure output rather than assuming every dependency came from the system.
+By default, score uses its selected dependency versions where appropriate. This avoids mismatches with libraries whose APIs or behavior differ between distributions. score also supports an explicit system-library configuration with `SCORE_USE_SYSTEM_LIBRARIES=ON` (which enables the corresponding libossia option). Optional dependencies can fall back to vendored copies; inspect the configure output rather than assuming every dependency came from the system.
 
 See [ScoreConfiguration.cmake](https://github.com/ossia/score/blob/master/cmake/ScoreConfiguration.cmake) and the [Debian system-library recipe](https://github.com/ossia/score/blob/master/ci/debian.trixie-system.build.sh). Package managers should record the enabled feature set: omitting LLVM/Clang, Faust, FFmpeg or a device SDK can remove user-visible functionality without preventing a build.
 
@@ -39,7 +39,7 @@ DESTDIR=/path/to/package-root cmake --install build-package \
 
 `OssiaScore` installs the application component rather than all development headers from score and its dependencies. Exported add-on headers belong to the separate `Devel` component. Add `SCORE_USE_SYSTEM_LIBRARIES=ON` when required by distribution policy; the example above otherwise retains the default dependency selection.
 
-For CPack-generated packages, use the matching distribution recipe and its staging settings rather than treating the command above as a universal binary package. Ubuntu 26.04 has dedicated [dependency](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.deps.sh), [build](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.build.sh) and [deployment](https://github.com/ossia/score/blob/master/ci/ubuntu.2604.deploy.sh) scripts.
+For CPack-generated packages, use your distribution's dependency, build and deployment scripts. See the [distribution table]({{ site.baseurl }}/development/build/hacking.html#distribution-scripts) and [CI recipes](https://github.com/ossia/score/tree/master/ci).
 
 ## Reference recipes
 

@@ -18,16 +18,15 @@ Select a package, read its description and external project link, and install it
 **Filter by kind** shows the kinds present in the selected tab, not a fixed list of
 features guaranteed to exist in every build.
 
-The details below describe current development builds. Availability depends on the
-score build, operating system, architecture and package catalogue.
+Availability depends on the score build, operating system, architecture and package catalogue.
 
 ## Package types
 
 | Kind | Purpose |
 |---|---|
 | Library/content packages | Presets, scripts, shaders, media and other reusable files. These do not necessarily add a new native process. |
-| `addon` | Source add-ons that a build with the runtime C++ compiler can compile and register. Downloading is not proof that compilation succeeded. |
-| `nodes` | Node-source packages, downloaded through the add-on installation path. Their contents still need a supported node loader; this is not a promise that every node package is automatically registered. |
+| `addon` | Source add-ons compiled and registered by score's runtime C++ compiler. |
+| `nodes` | Node-source packages installed through the add-on path; require a compatible node loader. |
 | `sdk` | Headers and runtime-compilation support matching the running score release and architecture. Not needed just to use ordinary media or presets. |
 | `support` | Native libraries needed by other extensions. Installing support files alone does not create a process or device. |
 | `ai-models` | Model data for compatible machine-learning processes; the process add-on and its inference runtime are separate requirements. |
@@ -72,8 +71,7 @@ score version and platform.
 ## Runtime add-ons and native dependencies
 
 Runtime compilation requires a score build with the JIT C++ plug-in and a compatible
-SDK. The package manager obtains the SDK for the running release and architecture;
-an unpublished development build may not have a corresponding downloadable SDK.
+SDK. The package manager downloads the SDK matching the running release and architecture when a corresponding SDK archive is published.
 Add-on installation starts compilation where supported. Check the message console
 for compilation or loading errors if no new process appears.
 

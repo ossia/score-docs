@@ -23,7 +23,7 @@ Drag the bars to set step values. In the inspector, **Count** sets the number of
 steps in the selected sequence, while **Min** and **Max** set the output range.
 The pattern repeats while its containing interval executes.
 
-Current development builds store several sequences in one process. **Sequence**
+The process stores several sequences. **Sequence**
 is a zero-based selector: selecting a new index in the editor creates additional
 sequences, initially filled with midpoint values. Each sequence retains its own
 step count. Prepare these sequences before automating their selection; runtime

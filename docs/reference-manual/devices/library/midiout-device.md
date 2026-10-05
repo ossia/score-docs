@@ -16,8 +16,8 @@ To send MIDI, select **MIDI Output** in the Protocols column of the **Add device
 
 ![Device setup window]({{ site.img }}/reference/devices/midiout/midiout-device.png "score device setup")
 
-In the **Devices** column, select the desired output. Current development builds
-group hardware, software and network outputs and offer **Default MIDI Out**.
+In the **Devices** column, select the desired output. The list
+groups hardware, software and network outputs and offers **Default MIDI Out**.
 The default selector chooses the first available output reported by the backend,
 not a guaranteed synthesizer. Select a named port when the destination matters.
 

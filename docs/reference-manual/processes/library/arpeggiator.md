@@ -13,7 +13,7 @@ permalink: /processes/arpeggiator.html
 
 The **Arpeggiator** takes held notes at its MIDI **in** port and produces a repeating note pattern at MIDI **out**. Connect a MIDI keyboard or MIDI-generating process to the input and a synthesizer to the output. Release the input notes to remove them from the pattern.
 
-This page describes the current development-build version (v2), whose **Rate** uses the [time chooser]({{ site.baseurl }}/reference/time-chooser.html).
+This page describes version 2, whose **Rate** uses the [time chooser]({{ site.baseurl }}/reference/time-chooser.html).
 
 ## Controls
 

@@ -31,7 +31,7 @@ Both applications need to support the Minuit protocol for full bidirectional com
 
 ## How Minuit works
 
-Minuit builds on [[OSC]] but adds automatic tree discovery and rich metadata exchange. Instead of manually creating parameter addresses, Minuit lets applications announce their entire parameter structure and automatically stay synchronized.
+Minuit builds on [[OSC device|OSC]] and adds automatic device-tree discovery and metadata exchange.
 
 **Tree discovery** - Applications broadcast their parameter hierarchies
 **Metadata exchange** - Share parameter types, ranges, units, and descriptions
@@ -90,7 +90,7 @@ Minuit handles rich parameter information beyond simple values:
 
 **Automatic setup**: No need to manually create parameter addresses or configure complex routing - Minuit handles discovery automatically.
 
-**Rich metadata**: Unlike plain [[OSC]], you get parameter types, ranges, and descriptions, making integration much more robust.
+Rich metadata: Unlike plain [[OSC device|OSC]], Minuit exchanges parameter types, ranges and descriptions.
 
 **Bidirectional control**: Both applications can control each other's parameters, enabling true collaborative workflows.
 

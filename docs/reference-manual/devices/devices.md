@@ -19,7 +19,7 @@ Devices connect the timeline and processes to external parameters and media stre
 
 {% include devices-table.md %}
 
-Current development builds add further media and hardware backends; this table is not a guarantee that every entry is present in an older release. See [Supported protocols and formats]({{ site.baseurl }}/reference/protocols-and-formats.html) for platform and format constraints.
+See [Supported protocols and formats]({{ site.baseurl }}/reference/protocols-and-formats.html) for platform and format requirements.
 
 ### Availability references
 

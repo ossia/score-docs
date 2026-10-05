@@ -63,6 +63,8 @@ each element of the input array and lay them out one by one, that is given three
 this object will output `[ R G B R G B R G B R G B ]`.
 3. The [[Array utilities|Array tool]] object can be used as a processing step, for instance to easily adjust gain and brightness, add padding to each of the arrays or individual arrays.
 
+For a complete patch, see [Generate LED arrays with expressions]({{ site.baseurl }}/common-practices/led-design/led-with-arrays.html).
+
 
 ## Combining multiple LED strips in one array
 
@@ -73,3 +75,5 @@ this object will output `[ R G B R G B R G B R G B ]`.
 Here again the [[Array utilities|Array tool]] and [[Array utilities|Array combiner]] can be used.
 
 For instance one can pipe the output of each shader to an Array Tool in order to add pre- or post- padding if necessary, or directly to an Array Combiner in Append mode to put each input one after each other.  
+
+See [Combine shader LED arrays]({{ site.baseurl }}/common-practices/led-design/led-combination.html) for a downloadable patch and its routing.

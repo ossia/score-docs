@@ -13,7 +13,7 @@ permalink: /devices/gphoto-device.html
 
 ## Availability
 
-This describes the current development implementation in the graphics plug-in. It is registered in native builds, not the WebAssembly build. The integration dynamically loads **libgphoto2** and **libgphoto2_port**: the device entry alone does not establish that these libraries or a compatible camera driver are installed.
+This device is registered by the graphics plug-in in native builds, not the WebAssembly build. The integration dynamically loads **libgphoto2** and **libgphoto2_port**: the device entry alone does not establish that these libraries or a compatible camera driver are installed.
 
 The loader has Linux, macOS and Windows library-name branches. Actual camera support, USB access and live-view capability depend on the installed libgphoto2 distribution and camera; this is not a guarantee that every supported still camera can provide a live preview on every platform. Close other applications holding the camera before connecting it to score.
 

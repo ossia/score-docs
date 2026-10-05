@@ -14,9 +14,9 @@ permalink: /devices/libmapper-device.html
 
 ## Availability
 
-This is an integration reference, not a claim of working support in every installer. The protocol is compiled and registered only when `OSSIA_PROTOCOL_LIBMAPPER` is enabled and the `mapper` dependency is linked.
+Compilation and registration require `OSSIA_PROTOCOL_LIBMAPPER` and the linked `mapper` dependency.
 
-The audited development snapshot also contains an interface mismatch: its factory header declares `getEnumerators`, while the implementation still defines `getEnumerator`. Consequently, the presence of these files or their conditional registration is not proof that a libmapper-enabled build works. A compatible implementation and a verified enabled build are prerequisites before relying on this device. No libmapper runtime session was exercised for this documentation.
+The integration has an interface mismatch: its factory header declares `getEnumerators`, while the implementation defines `getEnumerator`. This mismatch must be resolved for a libmapper-enabled build to work; enabling the build option alone is insufficient.
 
 ## Intended device model
 

@@ -46,6 +46,10 @@ The **Curve** knob does power-law shaping - negative values give exponential cur
 
 Finally, **Out Min** and **Out Max** set your final output range. You can **Invert** the response or use **Absolute Value** for special cases.
 
+## Example
+
+The [Mapping Tool Range Study]({{ site.baseurl }}/reference/process-examples/mapping-tool.html) compares an LFO input with its folded and shaped output.
+
 ## Common uses
 
 **Sensor calibration**: Turn on Learn Min/Max, exercise your sensor through its full range, then turn learning off. The process automatically figures out the real-world range.

@@ -8,7 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/gltf-checkers.html
-score: /examples/3d/gltf-checkers.score
+score: /examples/3d/gltf-checkers.zip
 ---
 
 # glTF Scene with Effects
@@ -17,7 +17,7 @@ score: /examples/3d/gltf-checkers.score
     <source src="{{ site.img }}/examples/3d/gltf-checkers.mp4" type="video/mp4">
 </video>
 
-This example demonstrates loading a glTF scene in ossia score with post-processing shader effects and audio-reactive camera animation.
+This example loads a glTF scene through Qt Quick 3D, then applies audio-reactive post-processing to its rendered texture.
 
 ## Overview
 
@@ -29,15 +29,15 @@ The camera  is controllable through mouse and WASD, while post-processing effect
 - **glTF loading**: QML's `RuntimeLoader` from `QtQuick3D.AssetUtils` loads the model inside the JavaScript/QML process. This is not the native Geometry Loader (historically Object Loader).
 - **Environment mapping**: An HDR [environment map](https://polyhaven.com/a/resting_place) (`.exr`) provides realistic reflections and ambient lighting via a light probe.
 - **Post-processing effects**: Bloom, color blowout, and optical flow distortion shaders are chained as post-processing passes on the rendered scene.
-- **Audio integration**: An audio input is analyzed with a peak detector, allowing visual parameters to react to sound levels.
+- **Audio integration**: The looping `88bpm_Freq3b Gate.wav` sound file feeds Peak and Exp Smoothing, which control Color Blowout and both Bloom intensities.
 
 This download uses the **Qt Quick 3D** path, including its HDR light-probe support. It is not an example of the native Asset Loader pipeline. For a new native patch, see [[Asset Loader]] and [[3D scene pipeline]]; cameras, materials and environment resources must be wired for that renderer rather than copied across as QML objects.
 
-The score references model/environment URLs. Obtain the referenced assets and update those values for your machine; the download is not a claim that external assets or network URLs are available. The asset and rendering dependencies have not been exercised as part of this documentation update.
+Open the ZIP directly in score. It includes `Models/ABeautifulGame.glb`, `Images/resting_place_4k.exr` and `Audio/88bpm_Freq3b Gate.wav`, despite the older in-score note saying the model and environment are not shipped. The JavaScript/QML process requires Qt Quick 3D and its AssetUtils module.
 
 ## Try it
 
-Open this example to see a glTF chess scene with dynamic camera movement and shader effects.
+Start playback and use mouse/WASD navigation in the scene. Adjust Peak Gain and Gate to change how strongly the audio affects the image. The Random XYZ expression drives Light Position (not the camera), and a square LFO resets Optical Flow Distort. Its output is sent to `Window:/`.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

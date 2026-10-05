@@ -13,7 +13,7 @@ permalink: /processes/scenario.html
 # Scenario
 The Scenario process arranges states, intervals, triggers and conditions in time. It can contain other Scenario processes, allowing a score to be organized into nested sections rather than one flat timeline.
 
-An interval determines when its processes execute; cables determine how they exchange data. Use timeline and nodal views as complementary views of this structure. See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for current development-build selection, cable and paste gestures.
+An interval determines when its processes execute; cables determine how they exchange data. Use timeline and nodal views as complementary views of this structure. See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for selection, cable and paste gestures.
 
 ### Execution
 - Putting stuff on the top start state for it to run with Reinitialize

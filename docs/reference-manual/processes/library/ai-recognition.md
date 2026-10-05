@@ -81,6 +81,8 @@ Once keypoints are extracted, you can connect them to any parameter in score for
 
 [Download score]({{ site.scores }}{{ page.score }})
 
+See the [Pose-driven Particle Shader walkthrough]({{ site.baseurl }}/reference/process-examples/ai-recognition.html) for a downloadable keypoint-to-shader patch and its model requirements.
+
 
 
 ## Example usage of keypoints

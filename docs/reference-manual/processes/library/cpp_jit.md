@@ -30,7 +30,7 @@ Connect the input to a value-producing process and the output to a monitor, mapp
 
 This is native, unsandboxed code with the same privileges as score. A crash, blocking operation or invalid memory access in a node can affect the whole application. Keep allocation and blocking I/O out of real-time processing.
 
-Availability depends on the build: the JIT plug-in requires LLVM 20 or newer and compatible Clang development libraries, and is omitted from fast-development builds or configurations without those dependencies. A compatible score SDK/header environment is also needed for compilation. Current development work includes Windows LLVM/MinGW JIT and run-time add-on support; do not assume an older release or an arbitrary system package contains it.
+The JIT plug-in requires LLVM 20 or newer, compatible Clang development libraries and the matching score SDK headers. It is omitted from fast-development builds and builds without these dependencies. Windows JIT and run-time add-ons use llvm-mingw, the official Windows toolchain. MSYS2 CLANG64 is the development alternative; MSVC is only needed for exceptional Qt WebEngine builds.
 
 ## Avendish is a separate workflow
 

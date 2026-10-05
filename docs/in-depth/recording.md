@@ -19,7 +19,7 @@ This records changes to device addresses as automations, rather than recording a
 4. Change a selected parameter to send its first message, or press Play to start playback and the waiting recording together.
 5. Press Stop when finished.
 
-In current development builds, starting playback while recording waits establishes the recording's start time immediately; it does not wait for another message. With **Play while recording** enabled in [Score preferences]({{ site.baseurl }}/reference/preferences.html), receiving the first message can also start playback automatically.
+Starting playback while recording waits establishes the recording's start time immediately; it does not wait for another message. With **Play while recording** enabled in [Score preferences]({{ site.baseurl }}/reference/preferences.html), receiving the first message can also start playback automatically.
 
 The separate **Record messages from here** action captures messages in states rather than automation curves.
 

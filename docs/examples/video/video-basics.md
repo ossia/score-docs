@@ -21,28 +21,17 @@ This example demonstrates basic video playback and effects processing in ossia s
 
 ## Overview
 
-ossia score can play video files and apply real-time shader effects, with parameters that can be animated or controlled by audio.
+The looping `cat.mov` video feeds Echo Trace and Circular Screen, whose output is sent to `Window:/`. Microphone audio at `audio:/in/main` passes through Airwindows YBandpass and RMS. That envelope controls Echo Trace threshold and Circular Screen scale and sharpness; an LFO also changes RMS Gain.
 
-## ISF shaders
+## Files and playback
 
-ISF (Interactive Shader Format) is a standard for video effects:
-- Hundreds of free shaders available
-- Parameters auto-exposed for control
-- GPU-accelerated processing
-- Compatible with other ISF hosts
+Open the ZIP directly in score. The included `cat.mov` is credited to [Andrew Kota on Pexels](https://www.pexels.com/video/the-cat-scratched-the-wood-3693815/); the score describes it as converted to HAP for looping and scrubbing. Use a build with the Airwindows YBandpass process for the audio-analysis branch.
 
-## Working with video
-
-To use video in your projects:
-
-1. Drag a video file onto the timeline
-2. Add ISF effects from the process library
-3. Connect them with cables
-4. Control parameters with automation or audio
+Select a working microphone input, or connect a sound-file process to YBandpass. A Bass pattern sequencer is present but has no outgoing cable in this saved graph; it is not the audio source for RMS.
 
 ## Try it
 
-Open this example to see video effects in action. Try adjusting the effect parameters!
+Start playback and change the video inspector's stretch mode to compare fitting behaviour. Adjust YBandpass and RMS sensitivity, then observe how sound changes the trace and circular pattern. To scrub, double-click the time ruler and drag while holding the mouse button. The main interval has a manual ending time-sync, allowing the movie to keep looping until it is triggered.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

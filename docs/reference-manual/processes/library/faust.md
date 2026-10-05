@@ -31,7 +31,7 @@ The DSP determines the number of audio channels. Faust sliders, numeric entries,
 
 When a `.dsp` file is loaded, score embeds its source text in the document and remembers the original file's directory as an additional import search path. For example, an `import("my-library.lib");` can resolve a library beside that DSP file. Editing the embedded code is not the same as editing the original file on disk.
 
-Current development builds save this **import directory relative to the score library or project where possible**, and resolve it again when loading. This lets a project or library move without unnecessarily retaining the old machine's absolute path. Imports still need the referenced files: embedding the DSP does not embed every imported `.lib`.
+score saves this **import directory relative to the score library or project where possible**, and resolves it again when loading. This lets a project or library move without unnecessarily retaining the old machine's absolute path. Imports still need the referenced files: embedding the DSP does not embed every imported `.lib`.
 
 Keep local Faust libraries with the project, or install them as a score package on every machine that opens it. The project media tools report the import folder as an external dependency, but do not automatically collect or rewrite the whole Faust library tree. When using **Save as**, verify imports still resolve if the destination no longer contains the same files.
 

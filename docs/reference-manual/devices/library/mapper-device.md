@@ -20,7 +20,7 @@ The mapper device allows mapping the parameters between devices directly.  It wi
 
 Choose **Mapper** in **Add device**, then select a library QML definition or edit its script. The script returns an address tree from `createTree()`. Nodes can be containers or typed parameters; a parameter does not need a `bind` to exist. This makes a Mapper useful both for aliases/transforms and for script-managed intermediate values.
 
-The current development implementation rebuilds bindings when other devices become available or reconnect. A missing source is not a source of live values: verify its device name and full address before relying on the mapping. Source updates change the Mapper's value without automatically writing the same value back to the source. Explicit writes to the Mapper follow its `write` rule or binding.
+Mapper rebuilds bindings when other devices become available or reconnect. A missing source is not a source of live values: verify its device name and full address before relying on the mapping. Source updates change the Mapper's value without automatically writing the same value back to the source. Explicit writes to the Mapper follow its `write` rule or binding.
 
 Mapper is a persistent device, not a timeline process: stopping playback does not disable its script or its mappings. Stop or disconnect the relevant devices when you need to prevent hardware communication outside playback.
 

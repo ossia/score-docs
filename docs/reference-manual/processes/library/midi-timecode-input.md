@@ -13,8 +13,7 @@ permalink: /processes/midi-timecode-input.html
 # MIDI Sync In
 
 **MIDI Sync In**, in **Timing/Midi**, decodes incoming MIDI Time Code (full-frame
-and quarter-frame messages) and MIDI clock into control values. It is available
-in current development builds with this process integration.
+and quarter-frame messages) and MIDI clock into control values.
 
 Assign a [MIDI input device]({{ site.baseurl }}/devices/midiin-device.html) to
 **MIDI in**, or cable a MIDI source to it. Keep the containing interval executing

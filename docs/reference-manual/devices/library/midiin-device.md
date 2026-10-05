@@ -16,8 +16,8 @@ To receive MIDI, select **MIDI Input** in the Protocols column of the **Add devi
 
 ![Device setup window]({{ site.img }}/reference/devices/midiin-device.png "score device setup")
 
-In the **Devices** column, select the desired input. Current development builds
-separate hardware, software and network inputs and include **Default MIDI In**.
+In the **Devices** column, select the desired input. The list
+separates hardware, software and network inputs and includes **Default MIDI In**.
 The default selector resolves to the first available input reported by the backend;
 it is not a guarantee that a particular keyboard will be selected. Choose a named
 port for a performance setup.

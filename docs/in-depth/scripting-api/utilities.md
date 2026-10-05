@@ -10,6 +10,8 @@ permalink: /in-depth/scripting-api/utilities.html
 
 # Files and utilities API
 
+[Back to the Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) · [Examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html#files-and-utilities)
+
 `Util` is available to console and JavaScript process engines. Availability does not make blocking file access, shell commands or GUI dialogs appropriate inside an audio callback. Perform setup outside `tick`; use native dialogs from GUI-thread code.
 
 ## Files and paths

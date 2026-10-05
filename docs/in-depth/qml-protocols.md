@@ -12,7 +12,7 @@ permalink: /in-depth/qml-protocols.html
 
 Use `Protocols` in the console or a [Mapper device]({{ site.baseurl }}/devices/mapper-device.html) when an external API cannot be expressed by a standard device. Mapper QML declares the device tree, then translates transport messages into `Device.write` calls. The [HTTP device]({{ site.baseurl }}/devices/http-device.html) and [WebSocket device]({{ site.baseurl }}/devices/ws-device.html) have their own `Ossia.HTTP` / `Ossia.WebSockets` tree conventions; do not mix their callbacks with raw socket callbacks below.
 
-These APIs describe the current development build. Backends depend on the platform and compile-time features. Keep the returned socket in a variable/property for as long as it is needed, and implement `onError` to diagnose connection failures. Opening is asynchronous; send initial data from `onOpen(socket)`, not immediately after calling the factory.
+Backends depend on the platform and compile-time features. Keep the returned socket in a variable/property for as long as it is needed, and implement `onError` to diagnose connection failures. Opening is asynchronous; send initial data from `onOpen(socket)`, not immediately after calling the factory.
 
 ## Transport selection
 

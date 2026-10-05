@@ -36,7 +36,7 @@ will be used to timestretch / repitch accordingly.
 
 ## RAM / disk playback
 
-The current development build chooses a decoder automatically:
+score chooses a decoder automatically:
 
 | Source | Usual playback path |
 | --- | --- |

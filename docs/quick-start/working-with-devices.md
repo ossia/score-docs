@@ -28,15 +28,15 @@ Right-click on the `Device explorer` panel and choose **Add device** (or use {% 
 
 ![Adding a device to *score* project]({{ site.img }}/quick-start/working-with-devices/add-device.gif "Adding a device to *score* project")
 
-> To edit an existing device's settings, stop playback, then right-click its root and choose **Edit**. In the current development build, adding or importing a new device is allowed during playback, but removal and edits to existing device structures remain restricted.
+> To edit an existing device's settings, stop playback, then right-click its root and choose **Edit**. Adding or importing a new device is allowed during playback, but removal and edits to existing device structures remain restricted.
 
 ### Find the right device
 
-The development dialog separates **Protocols** from saved **Presets**, with filter fields for finding a protocol, hardware device or preset. A preset is a `.device` definition from the library's packages, not a guarantee that the hardware or required add-on is installed.
+The device dialog separates Protocols from saved Presets, with filters for finding a protocol, hardware device or preset. Presets are `.device` definitions from the library's packages; install any required add-on and connect the corresponding hardware before using them.
 
 Some protocols offer a **Default** entry. Its meaning depends on the protocol; for example, a default joystick picks available hardware instead of fixing the project to one controller. Use a named selection where a show depends on a particular unit.
 
-The available protocol list depends on the build, platform and installed dependencies. For current development capabilities, see [CAN]({{ site.baseurl }}/devices/can-device.html), [Companion modules]({{ site.baseurl }}/devices/companion-device.html) and [GPhoto2 DSLR]({{ site.baseurl }}/devices/gphoto-device.html). The [tracking protocols reference]({{ site.baseurl }}/devices/tracking-device.html) explicitly distinguishes source implementations from an add-on that is currently disabled.
+The available protocol list depends on the build, platform and installed dependencies. See [CAN]({{ site.baseurl }}/devices/can-device.html), [Companion modules]({{ site.baseurl }}/devices/companion-device.html) and [GPhoto2 DSLR]({{ site.baseurl }}/devices/gphoto-device.html) for setup and capabilities. The [tracking protocols reference]({{ site.baseurl }}/devices/tracking-device.html) explicitly distinguishes source implementations from a disabled add-on.
 
 *Score* currently supports the following devices types:
 

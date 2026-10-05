@@ -14,9 +14,9 @@ permalink: /devices/phidgets-device.html
 
 ## Availability and prerequisites
 
-This is a source-based integration reference, not a guarantee that the protocol is present in every installer. Compilation and registration require `OSSIA_PROTOCOL_PHIDGETS`; libossia defaults this option to off and disables it when the Phidgets dependency is missing. The dependency lookup targets Phidget22 headers and libraries, with platform-specific lookup for macOS, Unix and Windows. On non-Apple Unix, libusb is also required. These build paths are not a tested-platform support matrix.
+Compilation and registration require `OSSIA_PROTOCOL_PHIDGETS`; libossia defaults this option to off and disables it when the Phidgets dependency is missing. The dependency lookup targets Phidget22 headers and libraries, with platform-specific lookup for macOS, Unix and Windows. On non-Apple Unix, libusb is also required. These build paths are not a tested-platform support matrix.
 
-The audited development snapshot has an additional integration limitation: score's device implementation includes `ossia/network/phidgets/phidgets_protocol.hpp`, while its bundled libossia provides that header under `ossia/protocols/phidgets/`. A compatible enabled build must therefore be established before relying on this integration; conditional registration alone does not prove that it builds. No Phidgets hardware or enabled runtime session was exercised for this page.
+The integration has an include-path mismatch: score's device implementation includes `ossia/network/phidgets/phidgets_protocol.hpp`, while its bundled libossia provides that header under `ossia/protocols/phidgets/`. This mismatch must be resolved for a Phidgets-enabled build to work; enabling the build option alone is insufficient.
 
 For an enabled, compatible build, provide the Phidget22 runtime and any driver or device-access permissions required by your operating system, as well as the appropriate hardware, hub, cabling and power. Check the hardware with the manufacturer's tools before diagnosing score. Network-attached hardware additionally needs a reachable Phidgets server and working discovery; score does not provide a server configuration panel here.
 

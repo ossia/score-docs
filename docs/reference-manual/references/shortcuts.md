@@ -11,7 +11,7 @@ permalink: /reference/shortcuts.html
 
 Below is a list of shortcuts available in *score* listed by scope of usage.
 
-Shortcuts depend on the focused view. In particular, **Ctrl+Enter** compiles in a code editor but reinitializes in the score view, and **Ctrl+Space** requests completion in a text prompt rather than playing the score. The newer editing gestures below describe the current development build.
+Shortcuts depend on the focused view. In particular, **Ctrl+Enter** compiles in a code editor but reinitializes in the score view, and **Ctrl+Space** requests completion in a text prompt rather than playing the score.
 
 # General
 

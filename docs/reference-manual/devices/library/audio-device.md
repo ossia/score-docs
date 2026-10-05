@@ -22,7 +22,7 @@ which can then be used at any place in the score to route a part of the score to
 The Audio device describes routing inside the document; select the actual driver,
 capture device, playback device, sample rate and buffer size in **Preferences → Audio**.
 
-On Windows, current development builds default to **WASAPI (miniaudio)**.
+On Windows, the default driver is **WASAPI (miniaudio)**.
 Its **Default device** entry follows the Windows system default, including changes
 made in the Windows mixer. Selecting a named interface instead pins that endpoint.
 On a fresh configuration, capture also follows the system default where the

@@ -12,130 +12,60 @@ permalink: /processes/gbap.html
 
 # Grid-Based Amplitude Panning (GBAP)
 
-<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_main.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_main.png" alt="GBAP grid" width="682">
 
-GBAP (Grid-Based Amplitude Panning) is a spatial audio technique that distributes sound across a regular grid of speakers or virtual sound sources. It calculates amplitude weights based on the proximity of a sound source to grid points, enabling intuitive 2D spatialization for installations, concerts, and immersive audio environments.
+GBAP calculates weights for a rectangular grid of sinks. Cursor and sink sizes determine how a source overlaps the grid; RollOff shapes the distribution. The result is control data for processes such as [[Matrix Spatialization]], not an audio signal.
 
-## Moving cursor
+## Inputs and output
 
-- The cursor can be dragged in 2D space using the mouse. It is also possible to click on an empty area to move the cursor.
+| Port | Value |
+|---|---|
+| Input Weights | List of incoming gains; System Number selects one entry |
+| Input Multicursor | List of XY source positions |
+| Output Weights | List of weight lists, one list per source |
 
-<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_move.gif" alt="" width="682">
+When Input Multicursor contains positions, they replace the internal Position control. When it is empty, GBAP calculates one weight list from Position. Each list contains Sink X # multiplied by Sink Y # weights, with X varying first.
 
-## Parameters
+## Controls
 
-- **Gain :** Gain parameter adjusts the maximum volume of the various sinks.
+| Control | Purpose |
+|---|---|
+| Gain | Overall multiplier, from 0 to 1 |
+| RollOff | Shapes the weight distribution, from 0 to 24; default 6 |
+| Normalize | Scales each source's largest weight to 1 before applying Gain and the selected input weight |
+| Sink X # / Sink Y # | Grid dimensions, each from 1 to 12 |
+| System Number | One-based index into Input Weights |
+| Sink Size | XY size of each sink |
+| Cursor Size | XY size of the source's overlap area |
+| Position | Internal source position in the 0–1 XY area |
 
-- **Roll Off :** Roll Off parameter shapes how the amplitude decays across the grid. A higher roll-off value emphasizes the closest sinks while reducing the influence of distant ones.
+Normalize is peak normalization, not constant-power normalization. Gain and the selected input weight are applied afterward.
 
-- **Normalize :** When enabled, the volume values are normalized so that the highest value equals 1. This ensures the panning keeps consistent energy regardless of the number of affected sinks.
+System Number must select an existing Input Weights entry. Otherwise the output is zero. For a standalone spatializer, send `[1]` to Input Weights and set System Number to `1`.
 
-- **Sink (X or Y) # :** Defines how many sinks (speakers/outputs) are placed horizontally (`X`) and vertically (`Y`) in the 2D grid.
+## Moving a source
 
-- **Sinks Size :** Sets the size (width and height) of each sink’s influence zone in the grid. Larger sizes make sinks cover more area.
+Drag the cursor in the grid, click a new position, or automate Position.
 
-- **Cursor Size :** Represents the area of influence (e.g., a sound source) within the grid. Bigger cursors affect more sinks, resulting in broader spatial panning.
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_move.gif" alt="Moving the source" width="682">
 
-## How to add a multicursor or an path
+For external positions, connect [[Multi-Cursor Manager]] or [[Path Generator]] in XY output mode to Input Multicursor.
 
-To allow even more creative possibilities in sound spacialization, it is possible to integrate multiple sources and automatic trajectories thanks to MultiCursor and PathGenerator.
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_combine.png" alt="Connecting source positions" width="682">
 
-To do this, when your Multicursor and Pathgenerator are set up, connect its output array to the second GBAP input.
+## Applying weights to audio
 
-<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_combine.png" alt="" width="682">
+For one source and four speakers:
 
-**NOTE :** When an external panel is connected to the GBAP. The array integrated in the gbap is no longer taken into account and therefore has no effect on the final result.
+1. Set Sink X # and Sink Y # to `2`.
+2. Send `[1]` to Input Weights and set System Number to `1`.
+3. Leave Input Multicursor empty and move the internal Position.
+4. Connect Output Weights to Array Flattener, then connect the flattened result to [[Matrix Spatialization]]'s Weights inlet.
+5. Connect a mono audio source to Matrix Spatialization's Input. Set Audio outs to `4` and Channel offset to `0`.
+6. Route its audio output to the four loudspeaker channels.
 
-## Inputs and Outputs
+For several sources, extract each nested weight list and send it to a separate Matrix Spatialization instance with the corresponding mono audio source. Flattening all source lists together does not create an audio mixing matrix.
 
-| Port | Type | Description |
-|------|------|-------------|
-| Cursor Position | Vec2 | X,Y position of the sound source |
-| External Cursors | Array | Array of cursor positions from Multi-Cursor or Path Generator |
+## Related processes
 
-| Port | Type | Description |
-|------|------|-------------|
-| Gains | Float Array | Amplitude coefficients for each grid point/speaker |
-| Visual | Object | Grid state for visual feedback |
-
-## Usage Examples
-
-### Basic Spatialization Setup
-
-1. **Add GBAP Process**: Drag GBAP from Process Library
-2. **Configure Grid**: Set X and Y sink count for your speaker layout
-3. **Connect Audio**: Route through Matrix process to speakers
-4. **Control Position**: Use mouse, MIDI, or sensors
-
-```
-[Audio Source] → [Matrix] → [Speaker 1-4]
-                    ↑
-[GBAP Gains] ←── [Cursor Control]
-```
-
-### Automated Movement
-
-Create automatic spatial trajectories:
-
-```
-[LFO X] → [Combine] → [GBAP] → [Speaker Gains]
-[LFO Y] →
-```
-
-### Interactive Installation
-
-Use sensor data for positioning:
-
-```
-[Motion Sensor] → [Scale/Filter] → [GBAP] → [Multi-Speaker Array]
-```
-
-## Integration with Other Processes
-
-### With Multi-Cursor
-
-Create multiple simultaneous sound sources:
-
-```
-[Multi-Cursor] → [GBAP] → [Combined Gains] → [Speaker Array]
-```
-
-### With Path Generator
-
-Automate complex spatial trajectories:
-
-```
-[Path Generator] → [GBAP] → [Trajectory Gains] → [Immersive Audio]
-```
-
-### With Audio Sources
-
-Complete spatialization chain:
-
-```
-[Multiple Sources] → [Audio Router] → [GBAP Processing] → [Physical Speakers]
-                                           ↑
-                                  [Position Controllers]
-```
-
-## Best Practices
-
-1. **Grid Size**: Match grid dimensions to your physical speaker layout
-2. **Cursor Size**: Larger cursors create smoother, wider spatialization
-3. **Normalization**: Enable for consistent energy across positions
-4. **Roll-off**: Tune for your room acoustics and desired focus
-5. **Real-time**: GBAP is optimized for real-time performance
-
-## Troubleshooting
-
-- **No output**: Check Matrix routing and speaker connections
-- **Harsh transitions**: Increase cursor size or reduce roll-off
-- **Uneven levels**: Enable normalization
-- **Performance**: Reduce grid size for complex setups
-
-## Related Processes
-
-- [DBAP]({{ site.baseurl }}/processes/dbap.html) - Distance-based panning for irregular layouts
-- [Matrix]({{ site.baseurl }}/processes/matrix.html) - Audio routing and mixing
-- [Multi-Cursor]({{ site.baseurl }}/processes/multicursor.html) - Multiple position sources
-- [Path Generator]({{ site.baseurl }}/processes/pathgenerator.html) - Automated trajectories
+[[DBAP]] supports irregular speaker layouts. [[Multi-Cursor Manager]] supplies editable positions; [[Path Generator]] supplies moving positions. See [[Spatial audio techniques]] for a complete DBAP patch.

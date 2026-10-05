@@ -53,7 +53,7 @@ The video inspector allows to set a stretch mode and the timing behaviour:
 
 ### Playback mode
 
-Current development builds offer three modes:
+Three modes are available:
 
 - **Auto** selects Direct playback for HAP/DXV and streams classified as having a keyframe at every frame; other streams use the frame queue. Selection follows the actual stream layout, not simply its filename extension.
 - **Direct (seek)** requests the frame containing the current timeline time. It suits scrubbing and independently decodable frames, but forcing it on long-GOP footage can be expensive.

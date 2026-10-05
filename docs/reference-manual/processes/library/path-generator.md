@@ -2,7 +2,7 @@
 layout: default
 
 title: Path Generator
-description: "Automate 2D X-Y parameters with a predefined path"
+description: "Generate moving XY or XYZ positions along predefined paths"
 
 parent: Processes
 grand_parent: Reference
@@ -10,58 +10,54 @@ grand_parent: Reference
 permalink: /processes/pathgenerator.html
 ---
 
-# Path Generator (X-Y automation)
+# Path Generator
 
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_main.png" alt="" width="682">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_main.png" alt="Path Generator" width="682">
 
-The **Path Generator** is a process used to automate 2D X-Y positions over time by selecting predefined movement paths and manipulating cursors in the user interface.
+Path Generator moves positions along predefined curves. Each source has two handles: for Linear, they are the start and end points; for curved paths, the first is the center and the second determines the size and orientation.
 
-Each **source** in the path generator has two cursors:
+## Editing trajectories
 
-- The **green cursor** indicates the starting point.
+Click and drag in an empty area to create a source and separate its two handles. Drag an existing handle to move it. Right-click either handle to remove the source.
 
-- The **red cursor** indicates the end point of the movement.
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_move.gif" alt="Moving a handle" width="521">
 
-## Modifying Points
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_add.gif" alt="Adding a trajectory" width="521">
 
-You can customize a path by editing its control points directly in the interface:
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_remove.gif" alt="Removing a trajectory" width="521">
 
-- Points can be dragged with the mouse.
-  
-  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_move.gif" alt="" width="521">
+## Controls
 
-- To create a new point, click on an empty space.
-  
-  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_add.gif" alt="" width="521">
+| Control | Purpose |
+|---|---|
+| Speed | Multiplies progress through the process; range 0–10, default 1 |
+| Ping Pong | Reverses every other traversal instead of restarting at the beginning |
+| Path | Linear, Circle, Spiral, Lissajous, Rose or Polygon |
+| Position | Editable collection of source handles |
+| Radius | XY scale factors applied to the handle-defined size; ignored by Linear |
+| Ratio X / Ratio Y | Shape controls for Lissajous, Rose and Polygon |
+| Phase | Rotation or phase offset for curved paths, from 0 to 1 |
+| Output mode | XY, XY0 or XYZ |
+| Z | Third coordinate in XYZ mode, from 0 to 1 |
 
-- To delete a point, right-click on it.
-  
-  <img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_remove.gif" alt="" width="521">
+Speed is relative to the process's time position, not a fixed duration in seconds. At Speed `1`, one traversal spans one unit of normalized process progress. With Ping Pong, the next traversal runs backward.
 
-## Parameters
+Circle uses the handle distance as its radius before applying the XY Radius factors. Spiral makes two outward turns. For Lissajous, Ratio X and Ratio Y are the horizontal and vertical frequency multipliers. For Rose, Ratio X controls the radial oscillation and Ratio Y the number of turns. For Polygon, Ratio X sets the side count, with a minimum of three.
 
-- **Speed :** The speed of the movement can be modified by adjusting the speed parameter. Points move faster or slower depending on the parameter.  
-  
-  **NOTE :** Speed at 1 = movement takes 15 seconds to complete (one treatment cycle)
+## Output
 
-- **Ping Pong :** The PingPong option generates a continuous back-and-forth movement, avoiding a reset to the initial position. Instead of starting from the beginning, the animation naturally returns to the starting point.
+Output is a list of positions, one per source:
 
-- **Path :** Path selection is made in this parameter. For the moment, straight line, circle and spiral paths are available. The linear path allows you to move in a straight line between the start point (green) and the end point (red). The circle path allows circular movement around the center point (green), depending on the radius defined in another parameter.  The red cursor is useless in this case. The spiral path works in the same way as the circle, but generates a spiral movement.
+- XY: two-component positions.
+- XY0: three-component positions with Z equal to zero.
+- XYZ: three-component positions with Z taken from the Z control.
 
-- **Radius :** The Radius parameter defines the X and Y radii of the circle or spiral to be followed. For a spiral, it corresponds to the final radius. 
-  
-  **NOTE :** This parameter does not apply to the linear path.
+The curves remain planar in XYZ mode. All sources share the process's path controls and Z value, but have their own handles.
 
-## How to combine paths
+## Connections
 
-To give you more creative freedom when creating movements, you can combine several movements together. In this short tutorial, we'll look at how to combine the following two movements.
+Connect the XY output directly to [[GBAP]]'s Input Multicursor. GBAP accepts a list of source positions.
 
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_combine_paths.png" alt="" width="682">
+[[DBAP]] accepts one position instead. For one trajectory, pass Output through Array Flattener to obtain its coordinate pair or triple. For several trajectories, extract the position for each DBAP instance rather than flattening every position into one list.
 
-Once you've created the various movements using the path generator, you can connect each of them to an array flattener, and then connect them to an array of Combinators. In input count, you must indicate the number of path generators you wish to combine. Then choose Append mode, so as not to modify the initial movements.
-
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_arraycombiner.png" alt="" width="682">
-
-Result : 
-
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_combine_result.gif" alt="" width="277">
+See [[Spatial audio techniques]] for a four-speaker audio patch using Path Generator and DBAP.

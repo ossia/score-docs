@@ -21,27 +21,19 @@ This example demonstrates creating visuals that respond dynamically to audio inp
 
 ## Overview
 
-Audio-reactive graphics are a staple of live performance and music visualization. This example shows how to analyze audio and use the results to drive visual effects.
+Piano roll feeds an Arpeggiator and the Faust DjembeMIDI synthesizer. Stereo Mixer combines this sound on input 1 with `audio:/in/main` on input 2. RMS drives Triangle Square Twist's twist and triangle-side controls, while a Smooth process in OneEuro mode drives zoom.
 
-## Tips for audio-reactive graphics
+Triangle Square Twist passes through Echo Trace and VHS Glitch to `Window:/`. A second RMS process reads `audio:/in/main` directly and controls Echo Trace's threshold. A sample-and-hold LFO changes arpeggiator quantification through `pow(2,1+round(3x))`.
 
-- **Smooth your signals**: Raw audio data is noisy
-- **Map ranges**: Audio values may need scaling
-- **Use multiple bands**: Separate bass, mid, treble
-- **Lag different parameters**: Creates depth
-- **Consider attack/release**: Different response times
+## Inputs and controls
 
-## Live performance
+Use a build with Faust and its standard physical-modeling library for DjembeMIDI. The synthesizer code and shaders are saved in the score; no sound file is required. Select a working audio input for the microphone branch.
 
-This type of patch is ideal for:
-- VJ performances
-- Concert visuals
-- Interactive installations
-- Music videos
+Compare Stereo Mixer inputs 1 and 2 to separate the generated percussion from live audio. RMS Gain controls sensitivity; OneEuro smoothing controls how zoom follows the envelope. The second RMS's Gate determines when the microphone affects the trace threshold.
 
 ## Try it
 
-Connect an audio source (microphone or music) and open this example to see real-time audio-reactive graphics!
+Start playback and adjust the mixer gains before increasing RMS Gain. The patch can generate its own analysis source through DjembeMIDI, while the separate trace-threshold branch depends on live input. To replace the microphone, connect a sound-file process to the relevant audio inlet.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

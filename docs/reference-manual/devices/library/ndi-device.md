@@ -13,7 +13,7 @@ permalink: /devices/ndi-device.html
 # NDI
 
 [NDI](https://ndi.video/) is a network protocol for sharing video frames across applications. 
-It requires the NDI add-on and an available NDI runtime. Current development code supports several raw RGB/YUV receive and send formats; the runtime, source and receiver determine which are usable. NDI HX additionally depends on the appropriate HX decoding runtime.
+It requires the NDI add-on and an available NDI runtime. The device supports several raw RGB/YUV receive and send formats; the runtime, source and receiver determine which are usable. NDI HX additionally depends on the appropriate HX decoding runtime.
 
 # NDI input device
 

@@ -28,7 +28,7 @@ We can then setup our device's OSC addresses we want to automate within *score*.
 
 ## Transports and framing
 
-In the current development build, **Protocol** selects **UDP**, **TCP**, **Serial port**, **Unix Datagram**, **Unix Stream**, **Websocket Client**, **Websocket Server** or **TCP Server**. Transport availability also depends on the platform. These options carry OSC packets; they do not turn OSC into an arbitrary text or JSON protocol.
+**Protocol** selects **UDP**, **TCP**, **Serial port**, **Unix Datagram**, **Unix Stream**, **Websocket Client**, **Websocket Server** or **TCP Server**. Transport availability also depends on the platform. These options carry OSC packets; they do not turn OSC into an arbitrary text or JSON protocol.
 
 For stream transports, both ends must agree on packet boundaries. **TCP**, **TCP Server**, **Serial port** and **Unix Stream** expose **Framing** choices:
 

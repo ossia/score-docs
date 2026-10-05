@@ -17,7 +17,7 @@ The timeline nature of *ossia score* may make it look like it is not very amenab
 
 Processes, sounds and scripts can be added, removed and edited while the score plays. They still need an active containing interval and appropriate routing to produce output.
 
-Current development builds also allow adding a new device during playback. Stop execution before removing a device or changing its configuration or namespace: those operations remain restricted. In particular, the ability to add a device is not a guarantee that every hardware reconfiguration is interruption-free.
+You can add a device during playback. Stop execution before removing a device or changing its configuration or namespace.
 
 See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for node selection, cable replacement, editor placement and the restrictions on live changes.
 
@@ -38,25 +38,27 @@ A few processes in score use textual scripts:
 - [[Bytebeat]]
 - [[Texture generator]]
 - [[Faust]]
-- [[C++ JIT]]
+- [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html)
 
 ![Live coding processes]({{ site.img }}/common-practices/live-coding-scripts.png "Live coding processes")
 
 Open the code editor using the editor button on the process header or in its inspector. Processes that provide a custom UI have a separate UI toggle.
 
-The placement menu offers **Window**, **Side panel** and **Central**. A central editor can be shown over a background visual output for live coding with the result behind the code; see [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html#place-code-editors-and-custom-uis).
+The placement menu offers three display modes:
+
+- Separate window: a floating code editor.
+- Side panel: an editor pane alongside the score.
+- Central view: the editor occupies the main view. Under "Behind the editor", choose "Document background, without chrome" to show the code over the document's background output, or "Nothing: a plain editor".
+
+Right-click the editor's side-panel tab or central-view tab to change its placement. See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html#place-code-editors-and-custom-uis) for the placement settings.
 
 ## Editing scripts
 
-When you are done editing, press **Compile** to submit the code to the execution engine. Read the error log before assuming a change has taken effect; validation and failure handling depend on the process. Test substantial edits before a performance rather than relying on a compile failure to protect the output.
+Press Compile or {% include shortcut.html content="Ctrl+Enter" %} to apply the edited code. Compilation errors appear in the pane below the editor.
 
-It is possible to use the {% include shortcut.html content="Ctrl+Enter" %} shortcut to update the execution engine
-with the current code.
-
-The pane at the bottom of the window will display the error log: here, we have some slightly invalid code on line 9 for instance.
 
 ![Script editor]({{ site.img }}/common-practices/live-coding-editor.png "Live-coding editor")
 
 ## Updating a linked source
 
-For a JavaScript process linked to a QML source file, an **Update** button appears in the inspector when its stored code differs from the available source. This replaces the document's copy with the file's current version; it is separate from compiling the code you are editing. See [Source update notices]({{ site.baseurl }}/reference/editing-workflow.html#source-update-notices).
+For a JavaScript process linked to a QML source file, an Update button appears in the inspector when the file changes. Click it to replace the document's stored code with the file's current version. See [Source update notices]({{ site.baseurl }}/reference/editing-workflow.html#source-update-notices).

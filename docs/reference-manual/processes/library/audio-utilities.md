@@ -39,9 +39,13 @@ That is, in the example below, the output of the Merger process will be a 4-chan
 
 ![Merger example]({{ site.img }}/reference/processes/merger-2.png "Stereo merger plug-in")
 
+The [Four-source Audio Merger walkthrough]({{ site.baseurl }}/reference/process-examples/audio-merger.html) includes a downloadable multichannel patch.
+
 # Audio Splitter {#splitter}
 
 Splits the channels of **Input** into separate mono **Channel** outlets. **Channels** sets the number of outlets; input channels beyond that count are not copied. Use it to route a multichannel bus to separate effects or recorder paths. It separates channels, not frequency bands.
+
+To select a range from a multichannel input, see [Extracting Channels from an Eight-channel Recording]({{ site.baseurl }}/reference/process-examples/audio-channel-extractor.html).
 
 # Audio recorder
 

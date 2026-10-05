@@ -18,7 +18,7 @@ To do so, open the `Preferences` window from the *score* menu and select the "Au
 
 Then select the Driver you want to use as well as the desired audio interface and related options (Buffer size and sample rate).
 
-On Windows, current development builds offer **WASAPI (miniaudio)** as the
+On Windows, **WASAPI (miniaudio)** is the
 default driver. Choose **Default device** to follow the Windows mixer default,
 or a named interface for fixed routing. Check both capture and playback:
 first-run capture follows the system default on backends which support it,
@@ -73,7 +73,7 @@ Feel free to get familiar with this patch workspace using other audio FX or VST 
 
 > You may also note some yellow circle and frames. These are respectively control input and output of some processes parameter. Should you feel adventurous, have fun checking the `Control` folder in the `Process library` to add modulation to your FX's parameters.
 
-For a level check in current development builds, branch the audio output to a
+For a level check, branch the audio output to a
 [VU Meter]({{ site.baseurl }}/processes/vu-meter.html) while keeping its normal
 output connection. The meter has no audio-through outlet. For external effects
 and instruments, see the per-format settings in

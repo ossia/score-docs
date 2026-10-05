@@ -34,15 +34,15 @@ The passthrough effect can be found in the [[library|user library]], in the fold
 
 Camera capture uses the platform's available input mechanisms and FFmpeg conversion/decoding paths. Supported camera modes depend on the device, driver and score build; camera access may require operating-system permission.
 
-The device chooser includes **Default Camera**, which selects an available camera and suitable mode when connected. Select a specific enumerated camera/mode when repeatable resolution, frame rate or device identity matters. “Default” is a convenience selection, not a guarantee that the same physical camera is present on another machine.
+Default Camera selects an available camera and suitable mode when connected. Select a named camera and mode to fix the device, resolution and frame rate.
 
-Texture outlet inspectors can preview the rendered result. Some capture-specific dialogs, notably Window Capture and NDI, also offer a live preview; this does not mean every camera settings dialog has identical preview controls.
+Texture outlet inspectors preview the rendered result. Window Capture and NDI also offer previews in their capture settings.
 
 ## Window and screen capture
 
-Current development builds with capture support register **Window Capture** as a separate video input. Its **Mode** choices are **Window**, **All Screens**, **Single Screen** and **Region**, with unsupported modes disabled by the current backend. Select the window or screen, or set **Region X**, **Region Y**, **Region Width** and **Region Height**. **Refresh** updates the available sources; **Frame Rate** and **Preview** help configure the feed.
+Builds with capture support register **Window Capture** as a separate video input. Its **Mode** choices are **Window**, **All Screens**, **Single Screen** and **Region**, with unsupported modes disabled by the current backend. Select the window or screen, or set **Region X**, **Region Y**, **Region Width** and **Region Height**. **Refresh** updates the available sources; **Frame Rate** and **Preview** help configure the feed.
 
-On Wayland a system picker appears when capture starts, and portal permission governs the selection. On macOS, grant **Screen Recording** permission in System Settings → Privacy & Security, then refresh. Windows and X11 use their own capture backends. Do not assume that a window identifier or capture mode is portable across these systems.
+On Wayland, choose the capture source in the system picker when capture starts. On macOS, grant Screen Recording permission in System Settings → Privacy & Security, then refresh. Windows and X11 use their own capture backends.
 
 Route Window Capture to a texture inlet just like a camera; it is not the [Window output device]({{ site.baseurl }}/devices/window-device.html).
 
@@ -76,7 +76,7 @@ $ while 1 ; do ffmpeg -re -i ./test.mp4 -f v4l2 /dev/video0 ; done
 
 ### Microsoft Kinect
 Support for Kinect cameras has been implemented through the Freenect library.
-However, the support is still experimental and requires building `score` from source with the Freenect libraries.
+It requires building `score` from source with the Freenect libraries.
 
 ### Shared video sources
 

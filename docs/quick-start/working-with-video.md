@@ -26,7 +26,7 @@ When done, *score* creates a black video window.
 ![Create window device]({{ site.img }}/quick-start/working-with-video/window-device.gif)
 
 
-> The device appears in the `Device explorer` with window controls such as size, position, fullscreen and render size. Closing the window does not remove its device; use the device's contextual **Show** action to reopen it. The [Window device reference]({{ site.baseurl }}/devices/window-device.html) also covers Background rendering and Multi-Window Mapping in current development builds.
+> The device appears in the `Device explorer` with window controls such as size, position, fullscreen and render size. Closing the window does not remove its device; use the device's contextual **Show** action to reopen it. The [Window device reference]({{ site.baseurl }}/devices/window-device.html) also covers Background rendering and Multi-Window Mapping.
 
 ## Playing a video file
 

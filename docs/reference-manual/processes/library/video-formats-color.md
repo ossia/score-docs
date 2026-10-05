@@ -9,7 +9,7 @@ permalink: /processes/video-formats-color.html
 
 # Video formats and color
 
-This reference describes the current development graphics/media pipeline. Features depend on the score build, FFmpeg version, graphics API, drivers and optional devices; it is not a universal codec or hardware support matrix.
+This reference describes score's graphics/media pipeline. Features depend on the score build, FFmpeg version, graphics API, drivers and optional devices; it is not a universal codec or hardware support matrix.
 
 ## Container, codec and pixels are different
 

@@ -27,7 +27,7 @@ The library root comes from score's library settings, not necessarily the same l
 
 ## Collecting and repairing media
 
-The current development build groups media operations under **File → Project files**. Use **Consolidate project...** to copy known dependencies into the project and rewrite their references, or **Locate missing files...** to repair broken references. **Archive project...** produces a ZIP of the document and known referenced project media rather than every file beside it.
+Media operations are grouped under **File → Project files**. Use **Consolidate project...** to copy known dependencies into the project and rewrite their references, or **Locate missing files...** to repair broken references. **Archive project...** produces a ZIP of the document and known referenced project media rather than every file beside it.
 
 When **Save As** moves a document to a different folder, score asks whether to copy project-relative media. Declining keeps media at its original location through absolute references: it does not make a portable copy.
 

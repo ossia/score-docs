@@ -21,7 +21,7 @@ This example demonstrates the two main tools for GPU-side geometry processing: e
 
 ## Overview
 
-An OBJ model is loaded, and its geometry attributes (position, normals, UVs, etc.) are extracted into separate buffers and reassembled into geometry. An [[LFO]] drives a rotation animation through a micro-mapping expression. In current development builds, search for **Extract buffer** or **Extract buffer (by name)** rather than the older “Extract Attribute” label.
+The goblet OBJ model supplies a position buffer. A separate Color Test Grid shader supplies a texture which Texture to buffer turns into per-vertex colour data. Buffers to geometry combines the two, using Geometry Info's vertex count. An [[LFO]] drives rotation through a micro-mapping expression. The process labelled Extract attribute is registered as **Extract buffer**.
 
 ## Key concepts
 
@@ -35,12 +35,12 @@ An OBJ model is loaded, and its geometry attributes (position, normals, UVs, etc
 1. [[Object loader]] loads the goblet mesh
 2. The attribute-extraction process pulls position data into a buffer
 3. *Geometry Info* reads the vertex count
-4. *Buffers to Geometry* rebuilds a mesh from the extracted buffer
-5. A solid color texture is applied, and [[Model display]] renders the result
+4. Color Test Grid → Texture to buffer supplies a second buffer, bound as `color`
+5. Buffers to geometry combines position and colour attributes, and native Model Display renders to `Window:/`
 
 ## Try it
 
-Open this example to see GPU-side geometry attribute extraction and mesh reconstruction.
+Open the ZIP directly in score and start playback; `Models/goblet.obj` is bundled. Change Color Test Grid's colour shift or grid dimensions to see the reconstructed mesh's colours change. The Value displays report the vertex count and colour-buffer byte size. Ensure a replacement colour texture has at least one RGBA pixel per vertex: the score's notes illustrate 3,000 vertices with a 55-by-55 texture (3,025 pixels). Keep the attribute format and stride consistent with those pixels. This is a native buffer/geometry workflow, not Qt Quick 3D.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

@@ -8,7 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/curl-noise.html
-score: /examples/3d/curl-noise.score
+score: /examples/3d/curl-noise.zip
 ---
 
 # Curl Noise Geometry Filter
@@ -21,7 +21,7 @@ This example demonstrates using a geometry filter to deform a 3D mesh in real-ti
 
 ## Overview
 
-A 3D model is loaded and its vertices are displaced each frame by a curl noise function written in GLSL. The deformation intensity is modulated by an [[LFO]] through an exponential smoothing filter, creating a fluid, organic animation. The result is textured with a procedural sine warp gradient and rendered through bloom and long exposure post-processing effects.
+A 3D model is loaded and its vertices are displaced each frame by a curl noise function written in GLSL. An [[LFO]] and exponential smoothing modulate the noise scale. A procedural sine warp gradient supplies the texture, and Long Exposure accumulates the rendered image.
 
 ## Key concepts
 
@@ -32,16 +32,16 @@ A 3D model is loaded and its vertices are displaced each frame by a curl noise f
 ## Data flow
 
 1. [[Object loader]] loads the mesh
-2. The curl noise [[Geometry Filter]] preset displaces vertices based on time and noise parameters
+2. The curl noise Geometry Filter preset displaces vertices based on time and noise parameters
 3. A basic shader provides procedural texturing
 4. [[Model display]] renders the deformed geometry
-5. Bloom and long exposure shaders are applied as post-processing
+5. Long Exposure processes the image and sends it to `Window:/`
 
 This is a direct geometry workflow, not a native scene-graph filter. **Scene Graph Filter** selects scene nodes; it does not evaluate this vertex-deformation shader. See [[3D scene pipeline]] for the representation boundary and [[Geometry and buffer utilities]] when adapting attribute layouts.
 
 ## Try it
 
-Open this example to see real-time vertex deformation driven by curl noise.
+Open the ZIP directly in score and start playback; `Models/angel.obj` is bundled. Change Curl noise's intensity to adjust displacement and its scale modulation to change the spatial pattern. Long Exposure's absorption and discharge controls affect persistence, not the mesh itself. This is native Geometry Loader → Geometry filter → Model Display rendering, not Qt Quick 3D, and the vertex filter does not require a compute shader. To substitute a model, change the Geometry Loader file control; the original model source is [ModelsOBJ](https://github.com/pichiliani/ModelsOBJ).
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

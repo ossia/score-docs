@@ -28,7 +28,7 @@ property string framing: "delimiter"
 property string delimiter: "\r\n"
 ```
 
-The current development build also offers **COBS** in the **OSC** device's serial transport. That is a separate configuration path: choose **OSC → Serial port → Framing → COBS** for hardware exchanging COBS-framed OSC packets. The Serial QML parser does not expose COBS merely because the shared socket layer supports it. See [OSC transports and framing]({{ site.baseurl }}/devices/osc-device.html#transports-and-framing).
+The **OSC** device's serial transport offers **COBS** framing. That is a separate configuration path: choose **OSC → Serial port → Framing → COBS** for hardware exchanging COBS-framed OSC packets. The Serial QML parser does not expose COBS merely because the shared socket layer supports it. See [OSC transports and framing]({{ site.baseurl }}/devices/osc-device.html#transports-and-framing).
 
 Only one application/device should own a serial port at a time. Check operating-system permissions and close serial monitors before connecting. Port names can change between machines; review the saved port when moving a project.
 

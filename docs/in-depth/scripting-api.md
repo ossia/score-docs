@@ -12,7 +12,7 @@ permalink: /in-depth/scripting-api.html
 
 # Scripting API
 
-These pages describe the current development API. Older released builds may not provide every function. The console and editor scripts operate on the **current document**; a JavaScript process runs in a separate execution context, not in the console's global scope.
+The console and editor scripts operate on the current document; a JavaScript process runs in a separate execution context.
 
 | Object / module | Purpose |
 |---|---|
@@ -23,6 +23,10 @@ These pages describe the current development API. Older released builds may not 
 | `View` | Editor navigation and captures; requires a GUI. |
 | `Protocols` | Raw transport connections and HTTP requests in the console and Mapper scripts. |
 | `System`, `Library` | System queries and package operations, subject to the installed build. |
+
+## Examples
+
+[Scripting API examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html) walks through document editing, ports, triggers and conditions, devices, files and network connections.
 
 ## Score object
 
@@ -46,4 +50,4 @@ The [Javascript process]({{ site.baseurl }}/processes/javascript.html) reference
 
 ## Source reference
 
-The authoritative declarations are [`EditContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/EditContext.hpp), [`Utils.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/Utils.hpp) and [`ViewContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/ViewContext.hpp). Only APIs registered with the installed build are available; C++ implementation classes are not themselves JavaScript processes.
+The authoritative declarations are [`EditContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/EditContext.hpp), [`Utils.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/Utils.hpp) and [`ViewContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/ViewContext.hpp). C++ implementation classes are not themselves JavaScript processes.

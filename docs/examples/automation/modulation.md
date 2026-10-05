@@ -17,45 +17,18 @@ score: /examples/automation/automating.score
     <source src="{{ site.img }}/examples/automation/automating.mp4" type="video/mp4">
 </video>
 
-This example demonstrates automating external devices and internal processes using various modulation sources.
+This patch compares two ways of moving the same kind of control data: a direct value cable and the current value of an OSC device parameter.
 
-## Overview
+## Follow the comparison
 
-ossia score can control devices (lights, motors, software) over time using automations, LFOs, step sequencers, and other modulation sources which evolve over time.
+1. Start playback. The `Display` interval contains `Signal display from cable` and `Signal display from OSC`. The latter reads `OSC:/some_address`; the former receives cables from each source interval.
+2. After the initial interval, two LFOs run: one feeds the cable display and the other writes to the OSC address.
+3. Trigger the LFO interval's end to switch to `Step`. Compare the displays for these less frequent messages: the cable conveys individual emissions, whereas the address-bound inlet polls the stored device value each tick.
+4. Trigger again to reach `Math expression`. Both generators use `noise(pos * a * 10, b * 10, c)`, with slightly different saved parameters. Trigger its end to return to LFO.
 
-## Automation sources
+The `Display` interval has its own end trigger; keep it running while comparing the source branches. The example makes no audio and needs no media files.
 
-ossia score provides many automation sources:
-
-| Source | Character |
-|--------|-----------|
-| Automation curve | Manual, precise |
-| LFO | Periodic, rhythmic |
-| Step Sequencer | Quantized, patterns |
-| Perlin Noise | Organic, random |
-| Envelope | Attack/decay shapes |
-| Math expressions | Calculated values |
-
-## Automating devices
-
-To automate an external device:
-
-1. Set up the device in the Device Explorer
-2. Create an automation or modulation process
-3. Connect the output to the device address
-4. The timeline controls when automation plays
-
-## Automating processes
-
-Internal processes can also be automated:
-
-1. Expose the parameter you want to control
-2. Connect a modulation source
-3. The parameter changes in real-time
-
-## Try it
-
-Open this example to see modulation in action!
+The saved OSC device listens on UDP `0.0.0.0:9997` and sends `/some_address` to `127.0.0.1:9996`. An external receiver on 9996 can monitor the outgoing messages, but is not required for the internal display comparison. Change the remote host and port before using a different application or computer.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
