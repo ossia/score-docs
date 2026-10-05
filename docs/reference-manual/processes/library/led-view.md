@@ -25,6 +25,10 @@ The **Size** pair requests an explicit layout. Set both components above zero to
 LED View only visualizes the values. It does not send data to LEDs, correct colors, or enforce electrical limits. [Pixel Utilities]({{ site.baseurl }}/processes/pixel-utilities.html) can extract values from a texture, and [Array utilities]({{ site.baseurl }}/processes/array-utilities.html) can rearrange their channels.
 
 
+## Example
+
+The [Generated RGB LED Strip walkthrough]({{ site.baseurl }}/reference/process-examples/led-view.html) includes a patch for inspecting a 192-value array without LED hardware.
+
 ## Related processes
 
 *score* comes with multiple processes for monitoring input data [[LED View]], [[Signal Display]], [[Value display]].

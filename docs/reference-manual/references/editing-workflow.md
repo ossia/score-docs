@@ -11,7 +11,7 @@ permalink: /reference/editing-workflow.html
 
 # Editing workflow
 
-This guide describes the current development build. Older releases may not expose all of these controls. Timeline and nodal views edit the same processes: changing the view does not create a second copy of the patch.
+Timeline and nodal views edit the same processes: changing the view does not create a second copy of the patch.
 
 ## Navigate and audition
 

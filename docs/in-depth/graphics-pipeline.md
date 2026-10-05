@@ -153,9 +153,9 @@ Use [[Sink]] when a GPU chain must run without a visible window, for example to 
 
 ## Backend limits
 
-Storage-image and compute recipes require a compute-capable backend and device. Integer storage formats in the current format mapping require Qt 6.10 or newer: on older builds unsupported names fall back to RGBA8, which is not equivalent to integer storage. A driver must also support the requested format and usage. Prefer `rgba8` or supported floating-point formats when integer precision is not required.
+Storage-image and compute recipes require a compute-capable backend and device. Integer storage formats require Qt 6.10 or newer: with earlier Qt versions, unsupported names fall back to RGBA8, which is not equivalent to integer storage. A driver must also support the requested format and usage. Prefer `rgba8` or supported floating-point formats when integer precision is not required.
 
-See [[Shader cookbook]] for small, source-based recipes and backend-sensitive checks. These newer shader extensions describe current development builds, not a guarantee for every released version.
+See [[Shader cookbook]] for small recipes using these shader extensions.
 
 ## Related pages
 

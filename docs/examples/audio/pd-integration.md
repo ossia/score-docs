@@ -15,39 +15,19 @@ score: /examples/audio/puredata.score
 
 ![PureData Integration Example]({{ site.img }}/examples/audio/puredata.png "PureData patch running in ossia score")
 
-This example demonstrates how to integrate PureData (Pd) patches into ossia score projects.
+The `noisebank` Pure Data patch generates stereo noise with exposed controls named volume, white, dark, fizzle, grit, grrrit and crk. The score sequences the patch and automates its controls rather than sending MIDI to it.
 
-## Overview
+## Requirements
 
-PureData is a visual programming language for audio and multimedia. ossia score can load and run Pd patches, allowing you to combine Pd's synthesis and processing capabilities with ossia's timeline and control features.
+Use a score build with the Pure Data process available. The document references `<LIBRARY>:packages/default/Presets/PureData/noisebank.pd`; this separate patch must be present in the user library. The `.score` download does not bundle it. Installing the Pure Data application is useful for opening its external editor, but the embedded process also needs score's own Pd support.
 
-## Integration features
+## Play and inspect
 
-- Load existing .pd patch files
-- Audio and MIDI input/output between ossia and Pd
-- Real-time parameter control
-
-## Use cases
-
-PureData integration is useful for:
-
-- **Complex synthesis**: Using Pd's extensive audio objects
-- **Custom DSP**: Algorithms built in Pd's visual environment
-- **Existing patches**: Reusing work from Pd projects
-- **Live coding**: Modifying patches during playback
-
-## Setting up PureData
-
-1. Install PureData on your system
-2. Create or load a .pd patch in ossia score
-3. The patch's receive objects become controllable parameters
-4. Audio flows through the patch
-
-## Try it
-
-Open this example to see how Pd patches integrate with the ossia timeline.
-The patches are loaded from the user library.
-If you have PureData installed, you can also edit the patches directly from within ossia.
+1. Configure audio output and start playback at a low level. After the initial two-second interval, `noisebank` starts.
+2. Follow the four automation cables into white, dark, fizzle and crk. Compare their curve shapes with the changing texture of the noise.
+3. The patch's audio passes through Lowpass → Limiter → Gain. A fifth automation changes the lowpass cutoff. Gain sends to the parent mix at `audio:/out/main`.
+4. Use the interval's end trigger to stop the patch. Its nominal 17-second endpoint is interactive, not an automatic stop.
+5. If Pure Data is installed, use **Open external window** to inspect or edit `noisebank.pd`. The saved process has zero audio inputs, two audio outputs and no MIDI input or output.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

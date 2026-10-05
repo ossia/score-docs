@@ -16,7 +16,7 @@ The Window device displays the texture routed to it. Assign it as the destinatio
 
 ## Output modes
 
-Current development builds offer **Single Window**, **Background** and **Multi-Window Mapping**:
+The output modes are **Single Window**, **Background** and **Multi-Window Mapping**:
 
 - **Single Window** opens a conventional output window.
 - **Background** renders behind the score timeline rather than opening a separate presentation window.

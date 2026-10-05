@@ -18,17 +18,17 @@ The device explorer (shortcut: {% include shortcut.html content="Ctrl+Shift+D" %
 
 ## Add a device
 
-Choose **Add device** from the context menu, or use {% include shortcut.html content="Ctrl+B" %} with the explorer active. In the current development dialog:
+Choose **Add device** from the context menu, or use {% include shortcut.html content="Ctrl+B" %} with the explorer active. In the dialog:
 
 - **Protocols** lists the protocols available in this build. Select one, then choose a discovered device or library definition where offered, and complete its settings.
 - **Presets** lists `.device` files found beneath the library's `packages` directory. A preset contains a device definition and its saved tree; it still requires the relevant protocol, packages and hardware.
 - **Filter** fields narrow the protocol, device and preset lists. The protocol filter receives focus when the dialog opens; keyboard navigation can select a result without scrolling through the entire list.
 
-Some protocols offer a **Default** device as well as named hardware. Default is a protocol-specific selection policy, not a promise that the same physical device will be used on every machine. For example, the default Joystick selects an available controller. Select named hardware when identity matters and verify it on the destination machine.
+Some protocols offer a Default device as well as named hardware. For example, Default Joystick selects an available controller. Select named hardware when a project requires a particular device.
 
 ## Devices during playback
 
-The current development build allows **adding and importing devices while the score is playing**. Use the explorer context menu or Add device shortcut if the toolbar's editing menu is disabled.
+You can **add and import devices while the score is playing**. Use the explorer context menu or Add device shortcut if the toolbar's editing menu is disabled.
 
 This does not unlock every edit: **Remove**, device **Edit**, namespace refresh, learning, disconnect/reconnect and address-structure edits remain restricted while playback is running. Stop playback before changing or removing an existing device. Commands also depend on protocol capabilities: a discovered hardware tree may not permit adding arbitrary addresses even while stopped.
 

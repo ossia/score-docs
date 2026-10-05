@@ -93,6 +93,8 @@ Arraygen can also return arrays:
 
 [Download the example score here]({{ site.scores }}{{ page.score }}).
 
+See [Arraygen Signal Study]({{ site.baseurl }}/reference/process-examples/arraygen.html) for a patch that generates three moving values.
+
 ## Using Arraymap {#arraymap}
 
 ![Arraymap]({{ site.img }}/reference/processes/exprtk/arraymap.png)

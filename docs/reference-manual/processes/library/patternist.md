@@ -29,7 +29,7 @@ On which MIDI channel the output goes.
 
 ## Pattern selection and quantization
 
-Current development builds expose **Pattern** and **Quantization** as control
+**Pattern** and **Quantization** are exposed as control
 inlets, including in the folded node view. **Pattern** is a zero-based index and
 stays synchronized with the inspector's current-pattern selection. Selecting a
 new pattern in the editor grows the pattern list; prepare patterns before

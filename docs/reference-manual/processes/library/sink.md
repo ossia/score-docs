@@ -9,7 +9,7 @@ permalink: /processes/sink.html
 
 # Sink
 
-**Sink**, in **Visuals / Utilities**, runs the video processes connected to it without opening a window or displaying their images. Use it when a GPU process produces useful data but its image is not connected to an output—for example, an image-analysis process with a data outlet. This process is available in current development builds.
+**Sink**, in **Visuals / Utilities**, runs the video processes connected to it without opening a window or displaying their images. Use it when a GPU process produces useful data but its image is not connected to an output—for example, an image-analysis process with a data outlet.
 
 ## Ports and control
 

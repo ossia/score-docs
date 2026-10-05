@@ -29,7 +29,7 @@ All effects are optimized for real-time performance and can be combined with [[F
 
 The **Flanger** mixes audio with a short, continuously modulated delay. Connect an audio source to its audio input and route its audio output onward.
 
-The current development-build version (v2) replaces the sweep's Frequency control with a tempo-syncable **Period**.
+Version 2 uses a tempo-syncable **Period** instead of the sweep's Frequency control.
 
 | Control | Range; default | Meaning |
 |---|---|---|
@@ -71,7 +71,7 @@ Try a short slap echo with Delay: 0.08s, Feedback: 0.3, Filter: 0.7, Dry/Wet: 0.
 
 The **Compressor** reduces the gain of audio above a threshold. Connect the signal to **Audio** and take the result from **Output**. An optional **Sidechain** audio input supplies the detector signal instead of the main input; without it, the compressor detects the main audio's peaks across its channels.
 
-The current development-build version (v2) has tempo-syncable Attack and Release controls:
+Version 2 has tempo-syncable Attack and Release controls:
 
 | Control | Range; default | Meaning |
 |---|---|---|

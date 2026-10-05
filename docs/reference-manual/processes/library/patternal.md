@@ -69,7 +69,7 @@ Patternal automatically synchronizes to *score*'s musical timing system, which m
 
 ## Integration with score
 
-Works seamlessly with *score*'s MIDI system - connect the output to [[MIDI]] devices, software synthesizers, or other MIDI processes.
+Connect the output to [[MIDI support|MIDI]] devices, software synthesizers, or other MIDI processes.
 
 **MIDI routing**: Connect to any MIDI device or application that receives MIDI input.
 
@@ -89,4 +89,4 @@ Works seamlessly with *score*'s MIDI system - connect the output to [[MIDI]] dev
 
 ## Related processes
 
-Patternal pairs perfectly with [[Melodial]] for complete drum and melody programming, works alongside [[MIDI]] devices for output routing, and integrates with [[Automation]] for dynamic pattern changes over time.
+Combine Patternal with [[Melodial]] for melody programming, route notes to [[MIDI support|MIDI]] devices, and use [[Automation]] to change parameters over time.

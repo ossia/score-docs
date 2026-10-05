@@ -19,21 +19,17 @@ This example demonstrates modifying live video input on the GPU with a simple au
 
 ## Overview
 
-Audio-reactive graphics are a staple of live performance and music visualization. 
-This example shows how to analyze audio and use the results to modify video input.
+`Camera:/` feeds Color Blowout → Edge Blur → Optical Flow Distort → `Window:/`. RMS reads `audio:/in/main`. Micromap scales its values, and OneEuro smoothing controls colour intensity, blur amount and distortion amount. Peak detection sends Peak max to Optical Flow Distort's reset input.
 
-## Live performance
+## Inputs and controls
 
-This type of patch is ideal for:
-- VJ performances
-- Concert visuals
-- Interactive installations
-- Music videos
+Select an available camera in the Camera device settings and a working audio input in the audio settings. Grant camera permission where required and close applications that hold exclusive access to it. No external movie is needed.
+
+Adjust RMS Gain to suit the input before changing the mapping expressions. Compare the direct RMS-to-Edge Blur intensity path with the smoothed controls, then change Peak detection's trigger/reload thresholds to alter when distortion resets.
 
 ## Try it
 
-Connect an audio source (microphone or music), check that your webcam is connected and not in use by another software,
-and open this example to see real-time audio-reactive graphics!
+Start playback and make sound while moving in front of the camera. The camera image should remain the source while the audio changes its treatment. If no microphone is available, connect a sound-file process to RMS instead; this does not replace the camera input.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

@@ -11,7 +11,7 @@ permalink: /in-depth/automations.html
 
 # Automations
 
-Automations are a specific kind of *score* [[process]], which will change the value of a parameter in time according to a visual curve.
+Automations are a specific kind of *score* [[Processes|process]], which will change the value of a parameter in time according to a visual curve.
 
 ## Automation types
 

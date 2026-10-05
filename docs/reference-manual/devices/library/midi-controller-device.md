@@ -11,7 +11,7 @@ permalink: /devices/midi-controller-device.html
 
 **MIDI Controller** has two modes: a description-driven interface for controllers/instruments, and a **Mackie Control surface** interface for controlling score itself. These are modes of the same registered protocol, not separate processes.
 
-The device-map workflow below describes the current development implementation. It requires MIDI support in the build and the hardware's MIDI ports. Install the **MIDI device maps** package through the Package Manager for the library of named hardware descriptions; generic raw-channel entries do not require a hardware description.
+The device-map workflow requires MIDI support in the build and the hardware's MIDI ports. Install the **MIDI device maps** package through the Package Manager for the library of named hardware descriptions; generic raw-channel entries do not require a hardware description.
 
 ## Controller or instrument (device map)
 

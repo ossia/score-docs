@@ -26,7 +26,7 @@ For video processing and complex scenarios, a more powerful system is recommende
 
 Official x86_64 Windows and Linux downloads require an AVX2-capable CPU. For older CPUs, use a suitable distribution build rather than assuming the official binary will run.
 
-Choose between the [stable downloads](https://ossia.io/score/download.html) and [Continuous development builds](https://github.com/ossia/score/releases/tag/continuous). Features described for the current development version may not be present in a stable release or distribution package. Check the requirements of the particular asset you download.
+Choose between the [stable downloads](https://ossia.io/score/download.html) and [continuous builds](https://github.com/ossia/score/releases/tag/continuous). Check the requirements of the particular asset you download.
 
 ---
 
@@ -42,7 +42,7 @@ Download the installer directly:
 - Windows 10 or Windows 11
 - For the OSCQuery feature, install [Bonjour Print Services](https://support.apple.com/kb/DL999){:target="_blank"}
 
-Native **Windows ARM64** installers are available among the Continuous development assets (`aarch64.exe`); this is distinct from the stable x86_64 installer. Use architecture-compatible add-ons and external plug-ins. The ARM64 build is not merely a source-only target, but availability in Continuous does not imply that every stable release includes it.
+Native Windows ARM64 installers are available in the Continuous development assets (`aarch64.exe`). Use add-ons and external plug-ins matching your installation's architecture.
 
 ### Alternative Installation Methods
 
@@ -69,7 +69,7 @@ Choose the appropriate version for your Mac:
 - **Apple Silicon (M1 and later):** choose the AppleSilicon disk image.
 - **Intel:** choose the Intel disk image.
 
-Use **macOS Ventura 13 or later** for current downloads, following the [download page's system requirements](https://ossia.io/score/download.html). Do not assume an older “10.15” label on an Intel download guarantees compatibility with all bundled libraries. Older score releases have different requirements. The current source packaging recipe's macOS deployment target is also not a substitute for the downloaded application's requirements.
+Current downloads require macOS Ventura 13 or later; see the [system requirements](https://ossia.io/score/download.html). Older score releases have different requirements.
 
 ### Installation Steps
 

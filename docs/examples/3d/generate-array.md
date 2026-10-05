@@ -42,7 +42,9 @@ An [[Math expressions|Arraygen]] process generates arbitrary values. The resulti
 
 ## Try it
 
-Open this example to see a procedurally generated point cloud animated in real-time.
+Start playback, then edit Arraygen's `i tan (i + pos + mod(i, pos))` expression to change the point distribution. Its 300 floats become 100 XYZ vertices. Compare changes to LFO frequency with Long Exposure's discharge rate: they affect rotation and persistence respectively. The output is `Window:/`.
+
+No external file is required. This is native Model Display rendering, not Qt Quick 3D. The saved Window uses an HDR swapchain format; use a compatible HDR output or change the Window format and adapt the final image for an SDR display.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

@@ -13,13 +13,13 @@ permalink: /reference/preferences.html
 
 **Driver** selects the audio backend; the device, sample-rate and buffer controls below it depend on that backend and the platform. Only available drivers are listed.
 
-If no sound is needed, select **Dummy**, which does not output sound. Current Windows development builds also provide **WASAPI (miniaudio)**. Its **Default device** selection follows changes to the Windows default audio device.
+If no sound is needed, select **Dummy**, which does not output sound. On Windows, **WASAPI (miniaudio)** is also available. Its **Default device** selection follows changes to the Windows default audio device.
 
 See [Working with audio]({{ site.baseurl }}/quick-start/working-with-audio.html) for device setup and [Audio routing]({{ site.baseurl }}/in-depth/audio-routing.html) for connecting audio processes.
 
 ## User interface
 
-Current development builds split this section into **Interface** and **Skin** tabs. See [Appearance and skins]({{ site.baseurl }}/reference/appearance.html) for presets, colour and font roles, per-role hinting, automatic saving and resetting. There is no separate global `FontHinting` preference.
+This section is split into **Interface** and **Skin** tabs. See [Appearance and skins]({{ site.baseurl }}/reference/appearance.html) for presets, colour and font roles, per-role hinting, automatic saving and resetting. There is no separate global `FontHinting` preference.
 
 The **Interface** tab includes:
 
@@ -41,7 +41,7 @@ See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for e
 
 ## Graphics
 
-These settings control graphics processing and video output, not the editor skin. Available backends depend on the operating system and build; the newer choices described here require a current development build.
+These settings control graphics processing and video output, not the editor skin. Available backends depend on the operating system and build.
 
 | Setting | Effect |
 | --- | --- |

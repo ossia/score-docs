@@ -8,7 +8,9 @@ permalink: /development/custom-apps.html
 
 # Custom applications
 
-The current development checkout includes `tools/create-app.sh`, which repackages an existing score distribution with your QML interface, optional score and assets. It does not compile score or make unavailable processes work on a different platform. Use a base release or local build that contains the features your project needs.
+Package score with a QML interface, a score and its media as a standalone application. Start from the [custom application template](https://github.com/ossia-templates/score-custom-app-template): replace `qml/Main.qml` and `score/app.score`, then edit the application name and metadata in its workflows.
+
+The template's [packaging workflow](https://github.com/ossia-templates/score-custom-app-template/blob/master/.github/workflows/build.yml) uses an existing score release. Its [full-build workflow](https://github.com/ossia-templates/score-custom-app-template/blob/master/.github/workflows/full-build.yml) builds score with selected features before packaging.
 
 ## First package
 
@@ -30,15 +32,13 @@ bash tools/create-app.sh \
   --platform linux-x86_64
 ```
 
-The paths above stand for your own files; omit `--score` for a UI-only application. `--name` and `--app-name` are aliases, not two separate required settings. `--qml`, `--output` and a name are required. Prefer absolute paths for optional resources and environment files too: platform scripts change their working directory.
+`--qml`, `--output` and `--name` (also called `--app-name`) are required. Omit `--score` for a UI-only application. Use absolute paths: platform scripts change their working directory.
 
-Repeat `--qml` to include additional files or directory contents. Pass the main `.qml` file explicitly first to avoid depending on directory search order. Directory contents are merged into the package's `qml` directory, not wrapped in their source folder; avoid colliding names.
-
-With `--score`, the scripts also copy the score's sibling directory contents. Use a dedicated project folder, not a home directory or a folder containing credentials, unrelated projects or the output packages. The wildcard copy of score siblings does not include hidden files. Prepare media with [Project files]({{ site.baseurl }}/reference/project-files.html): external absolute paths are not made portable simply by packaging the score.
+Repeat `--qml` for additional files or directories, listing the main QML file first. Directory contents are merged into the package's `qml` directory. With `--score`, the scripts copy the score's sibling files and directories, except hidden files. Keep the project in its own folder and collect its media as described in [Project files]({{ site.baseurl }}/reference/project-files.html).
 
 ## Base distribution and targets
 
-`--release TAG` selects an official GitHub release; the default is `continuous`. `--local-installer PATH` uses a local distribution instead and takes precedence over `--release`. There is no source-build step in this command.
+`--release TAG` selects a GitHub release (default: `continuous`). `--local-installer PATH` uses a local distribution instead.
 
 | `--platform` | Base distribution | Output and host requirements |
 |---|---|---|
@@ -47,15 +47,15 @@ With `--score`, the scripts also copy the score's sibling directory contents. Us
 | `windows`, `windows-arm64` | Windows installer `.exe` | ZIP containing the application and native launcher. Requires Bash, `7z`/`7za`, a Windows-targeting C++ compiler and a ZIP tool. |
 | `wasm` | WASM release ZIP, or local build directory/ZIP | Static web directory and ZIP, not a native executable. |
 
-Repeat `--platform` for multiple targets only when the host has the required tooling; the flag is not a universal cross-compiler. Without it, the script detects the current platform. Downloaded distributions and packaging tools require network access. The Windows launcher uses `clang++`, then `CXX`, then `g++`; despite a fallback message, absence of a compiler ends packaging rather than producing a batch launcher.
+Without `--platform`, the script detects the host. Repeat it for multiple targets when the host has the required tools. On Windows, use llvm-mingw's `clang++` or MSYS2 CLANG64 for the native launcher.
 
-For WASM, a local build must provide `ossia-score.js` and `ossia-score.wasm` (and associated data when used). The generated directory is named `<safe-name>-wasm` and must be served over HTTP, not opened as a local HTML file. Consult [Using score in the browser]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html) for browser capabilities and [[Building for WebAssembly]] for build and hosting requirements.
+For WASM, pass a release ZIP or a local directory containing `ossia-score.js`, `ossia-score.wasm` and its accompanying files. Serve the generated `<safe-name>-wasm` directory over HTTP. See [[Building for WebAssembly]] for browser and hosting requirements.
 
 ## Startup and debugging
 
-The native launcher runs score with `--ui` and your main QML file. A supplied score loads on startup, but does **not** play automatically unless you add `--autoplay` when packaging. Additional native application arguments are forwarded to score.
+The native launcher starts score with `--ui` and the main QML file. A supplied score loads at startup; add `--autoplay` to start playback. Additional native command-line arguments are forwarded to score.
 
-Launch the generated native application with `--debug` to use `--ui-debug`: both your custom UI and the score editor are shown. The generated browser page uses the `?debug` URL parameter instead. This is useful for diagnosing device setup, routing and project loading without changing the normal presentation.
+Launch with `--debug` to show both the custom UI and score editor (`--ui-debug`). In a browser, use `?debug`.
 
 ## Branding and icons
 
@@ -71,19 +71,19 @@ Launch the generated native application with `--debug` to use `--ui-debug`: both
 | `--app-icns` | macOS ICNS icon. |
 | `--app-ico` | Windows ICO icon. |
 
-The native launchers set `SCORE_CUSTOM_APP_ORGANIZATION_NAME`, `SCORE_CUSTOM_APP_ORGANIZATION_DOMAIN`, `SCORE_CUSTOM_APP_APPLICATION_NAME` and `SCORE_CUSTOM_APP_APPLICATION_VERSION`. Application and organization names also distinguish the app's settings from a normal score installation; do not assume it inherits your editor's library configuration.
+Native launchers set `SCORE_CUSTOM_APP_ORGANIZATION_NAME`, `SCORE_CUSTOM_APP_ORGANIZATION_DOMAIN`, `SCORE_CUSTOM_APP_APPLICATION_NAME` and `SCORE_CUSTOM_APP_APPLICATION_VERSION`. Application and organization names give the app its own settings.
 
-On Windows the icon/version resource editing block runs when the ICO file exists, so supply a valid ICO when relying on that metadata. Branding options are platform-specific: the WASM wrapper does not apply the native launcher environment or all native icon/metadata settings.
+On Windows, provide an ICO file to apply the icon and version resources. WASM does not use the native launcher environment or native icon metadata.
 
 ## Environment and per-OS overrides
 
-`--app-environment /absolute/path/to/app.env` supplies startup environment settings for native launchers. Keep the portable subset to literal assignments, for example:
+`--app-environment /absolute/path/to/app.env` supplies environment settings to native launchers:
 
 ```bash
 export MY_INSTALLATION_MODE=gallery
 ```
 
-Linux and macOS append the file to a Bash launcher. Windows parses assignments, accepts the optional `export` prefix and does not execute shell commands or conditionals. Avoid shell expansion or executable shell syntax in a shared file.
+Linux and macOS source the file as Bash. Windows accepts literal assignments with an optional `export` prefix, but not shell expansion or commands.
 
 If adjacent files exist, the orchestrator appends the matching overlay after the base file:
 
@@ -91,24 +91,41 @@ If adjacent files exist, the orchestrator appends the matching overlay after the
 - `app.env.macos`
 - `app.env.windows`
 
-Later assignments can override common values, useful for a graphics backend supported only on one OS. End each file with a newline so concatenation does not join two assignments. There is no WASM overlay, and the current WASM packager does not consume `--app-environment`.
+The overlay overrides the common values. End each file with a newline. WASM does not use these environment files.
 
 ## Qt resources
 
-`--app-qrc /absolute/path/to/resources.qrc` invokes Qt's `rcc` to generate a file named `resources.rcc`. Native scripts place it beside the real score executable, where score attempts to register it at startup. The WASM packager includes it in its preload manifest at `/resources.rcc`.
+`--app-qrc /absolute/path/to/resources.qrc` invokes `rcc` from `PATH` and places `resources.rcc` beside the native executable, or at `/resources.rcc` in the WASM preload manifest. WASM also accepts the `RCC` environment variable.
 
-Provide a compatible `rcc` in `PATH`; the WASM script additionally accepts the `RCC` environment variable and warns and skips compilation when that tool is missing. Resource names come from your QRC aliases and prefixes. This is separate from ordinary score media collection and does not automatically replace absolute media references with resource URLs.
-
-The current scripts invoke `rcc` without an explicit binary-output flag. Do not assume that merely finding a file named `resources.rcc` proves it is a valid binary resource bundle: verify its format and resource loading with the Qt toolchain used for your distribution. A precompiled binary bundle beside the executable can also be registered by score's startup resource loader.
+The current scripts omit `rcc`'s binary-output flag. To supply a binary resource bundle manually, run `rcc --binary resources.qrc -o resources.rcc` and place it beside the native executable; score registers it on startup.
 
 ## Enabled add-ons
 
-There is no `create-app.sh` switch that compiles or enables add-ons. The packaged application's available processes depend on its base distribution and installed compatible add-ons.
+The packaged app uses the add-ons in its base distribution. To select add-ons in a source build, set `SCORE_ENABLED_ADDONS` to comma-separated directory names from `src/addons`; `SCORE_ENABLE_ADDONS` is also accepted. Leave it unset to include all discovered add-ons. Pass the resulting distribution with `--local-installer`.
 
-For a source build, the CMake setting `SCORE_ENABLED_ADDONS` selects add-on directory names from `src/addons`; comma-separated values are accepted. `SCORE_ENABLE_ADDONS` is accepted as an input alias. An unset selection permits all discovered add-ons, subject to other build exclusions. This is a **build-time** selection, not an environment variable in `app.env`. Prepare and verify that distribution first, then pass it through `--local-installer`. See [Building from source]({{ site.baseurl }}/development/build-from-source.html).
+## GitHub Actions
+
+[ossia/actions](https://github.com/ossia/actions) provides:
+
+- [`package-custom-app`](https://github.com/ossia/actions/tree/master/package-custom-app): packages a release with `app-name`, `qml-files`, optional `score-file`, `release-tag` and `platforms`.
+- [`custom-score-build`](https://github.com/ossia/actions/tree/master/custom-score-build): builds score with `cmake-options` or `cmake-cache`. Pass its `artifact-id` output to the packaging action's `score-build-id` input.
+
+For example, in a Linux job after checking out your application:
+
+```yaml
+- uses: ossia/actions/package-custom-app@master
+  with:
+    app-name: My Installation
+    qml-files: qml
+    score-file: score/app.score
+    release-tag: continuous
+    platforms: linux-x86_64
+```
+
+The template workflows include native and WASM packaging jobs and artifact uploads. To build WASM from source, use an `ubuntu-24.04` runner and set `target-platform: wasm` on `custom-score-build`, then `platforms: wasm` on `package-custom-app`.
 
 ## Signing and distribution
 
-On macOS, set `MAC_CODESIGN_IDENTITY` in the packaging shell to request signing of the bundle and DMG. Optional notarization uses all three of `MAC_NOTARIZE_TEAM_ID`, `MAC_NOTARIZE_APPLE_ID` and `MAC_NOTARIZE_PASSWORD`, with Apple's `notarytool`. These are packaging credentials, not application runtime settings; keep them out of `app.env` and the score assets directory. Signing failures can be reported as warnings, so inspect the result rather than treating package creation as proof of a valid signature.
+On macOS, set `MAC_CODESIGN_IDENTITY` to sign the app and DMG. Notarization also uses `MAC_NOTARIZE_TEAM_ID`, `MAC_NOTARIZE_APPLE_ID` and `MAC_NOTARIZE_PASSWORD`. In GitHub Actions, supply the corresponding certificate and notarization inputs from repository secrets.
 
-The Windows script produces a ZIP, not a signed installer, and has no Authenticode signing option. Linux produces an AppImage. Any additional installer creation, signing, licence compliance and target-machine acceptance checks remain part of your distribution workflow. Test the packaged application on each intended OS with its own library, plug-ins, audio devices and media paths; packaging success alone does not establish that the score plays correctly.
+Windows packaging produces a ZIP without Authenticode signing; Linux produces an AppImage.

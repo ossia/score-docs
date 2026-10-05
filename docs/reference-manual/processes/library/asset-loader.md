@@ -16,7 +16,7 @@ Asset Loader is the scene-oriented 3D file loader. It reads full assets into *sc
 
 Use Asset Loader when the file is a scene. Use [[Object Loader]] when you only need simple mesh geometry.
 
-The scene processes described here follow the current development build; they are not the Qt Quick 3D `RuntimeLoader` used by some older examples. See [[3D scene pipeline]] to choose the appropriate path.
+The scene processes described here are distinct from the Qt Quick 3D `RuntimeLoader` used by some older examples. See [[3D scene pipeline]] to choose the appropriate path.
 
 ## Supported formats
 

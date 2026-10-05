@@ -62,7 +62,7 @@ $ ossia-score --no-restore
 
 ### Timeline rendering
 
-`--opengl` enables OpenGL rendering of the main timeline; `--no-opengl` disables it. The current development build defaults to the non-OpenGL timeline. These switches do **not** select the video/GPU processing backend.
+`--opengl` enables OpenGL rendering of the main timeline; `--no-opengl` disables it. The timeline defaults to non-OpenGL rendering. These switches do **not** select the video/GPU processing backend.
 
 `--vector-gui` favors vector drawing where available (sharper when zooming, potentially slower); `--no-vector-gui` favors cached pixmaps. These are GUI rendering choices, not audio or video quality settings.
 
@@ -75,7 +75,7 @@ ossia-score --no-gui --script 'console.log("ready"); Qt.exit(0);'
 
 `--script` can be repeated. An existing file path takes precedence over inline JavaScript; `.mjs` files are imported as ES modules and an exported `initialize()` function is called when present. Other script files are evaluated as JavaScript. Quote inline code so the shell does not interpret it.
 
-In current development builds, scripts run after the document has loaded, or against a new empty document when no score was supplied. `--wait N` adds a non-negative, whole-second delay before startup scripts and autoplay. There is also a short startup scheduling delay; this is not a precise synchronization clock.
+Scripts run after the document has loaded, or against a new empty document when no score was supplied. `--wait N` adds a non-negative, whole-second delay before startup scripts and autoplay. There is also a short startup scheduling delay; this is not a precise synchronization clock.
 
 Supplying `--script` bypasses the start screen and normal session restoration. A missing/unreadable script exits with status 2; an evaluation or module-initialization error exits with status 3. A successful script does not automatically quit: use `Qt.exit(code)` when a batch task is finished. Autoplay and scripts are both scheduled after startup; do not rely on their relative order to finish setup before playback.
 
@@ -141,4 +141,4 @@ For example:
 QSG_RHI_BACKEND=vulkan SCORE_PRETTIFY_JSON=1 ossia-score project.score
 ```
 
-Current development builds consume `QSG_RHI_BACKEND` during graphics setup and remove it from the process environment after applying it, so independently embedded Qt runtimes in audio plug-ins do not inherit an incompatible backend request. Select only a backend available in the application's graphics settings.
+score consumes `QSG_RHI_BACKEND` during graphics setup and removes it from the process environment after applying it, so independently embedded Qt runtimes in audio plug-ins do not inherit an incompatible backend request. Select only a backend available in the application's graphics settings.

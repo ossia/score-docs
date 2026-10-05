@@ -13,7 +13,7 @@ permalink: /processes/metronome.html
 
 The **Free metronome** process produces periodic impulses at its **out** control port. Connect it to a trigger input, for example on [[ADSR]], to repeat an action without drawing each event on the timeline. It produces control impulses, not an audible click.
 
-This page describes the current development-build version (v2). The name distinguishes it from metronomes that follow the parent interval's quantization settings; its own Period can still synchronize to tempo.
+This page describes version 2. The name distinguishes it from metronomes that follow the parent interval's quantization settings; its own Period can still synchronize to tempo.
 
 ## Period
 

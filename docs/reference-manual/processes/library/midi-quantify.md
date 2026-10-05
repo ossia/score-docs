@@ -13,7 +13,7 @@ permalink: /processes/midi-quantify.html
 
 The process named **Midi quantify** receives MIDI notes at **in** and schedules their starts and endings before sending them to MIDI **out**. Put it between a live MIDI source and an instrument to constrain note timing. Non-note MIDI messages pass through unchanged.
 
-This page describes the current development-build version (v2).
+This page describes version 2.
 
 ## Grid and Tightness
 

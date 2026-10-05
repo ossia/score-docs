@@ -31,7 +31,7 @@ a specific location. Keep personal presets outside downloaded package folders so
 package updates do not overwrite them. A preset does not install the process or
 third-party plug-in it depends on.
 
-In current development builds, supported file-based library entries use nested folder
+Supported file-based library entries use nested folder
 categories. Preset `.scp` metadata can also contain an optional `Description` string,
 shown as a tooltip in the preset list. Older presets without it remain usable.
 

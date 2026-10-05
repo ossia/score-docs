@@ -15,33 +15,23 @@ score: /examples/devices/gamepad.zip
 
 ![Gamepad Control Example]({{ site.img }}/examples/devices/gamepad.png "Gamepad controller setup in ossia score")
 
-This example demonstrates how to use a gamepad (Xbox controller, PlayStation controller, etc.) to control sounds and processes in ossia score.
+The gamepad's A and B buttons become MIDI notes, while its two sticks control a sampled drum sound's effects.
 
-## Overview
+## Prepare the controller and samples
 
-Gamepads provide an accessible and expressive control interface with buttons, triggers, and analog sticks. This example shows how to map gamepad inputs to musical triggers and parameters.
+1. Open the ZIP directly in score. It includes `Data/Fairlight_CMI-iix_fullKit/drumkit.xml` and the associated samples.
+2. Connect a gamepad. If `Gamepad` is disconnected in the Device explorer, right-click it and select the controller or choose Reconnect. Check that `/button/a`, `/button/b` and the stick axes change before starting playback.
+3. Configure audio output and begin at a low level. This graph uses Deuterium, Faust and Airwindows as well as built-in audio utilities.
 
-## Setting up a gamepad
+## Play the patch
 
-To use this example:
+Press A and B during playback. Two `Bool to pulse` JavaScript processes pass button-press values to Pulse to Midi, set to notes 36 and 38. Both feed Deuterium's Fairlight kit. MIDI to array and Value display show the A branch's MIDI messages.
 
-1. Connect your gamepad
-2. Open the device explorer and add the Gamepad device. It should appear automatically in the Device Explorer's Gamepad list.
-3. Gamepad addresses use a standardized naming scheme: you can drag and drop any address from it to a port in the timeline.
+Move the left stick: `Gamepad:/stick/left/x` controls Bitcrush's Rate, and `/stick/left/y` controls Crush. The sampler's audio passes through Bitcrush, then splits between the Compressor and Airwindows YLowpass → Faust smoothDelay → Compressor.
 
-## Supported controllers
+The right stick controls delay time and feedback through `/stick/right/x` and `/stick/right/y`. Keep feedback and listening level low when exploring the extremes. Compressor feeds the parent mix at `audio:/out/main`.
 
-ossia score supports most standard gamepad controllers, wired and Bluetooth, including:
-- Xbox Series X/S controllers
-- Xbox One controllers
-- PlayStation DualShock/DualSense
-- Generic USB/Bluetooth gamepads
-
-It is also possible to control rumble.
-
-## Try it
-
-Connect a gamepad and open this example. Press buttons A and B to trigger drum sounds!
+The saved patch uses standardized gamepad addresses; button labels on the physical controller may differ. It contains no rumble output mapping.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

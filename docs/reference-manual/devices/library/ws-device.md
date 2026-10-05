@@ -16,7 +16,7 @@ permalink: /devices/ws-device.html
 
 This device allows to connect to an existing WebSocket server, and exchange messages bidirectionally.
 
-Since such servers can have arbitrarily complex APIs, we have to map these APIs to *score*'s tree-based parameter model. This is done with a QML script, just like for the [[Serial]] and [[HTTP]] devices.
+Map the server's API to *score*'s parameter tree with a QML script, as for [[Serial]] and [[HTTP device]].
 
 ## Setup and callback contract
 

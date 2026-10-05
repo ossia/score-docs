@@ -82,7 +82,7 @@ Gradient Scrubber creates a color gradient from your defined color stops, then u
 
 **DMX lighting**: Convert color outputs to DMX values for professional lighting control.
 
-**Smart bulbs**: Control Philips Hue, LIFX, or other smart lighting systems through [[HTTP]] or other network protocols.
+Smart bulbs: Control Philips Hue, LIFX, or other smart lighting systems through an [[HTTP device]] or another network protocol.
 
 **Projection systems**: Feed color data to video systems for large-scale color projection and mapping.
 

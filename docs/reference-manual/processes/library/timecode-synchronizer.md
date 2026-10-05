@@ -10,7 +10,7 @@ permalink: /processes/timecode-synchronizer.html
 
 # Timecode Synchronizer
 
-The **Timecode Synchronizer**, in **Timing/Control**, converts numeric timecode and speed inputs into a smoothed speed signal. Small position differences are corrected by changing speed; sufficiently large differences produce a timecode correction. This page describes the current development implementation.
+The **Timecode Synchronizer**, in **Timing/Control**, converts numeric timecode and speed inputs into a smoothed speed signal. Small position differences are corrected by changing speed; sufficiently large differences produce a timecode correction.
 
 It does not decode an audio LTC signal or MIDI messages itself, and adding it does not automatically synchronize score's transport. Connect a decoder or numeric source upstream, and route its outputs to the appropriate playback controls downstream.
 

@@ -34,7 +34,7 @@ The bottom part shows information on the selected process.
 
 ### Categories and preset descriptions
 
-In current development builds, file-backed process entries can be grouped into nested
+File-backed process entries can be grouped into nested
 categories derived from their containing folders. Expand the category tree to find
 related shaders, scripts and other supported library files; the exact entries depend
 on the installed packages and process plug-ins. Files in a process's default preset

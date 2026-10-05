@@ -110,7 +110,7 @@ IMG_STORE(outputImage, ivec2(x, y), c);
 IMG_STORE_LAYER(arrayImage, ivec3(x, y, layer), c);
 ```
 
-Integer storage formats such as `rgba32ui` require Qt 6.10 or newer in the current format mapping, plus device support. Older builds fall back to RGBA8 for unsupported format names; that fallback does not preserve integer shader semantics. See [[Graphics pipeline]] for sizing and backend restrictions.
+Integer storage formats such as `rgba32ui` require Qt 6.10 or newer, plus device support. With earlier Qt versions, unsupported format names fall back to RGBA8; that fallback does not preserve integer shader semantics. See [[Graphics pipeline]] for sizing and backend restrictions.
 
 Raw `imageLoad` / `imageStore` also work, but they do not apply *score*'s coordinate-origin fixups.
 

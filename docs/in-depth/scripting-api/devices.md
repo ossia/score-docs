@@ -10,6 +10,8 @@ permalink: /in-depth/scripting-api/devices.html
 
 # Devices and discovery API
 
+[Back to the Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) · [Examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html#device-snapshots-discovery-and-live-values)
+
 ## Existing devices and settings
 
 `Score.device(name)` returns a device object. `Score.deviceSettings(name)` returns its saved configuration as a JavaScript object containing `Name`, `Protocol` and protocol-specific fields. This is the same serialization accepted by `createDevice(name, protocolUuid, settings)`; use it rather than inventing settings keys.
@@ -34,7 +36,7 @@ Score.connectOSCQueryDevice("remote", "ws://127.0.0.1:5678");
 
 `createQMLWebSocketDevice(name, qmlText)` and `createQMLSerialDevice(name, serialPort, qmlText)` create scripted devices. `setUnit(address, unit)` changes an existing parameter's unit, for example `"color.rgba"`, `"position.cart2D"` or `""` to clear it.
 
-`disconnectDevice(name)` and `reconnectDevice(name)` retain the device in the tree and can be used during playback. `removeDevice(name)` deletes it through a command and is **refused while playing**; stop first. Reconnection does not imply that the external server or hardware is available.
+`disconnectDevice(name)` and `reconnectDevice(name)` retain the device in the tree and can be used during playback. `removeDevice(name)` deletes it through a command and is refused while playing.
 
 `deviceToJson(name)` and `deviceToOSCQuery(name)` export a tree as JSON text. `iterateDevice(name, function(address, value) { ... })` visits its parameters, not arbitrary node objects. `setDeviceLearn(name, enabled)` toggles learning on devices that support it.
 
@@ -64,7 +66,7 @@ var level = Device.read("myOSC:/level");
 Device.write("myOSC:/level", 0.5);
 ```
 
-These operations exchange values, not undoable editor changes. `Device.asArray`, `asColor`, `asVec2`, `asVec3`, `asVec4` and `toValue` provide conversions for Qt/ossia value representations. In a process, prefer declared ports when a connection should appear in the dataflow graph. Mapper scripts additionally support their own tree operations; see [Mapper device]({{ site.baseurl }}/devices/mapper-device.html).
+These operations exchange values, not undoable editor changes. `Device.asArray`, `asColor`, `asVec2`, `asVec3` and `asVec4` convert Qt/ossia value representations. Mapper scripts additionally expose `toValue` to unwrap typed values and operations to edit their own tree; see [Mapper device]({{ site.baseurl }}/devices/mapper-device.html).
 
 See [QML protocols]({{ site.baseurl }}/in-depth/qml-protocols.html) for low-level transport APIs, and [Remote Control]({{ site.baseurl }}/in-depth/remote.html) for controlling score itself over a network.
 

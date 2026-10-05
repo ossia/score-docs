@@ -8,7 +8,7 @@ permalink: /in-depth/shader-cookbook.html
 
 # Shader cookbook
 
-These recipes explain small fixtures in the [score graphics corpus](https://github.com/ossia/score/tree/master/tests/gfx/corpus). They describe current development shader features, not a minimum released version. The examples were inspected in source, **not executed for this documentation**. Fixture comments describe expected results, not a guarantee on your GPU. Use [[Graphics pipeline]] for coordinate, size and backend conventions.
+These recipes use the [score graphics corpus](https://github.com/ossia/score/tree/master/tests/gfx/corpus) to explain shader features. See [[Graphics pipeline]] for coordinate, size and backend conventions.
 
 Copy a fixture into your user library before modifying it. For raw raster, copy both files with the same stem (`.fs` and `.vs`). Connect image outputs to a video output to inspect them, or to [[Sink]] when only execution is needed. A CSF geometry output must go through a renderer before a texture output can display it.
 

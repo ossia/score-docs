@@ -105,8 +105,8 @@ For IR pointer functionality, set up an IR sensor bar or use candles as IR refer
 
 **Lag or dropouts**: Move closer to reduce Bluetooth distance, minimize interference from other wireless devices, check for low battery conditions.
 
-The Wiimote device works beautifully with [[OSC]] for networking gesture data, [[MIDI]] for musical applications, or [[Joystick]] devices for hybrid control setups that combine different input methods.
+Use the Wiimote device with [[OSC device|OSC]] to send gesture data over the network, [[MIDI support|MIDI]] for musical control, or [[Joystick]] devices for additional inputs.
 
 ## Related devices
 
-Combine with [[Joystick]] devices for comprehensive controller setups, use [[OSC]] to network Wiimote data to other systems, or integrate with [[Kinect]] for full-body plus handheld gesture control.
+Combine Wiimote with [[Joystick]] devices for additional controls, an [[OSC device]] to send gesture data, or [[Kinect]] for body tracking.

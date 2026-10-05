@@ -8,7 +8,7 @@ permalink: /reference/project-files.html
 
 # Project files
 
-The current development build provides **File → Project files** for managing files referenced by the open document. Save each project in its own folder before collecting or cleaning media. These commands inspect dependencies reported by processes and devices; they are not a search through arbitrary script text or a replacement for a backup.
+**File → Project files** provides commands for managing files referenced by the open document. Save each project in its own folder before collecting or cleaning media. These commands inspect dependencies reported by processes and devices; they are not a search through arbitrary script text or a replacement for a backup.
 
 ## Paths and moving a project
 
@@ -71,7 +71,7 @@ In the browser, archiving produces a download and can include an unsaved documen
 
 ### Downloaded example archives
 
-Keep a downloaded archive's directory structure intact: the `.score` member can be inside a project subdirectory beside its media. Project names, descriptions and documentation links do not replace required add-ons, model packages or external files.
+Open downloaded project ZIPs directly in score, which opens the enclosed document with its bundled media. Project names, descriptions and documentation links do not replace required add-ons, model packages or external files.
 
-In the source snapshot used for this documentation, the online-example installer can initially open a nested score but its installed-file lookup searches only the archive's top-level directory. Selecting that example again may therefore download it again. The preserved nested project is not necessarily broken or missing media; this is a separate installed-example lookup limitation.
+The online-example installer can initially open a nested score but its installed-file lookup searches only the archive's top-level directory. Selecting that example again may therefore download it again. The preserved nested project is not necessarily broken or missing media; this is a separate installed-example lookup limitation.
 

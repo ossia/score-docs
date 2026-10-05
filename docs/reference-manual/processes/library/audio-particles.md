@@ -31,7 +31,7 @@ permalink: /processes/audio-particles.html
 
 ## Synchronized timing
 
-In current development builds, Frequency has the [time chooser]({{ site.baseurl }}/reference/time-chooser.html) interface. Select a straight, dotted or triplet note value to schedule particle opportunities on the musical grid. Density can skip an opportunity, so synchronization does not mean every grid point produces a sound.
+Frequency has the [time chooser]({{ site.baseurl }}/reference/time-chooser.html) interface. Select a straight, dotted or triplet note value to schedule particle opportunities on the musical grid. Density can skip an opportunity, so synchronization does not mean every grid point produces a sound.
 
 **Free-mode unit caveat:** this process still interprets Frequency's free numeric value as **hertz**, although the shared chooser displays time units and its numeric editor is time-oriented. A free value of `0.2` means approximately one opportunity every five seconds, not a 0.2-second period. In synchronized mode the note value correctly represents the interval between opportunities. Do not apply the free-duration interpretation of other time-chooser processes to this control.
 

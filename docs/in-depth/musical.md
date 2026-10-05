@@ -52,7 +52,7 @@ given at a deeper nesting level by adding a tempo process to the interval.
 
 ## Process durations and the time chooser
 
-Current development-build processes use the [Time Chooser]({{ site.baseurl }}/reference/time-chooser.html) for parameters that can be free durations or musical note values. Click the readout beneath the knob to cycle **free → straight → dotted → triplet**. Free durations do not follow tempo; note values do.
+Processes use the [Time Chooser]({{ site.baseurl }}/reference/time-chooser.html) for parameters that can be free durations or musical note values. Click the readout beneath the knob to cycle **free → straight → dotted → triplet**. Free durations do not follow tempo; note values do.
 
 This control is distinct from an interval's **Parent** or **Free** quantization setting:
 

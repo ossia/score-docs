@@ -9,7 +9,7 @@ permalink: /devices/gstreamer-device.html
 
 # GStreamer device
 
-The GStreamer device runs a pipeline inside score. It can receive video and audio through named `appsink` elements, or publish score's output through `appsrc`. This integration requires a current development build with GStreamer support and the runtime libraries and plug-ins used by your pipeline. It is separate from launching `gst-launch-1.0` outside score.
+The GStreamer device runs a pipeline inside score. It can receive video and audio through named `appsink` elements, or publish score's output through `appsrc`. This integration requires a build with GStreamer support and the runtime libraries and plug-ins used by your pipeline. It is separate from launching `gst-launch-1.0` outside score.
 
 ## Input pipeline
 

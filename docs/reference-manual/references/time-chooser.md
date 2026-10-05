@@ -10,7 +10,7 @@ permalink: /reference/time-chooser.html
 ---
 # Time Chooser
 
-The time chooser combines a duration knob with a clickable readout underneath it. It is used by current development-build processes such as [[LFO]], [[Rate Limiter]] and [[ADSR]]. Older saved process variants may still have separate frequency, millisecond or quantification controls.
+The time chooser combines a duration knob with a clickable readout underneath it. It is used by processes such as [[LFO]], [[Rate Limiter]] and [[ADSR]]. Older saved process variants may still have separate frequency, millisecond or quantification controls.
 
 ## Free time and musical time
 

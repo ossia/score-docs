@@ -31,7 +31,7 @@ AirWindows is also available as a collection of built-in effects.
 
 ## Scanning and search paths
 
-Current development builds provide separate **VST**, **VST3**, **CLAP** and **LV2**
+score provides separate **VST**, **VST3**, **CLAP** and **LV2**
 tabs under **Preferences → Effects**. Each has its own search paths, **Add path**
 and **Rescan** buttons, plus **Working plug-ins** and **Faulty plug-ins** tables.
 Right-click a search path and choose **Remove** to remove it.
@@ -157,7 +157,7 @@ For instance, a complete path on a Mac with the default user library location wo
 /Users/you/Documents/ossia/score/packages/jsfx/Data/amp_models/SomeImpulse.wav
 ```
 
-Current development builds host JSFX through YSFX and provide a script editor for
+score hosts JSFX through YSFX and provides a script editor for
 live code changes. Edited script text and controls are retained by process
 serialization and presets; copy/paste and undo/redo preserve the edited process
 rather than relying only on its original file path.

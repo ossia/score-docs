@@ -52,13 +52,13 @@ These are the two relevant declarations, not a complete stand-alone scene. `Text
 
 Use a desktop build with GPU JavaScript and Qt Quick 3D support. The current WebAssembly score build does not execute Javascript processes. Check that the producer, scene and output are all in an executing graph if the result is blank.
 
-The texture's render resolution is separate from the QML item's logical dimensions. An editor script can set an inlet model's resolution override with `Score.inlet(process, index).renderSize = Qt.size(640, 360)` after looking up the correct texture inlet. Resizing no longer intentionally resets the whole interactive QML scene in the current development runtime; persistent state across save/load still requires the script state API.
+The texture's render resolution is separate from the QML item's logical dimensions. An editor script can set an inlet model's resolution override with `Score.inlet(process, index).renderSize = Qt.size(640, 360)` after looking up the correct texture inlet. Resizing preserves the interactive QML scene; persistent state across save/load still requires the script state API.
 
 To preview an already-rendered outlet in a custom control interface, use `Score.UI.TextureSource` instead. It selects an existing process/port; it does not replace this example's cabled `TextureInlet`.
 
 ## Try it
 
-Open this example to see a procedural shader texture applied to a 3D object in real-time.
+Start playback and change the Kaleidolines shader controls to see the incoming texture change on the sphere. Compare that with the LFO-driven light rotation: it changes shading rather than the texture source. The sphere and cylinder are QML primitives and need no model file. This Qt Quick 3D scene is separate from score's native Model Display and scene-port pipeline.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

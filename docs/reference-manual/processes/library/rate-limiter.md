@@ -15,7 +15,7 @@ permalink: /processes/rate-limiter.html
 
 The **Rate Limiter** reduces a stream of control messages arriving at **in**, forwarding selected values through **out**. Use it between a fast sensor or [[LFO]] and a destination that should receive fewer updates.
 
-This page describes the current development-build version (v2).
+This page describes version 2.
 
 ## Interval
 

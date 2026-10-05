@@ -26,6 +26,6 @@ This device publishes a Spout stream for another application. Choose the output 
 
 ## Backends and limitations
 
-Spout support must be included in the Windows build. Current development code includes OpenGL, D3D11, D3D12 (through a D3D11 bridge) and Vulkan sharing paths; Vulkan additionally needs the appropriate build headers and external-memory capabilities. These are backend-specific interop paths, not a promise that every GPU/driver combination can exchange textures without copies.
+Spout support must be included in the Windows build. It includes OpenGL, D3D11, D3D12 (through a D3D11 bridge) and Vulkan sharing paths; Vulkan additionally needs the appropriate build headers and external-memory capabilities. These are backend-specific interop paths, not a promise that every GPU/driver combination can exchange textures without copies.
 
 Spout shares video, not score's audio mix. Route audio separately when streaming to OBS. See [Livestreaming]({{ site.baseurl }}/common-practices/10-livestreaming.html) and [Video formats and color]({{ site.baseurl }}/processes/video-formats-color.html).

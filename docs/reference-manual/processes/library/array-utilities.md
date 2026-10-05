@@ -28,6 +28,8 @@ This process combines multiple input arrays in one output array through various 
 
 **CosineSimilarity**, **DotProduct**, **EuclideanDistance**, and **ManhattanDistance** compare the first array against each other array over their common length, producing one result per comparison. Connect this result to Array Best Match to select the closest candidate. **Greater**, **Less**, **GreaterEqual**, and **LessEqual** perform chained element-wise comparisons and return 1 where the relation holds, otherwise 0.
 
+For scalar-to-array routing, see the [Combine and Spread Signals walkthrough]({{ site.baseurl }}/reference/process-examples/combine-spread.html).
+
 # Array tool {#tool}  
 
 ![Array Tool]({{ site.img }}/reference/processes/array-tool.png "Array Tool") 
@@ -37,6 +39,8 @@ This process combines multiple input arrays in one output array through various 
 Array tool transforms a numeric array: learn or set its **Min/Max**, scale with **Gain** and **Brightness**, choose range and shape behaviour, invert or take absolute values, and rearrange with padding, Reverse, Rotate, Repeat and Stride. **Normalize** rescales the result.
 
 **Insert Value**, **From** and **Every** insert a constant at regular output positions, useful for adding an alpha or white channel to pixel data. Every must be greater than 1 to enable insertion. For example, From 3 and Every 4 insert a fourth component after each RGB triple. This differs from **Stride**, which expands existing values using zeros or repeated values. **Erase**, its own From, and Every remove regular groups.
+
+The [Array Tool LED Reshaping walkthrough]({{ site.baseurl }}/reference/process-examples/array-tool.html) includes a downloadable patch for inspecting these transformations.
 
 # Array Best Match {#best-match}
 

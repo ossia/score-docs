@@ -96,8 +96,7 @@ Thus, the condition inspector provides the "offset behaviour" setting which allo
 
 ## Play from here
 
-This feature allows to move the global time bar.
-To use it, right-click on a scenario and hit "Play from here": 
+Right-click on a scenario and choose "Play from here" to start or seek to the clicked position:
 
 ![Play from here]({{ site.img }}/common-practices/seek/menu.png "Play from here")
 
@@ -105,11 +104,22 @@ You can also use the "Play" tool:
 
 ![Play tool]({{ site.img }}/common-practices/seek/pfh.gif "Play tool")
 
-In current development builds, double-clicking the time ruler also plays from that position. Keep the second click held and drag to scrub: dragging backwards can run the interval backwards, rather than merely moving a stopped cursor. On release the previous speed is restored and playback continues from near the release point.
+Double-clicking the time ruler also plays from that position. Keep the second click held and drag to scrub: dragging backwards can run the interval backwards, rather than merely moving a stopped cursor. On release the previous speed is restored and playback continues from near the release point.
 
 Dragging on the scenario background with the Play tool also scrubs. Clicking an interval with that tool plays it from the clicked date; **Alt+click** plays the interval from its beginning. A subsequent ordinary start of an interval does not retain an earlier play-from-here offset.
 
 Reverse time is not an undo operation: it does not reverse external hardware actions or guarantee that every stateful plug-in reconstructs its history. VST, VST3 and LV2 processing can continue during reverse timeline execution, but each process still determines what negative time means for its content.
+
+### Inside a child interval
+
+The clicked date is relative to the interval shown in the view, including when using the time ruler or Play tool.
+
+- If playback is stopped, Play from here starts that child interval on its own at the clicked date.
+- If that interval is already playing on its own, the action seeks within it.
+- During playback of a larger score, if the child's containing interval is running, only the child is moved. A running child seeks to the clicked date; a stopped child starts there immediately, without waiting for its usual trigger or quantization. Other intervals keep playing.
+- If the containing interval is not running, score seeks the active playback as a whole. It adds the child's and its ancestors' displayed start dates to the clicked date, up to the interval being played. The transport and value-compilation rules above then apply.
+
+For example, a parent begins at 40 seconds in the main score and contains a child beginning at its local 20-second mark. Clicking the child's local 3-second position moves only that child if the parent is running. If the main score is playing but the parent is not running, it seeks the main score to 63 seconds. Global transport commands, such as JACK transport, still address the active playback timeline rather than the child currently displayed.
 
 ## Playing a single state
 

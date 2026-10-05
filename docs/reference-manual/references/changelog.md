@@ -20,12 +20,23 @@ For the current version, see [[What is score ?]]. To download the latest release
 
 These changes affect the documentation website, not a score application release:
 
+- Expanded the graphics, scripting, device, audio, browser and project-management references.
+- Updated feature descriptions to present released capabilities without development-build qualifiers, retaining platform, dependency and hardware requirements.
+- Restored the scripting examples on [Scripting API examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html), including port names, triggers and conditions, and linked the API reference pages together.
+- Documented in-process FFmpeg/GStreamer streaming, corrected spatial-audio routing and controls, and clarified nested-interval transport and code-editor placement.
+- Clarified the ossia and score SDKs, official Windows toolchains, SDK42's FFmpeg 9.0 dependency, and custom-application templates and CI actions.
+- Added missing example pages and corrected archive links. Example pages distinguish native graphics from Qt Quick 3D and list their required media and packages.
+- Aligned example categories with asset folders and removed local project snapshots and nested working copies from publication. Process and common-practice walkthroughs remain with their corresponding references.
+- Extracted embedded project thumbnails for display at the top of documentation pages, including scores stored in ZIP archives. Missing thumbnails are omitted.
+- Updated example instructions to open project ZIPs directly in score, without manual extraction.
+- Disambiguated example and reference wiki links.
+- Added LibreDiffusion runtime and engine-building instructions to the [StreamDiffusion reference]({{ site.baseurl }}/processes/streamdiffusion.html).
 - Corrected 11 internal page links and removed 16 image references with no corresponding illustration. Existing relevant screenshots are retained.
 - Removed the duplicate local copy of the wiki-link document manager. The pinned plugin supplies that implementation; the site's title matching and link diagnostics remain in its dedicated patch.
 - Migrated the light, dark, custom and default stylesheets to Sass modules and namespaced built-ins, retaining the existing themes without suppressing compiler warnings.
 - Integrated the native-process portions of [PR #87](https://github.com/ossia/score-docs/pull/87): seven geometry help destinations and Accumulator, LTC, XWax DVS, Synthimi and StreamDiffusion references. Existing overlapping manuals remain authoritative; preset catalogues and bundled navigation changes are deferred.
 - Adapted [PR #92](https://github.com/ossia/score-docs/pull/92) project names, descriptions and documentation links into 82 current example documents without replacing their graphs or media. The metadata helper now preserves nested archive member paths; its regression test covers read-only inspection, metadata replacement, retained media and repeat runs.
-- Integrated source-correct Puara references and the corrected [Leaky Integrator tutorial](https://github.com/ossia/score-docs/pull/71). A synthetic runtime check exposed unstable Tilt output, so the [Roll](https://github.com/ossia/score-docs/pull/73) and [Tilt](https://github.com/ossia/score-docs/pull/74) tutorials remain deferred. The [Shake](https://github.com/ossia/score-docs/pull/76) reference records the ineffective threshold control and gravity behavior instead of publishing the unsupported phone exercise.
+- Integrated Puara references and the [PR #71](https://github.com/ossia/score-docs/pull/71) example into the [Leaky Integrator reference]({{ site.baseurl }}/processes/gestures.html#leaky-integrator). A synthetic runtime check exposed unstable Tilt output, so the [Roll](https://github.com/ossia/score-docs/pull/73) and [Tilt](https://github.com/ossia/score-docs/pull/74) tutorials remain deferred. The [Shake](https://github.com/ossia/score-docs/pull/76) reference records the ineffective threshold control and gravity behavior.
 - Adapted [PR #53](https://github.com/ossia/score-docs/pull/53) into theme-aware search foregrounds, readable previews and parent titles, and explicit placeholder, hover and keyboard-selection colors.
 - The incomplete [Wekinator guide](https://github.com/ossia/score-docs/pull/63) remains deferred; [PR #27](https://github.com/ossia/score-docs/pull/27) adds no substantive content beyond the existing interface overview.
 
@@ -267,13 +278,11 @@ The 1.x series was the first public release of *ossia score*.
 
 ---
 
-## Development Builds
+## Continuous builds
 
-For testing the latest features before release, continuous development builds are available:
+Automated builds from the main branch are available:
 
 [Continuous builds](https://github.com/ossia/score/releases/tag/continuous) - Updated automatically from the main branch
-
-> Development builds may be unstable. Use stable releases for production work.
 
 ---
 

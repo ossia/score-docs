@@ -8,7 +8,7 @@ parent: 3D Graphics
 grand_parent: Examples
 
 permalink: /examples/3d/sponza.html
-score: /examples/3d/sponza.score
+score: /examples/3d/sponza.zip
 ---
 
 # Sponza Palace
@@ -28,15 +28,17 @@ The [Sponza Palace](https://en.wikipedia.org/wiki/Sponza_Palace) atrium is a cla
 - **Architectural glTF scene**: The Sponza glTF-PBR model is loaded from a QtQuick 3D script, with full PBR material support.
 - **HDR environment**: A high-dynamic-range `.exr` [environment map](https://polyhaven.com/a/resting_place) is used both as a skybox background and as a light probe for image-based lighting.
 - **Camera animation**: Three [[LFO]] processes feed a [[Math expressions]] node that outputs animated 3D coordinates, controlling where the camera looks in the scene.
-- **Interactive navigation**: The scene supports real-time WASD keyboard and mouse navigation for free camera control.
+- **Camera controls**: Position sets the camera coordinates, and Look At receives the LFO-driven target.
 
-This score uses QML `RuntimeLoader` from `QtQuick3D.AssetUtils`; it does not use the native Asset Loader or Geometry Loader. Its `.exr` environment is handled by Qt Quick 3D, not the native LDR Cubemap Loader. See [[3D scene pipeline]] for the native alternative and [[Environments and cubemaps]] for its resource requirements.
+This score uses QML `RuntimeLoader` from `QtQuick3D.AssetUtils`; it does not use the native Asset Loader or Geometry Loader. Its `.exr` environment is handled by Qt Quick 3D, not the native cubemap loader. See [[3D scene pipeline]] for the native alternative and [[Environments and cubemaps]] for its resource requirements.
 
-The score contains model/environment URL controls. Supply the referenced assets and adjust those controls for your machine. This documentation update does not establish that the external assets are reachable or that the downloaded scene has been rendered on your platform.
+Open the ZIP directly in score; its `Images/resting_place_4k.exr` environment is bundled. The model is not included: the 3D model file control points to `<LIBRARY>:packages/sponza-gltf-pbr/sponza.glb`. Install that model package or obtain the [Sponza glTF-PBR model](https://themaister.net/sponza-gltf-pbr/) and select your local `sponza.glb`. Keep its associated resources together.
 
 ## Try it
 
-Open this example and give an antique mood to your score!
+Start playback after resolving the model path. Three slow sine LFOs feed `return [100(0.5-a),50+100(0.5-b),100(0.5-c)]`, which drives the Look At control while the rendered texture goes to `Window:/`. Change the LFO phase offsets to compare camera-target trajectories. The JavaScript/QML process requires the Qt Quick 3D modules used by its script.
+
+The saved script's `tick` function still calls `wasd.forceActiveFocus()`, but no `wasd` object is declared. Remove that stale call in the script editor to avoid its reference error; this version does not provide the WASD navigation controller used by the glTF Scene with Effects example. To explore it as saved, use Position and the driven Look At control.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

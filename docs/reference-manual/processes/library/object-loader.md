@@ -14,9 +14,9 @@ permalink: /processes/object-loader.html
 
 ![Object loader]({{ site.img }}/reference/processes/object-filter.png "Object loader")
 
-This page covers the process historically called Object Loader. In current development builds its library name is **Geometry Loader**. It loads mesh files and outputs geometry for *score*'s graphics pipeline. Use it for direct mesh / point-cloud workflows with [[Model display]], [[Render Pipeline]], [[Compute Shaders]] or geometry utilities.
+This page covers the process historically called Object Loader. Its library name is **Geometry Loader**. It loads mesh files and outputs geometry for *score*'s graphics pipeline. Use it for direct mesh / point-cloud workflows with [[Model display]], [[Render Pipeline]], [[Compute Shaders]] or geometry utilities.
 
-For full 3D scene files with materials, lights, animation, skinning, and hierarchy, use [[Asset Loader]] when available.
+For full 3D scene files with materials, lights, animation, skinning, and hierarchy, use [[Asset Loader]].
 
 ## Supported formats
 

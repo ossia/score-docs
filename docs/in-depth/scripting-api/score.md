@@ -10,6 +10,8 @@ permalink: /in-depth/scripting-api/score.html
 
 # Document and process API
 
+[Back to the Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) · [Examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html)
+
 Examples use the console's `Score` object. In a GUI-thread QML interface using `import Score as Score`, call these editor functions through `Score.Editor`.
 
 ## Lookup and traversal
@@ -39,11 +41,11 @@ Score.withMacro(function() {
 });
 ```
 
-`createBox(parent, start, duration, y)` requires a **Scenario process** as its parent, not an interval. `y` is the vertical position, normally between 0 and 1. Also available:
+`createBox(parent, start, duration, y)` requires a Scenario process as its parent, not an interval. `y` is the vertical position, normally between 0 and 1. Also available:
 
 - `createState(event, y)`, `createIntervalAfter(state, duration, y)`, `createIntervalBetween(startState, endState)`.
 - `createProcess(interval, name, data)`: names come from the process library; `data` supplies process-specific creation data such as a file path, not a reserved argument. `availableProcesses()`, `availableProcessesAndPresets()` and `libraryEntries(filter)` help discover installed processes and library content.
-- `automate(interval, address)` creates curves for matching device parameters and returns an array of processes. `automate(interval, port)` returns one new automation and cables it to the control.
+- `automate(interval, address)` creates curves for matching device parameters and returns an array of processes. Its first-slot limitation and an empty-interval setup are described in the [automation example]({{ site.baseurl }}/in-depth/scripting-api/examples.html#states-messages-and-automations). `automate(interval, port)` returns one new automation and cables it to the control.
 - `setSteps(process, values)` edits a Step Sequencer. `setCurvePoints(process, [[x, y], ...])` edits an automation; coordinates are normalized and must be finite.
 - `messages(state)`, `setMessages(state, messages)` read and replace state messages. `replaceAddress(objects, before, after)` replaces addresses across a selection.
 - `remove(object)` removes supported scenario objects, processes or cables through an undoable edit.
@@ -67,11 +69,11 @@ if (selected) {
 - `valueType(control)`, `min(control)`, `max(control)` and `enumValues(control)` describe controls.
 - `pushExecutionValue(port, value)` sends a transient value to execution and returns whether it could be sent; it does not replace a persistent control edit.
 
-A texture **inlet model** exposes `renderSize`. For example, with `input` obtained from `Score.inlet`, `input.renderSize = Qt.size(320, 240)` sets a resolution override. This direct property edit is not an undo command, and does not apply to arbitrary value or audio ports.
+A texture inlet model exposes `renderSize`. For example, with `input` obtained from `Score.inlet`, `input.renderSize = Qt.size(320, 240)` sets a resolution override. This direct property edit is not an undo command.
 
 ## Undo, macros and gestures
 
-Single command-based edits are already undoable: they do **not** require a surrounding macro. `withMacro(function() { ... })` groups edits into one action. Nested calls join the outer macro. If the callback errors, changes already made are committed, **not rolled back**. Manual `startMacro()` / `endMacro()` remain available but are not exception-safe; starting a second manual macro replaces the open one.
+Single command-based edits are already undoable; they do not require a surrounding macro. `withMacro(function() { ... })` groups edits into one action. Nested calls join the outer macro. If the callback errors, changes already made are committed, not rolled back. Manual `startMacro()` / `endMacro()` are also available; starting a second manual macro replaces the open one.
 
 For a dragged control, repeatedly call `editValue(control, value)`, then `commitEdit()` on release. The gesture becomes one undo step. Editing another control first commits the previous gesture.
 
@@ -81,17 +83,11 @@ For state owned by your script rather than a score object, register `registerCom
 
 ## Triggers, conditions and published names
 
-`enableTrigger(object)` / `disableTrigger(object)` resolve an interval to its **end time sync**, or a state/event to its time sync. `enableCondition(object)` / `disableCondition(object)` operate on events; a state resolves to its event. `setExpression(object, expression)` and `expression(object)` operate on the resolved trigger or condition:
+`enableTrigger(object)` / `disableTrigger(object)` resolve an interval to its end time sync, or a state/event to its time sync. `enableCondition(object)` / `disableCondition(object)` operate on events; a state resolves to its event. Enabling a condition creates a `true` expression.
 
-```js
-var interval = Score.find("generated_interval");
-if (interval) {
-  Score.enableTrigger(interval);
-  Score.setExpression(interval, "{ %osc:/ready% == true }");
-}
-```
+`setExpression(object, expression)` and `expression(object)` edit and read a trigger for a time sync or interval, and a condition for an event or state. Addresses are enclosed in `%` signs, for example `"{ %osc:/x% > 0.5 }"`. See the [complete trigger and condition example]({{ site.baseurl }}/in-depth/scripting-api/examples.html#triggers-and-conditions), including device and interval setup.
 
-Use an address that exists in your document. `trigger(object)` manually triggers the resolved time sync; `setAutoTrigger(timeSync, enabled)` changes automatic triggering.
+`trigger(object)` manually triggers the resolved time sync; `setAutoTrigger(timeSync, enabled)` changes automatic triggering.
 
 `setScriptable(object, true)` publishes a supported control, process, trigger or condition in the local device's named namespace. `scriptableAddress(object)` returns its address. In the console:
 
@@ -106,17 +102,17 @@ Traverse returned names with bracket notation (names can contain spaces). Read/w
 
 ## Durations and transport
 
-A numeric score duration is in **flicks** (705,600,000 per second), not milliseconds. String durations accepted by `createBox` and `createIntervalAfter` include `"500ms"`, `"2s"`, `"1.5 min"`, `"1h"`, `"1:02.5"` and `"1:02:03.250"`. A bare numeric string is also flicks; write the unit to avoid ambiguity. Invalid or negative strings currently produce a warning and fall back to **2 seconds**: validate generated durations rather than relying on this fallback.
+A numeric score duration is in flicks (705,600,000 per second). String durations accepted by `createBox` and `createIntervalAfter` include `"500ms"`, `"2s"`, `"1.5 min"`, `"1h"`, `"1:02.5"` and `"1:02:03.250"`. A bare numeric string is also flicks. Invalid or negative strings currently produce a warning and fall back to 2 seconds.
 
 `setIntervalDuration`, `setIntervalMinDuration` and `setIntervalMaxDuration` take time values; use `Util.timevalFromMilliseconds(5000)` rather than guessing raw units. `setIntervalMaxInfinite(interval, true)`, `setIntervalSpeed(interval, speed)` and `setProcessLoop(process, enabled)` control other timing properties. `Util.toSeconds(object.duration)` and `Util.toMilliseconds(object.date)` convert model values where these properties exist.
 
-`play()`, `pause()`, `resume()`, `stop()` and `reinitialize()` control the score. `play(interval)` and `stop(interval)` operate on an interval. **`scrub(milliseconds)` is a millisecond offset, not a normalized 0–1 position.** `playFromHere(milliseconds)` starts playback at that date, or seeks there during playback. `transport()` returns the transport object.
+`play()`, `pause()`, `resume()`, `stop()` and `reinitialize()` control the score. `play(interval)` and `stop(interval)` operate on an interval. `scrub(milliseconds)` uses a millisecond offset. `playFromHere(milliseconds)` starts playback at that date, or seeks there during playback. `transport()` returns the transport object.
 
 ## Presets, metadata and files
 
 `savePreset(process)` returns preset JSON; `loadPreset(process, json)` applies it through an undoable preset command. JavaScript process presets include their program, UI and persisted script state, not just inlet values.
 
-`metadata(object)` exposes `name`, `label`, `comment` and `colorName`. `colorName` is a **skin entry name**, not an arbitrary HTML color; unknown names are ignored. Prefer `setName(object, name)` and `setComment(object, text)` for undoable changes. Direct metadata property assignments bypass these commands.
+`metadata(object)` exposes `name`, `label`, `comment` and `colorName`. `colorName` is a skin entry name, not an HTML color; unknown names are ignored. `setName(object, name)` and `setComment(object, text)` make undoable changes. Direct metadata property assignments bypass these commands.
 
 `documentMetadata()` exposes `fileName`, `author`, `creation` and `lastEdition`. `documentName()` is the title-bar name; `setDocumentName(name)` changes the next save's name but does not save a file. Use `load(path)`, `save()` or `saveAs(path)` for file operations; `serializeAsJson()` returns the current document serialization.
 

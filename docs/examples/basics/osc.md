@@ -15,70 +15,23 @@ score: /examples/basics/osc.score
 
 ![OSC]({{ site.img }}/examples/basics/osc.png "Composing OSC messages in ossia score")
 
-This example demonstrates setting up OSC (Open Sound Control) communication in *score*.
+This timeline sends state messages and automation values through one OSC device, then uses incoming messages and stored values for triggers and conditions. There are no audio or graphics processes.
 
-## Overview
+## Network setup
 
-OSC is a protocol for communication between multimedia devices, software, and instruments. 
-*score* provides native OSC support for sending and receiving messages.
+The saved `OSC` device listens on UDP `0.0.0.0:9997` and sends to `127.0.0.1:9996`. Run an OSC monitor on port 9996 to see output, and send to the computer's port 9997 to drive the input examples. Change the remote host if your receiving application is on another computer.
 
-## Setting up an OSC device
+The device tree contains `/my_float`, `/my_int`, `/my_impulse` and integer addresses `/instances/foo.1` through `/instances/foo.5`.
 
-To use OSC in *score*:
+## Exercise the timeline
 
-1. Open the **Device Explorer** panel
-2. Click **Add Device**
-3. Select **OSC** from the protocol list
-4. Configure the connection:
-   - **Host**: IP address of the remote device (or localhost)
-   - **Input port**: Port to receive messages (from the device to *score*)
-   - **Output port**: Port to send messages (from *score* to the device)
+1. Start playback. The first states send `/my_float` values 0, 1 and 2 and several `/instances/foo.*` values. Observe them in the device tree or external monitor.
+2. Follow `Tween`, which automates `/my_float` with Tween enabled, and the later `Automation` interval, which does not. Tween uses the current address value for its initial segment.
+3. Send an OSC impulse at `/my_impulse` to release the waiting trigger. Its branch later waits until `/my_int` equals 5.
+4. Trigger the separate conditional branch manually. When it reaches its next event, `/my_float < 0.5` selects `Fade In`; otherwise `Fade out` runs. Both automate `/instances/foo.1`.
+5. Use the standalone `Set my_float to 0` and `Set my_float to 1` cues to influence the comparison before it is evaluated.
 
-## OSC addresses
-
-OSC uses a hierarchical address system similar to file paths:
-
-```
-/synth/filter/cutoff
-/lights/fixture1/red
-/robot/motor/speed
-```
-
-## Sending OSC messages
-
-To send OSC from *score*:
-
-1. Create an automation or process that outputs values
-2. Connect it to an OSC address in the Device Explorer
-3. During playback, values are sent as OSC messages
-
-## Receiving OSC messages
-
-To receive OSC in *score*:
-
-1. Configure the input port on your [[OSC device]]
-2. Addresses received appear in the Device Explorer
-3. Use them as triggers or parameter sources
-
-## Common OSC applications
-
-OSC is used to communicate with:
-- Software synthesizers (SuperCollider, Max, Pd)
-- VJ software (Resolume, VDMX, TouchDesigner)
-- Lighting controllers
-- Motion tracking systems
-- Custom hardware (Arduino, Raspberry Pi)
-- Mobile apps (TouchOSC, Lemur)
-
-## OSCQuery
-
-ossia score also supports [[OSCQuery]], an extension that allows:
-- Automatic parameter discovery
-- Type information
-- Value ranges
-- Bidirectional sync
-
-## Try it
+The final interval named `Patterns` contains an automation with no saved output address, so it sends nothing until you assign a destination. The example does not require an OSCQuery server; see [OSC device]({{ site.baseurl }}/devices/osc-device.html) for ordinary OSC configuration.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

@@ -13,7 +13,7 @@ permalink: /processes/adsr.html
 
 ![ADSR]({{ site.img }}/reference/processes/adsr.png "ADSR") 
 
-The **ADSR** generates a control envelope for modulating another process's parameter. Its output is a scalar value, not an audio signal. This page describes the current development-build version (v2).
+The **ADSR** generates a control envelope for modulating another process's parameter. Its output is a scalar value, not an audio signal. This page describes version 2.
 
 ## Trigger and Hold
 

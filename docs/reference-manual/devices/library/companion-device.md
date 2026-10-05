@@ -15,7 +15,7 @@ permalink: /devices/companion-device.html
 
 Bitfocus Companion provides modules for controlling streaming, broadcast and AV equipment. score can **host Companion modules directly**, exposing their actions, feedback and variables in the Device explorer. A separate Companion application or Stream Deck is not required for this module-hosting workflow.
 
-The host behavior described below follows the current development implementation. Compatibility depends on the individual module, its runtime requirements and the target equipment; a module in the package is not a guarantee that every Companion feature is implemented by score.
+Compatibility depends on the individual module, its runtime requirements and the target equipment; a module in the package is not a guarantee that every Companion feature is implemented by score.
 
 ## Requirements
 

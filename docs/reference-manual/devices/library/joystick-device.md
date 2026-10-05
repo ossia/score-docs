@@ -23,7 +23,7 @@ The **Joystick** device exposes game controllers through SDL. Use it to map butt
 3. Choose a detected controller, or the **Default** entry to use the first controller not already opened by score.
 4. Review **Name** and **Gamepad API**, then add the device.
 
-The current development picker rescans while the dialog is open. In a web browser, press a button or move an axis first: browsers do not expose an untouched controller to the page.
+The picker rescans while the dialog is open. In a web browser, press a button or move an axis first: browsers do not expose an untouched controller to the page.
 
 **Gamepad API** requests SDL's standardized game-controller mapping and additional features. score falls back to the generic joystick interface if opening the gamepad interface fails. Controller model, SDL mapping, operating system and browser determine which features are available.
 

@@ -10,6 +10,8 @@ permalink: /in-depth/scripting-api/view.html
 
 # View and interface API
 
+[Back to the Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) · [Examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html#prompt-and-view-navigation)
+
 `View` operates on score's editor, not on a process's texture output. It is available in the console and process UI engine. With no GUI, view navigation has no effect and captures requiring a view fail.
 
 ## Navigate and capture
@@ -22,7 +24,7 @@ permalink: /in-depth/scripting-api/view.html
 | `View.goToInterval(interval)` | Navigate into an interval. |
 | `View.fit()`, `View.recenter()` | Fit or recenter the view. |
 | `View.setNodal(enabled)`, `View.isNodal()` | Set or query dataflow view mode. |
-| `View.grabScene(path)` | Save the **currently visible scene region**, respecting the view's scroll and zoom, without main-window panels. |
+| `View.grabScene(path)` | Save the currently visible scene region, respecting scroll and zoom, without main-window panels. |
 | `View.grabMainWindow(path)` | Save the main application window. |
 | `View.grabScreen(path)` | Capture the primary screen, subject to platform capture permissions. |
 | `View.grabWidget(widget, path)` | Capture a particular QWidget. |

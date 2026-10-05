@@ -23,4 +23,3 @@ This section of the manual goes through the various sections of *score* and brin
 - [[Time Chooser]] explains free and musical timing controls.
 - [[Project files]] covers missing media, consolidation and project archives.
 - [[Add-ons]] distinguishes installed capabilities from optional source extensions.
-- [[Feature coverage 2025–2026]] maps the documentation update to the inspected development source and distinguishes documented capabilities from runtime verification.

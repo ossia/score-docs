@@ -13,8 +13,7 @@ permalink: /processes/midi-sync.html
 # MIDI Sync Out
 
 **MIDI Sync Out**, in **Timing/Midi**, sends synchronization from an executing
-score interval to external MIDI equipment. It is available in current development
-builds with the corresponding process integration.
+score interval to external MIDI equipment.
 
 ## Setup
 

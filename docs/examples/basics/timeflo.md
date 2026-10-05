@@ -15,26 +15,21 @@ score: /examples/basics/timeflo.zip
 
 ![Basic Timeline]({{ site.img }}/examples/basics/timeflo.png "Timeline-based composition in ossia score")
 
-This example demonstrates fundamental timeline-based composition in ossia score, combining audio file playback with effects processing.
+This archive combines a linear audio arrangement with interactive endings, a conditional branch and a loop.
 
-## Overview
+## Prepare the project
 
-The score shows how to arrange audio clips on a timeline, apply effects, and create basic temporal structures with the scenario system.
+Open the ZIP directly in score. Its sound processes reference the bundled `77bpm_GravitySwing Beat.wav`, `77bpm_Matter Intiated.wav`, `77bpm_Crystal Dust.wav` and `77bpm_Star Twinkles.wav`. The old process display names do not match these actual filenames. The patch credits the OLPC sample pack and Mike DiMattia.
 
-## Working with intervals
+Configure audio output and use a build with Faust available for `freeverb`. Outputs reach the parent mix at `audio:/out/main`.
 
-In ossia score, intervals are the basic building blocks:
-- They have a duration (shown in the timeline)
-- They can contain any number of processes
-- They can be triggered by events or play automatically
-- They can be nested inside scenarios
+## Follow the timeline
 
-## Try it
-
-Open this example to explore basic timeline composition. Try:
-- Moving intervals to rearrange the timeline
-- Adjusting the automation curve
-- Adding new sound files
+1. Start playback. After the initial interval, `Intro` plays the drum file and `Main` adds the second looping file.
+2. At `Arp and effect`, the sound runs through Faust freeverb while an automation increases its Wet control. This interval waits for its end trigger instead of stopping at its drawn 24-second position.
+3. Trigger the parallel waiting branch to start `Drums`, followed by `Arp`. The two branches can progress independently.
+4. In the later A/B group, inspect B's `true == false` condition: it prevents the Star Twinkles and Lowpass branch from starting. Change the condition to compare it with A's Crystal Dust branch.
+5. Trigger the shared end of A/B. A zero-duration interval returns to the earlier time sync and repeats the structure. Use the final drum end trigger or Stop when finished.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

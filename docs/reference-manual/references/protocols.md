@@ -9,7 +9,7 @@ parent: Reference
 permalink: /reference/protocols-and-formats.html
 ---
 
-This page summarizes the systems and file formats that *score* can interoperate with. Availability depends on the operating system, build options, installed add-ons and external runtimes. Newer features described here refer to current development builds, not necessarily the latest stable release.
+This page summarizes the systems and file formats that *score* can interoperate with. Availability depends on the operating system, build options, installed add-ons and external runtimes.
 
 # Operating systems
 
@@ -42,7 +42,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 The optional [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html) is a separate integration from the scriptable [Mapper device]({{ site.baseurl }}/devices/mapper-device.html). Its current source integration has a build-interface mismatch; do not treat it as an available working protocol in an ordinary installation.
 
-[Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) records the TUIO, PSN, RTTrP, OpenTrackIO and optional OpenXR implementations. The tracking add-on is disabled in the audited checkout, so this source inventory is **not** a list of working devices available in that build.
+[Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) records the TUIO, PSN, RTTrP, OpenTrackIO and optional OpenXR implementations. The tracking add-on is disabled, so these devices are unavailable unless the add-on is explicitly enabled at build time.
 
 # Lighting protocols
 
@@ -69,13 +69,13 @@ The optional [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html
   * Documented [here]({{ site.baseurl }}/devices/ble-device.html).
 * GPS: *score* can connect to a [gpsd](https://gpsd.gitlab.io/gpsd/) server and expose the GPS data.
   * Documented [here]({{ site.baseurl }}/devices/gps-device.html).
-* [Phidgets]({{ site.baseurl }}/devices/phidgets-device.html) has an optional Phidget22 integration in libossia. The audited wrapper contains a stale include path; establish a compatible enabled build before relying on its discovered hardware channels. See the reference for channel activation and input/output limitations.
+* [Phidgets]({{ site.baseurl }}/devices/phidgets-device.html) has an optional Phidget22 integration in libossia. The wrapper contains a stale include path that must be corrected for a Phidgets-enabled build to work. See the reference for channel activation and input/output limitations.
 * [CAN / DBC]({{ site.baseurl }}/devices/can-device.html) receives and decodes CAN signals through Linux SocketCAN. It is receive-only and requires a DBC database; it does not provide CAN transmission or CANopen control services.
 
 # Audio systems
 
 * [JACK](https://jackaudio.org): support is implemented in libossia.
-* [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): experimental support is implemented in libossia.
+* [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/): support is implemented in libossia.
 * [PipeWire](https://pipewire.org): implemented in libossia and in score.
 * [ALSA](https://alsa-project.org), the native Linux backend, supported through [PortAudio](https://www.portaudio.com/). A direct implementation is also provided for instance for working with as low latency as possible on embedded devices, but it only supports output, not duplex / input.
 * CoreAudio: the native macOS backend, supported through PortAudio.

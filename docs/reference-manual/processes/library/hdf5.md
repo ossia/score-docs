@@ -17,6 +17,8 @@ HDF5 (Hierarchical Data Format version 5) is a powerful file format designed for
 
 The HDF5 addon enables ossia score to work with scientific datasets, sensor recordings, simulation outputs, and any hierarchically organized data. This makes score particularly powerful for data-driven art, scientific visualization, and large-scale interactive installations.
 
+The [HDF5 Numeric and Texture Playback walkthrough]({{ site.baseurl }}/reference/process-examples/hdf5.html) explains a patch using both readers and the external datasets it requires.
+
 ## HDF5 Reader (1D) {#1d-reader}
 
 The 1D HDF5 Reader process extracts time series and scalar data from HDF5 files, making it ideal for sensor data playback and scientific dataset visualization.

@@ -72,6 +72,12 @@ For custom materials:
 [Texture / cubemap / buffers] -> [Render Pipeline]
 ```
 
+Downloadable walkthroughs:
+
+- [Textured OBJ Rendering Study]({{ site.baseurl }}/reference/process-examples/3d.html).
+- [Animated Sphere Geometry Filter]({{ site.baseurl }}/reference/process-examples/geometry-filter.html).
+- [Rotating PLY Point Cloud]({{ site.baseurl }}/reference/process-examples/point-cloud.html).
+
 ## Related Processes
 
 - [[Object Loader]]: Load mesh files as geometry.

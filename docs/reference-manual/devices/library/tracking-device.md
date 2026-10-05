@@ -13,7 +13,7 @@ Tracking data describes moving objects, performers, touch contacts or cameras. I
 
 ## Current availability
 
-**The tracking-protocols add-on is disabled in the audited development checkout.** Its `CMakeLists.txt` returns before creating the plug-in. The protocols below therefore must not be expected in **Add device** in that build, and installing unrelated tracking hardware does not enable them.
+**The tracking-protocols add-on is disabled.** Its `CMakeLists.txt` returns before creating the plug-in. The protocols below therefore do not appear in **Add device** unless the add-on is explicitly enabled at build time; installing unrelated tracking hardware does not enable them.
 
 The add-on's factory list contains **TUIO**, **PSN**, **RTTrP** and **OpenTrackIO**, plus **OpenXR** behind an additional build condition. This is the source inventory, not a claim of a currently shipped or hardware-tested integration. There are no additional tracking protocols implied by this list.
 

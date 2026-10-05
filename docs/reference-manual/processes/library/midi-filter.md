@@ -27,7 +27,7 @@ the MIDI outlet or the value outlets below. It does not synthesize audio.
 | **Zero to note off** | Interpret zero-velocity note-ons as releases for filtering and held-note tracking |
 | **Note off to zero** | In NoteRunning mode, include zero-valued release data in the value outputs |
 
-**Current development-build limitation:** the implementation's nonzero Channel
+**Channel limitation:** the implementation's nonzero Channel
 test skips the selected channel rather than isolating it. Use Channel 0 when
 inspecting a stream, and do not rely on this control for selected-channel-only
 routing. The running-note collection is indexed by pitch rather than by

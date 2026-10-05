@@ -12,7 +12,7 @@ permalink: /devices/libav-device.html
 
 # Libav device
 
-The Libav device opens media through FFmpeg or encodes score's output to a file or URL. The **Direction** setting selects **Input** or **Output**. Current development builds expose both directions; available demuxers, protocols, encoders and muxers depend on the linked FFmpeg build.
+The Libav device opens media through FFmpeg or encodes score's output to a file or URL. The **Direction** setting selects **Input** or **Output**. Available demuxers, protocols, encoders and muxers depend on the linked FFmpeg build.
 
 ## Input
 

@@ -11,7 +11,7 @@ permalink: /devices/can-device.html
 
 The **CAN** device receives CAN bus frames and decodes their signals using a `.dbc` database. It is useful for bringing sensor or machine telemetry into a score without writing a packet decoder.
 
-This describes the current development implementation. It requires a build with CAN support and a **Linux SocketCAN** interface. It is **receive-only**: writing an address does not transmit a CAN frame, configure a sensor, or implement CANopen control services.
+It requires a build with CAN support and a **Linux SocketCAN** interface. It is **receive-only**: writing an address does not transmit a CAN frame, configure a sensor, or implement CANopen control services.
 
 ## Set up the bus
 

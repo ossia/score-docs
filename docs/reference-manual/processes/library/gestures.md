@@ -8,6 +8,7 @@ parent: Processes
 grand_parent: Reference
 
 permalink: /processes/gestures.html
+score: /reference/processes/LeakyIntegratorExample.score
 ---
 # Gestures
 
@@ -15,9 +16,9 @@ These native processes use the [Puara Gestures](https://github.com/Puara/puara-g
 
 ## Leaky Integrator
 
-**Library:** `Control > Filtering > Leaky Integrator`
+Library: `Control > Filtering > Leaky Integrator`
 
-The Leaky Integrator is a **timed accumulator**, not a normalized exponential moving average. Each evaluation adds the input to the stored value. When a leak step is due, the old value is first multiplied by the **Leak Factor**:
+The Leaky Integrator accumulates its input, retaining a fraction of the previous value on each leak step:
 
 ```
 leak step:      output = input + leak_factor * previous_output
@@ -28,14 +29,34 @@ between steps: output = input + previous_output
 |---|---|---|---|
 | Input | Float | — | Value added on each evaluation. |
 | Leak Factor | 0–1 | 0.5 | Fraction of the old accumulator retained at a leak step. |
-| Leak Frequency (Hz) | 0–200 | 100 | Timed leakage cadence, not the input sampling rate or output rate. Fractional values are truncated to an integer. At 0, leakage is applied on every evaluation. |
+| Leak Frequency (Hz) | 0–200 | 100 | Leakage frequency. Fractional values are truncated to an integer; at 0, every evaluation is a leak step. |
 | Output | Float | — | Accumulated value; not constrained to 0–1. |
 
-A factor of **1** does not freeze the output: it disables decay, so nonzero input keeps accumulating. A factor of **0** discards history on leak steps, but still accumulates between those steps. With zero input, a factor below 1 and continued evaluations let the state decay. Lowering a positive leakage frequency allows more additions between leak steps; it does not simply make the process update less often.
+A factor of 1 disables decay: nonzero input keeps accumulating. A factor of 0 discards history on leak steps, but still accumulates between them. To observe decay, keep the process running with zero input and a factor below 1.
 
-The result depends on the number of evaluations as well as the wall-clock leakage cadence. Do not interpret it as normalized energy or an integral scaled by elapsed time.
+For positive frequencies, the process checks elapsed wall-clock time on each evaluation and applies at most one leak step. It does not run a separate leakage timer or catch up missed steps. Lowering the frequency allows more input additions between leak steps. The output therefore depends on the evaluation rate; it is not a normalized moving average or an integral scaled by elapsed time.
 
-See [Accumulation and decay with Puara]({{ site.baseurl }}/common-practices/tutorial-smoothing-data-with-puara.html) for a pulse-then-zero example.
+### Example: accumulation and decay
+
+[Download LeakyIntegratorExample.score]({{ site.baseurl }}/assets/scores/reference/processes/LeakyIntegratorExample.score)
+
+The example connects three processes in the same interval:
+
+```text
+Expression Value Generator → Leaky Integrator → Signal display
+```
+
+The generator uses `if(pos < 0.1, 1, 0)`: it sends 1 during the first tenth of the interval, then keeps sending 0. The integrator has Leak Factor set to `0.99` and Leak Frequency (Hz) set to `0`, so every evaluation is a leak step.
+
+Play from the beginning. The display rises during the pulse and decays during the zero-input phase. The peak depends on how many evaluations occur during the pulse and can exceed 1.
+
+Reopen the example to start with a fresh accumulator when comparing settings:
+
+- Factor `1`, frequency `0`: the pulse accumulates, then the output holds its value while the input is zero.
+- Factor `0`, frequency `0`: the output follows the input, with no retained history.
+- Factor `0.5`, frequency `10`: input accumulates between timed leak steps, each of which retains half the previous value.
+
+The example is adapted from the tutorial and score contributed by [yashtiwari9182](https://github.com/ossia/score-docs/pull/71).
 
 ## Roll
 
@@ -74,7 +95,7 @@ Tilt derives a tilt descriptor from **all three** sensor vectors. The native wra
 
 There are no unwrap, wrap or smoothing controls on this process. The implementation computes `euler.tilt = c_temp.z * π/2`, so it should not be treated as a calibrated pitch angle. Input units and conversions are the same as Roll.
 
-**Runtime limitation:** a Linux development-build check using three synthetic OSC streams produced unstable Tilt output outside the nominal −π/2 to π/2 range. The sensor-fusion constructor initializes its quaternion but leaves its Euler and gyro-bias fields uninitialized; the exact cause of the observed failure has not been established. The tutorial and download are withheld pending an application-side investigation, not hidden behind output clamping or a selected passing input.
+**Runtime limitation:** a Linux runtime check using three synthetic OSC streams produced unstable Tilt output outside the nominal −π/2 to π/2 range. The sensor-fusion constructor initializes its quaternion but leaves its Euler and gyro-bias fields uninitialized; the exact cause of the observed failure has not been established. The tutorial and download are withheld pending an application-side investigation, not hidden behind output clamping or a selected passing input.
 
 Source: `score-addon-puara/Puara/Tilt.cpp`, `include/puara/descriptors/tilt.h` and the vendored `IMU_Sensor_Fusion/imu_orientation.{h,cpp}`. Source inspection of the intended equations does not supersede the failed runtime check.
 

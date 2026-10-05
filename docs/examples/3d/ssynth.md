@@ -47,7 +47,9 @@ The rule describes a spiral of boxes when invoked. A runnable program also needs
 
 ## Try it
 
-Open this example to see generative 3D geometry in action. 
+Start playback to view the saved NablaSystem structure. Its geometry goes to native Model Display; Sine Warp Gradient passes through Exposure Adjust to provide the texture. A looping colour automation changes the gradient, while an LFO mapped through `360x` rotates the structure. Adjust the LFO speed to separate rotation from regeneration, then edit the bounded Structure Synth program and request Regenerate to rebuild it.
+
+The result is sent to `Window:/`. The program and shaders are embedded and need no external model file. This uses native Model Display, not Qt Quick 3D.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

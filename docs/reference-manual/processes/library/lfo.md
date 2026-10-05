@@ -15,7 +15,7 @@ permalink: /processes/lfo.html
 
 The **LFO** generates a control value at its **Out** port: connect it to a parameter to make that parameter oscillate. It does not generate an audio signal.
 
-This page describes the current development-build LFO (v3). Older scores may contain **LFO (old)** or **LFO (v2)**, which retain their own controls rather than automatically becoming v3.
+This page describes LFO version 3. Older scores may contain **LFO (old)** or **LFO (v2)**, which retain their own controls rather than automatically becoming v3.
 
 ## Period and synchronization
 

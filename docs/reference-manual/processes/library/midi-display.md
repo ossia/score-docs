@@ -13,9 +13,8 @@ permalink: /processes/midi-display.html
 # MIDI display
 
 **MIDI display**, in **Monitoring**, shows the messages reaching a MIDI port as a
-scrolling note display and message log. It is available in current development
-builds. Use it to diagnose missing releases, unexpected retriggers and message
-routing without replacing the receiving instrument.
+scrolling note display and message log. Use it to diagnose missing releases,
+unexpected retriggers and message routing without replacing the receiving instrument.
 
 ## Ports and controls
 

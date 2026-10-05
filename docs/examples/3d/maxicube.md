@@ -21,16 +21,15 @@ This example demonstrates generating and rendering millions of particles entirel
 
 ## Overview
 
-A compute shader generates a noise buffer of up to ~179 million points directly in GPU memory. The buffer is converted to a point cloud mesh and rendered in Points mode with a corner-color gradient texture. 
+A compute shader generates a buffer of 10,240,000 floats each frame, interpreted as approximately 3.41 million XYZ points. Pointcloud to mesh passes the geometry to native Model Display, which renders it with Corner Colors and writes directly to `Window:/`. This is not a Qt Quick 3D scene.
 
-> **Memory warning:** The configured point count can require roughly 2 GB for position data alone, before render targets and other buffers. Reduce the count before running on a smaller GPU; this is not a verified minimum-VRAM guarantee.
+The position buffer alone contains about 41 MB of Float32 data; other GPU resources add to the workload. Reduce NoiseBuffer size before running on a smaller GPU.
 
 ## Key concepts
 
 - **[[Compute Shaders]]**: Generate massive amounts of data directly on the GPU without CPU involvement. Here, a noise buffer fills GPU memory with random particle positions each frame.
 - **Pointcloud to Mesh**: Interprets the GPU buffer as XYZ coordinates and produces renderable geometry.
 - **Buffer layout**: The Pointcloud to mesh Buffer type must match the generated coordinates and their stride. See [[Geometry and buffer utilities]] before changing the compute output format.
-- **Post-processing**: Edge blur applies a multi-pass Gaussian blur with Sobel edge detection. Motion blur uses a persistent feedback buffer for temporal smearing.
 
 ## Data flow
 
@@ -38,11 +37,11 @@ A compute shader generates a noise buffer of up to ~179 million points directly 
 2. Pointcloud to Mesh builds geometry from the buffer
 3. A corner-color gradient provides the texture
 4. [[Model display]] renders the points
-5. Edge blur and motion blur [[ISF Shaders]] are applied as post-processing
+5. An expression rotates the geometry with `return [360sin(pos), 360cos(pos), c];`
 
 ## Try it
 
-Open this example to see a massive GPU-generated particle system with dynamic blur effects.
+Start playback and compare the changing point cloud with its rotation. Adjust NoiseBuffer size to vary the amount of generated geometry, retaining complete XYZ triples when choosing a new size. The example requires compute-shader support but no external file. There are no blur post-processors in this version of the score.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

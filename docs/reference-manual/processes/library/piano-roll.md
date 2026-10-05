@@ -33,8 +33,8 @@ notes. With the piano roll focused, {% include shortcut.html content="Up" %} and
 {% include shortcut.html content="Down" %} transpose selected notes by a semitone;
 {% include shortcut.html content="Shift+Up" %} and
 {% include shortcut.html content="Shift+Down" %} transpose by an octave.
-Transposition remains within MIDI's 0–127 pitch range. In current development
-builds, moving notes beyond the displayed pitch range expands that range.
+Transposition remains within MIDI's 0–127 pitch range. Moving notes beyond
+the displayed pitch range expands that range.
 
 Connect **MIDI Out** to an instrument process or a
 [MIDI output device]({{ site.baseurl }}/devices/midiout-device.html). The piano roll
