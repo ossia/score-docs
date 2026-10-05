@@ -10,6 +10,8 @@ score: /examples/3d/sphere-splat-feedback.score
 
 # Sphere splats with texture feedback
 
+![Glowing multicoloured particle ring above the SphereSplat generator, feedback shader and renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-sphere-splat-feedback.png)
+
 SphereSplat_Generator creates a ring of particles. SphereSplat_Feedback takes this geometry and a delayed texture from the SphereSplat renderer, then sends modified geometry back to that renderer. The delayed connection is essential: the compute stage reads a previous image rather than creating an immediate cyclic dependency.
 
 ## Try it
@@ -17,5 +19,7 @@ SphereSplat_Generator creates a ring of particles. SphereSplat_Feedback takes th
 Start playback and change `feedbackStrength` to compare the feedback contribution with `baseColor`. Vary `projectionScale` to change how the rendered image is sampled. The generator controls particle count, ring radius and sprite size; a triangle LFO animates the camera X coordinate through Micromap and Vec3f.
 
 The renderer also sends its output to `Window:/`. Everything is generated in the score; no source image is needed. This is a native compute/Render Pipeline example, not Qt Quick 3D.
+
+{% include try-on-web.html %}
 
 [Download this example]({{ site.scores }}{{ page.score }})

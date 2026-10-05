@@ -31,6 +31,8 @@ Use a score build with the Pure Data process available. The document references 
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Pure Data integration]] - Full PureData process reference

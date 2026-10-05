@@ -33,3 +33,5 @@ To plug for instance MIDI notes, one needs to take the MIDI pitch and convert it
 
 
 [Try it !]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

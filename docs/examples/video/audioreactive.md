@@ -35,6 +35,8 @@ Compare Stereo Mixer inputs 1 and 2 to separate the generated percussion from li
 
 Start playback and adjust the mixer gains before increasing RMS Gain. The patch can generate its own analysis source through DjembeMIDI, while the separate trace-threshold branch depends on live input. To replace the microphone, connect a sound-file process to the relevant audio inlet.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

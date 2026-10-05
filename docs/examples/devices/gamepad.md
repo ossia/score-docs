@@ -35,6 +35,8 @@ The saved patch uses standardized gamepad addresses; button labels on the physic
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Joystick device]] - Gamepad and joystick device configuration

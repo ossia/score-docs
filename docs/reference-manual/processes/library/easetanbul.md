@@ -29,3 +29,5 @@ Essential for creating smooth animations, gentle parameter transitions, or any t
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }}).
+
+{% include try-on-web.html %}

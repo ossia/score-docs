@@ -11,6 +11,8 @@ score: "/reference/processes/point-cloud.zip"
 
 # Rotating PLY Point Cloud
 
+![LFO and expression generator controlling the Object loader and Model Display point-cloud rendering chain.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-point-cloud.png)
+
 **Object loader** reads `<PROJECT>:Files/bunny.ply` and sends it to **Model Display**, saved in point rendering mode. A saw LFO drives parameter `a` of Expression Value Generator, whose `return [0, -360a,0];` expression rotates the model about its vertical axis. VVMotionBlur 3.0 processes the image before `Window:/`.
 
 ## Try it
@@ -20,3 +22,6 @@ Open the ZIP directly in score and start playback. Reduce blur to inspect indivi
 This is a native geometry/Model Display example, not a Qt Quick 3D particle scene or a Gaussian-splat renderer. The PLY file is supplied; no external model package is required. See [[Model display]].
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -20,4 +20,6 @@ Start playback and focus the output window. The fps-camera script reads `Window:
 
 The model and environment files are bundled, and the shader and camera-script code is stored in the score. The depth shaders include `depth_helpers.glsl`: install the `score-csf-testers` package with its `shaderlib/depth` directory intact so that the include resolves. This graph uses native scene rendering and depth effects.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

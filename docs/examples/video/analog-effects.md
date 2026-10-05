@@ -20,4 +20,6 @@ Start playback and isolate each branch with the mixer's alpha controls before ch
 
 The final output is `Window:/`. All sources and shader code are procedural and stored in the score; no movie file is required. HDR Exposure and Tonemap are image-processing stages, not a requirement for an external HDR movie.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

@@ -10,6 +10,8 @@ score: /examples/3d/nbody.score
 
 # GPU particle forces
 
+![Blue sphere particles behind the RandomScatter, VortexForce, BasicForces and NBodyGravity process chain.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-nbody.png)
+
 RandomScatter initializes 1024 particles. VortexForce, BasicForces and NBodyGravity form a compute-shader chain leading into Integrate. PointsToSprites converts the resulting particle geometry for the SphereSplat native Render Pipeline, which writes to `Window:/`. A Vec3f process controls the camera.
 
 ## Try it
@@ -17,5 +19,7 @@ RandomScatter initializes 1024 particles. VortexForce, BasicForces and NBodyGrav
 Start playback and compare the motion after changing vortex strength, gravitationalConstant or drag. Lower Integrate's `timeScale` to inspect slower motion. The initial scatter has `once` enabled; changing a force is different from changing the initial distribution.
 
 This is a GPU simulation example, not a reference scientific integrator. It needs compute-shader support but no external particle data or model. The force and rendering chain is native, not Qt Quick 3D.
+
+{% include try-on-web.html %}
 
 [Download this example]({{ site.scores }}{{ page.score }})

@@ -29,3 +29,5 @@ It uses the duration of the parent interval as temporal reference: the tween wil
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

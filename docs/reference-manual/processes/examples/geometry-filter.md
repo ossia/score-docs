@@ -11,6 +11,8 @@ score: "/reference/processes/geometry-filter.score"
 
 # Animated Sphere Geometry Filter
 
+![Sphere and Geometry filter connected to Model Display, with separate LFO controls and a Checkerboard texture branch.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-geometry-filter.png)
+
 A **Sphere** goes through **Geometry filter** into **Model Display**. A Checkerboard shader supplies the texture, and Glow processes the rendered image before it reaches `Window:/`. This is score's native geometry-rendering path, not a Qt Quick 3D scene.
 
 The filter changes vertex positions with:
@@ -26,3 +28,6 @@ Start playback and open the Window device output. Inspect the two LFO connection
 See [[Model display]] for rendering the resulting geometry.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -11,6 +11,8 @@ score: "/reference/processes/combine-spread.score"
 
 # Combine and Spread Signals
 
+![LFO and automation signals entering Combine, with Spread routing the components to separate signal displays.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-combine-spread.png)
+
 An **LFO** drives input 0 of **Combine**, while an **Automation (float)** drives input 1. Combine has two inputs; its array output is both plotted and passed to **Spread**, which has two outputs. Separate Signal displays monitor each extracted component.
 
 ## Try it
@@ -20,3 +22,6 @@ Start playback and compare the combined display with the two individual displays
 No external device or file is involved. This patch is for value routing; it does not merge audio channels.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

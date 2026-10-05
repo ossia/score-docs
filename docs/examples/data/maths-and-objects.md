@@ -10,7 +10,11 @@ score: /examples/data/maths-and-objects.score
 
 # Math expressions and structured objects
 
+![An expression filter producing signal traces above Object filter queries and value displays]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-maths-and-objects.png)
+
 Compare numerical mappings with queries over lists and JSON-like objects.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/data/maths-and-objects.score)
 

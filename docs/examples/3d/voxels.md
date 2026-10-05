@@ -10,6 +10,8 @@ score: /examples/3d/voxels.zip
 
 # Deforming a voxel model
 
+![Voxel loader connected through Deform to VoxelMeshRenderer, with an LFO driving the deformation.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-voxels.png)
+
 Voxel loader reads `Files/monu0.vox`. Deform modifies the geometry on the GPU, driven by a small-amplitude LFO. VoxelMeshRenderer renders it, then Depth + Color Outlines and Tonemap send the result to `Window:/`.
 
 ## Try it
@@ -19,5 +21,7 @@ Open the ZIP directly in score. Start playback and compare Deform's amount and r
 The voxel file is included and the shader code is saved in the score. The outline shader's camera inlet is unconnected in this document; unlike the camera-aware depth examples, this graph does not extract a scene camera buffer. This uses native Voxel loader and Render Pipeline, not Qt Quick 3D, and the deformation requires compute-shader support.
 
 Depth + Color Outlines includes `depth_helpers.glsl`. Install `score-csf-testers` with its `shaderlib/depth` directory and helper file intact; the embedded shader still needs that relative include.
+
+{% include try-on-web.html %}
 
 [Download this example]({{ site.scores }}{{ page.score }})

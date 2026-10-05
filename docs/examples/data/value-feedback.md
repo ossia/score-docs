@@ -10,7 +10,11 @@ score: /examples/data/value-feedback.score
 
 # Delayed value feedback
 
+![Float and Micromap connected to a Signal display showing the irregular logistic-map trace]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-value-feedback.png)
+
 Iterate a logistic map with an explicit one-tick feedback cable.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/data/value-feedback.score)
 

@@ -11,9 +11,13 @@ score: /common-practices/led-design/led-combination.score
 
 # Combine shader LED arrays
 
+![Three inputs entering Array Combiner in Append mode, with the combined colours displayed in LED View.]({{ site.baseurl }}/assets/scores/thumbnails/common-practices-led-design-led-combination.png)
+
 Sample three shader textures into RGB arrays, concatenate them and preview the resulting LED layout.
 
 [Download the example]({{ site.baseurl }}/assets/scores/common-practices/led-design/led-combination.score)
+
+{% include try-on-web.html %}
 
 ## Run the preview
 

@@ -27,8 +27,9 @@ These changes affect the documentation website, not a score application release:
 - Clarified the ossia and score SDKs, official Windows toolchains, SDK42's FFmpeg 9.0 dependency, and custom-application templates and CI actions.
 - Added missing example pages and corrected archive links. Example pages distinguish native graphics from Qt Quick 3D and list their required media and packages.
 - Aligned example categories with asset folders and removed local project snapshots and nested working copies from publication. Process and common-practice walkthroughs remain with their corresponding references.
-- Extracted embedded project thumbnails for display at the top of documentation pages, including scores stored in ZIP archives. Missing thumbnails are omitted.
+- Extracted embedded project thumbnails for the example manifest and optional page illustrations. Walkthroughs select images explicitly in Markdown below their headings, preserving existing screenshots and videos rather than inserting a second preview automatically.
 - Updated example instructions to open project ZIPs directly in score, without manual extraction.
+- Added metadata-driven **Try this on web** links beside example downloads, using the downloaded project's own platform allow-list, including the document inside a ZIP. Eligibility follows score's case-insensitive `web` token and empty-means-all semantics.
 - Disambiguated example and reference wiki links.
 - Added LibreDiffusion runtime and engine-building instructions to the [StreamDiffusion reference]({{ site.baseurl }}/processes/streamdiffusion.html).
 - Corrected 11 internal page links and removed 16 image references with no corresponding illustration. Existing relevant screenshots are retained.

@@ -40,6 +40,8 @@ Start playback after resolving the model path. Three slow sine LFOs feed `return
 
 The saved script's `tick` function still calls `wasd.forceActiveFocus()`, but no `wasd` object is declared. Remove that stale call in the script editor to avoid its reference error; this version does not provide the WASD navigation controller used by the glTF Scene with Effects example. To explore it as saved, use Position and the driven Look At control.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

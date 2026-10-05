@@ -20,4 +20,6 @@ Start playback to compare the animated source across the configured outputs. Adj
 
 No external image or video is required. Window output mapping is independent of Qt Quick 3D; it can also receive the composed texture from the rectangle-mapping example.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

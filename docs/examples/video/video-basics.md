@@ -33,6 +33,8 @@ Select a working microphone input, or connect a sound-file process to YBandpass.
 
 Start playback and change the video inspector's stretch mode to compare fitting behaviour. Adjust YBandpass and RMS sensitivity, then observe how sound changes the trace and circular pattern. To scrub, double-click the time ruler and drag while holding the mouse button. The main interval has a manual ending time-sync, allowing the movie to keep looping until it is triggered.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

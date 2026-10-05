@@ -42,6 +42,8 @@ The goblet OBJ model supplies a position buffer. A separate Color Test Grid shad
 
 Open the ZIP directly in score and start playback; `Models/goblet.obj` is bundled. Change Color Test Grid's colour shift or grid dimensions to see the reconstructed mesh's colours change. The Value displays report the vertex count and colour-buffer byte size. Ensure a replacement colour texture has at least one RGBA pixel per vertex: the score's notes illustrate 3,000 vertices with a 55-by-55 texture (3,025 pixels). Keep the attribute format and stride consistent with those pixels. This is a native buffer/geometry workflow, not Qt Quick 3D.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

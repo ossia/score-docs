@@ -10,6 +10,8 @@ score: /examples/basics/interpolation.score
 
 # Weighted and time-based interpolation
 
+![Nodes and LFO interpolation branches connected to a sequenced synthesizer and effects]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-interpolation.png)
+
 This patch contrasts two operations. Interpolator combines a sine LFO and a square LFO according to weights from Nodes. Easetanbul transitions between successive values of a separate square LFO over time.
 
 PathGenerator supplies moving points. Object filter's `.[0]` selects the first point for Nodes, whose two weights feed Interpolator. A Mapping tool scales the result to approximately 0.314–39.933, driving FoMo's operator 1 and 3 ratios and the Faust delay time.
@@ -24,3 +26,6 @@ PathGenerator supplies moving points. Object filter's `.[0]` selects the first p
 There are no sample files or external devices. The installed build must provide Nodes, PathGenerator, Object filter, FoMo, Faust and Airwindows in addition to the core control processes.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

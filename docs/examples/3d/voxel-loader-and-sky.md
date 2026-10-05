@@ -22,4 +22,6 @@ The depth effects also include `depth_helpers.glsl`; keep the `score-csf-testers
 
 Start playback after resolving the voxel file. Adjust the voxel loader's transform to frame a replacement model. Keep camera Eye/Target values consistent between the camera buffer and voxel renderer when changing the view. Compare cloud settings, depth-effect strengths and Bloom separately. This is native rendering, not Qt Quick 3D.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

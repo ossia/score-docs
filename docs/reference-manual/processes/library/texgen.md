@@ -53,3 +53,5 @@ Here are some examples from the presets that are part of the user library:
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

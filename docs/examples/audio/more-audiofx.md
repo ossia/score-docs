@@ -10,6 +10,8 @@ score: /examples/audio/more-audiofx.score
 
 # Sequencing audio effects
 
+![Jungle drum pattern routed to successive effect intervals across the timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-more-audiofx.png)
+
 The `Drums` interval contains the `Jungle` Pattern sequencer driving Kaboom's `Rubber and Foam` preset. Its output is cabled to every effect branch, but those branches occupy successive intervals: the timeline determines which processor is active.
 
 | Score position | Active branch |
@@ -33,3 +35,6 @@ Use a build with Kaboom, BarrVerb and Airwindows available. No samples or extern
 Try changing Echo's feedback or Bitcrush's sample rate, then restart that section to compare. Move an interval boundary to change when the sound switches without changing the drum pattern. Trigger the end of `Drums` to stop the source, or stop the transport to finish the example.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

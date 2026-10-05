@@ -10,6 +10,8 @@ score: /examples/devices/sensors2osc.score
 
 # Sensors2OSC phone control
 
+![Character-textured cube preview beneath Model Display, with touch filtering and mapping nodes]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-sensors2osc.png)
+
 This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html) includes extra Value displays after the two touch mappings. It uses score's native Cube → Model Display rendering and ISF effects, not Qt Quick 3D.
 
 ## Connect the phone
@@ -25,3 +27,6 @@ The displays after Micromap show `0.05(x+1.0)` and `0.2(x+1)` before those value
 Random Characters generates the cube's texture. Model Display → Noise Displace → Color Controls produces the final image at `Window:/`; hue also reads the first rotation-vector component directly. No image or 3D model file is required. The saved remote OSC destination `127.0.0.1:9996` is unused by these input mappings.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

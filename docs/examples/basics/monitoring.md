@@ -10,6 +10,8 @@ score: /examples/basics/monitoring.score
 
 # Monitoring values, MIDI, audio and textures
 
+![MIDI note, audio level, point and texture displays arranged beside their source processes]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-monitoring.png)
+
 The patch places monitoring processes beside the data they inspect. Start playback and follow each branch in nodal view; no physical controller, sound file or network destination is needed.
 
 ## Inspect the branches
@@ -25,3 +27,6 @@ The patch places monitoring processes beside the data they inspect. Start playba
 The graphics branch uses score's native shader processing, not Qt Quick 3D. The saved shader comes from the default library's `GLSL_shaders/sophia-digital-art/colors.fs`; Synthimi is required for the audio-analysis branch. This example's monitors do not require a separate Window device.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

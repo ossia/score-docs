@@ -10,6 +10,8 @@ score: /examples/audio/granular.score
 
 # Granular synthesis approaches
 
+![Granola voices and a Faust granulator connected to shared filters and gain]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-granular.png)
+
 This patch combines three Granola voices, a Faust granulator and a very short sound-file loop. The voices converge on a Lowpass, an Airwindows Highpass and a final Gain routed through the interval to `audio:/out/main`.
 
 ## Prepare the sounds
@@ -34,3 +36,6 @@ Use a build with Granola, Faust and the Airwindows effects available. Select an 
 The final Gain controls the combined result; individual branches can be muted to compare approaches without the other layers masking them.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

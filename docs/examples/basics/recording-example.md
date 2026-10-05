@@ -10,6 +10,8 @@ score: /examples/basics/recording.score
 
 # Recording sensor messages and automations
 
+![Recorded sensor curves at two simplification settings beside discrete message states]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-recording.png)
+
 The document contains recorded Sensors2OSC data rather than an audio recording. Three groups store accelerometer, gyroscope and orientation components as nine float automations each. Their labels identify simplification ratios 3, 10 and 100: the saved ratio-100 curves retain hundreds of segments, while ratio 3 has much sparser curves.
 
 Two further groups compare magnetic-field recordings with **Ramp to new value** enabled and disabled. A nested `Recording example - Messages` scenario stores touch messages in individual states instead of curves, including `[0, -1, -1]` release values.
@@ -30,3 +32,6 @@ The automations target individual vector components, for example `Sensors2OSC:/a
 The saved recordings can be inspected without a phone. Only making a new live recording requires the app and network input.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -20,4 +20,6 @@ Keep the camera buffer connected to the same scene that produces the image and d
 
 The depth shader code includes `depth_helpers.glsl`. Install the `score-csf-testers` package with its `shaderlib/depth` directory intact so that this shared include resolves relative to the saved shader source paths.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

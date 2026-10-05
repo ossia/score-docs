@@ -116,6 +116,8 @@ The process and texture outlet must exist, and GPU JavaScript support must be co
 
 This example will create a basic UI which interoperates with the following score: [download it here]({{ site.scores }}{{ page.score }}).
 
+{% include try-on-web.html %}
+
 Save the content of the QML file below as custom-ui.qml and run with: 
 
 ```

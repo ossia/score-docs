@@ -22,3 +22,6 @@ Install the HDF5 add-on and supply the external `mockup_for_JM.h5` file, which i
 Start playback to scan both datasets together. The expected result is a changing numeric trace and a changing texture. Disconnect the LFO from a Percentage input to inspect a fixed position manually. Without the external data this remains a reader-routing example, not a self-contained visualization.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -11,6 +11,8 @@ score: "/reference/processes/array-tool.score"
 
 # Array Tool LED Reshaping
 
+![Arraygen connected through Array tool to a red LED preview and numeric value display.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-array-tool.png)
+
 Arraygen evaluates `100(i+1)` for 14 elements. Its output passes through **Array tool** and then branches to **Value display** and **LED View**, so the numeric result and its colour interpretation can be compared.
 
 The saved Array tool uses a 0–255 range with Fold behaviour, a stride of 3 with Zero fill, and three elements of post-padding on each side. This is deliberately not a simple one-to-one display of the source array.
@@ -22,3 +24,6 @@ Start playback, inspect the resulting numbers, then change Fold to another range
 See [[Array utilities]] and [[LED View]].
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

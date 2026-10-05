@@ -11,6 +11,8 @@ score: "/reference/processes/arraygen.score"
 
 # Arraygen Signal Study
 
+![Arraygen feeding three changing traces into Signal display.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-arraygen.png)
+
 The patch connects **Arraygen** directly to **Signal display**. Its expression, `sin((1+i)*0.00000001t)`, uses the element index `i` to give each of the three values a different rate. It is a value-array example, not an audio oscillator.
 
 ## Try it
@@ -20,3 +22,6 @@ Start playback and watch the three traces. Change Size from 3 to 6 to add elemen
 See [Arraygen expressions]({{ site.baseurl }}/processes/exprtk.html#arraygen) for the expression variables.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

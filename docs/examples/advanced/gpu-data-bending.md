@@ -12,6 +12,8 @@ score: /examples/advanced/gpu-data-bending.score
 
 Compare GPU glitch and feedback shaders driven by a shared camera texture.
 
+{% include try-on-web.html %}
+
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/gpu-data-bending.score)
 
 ## Run and compare

@@ -43,6 +43,8 @@ The position buffer alone contains about 41 MB of Float32 data; other GPU resour
 
 Start playback and compare the changing point cloud with its rotation. Adjust NoiseBuffer size to vary the amount of generated geometry, retaining complete XYZ triples when choosing a new size. The example requires compute-shader support but no external file. There are no blur post-processors in this version of the score.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

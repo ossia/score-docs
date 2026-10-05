@@ -10,7 +10,11 @@ score: /examples/advanced/files-and-strings.zip
 
 # Files, strings and serialization
 
+![Object filter, Serialize and Deserialize connected beneath the device recording graph]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-files-and-strings.png)
+
 Read text and bytes, transform lines, serialize values and record or replay device data.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/files-and-strings.zip)
 

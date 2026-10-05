@@ -18,4 +18,6 @@ Open the ZIP directly in score; `Models/Duck.glb` is bundled. Start playback to 
 
 Keep floating-point render targets when working with the PBR branch, and tone-map before display so bright lighting is not clipped to an 8-bit range too early. The shaders are stored in the score. This is native scene instancing, not Qt Quick 3D.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})

@@ -10,6 +10,8 @@ score: /examples/audio/looper.zip
 
 # Live audio looper with drum backing
 
+![Looper controls beside a drum pattern and its Deuterium sampler on the timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-looper.png)
+
 The Looper reads `audio:/in/main` while a Pattern sequencer plays a Deuterium drum kit. Both outputs enter the parent mix at `audio:/out/main`. The drum backing is separate from the Looper input: it is not internally cabled into the recording.
 
 ## Prepare and record
@@ -23,3 +25,6 @@ The Looper reads `audio:/in/main` while a Pattern sequencer plays a Deuterium dr
 Inspect the three states to see their full target under `score:/looper/processes/Scenario.1/intervals/Interval.pear43/processes/Looper (audio)/loop/value`. They control the process through the Local device instead of a value cable. The saved Local device ports are OSC 6666 and WebSocket 9999; no remote client is required for these internal state messages.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

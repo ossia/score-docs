@@ -24,3 +24,6 @@ Random Characters supplies Cube's texture. Model Display renders the geometry, f
 This is score's native Model Display and ISF pipeline, not Qt Quick 3D. Geometry and textures are generated internally; Object filter support and graphics rendering are required, but no external model or image files are needed. For a phone-specific walkthrough and extra mapped-value displays, see [Sensors2OSC phone control]({{ site.baseurl }}/examples/devices/sensors2osc.html).
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

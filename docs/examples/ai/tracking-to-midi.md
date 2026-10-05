@@ -10,7 +10,11 @@ score: /examples/ai/tracking-to-midi.score
 
 # Tracking zones to MIDI
 
+![Pulse to Midi connected to Midi scale and Midi Envelope in the tracking patch]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-tracking-to-midi.png)
+
 Turn zone-entry events into notes and inspect the tracking data that triggers them.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/ai/tracking-to-midi.score)
 

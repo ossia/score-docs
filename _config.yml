@@ -25,6 +25,13 @@ exclude: [".vscode", ".bundle", "vendor", "node_modules/", "*.gemspec", "*.gem",
 # archive is what the site hands out, so publishing the loose copy as well
 # would only double the download weight of every example that has one.
 , "assets/scores/**/packages"
+, "tools/", "**/*.summary.md"
+# Keep local project snapshots and nested working copies out of the published examples.
+, "assets/scores/examples/home*.score"
+, "assets/scores/examples/oof*.score"
+, "assets/scores/examples/ooof*.score"
+, "assets/scores/examples/theme.score"
+, "assets/scores/examples/score-docs"
 ]
 
 # Regression tests

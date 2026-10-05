@@ -33,6 +33,8 @@ All four interval ends are interactive, so their drawn end positions do not auto
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Audio routing]] - How audio propagates through the timeline

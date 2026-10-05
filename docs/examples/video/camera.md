@@ -31,6 +31,8 @@ Adjust RMS Gain to suit the input before changing the mapping expressions. Compa
 
 Start playback and make sound while moving in front of the camera. The camera image should remain the source while the audio changes its treatment. If no microphone is available, connect a sound-file process to RMS instead; this does not replace the camera input.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

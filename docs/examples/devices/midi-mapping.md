@@ -10,6 +10,8 @@ score: /examples/devices/midi-mapping.score
 
 # MIDI controls for a shader
 
+![MIDI note filtering and smoothing connected to Triangle Square Twist over its generated line pattern]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-midi-mapping.png)
+
 `Triangle Square Twist` generates an image directly to `Window:/`. The patch uses score's native ISF shader processing, not Qt Quick 3D, and needs no video or model file.
 
 ## Connect and play
@@ -23,3 +25,6 @@ score: /examples/devices/midi-mapping.score
 The direct port bindings use the device parameter domains; the twist branch demonstrates an explicit conversion and smoothing instead. To assign a different controller, drag its learned address onto the shader inlet or edit that inlet's address. This example makes visuals only, even though it receives MIDI notes.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

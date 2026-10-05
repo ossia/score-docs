@@ -29,6 +29,8 @@ Smoothing reduces rapid variation; calibration adapts the range. They are separa
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Smooth]] - Smooth process

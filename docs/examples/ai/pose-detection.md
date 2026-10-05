@@ -10,7 +10,11 @@ score: /examples/ai/pose-detection.score
 
 # Face landmarks and radial blur
 
+![Facial keypoint filters connected to a radial blur over the camera image]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-pose-detection.png)
+
 Use RetinaFace detections to inspect facial keypoints and position a video effect.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/ai/pose-detection.score)
 

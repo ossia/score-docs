@@ -21,6 +21,7 @@ require "json"
 require "base64"
 require "set"
 require "shellwords"
+require "uri"
 
 module ScoreExamples
   # score::ProjectInfo::uuid_string
@@ -87,19 +88,21 @@ module ScoreExamples
     # document without its media: only the archive is worth publishing, which is
     # also the rule score applies when it scans a library folder.
     def assets(site)
-      root = File.join(site.source, SCORES_DIR)
-      all = Dir.glob(File.join(root, "**", "*.{score,zip}")).sort
+      all = site.static_files.filter_map do |file|
+        relative = file.relative_path.sub(%r{\A/}, "")
+        file.path if relative.start_with?("#{SCORES_DIR}/") && relative.match?(/\.(score|zip)\z/)
+      end.sort
       archives = all.select { |p| p.end_with?(".zip") }.map { |p| p.sub(/\.zip\z/, "") }.to_set
       all.reject { |p| p.end_with?(".score") && archives.include?(p.sub(/\.score\z/, "")) }
     end
 
-    # asset path (as written in `score:` front matter) => the page declaring it.
-    # A score may be referenced by several pages; the first in document order
-    # wins, and the rest still link to it normally.
+    # Group pages by their explicit asset binding; the first supplies manifest metadata.
     def pages_by_asset(site)
       site.pages.each_with_object({}) do |p, acc|
         key = p.data["score"]
-        acc[key] ||= p if key
+        next unless key
+        p.data.delete("score_web_url")
+        (acc[key] ||= []) << p
       end
     end
 
@@ -107,7 +110,15 @@ module ScoreExamples
       rel = path.sub("#{site.source}/#{SCORES_DIR}", "") # "/examples/3d/sponza.score"
       id = rel.sub(%r{\A/}, "").sub(/\.[^.]+\z/, "")     # "examples/3d/sponza"
       info = project_info(path)
-      page = pages[rel]
+      matching_pages = pages.fetch(rel, [])
+      page = matching_pages.first
+      platforms = project_platforms(info)
+      if platforms.empty? || platforms.any? { |platform| platform.casecmp?("web") }
+        target = URI.encode_www_form_component("/score-docs/#{SCORES_DIR}#{rel}").gsub("%2F", "/")
+        matching_pages.each do |p|
+          p.data["score_web_url"] = "https://ossia.io/score-web/?open=#{target}"
+        end
+      end
 
       section, group = id.split("/")
       group = nil if id.split("/").size < 3
@@ -122,18 +133,23 @@ module ScoreExamples
         "description" => description,
         "section" => section,
         "group" => group,
-        "category" => presence(page&.data&.[]("parent")) || prettify(group || section),
+        "category" => prettify(group || section),
         "page" => page ? absolute(site, page.url) : nil,
         "file" => absolute(site, "#{SCORES_DIR}#{rel}"),
         "format" => File.extname(path).delete("."),
         "size" => File.size(path),
         "author" => presence(info["Author"]),
-        # Whitelist of platforms the document says it runs on, as its author
-        # ticked them in Project Settings. Empty means everywhere, which is
-        # what all but a handful of scores are.
-        "platforms" => presence(info["Platforms"]).to_s.split,
+        # ProjectInfo's space-separated allow-list: empty means all platforms.
+        "platforms" => platforms,
         "image" => thumbnail(site, id, info["Thumbnail"]),
       }
+    end
+
+    # Match ProjectInfo's QString field and runsOnThisPlatform() in score:
+    # absent/non-string fields are empty; split on literal spaces, not all whitespace.
+    def project_platforms(info)
+      value = info["Platforms"]
+      value.is_a?(String) ? value.split(/ /).reject(&:empty?) : []
     end
 
     # Writes the document's own screenshot out as a PNG and returns its URL.

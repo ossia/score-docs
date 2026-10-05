@@ -30,6 +30,8 @@ The sound processes retain a display name beginning `90bpm BlueB`, but the actua
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Tempo]] - Tempo process reference

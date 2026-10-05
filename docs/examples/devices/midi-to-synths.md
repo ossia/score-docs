@@ -10,6 +10,8 @@ score: /examples/devices/midi-to-synths.score
 
 # Playing synths on MIDI channels 1 and 10
 
+![Synthimi feeding parallel IronOxide5 and Vibrato effects above a separate Kaboom drum chain]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-midi-to-synths.png)
+
 The MIDI input is split by port addresses rather than filter processes: Synthimi reads `MIDI In:/1`, and Kaboom reads `MIDI In:/10`. There is no internal sequencer, so starting the transport alone does not supply notes.
 
 ## Setup and sound
@@ -23,3 +25,6 @@ The MIDI input is split by port addresses rather than filter processes: Synthimi
 Synthimi, Kaboom and Airwindows must be available in the build. No samples or external plug-in files are referenced. If the selected MIDI backend cannot see your device, choose a suitable API in Settings before selecting the input again. For note-on messages with zero velocity used as note-off, configure the MIDI device's corresponding option.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

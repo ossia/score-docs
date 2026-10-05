@@ -10,7 +10,11 @@ score: /examples/advanced/pipeline-switching.score
 
 # Switch audio and video pipelines
 
+![Separate Distortion and Chorus intervals containing their audio effect chains]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-pipeline-switching.png)
+
 Use address-driven scenario triggers to switch effects in a generative audiovisual patch.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/pipeline-switching.score)
 

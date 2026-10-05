@@ -10,6 +10,8 @@ score: /examples/basics/timemodel-patterns.score
 
 # Temporal patterns and synchronization
 
+![Annotated timeline branches comparing false conditions and synchronization joins]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-timemodel-patterns.png)
+
 This annotated scenario contains states, events, time syncs and intervals without media processes. Its observable result is the timeline's execution state, not sound or an image. No external files or devices are needed.
 
 ## Work through the timeline
@@ -25,3 +27,6 @@ The horizontal positions are a layout for the demonstrations, not a promise that
 To reproduce the structures, drag a selected state's small yellow cross to create another state on the same event. Hold Alt/Option while dragging to create a separate event on the same time sync. A condition belongs to an event; a trigger belongs to the time sync shared by those events.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

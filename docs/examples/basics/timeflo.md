@@ -33,6 +33,8 @@ Configure audio output and use a build with Faust available for `freeverb`. Outp
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Scenario]] - Timeline and scenario container reference

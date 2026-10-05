@@ -10,6 +10,8 @@ score: /examples/basics/cues.zip
 
 # Cues, loops and exclusive playback
 
+![Play-once and repeating color automations beside tween comparisons and audio cue intervals]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-cues.png)
+
 The archive combines three cue demonstrations with a native ISF shader preview. Open the ZIP directly in score.
 
 ## Parameter cues
@@ -32,3 +34,6 @@ The sound processes reference the bundled `Audio/angelpads.wav`, `Audio/001_laug
 The annotations also point out the root start and stop states. Inspect these when designing initialization and shutdown cues: ordinary Stop and Stop and reinitialize do not recall the same state.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -29,3 +29,5 @@ Connect control values to **in**. By default, each plotted row scales to the min
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

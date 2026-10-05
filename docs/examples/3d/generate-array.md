@@ -46,6 +46,8 @@ Start playback, then edit Arraygen's `i tan (i + pos + mod(i, pos))` expression 
 
 No external file is required. This is native Model Display rendering, not Qt Quick 3D. The saved Window uses an HDR swapchain format; use a compatible HDR output or change the Window format and adapt the final image for an SDR display.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

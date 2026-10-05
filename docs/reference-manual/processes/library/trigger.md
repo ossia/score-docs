@@ -37,3 +37,5 @@ The second operation mode, "Outside/Inside" instead sends messages whenever the 
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

@@ -37,6 +37,8 @@ No external setup is required. For a larger annotated collection with floating t
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Scenario]] - Timeline container with triggers and conditions

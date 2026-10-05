@@ -10,7 +10,11 @@ score: /examples/advanced/livecoding.score
 
 # Livecoding processes
 
+![SpaceSpore shader and an LFO-driven JavaScript interface in separate scenario intervals]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-livecoding.png)
+
 Edit JavaScript, shader code and a custom Qt Quick interface while their processes execute.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/livecoding.score)
 

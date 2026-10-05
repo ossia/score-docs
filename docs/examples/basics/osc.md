@@ -35,6 +35,8 @@ The final interval named `Patterns` contains an automation with no saved output 
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[OSC device]] - Full OSC device configuration reference

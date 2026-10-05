@@ -10,6 +10,8 @@ score: /examples/devices/samplers.zip
 
 # Soundfonts, drum kits and a single-file sampler
 
+![Soundfont sampler with a piano keyboard above sequenced drum-kit branches and compressors]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-samplers.png)
+
 This patch has three sound sources with different MIDI inputs:
 
 - Deuterium loads `Audio/4GMGS.sf2`, selects instrument 4 and reads the external `MIDI In:/` stream.
@@ -27,3 +29,6 @@ This patch has three sound sources with different MIDI inputs:
 The installed build needs Deuterium, Minibang, Faust, BarrVerb and Airwindows. The archive includes the sound assets in its `Audio/` and `Data/` folders.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

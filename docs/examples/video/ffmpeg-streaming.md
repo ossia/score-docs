@@ -10,6 +10,8 @@ score: /examples/video/ffmpeg-streaming.score
 
 # FFmpeg input and output streams
 
+![An LFO driving Hyperspace above the separate Color Controls streaming branch]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-ffmpeg-streaming.png)
+
 The FFmpeg device receives `udp://127.0.0.1:5000`. Its `FFmpeg:/Video` texture feeds two independent ISF shaders: Hyperspace displays a scrolling result at `Window:/`, while Color Controls sends its result to `FFmpeg_out:/Video` at UDP port 5001. An LFO changes Hyperspace's scroll amount.
 
 ## Run the stream
@@ -27,5 +29,7 @@ ffplay udp://127.0.0.1:5001
 ```
 
 Change Color Controls brightness or saturation and compare the receiver with the Hyperspace window. The saved output uses MJPEG encoding and the MJPEG muxer at 1280×720, 30 fps; it is not an MPEG-TS output despite the input command using MPEG-TS. Output AudioChannels is zero: the generated sine audio is not forwarded by this graph. Keep ports 5000 and 5001 available, and stop the external sender/receiver when finished. No media file is required.
+
+{% include try-on-web.html %}
 
 [Download this example]({{ site.scores }}{{ page.score }})

@@ -10,6 +10,8 @@ score: /examples/devices/http-llm.score
 
 # HTTP chat API and rendered text
 
+![Rendered chat response behind the prompt-string processing nodes and text animation timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-http-llm.png)
+
 The `LLM` HTTP device contains an OpenAI-compatible client script. Writing to `LLM:/chat/prompt` posts JSON to `/v1/chat/completions`, with conversation history and `stream: false`. The response is written to `LLM:/chat/response` and rendered by the `Answer` JavaScript text process.
 
 A separate String → Combine inlets → Join strings branch prefixes the prompt with `Human: ` for the `Question` text process. These strings format the on-screen question; the HTTP device itself constructs the API request. Video Mixer combines the two text textures and sends them to `Window:/`.
@@ -30,3 +32,6 @@ The saved script does not set custom Authorization or Content-Type headers. Use 
 The graphics are JavaScript-rendered text textures mixed with a native ISF shader, not a Qt Quick 3D scene. The saved text preset comes from the default library's `Javascript/advanced-text/advanced-text.qml`. No microphone, audio synthesis or external media is involved.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -29,6 +29,8 @@ Open a Faust process's script editor to inspect its physical-model or effect cod
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Audio plugins]] - Complete guide to VST, VST3, CLAP, LV2, JSFX plugins

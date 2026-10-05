@@ -10,7 +10,11 @@ score: /examples/ai/tracking-to-geometry.score
 
 # Face tracking to native geometry
 
+![Tracked facial landmarks over a camera image with Array to buffer, ParticleTrail and SphereSplat processes]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-tracking-to-geometry.png)
+
 Upload tracked XY coordinates to a GPU buffer and render a particle trail over the camera image.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/ai/tracking-to-geometry.score)
 

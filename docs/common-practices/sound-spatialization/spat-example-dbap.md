@@ -11,9 +11,13 @@ score: /common-practices/sound-spatialization/spat-example-dbap.score
 
 # DBAP speaker gains and paths
 
+![Speaker positions and DBAP gains feeding Matrix spatialization, alongside the audio effects chain and RMS traces.]({{ site.baseurl }}/assets/scores/thumbnails/common-practices-sound-spatialization-spat-example-dbap.png)
+
 Generate distance-based gains for a moving source in a four-speaker layout.
 
 [Download the example]({{ site.baseurl }}/assets/scores/common-practices/sound-spatialization/spat-example-dbap.score)
+
+{% include try-on-web.html %}
 
 ## Setup and run
 

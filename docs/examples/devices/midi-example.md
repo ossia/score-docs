@@ -10,6 +10,8 @@ score: /examples/devices/midi.zip
 
 # MIDI notes, controls and timeline triggers
 
+![Triggered synth interval surrounded by MIDI input and computer-keyboard setup annotations]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-midi.png)
+
 Open the ZIP directly in score; it includes the `Audio/` samples. The example combines direct MIDI synthesis, note-driven timeline triggers, a controller-dependent branch and a separate expression-generated sound.
 
 ## Select an input
@@ -28,3 +30,6 @@ Start playback, then use `press me to start!` to activate Synthimi. Its MIDI inl
 The expression branch runs without MIDI notes once triggered, unlike Synthimi. Stop its interval explicitly with its end trigger. Synthimi and Airwindows support are required; the two sound-file branches also need the archive's samples.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

@@ -17,6 +17,8 @@ score: /reference/processes/array-combiner.score
 
 [Try it !]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 This process combines multiple input arrays in one output array through various modes: 
 
   - Sum does an element-wise sum, that is given [1,2] and [10,20] as input the output would be [11, 22].

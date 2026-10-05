@@ -10,6 +10,8 @@ score: /examples/basics/combine-spread-mux-demux.score
 
 # Combining lists and selecting routes
 
+![Three LFOs feeding parallel Mux and Demux routing and Combine and Spread branches]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-combine-spread-mux-demux.png)
+
 Three LFOs, including square and noise waveforms, each feed two branches. Mux inlets selects one of the three signals; Combine inlets keeps all three as a list. Signal displays show the selected signal, the combined list and the individual outputs downstream.
 
 ## Compare the branches
@@ -22,3 +24,6 @@ Three LFOs, including square and noise waveforms, each feed two branches. Mux in
 All four routing processes have their inlet or outlet count set to three. Keep those counts consistent when extending the patch with another signal.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

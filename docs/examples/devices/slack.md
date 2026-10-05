@@ -10,6 +10,8 @@ score: /examples/devices/slack.score
 
 # Slack messages through Companion
 
+![Send HELLO and Send BYE cues beside the CPU-monitoring timeline loop]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-slack.png)
+
 This scenario sends strings to `slack:/action/custom/message` through the Bitfocus Companion integration. It has no audio or graphics processes. The network operation is a real Slack incoming-webhook request, so choose a test channel before running it.
 
 ## Configure the connection
@@ -26,3 +28,6 @@ A System info device samples every 1000 ms. The second branch waits on `%sysinfo
 The incoming interval has a minimum duration of about 1.94 seconds and no finite maximum. While load remains high, the loop can send repeated warnings; it is not a one-shot notification. Stop playback or disable that branch when testing only the manual messages. Without the installed Companion module, a valid webhook and network access, the timeline can be inspected but cannot deliver Slack messages.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

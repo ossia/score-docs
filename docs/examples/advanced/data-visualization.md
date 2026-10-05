@@ -10,7 +10,11 @@ score: /examples/advanced/data-visualization.zip
 
 # Data visualization and sonification
 
+![Imported data feeding expression-based audio and a GPU history graph]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-data-visualization.png)
+
 Send an imported data curve to statistics displays, a native GPU history plot and an audio synthesizer.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/data-visualization.zip)
 

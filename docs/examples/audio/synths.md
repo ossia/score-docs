@@ -10,6 +10,8 @@ score: /examples/audio/synths.score
 
 # Arranging synth patterns with triggers
 
+![Triggered bass and drum pattern intervals beneath the outer arrangement and automation curves]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-synths.png)
+
 Three instrument groups separate the musical material from the arrangement:
 
 - **Bass**: four Pattern sequencers feed Midi scale, FoMo and Airwindows `IronOxide5`.
@@ -30,3 +32,6 @@ No samples or physical MIDI device are required. Use a build with FoMo, Synthimi
 The outer scenario's audio enters the scriptable master PitchDelay, then DrumSlam, Tube2 and BarrVerb. BarrVerb sends to the parent mix at `audio:/out/main`. The addresses above are the document's own exposed controls and triggers, not an OSC server.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

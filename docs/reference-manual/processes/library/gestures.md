@@ -40,6 +40,8 @@ For positive frequencies, the process checks elapsed wall-clock time on each eva
 
 [Download LeakyIntegratorExample.score]({{ site.baseurl }}/assets/scores/reference/processes/LeakyIntegratorExample.score)
 
+{% include try-on-web.html %}
+
 The example connects three processes in the same interval:
 
 ```text

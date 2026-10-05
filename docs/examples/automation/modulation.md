@@ -32,6 +32,8 @@ The saved OSC device listens on UDP `0.0.0.0:9997` and sends `/some_address` to 
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Automation]] - Automation curve process reference

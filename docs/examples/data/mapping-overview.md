@@ -10,7 +10,11 @@ score: /examples/data/mapping-overview.score
 
 # Mapping and event utilities
 
+![Control graphs showing rate filtering, buffer queues, Flip Flop and Rendezvous]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-mapping-overview.png)
+
 Explore small independent control graphs for filtering, storage, selection and event synchronization.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/data/mapping-overview.score)
 

@@ -32,6 +32,8 @@ Open the ZIP directly in score. The graph loads the bundled `goblet.obj`, `Piano
 
 The saved audio branches feed analysis rather than an audible parent output: an active audio graph does not imply that it is routed to speakers. To listen, explicitly route a chosen sound output to the parent mix or an audio device and lower the level first. The root audio destination is `audio:/out/main`.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

@@ -39,6 +39,8 @@ Open the ZIP directly in score. It includes `Models/ABeautifulGame.glb`, `Images
 
 Start playback and use mouse/WASD navigation in the scene. Adjust Peak Gain and Gate to change how strongly the audio affects the image. The Random XYZ expression drives Light Position (not the camera), and a square LFO resets Optical Flow Distort. Its output is sent to `Window:/`.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

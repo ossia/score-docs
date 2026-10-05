@@ -11,6 +11,8 @@ score: "/reference/processes/mapping-tool.score"
 
 # Mapping Tool Range Study
 
+![LFO branching to Mapping tool and a signal display, with a second display plotting the shaped output.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-mapping-tool.png)
+
 The LFO is wired to one **Signal display** and to **Mapping tool**. A second display shows the mapped result. The saved LFO has amplitude 2 and a near-zero offset, while the mapping input range is approximately −1.073 to 1.079. The signal therefore crosses the learned range rather than staying inside it.
 
 The mapping uses Fold range behaviour, Tanh shaping and a 0–1 output range. Learn min and Learn max are initially off.
@@ -22,3 +24,6 @@ Start playback and compare the two displays. Switch Fold to clipping to see how 
 The source and displays are internal; no external files or addresses are required. See [[Mapping tool]].
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

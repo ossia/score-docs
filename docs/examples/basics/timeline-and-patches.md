@@ -35,6 +35,8 @@ Use **Ctrl+click** or **Ctrl+drag** in the nodal view to select several processe
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Scenario]] - Timeline and scenario container reference

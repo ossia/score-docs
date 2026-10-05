@@ -33,6 +33,8 @@ Compare this with [glutton mode]({{ site.baseurl }}/examples/basics/glutton.html
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Audio routing]] - How audio propagates through the timeline

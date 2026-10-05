@@ -11,9 +11,13 @@ score: /common-practices/led-design/led-with-arrays.score
 
 # Generate LED arrays with expressions
 
+![R, G and B array generators passing through Array tools into Array Combiner and a final reshaping stage.]({{ site.baseurl }}/assets/scores/thumbnails/common-practices-led-design-led-with-arrays.png)
+
 Build an LED preview entirely from numerical generators instead of sampling textures.
 
 [Download the example]({{ site.baseurl }}/assets/scores/common-practices/led-design/led-with-arrays.score)
+
+{% include try-on-web.html %}
 
 ## Follow the value stream
 

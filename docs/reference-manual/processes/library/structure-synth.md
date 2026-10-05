@@ -58,3 +58,5 @@ rule R1 w 10 {
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

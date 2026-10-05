@@ -10,6 +10,8 @@ score: /examples/audio/scales.score
 
 # Scala tuning and Wavecycle
 
+![Pattern sequencer connected through Midi Humanize to Midi scaler's tuning controls]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-scales.png)
+
 Pattern sequencer → Midi Humanize → Midi scaler turns MIDI notes into frequencies. Wavecycle uses those frequencies to play a hand-drawn waveform; its Frequency inlet can accept a list for polyphonic output.
 
 Midi scaler reads a Scala tuning file and keyboard mapping. The saved paths are `/mnt/sda1/scales/arabic_segah-mustaar_on_e.scl` and `/mnt/sda1/scales/128.kbm`. These are author-local files, not included in the download. Choose an appropriate `.scl` and `.kbm` on your machine before comparing tunings. The project points to [Scale Library](https://scalelibrary.org/) as a source of tuning files.
@@ -24,3 +26,6 @@ Midi scaler reads a Scala tuning file and keyboard mapping. The saved paths are 
 A small, fast LFO modulates Frequency adjust. Temporarily disconnect it when comparing the tuning's unmodulated frequencies. No external MIDI device is needed; the Scala files and the installed Airwindows support are the external requirements.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

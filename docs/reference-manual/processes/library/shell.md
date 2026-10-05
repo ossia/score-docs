@@ -36,3 +36,6 @@ Only execute scripts from trusted scores: they run with your user account's file
 ## Existing example
 
 The [Shell command example]({{ site.scores }}{{ page.score }}) launches an external application and requires gzdoom to be installed.
+
+{% include try-on-web.html %}
+

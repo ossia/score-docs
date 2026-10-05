@@ -28,6 +28,8 @@ Icosahedron supplies geometry to native Model Display. The Oblivion ISF shader s
 
 Start playback and change the LFO frequency to alter rotation speed. Move the pointer in the output window: Oblivion reads `Window:/cursor/absolute`. Compare changes to the shader's `iSteps` and `iZoom` with changes to the primitive's Scale. The mesh and texture are procedural, so no external model or image is needed.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

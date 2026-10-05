@@ -60,6 +60,8 @@ To preview an already-rendered outlet in a custom control interface, use `Score.
 
 Start playback and change the Kaleidolines shader controls to see the incoming texture change on the sphere. Compare that with the LFO-driven light rotation: it changes shading rather than the texture source. The sphere and cylinder are QML primitives and need no model file. This Qt Quick 3D scene is separate from score's native Model Display and scene-port pipeline.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more

@@ -24,3 +24,5 @@ This process interpolates between multiple values according to weights.
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

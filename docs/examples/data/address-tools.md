@@ -10,7 +10,11 @@ score: /examples/data/address-tools.score
 
 # Address pattern tools
 
+![Four address-processing branches using Pattern applier, Pattern combiner, Spammer and Sweeper]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-address-tools.png)
+
 Compare distributing, collecting, sweeping and regularly transmitting values across address patterns.
+
+{% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/data/address-tools.score)
 

@@ -12,6 +12,8 @@ score: /examples/advanced/cpu-data-bending.score
 
 Compare three Bendage image-degradation processes on the same camera input.
 
+{% include try-on-web.html %}
+
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/cpu-data-bending.score)
 
 ## Run the patch

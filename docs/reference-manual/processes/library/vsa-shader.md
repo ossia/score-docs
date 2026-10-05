@@ -103,3 +103,6 @@ void main() {
 ## Try it
 
 Download this [example score]({{ site.scores }}{{ page.score }}).
+
+{% include try-on-web.html %}
+

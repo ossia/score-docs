@@ -29,6 +29,8 @@ The script button opens the embedded Faust source. The bell uses `pm.standardBel
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
+{% include try-on-web.html %}
+
 ## Learn more
 
 - [[Audio plugins]] - Complete guide to VST, VST3, CLAP, LV2, JSFX plugins

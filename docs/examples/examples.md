@@ -18,6 +18,8 @@ The following pages provide practical examples of ossia score features and workf
 
 Open downloaded `.score` or `.zip` files directly in score.
 
+Where the project's platform metadata allows Web, **Try this on web** opens the example in the [browser edition]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html). An empty or missing platform allow-list means all platforms; each example's device and add-on requirements still apply.
+
 ## Categories
 
 - [Basics]({{ site.baseurl }}/examples/basics): Timeline, patching and media integration.

@@ -10,6 +10,8 @@ score: /examples/devices/synths.score
 
 # MIDI synth and drum effects patch
 
+![Parallel Synthimi effects feeding ChorusEnsemble above Kaboom's filter and saturator chain]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-synths.png)
+
 This compact patch uses the same routing idea as [Playing synths on MIDI channels 1 and 10]({{ site.baseurl }}/examples/devices/midi-to-synths.html), with a different saved Kaboom drum sound and no instruction text box.
 
 Synthimi reads `MIDI In:/1`. Its output splits into Airwindows IronOxide5 and Vibrato, whose outputs are summed at ChorusEnsemble. Kaboom reads `MIDI In:/10` and runs through ZLowpass2 into Compresaturator. The chorus and saturator outputs both feed the parent mix at `audio:/out/main`.
@@ -24,3 +26,6 @@ Synthimi reads `MIDI In:/1`. Its output splits into Airwindows IronOxide5 and Vi
 No sample files are referenced. The installed build must include Synthimi, Kaboom and Airwindows, and an actual MIDI input must be selected if the saved default device is unavailable.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

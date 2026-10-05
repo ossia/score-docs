@@ -10,6 +10,8 @@ score: /examples/audio/midi-fx.score
 
 # MIDI effects and arpeggiation
 
+![Arpeggiator and Midi scale feeding Pluckies, with MIDI displays beneath the processing stages]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-midi-fx.png)
+
 A Pattern sequencer feeds an Arpeggiator, then Midi scale and the Synthimi preset `Pluckies`. Three MIDI displays tap the original pattern, the arpeggiated notes and the scale-mapped result so the transformations can be compared during playback.
 
 The synth's audio passes through the Airwindows `Drive` and `ZBandpass2` effects to the parent mix at `audio:/out/main`. No external MIDI device or sample file is required; Synthimi and Airwindows must be available in the installed build.
@@ -25,3 +27,6 @@ The synth's audio passes through the Airwindows `Drive` and `ZBandpass2` effects
 This is a generated MIDI patch: connecting an external keyboard is optional, not part of the saved setup.
 
 [Download this example]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}
+

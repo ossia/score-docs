@@ -46,3 +46,5 @@ See [[Spatial audio techniques]] for a complete four-speaker patch.
 ## Try it!
 
 Try it by downloading this [simple example!]({{ site.scores }}{{ page.score }})
+
+{% include try-on-web.html %}

@@ -51,6 +51,8 @@ Start playback to view the saved NablaSystem structure. Its geometry goes to nat
 
 The result is sent to `Window:/`. The program and shaders are embedded and need no external model file. This uses native Model Display, not Qt Quick 3D.
 
+{% include try-on-web.html %}
+
 [Download this example]({{ site.scores }}{{ page.score }})
 
 ## Learn more
