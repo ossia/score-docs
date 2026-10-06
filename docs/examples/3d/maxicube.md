@@ -21,7 +21,7 @@ This example demonstrates generating and rendering millions of particles entirel
 
 ## Overview
 
-A compute shader generates a buffer of 10,240,000 floats each frame, interpreted as approximately 3.41 million XYZ points. Pointcloud to mesh passes the geometry to native Model Display, which renders it with Corner Colors and writes directly to `Window:/`. This is not a Qt Quick 3D scene.
+A compute shader generates approximately 3.41 million XYZ points each frame, using a buffer of 10,240,000 floats. The rotating cloud is rendered with a corner-colour gradient, showing how large amounts of geometry can be generated directly on the GPU.
 
 The position buffer alone contains about 41 MB of Float32 data; other GPU resources add to the workload. Reduce NoiseBuffer size before running on a smaller GPU.
 
@@ -37,7 +37,7 @@ The position buffer alone contains about 41 MB of Float32 data; other GPU resour
 2. Pointcloud to Mesh builds geometry from the buffer
 3. A corner-color gradient provides the texture
 4. [[Model display]] renders the points
-5. An expression rotates the geometry with `return [360sin(pos), 360cos(pos), c];`
+5. A mathematical expression rotates the cloud
 
 ## Try it
 

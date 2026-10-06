@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Generated RGB LED Strip"
-description: "Preview a 192-value colour array without physical LED hardware."
+description: "Create moving LED colours with a mathematical expression."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,7 +13,9 @@ score: "/reference/processes/led-view.score"
 
 ![Arraygen connected to LED View, which displays rows of generated RGB pixels.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-led-view.png)
 
-**Arraygen** feeds **LED View** with 192 values from `127(1+sin(i*t/1e10))`. The expression changes over time and across the element index. LED View is set to RGB, so successive triples form red, green and blue components: the 192 values describe 64 RGB pixels.
+This example creates an evolving strip of colours without any physical LED hardware. **Arraygen** calculates the colour values, and **LED View** previews the pattern.
+
+The expression `127(1+sin(i*t/1e10))` varies with time and position in the array. Every three values form one RGB pixel, so the 192 generated values describe 64 pixels.
 
 ## Try it
 

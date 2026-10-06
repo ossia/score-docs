@@ -21,7 +21,9 @@ This example demonstrates the two main tools for GPU-side geometry processing: e
 
 ## Overview
 
-The goblet OBJ model supplies a position buffer. A separate Color Test Grid shader supplies a texture which Texture to buffer turns into per-vertex colour data. Buffers to geometry combines the two, using Geometry Info's vertex count. An [[LFO]] drives rotation through a micro-mapping expression. The process labelled Extract attribute is registered as **Extract buffer**.
+A loaded goblet mesh is reconstructed from its position data and a new set of colours derived from an image. An [[LFO]] rotates it so the result can be viewed in motion. The example shows how geometry attributes can be treated separately, making it possible to change one part of a mesh's appearance without replacing all its data.
+
+The process labelled Extract attribute is now registered as **Extract buffer**.
 
 ## Key concepts
 
@@ -40,7 +42,9 @@ The goblet OBJ model supplies a position buffer. A separate Color Test Grid shad
 
 ## Try it
 
-Open the ZIP directly in score and start playback; `Models/goblet.obj` is bundled. Change Color Test Grid's colour shift or grid dimensions to see the reconstructed mesh's colours change. The Value displays report the vertex count and colour-buffer byte size. Ensure a replacement colour texture has at least one RGBA pixel per vertex: the score's notes illustrate 3,000 vertices with a 55-by-55 texture (3,025 pixels). Keep the attribute format and stride consistent with those pixels. This is a native buffer/geometry workflow, not Qt Quick 3D.
+Open the ZIP directly in score and start playback; `Models/goblet.obj` is bundled. Change Color Test Grid's colour shift or grid dimensions and watch the reconstructed mesh change. The Value displays help compare the vertex count with the size of the colour data.
+
+When using another texture for colours, provide at least one RGBA pixel per vertex and keep the attribute format and stride consistent with those pixels. The score's notes illustrate 3,000 vertices with a 55-by-55 texture (3,025 pixels). This uses native geometry processing rather than Qt Quick 3D.
 
 {% include try-on-web.html %}
 

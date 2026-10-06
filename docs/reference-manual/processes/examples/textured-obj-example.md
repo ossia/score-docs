@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Textured OBJ Rendering Study"
-description: "Texture a bundled model with procedural dots and post-process the image."
+description: "Animate a 3D model with a generated dot texture."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,7 +13,9 @@ score: "/reference/processes/3d.zip"
 
 ![Procedural shader and object geometry branches joining at Model Display before blur post-processing.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-3d.png)
 
-The process named **Object Display** loads `<PROJECT>:beast.obj` and sends geometry to **Model Display**. SumDotz supplies a procedural texture through Convergence. The rendered model then passes through Edge Blur and VVMotionBlur 3.0 to `Window:/`. This is native Model Display rendering, not Qt Quick 3D.
+This example uses a moving dot pattern as the texture of a 3D model. Rather than loading a photograph, the SumDotz shader generates the surface image, while blur effects change the final appearance.
+
+The process named **Object Display** loads the bundled `beast.obj`; **Model Display** renders it with the texture processed by Convergence. Edge Blur and VVMotionBlur 3.0 soften the image shown in `Window:/`. This uses native Model Display rendering, not Qt Quick 3D.
 
 ## Try it
 

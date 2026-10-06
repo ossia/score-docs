@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Mapping Tool Range Study"
-description: "Compare an incoming LFO with a folded and shaped output."
+description: "Explore how mapping changes the shape and range of a signal."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,9 +13,9 @@ score: "/reference/processes/mapping-tool.score"
 
 ![LFO branching to Mapping tool and a signal display, with a second display plotting the shaped output.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-mapping-tool.png)
 
-The LFO is wired to one **Signal display** and to **Mapping tool**. A second display shows the mapped result. The saved LFO has amplitude 2 and a near-zero offset, while the mapping input range is approximately −1.073 to 1.079. The signal therefore crosses the learned range rather than staying inside it.
+Mapping can change more than a signal's scale. This example compares an LFO with a folded and curved version of the same movement, using two displays to show the difference.
 
-The mapping uses Fold range behaviour, Tanh shaping and a 0–1 output range. Learn min and Learn max are initially off.
+The LFO extends beyond the mapping's input range. **Mapping tool** folds those out-of-range values back into the range, applies Tanh shaping and produces a 0–1 output. Learn min and Learn max are initially off.
 
 ## Try it
 

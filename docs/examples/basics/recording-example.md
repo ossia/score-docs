@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Recording sensor messages and automations
-description: "Compare recorded sensor curves, simplification settings and discrete touch-message states."
+description: "An example showing how to record sensor data as curves and messages"
 parent: Basics
 grand_parent: Examples
 permalink: /examples/basics/recording.html
@@ -12,15 +12,23 @@ score: /examples/basics/recording.score
 
 ![Recorded sensor curves at two simplification settings beside discrete message states]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-recording.png)
 
-The document contains recorded Sensors2OSC data rather than an audio recording. Three groups store accelerometer, gyroscope and orientation components as nine float automations each. Their labels identify simplification ratios 3, 10 and 100: the saved ratio-100 curves retain hundreds of segments, while ratio 3 has much sparser curves.
+This example demonstrates recording sensor gestures as automations or discrete messages. It contains saved Sensors2OSC recordings rather than recorded audio, so you can explore the result without connecting a phone.
 
-Two further groups compare magnetic-field recordings with **Ramp to new value** enabled and disabled. A nested `Recording example - Messages` scenario stores touch messages in individual states instead of curves, including `[0, -1, -1]` release values.
+## Overview
 
-## Inspect and replay
+Continuous movement can be replayed as a curve, while individual events such as touches can be stored in states. The examples also compare recording simplification and **Ramp to new value**, which affect how the captured gesture is represented between samples.
 
-Start playback, then trigger one group's start. These groups have independent interactive starts; their placement around 2 or 12 seconds does not start them automatically. Compare the curves at the same zoom level. Play only one group writing a given address at a time to avoid simultaneous outputs obscuring the comparison.
+## Try it
 
-The automations target individual vector components, for example `Sensors2OSC:/accelerometer@[0]`. The device has `/orientation`, `/gyroscope`, `/accelerometer`, `/magneticfield` and `/touch`, all three-component values. Playback sends to the configured OSC destination, saved as `127.0.0.1:9996`; an OSC receiver there can show the replayed values. There is no audio or rendered image in this example.
+Start playback and trigger a group's start. The groups wait for interaction; their positions on the page do not start them automatically.
+
+- Compare the accelerometer, gyroscope and orientation recordings at the same zoom level. The groups labelled 3, 10 and 100 show different simplification settings; the saved ratio-100 curves are denser than ratio 3.
+- Compare the magnetic-field curves with **Ramp to new value** enabled and disabled.
+- Open `Recording example - Messages` to inspect the touch events as individual states rather than curves.
+
+Play only one group writing a given address at a time. Playback sends the saved sensor values to the configured OSC destination, `127.0.0.1:9996`; use an OSC receiver there to observe them. Vector components can be automated separately, as in `Sensors2OSC:/accelerometer@[0]`. This example does not produce sound or a rendered image.
+
+Only making a new live recording requires the phone app and network input.
 
 ## Record your own input
 

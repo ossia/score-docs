@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Face tracking to native geometry
-description: "Upload tracked XY coordinates to a GPU buffer and render a particle trail over the camera image."
+description: "An example showing how to create visual trails from motion tracking"
 parent: AI and tracking
 grand_parent: Examples
 permalink: /examples/ai/tracking-to-geometry.html
@@ -12,7 +12,7 @@ score: /examples/ai/tracking-to-geometry.score
 
 ![Tracked facial landmarks over a camera image with Array to buffer, ParticleTrail and SphereSplat processes]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-tracking-to-geometry.png)
 
-Upload tracked XY coordinates to a GPU buffer and render a particle trail over the camera image.
+This example demonstrates turning tracked movement into a particle trail. Facial landmarks supply positions for a visual trace combined with the camera image, connecting live movement with generated geometry.
 
 {% include try-on-web.html %}
 
@@ -22,13 +22,13 @@ Upload tracked XY coordinates to a GPU buffer and render a particle trail over t
 
 Use score with ONNX/Pose Detector support and a compute-capable graphics backend. Install a [LivePose model pack](https://github.com/sat-mtl/livepose/releases/tag/model-storage) in the user library and restart score. The saved Landmark Model is `packages/models-presets/models/pose-detector/detectors/det-face-retinaface-mobile-640x480.onnx`; update it if your package layout differs. This is face tracking, not a body-pose preset.
 
-The camera device is named `Logitech BRIO`, saved with Linux `/dev/video0`, 1280×720 at 30 fps. Select your own camera while retaining the device name, or rebind the detector's `Logitech BRIO:/` input.
+The saved camera device is named `Logitech BRIO`. Select your own camera while retaining that name, or rebind the detector's `Logitech BRIO:/` input.
 
-## Trace the graph
+## Overview
 
-Pose Detector's Geometry output feeds Point2D View and a OneEuro Smooth filter. Arraymap applies `50(x-0.5)` to recenter and enlarge the coordinates. Array to buffer uploads Float32 values for ParticleTrail, whose compute shader writes positions into a circular GPU geometry buffer. SphereSplat renders camera-facing sphere impostors, and Video Mixer combines that image with the annotated camera texture at `Window:/`.
+Tracked positions are smoothed, recentered and uploaded for a GPU particle trail. The trail retains earlier positions so that movement can leave a visible history instead of only marking the current landmark locations.
 
-This is score's native Compute Shader / Render Pipeline path, not Qt Quick 3D. Adjust startSize, tailColor and SphereSplat's cameraPos to change the trail's appearance.
+This uses score's native Compute Shader and Render Pipeline processes, not Qt Quick 3D. Once the buffer counts below match your detector, try moving slowly and quickly, then adjust startSize, tailColor and SphereSplat's cameraPos to change the trace's appearance.
 
 ## Match the buffer to the detector
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Multi-projector output mapping"
-description: "Split one texture across Window-device outputs with warping and edge blending."
+description: "An example showing how to align and blend one image across several displays."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/video-mapping-multi-projector.html
@@ -10,7 +10,11 @@ score: /examples/video/video-mapping-multi-projector.score
 
 # Multi-projector output mapping
 
-Circular generates one procedural texture and sends it to `Window:/`. The Window device is saved in Multi-window mode; its output regions, screen assignments and warps do the mapping. There is no intermediate mixer or rect-mapper process in this graph.
+This example demonstrates distributing one animated image across several displays or projectors.
+
+## Overview
+
+The Window device's Multi-window mode divides a procedural texture into output regions. Each region can be positioned, warped and edge-blended to suit a projection surface. The mapping takes place at the output, so the same approach can be used with other video sources or a composed image.
 
 ## Try it
 

@@ -15,21 +15,26 @@ score: /examples/basics/osc.score
 
 ![OSC]({{ site.img }}/examples/basics/osc.png "Composing OSC messages in ossia score")
 
-This timeline sends state messages and automation values through one OSC device, then uses incoming messages and stored values for triggers and conditions. There are no audio or graphics processes.
+This example demonstrates setting up OSC (Open Sound Control) communication in *score*.
+
+## Overview
+
+OSC is a protocol for communication between multimedia devices, software, and instruments. *score* can send cues and automation to another application, and receive messages that influence a performance's timing or select a branch.
+
+Use this example as a starting point for controlling a synthesizer, visual application or lighting system. It works with ordinary OSC; an OSCQuery server is not required. There is no audio or graphics output inside this score.
 
 ## Network setup
 
 The saved `OSC` device listens on UDP `0.0.0.0:9997` and sends to `127.0.0.1:9996`. Run an OSC monitor on port 9996 to see output, and send to the computer's port 9997 to drive the input examples. Change the remote host if your receiving application is on another computer.
 
-The device tree contains `/my_float`, `/my_int`, `/my_impulse` and integer addresses `/instances/foo.1` through `/instances/foo.5`.
+The device tree contains example float, integer and impulse addresses. OSC addresses are hierarchical paths: you can replace these with the parameters of the application you want to control.
 
 ## Exercise the timeline
 
-1. Start playback. The first states send `/my_float` values 0, 1 and 2 and several `/instances/foo.*` values. Observe them in the device tree or external monitor.
-2. Follow `Tween`, which automates `/my_float` with Tween enabled, and the later `Automation` interval, which does not. Tween uses the current address value for its initial segment.
-3. Send an OSC impulse at `/my_impulse` to release the waiting trigger. Its branch later waits until `/my_int` equals 5.
-4. Trigger the separate conditional branch manually. When it reaches its next event, `/my_float < 0.5` selects `Fade In`; otherwise `Fade out` runs. Both automate `/instances/foo.1`.
-5. Use the standalone `Set my_float to 0` and `Set my_float to 1` cues to influence the comparison before it is evaluated.
+1. Start playback and watch the state messages in the device tree or external monitor. Cues set individual values; automations change them over time.
+2. Compare `Tween` with `Automation`. Tween starts from the current address value rather than jumping to the curve's initial value.
+3. Send an OSC impulse to `/my_impulse` to release the waiting trigger, then set `/my_int` to 5 to continue the branch.
+4. Try the standalone float cues before triggering the conditional branch. Its comparison selects either a fade in or a fade out, showing how an external value can influence the composition.
 
 The final interval named `Patterns` contains an automation with no saved output address, so it sends nothing until you assign a destination. The example does not require an OSCQuery server; see [OSC device]({{ site.baseurl }}/devices/osc-device.html) for ordinary OSC configuration.
 

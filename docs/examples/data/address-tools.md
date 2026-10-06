@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Address pattern tools
-description: "Compare distributing, collecting, sweeping and regularly transmitting values across address patterns."
+description: "An example showing how to work with groups of device addresses"
 parent: Data processing
 grand_parent: Examples
 permalink: /examples/data/address-tools.html
@@ -12,19 +12,24 @@ score: /examples/data/address-tools.score
 
 ![Four address-processing branches using Pattern applier, Pattern combiner, Spammer and Sweeper]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-address-tools.png)
 
-Compare distributing, collecting, sweeping and regularly transmitting values across address patterns.
+This example demonstrates controlling groups of addresses with patterns. Instead of connecting each parameter separately, you can distribute a list, collect values or move a control signal across a set of destinations.
 
 {% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/data/address-tools.score)
 
-## Run the four branches
+## Try it
 
-Start playback and inspect the OSC device trees. Arraygen creates ten values with `10 * i`; Pattern applier distributes them to the matching `OSC:/pattern_applier/*` nodes. Matches use lexicographical order, not numeric order: names such as `10` sort before `2`. Check the actual node names before assuming list indices match numeric suffixes.
+Start playback and inspect the OSC device trees.
 
-Pattern combiner gathers `OSC:/pattern_combiner/*` in List mode and sends the result to Value display. Change values on those nodes to observe the collected list. The Sweeper branch distributes its LFO input over `OSC:/sweeper/*` in RandomWalk mode; change its interval or mode to compare traversal patterns.
+- Use Pattern applier to distribute generated values over several addresses. Change the source list and compare the matching parameters.
+- Change values under `OSC:/pattern_combiner/*` and watch Pattern combiner collect them into a list.
+- Compare Sweeper's modes and interval settings to change how a control signal moves among destinations.
+- Observe Spammer with an external OSC receiver. It transmits on its own thread rather than updating the device tree, which is useful when regular transmission is needed independently of ordinary device updates.
 
-The remaining LFO feeds Spammer, targeting `OSC_fast:/spammer/*` with a saved delay of approximately 0.994 ms. Spammer sends OSC on its own thread rather than updating the device tree; inspect an OSC receiver to see this branch. Its high message rate is intentional, so do not aim it at an unprepared network endpoint.
+Pattern matches use lexicographical order, not numeric order: a name such as `10` sorts before `2`. Check the node names before assuming that list indices correspond to numeric suffixes.
+
+Spammer is saved with a delay of about one millisecond. Its high message rate is intentional; do not direct it at an unprepared network endpoint.
 
 ## Network settings
 

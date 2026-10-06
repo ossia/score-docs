@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Sphere splats with texture feedback"
-description: "Feed the previous rendered image back into a geometry compute shader."
+description: "An example showing a particle effect influenced by its own previous image."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/sphere-splat-feedback.html
@@ -12,13 +12,17 @@ score: /examples/3d/sphere-splat-feedback.score
 
 ![Glowing multicoloured particle ring above the SphereSplat generator, feedback shader and renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-sphere-splat-feedback.png)
 
-SphereSplat_Generator creates a ring of particles. SphereSplat_Feedback takes this geometry and a delayed texture from the SphereSplat renderer, then sends modified geometry back to that renderer. The delayed connection is essential: the compute stage reads a previous image rather than creating an immediate cyclic dependency.
+This example demonstrates using a rendered image to influence a 3D particle effect.
+
+## Overview
+
+A ring of sphere splats samples its own previous image, creating a feedback effect that links geometry processing and rendering. The delayed texture connection is essential: it makes the previous frame available to the computation without creating an immediate cycle.
 
 ## Try it
 
-Start playback and change `feedbackStrength` to compare the feedback contribution with `baseColor`. Vary `projectionScale` to change how the rendered image is sampled. The generator controls particle count, ring radius and sprite size; a triangle LFO animates the camera X coordinate through Micromap and Vec3f.
+Start playback and change `feedbackStrength` to compare the feedback contribution with `baseColor`. Vary `projectionScale` to explore how the previous image is sampled. Then try different particle counts, ring radii or sprite sizes, and compare those changes with the automatically moving camera.
 
-The renderer also sends its output to `Window:/`. Everything is generated in the score; no source image is needed. This is a native compute/Render Pipeline example, not Qt Quick 3D.
+Everything is generated in the score; no source image is needed. This example uses native rendering and requires compute-shader support.
 
 {% include try-on-web.html %}
 

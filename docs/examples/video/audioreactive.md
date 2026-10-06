@@ -21,9 +21,17 @@ This example demonstrates creating visuals that respond dynamically to audio inp
 
 ## Overview
 
-Piano roll feeds an Arpeggiator and the Faust DjembeMIDI synthesizer. Stereo Mixer combines this sound on input 1 with `audio:/in/main` on input 2. RMS drives Triangle Square Twist's twist and triangle-side controls, while a Smooth process in OneEuro mode drives zoom.
+Audio-reactive graphics are a staple of live performance and music visualization. This example shows how to analyze audio and use the results to drive visual effects. Generated percussion and live audio animate a geometric pattern, while echo and analog-style distortion give it a sense of movement.
 
-Triangle Square Twist passes through Echo Trace and VHS Glitch to `Window:/`. A second RMS process reads `audio:/in/main` directly and controls Echo Trace's threshold. A sample-and-hold LFO changes arpeggiator quantification through `pow(2,1+round(3x))`.
+## Tips for audio-reactive graphics
+
+- **Smooth your signals**: Compare a quick response with the more gradual zoom animation.
+- **Map ranges**: Adjust analysis gain to suit quiet or loud sources.
+- **Separate sources**: Mix the generated percussion with live audio to explore their different rhythms. The trace threshold responds to live input independently of this mix.
+
+## Live performance
+
+This type of patch is ideal for VJ performances, concert visuals, interactive installations and music videos.
 
 ## Inputs and controls
 

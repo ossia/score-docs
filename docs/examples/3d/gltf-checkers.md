@@ -29,7 +29,7 @@ The camera  is controllable through mouse and WASD, while post-processing effect
 - **glTF loading**: QML's `RuntimeLoader` from `QtQuick3D.AssetUtils` loads the model inside the JavaScript/QML process. This is not the native Geometry Loader (historically Object Loader).
 - **Environment mapping**: An HDR [environment map](https://polyhaven.com/a/resting_place) (`.exr`) provides realistic reflections and ambient lighting via a light probe.
 - **Post-processing effects**: Bloom, color blowout, and optical flow distortion shaders are chained as post-processing passes on the rendered scene.
-- **Audio integration**: The looping `88bpm_Freq3b Gate.wav` sound file feeds Peak and Exp Smoothing, which control Color Blowout and both Bloom intensities.
+- **Audio integration**: A looping sound file controls colour intensity and bloom, with smoothing for more gradual changes.
 
 This download uses the **Qt Quick 3D** path, including its HDR light-probe support. It is not an example of the native Asset Loader pipeline. For a new native patch, see [[Asset Loader]] and [[3D scene pipeline]]; cameras, materials and environment resources must be wired for that renderer rather than copied across as QML objects.
 
@@ -37,7 +37,7 @@ Open the ZIP directly in score. It includes `Models/ABeautifulGame.glb`, `Images
 
 ## Try it
 
-Start playback and use mouse/WASD navigation in the scene. Adjust Peak Gain and Gate to change how strongly the audio affects the image. The Random XYZ expression drives Light Position (not the camera), and a square LFO resets Optical Flow Distort. Its output is sent to `Window:/`.
+Start playback and use mouse/WASD navigation to explore the chess scene. Adjust Peak Gain and Gate to change how strongly the audio affects the image. Compare the audio-reactive treatment with the moving light and the periodic reset of the optical-flow distortion; these are separate sources of animation, not audio-driven camera movement.
 
 {% include try-on-web.html %}
 

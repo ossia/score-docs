@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Combine shader LED arrays
-description: "Sample three shader textures into RGB arrays, concatenate them and preview the resulting LED layout."
+description: "Combine several shader animations into one LED preview."
 parent: LED design
 grand_parent: Common practices
 nav_exclude: true
@@ -13,7 +13,7 @@ score: /common-practices/led-design/led-combination.score
 
 ![Three inputs entering Array Combiner in Append mode, with the combined colours displayed in LED View.]({{ site.baseurl }}/assets/scores/thumbnails/common-practices-led-design-led-combination.png)
 
-Sample three shader textures into RGB arrays, concatenate them and preview the resulting LED layout.
+This example combines three shader animations into a single LED pattern. Each image supplies a section of the colour array, letting you build a longer sequence from several visual sources.
 
 [Download the example]({{ site.baseurl }}/assets/scores/common-practices/led-design/led-combination.score)
 
@@ -21,9 +21,9 @@ Sample three shader textures into RGB arrays, concatenate them and preview the r
 
 ## Run the preview
 
-Start playback in nodal view. AcidAtTheDisco, color_swirl and SilverMaze each feed a Lightness computer configured for a 10×10 sample grid. Their RGB samples are normalized values, with 8-bit multiplication disabled. The first array goes directly to Array Combiner; the other two pass through Array tool before joining it.
+Start playback in nodal view. Lightness computer samples each shader on a 10×10 grid, and **Array Combiner** joins the resulting arrays. Its Append mode places them one after another rather than blending corresponding pixels. The samples are normalized, with 8-bit multiplication disabled, so **LED View** uses RGB01.
 
-Array Combiner uses Append with three inputs: it concatenates the sampled arrays rather than blending corresponding pixels. LED View interprets the output as RGB01. Change a Lightness computer's Size to alter its sampling density, or adjust the third branch's Array tool, saved with Brightness -0.647 and Pre-padding L 130, to see how padding and brightness affect the combined stream. Padding counts array elements; preserve RGB triplet alignment when adapting the patch to hardware.
+Try changing a Lightness computer's Size to alter the sampling density. The second and third branches also have **Array tool** processes: adjust their brightness or padding to change the balance and spacing of the pattern. Padding counts array elements, not pixels; preserve RGB triplet alignment when adapting the example to hardware.
 
 No devices or external media are configured: the output is a preview, not DMX or a physical LED connection. A graphics backend is required for the embedded shaders. For hardware addressing and the separate shader tutorial, see [LED design]({{ site.baseurl }}/common-practices/13-led-design.html).
 

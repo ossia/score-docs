@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "HDF5 Numeric and Texture Playback"
-description: "Read two time-indexed datasets from one external HDF5 file."
+description: "Explore changing numbers and images stored in an HDF5 file."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -11,7 +11,9 @@ score: "/reference/processes/hdf5.score"
 
 # HDF5 Numeric and Texture Playback
 
-A saw LFO drives Percentage on both **HDF5 Reader** and **HDF5 Texture Reader**. The numeric reader feeds Signal display; the texture reader writes to `Window:/`. Both refer to `<LIBRARY>:packages/mockup_for_JM.h5`.
+This example explores two views of time-varying data: a numeric trace and a texture. An LFO scans both datasets together, letting you compare how they change.
+
+**HDF5 Reader** provides the trace and **HDF5 Texture Reader** displays the image in `Window:/`. Both read the external file `<LIBRARY>:packages/mockup_for_JM.h5`.
 
 The numeric dataset is `/risk_metrics_vars/agg_risk_over_time`; the texture dataset is `/highlevel_NN_vars/param_projections_over_time`. These are paths inside the HDF5 file, not filesystem paths or OSC addresses.
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sensors2OSC phone control
-description: "Use an Android phone's rotation and multitouch data to control a textured cube and shader effects."
+description: "An example showing how to control visuals with an Android phone's sensors"
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/sensors2osc.html
@@ -12,7 +12,9 @@ score: /examples/devices/sensors2osc.score
 
 ![Character-textured cube preview beneath Model Display, with touch filtering and mapping nodes]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-sensors2osc.png)
 
-This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html) includes extra Value displays after the two touch mappings. It uses score's native Cube → Model Display rendering and ISF effects, not Qt Quick 3D.
+This example demonstrates using an Android phone as a controller for live visuals. Rotating the phone moves a textured cube, while multitouch gestures distort the image.
+
+It is a variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html), with extra displays to help compare incoming touch values with their mapped results. Rendering uses score's native Model Display and ISF effects, not Qt Quick 3D.
 
 ## Connect the phone
 
@@ -22,9 +24,13 @@ This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.
 4. Start playback and rotate the phone. Smooth filters the rotation components with One Euro smoothing; Arraymap multiplies them by 360 and sends them directly to Cube's Rotation. It does not convert a quaternion into Euler angles.
 5. Use the app's multitouch surface. `/touch` messages have the shape `[finger index, x, y]`. Object filters separate fingers 0, 1 and 2. The first two drive Noise Displace via Micromap; the third is shown only in a Value display.
 
-The displays after Micromap show `0.05(x+1.0)` and `0.2(x+1)` before those values reach the image effect. Compare them with the raw coordinate displays when adapting the input range.
+## Try it
 
-Random Characters generates the cube's texture. Model Display → Noise Displace → Color Controls produces the final image at `Window:/`; hue also reads the first rotation-vector component directly. No image or 3D model file is required. The saved remote OSC destination `127.0.0.1:9996` is unused by these input mappings.
+Rotate the phone slowly, then make a quick gesture. Change the One Euro smoothing settings and compare how closely the cube follows your movement with how much it suppresses small fluctuations.
+
+Move one finger at a time on the touch surface, then combine two fingers. The first two control horizontal and vertical displacement; the third is only displayed. Compare the raw coordinates with the mapped Value displays when adapting the response to your gestures.
+
+The cube's character texture is generated internally, and rotation also changes its hue. No image or 3D model file is required. The saved remote OSC destination `127.0.0.1:9996` is unused by these input mappings.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

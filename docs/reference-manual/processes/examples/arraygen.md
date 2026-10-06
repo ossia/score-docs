@@ -13,7 +13,9 @@ score: "/reference/processes/arraygen.score"
 
 ![Arraygen feeding three changing traces into Signal display.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-arraygen.png)
 
-The patch connects **Arraygen** directly to **Signal display**. Its expression, `sin((1+i)*0.00000001t)`, uses the element index `i` to give each of the three values a different rate. It is a value-array example, not an audio oscillator.
+One expression can generate several movements at once. This example uses **Arraygen** to create three values that oscillate at different rates, displayed together in **Signal display**.
+
+The expression `sin((1+i)*0.00000001t)` uses the element index `i` to vary the rate. These are control values, not audio oscillators.
 
 ## Try it
 

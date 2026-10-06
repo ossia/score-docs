@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Blending native scene cameras"
-description: "Blend three camera viewpoints over an imported chess scene."
+description: "An example showing how to blend between camera viewpoints in a 3D scene."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/camera-switching.html
@@ -12,7 +12,11 @@ score: /examples/3d/camera-switching.zip
 
 ![Rendered chess scene with the Nodes blend control, three Camera processes and Camera Switch.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-camera-switching.png)
 
-Three Camera processes feed Camera Switch. Nodes supplies the blend weights, and the selected camera joins Asset Loader, Light and Environment in Scene Preprocessor. A PBR Render Pipeline and ToneMapping produce the output at `Window:/`.
+This example demonstrates switching and blending between viewpoints in a 3D scene.
+
+## Overview
+
+Three cameras frame the same chess set from different distances and angles. A two-dimensional control blends between them, allowing the viewpoint to move continuously instead of jumping from one fixed shot to another. This is useful for exploring camera movement as part of a performance.
 
 ## Try it
 

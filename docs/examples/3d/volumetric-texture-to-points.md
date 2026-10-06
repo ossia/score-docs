@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Heat volume to point cloud"
-description: "Warp a heat-diffusion volume and extract visible points from it."
+description: "An example showing an evolving heat field as a warped point cloud."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/volumetric-texture-to-points.html
@@ -12,13 +12,17 @@ score: /examples/3d/volumetric-texture-to-points.score
 
 ![Faint warped point cloud above the heat-diffusion, domain-warp, VolumeToVoxels and Model Display processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-volumetric-texture-to-points.png)
 
-Heat diffusion creates a 3D texture with a moving heat source controlled by Random XYZ. Domain warp noise distorts the texture, and VolumeToVoxels samples it into geometry. Model Display renders the result as points while an Orbit expression moves the camera. The output is `Window:/`.
+This example demonstrates turning a changing volume into a point cloud.
+
+## Overview
+
+A moving heat source leaves an evolving field inside a three-dimensional texture. Noise warps that field, and sampling it as points reveals its shape from an orbiting camera. The example connects volumetric simulation with a more familiar geometry-based view.
 
 ## Try it
 
 Start playback and change the warp `amount` to distinguish texture deformation from camera motion. In VolumeToVoxels, vary `threshold` to select the visible density, or `resolution` to change sampling density. Use the heat shader's `clear` control to reset its accumulated state.
 
-The score generates its volume; no voxel file is needed. It requires compute-shader support and uses native Model Display, not Qt Quick 3D. Saved shader source references point to the heat-diffusion and domain-warp shaders in `score-csf-testers`; the code is embedded in the score.
+The volume and shader code are generated or stored in the score; no voxel file is needed. The example requires compute-shader support and renders with native Model Display.
 
 {% include try-on-web.html %}
 

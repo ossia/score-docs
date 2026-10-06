@@ -17,14 +17,20 @@ score: /examples/automation/automating.score
     <source src="{{ site.img }}/examples/automation/automating.mp4" type="video/mp4">
 </video>
 
-This patch compares two ways of moving the same kind of control data: a direct value cable and the current value of an OSC device parameter.
+This example demonstrates automating external devices and internal processes using different modulation sources.
 
-## Follow the comparison
+## Overview
 
-1. Start playback. The `Display` interval contains `Signal display from cable` and `Signal display from OSC`. The latter reads `OSC:/some_address`; the former receives cables from each source interval.
-2. After the initial interval, two LFOs run: one feeds the cable display and the other writes to the OSC address.
-3. Trigger the LFO interval's end to switch to `Step`. Compare the displays for these less frequent messages: the cable conveys individual emissions, whereas the address-bound inlet polls the stored device value each tick.
-4. Trigger again to reach `Math expression`. Both generators use `noise(pos * a * 10, b * 10, c)`, with slightly different saved parameters. Trigger its end to return to LFO.
+LFOs create periodic movement, step sequences produce repeating patterns, and noise expressions introduce less predictable variation. These are useful alternatives to drawing every change by hand, whether you are controlling a sound parameter, a light or another application.
+
+Two displays compare a directly connected process with an OSC device parameter. The distinction matters for sparse messages: a cable carries individual emissions, while an address-bound inlet reads the device's stored value each tick.
+
+## Try it
+
+1. Start playback and watch the LFOs in the `Display` interval. Change a rate or waveform to explore different kinds of periodic movement.
+2. Trigger the LFO interval's end to switch to `Step`. Edit a few step values and compare the displays, especially between emissions.
+3. Trigger again to reach `Math expression`. Change a noise parameter and compare its irregular motion with the repeating LFO and step patterns. The two generators have slightly different saved parameters, so their curves need not match.
+4. Trigger the expression interval's end to return to LFO. Try choosing a source for a particular use: a regular pulse, a sequence of lighting levels or a slowly wandering control.
 
 The `Display` interval has its own end trigger; keep it running while comparing the source branches. The example makes no audio and needs no media files.
 

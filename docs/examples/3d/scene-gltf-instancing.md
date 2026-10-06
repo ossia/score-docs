@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Orbiting glTF instances"
-description: "Use GPU-generated particle positions to instance a glTF scene."
+description: "An example showing how to animate a swarm of repeated 3D models."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/scene-gltf-instancing.html
@@ -10,7 +10,11 @@ score: /examples/3d/scene-gltf-instancing.zip
 
 # Orbiting glTF instances
 
-Asset Loader supplies a duck scene and OrbitParticles supplies geometry to Instancer's Points inlet. Scene Preprocessor combines the instances with Camera, Light and Environment. The classic PBR Render Pipeline feeds Bloom and ToneMapping, ending at `Window:/`.
+This example demonstrates animating many copies of a glTF model with GPU-generated positions.
+
+## Overview
+
+Thousands of ducks move along an orbit, turning a single model into a moving swarm. Instancing separates the model from the positions of its copies, allowing the overall arrangement to change without preparing each object individually. PBR lighting, bloom and tone mapping complete the scene.
 
 ## Try it
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Slack messages through Companion
-description: "Send manual Slack notifications and a CPU-threshold warning from timeline states."
+description: "An example showing how to send Slack notifications from score"
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/slack.html
@@ -12,7 +12,9 @@ score: /examples/devices/slack.score
 
 ![Send HELLO and Send BYE cues beside the CPU-monitoring timeline loop]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-slack.png)
 
-This scenario sends strings to `slack:/action/custom/message` through the Bitfocus Companion integration. It has no audio or graphics processes. The network operation is a real Slack incoming-webhook request, so choose a test channel before running it.
+This example demonstrates sending notifications from a score to a Slack channel. Manual cues send greetings, while a conditional loop warns when CPU usage crosses a threshold.
+
+The Bitfocus Companion integration connects timeline states to Slack, showing how a scenario can communicate its activity without audio or graphics. These are real webhook requests: choose a test channel before running the example.
 
 ## Configure the connection
 
@@ -26,6 +28,10 @@ This scenario sends strings to `slack:/action/custom/message` through the Bitfoc
 A System info device samples every 1000 ms. The second branch waits on `%sysinfo:/cpu/usage% >= 0.75`, then sends `Warning: CPU load over threshold` and returns through a zero-duration interval. The threshold in the saved expression is **75%**, despite an annotation that says 70%.
 
 The incoming interval has a minimum duration of about 1.94 seconds and no finite maximum. While load remains high, the loop can send repeated warnings; it is not a one-shot notification. Stop playback or disable that branch when testing only the manual messages. Without the installed Companion module, a valid webhook and network access, the timeline can be inspected but cannot deliver Slack messages.
+
+## Try it
+
+With the monitoring branch disabled, change the text in one of the manual states and trigger it. This is a simple starting point for notifying collaborators when a performance or installation reaches a particular cue. Inspect the CPU condition to see how a measured value can trigger the same kind of message automatically.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

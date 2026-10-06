@@ -42,11 +42,7 @@ For positive frequencies, the process checks elapsed wall-clock time on each eva
 
 {% include try-on-web.html %}
 
-The example connects three processes in the same interval:
-
-```text
-Expression Value Generator → Leaky Integrator → Signal display
-```
+This example shows how a short input pulse can leave a gradually fading trace. An expression supplies the pulse, the Leaky Integrator accumulates it, and Signal display shows the rise and decay.
 
 The generator uses `if(pos < 0.1, 1, 0)`: it sends 1 during the first tenth of the interval, then keeps sending 0. The integrator has Leak Factor set to `0.99` and Leak Frequency (Hz) set to `0`, so every evaluation is a leak step.
 

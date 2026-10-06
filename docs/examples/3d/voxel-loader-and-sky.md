@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Voxels with procedural sky"
-description: "Layer a voxel mesh, volumetric clouds and depth-based post-processing."
+description: "An example showing a voxel model against a procedural sky with volumetric clouds."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/voxel-loader-and-sky.html
@@ -10,9 +10,13 @@ score: /examples/3d/voxel-loader-and-sky.score
 
 # Voxels with procedural sky
 
-Voxel loader feeds VoxelMeshRenderer, a native Render Pipeline. A second Render Pipeline draws the classic sky, using a Worley-noise volume for clouds. Camera goes through Scene Preprocessor and Extract buffer (by name) to provide the `camera` buffer used by the sky and depth effects. The voxel renderer also receives matching Eye and Target value controls directly.
+This example demonstrates placing a voxel model in a procedural sky.
 
-The voxel image passes through Depth Contact Shadow, Depth Fake Point Light, Depth Micro AO and Depth Dither. That branch and the sky meet at Bloom, followed by Film Grain and Chromatic Aberration at `Window:/`. The layering uses depth, with the sky at the far distance in score's reverse-Z pipeline.
+## Overview
+
+Volumetric clouds provide a changing backdrop, while depth-based shadows, lighting and outlines help shape the foreground. Bloom, grain and chromatic aberration finish the image. The sky is kept behind the model using depth in score's reverse-Z rendering system.
+
+The sky and depth effects need camera data consistent with the voxel renderer. When adapting the example, keep their Eye and Target settings aligned so that the layers describe the same viewpoint.
 
 ## Files and controls
 
@@ -20,7 +24,7 @@ Supply `Files/Can Models(Nabeel).vox` relative to the project, or change Voxel f
 
 The depth effects also include `depth_helpers.glsl`; keep the `score-csf-testers/shaderlib/depth` directory installed with that shared helper. Embedded shader text alone does not replace its external include.
 
-Start playback after resolving the voxel file. Adjust the voxel loader's transform to frame a replacement model. Keep camera Eye/Target values consistent between the camera buffer and voxel renderer when changing the view. Compare cloud settings, depth-effect strengths and Bloom separately. This is native rendering, not Qt Quick 3D.
+Start playback after resolving the voxel file. Adjust the voxel loader's transform to frame a replacement model. Compare cloud settings, depth-effect strengths and Bloom separately before combining them. The example uses native rendering and requires compute-shader support.
 
 {% include try-on-web.html %}
 

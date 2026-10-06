@@ -50,7 +50,7 @@ These are the two relevant declarations, not a complete stand-alone scene. `Text
 
 ## Resolution and availability
 
-Use a desktop build with GPU JavaScript and Qt Quick 3D support. The current WebAssembly score build does not execute Javascript processes. Check that the producer, scene and output are all in an executing graph if the result is blank.
+Use a desktop build with GPU JavaScript and Qt Quick 3D support. The current WebAssembly score build does not execute Javascript processes. If the result is blank, check that the texture source, scene and output are all executing.
 
 The texture's render resolution is separate from the QML item's logical dimensions. An editor script can set an inlet model's resolution override with `Score.inlet(process, index).renderSize = Qt.size(640, 360)` after looking up the correct texture inlet. Resizing preserves the interactive QML scene; persistent state across save/load still requires the script state API.
 
@@ -58,7 +58,7 @@ To preview an already-rendered outlet in a custom control interface, use `Score.
 
 ## Try it
 
-Start playback and change the Kaleidolines shader controls to see the incoming texture change on the sphere. Compare that with the LFO-driven light rotation: it changes shading rather than the texture source. The sphere and cylinder are QML primitives and need no model file. This Qt Quick 3D scene is separate from score's native Model Display and scene-port pipeline.
+Start playback and change the Kaleidolines shader controls to see the pattern change on the sphere. Compare this with the rotating light, which changes the shading rather than the image applied to the surface. You can also try another shader or video source as the texture. The sphere and cylinder are QML primitives and need no model file.
 
 {% include try-on-web.html %}
 

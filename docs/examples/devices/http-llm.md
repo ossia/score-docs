@@ -1,7 +1,7 @@
 ---
 layout: default
 title: HTTP chat API and rendered text
-description: "Send prompts through an HTTP device and display a local language model's response."
+description: "An example showing how to interact with a language model over HTTP"
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/http-llm.html
@@ -12,9 +12,13 @@ score: /examples/devices/http-llm.score
 
 ![Rendered chat response behind the prompt-string processing nodes and text animation timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-http-llm.png)
 
-The `LLM` HTTP device contains an OpenAI-compatible client script. Writing to `LLM:/chat/prompt` posts JSON to `/v1/chat/completions`, with conversation history and `stream: false`. The response is written to `LLM:/chat/response` and rendered by the `Answer` JavaScript text process.
+This example demonstrates bringing an HTTP service into an interactive score. A local language model answers typed prompts, and the timeline animates the response as text.
 
-A separate String → Combine inlets → Join strings branch prefixes the prompt with `Human: ` for the `Question` text process. These strings format the on-screen question; the HTTP device itself constructs the API request. Video Mixer combines the two text textures and sends them to `Window:/`.
+## Overview
+
+The HTTP device handles the conversation, while the visual processes present the question and answer. Keeping those roles separate lets you experiment with how generated text appears without changing the request itself.
+
+The client uses the OpenAI-compatible `/v1/chat/completions` endpoint with conversation history. It requests a complete response rather than a token stream; the gradual reveal is an animation in score.
 
 ## Connect a server
 
@@ -23,7 +27,11 @@ A separate String → Combine inlets → Join strings branch prefixes the prompt
 3. Start playback, write a question to `LLM:/chat/prompt`, and inspect `/chat/response`. When a response arrives, an auto-retriggering time sync starts a ten-second automation of Answer's Write On control.
 4. Send another prompt to continue the conversation. Send an impulse to `LLM:/chat/clear` to discard history. That action also requests `/health`; clearing the displayed response depends on receiving its answer.
 
-The device exposes sampling controls, `/chat/finish_reason` and token counts under `/chat/usage`. `/completion/prompt` is a separate, history-free request to `/v1/completions`, not connected to this display graph.
+## Try it
+
+Ask a short question, then a follow-up that refers to the previous answer. Clear the history and ask the follow-up again to compare the results. Try changing the ten-second Write On automation: a quick reveal and a slow reveal give the same text a different rhythm.
+
+The device also exposes sampling controls, `/chat/finish_reason` and token counts under `/chat/usage`. Its separate `/completion/prompt` request has no conversation history and is not connected to this display.
 
 ## Requirements and limits
 

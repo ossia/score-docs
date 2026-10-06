@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Data visualization and sonification
-description: "Send an imported data curve to statistics displays, a native GPU history plot and an audio synthesizer."
+description: "An example showing how to visualize data and turn it into sound"
 parent: Advanced
 grand_parent: Examples
 permalink: /examples/advanced/data-visualization.html
@@ -12,22 +12,24 @@ score: /examples/advanced/data-visualization.zip
 
 ![Imported data feeding expression-based audio and a GPU history graph]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-data-visualization.png)
 
-Send an imported data curve to statistics displays, a native GPU history plot and an audio synthesizer.
+This example demonstrates visualization and sonification of the same data. A changing curve becomes a history of points on screen and a control for synthesized sound, offering different ways to explore its variations.
 
 {% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/data-visualization.zip)
 
-## Open the archive
+## Setup
 
-Open the ZIP directly in score. The archive contains the score, not the source greenhouse-gas CSV: the selected Data_value column has already been imported as an Automation with 6369 segments. You do not need the original CSV to play this curve.
+Open the ZIP directly in score. The greenhouse-gas data's Data_value column has already been imported as an Automation; the original CSV is not bundled and is not needed for playback.
 
-Use a compute-capable graphics backend and Airwindows for TapeDelay2. The embedded compute processes retain library origins under `packages/score-csf-testers/shaderlib/`: CircularHistory, Deform, AddColor and PointsToSprites. Their code is saved in the document; those paths identify their presets, not an included media directory.
+Use a compute-capable graphics backend and Airwindows for TapeDelay2. The history visualization uses embedded shaders originating in the `score-csf-testers` library package. It runs through score's native compute and rendering processes, not Qt Quick 3D.
 
-## Follow the three outputs
+## Try it
 
-Start playback. Inside the looping CSV scenario, Data_value supplies the Y coordinate of Vec2f, while an Expression Value Generator (`t/705600`) supplies its time index. Arraymap scales the pair with `0.001x-10`; Array to buffer uploads Float32 data. CircularHistory stores the points, Deform returns geometry through a delayed feedback cable, and AddColor → PointsToSprites → SphereSplat renders the history to `Window:/`. This uses native compute and rendering processes, not Qt Quick 3D. Keep the delayed feedback connection when changing the history graph.
+Start playback at a low listening level. Watch the point history grow as the imported curve plays, and compare its movement with the changing sound. The statistical displays offer another view of the data, including its mean, variance and consecutive differences.
 
-The same curve enters Accumulator, whose sum, count, difference, mean, variance, median, kurtosis, minimum and maximum are individually displayed. Two Calibrators map variance and consecutive difference to a clipped 0–1 range over a 100-sample window, driving delay parameters and color saturation.
+- Adjust the smoothing to compare short-term fluctuations with a steadier musical gesture.
+- Change the point size or color treatment to make different aspects of the history visible.
+- Replace the imported curve with your own data and compare what becomes apparent by looking and listening.
 
-For sonification, Exp Smoothing drives the expression oscillator's Param (a). Its code advances a phase accumulator and emits alternating ±b values to both audio channels. Highpass, Lowpass and TapeDelay2 feed `audio:/out/main`. Begin quietly; then change smoothing alpha (saved at 0.027), sprite size (0.235), or the imported curve to hear and see different aspects of the data.
+The sound is synthesized from the curve rather than a recording of the original data source. Calibrators map statistical variations into usable control ranges for color and delay settings. The GPU history also depends on a delayed feedback connection; keep it when adapting the visualization.

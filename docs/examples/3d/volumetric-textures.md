@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Volumetric texture viewers"
-description: "Compare slices and raymarched views of one GPU-generated Mandelbulb volume."
+description: "An example comparing cross-sections and three-dimensional views of a fractal volume."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/volumetric-textures.html
@@ -12,13 +12,17 @@ score: /examples/3d/volumetric-textures.score
 
 ![Mandelbulb volume shown as three grayscale slices and three raymarched views, with their shared generator and Grid connections.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-volumetric-textures.png)
 
-A Mandelbulb compute shader produces one three-dimensional texture, connected to six ISF viewers. Three viewers sample individual Z slices (initially 0.142, 0.267 and 0.75). The others use isosurface or orbiting raymarch views. Grid combines their two-dimensional outputs at `Window:/`.
+This example demonstrates several ways of viewing a three-dimensional texture.
+
+## Overview
+
+A Mandelbulb fractal provides the shared volume. Cross-sections reveal its interior one slice at a time, while raymarched views show its shape in depth. Displaying them together makes it possible to relate the slices to the larger structure.
 
 ## Try it
 
 Start playback and change the Mandelbulb's `power`, `zoom` or iteration count: all views should change because they share the same volume. Then move just one `sliceZ` control to inspect a different cross-section without changing the other views. Compare that slice with the isosurface viewer's `iso` threshold.
 
-No mesh or volume file is required. This is a compute/ISF texture pipeline, not a Qt Quick 3D scene. The saved shader sources refer to `score-csf-testers/shaderlib/volume` and the default Grid shader; their code is stored in the document.
+No mesh or volume file is required. The generator and viewer shaders are stored in the document. Use a graphics backend with compute-shader support; this example works with volume textures rather than a Qt Quick 3D scene.
 
 {% include try-on-web.html %}
 

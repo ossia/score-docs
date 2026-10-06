@@ -16,24 +16,22 @@ score: /examples/basics/timemodel.score
 
 ![Time Model]({{ site.img }}/examples/basics/timemodel.png "Time Model") 
 
-This scenario contains no media processes, cables or devices. Its output is the timeline's execution state: watch which intervals become active as you exercise their triggers.
+This example showcases the different interactive features in the *score* timeline: triggers, interactive conditions and loops.
 
-## Compare A1–A4
+## Overview
 
-Start playback and inspect the four labelled branches:
+A timeline need not have a fixed duration. Intervals can wait for a performer, enforce a minimum time before continuing, or have a maximum duration that ensures the piece moves on. Conditions decide which branches run, while shared end points synchronize parallel activities.
 
-- A1 has a fixed duration of about 3.28 seconds, then starts B1 and C1.
-- A2 waits for an end trigger with minimum zero and no finite maximum.
-- A3 rejects an early end trigger until its minimum of about 1.65 seconds has elapsed.
-- A4 permits interaction after about 1.72 seconds but has a maximum around 4.53 seconds, ensuring progression to B4 and C4 even without a trigger.
+This example contains no media: watch the active intervals during playback to see how these structures behave. No external setup is required.
 
-Restart and try triggering A3 and A4 at different times. Their downstream branches start relative to the actual trigger time, not just the drawn endpoint.
+## Try it
 
-## Conditions and joins
+- Compare A1's fixed duration with A2's open-ended wait for a trigger.
+- Trigger A3 early, then after its minimum duration. Notice when the interaction is accepted.
+- Let A4 reach its maximum without a trigger, then restart and end it yourself. The following intervals start relative to the actual end, not just the drawn endpoint.
+- Explore the false conditions, shared end triggers and the loop at the bottom. Try starting and ending the parallel intervals in different orders.
 
-Further branches compare unconditional events with `true == false` conditions, and join two intervals at a shared end trigger. Inspect each predecessor's minimum and maximum bounds before trying the join. At the bottom, a zero-duration interval returns to an earlier time sync, demonstrating a loop rather than a forward-only arrangement.
-
-No external setup is required. For a larger annotated collection with floating triggers and auto-retriggering, see [Temporal patterns and synchronization]({{ site.baseurl }}/examples/basics/timemodel-patterns.html).
+For a larger annotated collection with floating triggers and auto-retriggering, see [Temporal patterns and synchronization]({{ site.baseurl }}/examples/basics/timemodel-patterns.html).
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

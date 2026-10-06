@@ -17,20 +17,24 @@ score: /examples/basics/all-media.zip
     <source src="{{ site.img }}/examples/basics/all-media.mp4" type="video/mp4">
 </video>
 
-This patch crosses between MIDI, audio, values, geometry and textures. It uses score's native Geometry Loader, Geometry filter and Model Display pipeline, not Qt Quick 3D.
+This example demonstrates ossia score's ability to patch together diverse media types including audio, video, 3D geometries, and textures in a unified workflow.
 
-## Open the project
+## Overview
 
-Open the ZIP directly in score. The graph loads the bundled `goblet.obj`, `PianoVib97_2.wav` and `Data/Oberheim_DmxKit/drumkit.xml` with its samples. It also needs Deuterium, Faust and Airwindows support.
+ossia score allows you to manage audio, video, data and 3D, and process them all using the same cable-based patching system. Here, sound analysis animates a textured goblet and influences video effects. MIDI patterns, automations and audio envelopes become complementary ways of controlling the image.
 
-## Trace the branches
+The example uses score's native geometry and rendering processes, not Qt Quick 3D.
 
-1. Start playback. Geometry Loader sends the goblet through the `Twist` geometry filter to Model Display. Graph Paper generates its texture; a color automation changes the background color, and a float automation expanded to `[x,x,x]` changes model rotation.
-2. Follow the piano sound into three RMS analyzers. Their value outputs control Convergence, Echo Trace and the geometry twist. Smooth and Micromap scale one envelope, with Signal display showing the result.
-3. A Pattern sequencer plays the Oberheim drum kit. Its audio passes through parallel RingModulator and Faust delay paths, then further Airwindows processing before joining an RMS input. A second pattern is converted from note indices into delay-time values by Midi filter and `x-14.75`.
-4. Follow Model Display → Convergence → Echo Trace → Edges to `Window:/`. Change an analyzer's gain and compare the visual reaction.
+## Try it
 
-The saved audio branches feed analysis rather than an audible parent output: an active audio graph does not imply that it is routed to speakers. To listen, explicitly route a chosen sound output to the parent mix or an audio device and lower the level first. The root audio destination is `audio:/out/main`.
+Open the ZIP directly in score. It includes the goblet model, piano sample and drum kit; Deuterium, Faust and Airwindows support are also needed.
+
+- Start playback and watch the model and effects respond to the audio analysis.
+- Change an analyzer's gain to adjust the visual response, or alter the smoothing to make movement more gradual.
+- Edit the color and rotation automations to combine composed movement with sound-driven changes.
+- Try replacing a sound or changing a MIDI pattern and compare the resulting image.
+
+The saved audio branches feed analysis rather than an audible output. To listen, explicitly route a chosen sound output to the parent mix or an audio device and lower the level first. The root audio destination is `audio:/out/main`.
 
 {% include try-on-web.html %}
 

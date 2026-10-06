@@ -2,7 +2,7 @@
 layout: default
 
 title: 3D meshes
-description: "Texture and rotate a built-in icosahedron with native Model Display."
+description: "An example showing how to texture and animate a built-in 3D mesh."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,11 +17,13 @@ score: /examples/3d/threedim.score
     <source src="{{ site.img }}/examples/3d/threedim.mp4" type="video/mp4">
 </video>
 
-This example textures a built-in Icosahedron primitive and rotates it during playback.
+This example demonstrates displaying and animating a built-in 3D mesh in ossia score.
 
 ## Overview
 
-Icosahedron supplies geometry to native Model Display. The Oblivion ISF shader supplies its texture, and a sawtooth LFO passes through the `360x` Micromap expression to drive the primitive's Rotation. Model Display writes the rendered image to `Window:/`. This is not a Qt Quick 3D scene.
+ossia score can render 3D geometry in real-time, with parameters that can be animated and modulated. Here, an icosahedron rotates under an animated procedural texture. This is a simple starting point for combining shape, movement and shader effects without loading a model file.
+
+The example uses native Model Display rather than a Qt Quick 3D scene.
 
 
 ## Try it

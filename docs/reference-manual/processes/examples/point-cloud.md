@@ -13,7 +13,9 @@ score: "/reference/processes/point-cloud.zip"
 
 ![LFO and expression generator controlling the Object loader and Model Display point-cloud rendering chain.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-point-cloud.png)
 
-**Object loader** reads `<PROJECT>:Files/bunny.ply` and sends it to **Model Display**, saved in point rendering mode. A saw LFO drives parameter `a` of Expression Value Generator, whose `return [0, -360a,0];` expression rotates the model about its vertical axis. VVMotionBlur 3.0 processes the image before `Window:/`.
+This example shows a 3D model as a cloud of points rather than a solid surface. A rotating bunny and motion blur let you explore how points suggest a shape.
+
+**Object loader** reads the bundled `Files/bunny.ply`, and **Model Display** renders its vertices as points. An LFO and expression rotate the model around its vertical axis; VVMotionBlur 3.0 adds trails to the image shown in `Window:/`.
 
 ## Try it
 

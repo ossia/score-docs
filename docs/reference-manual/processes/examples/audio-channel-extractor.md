@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Extracting Channels from an Eight-channel Recording"
-description: "Select a channel range and inspect it with RMS."
+description: "Explore individual channels in a multichannel recording."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,7 +13,9 @@ score: "/reference/processes/audio-channel-extractor.zip"
 
 ![Eight-channel recording connected to Audio Channel Extractor, RMS and a multichannel signal display.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-audio-channel-extractor.png)
 
-The bundled `Audio/8_Channel_ID.wv` file feeds **Audio Channel Extractor**, followed by RMS and Signal display. The saved First channel and Last channel controls are 3 and 6. The graph is an analysis path, not eight separate loudspeaker connections.
+This example lets you isolate part of an eight-channel recording and see when those channels are active. **Audio Channel Extractor** selects a range, and an RMS display shows its level over time.
+
+The included recording is `Audio/8_Channel_ID.wv`; First channel and Last channel are initially set to 3 and 6. The example monitors the extracted audio rather than connecting eight loudspeakers.
 
 ## Try it
 

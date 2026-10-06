@@ -36,7 +36,7 @@ Open the ZIP directly in score; its `Images/resting_place_4k.exr` environment is
 
 ## Try it
 
-Start playback after resolving the model path. Three slow sine LFOs feed `return [100(0.5-a),50+100(0.5-b),100(0.5-c)]`, which drives the Look At control while the rendered texture goes to `Window:/`. Change the LFO phase offsets to compare camera-target trajectories. The JavaScript/QML process requires the Qt Quick 3D modules used by its script.
+Start playback after resolving the model path. Change the slow LFOs' phase offsets to explore different camera-target trajectories, or adjust Position to view the atrium from another location. The JavaScript/QML process requires the Qt Quick 3D modules used by its script.
 
 The saved script's `tick` function still calls `wasd.forceActiveFocus()`, but no `wasd` object is declared. Remove that stale call in the script editor to avoid its reference error; this version does not provide the WASD navigation controller used by the glTF Scene with Effects example. To explore it as saved, use Position and the driven Look At control.
 

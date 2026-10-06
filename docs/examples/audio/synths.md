@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Arranging synth patterns with triggers
-description: "Sequence bass, bells and drums by triggering nested pattern intervals and automating a shared effect."
+description: "An example showing how to compose music with patterns and built-in synthesizers"
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/synths.html
@@ -12,24 +12,25 @@ score: /examples/audio/synths.score
 
 ![Triggered bass and drum pattern intervals beneath the outer arrangement and automation curves]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-synths.png)
 
-Three instrument groups separate the musical material from the arrangement:
+This example demonstrates separating musical patterns from their arrangement. Bass, bells and drums each have their own collection of patterns, while a surrounding scenario decides when they play.
 
-- **Bass**: four Pattern sequencers feed Midi scale, FoMo and Airwindows `IronOxide5`.
-- **Bells**: two patterns feed an Arpeggiator, Midi scale, Synthimi and a PitchDelay.
-- **Drums**: three patterns feed Kaboom and `ZBandpass2`.
+## Overview
 
-Their nested pattern intervals have interactive start and end triggers. States in the outer scenario send impulses to exposed `score:/triggers/` addresses, selecting the clips independently of their visual placement. The arrangement includes two looping chains of states rather than a single fixed song ending.
+Interactive triggers let the same musical material participate in different arrangements without moving or copying its notes. Here, two looping sequences of states cue the instrument patterns, and a shared pitch-delay effect helps shape the larger musical form.
+
+The states use the document's exposed `score:/triggers/` addresses. These are local controls, not an OSC server, so no network connection is needed.
 
 ## Play the arrangement
 
 No samples or physical MIDI device are required. Use a build with FoMo, Synthimi, Kaboom, Airwindows and BarrVerb; configure the audio device at a low listening level.
 
-1. Start playback. Trigger the outer start state near 2 seconds annotated as the first song. It sends `score:/triggers/Trig Bass A`; following states trigger drum and bell patterns and return through the arrangement loop.
-2. Open the Bass, Bells and Drums scenarios to watch the named pattern intervals respond. Their interactive ends can also be triggered directly.
-3. Trigger the second arrangement's start near 16.06 seconds. It sends `Trig Drum C`, `Trig Bass C` and `Trig Bells 2`, then enters another loop containing `Automations`.
-4. Inspect that interval: two curves write `score:/controls/PitchDelay/dry_wet` and `/regen`; a Step sequencer writes `/pitch`.
+1. Start playback and trigger the outer start state near 2 seconds, annotated as the first song. Open the Bass, Bells and Drums scenarios to see which patterns are playing.
+2. Trigger a pattern's interactive end directly. Try leaving one instrument out for part of the arrangement, then bringing it back.
+3. Trigger the second arrangement's start near 16.06 seconds. Compare its combination of patterns with the first arrangement.
+4. Explore the `Automations` interval. Change the PitchDelay Dry/Wet or regeneration curves to make the effect build more gradually; the Step sequencer changes its pitch.
+5. Edit a pattern and listen to it in both arrangements. This demonstrates how musical content can be reused while the surrounding structure changes.
 
-The outer scenario's audio enters the scriptable master PitchDelay, then DrumSlam, Tube2 and BarrVerb. BarrVerb sends to the parent mix at `audio:/out/main`. The addresses above are the document's own exposed controls and triggers, not an OSC server.
+Both arrangements loop rather than reaching a fixed song ending. Stop the transport when you have finished listening.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

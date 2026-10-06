@@ -16,7 +16,9 @@ These examples demonstrate video playback, shader effects, and audio-reactive vi
 
 Start with [Video manipulation]({{ site.baseurl }}/examples/video/video-basics.html), [Camera input]({{ site.baseurl }}/examples/video/camera.html), or [Audio-reactive visuals]({{ site.baseurl }}/examples/video/audioreactive.html).
 
-For current playback modes, HDR conversion and pixel-format handling, see [Video]({{ site.baseurl }}/processes/video.html). For shader-based processing, see [ISF shaders]({{ site.baseurl }}/processes/shaders.html) and [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html). Capture, streaming and output backends are listed under [Devices]({{ site.baseurl }}/devices.html); availability is platform- and build-dependent.
+ossia score supports ISF (Interactive Shader Format) shaders, live camera input, and advanced shader libraries like Lygia.
+
+For playback modes, HDR conversion and pixel-format handling, see [Video]({{ site.baseurl }}/processes/video.html). For shader-based processing, see [ISF shaders]({{ site.baseurl }}/processes/shaders.html) and [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html). Capture, streaming and output backends are listed under [Devices]({{ site.baseurl }}/devices.html); availability is platform- and build-dependent.
 
 ## Playback and live inputs
 
@@ -38,6 +40,6 @@ For current playback modes, HDR conversion and pixel-format handling, see [Video
 
 ## Analysis and projection mapping
 
-- [Camera blobs, contours and tracking]({{ site.baseurl }}/examples/video/traditional-computer-vision.html): CPU image analysis followed by GPU point drawing.
-- [Mapping textures to editable shapes]({{ site.baseurl }}/examples/video/video-mapping-rect.html): quads, polygons, soft edges and texture selection.
-- [Multi-projector output mapping]({{ site.baseurl }}/examples/video/video-mapping-multi-projector.html): source regions, perspective transforms and edge blending across displays.
+- [Camera blobs, contours and tracking]({{ site.baseurl }}/examples/video/traditional-computer-vision.html): identify shapes and follow points in a live camera image.
+- [Mapping textures to editable shapes]({{ site.baseurl }}/examples/video/video-mapping-rect.html): arrange images on quads, polygons and freehand shapes.
+- [Multi-projector output mapping]({{ site.baseurl }}/examples/video/video-mapping-multi-projector.html): align and blend one image across several displays.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Files, strings and serialization
-description: "Read text and bytes, transform lines, serialize values and record or replay device data."
+description: "An example showing how to read, transform and record text and data"
 parent: Advanced
 grand_parent: Examples
 permalink: /examples/advanced/files-and-strings.html
@@ -12,24 +12,31 @@ score: /examples/advanced/files-and-strings.zip
 
 ![Object filter, Serialize and Deserialize connected beneath the device recording graph]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-files-and-strings.png)
 
-Read text and bytes, transform lines, serialize values and record or replay device data.
+This example demonstrates working with text files and structured values in score. It brings together small experiments in transforming text, exchanging serialized data and recording device activity.
 
 {% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/files-and-strings.zip)
 
-## Files and side effects
+## Read and transform text
 
-Open the ZIP directly in score. It bundles `fables.txt` and `sample.data`, referenced as `<PROJECT>:fables.txt` and `<PROJECT>:sample.data`. Use a writable project directory: the connected Write File process writes `<PROJECT>:output-%t.file` as transformed lines arrive. Its Mode is Write, not Append; events replace the current target file. `%t` inserts the date/time in the filename.
+Open the ZIP directly in score. It includes `fables.txt` and `sample.data`. Use a writable project directory: the Write File process saves transformed lines to `<PROJECT>:output-%t.file`, with the date and time inserted in the filename. Its Write mode replaces the current target file rather than appending to it.
 
-Start playback, press Read File's Read control to load sample.data, and inspect Data, Bytes, EOF, Success and Error. Read File Line is asynchronous; press Open to open fables.txt, then Beat metronome's quarter-note output drives Next. Rewind restarts line traversal. Its Line output is split on spaces, joined with `::`, and sent to the display and Write File. The bytes branch converts the original line to integer bytes and back to a string.
+Start playback and try the two ways of reading a file:
 
-Regex receives each line with `FABLE.*([IXVLM]+)`. Compare Match, Groups, Matched, Unmatched and the capture-group display as headings and prose pass through. The regex engine uses RE2 syntax.
+- Press Read File's Read control to load the sample data. Inspect the result and status outputs.
+- Press Read File Line's Open control to open the fables. The metronome advances through the text; Rewind returns to the beginning.
 
-## Serialization and device playback
+Compare each original line with the transformed text. Try another separator in the split-and-join example, or change the regular expression to select a different part of the text. The saved expression matches fable headings and captures their Roman numerals; the regex engine uses RE2 syntax. A separate conversion demonstrates reading a string as bytes and reconstructing it.
 
-Change Vec2f to trigger two round trips. Object filter builds `{ name: "foo", x: .[0], y: .[1] }` for JSON Serialize → Deserialize. A parallel Text round trip uses the literal delimiter `, `; keep the serializer and parser delimiters consistent. The Jk Object filter add-on is required for the object-building branch.
+## Exchange structured values
 
-The OSC device listens on UDP 9997 and sends to `127.0.0.1:9996`. An LFO and Value delay feed Pattern applier at `OSC:/foo.*`. CSV is saved in Playback mode, targeting `OSC:/bar.*`, with timestamped Colon-separated data from `<PROJECT>:recording.csv`. Pattern combiner displays the bar values.
+Change Vec2f and compare JSON serialization with delimiter-separated text. The JSON example constructs an object, while the text example uses `, ` between components. Keep the serializer and parser delimiters consistent. The object-building example requires the Jk Object filter add-on.
 
-`recording.csv` is not included in the archive. To exercise that branch, first choose Record mode and the `OSC:/foo.*` pattern to record the generated values to a writable file, then switch back to Playback and `OSC:/bar.*`. Do not interpret absent playback values as a failure of the separate file/string examples. Avoid overwriting an existing recording you want to keep.
+## Record and replay device values
+
+The device example records generated control values for later playback at other addresses. The saved CSV process is in Playback mode, but `recording.csv` is not included.
+
+To try it, choose Record mode and the `OSC:/foo.*` pattern, and select a writable file. Then switch to Playback and `OSC:/bar.*` to inspect the replayed values. Avoid overwriting an existing recording you want to keep. Missing playback data does not prevent the independent text-file examples from running.
+
+The OSC device listens on UDP 9997 and sends to `127.0.0.1:9996` if you also want to observe the values in another application.

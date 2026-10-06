@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "GPU particle forces"
-description: "Combine vortex, basic and gravitational forces before integrating a particle buffer."
+description: "An example exploring particle motion under different simulated forces."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/nbody.html
@@ -12,7 +12,11 @@ score: /examples/3d/nbody.score
 
 ![Blue sphere particles behind the RandomScatter, VortexForce, BasicForces and NBodyGravity process chain.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-nbody.png)
 
-RandomScatter initializes 1024 particles. VortexForce, BasicForces and NBodyGravity form a compute-shader chain leading into Integrate. PointsToSprites converts the resulting particle geometry for the SphereSplat native Render Pipeline, which writes to `Window:/`. A Vec3f process controls the camera.
+This example demonstrates combining forces in a GPU particle simulation.
+
+## Overview
+
+A cloud of 1024 particles moves under vortex, basic and gravitational forces. Their combined influence is integrated over time and displayed as sphere splats. Changing the balance of forces lets you explore different kinds of collective motion without animating particles individually.
 
 ## Try it
 

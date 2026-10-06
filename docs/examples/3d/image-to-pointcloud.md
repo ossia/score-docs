@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Image to point cloud"
-description: "Convert a shader-generated image into coloured GPU geometry."
+description: "An example showing how to turn an image into a coloured 3D point cloud."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/image-to-pointcloud.html
@@ -12,7 +12,11 @@ score: /examples/3d/image-to-pointcloud.score
 
 ![Multicoloured spiky point cloud above the RGB Simplex Noise, ImageToPoints and Model Display processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-image-to-pointcloud.png)
 
-RGB Simplex Noise feeds the ImageToPoints compute shader. ImageToPoints converts the input texture into geometry; native Model Display displays it in point mode and sends the image to `Window:/`. A small Drift LFO moves the noise offset.
+This example demonstrates converting an image into a coloured point cloud.
+
+## Overview
+
+A slowly changing noise texture becomes a three-dimensional arrangement of points. Depth, scale and threshold controls offer different interpretations of the same image, making this a starting point for exploring the relationship between textures and geometry.
 
 ## Try it
 

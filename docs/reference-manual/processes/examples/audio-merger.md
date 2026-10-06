@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Four-source Audio Merger"
-description: "Assemble four sample sources into a multichannel stream and inspect its level."
+description: "Bring four sound sources together while keeping their channels separate."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,7 +13,7 @@ score: "/reference/processes/audio-merger.score"
 
 ![Four sound waveforms feeding Audio Merger, followed by RMS and four plotted level traces.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-audio-merger.png)
 
-Four Sound processes feed separate inputs of **Audio Merger**. The merged audio goes into RMS, then Signal display. This demonstrates channel assembly rather than a stereo summing mixer: the analysis receives the merged multichannel stream.
+How can several sounds travel together without being mixed down to stereo? This example uses **Audio Merger** to assemble four sample sources into a multichannel stream. An RMS display lets you follow their levels.
 
 ## Requirements
 

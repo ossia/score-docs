@@ -15,21 +15,19 @@ score: /examples/basics/glutton.score
 
 ![Glutton Patching Mode]({{ site.img }}/examples/basics/glutton.png "Glutton temporal patching in ossia score")
 
-The Source interval starts at 4 seconds, with Bytebeat's `Neurofunk` feeding Airwindows TapeFat and a direct Gain branch. TapeFat also reads `audio:/in/main`; live input is optional because the Bytebeat already supplies audio. Two looping automations vary TapeFat's controls.
+This example demonstrates ossia score's "glutton" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times.
 
-The same output feeds three effect intervals with ordinary, non-delayed cables:
+## Overview
 
-- **Low**, starting at 6 seconds: Faust pitchShifter at −24 semitones → VerbThic.
-- **Medium**, starting at 8 seconds: Deckwrecka → ChromeOxide.
-- **High**, starting at 10 seconds: Faust pitchShifter at +24 semitones → NonlinearSpace.
+An audio source is shared by three effect intervals that begin at different times. Each effect processes the source that is currently playing: the cable does not replay earlier material when a new effect starts. This makes it possible to bring effects into a performance independently of the sound that feeds them.
 
-## Compare active intervals
+## Try it
 
-Configure audio output and start playback at a low level. Bytebeat, Faust and Airwindows support are required; no sample file or external controller is needed.
+Configure audio output and start playback at a low level. Bytebeat supplies the sound, so no sample file or external controller is needed. The example requires Bytebeat, Faust and Airwindows support.
 
-Listen as each effect starts processing the source that is currently running. Trigger Source's end and compare the remaining effects' tails. Unlike the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), these cables do not replay the source from its earlier start for each later sink.
+Listen as the Low, Medium and High effect intervals join the source. Trigger their ends separately to change the combination of effects, then end Source and listen to the remaining tails. All four ends are interactive; their drawn positions do not stop them automatically.
 
-All four interval ends are interactive, so their drawn end positions do not automatically stop them. The dry Gain and effect outputs enter the scenario mix, which passes through a Faust Limiter to `audio:/out/main`. Use headphones if adding a microphone to the saved audio input binding.
+Compare this with the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), where each later effect receives earlier source material. Live input is optional through the saved `audio:/in/main` binding; use headphones if adding a microphone to avoid feedback.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

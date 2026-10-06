@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Compute-rendered Clifford attractor"
-description: "Write a generated image directly from a compute shader."
+description: "An example showing an evolving mathematical attractor drawn on the GPU."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/compute-image.html
@@ -12,13 +12,17 @@ score: /examples/video/compute-image.score
 
 ![Three LFOs connected to the Clifford compute shader's attractor parameters]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-compute-image.png)
 
-The Clifford compute shader generates AttractorImage and writes it straight to `Window:/`, without a separate Model Display or fragment-rendering process. Three LFOs drive its `a`, `b` and `c` parameters, while `d` remains a shader control.
+This example demonstrates drawing a mathematical attractor directly with a compute shader.
+
+## Overview
+
+Slow modulation changes the Clifford attractor's shape, while accumulated points reveal its structure over time. The GPU generates the image without a separate mesh, making this an example of using computation itself as a visual source.
 
 ## Try it
 
 Start playback and observe how the attractor changes under the slow modulation. Adjust brightness and fadeRate to compare new points with the accumulated image. Change pointsPerThread to explore the workload/detail trade-off, and alter the LFOs rather than manually setting a parameter already being driven.
 
-No external image or geometry is needed. The saved compute shader requires a graphics backend with compute support. The example demonstrates direct GPU image generation; it is not a performance benchmark or a Qt Quick 3D scene.
+No external image or geometry is needed. The embedded shader requires a graphics backend with compute support. This is an image-generation example, not a performance benchmark.
 
 {% include try-on-web.html %}
 

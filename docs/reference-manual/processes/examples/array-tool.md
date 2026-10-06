@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Array Tool LED Reshaping"
-description: "Fold and rearrange a generated array before viewing its RGB values."
+description: "Explore how rearranging numbers changes an LED pattern."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,9 +13,9 @@ score: "/reference/processes/array-tool.score"
 
 ![Arraygen connected through Array tool to a red LED preview and numeric value display.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-array-tool.png)
 
-Arraygen evaluates `100(i+1)` for 14 elements. Its output passes through **Array tool** and then branches to **Value display** and **LED View**, so the numeric result and its colour interpretation can be compared.
+This example shows how a list of numbers can become an LED pattern. **Array tool** reshapes a generated array, while a numeric display and **LED View** let you compare the values with their colours.
 
-The saved Array tool uses a 0–255 range with Fold behaviour, a stride of 3 with Zero fill, and three elements of post-padding on each side. This is deliberately not a simple one-to-one display of the source array.
+The generator produces 14 values with `100(i+1)`. Folding them into the 0–255 range, spacing them with a stride of 3 and Zero fill, and adding three padding elements on either side changes both the colours and their arrangement.
 
 ## Try it
 

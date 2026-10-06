@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Pose-driven Particle Shader"
-description: "Extract a tracked keypoint coordinate and use it as a shader control."
+description: "Use movement in a video to animate a particle shader."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
@@ -13,9 +13,9 @@ score: "/reference/processes/ai-recognition.zip"
 
 ![Blaze Pose detection connected to an Object filter keypoint query and exponential smoothing before the particle shader.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-ai-recognition.png)
 
-The bundled jumping-jacks video feeds **Blaze Pose**, configured with `Files/pose_landmark_full.onnx`, 256 × 256 model input and minimum confidence 0.5. Its texture output goes to `Window_input:/`; its Detection output goes to **Object filter**.
+This example turns body movement into a visual control. **Blaze Pose** tracks a person doing jumping jacks, and one detected coordinate changes a particle shader. You can compare the original video, the tracked movement and the resulting animation.
 
-The query `[ .keypoints[15].position[0]]` selects the first position coordinate of keypoint 15 and wraps it in an array. The result is displayed numerically, plotted, and passed through Exp Smoothing (alpha about 0.035) to ParticleZoom's Tau control. ParticleZoom writes to `Window_output:/`. A separate Range Filter → Value display branch has no input cable in the saved graph; it is not part of the pose-control path.
+**Object filter** selects the first position coordinate of keypoint 15 with `[ .keypoints[15].position[0]]`. Exp Smoothing softens the movement before it reaches ParticleZoom's Tau control. Its alpha starts at about 0.035. The separate Range Filter branch is unconnected and does not control the effect.
 
 ## Try it
 

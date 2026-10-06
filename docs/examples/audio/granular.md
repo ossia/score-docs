@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Granular synthesis approaches
-description: "Compare autonomous and MIDI-driven Granola, a Faust granulator, and short sound-file loops."
+description: "An example showing different approaches to granular synthesis"
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/granular.html
@@ -12,7 +12,7 @@ score: /examples/audio/granular.score
 
 ![Granola voices and a Faust granulator connected to shared filters and gain]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-granular.png)
 
-This patch combines three Granola voices, a Faust granulator and a very short sound-file loop. The voices converge on a Lowpass, an Airwindows Highpass and a final Gain routed through the interval to `audio:/out/main`.
+This example explores several ways of turning recorded sound into grains and short repeating fragments. Continuous textures, MIDI-triggered grains and a simple sound-file loop offer different approaches to rhythm and timbre.
 
 ## Prepare the sounds
 
@@ -25,15 +25,15 @@ The download is a score document, not a sample archive. Relink these saved proje
 
 Use a build with Granola, Faust and the Airwindows effects available. Select an audio output and start at a low listening level.
 
-## Follow the graph
+## Try it
 
-1. Start playback. Change Position, Duration and Density on the first Granola to hear different regions and grain overlaps.
-2. Follow the sample-and-hold LFO into the piano Granola's Position. Its output passes through `kPlate240` before joining the lowpass.
-3. Inspect the third Granola: Continuous is disabled. The `Jungl` Pattern sequencer triggers its MIDI input while a Drift LFO moves Position.
-4. Follow the piano sound file into the Faust `Granulator`. Compare its Grain Size, Speed and Probability controls with Granola's controls.
-5. Inspect `rhythm77_bd`: its 0.04-second loop and 0.01-second offset provide a simple repeating slice. A Gain of about 0.042 attenuates it before mixing.
+1. Start playback and mute individual layers to hear each approach on its own. Change Position, Duration and Density on the first Granola: compare recognizable fragments with a dense, overlapping texture.
+2. Listen to the piano Granola's changing playback position. Slow its sample-and-hold LFO to hear how selecting a new region changes the material.
+3. Compare the third Granola, triggered by the `Jungl` pattern, with the continuously playing voices. Edit the pattern to explore rhythmic rather than continuous granular sound.
+4. Try Grain Size, Speed and Probability in the Faust `Granulator`. Compare the results with Granola using the same piano source.
+5. Lengthen the `rhythm77_bd` sound file's 0.04-second loop. Listen for the point where a repeating texture becomes a recognizable drum fragment.
 
-The final Gain controls the combined result; individual branches can be muted to compare approaches without the other layers masking them.
+Use the final Gain to control the combined level. The shared filters can help shape the mixture once you have explored the layers separately.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

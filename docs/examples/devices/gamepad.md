@@ -15,7 +15,11 @@ score: /examples/devices/gamepad.zip
 
 ![Gamepad Control Example]({{ site.img }}/examples/devices/gamepad.png "Gamepad controller setup in ossia score")
 
-The gamepad's A and B buttons become MIDI notes, while its two sticks control a sampled drum sound's effects.
+This example demonstrates how to use a gamepad to control sounds and processes in ossia score.
+
+## Overview
+
+Gamepads provide an accessible and expressive control interface with buttons and analog sticks. Here, the buttons play drum sounds while the sticks transform them with bitcrushing and delay. Discrete gestures and continuous movement become two complementary ways to perform the same instrument.
 
 ## Prepare the controller and samples
 
@@ -25,11 +29,11 @@ The gamepad's A and B buttons become MIDI notes, while its two sticks control a 
 
 ## Play the patch
 
-Press A and B during playback. Two `Bool to pulse` JavaScript processes pass button-press values to Pulse to Midi, set to notes 36 and 38. Both feed Deuterium's Fairlight kit. MIDI to array and Value display show the A branch's MIDI messages.
+Press A and B during playback to play two sounds from the Fairlight drum kit. Try alternating the buttons to make a rhythm, then hold the rhythm while changing the effects.
 
-Move the left stick: `Gamepad:/stick/left/x` controls Bitcrush's Rate, and `/stick/left/y` controls Crush. The sampler's audio passes through Bitcrush, then splits between the Compressor and Airwindows YLowpass → Faust smoothDelay → Compressor.
+Move the left stick horizontally to change Bitcrush's Rate and vertically to change Crush. Compare a clean-sounding hit with a heavily reduced, rougher texture.
 
-The right stick controls delay time and feedback through `/stick/right/x` and `/stick/right/y`. Keep feedback and listening level low when exploring the extremes. Compressor feeds the parent mix at `audio:/out/main`.
+The right stick changes delay time and feedback. Try short repeats, then a longer echo that continues between button presses. Keep feedback and listening level low when exploring the extremes.
 
 The saved patch uses standardized gamepad addresses; button labels on the physical controller may differ. It contains no rumble output mapping.
 

@@ -19,13 +19,22 @@ This example demonstrates modifying live video input on the GPU with a simple au
 
 ## Overview
 
-`Camera:/` feeds Color Blowout → Edge Blur → Optical Flow Distort → `Window:/`. RMS reads `audio:/in/main`. Micromap scales its values, and OneEuro smoothing controls colour intensity, blur amount and distortion amount. Peak detection sends Peak max to Optical Flow Distort's reset input.
+Audio-reactive graphics are a staple of live performance and music visualization.
+This example shows how to analyze audio and use the results to modify video input. Colour, blur and distortion respond to sound, with smoothing for gradual changes and peak detection for sharper accents.
+
+## Live performance
+
+This type of patch is ideal for:
+- VJ performances
+- Concert visuals
+- Interactive installations
+- Music videos
 
 ## Inputs and controls
 
 Select an available camera in the Camera device settings and a working audio input in the audio settings. Grant camera permission where required and close applications that hold exclusive access to it. No external movie is needed.
 
-Adjust RMS Gain to suit the input before changing the mapping expressions. Compare the direct RMS-to-Edge Blur intensity path with the smoothed controls, then change Peak detection's trigger/reload thresholds to alter when distortion resets.
+Adjust RMS Gain to suit the input, then compare quick reactions with smoother animation. Peak detection's trigger and reload thresholds determine when the distortion resets.
 
 ## Try it
 

@@ -42,7 +42,7 @@ An [[Math expressions|Arraygen]] process generates arbitrary values. The resulti
 
 ## Try it
 
-Start playback, then edit Arraygen's `i tan (i + pos + mod(i, pos))` expression to change the point distribution. Its 300 floats become 100 XYZ vertices. Compare changes to LFO frequency with Long Exposure's discharge rate: they affect rotation and persistence respectively. The output is `Window:/`.
+Start playback, then edit the Arraygen expression to explore different point distributions. Its 300 values describe 100 XYZ vertices. Compare changes to LFO frequency with Long Exposure's discharge rate: one changes the movement, while the other changes how long its trail remains visible.
 
 No external file is required. This is native Model Display rendering, not Qt Quick 3D. The saved Window uses an HDR swapchain format; use a compatible HDR output or change the Window format and adapt the final image for an SDR display.
 

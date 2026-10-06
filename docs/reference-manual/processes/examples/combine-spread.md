@@ -13,7 +13,7 @@ score: "/reference/processes/combine-spread.score"
 
 ![LFO and automation signals entering Combine, with Spread routing the components to separate signal displays.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-combine-spread.png)
 
-An **LFO** drives input 0 of **Combine**, while an **Automation (float)** drives input 1. Combine has two inputs; its array output is both plotted and passed to **Spread**, which has two outputs. Separate Signal displays monitor each extracted component.
+This example groups two movements into an array, then separates them again. **Combine** brings together an LFO and an automation curve; **Spread** retrieves the individual values. The displays let you compare the group with its components.
 
 ## Try it
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Math arrays to GPU geometry"
-description: "Build position and colour buffers on the CPU, then render them as points."
+description: "An example showing how to compose point positions and colours with mathematical expressions."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/math-to-geometry.html
@@ -12,9 +12,13 @@ score: /examples/3d/math-to-geometry.score
 
 ![Separate position and colour arrays passing through Array Flattener and Array to buffer into Buffers to geometry and the Instancing renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-math-to-geometry.png)
 
-Two Arraygen processes generate 300 entries each. Array Flattener converts their nested position and colour arrays to flat lists, and Array to buffer uploads Float32 buffers. Buffers to geometry binds buffer 0 to `position` with a 12-byte stride and buffer 1 to `color` with a 16-byte stride, with 300 vertices.
+This example demonstrates generating a point pattern and its colours from mathematical expressions.
 
-The native Instancing Render Pipeline renders the geometry. RGB Trails, Multi Pass Gaussian Blur, Exposure Adjust and Glow form a post-processing chain; Video Mixer combines the original trail and processed branches at `Window:/`. This does not use Qt Quick 3D.
+## Overview
+
+Separate arrays describe where each point is and what colour it has. They are transferred to GPU buffers and combined into geometry, allowing position and colour to be composed independently. Trails, blur and glow turn the moving points into a layered image.
+
+The example uses 300 vertices, with three Float32 values per position and four per colour. The corresponding attribute strides are 12 and 16 bytes. Keep these layouts consistent when adapting the expressions. Rendering uses the native pipeline rather than Qt Quick 3D.
 
 ## Try it
 
