@@ -21,7 +21,7 @@
 - **Interval "sponza"** [dur 15s, max ∞, nodal view]
   - audio out → `audio:/out/main`
   - **P1** "3D model" — Javascript
-    - in: 3D model file="<LIBRARY>:packages/sponza-gltf-pbr/sponza.glb" · Environment map="<PROJECT>:Images/resting_place_4k.exr" · Position=[0, 0, 0] · Look At=[-269.303, 24.126, -325.375]
+    - in: 3D model file="<PROJECT>:Models/sponza.glb" · Environment map="<PROJECT>:Images/resting_place_4k.exr" · Position=[0, 0, 0] · Look At=[-269.303, 24.126, -325.375]
     - out: out (texture) → `Window:/`
     - Script: code, 79 lines (see Code)
   - **P2** "LFO" — LFO (v2)
