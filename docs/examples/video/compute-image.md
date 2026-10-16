@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Compute-rendered Clifford attractor"
-description: "An example showing an evolving mathematical attractor drawn on the GPU."
+description: "Draw a slowly changing Clifford attractor by accumulating GPU-generated points."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/compute-image.html
@@ -10,19 +10,21 @@ score: /examples/video/compute-image.score
 
 # Compute-rendered Clifford attractor
 
-![Three LFOs connected to the Clifford compute shader's attractor parameters]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-compute-image.png)
+![Slow modulation controlling an accumulating Clifford attractor image]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-compute-image.png)
 
-This example demonstrates drawing a mathematical attractor directly with a compute shader.
+An accumulating field of points reveals a Clifford attractor as its shape slowly changes. This gives you a visual source made from computation rather than footage or a mesh: the image records both the current mathematical form and traces of where it has been.
 
-## Overview
+## Balance change and persistence
 
-Slow modulation changes the Clifford attractor's shape, while accumulated points reveal its structure over time. The GPU generates the image without a separate mesh, making this an example of using computation itself as a visual source.
+Slow LFOs vary the attractor parameters while the compute shader draws points into the image. Brightness shapes their visibility, and fading determines how much of the earlier drawing remains. The balance between modulation and persistence determines whether you perceive a distinct form or a layered history.
 
 ## Try it
 
-Start playback and observe how the attractor changes under the slow modulation. Adjust brightness and fadeRate to compare new points with the accumulated image. Change pointsPerThread to explore the workload/detail trade-off, and alter the LFOs rather than manually setting a parameter already being driven.
+- Start playback and observe a full sweep of the slow modulation before changing it. Alter the LFOs rather than manually adjusting an inlet they already drive.
+- Compare brightness and `fadeRate`: make the new points more visible, then change how quickly the old ones disappear.
+- Change `pointsPerThread` and compare the drawing density with responsiveness. More work is not automatically a more useful image.
 
-No external image or geometry is needed. The embedded shader requires a graphics backend with compute support. This is an image-generation example, not a performance benchmark.
+Use a graphics backend with compute support. No external image or geometry is needed; this patch is a visual experiment, not a performance benchmark.
 
 {% include try-on-web.html %}
 

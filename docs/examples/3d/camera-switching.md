@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Blending native scene cameras"
-description: "An example showing how to blend between camera viewpoints in a 3D scene."
+description: "Perform continuous camera moves by blending three viewpoints of a chess scene."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/camera-switching.html
@@ -12,17 +12,15 @@ score: /examples/3d/camera-switching.zip
 
 ![Rendered chess scene with the Nodes blend control, three Camera processes and Camera Switch.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-camera-switching.png)
 
-This example demonstrates switching and blending between viewpoints in a 3D scene.
+Move between an oblique view of a chessboard, an overhead view and a distant narrow-angle shot with a single two-dimensional control. Blending cameras turns a collection of composed shots into a playable viewpoint.
 
-## Overview
-
-Three cameras frame the same chess set from different distances and angles. A two-dimensional control blends between them, allowing the viewpoint to move continuously instead of jumping from one fixed shot to another. This is useful for exploring camera movement as part of a performance.
+Three native Camera processes feed Camera Switch. Nodes converts the position of its Input Point into blend weights, so moving across the control changes the camera before the scene is rendered. This blends viewpoint parameters rather than crossfading three rendered images.
 
 ## Try it
 
-Open the ZIP directly in score and start playback; `Models/ABeautifulGame.glb` is bundled. Move the Input Point in Nodes toward each of its three nodes: the view blends between an oblique view, an overhead view and a narrow-field distant view. Compare this with Camera Switch's selection mode and Index for discrete changes.
+Open the ZIP directly in score; the chess model is included. Start playback and move Nodes' Input Point toward each of its three nodes, then travel slowly between them. Watch both the viewing angle and framing change.
 
-The model and shader code are included. This uses the native Camera Switch and scene pipeline, not a Qt Quick 3D camera controller. When replacing the model, adjust all three cameras' Eye and Target values to its scale.
+Compare this continuous motion with Camera Switch's selection mode and Index for a direct cut. If you replace the model, adjust all three cameras' Eye and Target values to its scale. The model and rendering shader are included; this uses the native scene pipeline, not a Qt Quick 3D controller.
 
 {% include try-on-web.html %}
 

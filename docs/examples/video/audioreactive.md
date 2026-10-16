@@ -2,7 +2,7 @@
 layout: default
 
 title: Audio-reactive visuals
-description: "An example showing how to create visuals that respond to audio in real-time"
+description: "Animate a geometric pattern with percussion and live sound, from smooth zooms to sharp traces."
 
 parent: Video Examples
 grand_parent: Examples
@@ -17,31 +17,25 @@ score: /examples/video/audioreactive.score
     <source src="{{ site.img }}/examples/video/audioreactive.mp4" type="video/mp4">
 </video>
 
-This example demonstrates creating visuals that respond dynamically to audio input.
+Generated percussion and live sound animate a geometric pattern, while echo and analog-style distortion turn its movement into trails. The patch offers two kinds of musical response: a smoothed zoom that follows an envelope, and a trace threshold that reacts separately to the microphone.
 
-## Overview
+## Shape the response
 
-Audio-reactive graphics are a staple of live performance and music visualization. This example shows how to analyze audio and use the results to drive visual effects. Generated percussion and live audio animate a geometric pattern, while echo and analog-style distortion give it a sense of movement.
+A Stereo Mixer combines the synthesized percussion with live audio for level analysis. RMS converts that sound into a control signal, and OneEuro smoothing makes the zoom follow it more gradually. A second RMS analyzes the microphone independently to control the trace threshold.
 
-## Tips for audio-reactive graphics
+Separating these paths is useful for a performance in which a steady rhythmic source shapes the overall motion while a voice or instrument interrupts the image. Turning down the microphone in the mixer does not silence its separate trace-control path.
 
-- **Smooth your signals**: Compare a quick response with the more gradual zoom animation.
-- **Map ranges**: Adjust analysis gain to suit quiet or loud sources.
-- **Separate sources**: Mix the generated percussion with live audio to explore their different rhythms. The trace threshold responds to live input independently of this mix.
+## Setup
 
-## Live performance
-
-This type of patch is ideal for VJ performances, concert visuals, interactive installations and music videos.
-
-## Inputs and controls
-
-Use a build with Faust and its standard physical-modeling library for DjembeMIDI. The synthesizer code and shaders are saved in the score; no sound file is required. Select a working audio input for the microphone branch.
-
-Compare Stereo Mixer inputs 1 and 2 to separate the generated percussion from live audio. RMS Gain controls sensitivity; OneEuro smoothing controls how zoom follows the envelope. The second RMS's Gate determines when the microphone affects the trace threshold.
+Use a build with Faust and its standard physical-modeling library for DjembeMIDI. Select a working audio input for the microphone branch; the percussion is synthesized and needs no recording.
 
 ## Try it
 
-Start playback and adjust the mixer gains before increasing RMS Gain. The patch can generate its own analysis source through DjembeMIDI, while the separate trace-threshold branch depends on live input. To replace the microphone, connect a sound-file process to the relevant audio inlet.
+- Start playback and compare Stereo Mixer inputs 1 and 2 separately. Listen to or watch the rhythm of the source you are analyzing before increasing RMS Gain.
+- Change OneEuro smoothing and compare a zoom that follows individual accents with a more gradual movement.
+- Adjust the second RMS's Gate while making quiet and loud sounds. Observe when the microphone begins to affect the trace threshold, independently of the mixed envelope.
+
+To use recorded audio instead, connect a sound-file process to the microphone paths you want to replace.
 
 {% include try-on-web.html %}
 

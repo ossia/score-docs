@@ -95,7 +95,7 @@ Arraygen can also return arrays:
 
 {% include try-on-web.html %}
 
-See [Arraygen Signal Study]({{ site.baseurl }}/reference/process-examples/arraygen.html) for a patch that generates three moving values.
+Compare three related rhythms in [Arraygen Signal Study]({{ site.baseurl }}/reference/process-examples/arraygen.html). One expression uses each list element's index to generate a different oscillation rate, and Signal display plots the results. Change the expression's time multiplier to speed up or slow down all three together while preserving their rate relationships.
 
 ## Using Arraymap {#arraymap}
 

@@ -83,7 +83,7 @@ Once keypoints are extracted, you can connect them to any parameter in score for
 
 {% include try-on-web.html %}
 
-See the [Pose-driven Particle Shader walkthrough]({{ site.baseurl }}/reference/process-examples/ai-recognition.html) for a downloadable keypoint-to-shader patch and its model requirements.
+Use a performer's movement to reshape a particle image in the [Pose-driven Particle Shader walkthrough]({{ site.baseurl }}/reference/process-examples/ai-recognition.html). It extracts one coordinate from the detected pose and smooths it before controlling the shader. Try changing the smoothing amount to compare a responsive image with a more slowly evolving one; the walkthrough covers the required model and video setup.
 
 
 

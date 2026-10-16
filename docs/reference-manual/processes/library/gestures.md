@@ -38,11 +38,11 @@ For positive frequencies, the process checks elapsed wall-clock time on each eva
 
 ### Example: accumulation and decay
 
-[Download LeakyIntegratorExample.score]({{ site.baseurl }}/assets/scores/reference/processes/LeakyIntegratorExample.score)
+[Download the accumulation and decay score]({{ site.baseurl }}/assets/scores/reference/processes/LeakyIntegratorExample.score)
 
 {% include try-on-web.html %}
 
-This example shows how a short input pulse can leave a gradually fading trace. An expression supplies the pulse, the Leaky Integrator accumulates it, and Signal display shows the rise and decay.
+Give a brief event a lingering control signal: a short pulse builds up in the Leaky Integrator, then leaves a fading trace in Signal display. This is a starting point for making a light or visual response outlast the gesture that caused it; the supplied patch plots the envelope rather than controlling an artwork.
 
 The generator uses `if(pos < 0.1, 1, 0)`: it sends 1 during the first tenth of the interval, then keeps sending 0. The integrator has Leak Factor set to `0.99` and Leak Frequency (Hz) set to `0`, so every evaluation is a leak step.
 

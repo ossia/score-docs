@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Multi-projector output mapping"
-description: "An example showing how to align and blend one image across several displays."
+description: "Align and edge-blend one moving image across several projectors or displays."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/video-mapping-multi-projector.html
@@ -10,19 +10,23 @@ score: /examples/video/video-mapping-multi-projector.score
 
 # Multi-projector output mapping
 
-This example demonstrates distributing one animated image across several displays or projectors.
+Extend one animated image across several displays or projectors, then align the portions so they read as a continuous composition. The example is useful when the artwork is already composed and the remaining task is to fit it to the physical installation.
 
-## Overview
+## Map at the output
 
-The Window device's Multi-window mode divides a procedural texture into output regions. Each region can be positioned, warped and edge-blended to suit a projection surface. The mapping takes place at the output, so the same approach can be used with other video sources or a composed image.
+The Window device's Multi-window mode divides a procedural texture into output regions. Each region can be positioned, warped and edge-blended independently. Because this happens at the output, the source could instead be a movie or a texture composed with the rectangle mapper.
+
+## Set up your displays
+
+Before playback, open the Window device settings and assign each output to a screen on your machine. Replace the saved desktop positions and screen indices with your own arrangement.
+
+Use the device's test cards to align the source regions. Double-click a region to edit its perspective transform; use the dashed border controls to adjust edge blending. Adjacent projections need both overlapping source regions and physically aligned images: a soft edge alone cannot repair a misaligned projection.
 
 ## Try it
 
-Open the Window device settings before playback and assign each output to a screen available on your machine. The saved desktop positions and screen indices describe the author's setup, not your projector arrangement. Use the device's test cards to align the source regions. Double-click a region to edit its perspective transform and the dashed border controls to adjust edge blending.
+Start playback and follow a feature of the animated source across the configured outputs. Adjust one region's perspective, then its blend border, comparing geometric continuity with the brightness of the overlap.
 
-Start playback to compare the animated source across the configured outputs. Adjacent projectors need appropriately overlapping source regions and physically aligned images for useful blending. Additional outputs and larger render sizes increase GPU and display-system requirements; the example does not promise unlimited outputs.
-
-No external image or video is required. Window output mapping is independent of Qt Quick 3D; it can also receive the composed texture from the rectangle-mapping example.
+No external media or Qt Quick 3D is required. More outputs and larger render sizes increase GPU and display-system requirements; establish a working alignment at a modest resolution before increasing it.
 
 {% include try-on-web.html %}
 

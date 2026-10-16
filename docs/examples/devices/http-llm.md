@@ -1,7 +1,7 @@
 ---
 layout: default
 title: HTTP chat API and rendered text
-description: "An example showing how to interact with a language model over HTTP"
+description: "Turn a language-model reply into timed visual text, separating the pace of its presentation from the server's response."
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/http-llm.html
@@ -12,13 +12,13 @@ score: /examples/devices/http-llm.score
 
 ![Rendered chat response behind the prompt-string processing nodes and text animation timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-http-llm.png)
 
-This example demonstrates bringing an HTTP service into an interactive score. A local language model answers typed prompts, and the timeline animates the response as text.
+Type a prompt and let a local language model supply text for the screen. When the answer arrives, score reveals it over time. The interaction joins an unpredictable response with a controlled visual rhythm, useful when exploring generated text as performance material rather than simply displaying a chat log.
 
-## Overview
+## Request first, reveal second
 
-The HTTP device handles the conversation, while the visual processes present the question and answer. Keeping those roles separate lets you experiment with how generated text appears without changing the request itself.
+The HTTP device manages prompts and conversation history; the visual processes render the question and answer. The client requests a complete response from the OpenAI-compatible `/v1/chat/completions` endpoint. The gradual appearance of the answer is score's animation, not a stream of arriving tokens.
 
-The client uses the OpenAI-compatible `/v1/chat/completions` endpoint with conversation history. It requests a complete response rather than a token stream; the gradual reveal is an animation in score.
+This separation lets you change how the text is presented without changing the conversation. A slower reveal does not make the server generate more slowly; it changes how the audience encounters the result.
 
 ## Connect a server
 
@@ -29,15 +29,17 @@ The client uses the OpenAI-compatible `/v1/chat/completions` endpoint with conve
 
 ## Try it
 
-Ask a short question, then a follow-up that refers to the previous answer. Clear the history and ask the follow-up again to compare the results. Try changing the ten-second Write On automation: a quick reveal and a slow reveal give the same text a different rhythm.
+Ask a short question, then a follow-up that depends on its answer. Clear the history and repeat the follow-up to compare the context available to the model. Clearing the conversation is a different action from merely asking a new question.
 
-The device also exposes sampling controls, `/chat/finish_reason` and token counts under `/chat/usage`. Its separate `/completion/prompt` request has no conversation history and is not connected to this display.
+Keep the prompt fixed and change the ten-second Write On automation. Compare a quick reveal with a slow one, then try a longer answer: the same reveal duration gives different amounts of text a different reading pace.
+
+Sampling controls are available on the device if you want to vary generation. For diagnosing a reply that stops unexpectedly, inspect `/chat/finish_reason` and the token counts under `/chat/usage`. The separate `/completion/prompt` request has no conversation history and does not feed this display.
 
 ## Requirements and limits
 
-The saved script does not set custom Authorization or Content-Type headers. Use a local server that accepts its requests, or configure a proxy to provide the headers required by your endpoint. It does not authenticate directly to a cloud API. `/health/check` assumes the server provides `/health`.
+The saved script does not set custom Authorization or Content-Type headers. Use a local server that accepts its requests, or configure a proxy to supply the headers your endpoint requires; it cannot authenticate directly to a cloud API. Its health check expects a `/health` endpoint.
 
-The graphics are JavaScript-rendered text textures mixed with a native ISF shader, not a Qt Quick 3D scene. The saved text preset comes from the default library's `Javascript/advanced-text/advanced-text.qml`. No microphone, audio synthesis or external media is involved.
+Text is rendered by the default library's advanced-text JavaScript preset and mixed with a native ISF shader. The patch has no microphone input or speech synthesis: the interaction is typed input and visual output.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

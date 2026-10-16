@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Audio-reactive volume"
-description: "An example showing a fractal volume whose appearance responds to sound."
+description: "Make a raymarched fractal appear denser with sound while its viewpoint slowly orbits."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/audioreactive-volumetric.html
@@ -12,17 +12,15 @@ score: /examples/3d/audioreactive-volumetric.score
 
 ![Green raymarched volume behind the RMS, smoothing, Menger SDF and orbit raymarch processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-audioreactive-volumetric.png)
 
-This example demonstrates a volumetric image that responds to the audio envelope.
+A green fractal volume becomes more or less dense-looking with the audio envelope while the viewpoint slowly orbits. Use this patch to explore a sound-reactive image that changes through the way a volume is viewed, rather than through mesh deformation.
 
-## Overview
-
-A Menger fractal is generated as a three-dimensional texture and viewed with raymarching. Sound changes its apparent density while the viewpoint slowly orbits around it. Unlike a polygon-based object, the image is formed by sampling the volume along each viewing ray.
+A compute shader generates a Menger fractal as a three-dimensional texture. The viewer samples that texture along viewing rays to form the image. Smoothed RMS level drives the viewer's density, while two LFOs drive its viewing angles; the audio does not regenerate the fractal's structure.
 
 ## Try it
 
-Enable an audio input and start playback. Sound changes the apparent density while the view keeps orbiting. Adjust RMS Gain before changing the smoothing Alpha. Compare density changes with the Menger shader's `iters` and `zoom`, which change the volume itself.
+Enable a working audio input, allow microphone access if prompted, and start playback. Adjust RMS Gain until sounds give a useful density range, then change smoothing Alpha to compare quick and lingering responses.
 
-There is no bundled audio file; use a sound-file process as the analysis source if needed. The shaders are saved in the score and require compute-shader support. This is a volume-texture example rather than a Qt Quick 3D scene.
+Change the Menger generator's `iters` or `zoom` separately. These alter the volume being sampled, whereas the audio changes its apparent density in the viewer. No audio file is bundled; connect a sound-file process to RMS if needed. The embedded volume generator requires compute-shader support.
 
 {% include try-on-web.html %}
 

@@ -2,7 +2,7 @@
 layout: default
 
 title: Camera input
-description: "An example showing how to use camera input"
+description: "Make a live camera image change colour, blur and distortion in response to sound."
 
 parent: Video Examples
 grand_parent: Examples
@@ -13,32 +13,25 @@ score: /examples/video/camera.score
 
 # Camera input
 
-![Camera Example]({{ site.img }}/examples/video/camera.png "Camera input in ossia score")
+![Live camera processing with audio-controlled effects]({{ site.img }}/examples/video/camera.png "Camera input in ossia score")
 
-This example demonstrates modifying live video input on the GPU with a simple audio-reactive ISF shader pipeline.
+Keep a performer or installation visitor visible while sound changes the colour, blur and distortion of their live image. Rather than generating an unrelated animation, this patch makes the treatment of the camera feed part of the performance.
 
-## Overview
+## Two kinds of motion
 
-Audio-reactive graphics are a staple of live performance and music visualization.
-This example shows how to analyze audio and use the results to modify video input. Colour, blur and distortion respond to sound, with smoothing for gradual changes and peak detection for sharper accents.
+Audio analysis turns microphone level into controls for the shader pipeline. Smoothing makes some changes gradual; peak detection resets the distortion on sharper accents. Movement in front of the camera changes the source picture, while sound changes what happens to it.
 
-## Live performance
+## Setup
 
-This type of patch is ideal for:
-- VJ performances
-- Concert visuals
-- Interactive installations
-- Music videos
-
-## Inputs and controls
-
-Select an available camera in the Camera device settings and a working audio input in the audio settings. Grant camera permission where required and close applications that hold exclusive access to it. No external movie is needed.
-
-Adjust RMS Gain to suit the input, then compare quick reactions with smoother animation. Peak detection's trigger and reload thresholds determine when the distortion resets.
+Select an available camera in the Camera device settings and a working audio input in the audio settings. Grant camera permission where required and close applications that hold exclusive access to it.
 
 ## Try it
 
-Start playback and make sound while moving in front of the camera. The camera image should remain the source while the audio changes its treatment. If no microphone is available, connect a sound-file process to RMS instead; this does not replace the camera input.
+- Start playback and move silently in front of the camera, then make sound while staying still. Compare changes in the source image with changes in its treatment.
+- Adjust RMS Gain to suit your input, then alter the smoothing to compare abrupt responses with lingering transitions.
+- Change peak detection's trigger and reload thresholds. Try isolated claps followed by sustained sound and observe when the distortion resets.
+
+Without a microphone, connect a sound-file process to RMS. The recording replaces the analysis source, not the camera.
 
 {% include try-on-web.html %}
 

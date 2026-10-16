@@ -2,7 +2,7 @@
 layout: default
 
 title: Timeline and patches
-description: "An example showing the intersection between timeline-based composition and patch-based processing"
+description: "Bring audio effects in and out independently of a sound source, combining a fixed signal path with live timing choices."
 
 parent: Basics
 grand_parent: Examples
@@ -15,22 +15,22 @@ score: /examples/basics/timeline-and-patches.zip
 
 ![Timeline and Patches]({{ site.img }}/examples/basics/timeline-and-patches.png "Combining timeline and patches in ossia score")
 
-This example demonstrates how ossia score combines timeline-based composition with dataflow patching.
+Keep a sound playing while changing which effects are active around it. This score connects audio processing with timeline decisions, so you can compose not only an effect's settings but also when that effect becomes part of the performance.
 
 ## Overview
 
-Audio processes can be chained together using cables while still being organized temporally on a timeline. This hybrid approach lets you sequence sounds, automate effects and decide when each part of a patch runs.
+The first passage keeps a sound and its effects in one interval: they share a lifetime. The second separates the source from two effect intervals, letting you activate and end them independently.
 
-The first part keeps a sound and its effects inside one interval. The second separates the source from two effect intervals, letting you activate them independently. A cable describes a connection, but does not keep a process running outside its interval.
+Cables define where audio can go; intervals determine when the connected processes run. This distinction is useful for a live passage that moves between treatments without restarting its source, or for an installation whose processing changes with its current scene.
 
 ## Try it
 
-Open the ZIP directly in score, configure audio output, and ensure Faust and Airwindows are available. The archive includes the two sound files; their process labels retain older names.
+Open the ZIP directly in score, configure audio output at a low level, and ensure Faust and Airwindows are available. The sounds are included.
 
-- Play the first interval and listen to the automated filtering. Try changing an automation or effect control.
-- Activate `Trigger me first`, then `Then me` to hear the source through the first effect interval.
-- Activate `Finally me` to switch to the second effect interval. End the source and effects separately to explore their lifetimes.
-- Switch between timeline and nodal views: both present the same processes, with emphasis on timing or connections respectively.
+- Play the first interval and alter its filter automation. Listen to a change within the passage while the source and effects remain active together.
+- Activate `Trigger me first`, then `Then me`. Listen for the treatment that appears when the effect interval starts, even though the source already began.
+- Activate `Finally me` to switch to the second effect interval. End the source and effects separately; compare removing the input with ending the processing itself.
+- Switch between timeline and nodal views. Follow one audio connection in nodal view, then find the intervals that govern its source and destination in the timeline.
 
 Use **Ctrl+click** or **Ctrl+drag** in the nodal view to select several processes, then move or copy them together. Cable drags can start from a port's name as well as its circle. See [Editing workflow]({{ site.baseurl }}/reference/editing-workflow.html) for replacement, auto-scrolling and nested paste behavior.
 

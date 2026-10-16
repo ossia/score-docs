@@ -2,7 +2,7 @@
 layout: default
 
 title: Temporal patching (delayed)
-description: "An example showing how to patch audio and messages in time using the delayed mode"
+description: "Let later effect passages revisit earlier source audio, creating staggered transformations of the same material."
 
 parent: Basics
 grand_parent: Examples
@@ -15,19 +15,21 @@ score: /examples/basics/delayed.score
 
 ![Delayed Patching Mode]({{ site.img }}/examples/basics/delayed.png "Delayed temporal patching in ossia score")
 
-This example demonstrates ossia score's "delayed" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times and be delayed according to the time at which the data sources started executing.
+Let a sound return in another form after its original passage has moved on. Here, effects start later than their source but receive earlier source material, creating staggered transformations rather than simply joining the sound currently playing.
 
 ## Overview
 
-One source supplies several effects that start later on the timeline. Delayed cables retain the source material so that each effect can hear it relative to its own start, rather than receiving only what the source is playing now. The result is a staggered temporal effect chain.
+Delayed cables retain the source material and deliver it relative to each effect's start. Moving an effect interval therefore changes when that treatment appears in the composition. This is useful for a sequence of echoes or responses whose entrances you want to compose on the timeline, independently of the source's original lifetime.
 
 ## Try it
 
 Configure audio output and start at a low level. Bytebeat generates the source, so no sound file is needed; Bytebeat, Faust and Airwindows support are required.
 
-Compare the direct sound with the Low, Medium and High effects as they begin. The source stops automatically, but the effects wait for their end triggers. Leave them active to hear the delayed material and tails, then stop them explicitly. Try moving an effect interval to change its offset from the source.
+1. Listen to the direct sound, then to the Low, Medium and High effects as they begin. Follow how earlier material reappears through later treatments.
+2. Let the source stop automatically, but leave the effects active. Listen for the remaining delayed material and tails, then use the effects' end triggers to close the passage.
+3. Move one effect interval farther from the source and replay. Compare the spacing of the entrances: the timeline offset is part of the musical structure, not just an effect parameter.
 
-Compare this with [glutton mode]({{ site.baseurl }}/examples/basics/glutton.html), which processes the currently executing source without replaying its earlier material. Live audio input is optional; if using a microphone, avoid loudspeaker feedback.
+Compare [glutton mode]({{ site.baseurl }}/examples/basics/glutton.html), where a newly active effect receives the currently playing source without replaying its earlier material. Live input is optional; use headphones if adding a microphone to avoid loudspeaker feedback.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

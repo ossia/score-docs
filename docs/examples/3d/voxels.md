@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Deforming a voxel model"
-description: "An example showing how to give a voxel model fluid movement and outlines."
+description: "Bend a block-built model into fluid motion and emphasize its changing shape with outlines."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/voxels.html
@@ -12,19 +12,17 @@ score: /examples/3d/voxels.zip
 
 ![Voxel loader connected through Deform to VoxelMeshRenderer, with an LFO driving the deformation.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-voxels.png)
 
-This example demonstrates animating a voxel model with GPU deformation.
+A block-built model takes on a gentle, fluid movement while coloured outlines emphasize its edges. The contrast between a voxel asset and continuous deformation offers a way to animate a sculptural object without rebuilding it by hand.
 
-## Overview
-
-A small, continuously varying deformation bends the model, while outlines emphasize its shape. Tone mapping controls the final appearance. This is a way to explore how a block-based asset can become more fluid without rebuilding it by hand.
+Voxel loader converts the asset to geometry. A compute shader deforms it under LFO control, then the renderer, outline effect and tone mapping shape the final image. Geometry changes and image treatments remain independently adjustable.
 
 ## Try it
 
-Open the ZIP directly in score. Start playback and compare Deform's amount and radius. Change the loader's Mode to inspect the available geometry representations; point rendering helps reveal differences in generated geometry. Adjust outline colour and opacity separately from Tonemap exposure.
+Open the ZIP directly in score; the voxel model is included. Start playback and vary the LFO's amplitude to change the driven deformation amount, then adjust Deform's radius. Compare outline colour and opacity with Tonemap exposure: the first emphasizes edges, while the second changes the image's brightness.
 
-The archive includes `Files/monu0.vox` and the shader code. The outline effect has no connected camera data in this version, so it is not the same setup as the camera-aware depth examples. Rendering is native, and deformation requires compute-shader support.
+Change the loader's Mode and inspect the result in point rendering to compare its geometry representations. The outline effect has no camera buffer connected in this score, so do not treat it as the camera-aware depth setup used by the other scene examples.
 
-Depth + Color Outlines includes `depth_helpers.glsl`. Install `score-csf-testers` with its `shaderlib/depth` directory and helper file intact; the embedded shader still needs that relative include.
+Use a compute-capable graphics backend. The outline shader is embedded but still includes `depth_helpers.glsl`; install the `csf-examples` shader package with its `shaderlib/depth` directory intact.
 
 {% include try-on-web.html %}
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Heat volume to point cloud"
-description: "An example showing an evolving heat field as a warped point cloud."
+description: "Reveal a moving heat source's lingering field as a warped, orbiting point cloud."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/volumetric-texture-to-points.html
@@ -12,17 +12,15 @@ score: /examples/3d/volumetric-texture-to-points.score
 
 ![Faint warped point cloud above the heat-diffusion, domain-warp, VolumeToVoxels and Model Display processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-volumetric-texture-to-points.png)
 
-This example demonstrates turning a changing volume into a point cloud.
+A moving heat source leaves a field that diffuses and cools over time. Sampling that field as points turns an invisible volume into a spatial trace, useful for exploring how a gesture can linger and spread rather than disappear immediately.
 
-## Overview
-
-A moving heat source leaves an evolving field inside a three-dimensional texture. Noise warps that field, and sampling it as points reveals its shape from an orbiting camera. The example connects volumetric simulation with a more familiar geometry-based view.
+The heat simulation writes a three-dimensional texture. Noise warps that texture before VolumeToVoxels samples it into point geometry, which Model Display views from an orbiting camera. The motion of the source, deformation of the field and motion of the viewpoint are separate parts of the image.
 
 ## Try it
 
-Start playback and change the warp `amount` to distinguish texture deformation from camera motion. In VolumeToVoxels, vary `threshold` to select the visible density, or `resolution` to change sampling density. Use the heat shader's `clear` control to reset its accumulated state.
+Start playback and bring the warp `amount` toward zero to see the underlying heat field. Increase it to compare the distorted form, then vary VolumeToVoxels' `threshold` to reveal different parts of the field.
 
-The volume and shader code are generated or stored in the score; no voxel file is needed. The example requires compute-shader support and renders with native Model Display.
+Change `resolution` to compare coarse and dense sampling; higher values increase the workload. Use the heat shader's `clear` control to reset accumulated state and watch a new trace form. No voxel file is needed, but the simulation and conversion require compute-shader support.
 
 {% include try-on-web.html %}
 

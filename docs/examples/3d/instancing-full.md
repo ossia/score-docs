@@ -1,30 +1,26 @@
 ---
 layout: default
 title: "Native instancing gallery"
-description: "An example comparing moving swarms and regular arrangements of repeated 3D objects."
+description: "Compare orbiting swarms, regular grids and a sequenced lattice made from repeated models."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/instancing-full.html
-score: /examples/3d/instancing-full.score
+score: /examples/3d/instancing-full.zip
 ---
 
 # Native instancing gallery
 
 ![Four rendered instancing views showing orbiting helmets, a helmet grid, a duck grid and a red box lattice.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-instancing-full.png)
 
-This example demonstrates several ways of arranging repeated 3D objects.
+Four views explore repetition as a compositional tool: orbiting helmets, a helmet grid, a duck grid and a changing box lattice. Compare free-moving arrangements with regular structures before choosing one for a larger scene.
 
-## Overview
+Each branch separates a model from the points that place its instances. The branches have their own native scene rendering and tone mapping, then meet in a four-way display. In the box lattice, step sequencers drive the grid's dimensions through smoothing, giving its changes a different rhythm from the orbiting swarm.
 
-Four views compare orbiting helmets, regular grids of helmets and ducks, and an animated lattice of boxes. The same idea of instancing supports both free-moving swarms and orderly structures: change the positions or spacing to reshape the whole composition.
+## Try it
 
-Each view has its own native scene rendering and tone mapping, so the arrangements can be compared side by side. The box lattice changes its dimensions over time, using smoothing to soften the sequenced changes. This example does not use Qt Quick 3D.
+Open the ZIP directly in score; the required models are included. Start playback and change the orbit radius, then a grid's spacing. One expands a moving arrangement, while the other changes the intervals between repeated objects.
 
-## Files and controls
-
-This download is a loose score. Supply `Models/DamagedHelmet.glb`, `Models/Duck.glb` and `Models/Box.glb` relative to the project, or select your copies in the Asset file controls. The shaders are stored in the document.
-
-Start playback after resolving the model paths. Change the orbit radius or grid spacing and compare their effects across the four views. For the box branch, edit the sequencer values rather than a grid-count control that is already being driven.
+For the box lattice, edit the sequencer values rather than a grid-count control already being driven. Change smoothing Alpha to compare abrupt and softened transitions between dimensions. The shaders are embedded and the point generators require compute-shader support.
 
 {% include try-on-web.html %}
 

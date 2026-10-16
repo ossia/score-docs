@@ -2,7 +2,7 @@
 layout: default
 
 title: Texture Inlet in Qt Quick 3D
-description: "An example showing how to import a custom texture into a Qt Quick 3D scene"
+description: "Paint a bouncing 3D sphere with a live shader texture inside a Qt Quick 3D scene."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,17 +17,11 @@ score: /examples/3d/js-texture-inlet.score
     <source src="{{ site.img }}/examples/3d/js-texture-inlet.mp4" type="video/mp4">
 </video>
 
-This example shows how to import a dynamically generated texture into a Qt Quick 3D scene using a `TextureInlet`.
+A bouncing, rotating sphere carries a live shader pattern while a red cylinder and moving light give it a simple stage. The useful connection is from a score texture into a QML material: the same approach can put generated images or video onto objects in a scripted scene.
 
-## Overview
+[[ISF Shaders|Kaleidolines]] produces the pattern, and a [[Javascript|JavaScript/QML]] process receives it through a texture inlet. Inside Qt Quick 3D, a Texture uses that inlet's `item` as its `sourceItem`, then supplies the sphere's base-colour map. The image on the object can change independently of the object's motion.
 
-A [[Javascript]] process defines a Qt Quick 3D scene containing a sphere and a cylinder. A shader generates an animated procedural pattern that is routed into the 3D scene via a `Score.TextureInlet`. Inside the QML code, this inlet is used as the `sourceItem` of a `Texture`, which is then applied as the `baseColorMap` of the sphere's `PrincipledMaterial`. An [[LFO]] modulates the directional light rotation.
-
-## Key concepts
-
-- **TextureInlet**: A special inlet type in [[Javascript]] processes that receives a texture from another process in the score. It allows any shader or video output to be used as a texture source inside a Qt Quick 3D scene.
-- **PrincipledMaterial**: Qt Quick 3D's PBR material, here using the incoming texture as its base color map.
-- **Shader-to-3D pipeline**: The Kaleidolines shader output is routed via cable into the 3D scene, demonstrating how 2D shader effects and 3D rendering can be combined.
+The sphere's bounce and rotation are scripted. A separate [[LFO]] controls the directional light and cylinder rotation, giving you another layer of movement to compare with the texture.
 
 ## Wiring the texture
 
@@ -50,15 +44,15 @@ These are the two relevant declarations, not a complete stand-alone scene. `Text
 
 ## Resolution and availability
 
-Use a desktop build with GPU JavaScript and Qt Quick 3D support. The current WebAssembly score build does not execute Javascript processes. If the result is blank, check that the texture source, scene and output are all executing.
+Use a desktop build with GPU JavaScript and Qt Quick 3D support; the current WebAssembly build does not execute JavaScript processes. No model file is needed because the sphere and cylinder are QML primitives. If the image is blank, check that the texture source, scripted scene and output are all executing.
 
-The texture's render resolution is separate from the QML item's logical dimensions. An editor script can set an inlet model's resolution override with `Score.inlet(process, index).renderSize = Qt.size(640, 360)` after looking up the correct texture inlet. Resizing preserves the interactive QML scene; persistent state across save/load still requires the script state API.
+The texture's render resolution is separate from the QML item's logical dimensions. When adapting the patch, change the texture inlet's render resolution rather than expecting a QML item resize to supply more image detail.
 
-To preview an already-rendered outlet in a custom control interface, use `Score.UI.TextureSource` instead. It selects an existing process/port; it does not replace this example's cabled `TextureInlet`.
+To preview an already-rendered outlet in a custom control interface, use `Score.UI.TextureSource` instead. It selects an existing process and port; it does not replace the cabled texture inlet used here.
 
 ## Try it
 
-Start playback and change the Kaleidolines shader controls to see the pattern change on the sphere. Compare this with the rotating light, which changes the shading rather than the image applied to the surface. You can also try another shader or video source as the texture. The sphere and cylinder are QML primitives and need no model file.
+Start playback and change Kaleidolines' controls to alter the pattern on the sphere. Then slow the LFO and compare the light and cylinder movement with the sphere's scripted motion. Finally, replace Kaleidolines with another shader or video source to change the surface image without rebuilding the scene.
 
 {% include try-on-web.html %}
 

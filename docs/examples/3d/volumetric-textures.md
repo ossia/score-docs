@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Volumetric texture viewers"
-description: "An example comparing cross-sections and three-dimensional views of a fractal volume."
+description: "Inspect one fractal volume through cross-sections and raymarched views displayed together."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/volumetric-textures.html
@@ -12,17 +12,15 @@ score: /examples/3d/volumetric-textures.score
 
 ![Mandelbulb volume shown as three grayscale slices and three raymarched views, with their shared generator and Grid connections.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-volumetric-textures.png)
 
-This example demonstrates several ways of viewing a three-dimensional texture.
+Look inside a fractal as well as around it. Three cross-sections and three raymarched views share the same Mandelbulb volume, letting you relate an internal pattern to the larger form that contains it.
 
-## Overview
-
-A Mandelbulb fractal provides the shared volume. Cross-sections reveal its interior one slice at a time, while raymarched views show its shape in depth. Displaying them together makes it possible to relate the slices to the larger structure.
+The generator writes a three-dimensional texture. Slice viewers read individual planes through it, while raymarching viewers sample through its depth or reveal a surface at a chosen threshold. A grid places the results together, so changing the source has a visible effect across all six views.
 
 ## Try it
 
-Start playback and change the Mandelbulb's `power`, `zoom` or iteration count: all views should change because they share the same volume. Then move just one `sliceZ` control to inspect a different cross-section without changing the other views. Compare that slice with the isosurface viewer's `iso` threshold.
+Start playback and change the Mandelbulb's `power` or `zoom`; compare the new structure in the slices and the spatial views. Move just one `sliceZ` control to explore a different cross-section without changing the source.
 
-No mesh or volume file is required. The generator and viewer shaders are stored in the document. Use a graphics backend with compute-shader support; this example works with volume textures rather than a Qt Quick 3D scene.
+Then vary an isosurface viewer's `iso` threshold. This chooses a different boundary within the same field, rather than generating a new volume. No mesh or volume file is required; the embedded generator needs a graphics backend with compute-shader support.
 
 {% include try-on-web.html %}
 

@@ -2,7 +2,7 @@
 layout: default
 
 title: Temporal patching (glutton)
-description: "An example showing how to patch audio and messages in time using the glutton mode"
+description: "Bring effects into a running sound texture so each processes the source as it plays now, rather than replaying earlier material."
 
 parent: Basics
 grand_parent: Examples
@@ -15,19 +15,21 @@ score: /examples/basics/glutton.score
 
 ![Glutton Patching Mode]({{ site.img }}/examples/basics/glutton.png "Glutton temporal patching in ossia score")
 
-This example demonstrates ossia score's "glutton" patching mode, which allows audio, messages, and MIDI to flow between timeline segments executing at various times.
+Build a changing sound texture by bringing effects in after the source has already begun. Each new effect hears the source playing **now**, not a replay from its beginning. This suits a performance in which the sound continues while its treatment changes around it.
 
 ## Overview
 
-An audio source is shared by three effect intervals that begin at different times. Each effect processes the source that is currently playing: the cable does not replay earlier material when a new effect starts. This makes it possible to bring effects into a performance independently of the sound that feeds them.
+One generated source feeds three effect intervals with different start times. In glutton mode, their cables pass the available current signal; starting an effect does not retrieve audio from before that effect was active. The source and the effects can therefore have separate lifetimes without turning each entrance into a restart.
 
 ## Try it
 
 Configure audio output and start playback at a low level. Bytebeat supplies the sound, so no sample file or external controller is needed. The example requires Bytebeat, Faust and Airwindows support.
 
-Listen as the Low, Medium and High effect intervals join the source. Trigger their ends separately to change the combination of effects, then end Source and listen to the remaining tails. All four ends are interactive; their drawn positions do not stop them automatically.
+Listen as the Low, Medium and High effect intervals join the source. End them one at a time and hear which part of the texture disappears. Then replay the score, end Source first, and listen to the remaining tails: stopping the sound's input is different from stopping the effects themselves.
 
-Compare this with the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), where each later effect receives earlier source material. Live input is optional through the saved `audio:/in/main` binding; use headphones if adding a microphone to avoid feedback.
+All four ends are interactive; their drawn positions do not stop them automatically. Leave one effect running longer, then use its end trigger to decide where the passage closes.
+
+Compare the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), where later effects receive earlier source material. Live input is optional through the saved audio input binding; use headphones if adding a microphone to avoid feedback.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

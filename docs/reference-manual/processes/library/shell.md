@@ -35,7 +35,9 @@ Only execute scripts from trusted scores: they run with your user account's file
 
 ## Existing example
 
-The [Shell command example]({{ site.scores }}{{ page.score }}) launches an external application and requires gzdoom to be installed.
+Launch another application at a chosen moment in a performance with the [Shell command example]({{ site.scores }}{{ page.score }}). One command runs when an interval begins; another is attached to a later state. Move the command-bearing interval's start and replay to hear or see the external action occur at a different cue time. Ending the interval does not close the launched application.
+
+**Before playing:** use desktop score and inspect both scripts. The supplied interval script tries ZDoom, then GZDoom with a locally available `doom.wad`; otherwise it attempts a network game through a terminal and has a compiler fallback. Replace these commands with a trusted local application if you only want to explore cue timing. Installing GZDoom alone does not supply the game data, and this script is not a portable, dependency-free example.
 
 {% include try-on-web.html %}
 

@@ -1,35 +1,35 @@
 ---
 layout: default
 title: Multichannel audio and per-channel controls
-description: "An example showing multichannel audio processing and polyphonic effects"
+description: "Give audio channels different resonant delays, then hear what changes when independent signals are combined into a mono or stereo mix."
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/polyphony.html
-score: /examples/audio/polyphony.score
+score: /examples/audio/polyphony.zip
 ---
 
 # Multichannel audio and per-channel controls
 
 ![Multichannel delay and mixer routing with VU meters and a list-valued control branch]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-polyphony.png)
 
-This example demonstrates multichannel audio processing and independent control of each channel. VU meters make it possible to see how sounds are combined, processed separately and reduced to a final mix.
+One control gesture can produce several different resonances when it reaches several audio channels. This score processes a recording and a synthesized tone in parallel, gives their channels different delay times, then combines them into a final mix. It is a useful sketch for layered sound design or an installation that needs channels to remain independently controllable.
 
-## Overview
+## Hear the channels, not just the cable
 
-An effect does not have to be written for multichannel audio to be useful here: score replicates the mono Airwindows effect across the incoming channels. A Faust delay then uses a list of control values to give the channels different delay times.
+An audio cable can carry several channels. The mono Airwindows effect is applied independently to each incoming channel; the Faust delay receives a list of delay values, one per channel. A step sequence changes the whole list together, preserving the relationships between its values.
 
-The sources are a sound file and an expression-generated tone. Despite its `Detuned saws` label, the expression multiplies two sine waves and duplicates the result on two channels. The sound file starts at channel offset 3, leaving earlier channels available for the other source.
+The sound file is placed at a channel offset, leaving earlier channels for the generated tone. VU meters show the channels before and after processing and mixing. Mono mixing combines them, while channel extraction lets you inspect a subset without first collapsing everything.
 
 ## Setup and observation
 
-Relink `Audio/Grand Pianos 06 80 BPM.wav`, or choose another sound file. It is not packaged with this score-only download. The graph also requires Faust, Airwindows and Object filter support.
+Open the ZIP directly in score; the recording is included. Use a build with Faust, Airwindows and Object filter support, and configure audio output. Lower mixer gains before playing: the saved delay feedback is high, and summing channels can produce high levels.
 
-1. Start playback and compare the VU meters before and after the mono mixers. Several channels entering a single inlet are summed channel by channel; Mono mix 8 reduces them to one channel.
-2. Change the Step sequencer values and watch the displayed delay list. Each step produces five related values, with multipliers 1, 2, 4, 8 and 16, so one gesture changes several delay times together.
-3. Try changing those multipliers in Object filter. Compare closely spaced delays with widely separated ones. Keep the list size consistent with the processed channel count if you change the routing.
-4. Use Audio Channel Extractor to examine a smaller group of channels, then compare it with the mono and stereo mixes. Notice what is lost when independent channels are summed.
+1. Compare the VU meters before and after the mono mixers. Channels arriving at the same inlet are combined channel by channel; Mono mix 8 then reduces its inputs to one channel. Watch the level as well as the channel count.
+2. Change the Step sequencer values and watch the delay list. Each value becomes five related values, using multipliers of 1, 2, 4, 8 and 16. Listen for how one change moves several resonances together.
+3. Edit those multipliers in Object filter. Compare closely spaced delays with widely separated ones. Keep the list length matched to the processed channel count if you change the routing.
+4. Compare the Audio Channel Extractor's meters with the mono mix. To audition the extracted channels, route its output to a separate listening path at low gain. This is an adaptation of the saved monitoring branch, not an additional speaker mix already configured.
 
-The saved final Stereo Mixer feeds a VU meter, not the parent audio mix. To listen, enable its output's parent-mix routing or assign it to your audio output. The root interval targets `audio:/out/main`. Lower mixer gains first: summing several channels and using the saved high delay feedback can produce high levels.
+The saved Stereo Mixer sends the combined result to the parent audio mix and a VU meter. Keep channels separate until the point where you deliberately want to combine them; this is the transferable idea if you later route the work to more speakers.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

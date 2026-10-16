@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Audio-reactive point geometry"
-description: "An example showing a 3D point cloud that deforms in response to sound."
+description: "Use sound level to deform a point cloud, with smoothing to shape how quickly it responds."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/audioreactive-geometry.html
@@ -12,17 +12,17 @@ score: /examples/3d/audioreactive-geometry.score
 
 ![RMS and smoothing connected to NoiseField, followed by AddColor and the PointCloud3D renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-audioreactive-geometry.png)
 
-This example demonstrates a 3D point cloud that responds to sound.
+A point cloud expands into noisy deformation as the sound level changes. Smoothing lets the movement follow a gradual envelope rather than jump at every fluctuation, giving you a way to tune the visual response for a concert or sound installation.
 
-## Overview
-
-Audio amplitude controls the strength of a noisy deformation, while slow modulation keeps the shape evolving. Smoothing softens the response so that the cloud can move gradually rather than jump with every change in level. It is a starting point for audio-reactive concert visuals or installations.
+RMS measures the audio input's level. Its smoothed output drives NoiseField's deformation amplitude; separate LFO modulation keeps the noise evolving. A colour stage makes the generated positions visible in the native point-cloud renderer.
 
 ## Try it
 
-Select a working audio input in score's audio settings, start playback and make sound. The point cloud's deformation should respond to the smoothed level, rather than simply following the LFO. Adjust RMS Gain and Gate to suit the input, then change Exp Smoothing Alpha to compare fast and gradual responses.
+Select a working input in score's audio settings, allow microphone access if prompted, and start playback. Make a short sound, then hold a steady one. Adjust RMS Gain and Gate so the deformation responds to the levels you intend to use.
 
-If no microphone is available, use a sound-file process as the analysis source. No audio recording is included. The example uses compute shaders and native rendering; increase `gridSize` cautiously, as it increases the amount of generated geometry.
+Change Exp Smoothing Alpha and compare how quickly the cloud reacts and settles. The slow noise evolution can continue even when the audio response is quiet, so listen and watch for those two sources of motion separately.
+
+No recording is included. If you do not have a microphone, connect a sound-file process to RMS instead. Compute-shader support is required; increase `gridSize` cautiously because it increases the generated geometry.
 
 {% include try-on-web.html %}
 

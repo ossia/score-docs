@@ -1,27 +1,27 @@
 ---
 layout: default
 title: "HDF5 Numeric and Texture Playback"
-description: "Explore changing numbers and images stored in an HDF5 file."
+description: "Scan recorded numbers and images together to explore data-driven visual timing."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
 permalink: /reference/process-examples/hdf5.html
-score: "/reference/processes/hdf5.score"
+score: "/reference/processes/hdf5.zip"
 ---
 
 # HDF5 Numeric and Texture Playback
 
-This example explores two views of time-varying data: a numeric trace and a texture. An LFO scans both datasets together, letting you compare how they change.
+Turn stored data into a changing trace and image, with one control governing where both readers look. This patch is a starting point for exploring recorded measurements or image sequences as material for an installation: playback position becomes something you can animate rather than a fixed march through a file.
 
-**HDF5 Reader** provides the trace and **HDF5 Texture Reader** displays the image in `Window:/`. Both read the external file `<LIBRARY>:packages/mockup_for_JM.h5`.
+An LFO sweeps through the available data. **HDF5 Reader** sends a numeric dataset to a signal display, while **HDF5 Texture Reader** turns another dataset into an image in the Window output. Both receive the same relative position, so you can compare their changes.
 
-The numeric dataset is `/risk_metrics_vars/agg_risk_over_time`; the texture dataset is `/highlevel_NN_vars/param_projections_over_time`. These are paths inside the HDF5 file, not filesystem paths or OSC addresses.
+## Try it
 
-## Requirements and use
+Install the HDF5 add-on, then open the ZIP directly in score. It includes the data file used by both readers. Start playback and open the Window output to compare the moving trace and texture.
 
-Install the HDF5 add-on and supply the external `mockup_for_JM.h5` file, which is not included in this loose score. Update both HDF5 file controls to its location. A different file also requires compatible dataset paths and shapes; merely renaming an arbitrary HDF5 file is not sufficient.
+Slow the LFO to inspect changes more closely. To hold one view still while the other continues, disconnect that reader's Percentage input and set its position manually. The contrast separates changes in the data from changes caused by playback speed.
 
-Start playback to scan both datasets together. The expected result is a changing numeric trace and a changing texture. Disconnect the LFO from a Percentage input to inspect a fixed position manually. Without the external data this remains a reader-routing example, not a self-contained visualization.
+When substituting your own HDF5 file, update each reader's file and dataset Path controls. The numeric and texture readers need compatible dataset shapes; changing the filename alone does not make arbitrary data displayable.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

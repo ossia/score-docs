@@ -1,34 +1,27 @@
 ---
 layout: default
 title: "Four-source Audio Merger"
-description: "Bring four sound sources together while keeping their channels separate."
+description: "Keep four sound sources separate while carrying and monitoring them as one multichannel stream."
 parent: Processes
 grand_parent: Reference
 nav_exclude: true
 permalink: /reference/process-examples/audio-merger.html
-score: "/reference/processes/audio-merger.score"
+score: "/reference/processes/audio-merger.zip"
 ---
 
 # Four-source Audio Merger
 
 ![Four sound waveforms feeding Audio Merger, followed by RMS and four plotted level traces.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-audio-merger.png)
 
-How can several sounds travel together without being mixed down to stereo? This example uses **Audio Merger** to assemble four sample sources into a multichannel stream. An RMS display lets you follow their levels.
+Keep several sounds together without collapsing them into a stereo mix. Here, **Audio Merger** gathers four sample sources into one multichannel stream, while an RMS display shows their activity separately. This is useful when a later stage needs to route, analyse or spatialize each sound independently.
 
-## Requirements
-
-Install the `dirt-samples` library package. The saved sources are:
-
-- `alex/001_drumx2.wav`
-- `fest/000_foo.wav`
-- `flick/002_10.wav`
-- `koy/01_left.wav`
-
-Each path is under `<LIBRARY>:packages/dirt-samples/`. No sample media is bundled with this loose score.
+The merger preserves channels rather than adding their waveforms together. Think of its output as a bundle of signals: the bundle can travel through one cable, but each channel still needs an intentional destination if you want to hear it.
 
 ## Try it
 
-Start playback and watch the RMS trace. Replace or mute one source to see its contribution to the analysis. To audition individual output channels, add an Audio Channel Extractor and explicitly route it to your audio output; do not assume the merger automatically downmixes all channels to stereo. Compare the [channel-extraction example]({{ site.baseurl }}/reference/process-examples/audio-channel-extractor.html).
+Open the ZIP directly in score; the four samples are included. Start playback and watch the level traces. Replace one source and compare which traces change: the other sources remain separate.
+
+To listen, add an **Audio Channel Extractor** after the merger and route the selected channels to your audio output at a low level. Selecting a different range lets you audition another part of the bundle. Do not expect the merger to downmix every source automatically to stereo; compare the [channel-extraction example]({{ site.baseurl }}/reference/process-examples/audio-channel-extractor.html).
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

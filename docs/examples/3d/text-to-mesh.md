@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Text to deformed mesh"
-description: "An example showing how to turn text into an animated 3D shape."
+description: "Extrude a word into a coloured sculpture and warp its letterforms on the GPU."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/text-to-mesh.html
@@ -12,17 +12,15 @@ score: /examples/3d/text-to-mesh.score
 
 ![The extruded word sierra rendered in bright triangular colours above the deformation and rendering patch.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-text-to-mesh.png)
 
-This example demonstrates turning text into animated 3D geometry.
+Turn a word into a sculptural form that can twist and change colour, rather than remain a flat caption. The saved word, “sierra”, is extruded into geometry; deformation and per-vertex colour then give its letters a more abstract appearance.
 
-## Overview
-
-The word `sierra` is extruded into a solid shape, then warped and coloured on the GPU. Text becomes material for a visual composition rather than a flat caption: its typeface, depth and deformation all contribute to the result.
+Text to Mesh supplies the shape to the native scene pipeline. After scene preprocessing, compute shaders deform and colour the geometry before rendering. Typeface and extrusion change the starting form; the deformation changes what happens to that form.
 
 ## Try it
 
-Start playback and replace the Text value with a short word. Adjust Height to change the extrusion, then Deform's amount and radius to compare the undeformed and warped outlines. The font available on your machine can affect glyph shapes.
+Replace Text with a short word and start playback. Vary Height to compare thin lettering with a deep extrusion. Then bring Deform's amount toward zero to recover the original outlines, and change its radius to compare how the warp reaches across the word.
 
-No external model is required. The deformation and colour shaders are stored in the document; use a graphics backend with compute support. The unrelated bit-glitch volume generator in the score is not used for the displayed text. Rendering uses the native scene pipeline.
+No external model is needed. Font availability can affect glyph shapes, and the saved deformation and colour shaders require a graphics backend with compute support.
 
 {% include try-on-web.html %}
 

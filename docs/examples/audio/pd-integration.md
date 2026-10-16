@@ -2,38 +2,36 @@
 layout: default
 
 title: PureData Example
-description: "An example showing how to use PureData patches within ossia score"
+description: "Compose a shifting noise texture by automating a Pure Data patch from score's timeline."
 
 parent: Audio
 grand_parent: Examples
 
 permalink: /examples/audio/pd-integration.html
-score: /examples/audio/puredata.score
+score: /examples/audio/puredata.zip
 ---
 
 # PureData Integration
 
-![PureData Integration Example]({{ site.img }}/examples/audio/puredata.png "PureData patch running in ossia score")
+![Automation curves shaping a Pure Data noise generator and its lowpass filter]({{ site.img }}/examples/audio/puredata.png "PureData patch running in ossia score")
 
-This example demonstrates how to integrate PureData (Pd) patches into ossia score projects.
+Build a passage from noise rather than notes: rough, fine and darker textures can rise and recede as separate layers. Here, timeline curves shape a Pure Data sound generator, turning an existing patch into material that can be arranged alongside the rest of a performance.
 
-## Overview
+## From patch to passage
 
-PureData is a visual programming language for audio and multimedia. ossia score can load and run Pd patches, allowing you to combine Pd's synthesis and processing capabilities with score's timeline and control features.
+The `noisebank` patch generates the sound. Automation changes four of its texture controls, while a separate lowpass curve reveals or softens the higher-frequency detail. The division is useful when adapting your own Pd work: keep sound generation in Pd and compose its larger gestures in score. This example controls parameters, not MIDI notes.
 
-Here, the `noisebank` patch creates a changing noise texture. Automations shape its controls over time, showing how an existing sound generator can become part of a larger composition. This example controls the patch's parameters rather than sending it MIDI.
+## Setup
 
-## Requirements
-
-Use a score build with the Pure Data process available. The document references `<LIBRARY>:packages/default/Presets/PureData/noisebank.pd`; this separate patch must be present in the user library. The `.score` download does not bundle it. Installing the Pure Data application is useful for opening its external editor, but the embedded process also needs score's own Pd support.
+Open the ZIP directly in a score build with Pure Data support; the Pd patch is included. The Pure Data application is only needed if you want to open its external editor. Configure audio output and start at a low level.
 
 ## Try it
 
-1. Configure audio output and start playback at a low level. After the initial two-second interval, `noisebank` starts.
-2. Compare the automation curves for white, dark, fizzle and crk with the changing noise texture. Edit one curve at a time to hear what each control contributes.
-3. Change the lowpass automation to reveal or soften the higher-frequency detail. Compare a gradual change with a sudden jump.
-4. Use the interval's end trigger to stop the patch. Its nominal 17-second endpoint is interactive, not an automatic stop.
-5. If Pure Data is installed, use **Open external window** to inspect or edit `noisebank.pd`. This is also a starting point for bringing your own Pd sound generators into a timeline.
+1. Start playback. After the initial two-second interval, listen to the noise texture while following the curves for white, dark, fizzle and crk.
+2. Edit one curve at a time. Compare a slow increase with short bursts to hear how the same noise layer can behave as a background or an accent.
+3. Reshape the lowpass automation without changing the noise controls. Listen to the difference between changing the texture itself and filtering the combined sound.
+4. Use the interval's end trigger to stop the patch. Its drawn 17-second endpoint is interactive, so you can hold the passage rather than accepting a fixed ending.
+5. With Pure Data installed, choose **Open external window** to inspect or edit `noisebank.pd`. For an adaptation, expose controls in your own Pd generator and shape them with the same timeline approach.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

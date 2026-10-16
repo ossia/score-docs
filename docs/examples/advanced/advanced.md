@@ -2,7 +2,7 @@
 layout: default
 
 title: Advanced
-description: "Advanced examples demonstrating specialized features of ossia score"
+description: "Explore live code, image disruption, data-driven sound and visual performance structures."
 
 parent: Examples
 has_children: true
@@ -12,17 +12,20 @@ permalink: /examples/advanced
 
 # Advanced Examples
 
-Use this category as a route into specialized workflows. The [multi-media patching example]({{ site.baseurl }}/examples/basics/all-media.html), filed under Basics, introduces connections between audio, MIDI, textures and geometry.
+Choose a technique here when you want to change how a work behaves, not only replace its source material: disrupt a live image, perform by changing code, hear a dataset or switch whole treatments on musical boundaries.
 
-For programmable processing, see [JavaScript / QML]({{ site.baseurl }}/processes/javascript.html), [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html), [Expressions]({{ site.baseurl }}/processes/exprtk.html), and [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html). [Classifier]({{ site.baseurl }}/processes/classifier.html) and [Regressor]({{ site.baseurl }}/processes/regressor.html) describe machine-learning workflows and their requirements.
+If connecting different media is still new, begin with [Multi-media patching]({{ site.baseurl }}/examples/basics/all-media.html). It connects sound analysis, MIDI and automation to a textured 3D image and is filed under Basics.
 
-## Example patches
+## Start with an artistic question
 
-- [CPU data bending]({{ site.baseurl }}/examples/advanced/cpu-data-bending.html): compare Bendage effects on camera input.
-- [GPU data bending]({{ site.baseurl }}/examples/advanced/gpu-data-bending.html): compare sorting, feedback and optical-flow shaders.
-- [Livecoding processes]({{ site.baseurl }}/examples/advanced/livecoding.html): edit JavaScript, GLSL and a custom interface during playback.
-- [Switch audio and video pipelines]({{ site.baseurl }}/examples/advanced/pipeline-switching.html): use address-driven scenario conditions to select effects.
-- [Data visualization and sonification]({{ site.baseurl }}/examples/advanced/data-visualization.html): route imported data through statistics, native GPU rendering and audio.
-- [Files, strings and serialization]({{ site.baseurl }}/examples/advanced/files-and-strings.html): read bundled files, transform text, and inspect serialization round trips.
+- **How can a camera image lose its stability?** Compare [CPU data bending]({{ site.baseurl }}/examples/advanced/cpu-data-bending.html), with three distressed views beside the original, and [GPU data bending]({{ site.baseurl }}/examples/advanced/gpu-data-bending.html), where motion, sorting and retained images become visual material.
+- **Can the rules change during the performance?** [Livecoding processes]({{ site.baseurl }}/examples/advanced/livecoding.html) lets you edit a signal, a shader image and a custom interface while their sections run.
+- **How can a piece change treatment without stopping?** [Switch audio and video pipelines]({{ site.baseurl }}/examples/advanced/pipeline-switching.html) alternates effects at musical boundaries while their sources continue.
+- **What does a dataset reveal by eye and ear?** [Data visualization and sonification]({{ site.baseurl }}/examples/advanced/data-visualization.html) turns one curve into a growing point history and synthesized sound.
+- **How can text and gestures become reusable material?** [Files, strings and serialization]({{ site.baseurl }}/examples/advanced/files-and-strings.html) paces text, transforms it, and records device values for replay.
 
-For smaller control graphs, see [Data processing]({{ site.baseurl }}/examples/data). For camera models and their downstream mappings, see [AI and tracking]({{ site.baseurl }}/examples/ai).
+## Take a technique further
+
+For programmable processing, see [JavaScript / QML]({{ site.baseurl }}/processes/javascript.html), [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html), [Expressions]({{ site.baseurl }}/processes/exprtk.html) and [Compute Shaders]({{ site.baseurl }}/processes/compute-shaders.html). [Classifier]({{ site.baseurl }}/processes/classifier.html) and [Regressor]({{ site.baseurl }}/processes/regressor.html) cover learned mappings and their requirements.
+
+For smaller control graphs, visit [Data processing]({{ site.baseurl }}/examples/data). For camera-based recognition and ways to use its results, see [AI and tracking]({{ site.baseurl }}/examples/ai).

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Layered analog-style effects"
-description: "An example showing layered analog-style visuals made from procedural images."
+description: "Mix distressed procedural patterns with glowing highlights and recirculating image history."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/analog-effects.html
@@ -10,19 +10,21 @@ score: /examples/video/analog-effects.score
 
 # Layered analog-style effects
 
-This example demonstrates building layered, analog-style visuals from procedural images.
+Build a moving image that shifts between clean patterns, glowing highlights and distressed video textures. Two procedural sources receive different treatments, letting you explore an analog-style visual vocabulary without starting from camera footage.
 
-## Overview
+## Fresh patterns and image history
 
-Blur, film grain, pixel sorting and VHS distortion give two generated patterns contrasting textures. One treatment explores exposure, glow and tone mapping; the other recirculates earlier images to create an evolving feedback effect.
+One branch shapes exposure, glow and tone mapping; the other sends processed images back into its own history. Blur, grain, pixel sorting and VHS distortion alter the patterns along the way. Smoothed modulation changes the balance between a fresh image and its processed past, and the final mixer combines the two branches.
 
-A smoothed modulation changes the balance between the fresh image and its processed history. Mixing the two treatments lets you move between cleaner patterns and a more heavily distressed result.
+That separation makes the patch useful for developing contrasting visual states: you can work on each treatment independently before bringing them together.
 
 ## Try it
 
-Start playback and isolate each branch with the mixer's alpha controls before changing the effects. Compare Pixel Sort strength with VHS analog distortion; then adjust the smoothed Colour Distance progress to change the feedback's contribution. Keep the delayed feedback cable when rebuilding the loop.
+- Start playback and isolate each branch with the mixer's alpha controls. Compare the treatment of the current pattern with changes that accumulate through feedback.
+- Adjust Pixel Sort strength, then VHS analog distortion, to distinguish rearranged pixels from video-like instability.
+- Change the smoothed Colour Distance progress to alter the feedback contribution. Watch several frames before judging the result: recirculation makes a change develop over time.
 
-All sources and shader code are stored in the score; no movie file is required. HDR Exposure and Tonemap process the generated image and do not require an external HDR movie.
+No movie is required, including for HDR Exposure and Tonemap. Preserve the delayed feedback cable when adapting the loop so that it uses an earlier frame rather than an immediate cycle.
 
 {% include try-on-web.html %}
 

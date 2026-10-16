@@ -2,7 +2,7 @@
 layout: default
 
 title: Basic timeline
-description: "A basic example showing time-based composition with audio files and effects"
+description: "Arrange a short sound composition, then let performer-triggered endings, branches and loops reshape its timing."
 
 parent: Basics
 grand_parent: Examples
@@ -15,22 +15,22 @@ score: /examples/basics/timeflo.zip
 
 ![Basic Timeline]({{ site.img }}/examples/basics/timeflo.png "Timeline-based composition in ossia score")
 
-This example demonstrates fundamental timeline-based composition in ossia score, combining audio file playback with effects processing.
+Build a sound composition that can pause for a performer rather than following a fixed playhead from beginning to end. Audio clips and automated reverb establish the material; interactive endings, parallel branches and a loop let you decide how the piece moves through it.
 
 ## Overview
 
-The score shows how to arrange audio clips on a timeline, apply effects, and create basic temporal structures with the scenario system. Alongside the linear arrangement, interactive endings let you decide when to move on, a condition selects a branch, and a loop returns to an earlier part of the composition.
+An interval gives a sound or effect a period of activity. Some intervals run for a fixed duration; others wait for you to end them. A following passage starts from that actual ending, so taking more time in one passage changes the timing of what follows.
 
-Intervals are the basic building blocks: they contain processes, can play automatically or wait for interaction, and can be nested inside scenarios. Their drawn duration is not always their actual duration during playback.
+This is useful when a sound sequence must accompany an action whose duration varies each time. The parallel branches also let one part continue while another waits, rather than making the whole composition pause together.
 
 ## Try it
 
-Open the ZIP directly in score and configure audio output. The audio files are bundled; some process labels retain older filenames. Faust support is needed for the reverb. The patch credits the OLPC sample pack and Mike DiMattia.
+Open the ZIP directly in score and configure audio output at a low level. The audio is included; Faust support is needed for the reverb. The patch credits the OLPC sample pack and Mike DiMattia.
 
-- Move intervals to rearrange the composition, or replace a sound file with one of your own.
-- Adjust the reverb automation and listen to how the sound changes over time.
-- Use the end triggers to continue through the waiting intervals. The parallel branches can progress independently.
-- Change B's false condition to include the otherwise inactive branch, then try the shared end trigger and watch the loop return to an earlier time sync.
+- Play the arrangement once, then change the reverb automation. Listen for where the space opens up or becomes drier within a sound.
+- Hold a waiting interval longer before using its end trigger. Notice which following sounds move with that decision and which parallel activity continues independently.
+- Change B's false condition to include the otherwise inactive branch. Try the shared end trigger and watch the loop return to an earlier time sync: a condition chooses participation, while a trigger chooses when to continue.
+- Replace one sound with your own, then adjust its interval to make room for the new material. Compare a fixed ending with one you can release by hand.
 
 Use the final drum end trigger or Stop when finished.
 

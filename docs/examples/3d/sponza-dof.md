@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Native Sponza with depth of field"
-description: "An example exploring depth of field and changing light in an architectural scene."
+description: "Move through a lit atrium while animated depth of field shifts attention between foreground and distance."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/sponza-dof.html
@@ -10,19 +10,17 @@ score: /examples/3d/sponza-dof.zip
 
 # Native Sponza with depth of field
 
-This example demonstrates depth of field in an architectural scene.
+Walk through the Sponza atrium while focus moves between nearby detail and the architecture beyond it. A helmet in the foreground makes the shift easy to compare, and moving coloured light changes the mood of the same space.
 
-## Overview
-
-The Sponza atrium and a helmet model provide foreground and background detail for exploring focus. Moving lights, an environment sky and subtle depth-based shading add to the scene, while an animated focus distance moves the sharpest area through the image. Both depth effects use the scene's camera data to interpret distance correctly.
+The native scene pipeline combines the models, lights, camera and environment sky. Depth-based shading adds local contrast before depth of field blurs regions away from the focus distance. Both effects read the scene's camera data; a slow modulation moves the focus through the scene.
 
 ## Try it
 
-Open the ZIP directly in score. It includes `Models/sponza.glb`, `Models/DamagedHelmet.glb` and `Images/IndoorEnvironmentHDRI012.png`. The cubemap loader reads the PNG as an equirectangular environment at resolution 1024. Unlike the separate Qt Quick 3D Sponza example, this project uses native scene objects.
+Open the ZIP directly in score; both models and the environment image are included. Start playback and focus the output window. Use WASD to move, the arrow keys to look around, Shift to move up and Control to move down.
 
-Start playback and focus the output window. Use WASD to move, the arrow keys to look around, Shift to move up and Control to move down. A slow modulation changes focusDepth; edit or disconnect it before choosing a fixed focus. Compare focusRange and blurAmount while moving past the helmet, then explore how the animated lighting changes its appearance.
+Edit or disconnect the modulation of `focusDepth` before choosing a fixed focus. Move past the helmet and compare `focusRange` with `blurAmount`: one changes the range that stays sharp, while the other changes the blur outside it. Then watch how the moving light affects the same view.
 
-The model and environment files are bundled, and the shaders and camera script are stored in the score. The depth shaders also need `depth_helpers.glsl`: install the `score-csf-testers` package with its `shaderlib/depth` directory intact.
+Unlike the separate Qt Quick 3D Sponza example, this uses native scene objects and an equirectangular PNG environment. The camera script and shaders are embedded, but the depth effects still include `depth_helpers.glsl`; install the `csf-examples` package with its `shaderlib/depth` directory intact.
 
 {% include try-on-web.html %}
 

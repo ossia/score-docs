@@ -1,30 +1,26 @@
 ---
 layout: default
 title: "Voxels with procedural sky"
-description: "An example showing a voxel model against a procedural sky with volumetric clouds."
+description: "Place a voxel sculpture beneath moving volumetric clouds and shape it with depth-based lighting."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/voxel-loader-and-sky.html
-score: /examples/3d/voxel-loader-and-sky.score
+score: /examples/3d/voxel-loader-and-sky.zip
 ---
 
 # Voxels with procedural sky
 
-This example demonstrates placing a voxel model in a procedural sky.
+A voxel model sits beneath a changing sky, with volumetric clouds above it and depth-based lighting giving the foreground shape. This patch is useful for building a layered environment around a small imported sculpture.
 
-## Overview
+The clouds come from a generated volume, while the model is rendered as geometry. Depth keeps the sky behind the foreground in score's reverse-Z rendering system. Depth-based shadows, shading and a moving light treatment add detail before bloom, grain and chromatic aberration finish the image.
 
-Volumetric clouds provide a changing backdrop, while depth-based shadows, lighting and outlines help shape the foreground. Bloom, grain and chromatic aberration finish the image. The sky is kept behind the model using depth in score's reverse-Z rendering system.
+The sky and depth effects need the same viewpoint as the voxel renderer. Shared Eye and Target controls drive both paths; keep them aligned when adapting the composition.
 
-The sky and depth effects need camera data consistent with the voxel renderer. When adapting the example, keep their Eye and Target settings aligned so that the layers describe the same viewpoint.
+## Try it
 
-## Files and controls
+Open the ZIP directly in score; the voxel model is included. Start playback and vary the cloud settings before adjusting the depth-effect strengths. Compare these with Bloom so you can distinguish a change in sky structure or surface shading from a glow added to the finished image.
 
-Supply `Files/Can Models(Nabeel).vox` relative to the project, or change Voxel file to your own supported voxel asset: the download is a loose score, not a bundled model archive. Compute and post-processing shader code is saved in the document, with source references to `score-csf-testers` and the default shader package.
-
-The depth effects also include `depth_helpers.glsl`; keep the `score-csf-testers/shaderlib/depth` directory installed with that shared helper. Embedded shader text alone does not replace its external include.
-
-Start playback after resolving the voxel file. Adjust the voxel loader's transform to frame a replacement model. Compare cloud settings, depth-effect strengths and Bloom separately before combining them. The example uses native rendering and requires compute-shader support.
+To use your own supported voxel asset, select it in Voxel file and adjust the loader's transform to frame it. Compute-shader support is required. The depth shaders also include `depth_helpers.glsl`: install the `csf-examples` package with its `shaderlib/depth` directory intact, even though the main shader code is stored in the score.
 
 {% include try-on-web.html %}
 
