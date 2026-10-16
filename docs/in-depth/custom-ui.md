@@ -2,7 +2,7 @@
 layout: default
 
 title: Custom UI
-description: "How to create custom UIs for your scores"
+description: "Build focused QML controls and readouts for operating a score in performance or an installation."
 
 parent: In depth
 
@@ -114,21 +114,25 @@ The process and texture outlet must exist, and GPU JavaScript support must be co
 
 ## Basic example
 
-This example will create a basic UI which interoperates with the following score: [download it here]({{ site.scores }}{{ page.score }}).
+Give a performer a small control panel instead of the full score editor. This example pairs a shader-zoom dial with live numerical readouts and a second dial for an external OSC destination. It shows how a custom interface can expose just the controls and feedback needed to operate a piece.
+
+[Download the example score]({{ site.scores }}{{ page.score }}).
 
 {% include try-on-web.html %}
 
-Save the content of the QML file below as custom-ui.qml and run with: 
+Save the QML below as `custom-ui.qml` beside the downloaded score, then launch:
 
 ```
 $ ./score --ui custom-ui.qml custom-ui.score
 ```
 
-You should see the following display:
+The interface starts playback automatically. Open the score's Window output and turn the first dial to change the shader's zoom. The labels read a changing LFO amplitude, a monitored output value and a device address, so you can compare direct control with feedback from the running score.
 
-![Custom UI example]({{ site.img }}/in-depth/custom-ui.gif)
+![Custom control panel with dials and live value readouts.]({{ site.img }}/in-depth/custom-ui.gif)
 
-The first dial controls a parameter of an ISF shader. The last dial sends messages to the OSC address `/bar` on port 9996.
+The last dial writes to `OSC:/bar`, configured to send to a receiver on the local machine at UDP port 9996. Use an OSC monitor or another application listening on that port to observe it; the dial does not control the shader. No OSC receiver is needed for the shader and local readouts. Change the device's destination if your receiver is elsewhere, and allow local UDP traffic if required.
+
+In the QML, `PortSource` connects a widget to a named process control, while `AddressSource` connects it to the device explorer. The names and addresses below match the downloadable score. When adapting the panel, change the bindings to match your own processes and devices rather than just relabelling the widgets.
 
 ```qml
 import QtQuick
@@ -145,7 +149,7 @@ Rectangle {
     Label { text: "Operating a control:" }
     Dial {
       UI.PortSource on value {
-        process: "52.39"
+        process: "some_shader"
         port: 1
       }
     }

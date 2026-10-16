@@ -2,7 +2,7 @@
 layout: default
 
 title: Smoothing and filtering
-description: "An example showing how to smooth data"
+description: "Compare how filters steady a noisy control signal, how much response they sacrifice, and how calibration fits the result to a useful range."
 
 parent: Automation
 grand_parent: Examples
@@ -13,23 +13,23 @@ score: /examples/automation/smoothing-and-filtering.score
 
 # Smoothing and filtering
 
-![Smoothing]({{ site.img }}/examples/automation/smoothing-and-filtering.png "Smoothing and filtering")
+![Raw and filtered control curves beside calibrated value displays]({{ site.img }}/examples/automation/smoothing-and-filtering.png "Smoothing and filtering")
 
-This example demonstrates how to turn noisy, uncontrolled data into data that is easier to use for mappings.
+A responsive instrument should follow an intentional gesture without amplifying every small fluctuation. Here, several displays show the same noisy signal with different amounts of smoothing. Compare how much motion disappears and how much delay the filtering introduces before using the technique with a sensor or controller.
 
-## Overview
+## Steadiness and range are different decisions
 
-Smoothing can make a sensor or controller feel steadier, but too much smoothing also delays its response. Here, generated noise stands in for a live input so you can compare several filters without connecting hardware. Signal and Value displays show the raw input, a One Euro filter, exponential averages and a calibrated result.
+Generated noise stands in for live input. Parallel filters let you compare the raw signal with a One Euro filter and three exponential averages. A separate calibration stage takes the One Euro result and adapts it to an output range. Smoothing changes how the signal moves; calibration changes the range it occupies.
 
 ## Compare the results
 
-1. Start playback in nodal view. No external sensor, media file or audio output is required: the noisy input is generated in the patch.
-2. Compare the raw Signal display with the three Exp Smoothing displays. Their saved Alpha values are 0.5, 0.3 and 0.01; lower Alpha smooths more strongly and responds more slowly.
-3. Adjust Smooth's One Euro settings while comparing its display with the raw input. Look for a balance between following larger changes and suppressing rapid fluctuations.
-4. Compare the calibrated displays with the unscaled smoothed values. Change Calibrator's output Range to see how the same movement can be adapted to a parameter with a different usable range.
-5. Change a noise parameter and use Calibrator's Reset to observe it learning the changed input range.
+1. Start playback in nodal view. The example needs no sensor, media or audio output: the result is visible in the Signal and Value displays.
+2. Compare the three Exp Smoothing curves with the raw input. Their Alpha values are 0.5, 0.3 and 0.01. Lower Alpha removes more rapid variation but follows changes more slowly. Choose which balance would suit a sustained lighting fade and which would suit a quick gesture.
+3. Adjust Smooth's One Euro settings while watching its curve beside the raw signal. Look for a setting that suppresses small fluctuations without losing larger changes you want to retain.
+4. Change Calibrator's output Range and compare the numeric values before and after it. The movement can stay recognizable while being fitted to a destination's usable limits.
+5. Change a noise parameter, then press Calibrator's Reset. Watch the calibrated result as it learns the changed input range instead of assuming the old range still applies.
 
-Smoothing reduces rapid variation; calibration adapts the range. They are separate stages in this example, rather than two names for the same operation.
+To adapt this to an installation, replace the generated noise with your sensor data and compare the raw and filtered paths before connecting the final control. The saved score does not control a sound or light; its displays help you make that mapping decision.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

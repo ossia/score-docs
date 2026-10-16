@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Generate LED arrays with expressions
-description: "Create LED colour patterns with mathematical expressions."
+description: "Compose an LED strip from differently phased numerical patterns, without rendering textures."
 parent: LED design
 grand_parent: Common practices
 nav_exclude: true
@@ -13,7 +13,7 @@ score: /common-practices/led-design/led-with-arrays.score
 
 ![R, G and B array generators passing through Array tools into Array Combiner and a final reshaping stage.]({{ site.baseurl }}/assets/scores/thumbnails/common-practices-led-design-led-with-arrays.png)
 
-This example creates moving LED colours from numbers alone. Three expressions produce changing arrays, which are combined and reshaped into a colour pattern without using images or shaders.
+Create a changing colour strip from numbers rather than images. Three sine expressions produce related patterns with different phases and lengths; joining them makes a sequence whose sections develop differently over time. This is useful when you want lighting behaviour to come directly from a rhythm or computation, without a shader-rendering stage.
 
 [Download the example]({{ site.baseurl }}/assets/scores/common-practices/led-design/led-with-arrays.score)
 
@@ -21,10 +21,10 @@ This example creates moving LED colours from numbers alone. Three expressions pr
 
 ## Try it
 
-Start playback and inspect the three **Arraygen** processes named R, G and B. Their sine expressions use different phase offsets and generate arrays of different lengths. **Array tool** reshapes the values before and after they are joined, and **LED View** previews the result in RGB mode.
+Start playback and watch **LED View**. Each **Arraygen** calculates values from time and position in its list, while the **Array tool** stages provide places to reshape the values before and after joining.
 
-Despite the generator names, Append does not interleave three equal-sized red, green and blue planes. The saved patch concatenates differently sized arrays and LED View consumes consecutive triples as RGB pixels. Change the expressions' phase offsets or generator sizes to see the resulting color pattern; use a suitable combining/reordering operation if you want one separate plane per color channel.
+Change a phase offset in one expression and compare how its section changes relative to the others. Then increase that generator's Size by three: it contributes one more complete RGB triple to the sequence. The generator names R, G and B can be misleading here: **Array Combiner** is in Append mode, joining whole lists end to end, and the preview reads each consecutive triple as a pixel. The generators do not independently control red, green and blue.
 
-The sine expressions can produce negative values. Before sending the list to hardware, adapt the mapping or Array tool clamping to the receiver's legal range and ensure the final length is a multiple of three.
+To explore that alternative, give all three generators the same Size and switch to Intersperse. Each pixel can then take one value from each generator. This changes the relationship between the expressions and the colours, not just the strip's length.
 
-No devices, textures or media files are required for the numerical effect. The document only previews the array; it does not transmit to LEDs. See [LED design]({{ site.baseurl }}/common-practices/13-led-design.html) for device-side setup.
+The expressions can produce negative values. Before adapting the patch for hardware, map or clamp them to the receiver's legal range and keep the final array aligned to complete RGB triples. This score only previews the values; it does not transmit to LEDs. See [LED design]({{ site.baseurl }}/common-practices/13-led-design.html) for device-side setup.

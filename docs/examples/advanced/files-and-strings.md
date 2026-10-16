@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Files, strings and serialization
-description: "An example showing how to read, transform and record text and data"
+description: "Turn timed text into control material, exchange structured values, and record gestures for replay."
 parent: Advanced
 grand_parent: Examples
 permalink: /examples/advanced/files-and-strings.html
@@ -10,9 +10,9 @@ score: /examples/advanced/files-and-strings.zip
 
 # Files, strings and serialization
 
-![Object filter, Serialize and Deserialize connected beneath the device recording graph]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-files-and-strings.png)
+![Text and structured-value experiments alongside device recording controls]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-files-and-strings.png)
 
-This example demonstrates working with text files and structured values in score. It brings together small experiments in transforming text, exchanging serialized data and recording device activity.
+Read a text at a musical pace, reshape its words, and capture changing device values for later replay. These small experiments are building blocks for text-based performance and installations that need to remember or exchange control data; the displays let you inspect what each transformation actually produces.
 
 {% include try-on-web.html %}
 
@@ -20,23 +20,25 @@ This example demonstrates working with text files and structured values in score
 
 ## Read and transform text
 
-Open the ZIP directly in score. It includes `fables.txt` and `sample.data`. Use a writable project directory: the Write File process saves transformed lines to `<PROJECT>:output-%t.file`, with the date and time inserted in the filename. Its Write mode replaces the current target file rather than appending to it.
+Open the ZIP directly in score and use a writable project directory. Start playback, then compare two ways of bringing text into a patch:
 
-Start playback and try the two ways of reading a file:
+- Press Read File's **Read** control to load a complete sample. Inspect the data and status outputs together so you can distinguish content from a failed read.
+- Press Read File Line's **Open** control to open the fables. The metronome advances through the text one line at a time; **Rewind** returns to the beginning.
 
-- Press Read File's Read control to load the sample data. Inspect the result and status outputs.
-- Press Read File Line's Open control to open the fables. The metronome advances through the text; Rewind returns to the beginning.
+The line-by-line path turns stored text into a timed sequence. Compare each original line with its split-and-joined version, then change the join separator to see how words can be recombined. The regular-expression branch selects fable headings and captures their Roman numerals; change the pattern to select another feature, using RE2 syntax.
 
-Compare each original line with the transformed text. Try another separator in the split-and-join example, or change the regular expression to select a different part of the text. The saved expression matches fable headings and captures their Roman numerals; the regex engine uses RE2 syntax. A separate conversion demonstrates reading a string as bytes and reconstructing it.
+Write File saves transformed lines in the project directory using a timestamped filename. Its **Write** mode replaces the current target's contents rather than appending a continuous transcript. Choose a new destination if you want to preserve an earlier result.
 
 ## Exchange structured values
 
-Change Vec2f and compare JSON serialization with delimiter-separated text. The JSON example constructs an object, while the text example uses `, ` between components. Keep the serializer and parser delimiters consistent. The object-building example requires the Jk Object filter add-on.
+A pair of changing values can be kept as structured data or encoded as text for another system. Change Vec2f and compare the value before serialization with the reconstructed result. The JSON branch builds an object, while the plain-text branch separates components with `, `; the serializer and parser must agree on that delimiter.
 
-## Record and replay device values
+The object-building branch requires the Jk Object filter add-on. A separate string-to-bytes round trip shows another representation of the same text, useful when preparing data for a byte-oriented connection.
 
-The device example records generated control values for later playback at other addresses. The saved CSV process is in Playback mode, but `recording.csv` is not included.
+## Record and replay gestures
 
-To try it, choose Record mode and the `OSC:/foo.*` pattern, and select a writable file. Then switch to Playback and `OSC:/bar.*` to inspect the replayed values. Avoid overwriting an existing recording you want to keep. Missing playback data does not prevent the independent text-file examples from running.
+The device branch records generated control values, then replays them at different addresses. This separates capturing a gesture from choosing what it will control later.
 
-The OSC device listens on UDP 9997 and sends to `127.0.0.1:9996` if you also want to observe the values in another application.
+The downloadable archive has no recording for the saved CSV Playback mode. To make one, choose **Record**, set the pattern to `OSC:/foo.*`, and select a new writable file. Then switch to **Playback** with `OSC:/bar.*` and inspect the replayed values. Keep any earlier recording you want to retain in a different file.
+
+The text experiments work independently of this recording. To observe device values in another application, the OSC device listens on UDP 9997 and sends to `127.0.0.1:9996`.

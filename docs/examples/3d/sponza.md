@@ -2,7 +2,7 @@
 layout: default
 
 title: Sponza Palace
-description: "An example showing the Sponza architectural scene with environment mapping and animated camera"
+description: "Explore an architectural scene with environment lighting and a slowly wandering camera target."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,28 +17,19 @@ score: /examples/3d/sponza.zip
     <source src="{{ site.img }}/examples/3d/sponza.mp4" type="video/mp4">
 </video>
 
-This example demonstrates loading and rendering the Sponza Palace architectural model with PBR materials, environment mapping, and an animated camera.
+Look around the [Sponza Palace](https://en.wikipedia.org/wiki/Sponza_Palace) atrium as a slowly moving camera target reveals its arches and surfaces. The patch offers a compact way to build an architectural backdrop whose viewpoint can be composed with score's control processes.
 
-## Overview
+A [[Javascript|JavaScript/QML]] scene uses Qt Quick 3D's RuntimeLoader to load the [Sponza glTF-PBR model](https://themaister.net/sponza-gltf-pbr/). An HDR [environment map](https://polyhaven.com/a/resting_place) supplies the skybox and light probe. Three [[LFO]] processes feed a [[Math expressions|mathematical expression]] that changes where the camera looks; Position controls where the camera stands.
 
-The [Sponza Palace](https://en.wikipedia.org/wiki/Sponza_Palace) atrium is a classic test scene in real-time graphics. This example loads a glTF-PBR version of the model using Qt Quick 3D, with an HDR skybox providing realistic ambient lighting and reflections. Three LFOs drive a mathematical expression that smoothly animates the camera look-at target through the scene.
-
-## Key concepts
-
-- **Architectural glTF scene**: The Sponza glTF-PBR model is loaded from a QtQuick 3D script, with full PBR material support.
-- **HDR environment**: A high-dynamic-range `.exr` [environment map](https://polyhaven.com/a/resting_place) is used both as a skybox background and as a light probe for image-based lighting.
-- **Camera animation**: Three [[LFO]] processes feed a [[Math expressions]] node that outputs animated 3D coordinates, controlling where the camera looks in the scene.
-- **Camera controls**: Position sets the camera coordinates, and Look At receives the LFO-driven target.
-
-This score uses QML `RuntimeLoader` from `QtQuick3D.AssetUtils`; it does not use the native Asset Loader or Geometry Loader. Its `.exr` environment is handled by Qt Quick 3D, not the native cubemap loader. See [[3D scene pipeline]] for the native alternative and [[Environments and cubemaps]] for its resource requirements.
-
-Open the ZIP directly in score; its `Images/resting_place_4k.exr` environment is bundled. The model is not included: the 3D model file control points to `<LIBRARY>:packages/sponza-gltf-pbr/sponza.glb`. Install that model package or obtain the [Sponza glTF-PBR model](https://themaister.net/sponza-gltf-pbr/) and select your local `sponza.glb`. Keep its associated resources together.
+This is a Qt Quick 3D scene, not the native Asset Loader pipeline. Its HDR environment is handled by Qt's light probe. See [[3D scene pipeline]] for the native alternative and [[Environments and cubemaps]] before transferring an environment to that renderer.
 
 ## Try it
 
-Start playback after resolving the model path. Change the slow LFOs' phase offsets to explore different camera-target trajectories, or adjust Position to view the atrium from another location. The JavaScript/QML process requires the Qt Quick 3D modules used by its script.
+Open the ZIP directly in score: **the model and environment are both included**. There is no separate Sponza model-package download to resolve.
 
-The saved script's `tick` function still calls `wasd.forceActiveFocus()`, but no `wasd` object is declared. Remove that stale call in the script editor to avoid its reference error; this version does not provide the WASD navigation controller used by the glTF Scene with Effects example. To explore it as saved, use Position and the driven Look At control.
+The saved QML script still calls `wasd.forceActiveFocus()` in `tick`, but declares no `wasd` controller. Remove that call in the script editor to avoid its reference error. This version uses Position and Look At, not WASD navigation.
+
+Start playback and change the slow LFOs' phase offsets to alter the camera-target path. Then adjust Position to compare the same target motion from another location. Use a desktop build with GPU JavaScript and the Qt Quick 3D modules imported by the script, including AssetUtils.
 
 {% include try-on-web.html %}
 

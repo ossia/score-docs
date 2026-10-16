@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Array to triangle mesh"
-description: "An example showing how to animate a triangle mesh with mathematical expressions."
+description: "Compose a pulsing radial sculpture by generating triangle coordinates with an expression."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/array-to-mesh.html
@@ -12,17 +12,15 @@ score: /examples/3d/array-to-mesh.score
 
 ![Magenta radial triangle mesh above its Arraygen, Array to mesh and Render Pipeline processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-array-to-mesh.png)
 
-This example demonstrates generating an animated triangle mesh from a mathematical expression.
+A radial mesh changes shape as playback advances, turning a mathematical expression into an animated sculpture. Use this approach when the positions of vertices are part of the composition, rather than something fixed in an imported model.
 
-## Overview
-
-The expression describes a radial shape whose angle, radius and height change with playback position. It produces complete triangles rather than a model file, making the geometry itself something you can compose and animate.
+Arraygen computes the coordinates; Array to mesh groups them into triangles for a custom native renderer. The expression varies angle, radius and height with playback position. Triangulate is disabled because the expression already supplies complete triangles.
 
 ## Try it
 
-Start playback to see the radial mesh change shape. Edit the Arraygen expression to change its radius or Z displacement. Keep three coordinates per vertex and three vertices per triangle; Triangulate is disabled because the expression already supplies triangles. Then try changing the renderer's colour or camera to compare geometry, shading and viewpoint.
+Start playback, then change the radius term in Arraygen and watch the shape expand or contract. Change its Z displacement separately to give the pattern more or less depth. Keep three coordinates per vertex and three vertices per triangle. Finally, adjust the renderer's colour or camera to distinguish changes in geometry from changes in presentation.
 
-The custom native renderer and expression are stored in the score. No external mesh or texture file is needed.
+The expression and renderer are embedded. No external mesh or texture is needed.
 
 {% include try-on-web.html %}
 

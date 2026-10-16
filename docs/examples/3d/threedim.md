@@ -2,7 +2,7 @@
 layout: default
 
 title: 3D meshes
-description: "An example showing how to texture and animate a built-in 3D mesh."
+description: "Texture a rotating icosahedron and separate surface animation from changes to its shape."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,18 +17,13 @@ score: /examples/3d/threedim.score
     <source src="{{ site.img }}/examples/3d/threedim.mp4" type="video/mp4">
 </video>
 
-This example demonstrates displaying and animating a built-in 3D mesh in ossia score.
+A rotating icosahedron becomes a surface for an animated, pointer-responsive pattern. Start here if you want to combine shape, movement and texture without preparing a model or image file.
 
-## Overview
-
-ossia score can render 3D geometry in real-time, with parameters that can be animated and modulated. Here, an icosahedron rotates under an animated procedural texture. This is a simple starting point for combining shape, movement and shader effects without loading a model file.
-
-The example uses native Model Display rather than a Qt Quick 3D scene.
-
+The primitive supplies geometry to [[Model display]], while the Oblivion shader supplies its texture. An [[LFO]] drives rotation independently: the image on the surface and the object carrying it can move at different speeds. This is direct native mesh rendering, not a Qt Quick 3D scene.
 
 ## Try it
 
-Start playback and change the LFO frequency to alter rotation speed. Move the pointer in the output window: Oblivion reads `Window:/cursor/absolute`. Compare changes to the shader's `iSteps` and `iZoom` with changes to the primitive's Scale. The mesh and texture are procedural, so no external model or image is needed.
+Start playback and slow the LFO to make the rotation easier to follow. Move the pointer in the output window to change the shader pattern. Then compare the shader's `iZoom` with the primitive's Scale: one changes the texture, the other changes the silhouette. Adjust `iSteps` to explore the pattern's detail.
 
 {% include try-on-web.html %}
 

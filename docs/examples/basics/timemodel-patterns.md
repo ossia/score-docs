@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Temporal patterns and synchronization
-description: "An example showing interactive timing and synchronization patterns"
+description: "Rehearse repeatable gestures, conditional participation and rendezvous between independent parts of a performance."
 parent: Basics
 grand_parent: Examples
 permalink: /examples/basics/timemodel-patterns.html
@@ -12,22 +12,22 @@ score: /examples/basics/timemodel-patterns.score
 
 ![Annotated timeline branches comparing false conditions and synchronization joins]({{ site.baseurl }}/assets/scores/thumbnails/examples-basics-timemodel-patterns.png)
 
-This example demonstrates temporal patterns for interactive composition: retriggering a gesture, choosing which events happen together, and waiting for several activities to finish.
+An interactive piece may need to repeat a gesture on demand, let one branch sit out, or wait until several activities are ready. These annotated, silent experiments let you watch those timing decisions before attaching sounds, images or stage actions to them.
 
 ## Overview
 
-The annotated timeline is a collection of independent experiments. It contains no media; the result is visible in the intervals that become active during playback. No external files or devices are needed.
+Each group is an independent experiment; active intervals are the visible result. No media or external device is needed. Use the groups as small structures to reuse in a performance rather than as one continuous composition.
 
-Triggers belong to time syncs, while conditions belong to their events. This distinction lets several events share a moment of interaction without necessarily all taking place.
+A trigger acts on a time sync, while conditions decide which of its events take place. Several branches can therefore share a moment of interaction without all participating. At a join, the state of the incoming branches determines whether the composition can continue together.
 
 ## Try it
 
 Start playback, read the nearby annotations, and use each group's trigger buttons while its time syncs are armed.
 
-- Compare `Auto-trigger` and `No auto-trigger`. Try repeated interactions: auto-retrigger rearms after execution, whereas a default floating trigger alternates between triggering and cancellation.
-- Trigger a time sync containing several events. Compare the unconditional events with the branch whose condition is false.
-- Start both intervals leading to a join, then try ending them before and after their minimum durations. Change the maximum bounds to explore how long the join can wait.
-- Compare joins containing a discarded branch with joins whose predecessor has not yet started.
+- Compare `Auto-trigger` and `No auto-trigger` with repeated interactions. Auto-retrigger rearms after execution; a default floating trigger alternates between triggering and cancellation. Notice which behavior would let a performer repeat one gesture without a separate reset.
+- Trigger a time sync containing several events. Watch which branches start, then change the false condition and repeat. Sharing a trigger need not mean playing every layer.
+- Start both intervals leading to a join. Try ending them before and after their minimum durations, then change the maximum bounds. Observe how the limits change the amount of freedom before the parts must reunite.
+- Compare a join with a discarded branch against one whose predecessor has not yet started. A branch that will not run is different from an activity that has not arrived yet.
 
 The horizontal positions organize the demonstrations; disconnected examples do not automatically run when the transport reaches those positions.
 

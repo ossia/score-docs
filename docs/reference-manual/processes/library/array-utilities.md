@@ -30,7 +30,7 @@ This process combines multiple input arrays in one output array through various 
 
 **CosineSimilarity**, **DotProduct**, **EuclideanDistance**, and **ManhattanDistance** compare the first array against each other array over their common length, producing one result per comparison. Connect this result to Array Best Match to select the closest candidate. **Greater**, **Less**, **GreaterEqual**, and **LessEqual** perform chained element-wise comparisons and return 1 where the relation holds, otherwise 0.
 
-For scalar-to-array routing, see the [Combine and Spread Signals walkthrough]({{ site.baseurl }}/reference/process-examples/combine-spread.html).
+To carry several independent controls in one list and recover them later, open the [Combine and Spread Signals walkthrough]({{ site.baseurl }}/reference/process-examples/combine-spread.html). An oscillator and an automation curve are combined, then separated into two displayed signals. Change the oscillator frequency and watch which recovered signal changes: list position preserves each control's identity.
 
 # Array tool {#tool}  
 
@@ -42,7 +42,7 @@ Array tool transforms a numeric array: learn or set its **Min/Max**, scale with 
 
 **Insert Value**, **From** and **Every** insert a constant at regular output positions, useful for adding an alpha or white channel to pixel data. Every must be greater than 1 to enable insertion. For example, From 3 and Every 4 insert a fourth component after each RGB triple. This differs from **Stride**, which expands existing values using zeros or repeated values. **Erase**, its own From, and Every remove regular groups.
 
-The [Array Tool LED Reshaping walkthrough]({{ site.baseurl }}/reference/process-examples/array-tool.html) includes a downloadable patch for inspecting these transformations.
+Turn a numerical sequence into a visible pixel pattern with the [Array Tool LED Reshaping walkthrough]({{ site.baseurl }}/reference/process-examples/array-tool.html). The patch sends the transformed list to both Value display and LED View, so you can relate the numbers to the colors. Change **Stride** from its saved value of 3 and compare the RGB grouping; no LED hardware is needed.
 
 # Array Best Match {#best-match}
 

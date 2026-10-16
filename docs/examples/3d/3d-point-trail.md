@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "GPU point trail"
-description: "An example showing how to draw a trail from a moving 3D position."
+description: "Draw a three-dimensional gesture by retaining and rendering the recent history of a moving point."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/3d-point-trail.html
@@ -12,17 +12,15 @@ score: /examples/3d/3d-point-trail.score
 
 ![Orange and magenta sphere-splat trail above the XYZ, Trail and SphereSplat process chain.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-3d-point-trail.png)
 
-This example demonstrates drawing a 3D trail from a moving position.
+A moving point leaves a three-dimensional trail, with a bright head and a differently coloured, tapering tail. Instead of showing only where something is now, the image reveals the shape of its recent movement—a useful building block for gesture-driven visuals.
 
-## Overview
-
-A mathematical expression supplies the motion, and a GPU buffer retains its recent history. Sphere splats turn those positions into a visible trail whose head and tail can have different colours and sizes. This is useful for exploring motion over time rather than showing only an object's current position.
+A mathematical expression supplies XYZ positions. Trail appends them to a GPU buffer, and a sphere-splat renderer gives each sample a visible size and colour. The history belongs to the geometry, so the camera can view the trail from another angle.
 
 ## Try it
 
-Start playback and follow the trail as points accumulate. Change `maxParticles` to adjust its history, then compare `trailFade`, `startSize` and `endSize`. The Vec3f process controls the renderer's camera position independently of the trail.
+Start playback and vary `maxParticles` to change how much history the trail retains. Compare `startSize` and `endSize` to make the head-to-tail direction clearer, then toggle `trailFade` to compare fading and unfaded trails. Use Vec3f to change the camera position independently of the path.
 
-No external file or sensor is required. To explore recorded or live motion instead, supply your own three-component position stream to Trail's `point3D` input. No OSC sensor device is preconfigured. This example requires compute-shader support and uses native rendering.
+The saved motion is procedural: no sensor or external file is required. As an adaptation, feed a recorded or live three-component position stream into Trail's `point3D` input; you will need to configure that source yourself. The native rendering chain requires compute-shader support.
 
 {% include try-on-web.html %}
 

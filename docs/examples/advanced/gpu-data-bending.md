@@ -1,7 +1,7 @@
 ---
 layout: default
 title: GPU data bending
-description: "An example showing GPU-based video glitch effects"
+description: "Stretch and retain camera motion with sorting, compression-like glitches and optical-flow distortion."
 parent: Advanced
 grand_parent: Examples
 permalink: /examples/advanced/gpu-data-bending.html
@@ -10,7 +10,7 @@ score: /examples/advanced/gpu-data-bending.score
 
 # GPU data bending
 
-This example demonstrates GPU image distortion with glitch, sorting and feedback shaders. It is a starting point for exploring how motion and retained images can become visual material.
+Make motion linger, smear or break into compression-like artifacts. Five shader treatments appear beside a corrected camera view, letting you compare how each transforms a gesture rather than judging a glitch in isolation.
 
 {% include try-on-web.html %}
 
@@ -18,8 +18,11 @@ This example demonstrates GPU image distortion with glitch, sorting and feedback
 
 ## Try it
 
-Select a working Camera device and start playback. The output places the corrected camera image beside five variations, making it easy to compare sorting, compression-like artifacts and optical-flow distortion.
+Select an available camera in the Camera device settings, grant capture permission where required, and start playback. The camera passes through Color Controls before splitting into the different treatments, giving them a common source.
 
-Move in front of the camera: a moving subject reveals the temporal effects more clearly than a still image. Change FastMosh's update rate, Sorting Smear's adaptation or Optical Flow Distort's amount. Then try changing the LFOs that reset or refresh the effects to alter their rhythm.
+- Move, then hold still. Compare effects that rearrange the current picture with those that retain or distort its recent motion.
+- Change FastMosh's update rate to explore how often fresh imagery replaces retained material.
+- Adjust Sorting Smear's adaptation or Optical Flow Distort's amount and repeat the same gesture. Compare the recognizable camera movement with the distortion it leaves behind.
+- Change the LFOs that reset or refresh effects to alter the rhythm of those changes.
 
-The shader code is embedded in the document and originates from the ISF library. A GPU graphics backend and camera are needed; alternatively connect a video or generator texture to Color Controls. This uses score's native shaders, not Qt Quick 3D.
+Use a GPU graphics backend. The shaders are saved in the score; to work without a camera, connect a movie or generated texture to Color Controls.

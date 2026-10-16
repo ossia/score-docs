@@ -2,7 +2,7 @@
 layout: default
 
 title: Generate Array
-description: "An example showing procedural point cloud generation from mathematical expressions"
+description: "Turn a mathematical sequence into rotating lines with glow and persistent trails."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,34 +17,19 @@ score: /examples/3d/generate-array.score
     <source src="{{ site.img }}/examples/3d/generate-array.mp4" type="video/mp4">
 </video>
 
-This example demonstrates procedural 3D geometry generation by computing an array of values from a mathematical expression and converting it into a renderable point cloud.
+A sequence of numbers becomes a rotating line drawing in space. Glow and a long exposure turn its changing geometry into luminous traces—a useful way to explore mathematical patterns as moving images.
 
-## Overview
+[[Math expressions|Arraygen]] evaluates an expression on the CPU, using `i` for each array element and `pos` for playback position. The 300 resulting values describe 100 XYZ vertices. Array to buffer transfers those values to the GPU, and Pointcloud to mesh makes geometry that [[Model display]] draws in Lines mode.
 
-An [[Math expressions|Arraygen]] process generates arbitrary values. The resulting array is converted to a GPU buffer, then to a point cloud mesh rendered in Lines mode. An [[LFO]] rotates the geometry, and the output passes through bloom and long exposure shaders for a glowing trail effect.
-
-## Key concepts
-
-- **Array Generator**: Computes an array of values from an ExprTK expression each frame, where `i` iterates over the array and `pos` tracks playback position.
-- **Array to Buffer**: Converts a CPU-side array into a GPU buffer suitable for rendering.
-- **Pointcloud to Mesh**: Interprets a GPU buffer as XYZ vertex coordinates and produces renderable geometry.
-- **Element layout**: Keep the array as complete XYZ triples and choose Float32 in Array to buffer for a float-coordinate consumer. See [[Geometry and buffer utilities]] for other supported layouts.
-- **Post-processing**: Bloom adds glow to bright areas, while long exposure creates persistent motion trails through a feedback buffer.
-
-## Data flow
-
-1. [[Math expressions|Arraygen]] evaluates the expression for 300 elements
-2. Array to Buffer sends the data to the GPU
-3. Pointcloud to Mesh builds geometry from the XYZ buffer
-4. A sine warp gradient provides procedural texturing
-5. [[Model display]] renders the geometry in Lines mode
-6. Bloom and long exposure [[ISF Shaders]] are applied as post-processing
+A procedural gradient colours the drawing. An [[LFO]] rotates it, while bloom brightens its highlights and Long Exposure retains earlier images. The visible trail therefore contains previous rendered frames, not additional vertices in the current mesh.
 
 ## Try it
 
-Start playback, then edit the Arraygen expression to explore different point distributions. Its 300 values describe 100 XYZ vertices. Compare changes to LFO frequency with Long Exposure's discharge rate: one changes the movement, while the other changes how long its trail remains visible.
+Start playback and edit the expression to change the distribution of points. Keep complete XYZ triples and the Array to buffer type set to Float32; see [[Geometry and buffer utilities]] if you change the layout.
 
-No external file is required. This is native Model Display rendering, not Qt Quick 3D. The saved Window uses an HDR swapchain format; use a compatible HDR output or change the Window format and adapt the final image for an SDR display.
+Slow the LFO, then vary Long Exposure's discharge rate. One changes how fast the drawing moves; the other changes how long the image remembers it.
+
+No external asset is required. The saved Window uses an HDR swapchain format: use a compatible HDR output, or change the Window format and adapt the final image for an SDR display.
 
 {% include try-on-web.html %}
 

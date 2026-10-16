@@ -2,7 +2,7 @@
 layout: default
 
 title: Structure Synth Example
-description: "An example showing generative 3D meshes with Structure Synth"
+description: "Build a recursive structure, then bring it to life with rotation and changing colour."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,25 +17,14 @@ score: /examples/3d/ssynth.score
     <source src="{{ site.img }}/examples/3d/ssynth.mp4" type="video/mp4">
 </video>
 
-This example demonstrates using Structure Synth for procedural 3D geometry generation.
+Build an intricate structure from a short set of rules, then let colour and rotation reveal its repeating forms. The saved NablaSystem is useful as a starting point for generative sculptures whose construction and performance can be designed separately.
 
-## Overview
+[[Structure Synth]] creates the mesh on the CPU. The resulting geometry is sent to native Model Display with a changing gradient texture; an LFO rotates it slowly. Editing the grammar or requesting Regenerate changes the structure itself, whereas the texture and rotation can keep changing during playback without rebuilding the mesh.
 
-[[Structure Synth]] is a tool for creating complex 3D structures using a simple rule-based grammar. 
-*score* integrates Structure Synth as a geometry producer. Editing the program or requesting Regenerate builds a new mesh; this is not a per-frame GPU grammar evaluation. Keep recursion bounded when changing the program during playback.
+## Changing the structure
 
-## What is Structure Synth?
+A rule can repeat a shape while translating, rotating and shrinking each successive copy:
 
-Structure Synth uses a context-free grammar to define 3D structures:
-
-- **Rules** define transformations (rotate, scale, translate)
-- **Recursion** creates complex patterns
-- **Randomness** adds variation
-- **Parameters** allow real-time control
-
-## Example structure
-
-A simple Structure Synth rule might look like:
 ```
 rule R1 {
   { x 1 rz 5 s 0.99 } R1
@@ -43,13 +32,13 @@ rule R1 {
 }
 ```
 
-The rule describes a spiral of boxes when invoked. A runnable program also needs a bounded recursion setting and a call to `R1`; see the complete program in [[Structure Synth]].
+This fragment describes a spiral of boxes when invoked. A runnable program also needs a bounded recursion setting and a call to `R1`; see the complete program in [[Structure Synth]]. Keep recursion bounded: generation runs on the CPU and can take time.
 
 ## Try it
 
-Open this example to see generative 3D geometry in action. Start playback to view the saved NablaSystem structure, with its changing gradient and slow rotation. Adjust the LFO speed to explore the movement, then edit the bounded Structure Synth program and request Regenerate to change the structure itself.
+Start playback and change the LFO speed to see how rotation reveals the structure. Edit the colour automation to change its palette without changing its geometry. Then modify the saved grammar and request Regenerate to compare a structural change with those surface and movement changes.
 
-The program and shaders are embedded and need no external model file. This uses native Model Display, not Qt Quick 3D.
+The program and shaders are embedded; no external model is needed.
 
 {% include try-on-web.html %}
 

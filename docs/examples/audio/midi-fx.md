@@ -1,7 +1,7 @@
 ---
 layout: default
 title: MIDI effects and arpeggiation
-description: "An example showing how to transform MIDI patterns with arpeggios and scales"
+description: "Hear one MIDI pattern become different phrases through arpeggiation, scale mapping and a moving tonal centre."
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/midi-fx.html
@@ -12,19 +12,19 @@ score: /examples/audio/midi-fx.score
 
 ![Arpeggiator and Midi scale feeding Pluckies, with MIDI displays beneath the processing stages]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-midi-fx.png)
 
-This example demonstrates how MIDI effects can turn one pattern into changing musical material. Arpeggiation changes the rhythm and ordering of notes, while scale mapping changes their pitch relationships.
+Keep the notes of a pattern in place while changing the music they produce. Arpeggiation reorganizes their rhythm and order; scale mapping changes their pitch relationships. Together they let a small amount of written material sustain a longer passage or respond to a performer's changes.
 
-Three MIDI displays let you compare the original pattern, the arpeggiated notes and the scale-mapped result as you listen. Synthimi's `Pluckies` preset provides the sound, with Airwindows effects for further shaping. Both must be available in the installed build; no external MIDI device or sample file is required.
+Three MIDI displays reveal the original pattern, the arpeggiated notes and the scale-mapped result. The final notes play Synthimi's `Pluckies` sound; slower modulation moves the scale root and changes the synth's articulation. Use a build with Synthimi and Airwindows. No external MIDI device or samples are needed.
 
 ## Try the transformations
 
-1. Select your audio output, lower the listening level and start playback. Compare the three MIDI displays.
-2. Change the Arpeggiator's Rate and Octave controls. Compare a fast, wide-ranging figure with a slower pattern in a narrow register.
-3. Change Midi scale's Transpose to move the register without editing the source pattern. Then try another scale and compare the melodic character.
-4. Listen to the changing scale root. An LFO advances a wrapping Counter that controls Base; slow the LFO to hear each root for longer.
-5. Compare the synth with and without Drive. The remaining LFOs add small oscillator-pitch changes and modulate the amplitude-envelope decay.
+1. Select an audio output, lower the listening level and start playback. Follow the same phrase through the three MIDI displays to connect the visible note transformations with what you hear.
+2. Change the Arpeggiator's Rate and Octave controls. Compare a fast, wide-ranging figure with a slower, narrower one: the source pattern stays the same, but its energy changes.
+3. Change Midi scale's Transpose to move the register, then select another scale to change the pitch relationships. These are different musical decisions; listen to each separately.
+4. Slow the LFO that advances the wrapping Counter controlling Base. Each scale root then lasts longer, making the changing tonal centre easier to hear.
+5. Reduce Drive's Dry/Wet to compare the processed synth with a cleaner sound. Listen for the amplitude-decay modulation as well as the small oscillator-pitch changes.
 
-Try editing the source pattern only after exploring the effects. This makes it easier to distinguish changes to the composition from changes to its interpretation.
+Finally, edit the source pattern and compare the result with your earlier parameter changes. This separates composition from interpretation: you can reuse the transformation chain with new material, or perform variations on one phrase.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

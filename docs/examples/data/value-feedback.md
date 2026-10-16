@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Delayed value feedback
-description: "An example showing how feedback can generate evolving control signals"
+description: "Generate a changing control gesture by feeding a calculation back into itself, then compare irregular motion with convergence."
 parent: Data processing
 grand_parent: Examples
 permalink: /examples/data/value-feedback.html
@@ -12,7 +12,7 @@ score: /examples/data/value-feedback.score
 
 ![Float and Micromap connected to a Signal display showing the irregular logistic-map trace]({{ site.baseurl }}/assets/scores/thumbnails/examples-data-value-feedback.png)
 
-This example demonstrates feedback in a numerical process: each result becomes the input for the next calculation. A logistic map makes the evolving behavior visible, from convergence to irregular changes.
+Create variation without drawing a long automation curve. Each value in this patch becomes the seed of the next calculation, producing a trace that keeps changing even though the rule stays the same. It is a starting point for autonomous animation or sound modulation; here, you inspect the control signal in a display rather than hear or render it.
 
 {% include try-on-web.html %}
 
@@ -20,10 +20,12 @@ This example demonstrates feedback in a numerical process: each result becomes t
 
 ## Try it
 
-Start playback and watch the Signal display. The expression `3.68 x (1-x)` is applied repeatedly, beginning with the Float value as a seed.
+Start playback and watch the Signal display. Micromap repeatedly applies `3.68 x (1-x)`, beginning with the Float value as a seed. The result returns through Float and becomes the next input: the system's recent state drives its future.
 
-Try a different seed between zero and one and compare the evolving trace. Then reduce the coefficient from 3.68 to a value such as 2.5 to contrast irregular behavior with convergence.
+1. Set a new seed strictly between zero and one. Watch the resulting trace rather than expecting a repeating LFO shape. Try a nearby seed and compare the subsequent variation.
+2. Change the coefficient from 3.68 to 2.5. Watch the values settle instead of continuing their irregular motion. A small change in the rule changes the character of the gesture.
+3. Restore 3.68. Before adapting the signal to a media parameter, consider the contrast you want: a system that finds a resting point, or one that continues to move.
 
-The return cable is delayed by one tick. This is what makes the calculation an iteration: it uses the preceding result instead of creating an immediate dependency cycle. Keep that delay when adapting the example to another recurrence.
+The return cable is delayed by one tick. This makes the loop an iteration using the preceding result rather than an immediate dependency cycle. Keep that delay when replacing the expression with another recurrence.
 
-No external files or devices are needed. The result is shown numerically in the Signal display; the saved Window device has no image routed to it.
+No external files or devices are needed. If you connect the result to sound, light or motion in your own work, map it to an appropriate range first; the numerical experiment alone does not establish safe limits for a destination.

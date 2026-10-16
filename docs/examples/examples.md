@@ -2,7 +2,7 @@
 layout: default
 
 title: Examples
-description: "Examples to learn ossia score"
+description: "Explore working scores for audiovisual performance, interactive installations, generative art, and sound."
 
 nav_order: 5
 has_children: true
@@ -12,26 +12,32 @@ permalink: /examples
 
 # Examples
 
-The following pages provide practical examples of ossia score features and workflows.
+Explore ways to compose with sound, images, movement, and live input. These working scores range from a single technique—such as turning a gesture into a note—to audiovisual scenes that combine several media on one timeline.
 
 {: .fs-6 .fw-300 }
 
-Open downloaded `.score` or `.zip` files directly in score.
+Open a downloaded `.score` or `.zip` directly in score. Each example explains what to look or listen for, how the patch works, and changes you can try in your own work. Check its setup notes for any hardware, packages, or external services it needs.
 
-Where the project's platform metadata allows Web, **Try this on web** opens the example in the [browser edition]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html). An empty or missing platform allow-list means all platforms; each example's device and add-on requirements still apply.
+When available, **Try this on web** opens the example in the [browser edition]({{ site.baseurl }}/quick-start/using-score-in-the-browser.html). Hardware connections and some add-ons require the desktop application.
 
 ## Categories
 
-- [Basics]({{ site.baseurl }}/examples/basics): Timeline, patching and media integration.
-- [Device Examples]({{ site.baseurl }}/examples/devices): Connecting physical controllers and external applications.
-- [Audio]({{ site.baseurl }}/examples/audio): Playback, effects and synthesis.
-- [Video Examples]({{ site.baseurl }}/examples/video): Video manipulation, camera input and audio-reactive visuals.
-- [3D Graphics]({{ site.baseurl }}/examples/3d): Meshes, procedural geometry, native scene processing and Qt Quick 3D examples.
-- [Automation]({{ site.baseurl }}/examples/automation): Parameter control and device automation.
-- [Tempo Examples]({{ site.baseurl }}/examples/tempo): Musical timing and tempo control.
-- [Advanced]({{ site.baseurl }}/examples/advanced): Scripting and specialized processing.
-- [AI and tracking]({{ site.baseurl }}/examples/ai): Recognition, landmarks and tracking-driven sound and geometry.
-- [Data processing]({{ site.baseurl }}/examples/data): Address routing, mappings, structured values and feedback.
+- [Basics]({{ site.baseurl }}/examples/basics): Arrange media in time, build patches, and leave room for live cues.
+- [Device Examples]({{ site.baseurl }}/examples/devices): Turn controllers, phone sensors, and messages from other applications into performance inputs.
+- [Audio]({{ site.baseurl }}/examples/audio): Shape sound with synthesis, effects, sampling, and live looping.
+- [Video Examples]({{ site.baseurl }}/examples/video): Process camera images, make audio-reactive visuals, and compose for projection.
+- [3D Graphics]({{ site.baseurl }}/examples/3d): Animate scenes, grow procedural forms, and turn images or sound into geometry.
+- [Automation]({{ site.baseurl }}/examples/automation): Give parameters rhythmic motion or smooth the response of a live control.
+- [Tempo Examples]({{ site.baseurl }}/examples/tempo): Keep musical patterns together as the pace changes.
+- [Advanced]({{ site.baseurl }}/examples/advanced): Combine media, perform with code, and explore glitch and data-driven work.
+- [AI and tracking]({{ site.baseurl }}/examples/ai): Use tracked positions to play notes or animate geometry.
+- [Data processing]({{ site.baseurl }}/examples/data): Turn raw values into useful controls, route them, and build evolving feedback.
+
+## Choose a starting point
+
+For a first score, start with [Basics]({{ site.baseurl }}/examples/basics). For a performance instrument, explore the audio and device examples together. For an installation, pair a video or 3D example with a controller or tracking example.
+
+Try one change at a time: listen to a different modulation rate, watch how a feedback setting changes a trail, or map a familiar effect to a new gesture. Once the relationship is clear, reuse that part of the patch in your own score.
 
 ## Find the current reference
 

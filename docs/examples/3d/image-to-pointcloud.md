@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Image to point cloud"
-description: "An example showing how to turn an image into a coloured 3D point cloud."
+description: "Give a changing noise image depth by converting its samples into coloured points."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/image-to-pointcloud.html
@@ -12,17 +12,15 @@ score: /examples/3d/image-to-pointcloud.score
 
 ![Multicoloured spiky point cloud above the RGB Simplex Noise, ImageToPoints and Model Display processes.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-image-to-pointcloud.png)
 
-This example demonstrates converting an image into a coloured point cloud.
+A slowly shifting noise image becomes a spiky, coloured form in space. Treating image samples as points lets you move between a flat texture and a volumetric-looking composition without first modelling a surface.
 
-## Overview
-
-A slowly changing noise texture becomes a three-dimensional arrangement of points. Depth, scale and threshold controls offer different interpretations of the same image, making this a starting point for exploring the relationship between textures and geometry.
+RGB Simplex Noise supplies the image, and a compute shader converts it into geometry for native Model Display. Depth scaling controls how far points extend from the image plane; the threshold changes which samples contribute to the cloud.
 
 ## Try it
 
-Start playback, then vary `zScale` and the Z component of `pointScale` to change the depth of the cloud. Raise `threshold` to compare how image samples contribute to the result. The configured vertex count is large (6,419,550), so reduce the workload if necessary before experimenting with high-resolution inputs.
+Start playback and bring `zScale` toward zero to flatten the result, then increase it to recover depth. Compare this with the Z component of `pointScale`. Raise `threshold` gradually and watch which parts of the cloud remain.
 
-No image file is required because the source is procedural. You can replace RGB Simplex Noise with a texture-producing process to try a different source. This uses a compute shader and native Model Display, not Qt Quick 3D.
+No image file is needed. To adapt the patch, replace the noise source with another texture-producing process. Use a compute-capable graphics backend; the saved vertex count is about 6.4 million, so lower that workload if necessary before trying high-resolution sources.
 
 {% include try-on-web.html %}
 

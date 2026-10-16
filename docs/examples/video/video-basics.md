@@ -2,7 +2,7 @@
 layout: default
 
 title: Video manipulation
-description: "An example showing basic video playback and effects processing"
+description: "Turn a looping movie into sound-responsive traces and circular patterns."
 
 parent: Video Examples
 grand_parent: Examples
@@ -17,38 +17,27 @@ score: /examples/video/video.zip
     <source src="{{ site.img }}/examples/video/video.mp4" type="video/mp4">
 </video>
 
-This example demonstrates basic video playback and effects processing in ossia score.
+A looping cat movie leaves traces and breaks into a circular pattern as sound changes its treatment. Use this patch to turn prerecorded footage into a responsive performance image without changing the movie itself.
 
-## Overview
+## From sound to image
 
-ossia score can play video files and apply real-time shader effects, with parameters that can be animated or controlled by audio. Here, a looping cat video becomes a patterned, audio-reactive image. Echo Trace retains parts of the moving picture, while Circular Screen adds a circular pattern that changes with the sound.
+The movie passes through Echo Trace, which retains parts of earlier images, and Circular Screen, which adds a patterned surface. A microphone-analysis branch filters the sound with YBandpass and measures its level with RMS; those changing values control the visual effects. The Bass pattern sequencer is not the source of this response.
 
-## ISF shaders
+This separates the visual material from its control: the same footage can react differently to a voice, an instrument or a recording. The ISF shaders expose their parameters as inlets, so audio analysis can be replaced by automation when a composed sequence is more appropriate.
 
-ISF (Interactive Shader Format) is a standard for video effects:
-- Hundreds of free shaders available
-- Parameters auto-exposed for control
-- GPU-accelerated processing
-- Compatible with other ISF hosts
+## Setup
 
-## Working with video
+Open the ZIP directly in score and select a working microphone input. Use a build with the Airwindows YBandpass process. To work without a microphone, connect a sound-file process in place of the live analysis source.
 
-To use video in your projects:
-
-1. Drag a video file onto the timeline
-2. Add ISF effects from the process library
-3. Connect them with cables
-4. Control parameters with automation or audio
-
-## Files and playback
-
-Open the ZIP directly in score. The included `cat.mov` is credited to [Andrew Kota on Pexels](https://www.pexels.com/video/the-cat-scratched-the-wood-3693815/); the score describes it as converted to HAP for looping and scrubbing. Use a build with the Airwindows YBandpass process for the audio-analysis branch.
-
-Select a working microphone input, or use a sound-file process as the analysis source. The effects respond to this audio input, not to the Bass pattern sequencer present in the score.
+The movie is credited to [Andrew Kota on Pexels](https://www.pexels.com/video/the-cat-scratched-the-wood-3693815/) and is converted to HAP for looping and scrubbing.
 
 ## Try it
 
-Start playback and change the video inspector's stretch mode to compare fitting behaviour. Adjust YBandpass and RMS sensitivity, then observe how sound changes the trace and circular pattern. To scrub, double-click the time ruler and drag while holding the mouse button. The main interval has a manual ending time-sync, allowing the movie to keep looping until it is triggered.
+- Start playback, make sound, and adjust RMS sensitivity until quiet and loud gestures produce visibly different treatments. Change YBandpass to explore which part of the sound drives that response.
+- Change the Video inspector's stretch mode to compare preserving the movie's proportions with filling the output.
+- Double-click the time ruler and drag while holding the mouse button to scrub. Compare traces made by continuous motion with those made by jumps in the footage.
+
+The main interval has a manual ending time-sync: the movie keeps looping until you trigger it.
 
 {% include try-on-web.html %}
 

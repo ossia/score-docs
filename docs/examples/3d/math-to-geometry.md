@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Math arrays to GPU geometry"
-description: "An example showing how to compose point positions and colours with mathematical expressions."
+description: "Compose a moving point pattern and its colours independently, then layer trails and glow."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/math-to-geometry.html
@@ -12,19 +12,15 @@ score: /examples/3d/math-to-geometry.score
 
 ![Separate position and colour arrays passing through Array Flattener and Array to buffer into Buffers to geometry and the Instancing renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-math-to-geometry.png)
 
-This example demonstrates generating a point pattern and its colours from mathematical expressions.
+Compose where points move separately from how they are coloured. This patch turns two mathematical arrays into a single moving image, with trails, blur and glow adding a sense of accumulation.
 
-## Overview
-
-Separate arrays describe where each point is and what colour it has. They are transferred to GPU buffers and combined into geometry, allowing position and colour to be composed independently. Trails, blur and glow turn the moving points into a layered image.
-
-The example uses 300 vertices, with three Float32 values per position and four per colour. The corresponding attribute strides are 12 and 16 bytes. Keep these layouts consistent when adapting the expressions. Rendering uses the native pipeline rather than Qt Quick 3D.
+One Arraygen expression produces XYZ positions; another produces RGBA colours. Flattening these arrays and transferring them to GPU buffers lets Buffers to geometry pair each position with a colour. The native renderer draws the result, and the mixer combines its processed images.
 
 ## Try it
 
-Start playback and edit the Arraygen expressions to change positions or colours. Keep three floats per position and four per colour, matching the attribute strides; if changing the number of entries, update the geometry vertex count too. Compare the mixer's branches to separate the generated point pattern from blur and glow.
+Start playback and edit only the colour expression first: the palette changes without rewriting the point positions. Then change the position expression while keeping the colours. Compare the mixer's branches to distinguish the point pattern from its trails and glow.
 
-The score is procedural and does not require external models, images or audio.
+Keep the buffers consistent: the saved geometry has 300 vertices, three Float32 values per position and four per colour, with strides of 12 and 16 bytes. If you change the number of entries, update the vertex count too. No external models, images or audio are needed.
 
 {% include try-on-web.html %}
 

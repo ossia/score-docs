@@ -2,7 +2,7 @@
 layout: default
 
 title: Basic OSC example
-description: "A basic example that presents the OSC objects"
+description: "Send cues and fades to another application, then let incoming OSC messages choose when a performance continues."
 
 parent: Basics
 grand_parent: Examples
@@ -15,28 +15,28 @@ score: /examples/basics/osc.score
 
 ![OSC]({{ site.img }}/examples/basics/osc.png "Composing OSC messages in ossia score")
 
-This example demonstrates setting up OSC (Open Sound Control) communication in *score*.
+Let score conduct another application, and let that application answer back. Cues and automation can set a synthesizer, visual scene or lighting parameter; incoming messages can release a waiting passage or choose what happens next.
 
 ## Overview
 
-OSC is a protocol for communication between multimedia devices, software, and instruments. *score* can send cues and automation to another application, and receive messages that influence a performance's timing or select a branch.
+OSC carries named values and events between multimedia applications and devices. Here, the timeline sends both one-off settings and continuous changes. In the other direction, received values become conditions and triggers: communication affects the structure of the piece, not just its parameters.
 
-Use this example as a starting point for controlling a synthesizer, visual application or lighting system. It works with ordinary OSC; an OSCQuery server is not required. There is no audio or graphics output inside this score.
+The score has no internal sound or image output. Use an OSC monitor to see the exchanges first, then adapt the destinations to your performance system. Ordinary OSC is enough; an OSCQuery server is not required.
 
 ## Network setup
 
 The saved `OSC` device listens on UDP `0.0.0.0:9997` and sends to `127.0.0.1:9996`. Run an OSC monitor on port 9996 to see output, and send to the computer's port 9997 to drive the input examples. Change the remote host if your receiving application is on another computer.
 
-The device tree contains example float, integer and impulse addresses. OSC addresses are hierarchical paths: you can replace these with the parameters of the application you want to control.
+Once the monitor receives messages, replace the example destinations with parameters understood by your receiving application. Match each parameter's type and expected range before letting an automation control it.
 
 ## Exercise the timeline
 
-1. Start playback and watch the state messages in the device tree or external monitor. Cues set individual values; automations change them over time.
-2. Compare `Tween` with `Automation`. Tween starts from the current address value rather than jumping to the curve's initial value.
-3. Send an OSC impulse to `/my_impulse` to release the waiting trigger, then set `/my_int` to 5 to continue the branch.
-4. Try the standalone float cues before triggering the conditional branch. Its comparison selects either a fade in or a fade out, showing how an external value can influence the composition.
+1. Start playback and watch the device tree or external monitor. Compare a cue's immediate value change with an automation's succession of values: one recalls a setting, the other performs a gesture.
+2. Set the controlled value manually, then compare `Tween` with `Automation`. Tween begins from the current value instead of jumping to a predetermined start, which is useful when two performers share control.
+3. Send an OSC impulse to `/my_impulse` to release the waiting trigger, then set `/my_int` to 5 to continue the branch. The sender now controls when the composition advances.
+4. Try the standalone float cues before triggering the conditional branch. Watch the comparison select a fade in or fade out; changing an input can choose a different response without rebuilding the timeline.
 
-The final interval named `Patterns` contains an automation with no saved output address, so it sends nothing until you assign a destination. The example does not require an OSCQuery server; see [OSC device]({{ site.baseurl }}/devices/osc-device.html) for ordinary OSC configuration.
+The final interval named `Patterns` has no saved automation destination. Assign an output address before expecting messages from it. See [OSC device]({{ site.baseurl }}/devices/osc-device.html) for network configuration.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

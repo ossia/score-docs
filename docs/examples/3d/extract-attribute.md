@@ -2,7 +2,7 @@
 layout: default
 
 title: Extract Attribute
-description: "An example showing GPU-side geometry attribute extraction and reconstruction"
+description: "Recolour a rotating goblet by pairing its vertex positions with pixels from a generated image."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,34 +17,17 @@ score: /examples/3d/extract-attribute.zip
     <source src="{{ site.img }}/examples/3d/extract-attribute.mp4" type="video/mp4">
 </video>
 
-This example demonstrates the two main tools for GPU-side geometry processing: extracting individual attributes from a mesh and reconstructing geometry from raw buffers.
+A rotating goblet takes its colours from a generated image rather than from its original material. This is a way to treat a mesh as editable data: keep its positions, replace its colours, and build a new appearance without remodelling the object.
 
-## Overview
+The process labelled Extract attribute—now named **Extract buffer**—takes the loaded mesh's position data. Texture to buffer turns Color Test Grid into a second data source, and Buffers to geometry pairs positions with colours. Geometry Info supplies the vertex count so that the reconstructed geometry follows the source mesh.
 
-A loaded goblet mesh is reconstructed from its position data and a new set of colours derived from an image. An [[LFO]] rotates it so the result can be viewed in motion. The example shows how geometry attributes can be treated separately, making it possible to change one part of a mesh's appearance without replacing all its data.
-
-The process labelled Extract attribute is now registered as **Extract buffer**.
-
-## Key concepts
-
-- **Extract buffer**: Selects a geometry attribute; **Extract buffer (by name)** additionally selects attributes or whole buffers by semantic, custom name or index.
-- **Buffers to geometry**: Describes input buffers through offset, stride, format and semantic. The separately registered **Buffers to geometry (v1)** uses numeric locations for older patches.
-- **Geometry Info**: Reports vertex/index/instance counts and attribute/binding layout.
-- **Data movement**: These processes expose GPU buffer paths, but extraction strategy depends on the source layout. Do not assume every conversion is zero-copy.
-
-## Data flow
-
-1. [[Object loader]] loads the goblet mesh
-2. The attribute-extraction process pulls position data into a buffer
-3. *Geometry Info* reads the vertex count
-4. Color Test Grid → Texture to buffer supplies a second buffer, bound as `color`
-5. Buffers to geometry combines position and colour attributes, and native Model Display renders to `Window:/`
+Here, the image is a palette of per-vertex RGBA values, not a texture wrapped around the goblet with UV coordinates. Buffer format and stride determine how its pixels become colours; see [[Geometry and buffer utilities]] when adapting this layout. The processing uses GPU buffers, but that does not guarantee that every extraction or conversion is zero-copy.
 
 ## Try it
 
-Open the ZIP directly in score and start playback; `Models/goblet.obj` is bundled. Change Color Test Grid's colour shift or grid dimensions and watch the reconstructed mesh change. The Value displays help compare the vertex count with the size of the colour data.
+Open the ZIP directly in score and start playback; the goblet model is included. Change Color Test Grid's colour shift, then its grid dimensions, and compare how colours spread across the rotating shape.
 
-When using another texture for colours, provide at least one RGBA pixel per vertex and keep the attribute format and stride consistent with those pixels. The score's notes illustrate 3,000 vertices with a 55-by-55 texture (3,025 pixels). This uses native geometry processing rather than Qt Quick 3D.
+When substituting a colour texture, provide at least one RGBA pixel per vertex. The score's notes illustrate the sizing with 3,000 vertices and a 55-by-55 texture, which supplies 3,025 pixels. Use the Value displays to compare vertex count and buffer size, and keep the attribute format and stride consistent with the texture's pixel format.
 
 {% include try-on-web.html %}
 

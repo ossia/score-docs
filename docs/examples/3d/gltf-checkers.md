@@ -2,7 +2,7 @@
 layout: default
 
 title: glTF Scene with Effects
-description: "An example showing glTF scene loading with shader effects and audio-reactive animation"
+description: "Explore a lit chess scene while a looping beat drives colour, bloom and image distortion."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,27 +17,19 @@ score: /examples/3d/gltf-checkers.zip
     <source src="{{ site.img }}/examples/3d/gltf-checkers.mp4" type="video/mp4">
 </video>
 
-This example loads a glTF scene through Qt Quick 3D, then applies audio-reactive post-processing to its rendered texture.
+Navigate a chess scene while a looping beat pushes its colours and glow. The patch combines a recognisable 3D setting with an increasingly distorted image, useful for exploring how sound can transform a rendered scene without moving its camera.
 
-## Overview
+A [[Javascript|JavaScript/QML]] scene loads [A Beautiful Game](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/ABeautifulGame/glTF-Binary) through Qt Quick 3D's RuntimeLoader. An HDR [environment map](https://polyhaven.com/a/resting_place), reflections and a moving light establish the scene before score's shaders process its output.
 
-Using Qt Quick 3D integration, this example loads the [A Beautiful Game](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/ABeautifulGame/glTF-Binary) glTF chess set model and renders it with PBR materials, reflection probes, environment mapping, and dynamic lighting. 
-The camera  is controllable through mouse and WASD, while post-processing effects such as bloom, color blowout, and optical flow distortion are applied on top.
-
-## Key concepts
-
-- **glTF loading**: QML's `RuntimeLoader` from `QtQuick3D.AssetUtils` loads the model inside the JavaScript/QML process. This is not the native Geometry Loader (historically Object Loader).
-- **Environment mapping**: An HDR [environment map](https://polyhaven.com/a/resting_place) (`.exr`) provides realistic reflections and ambient lighting via a light probe.
-- **Post-processing effects**: Bloom, color blowout, and optical flow distortion shaders are chained as post-processing passes on the rendered scene.
-- **Audio integration**: A looping sound file controls colour intensity and bloom, with smoothing for more gradual changes.
-
-This download uses the **Qt Quick 3D** path, including its HDR light-probe support. It is not an example of the native Asset Loader pipeline. For a new native patch, see [[Asset Loader]] and [[3D scene pipeline]]; cameras, materials and environment resources must be wired for that renderer rather than copied across as QML objects.
-
-Open the ZIP directly in score. It includes `Models/ABeautifulGame.glb`, `Images/resting_place_4k.exr` and `Audio/88bpm_Freq3b Gate.wav`, despite the older in-score note saying the model and environment are not shipped. The JavaScript/QML process requires Qt Quick 3D and its AssetUtils module.
+Peak analysis of the looping sound feeds smoothing, then colour blowout and bloom intensity. Optical Flow Distort acts on the resulting image, with a separate beat-synchronised LFO periodically resetting it. Camera navigation and moving light are independent of the audio analysis.
 
 ## Try it
 
-Start playback and use mouse/WASD navigation to explore the chess scene. Adjust Peak Gain and Gate to change how strongly the audio affects the image. Compare the audio-reactive treatment with the moving light and the periodic reset of the optical-flow distortion; these are separate sources of animation, not audio-driven camera movement.
+Open the ZIP directly in score: the model, environment and sound loop are included, despite the older note inside the score saying otherwise. Use a desktop build with GPU JavaScript, Qt Quick 3D and its AssetUtils module.
+
+Start playback and focus the output window to navigate with the mouse and WASD. Begin with modest output volume. Adjust Peak Gain and Gate to compare restrained and stronger visual responses; change smoothing Alpha to compare a sharp sound with a more gradual visual response.
+
+Compare the colour and bloom changes with the periodic distortion reset. This helps separate audio-driven changes from the other animation. For a native scene-based adaptation, see [[Asset Loader]] and [[3D scene pipeline]]: Qt cameras and environment objects cannot simply be cabled into that renderer.
 
 {% include try-on-web.html %}
 

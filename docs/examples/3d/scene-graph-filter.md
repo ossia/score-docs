@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Filtering imported scene nodes"
-description: "An example showing how to select individual objects from an imported 3D scene."
+description: "Isolate named objects from an imported chess scene without rebuilding its geometry."
 parent: 3D Graphics
 grand_parent: Examples
 permalink: /examples/3d/scene-graph-filter.html
@@ -12,17 +12,15 @@ score: /examples/3d/scene-graph-filter.zip
 
 ![Scene Graph Filter selecting Chessboard, King_W and Queen_W between Asset Loader and Scene Preprocessor.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-scene-graph-filter.png)
 
-This example demonstrates selecting parts of an imported 3D scene by name.
+Strip a chess scene back to the board, white king and white queen. Selecting objects by name lets you recompose an imported scene around the parts that matter, rather than edit the model outside score.
 
-## Overview
-
-A chess set provides a familiar scene to explore: the saved selection shows the board, white king and white queen. Filtering the hierarchy lets you work with particular objects while retaining a scene-based lighting and camera setup.
+Scene Graph Filter works on the imported hierarchy before scene preprocessing. The selected objects then share a native camera and lighting setup. This is object selection, not a filter that deforms vertices or removes pixels from the rendered image.
 
 ## Try it
 
-Open the ZIP directly in score; `Models/ABeautifulGame.glb` is bundled. Start playback, then edit the filter's Names selection to compare individual pieces with the board. Filter the scene before preprocessing, as in the example: this operates on the scene hierarchy rather than selecting already-flattened render buffers.
+Open the ZIP directly in score; the chess model is included. Start playback and edit the filter's Names selection to show one piece, then add the board back. Compare how the same camera frames the reduced composition.
 
-The model is bundled and the rendering shader is embedded. Object names belong to the imported asset, so a replacement model will need a different selection. This example uses the native scene pipeline.
+Keep the filter before Scene Preprocessor when adapting the patch. Names come from the imported asset, so a replacement model needs a selection matching its own hierarchy. The rendering shader is embedded.
 
 {% include try-on-web.html %}
 

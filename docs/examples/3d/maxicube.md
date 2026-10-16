@@ -2,7 +2,7 @@
 layout: default
 
 title: Massive Particle System
-description: "An example showing a GPU-generated massive particle system with compute shaders"
+description: "Fill a rotating cube with millions of GPU-generated points and explore the cost of visual density."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,31 +17,17 @@ score: /examples/3d/example-big-cube.score
     <source src="{{ site.img }}/examples/3d/maxicube.mp4" type="video/mp4">
 </video>
 
-This example demonstrates generating and rendering millions of particles entirely on the GPU using [[Compute Shaders]].
+Millions of changing points fill a rotating cloud, coloured by a corner-to-corner gradient. The patch explores visual density: how a field of individual samples can read as a larger form when generated and drawn at scale.
 
-## Overview
+A [[Compute Shaders|compute shader]] writes random coordinates directly into a GPU buffer each frame. Pointcloud to mesh reads successive XYZ values as vertices, and [[Model display]] renders them as points. A mathematical expression rotates the cloud independently of the changing positions.
 
-A compute shader generates approximately 3.41 million XYZ points each frame, using a buffer of 10,240,000 floats. The rotating cloud is rendered with a corner-colour gradient, showing how large amounts of geometry can be generated directly on the GPU.
-
-The position buffer alone contains about 41 MB of Float32 data; other GPU resources add to the workload. Reduce NoiseBuffer size before running on a smaller GPU.
-
-## Key concepts
-
-- **[[Compute Shaders]]**: Generate massive amounts of data directly on the GPU without CPU involvement. Here, a noise buffer fills GPU memory with random particle positions each frame.
-- **Pointcloud to Mesh**: Interprets the GPU buffer as XYZ coordinates and produces renderable geometry.
-- **Buffer layout**: The Pointcloud to mesh Buffer type must match the generated coordinates and their stride. See [[Geometry and buffer utilities]] before changing the compute output format.
-
-## Data flow
-
-1. A compute shader generates the noise particle buffer on the GPU
-2. Pointcloud to Mesh builds geometry from the buffer
-3. A corner-color gradient provides the texture
-4. [[Model display]] renders the points
-5. A mathematical expression rotates the cloud
+The saved buffer contains 10,240,000 Float32 values, enough for approximately 3.41 million XYZ points. That position buffer alone uses about 41 MB; rendering and other GPU resources add to the workload.
 
 ## Try it
 
-Start playback and compare the changing point cloud with its rotation. Adjust NoiseBuffer size to vary the amount of generated geometry, retaining complete XYZ triples when choosing a new size. The example requires compute-shader support but no external file. There are no blur post-processors in this version of the score.
+On a smaller GPU, reduce NoiseBuffer size before starting playback. Choose a multiple of three when setting a new size so the values form complete XYZ positions. Compare a sparse cloud with a denser one, then adjust the corner colours to make its extent easier to read.
+
+Changing the rotation expression changes how you view the cloud, not how many points it generates. If you alter the coordinate layout, match Pointcloud to mesh's Buffer type to it; see [[Geometry and buffer utilities]]. Compute-shader support is required, but no external file is needed.
 
 {% include try-on-web.html %}
 

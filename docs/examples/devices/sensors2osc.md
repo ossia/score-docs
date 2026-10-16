@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sensors2OSC phone control
-description: "An example showing how to control visuals with an Android phone's sensors"
+description: "Use phone rotation and multitouch as a handheld visual instrument, balancing responsive gestures with stable motion."
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/sensors2osc.html
@@ -12,25 +12,25 @@ score: /examples/devices/sensors2osc.score
 
 ![Character-textured cube preview beneath Model Display, with touch filtering and mapping nodes]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-sensors2osc.png)
 
-This example demonstrates using an Android phone as a controller for live visuals. Rotating the phone moves a textured cube, while multitouch gestures distort the image.
+Turn an Android phone into a handheld visual instrument: rotating it moves a character-textured cube and changes its hue, while touch gestures distort the image. Rotation gives the performer a broad physical action; touch provides a second layer of control without needing another device.
 
-It is a variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html), with extra displays to help compare incoming touch values with their mapped results. Rendering uses score's native Model Display and ISF effects, not Qt Quick 3D.
+This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html) adds displays for comparing raw touch input with mapped values. Use those displays to understand the response before adjusting it to your own gestures.
 
 ## Connect the phone
 
 1. Install [Sensors2OSC](https://sensors2.org/osc/) on Android and connect the phone to a network that can reach the computer.
 2. In the app, set the destination to the computer's LAN address and UDP port **9000**. Do not use `127.0.0.1` on the phone: that refers to the phone itself. score's `sensors2OSC` device listens on `0.0.0.0:9000`; allow this port through the firewall.
 3. Enable sensor transmission, including rotation vector and touch. Check `sensors2OSC:/rotationvector` and `/touch` in the Device explorer for incoming values.
-4. Start playback and rotate the phone. Smooth filters the rotation components with One Euro smoothing; Arraymap multiplies them by 360 and sends them directly to Cube's Rotation. It does not convert a quaternion into Euler angles.
-5. Use the app's multitouch surface. `/touch` messages have the shape `[finger index, x, y]`. Object filters separate fingers 0, 1 and 2. The first two drive Noise Displace via Micromap; the third is shown only in a Value display.
+4. Start playback and rotate the phone. One Euro smoothing reduces fluctuations, then the components are multiplied by 360 and used directly as the cube's rotation angles. This is not a quaternion-to-Euler conversion: do not expect an exact digital copy of the phone's orientation.
+5. Use the app's multitouch surface. Each `/touch` message contains `[finger index, x, y]`. Fingers 0 and 1 control the two displacement directions; finger 2 is displayed but does not drive an effect.
 
-## Try it
+## Find a comfortable gesture range
 
-Rotate the phone slowly, then make a quick gesture. Change the One Euro smoothing settings and compare how closely the cube follows your movement with how much it suppresses small fluctuations.
+Rotate slowly, pause, then make a quick movement. Adjust the One Euro smoothing settings and compare how still the cube appears during the pause with how promptly it follows the quick gesture. The goal is a deliberate balance between suppressing sensor fluctuations and preserving the performer's timing.
 
-Move one finger at a time on the touch surface, then combine two fingers. The first two control horizontal and vertical displacement; the third is only displayed. Compare the raw coordinates with the mapped Value displays when adapting the response to your gestures.
+Move one finger at a time, then combine two fingers. Compare the raw and mapped Value displays: a small touch movement can produce a large visual change if the mapping scales it strongly. Try changing one touch mapping while keeping the other fixed, so you can judge the new range without changing the whole instrument at once.
 
-The cube's character texture is generated internally, and rotation also changes its hue. No image or 3D model file is required. The saved remote OSC destination `127.0.0.1:9996` is unused by these input mappings.
+The cube and texture are generated internally with native Model Display and ISF effects; no image or 3D model is needed. Object filter support is required to separate touch messages. The saved remote destination `127.0.0.1:9996` is unused by these incoming controls, so it does not need to match the phone.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

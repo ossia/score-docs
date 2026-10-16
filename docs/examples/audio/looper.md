@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Live audio looper with drum backing
-description: "An example showing how to record and loop live audio"
+description: "Capture a live voice or instrument over a drum backing, then use timeline cues to turn the recorded phrase into a repeating part."
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/looper.html
@@ -10,25 +10,25 @@ score: /examples/audio/looper.zip
 
 # Live audio looper with drum backing
 
-![Looper controls beside a drum pattern and its Deuterium sampler on the timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-looper.png)
+![Live-looping controls and a drum accompaniment arranged on the timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-looper.png)
 
-This example demonstrates live looping with a sequenced drum accompaniment. Timeline states switch between recording and playback, letting you arrange when a live performance becomes a repeating musical phrase.
+Play a short phrase once, then hear it return over a drum backing. The timeline switches the Looper from stopped to recording to playback, so the moment a live gesture becomes a repeating part can be composed in advance.
 
-The Looper records `audio:/in/main`. The drum backing is separate and is not recorded internally with the input.
+The Looper captures the main audio input, not the internally generated drums. This keeps the accompaniment separate from your recorded material—a useful starting point for a solo performance built around voice, instrument or contact-microphone input.
 
 ## Prepare and record
 
-1. Open the ZIP directly in score. Deuterium references the bundled `Data/Techno-1/drumkit.xml` and the kit's samples.
-2. Configure the audio device with a working input and output. Use headphones or isolated monitoring to avoid feeding the loudspeaker output back into a microphone.
-3. Start playback and supply audio to the input. The initial state sets the Looper's Loop control to `Stop`; the state at 0.5 seconds requests `Record`; the state at 4.5 seconds requests `Play`.
-4. Listen for the captured material repeating over the sequenced drums. The saved Looper has Quantif set to 1, so its mode changes follow its musical quantization rather than an unquantized switch.
-5. Trigger the main interval's end, nominally placed at 7 seconds, to finish both processes, or stop the transport. That end is interactive and does not automatically fire at its drawn position.
+1. Open the ZIP directly in a score build with Kaboom support. The current score uses synthesized drums and needs no sample kit. Configure a working audio input and output.
+2. Use headphones or isolated monitoring to avoid feeding loudspeaker output back into a microphone. Begin at a low listening level.
+3. Start playback and supply audio to the input. The initial cue requests `Stop`, the cue at 4 seconds requests `Record`, and the cue at 12 seconds requests `Play`.
+4. Listen for the captured phrase repeating against the drums. Quantif is set to 1, so mode changes follow musical quantization rather than switching freely between beats.
+5. Trigger the end of `Loop`, drawn at 14.5 seconds, or stop the transport. The end is interactive: its position is not an automatic stop.
 
-## Try it
+## Shape the phrase
 
-Record a short voice or instrument phrase, then listen to how it fits against the drums. Move the Record and Play states to explore a different recording window, keeping the Looper's musical quantization in mind.
+Record a phrase with a clear attack and a little silence at the end. Listen to the join between repetitions, then move the Record or Play cue to change what falls inside the capture window. Keep musical quantization in mind when comparing the requested cue time with the audible switch.
 
-The states control the Looper through the Local device; no remote client is needed. Open a state to inspect its target before adapting the example to control another process.
+Try a sustained sound next. A capture window that works for a rhythmic phrase may cut a sustained note differently; this makes the recording boundary part of the composition. The cues address the Looper through the Local device, so no remote client is required.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

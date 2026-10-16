@@ -61,9 +61,11 @@ ISF-style controls declared in `INPUTS` are available as uniforms.
 
 VSA clip-space depth follows its original OpenGL-style convention; the runtime maps it to the backend's clip range. Do not add the raw-raster `isf_vertShaderInit()` / `isf_vertShaderFinish()` sequence or a second backend depth correction to a VSA shader.
 
-For a small starting point, the corpus's `vsa-triangle.vs` uses `POINT_COUNT: 3`, `PRIMITIVE_MODE: "TRIANGLES"` and branches on `vertexId` to emit three positions and a constant `v_color`. See [[Shader cookbook]] for the recipe and source link. Point and line sizes remain GPU/backend-dependent.
+To understand how individual vertices make an image, start with the triangle recipe in [[Shader cookbook]]. It places three vertices and gives them one color; changing a vertex position changes the silhouette without loading a mesh. Point and line sizes remain GPU/backend-dependent.
 
 ## Example
+
+Build a rotating, colored spiral from points rather than an image texture. Each vertex's index determines its angle and distance from the center; playback time rotates the pattern. In the code below, try reducing **radius** to gather the points toward the center, then change the `0.05` angle increment to alter how tightly the spiral winds.
 
 ```glsl
 /*{
@@ -102,7 +104,7 @@ void main() {
 
 ## Try it
 
-Download this [example score]({{ site.scores }}{{ page.score }}).
+For a more elaborate moving point cloud, download the [example score]({{ site.scores }}{{ page.score }}). Its shader calculates the points' positions and colors and sends the resulting image directly to a window. Reduce the vertex count from the saved 99,999 to see how a sparser set of points changes the image. This download uses a point-cloud-and-spheres shader, not the simpler spiral printed above.
 
 {% include try-on-web.html %}
 

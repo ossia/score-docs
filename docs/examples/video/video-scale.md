@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Video transforms and fitting"
-description: "An example showing how to position, transform and fit video to its output."
+description: "Compare animated placement with fitting modes when adapting a movie to different display proportions."
 parent: Video Examples
 grand_parent: Examples
 permalink: /examples/video/video-scale.html
@@ -10,19 +10,23 @@ score: /examples/video/video-scale.zip
 
 # Video transforms and fitting
 
-![Cat video above Passthrough, Transform and Scale and Fit intervals with automation curves]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-video-scale.png)
+![A looping movie with timed transform and fitting controls]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-video-scale.png)
 
-This example demonstrates changing how a video is positioned and fitted to its output.
+See how the same movie changes when it is moved and rotated, then fitted into a different-sized output. This is a practical starting point for adapting a composition to a tall screen, a wide projection or another display proportion without confusing image placement with image fitting.
 
-## Overview
+## Placement versus fitting
 
-The same looping movie is shown unchanged, then translated and rotated, then fitted to the available space. Automation and timeline states make it possible to compare continuous motion with changes of fitting mode. This is useful when adapting a composition to displays with different proportions.
+The first section shows the looping movie unchanged. Transform then animates its translation and rotation. Scale and Fit follows with an animated zoom and a sequence of fitting modes. Continuous automation creates movement, while timeline states switch between discrete ways of occupying the viewport.
 
 ## Try it
 
-Open the ZIP directly in score; it includes `cat.mov`. Start playback to see the unchanged movie, followed by the animated transform at four seconds. Trigger the manual time-sync at the end of Transform to enter Scale and Fit, where the zoom is animated and a sequence cycles through fitting modes.
+Open the ZIP directly in score and start playback. The animated transform begins at four seconds. Trigger the manual time-sync at the end of Transform to enter Scale and Fit.
 
-Compare the result after changing the Window render size or aspect ratio. Transform changes image placement, whereas Scale and Fit chooses how the source occupies a destination viewport. Keep the Scale and Fit and movie intervals running while observing their mode changes; their ending time-syncs are manual. The archive includes the movie and shader code, with no camera or network source required.
+- Change the Window render size or aspect ratio and compare the fitting modes. Look for what is preserved, cropped or stretched as the source occupies the new viewport.
+- Alter a Transform automation curve to change the movie's motion without changing the output proportions.
+- Compare the zoom animation with a fitting-mode change: one evolves continuously, while the other changes the rule used to place the image.
+
+Keep the movie and Scale and Fit intervals running to observe the mode sequence; their ending time-syncs are manual. No camera or network source is required.
 
 {% include try-on-web.html %}
 

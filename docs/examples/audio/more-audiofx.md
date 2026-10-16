@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sequencing audio effects
-description: "An example showing how to sequence audio effects on the timeline"
+description: "Make contrasting musical sections from one drum pattern by scheduling distortion, echo, reverb and other treatments."
 parent: Audio
 grand_parent: Examples
 permalink: /examples/audio/more-audiofx.html
@@ -12,19 +12,22 @@ score: /examples/audio/more-audiofx.score
 
 ![Jungle drum pattern routed to successive effect intervals across the timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-audio-more-audiofx.png)
 
-This example demonstrates arranging audio effects over time. A repeating drum part takes on a different character in each section, without changing the underlying rhythm.
+A repeating drum part moves from clear attacks to crushed, echoing and distorted versions of itself. The rhythm stays in place while its treatment changes, letting sound processing carry the form of a piece.
 
-## Overview
+## Make effects part of the arrangement
 
-The timeline moves from unprocessed drums through bitcrushing, echo, reverb, distortion and other effects. Instead of keeping every effect active throughout the piece, each interval introduces a new treatment. This is useful for building contrasts and transitions within an arrangement.
+The drum generator runs across the piece, but each effect lives in its own interval. As the timeline activates successive intervals, the same source receives a different treatment. Use this approach for a breakdown, a build or a sudden change of scene without rewriting the drum part.
 
-The last interval returns to the RingModulator section through a zero-duration interval. The drum interval has an interactive end, so its nominal 68-second position is not an automatic stop.
+After the final section, playback returns to the ring-modulation section and repeats the last two treatments. The drum source has its own interactive end, so the score is not a fixed-length export.
 
 ## Listen and edit
 
-Use a build with Kaboom, BarrVerb and Airwindows available. No samples or external device are required. Configure audio output, start playback at a low volume and watch the active effect interval change. Listen for which treatments preserve the drum attacks and which blur or transform them.
+Use a build with Kaboom, BarrVerb and Airwindows. No samples or external device are required. Configure audio output and start at a low volume.
 
-Try changing Echo's feedback or Bitcrush's sample rate, then restart that section to compare. Move an interval boundary to change when the sound switches without changing the drum pattern. Trigger the end of `Drums` to stop the source, or stop the transport to finish the example.
+1. Watch the active effect interval while listening. Which treatments leave the drum attacks recognizable, and which turn the pattern into a texture?
+2. Lower Bitcrush's Rate to change the grain of the sound, or cautiously vary Echo's Feedback to change how much one hit spills into the next. Compare these changes with the opening unprocessed section.
+3. Move an interval boundary. The same effect can feel like an accent or a sustained section depending on when it arrives and how long it lasts.
+4. Trigger the end of `Drums` to stop the source, or stop the transport to finish. Its drawn 68-second endpoint does not fire automatically.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 
