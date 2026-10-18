@@ -13,7 +13,7 @@ Regex processes each **Input** event as text. Numbers and lists are converted to
 
 ## Pattern and modes
 
-Enter an RE2 expression in **Pattern**. **Search** finds the first match anywhere, **Match** requires the whole input to match, and **SearchAll** finds all matches. **Replace** substitutes **Replacement**; **Global** chooses all matches rather than just the first. **Split** returns the pieces between matches.
+Enter an [RE2 expression]({{ site.baseurl }}/reference/languages/regex.html) in **Pattern**. **Search** finds the first match anywhere, **Match** requires the whole input to match, and **SearchAll** finds all matches. **Replace** substitutes **Replacement**; **Global** chooses all matches rather than just the first. **Split** returns the pieces between matches.
 
 **Ignore case** changes letter matching. **Multiline** makes `^` and `$` refer to each line. **Numbers** converts numeric capture groups to numeric values.
 
@@ -30,6 +30,6 @@ For example, `(?P<temperature>\d+)` creates a named **temperature** capture outl
 | Unmatched | Original input when no match is found |
 | Error | Invalid-pattern or replacement explanation; empty string when valid again |
 
-Replacement accepts `\0` for the whole match and `\1`–`\9` for groups; `$1` and `%1` also work. Replace and Split do not emit capture-group outputs. A missing optional group does not emit on its individual outlet.
+Replace and Split do not emit capture-group outputs. A missing optional group does not emit on its individual outlet.
 
-RE2 does not support pattern backreferences or look-around. Use [Switch]({{ site.baseurl }}/processes/switch.html) for exact value routing rather than text patterns.
+See the [RE2 language reference]({{ site.baseurl }}/reference/languages/regex.html) for pattern vocabulary, named groups, replacement notation and unsupported constructs such as look-around. Use [Switch]({{ site.baseurl }}/processes/switch.html) for exact value routing rather than text patterns.

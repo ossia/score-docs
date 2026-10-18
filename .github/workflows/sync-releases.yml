@@ -1,0 +1,57 @@
+name: Synchronize release archive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+  repository_dispatch:
+    types: [score-release]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-archive-sync
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Install video inspection tools
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Mirror release notes and media
+        run: bundle exec ruby script/releases/sync.rb
+      - name: Check archive integrity and importer behavior
+        run: |
+          bundle exec ruby script/releases/sync.rb --check
+          bundle exec ruby script/releases/sync_test.rb
+          bundle exec ruby script/releases/pages_test.rb
+      - name: Build the archived documentation
+        env:
+          JEKYLL_ENV: production
+          NODE_ENV: production
+        run: bundle exec jekyll build
+      - name: Propose archive update
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/release-archive
+          commit-message: Synchronize score release notes and mirrored media
+          title: Update the score release archive
+          body: |
+            Synchronizes published releases from ossia/score, including edited notes,
+            and mirrors their embedded images, animations, audio and videos locally.
+
+            The importer integrity checks, behavioral tests and Jekyll build ran
+            before this update was proposed. Installer binaries remain GitHub links.
+          add-paths: |
+            _data/releases.json
+            assets/releases/

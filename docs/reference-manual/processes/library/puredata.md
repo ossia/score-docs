@@ -17,6 +17,8 @@ Simply drop a patch in the score to add it.
 
 This is done thanks to [libpd](https://github.com/libpd/libpd).
 
+The [Pure Data language reference]({{ site.baseurl }}/reference/languages/puredata.html) links the patch-language and object manuals and documents score's audio, MIDI, message and control-annotation interface.
+
 ## Example
 
 The following Pure Data patch:
@@ -37,40 +39,9 @@ For now do not use the "Parallel" execution mode when running Pd patches.
 
 ## Usage
 
-score will detect:
+Patch objects determine the audio, MIDI and value ports exposed in score. Set the required audio channel counts in the inspector, then connect the resulting process ports to the rest of the score.
 
-- Audio inlets/outlets: `[adc~]`, `[dac~]` and create a corresponding audio input and output port.
-  - Important ! You have to set in the inspector how many audio channels are needed, as they are multiplexed into a single port.
-- MIDI inlets/outlets: `[midiin]`, `[notein]`, `[ctlin]`, `[midiout]`, `[noteout]`, `[ctlout]` and will create a MIDI input and / or output port.
-- Value inlets/outlets: `[s] / [send]`, `[r] / [receive]`.
-
-It is possible (but still work-in-progress) to use the [libossia ossia.parameter syntax](https://ossia.io/ossia-docs/?plaintext--pd#creating-parameters) for the receives, so that score is able to create nice GUI controls.
-
-Additionally, a `widget` attribute can be used, which will directly create the expected widget, among:
-
-- intslider
-- floatslider
-- logfloatslider
-- intspinbox
-- toggle
-- button
-- lineedit
-- xyslider
-- hsvslider
-
-Valid cases would be (not all of them work yet):
-
-```
-[r myInput @type float @range -1 1]
-
-[r myInput @widget intslider @min 0 1000]
-
-[r myInput @type impulse]
-
-[r myInput @type bool @default true]
-
-[r myInput @unit color.hsv]
-```
+See [Audio, MIDI and message ports]({{ site.baseurl }}/reference/languages/puredata.html#audio-midi-and-message-ports) for the recognized Pd objects, and [Receive annotations and controls]({{ site.baseurl }}/reference/languages/puredata.html#receive-annotations-and-controls) for the optional control metadata previously documented here. Annotation support is still work in progress.
 
 ## Editing the patch
 

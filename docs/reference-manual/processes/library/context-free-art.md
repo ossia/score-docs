@@ -2,7 +2,7 @@
 layout: default
 
 title: Context-Free Art
-description: "AI-based recognition tools"
+description: "Generate images from Context Free shape grammars."
 
 parent: Processes
 grand_parent: Reference
@@ -11,5 +11,8 @@ permalink: /processes/context-free-art.html
 ---
 # Context-Free Art
 
-This process allows to use [Context-free art](https://www.contextfreeart.org/) code for image generation.
-Note that this is not a real-time process.
+Generate images from a Context Free design grammar (CFDG): named rules compose and repeat shapes rather than processing a camera or movie frame.
+
+See the [Context Free / CFDG language reference]({{ site.baseurl }}/reference/languages/context-free.html) for grammar structure, shape adjustments, syntax versions and the upstream manual.
+
+This is not a real-time process. For continuous image processing and feedback during playback, use [[ISF Shaders]].

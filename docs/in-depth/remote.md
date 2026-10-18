@@ -118,7 +118,7 @@ The message format is JSON.
 
 #### Console control:
 
-See the [Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) for the available operations. Only trusted clients should be allowed to use this message.
+See the [editor scripting reference]({{ site.baseurl }}/reference/languages/javascript-editor.html) for the available operations. Only trusted clients should be allowed to use this message.
 ```js
 {
   "Message": "Console",
@@ -220,6 +220,6 @@ On connection, the server sends a `DeviceTree` message with a `Nodes` tree and, 
 
 `ScriptableRemoved` carries an `Address` for a removed published node. A new `Scriptable` snapshot is sent when the published structure changes, including restoration through undo. A remote should update its address bindings rather than retain stale names indefinitely. Use the existing `Message` and listening requests for live values, and the named namespace to discover controls. The local device's actual name determines the address prefix; do not hard-code `score` for every document.
 
-The editor API's [Controls, Triggers and Conditions]({{ site.baseurl }}/in-depth/scripting-api/score.html#triggers-conditions-and-published-names) offers the corresponding script-side access. See [Custom UI]({{ site.baseurl }}/custom-ui.html) for an interface hosted inside score instead of in a remote client.
+The editor API's [Controls, Triggers and Conditions]({{ site.baseurl }}/reference/languages/javascript/score.html#triggers-conditions-and-published-names) offers the corresponding script-side access. See [Custom UI]({{ site.baseurl }}/custom-ui.html) for an interface hosted inside score instead of in a remote client.
 
 Source: [`RemoteControl/Settings/View.cpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-remotecontrol/RemoteControl/Settings/View.cpp), [`HttpServer`](https://github.com/ossia/score/tree/master/src/plugins/score-plugin-remotecontrol/RemoteControl/HttpServer), and [`Websockets/DocumentPlugin.cpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-remotecontrol/RemoteControl/Websockets/DocumentPlugin.cpp).

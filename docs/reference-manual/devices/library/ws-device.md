@@ -22,11 +22,9 @@ Map the server's API to *score*'s parameter tree with a QML script, as for [[Ser
 
 Choose the WebSocket protocol in the device dialog, supply its server address and QML, then use **Validate** to check the component. A root `host` property can fill the server address. Validation checks QML, not whether a server is reachable or its messages match your code.
 
-Use `Ossia.WebSockets` with `createTree()` to declare parameters. `onMessage(message)` returns device-local `{ address, value }` updates. Outgoing parameter `request(value)` receives a typed object such as `{ type: Ossia.Type.Int, value: 123 }`, not the bare number.
+Use `Ossia.WebSockets` with `createTree()` to declare parameters, then map incoming messages to device-local values and outgoing writes to the server's API. The canonical [WebSocket device API]({{ site.baseurl }}/reference/languages/qml-devices.html#websocket-device-api) specifies the typed `request` argument, text/binary sends, listening callbacks, JSON processing and the implementation's `onDisonnected` spelling used below.
 
-In the current implementation a function-valued `request` sends a **binary WebSocket message**, while a string-valued `request` sends text with `$val` substitution. The peer must accept the corresponding message kind. For explicit text/binary callbacks or a listening WebSocket server, use the lower-level [Protocols API]({{ site.baseurl }}/in-depth/qml-protocols.html).
-
-The disconnect callback is currently spelled **`onDisonnected`** in the implementation (including the missing “c”); the example below deliberately uses that spelling. `onConnected`, `onDisonnected` and `onMessage` return tree updates, not arbitrary remote commands.
+For explicit text/binary receive callbacks or a listening WebSocket server rather than this client device, use the lower-level [QML transport API]({{ site.baseurl }}/reference/languages/qml-protocols.html#websockets).
 
 This device connects to another service. It is separate from score's own [remote-control WebSocket server]({{ site.baseurl }}/in-depth/remote.html). Match the service's authentication and message format; avoid logging credentials.
 
@@ -238,6 +236,6 @@ This is a tree structure that maps very cleanly to *score*'s model.
 To facilitate this simple case, an user script is provided as part of the [[library|user library]]: it will take a sample JSON and create the relevant QML code.
 It is accessible in the `Scripts/Protocols/Websockets/Device from JSON` menu option.
 
-Set `processFromJson: true` on the root `Ossia.WebSockets` to match incoming JSON against the declared tree and update its parameters in C++. This replaces manual `onMessage` handling for that path; it does not discover an arbitrary API or create the tree for you.
+The generated code uses `processFromJson: true` on `Ossia.WebSockets` to map incoming JSON to the declared tree. See the [WebSocket device API]({{ site.baseurl }}/reference/languages/qml-devices.html#websocket-device-api) for its interaction with `onMessage`; you still need to generate or declare the tree.
 
 Source: [`WSProtocolSettingsWidget.cpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-protocols/Protocols/WS/WSProtocolSettingsWidget.cpp) and [`ws_generic_client_protocol.cpp`](https://github.com/ossia/libossia/blob/master/src/ossia-qt/websocket-generic-client/ws_generic_client_protocol.cpp).

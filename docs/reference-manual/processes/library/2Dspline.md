@@ -33,7 +33,7 @@ To do so, right-click on a spline, and select `Generate curve` in the menu.
 
 The available variable is `t`. It is evaluated between 0 and 1.
 
-The syntax uses ExprTK (see [ExprTK support reference page]({{ site.baseurl }}/processes/exprtk.html "ExprTK ref page")).
+The syntax uses ExprTK (see the [ExprTK language reference]({{ site.baseurl }}/reference/languages/exprtk.html)). This curve generator has its own variable scope: `t` runs from 0 to 1, and the expression writes the coordinates to `x` and `y`; the expression processes' audio and value bindings do not apply here.
 
 Here are some useful examples:
 

@@ -36,23 +36,9 @@ To add scene materials, connect Geometry to **PBR Mesh**, then [[Scene Preproces
 
 ## EisenScript basics
 
-EisenScript is a straightforward language focused on geometric transformations and rule-based generation:
+The [EisenScript language reference]({{ site.baseurl }}/reference/languages/eisenscript.html) contains the recursive-box example previously shown here, along with rule weights, transformations, termination controls and the upstream language manual.
 
-```eisenscript
-set maxdepth 200
-
-{ a 0.9 hue 30 } R1
-
-rule R1 w 10 {
-  { x 1 rz 3 ry 5 } R1
-  { s 1 1 0.1 sat 0.9 } box
-}
-
-rule R1 w 10 {
-  { x 1 rz -3 ry 5 } R1  
-  { s 1 1 0.1 } box
-}
-```
+Use **Program** to edit the grammar and **Regenerate** to rebuild its geometry. For animated camera motion or material changes, work downstream of this process rather than rebuilding the grammar on every frame.
 
 
 ## Try it!

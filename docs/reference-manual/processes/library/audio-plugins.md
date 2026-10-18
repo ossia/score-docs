@@ -130,6 +130,8 @@ changes and resets processing state for a new play.
 
 JSFX plug-ins can be added in the user library. Score will look for files ending with the `.jsfx` extension.
 
+For programming syntax, code sections and audio/MIDI functions, see the [JSFX and EEL2 language reference]({{ site.baseurl }}/reference/languages/jsfx.html), which links to the official manuals and explains score's hosting context.
+
 If you are on Unix or a system with bash, you can rename the JSFX plugins without extensions this way:
 
 ```bash

@@ -42,7 +42,7 @@ A minimal geometry experiment is shorter: `Geometry Loader → Model Display`. F
 - [[Geometry and buffer utilities]] expose low-level data. Match element type, stride, offset, topology and shader semantics when reconstructing a mesh.
 - [[Mesh generators and splats]] and [[3D text]] provide native geometry/scene sources.
 
-Flattened geometry can contain multiple draws, each with its own transform and material. A custom scene shader must use the scene per-draw data rather than treating the whole asset as one `MODEL_MATRIX`; see [[Render Pipeline]].
+Flattened geometry can contain multiple draws, each with its own transform and material. A custom scene shader must use the scene per-draw data rather than treating the whole asset as one `MODEL_MATRIX`; see the [raw-raster scene-path reference]({{ site.baseurl }}/reference/languages/raw-raster.html#scene-path).
 
 ## Qt Quick 3D examples are a different path
 

@@ -25,7 +25,7 @@ See [Supported protocols and formats]({{ site.baseurl }}/reference/protocols-and
 
 Not every integration visible in the source tree is a usable device. [Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) documents a currently disabled add-on, while [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html) documents an optional integration with a build-interface mismatch. These are kept separate from the setup table above.
 
-For custom script-defined network namespaces, see [QML protocols]({{ site.baseurl }}/in-depth/qml-protocols.html).
+For custom script-defined network namespaces, see the [QML device API]({{ site.baseurl }}/reference/languages/qml-devices.html) and [QML transport API]({{ site.baseurl }}/reference/languages/qml-protocols.html).
 
 ## Setting up devices
 

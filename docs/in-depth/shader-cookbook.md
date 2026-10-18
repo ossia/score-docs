@@ -8,7 +8,9 @@ permalink: /in-depth/shader-cookbook.html
 
 # Shader cookbook
 
-These recipes use the [score graphics corpus](https://github.com/ossia/score/tree/master/tests/gfx/corpus) to explain shader features. See [[Graphics pipeline]] for coordinate, size and backend conventions.
+These recipes use the [score graphics corpus](https://github.com/ossia/score/tree/master/tests/gfx/corpus) to explain shader features. See [[Graphics pipeline]] for the conceptual graph and [GLSL runtime reference]({{ site.baseurl }}/reference/languages/glsl.html) for language, generated bindings and coordinate conventions.
+
+The canonical format contracts are [ISF]({{ site.baseurl }}/reference/languages/isf.html) (including its score extensions), [CSF]({{ site.baseurl }}/reference/languages/csf.html), [raw raster]({{ site.baseurl }}/reference/languages/raw-raster.html), and [Vertex Shader Art]({{ site.baseurl }}/reference/languages/vertex-shader-art.html). The snippets below are recipes, not replacement field specifications.
 
 Copy a fixture into your user library before modifying it. For raw raster, copy both files with the same stem (`.fs` and `.vs`). Connect image outputs to a video output to inspect them, or to [[Sink]] when only execution is needed. A CSF geometry output must go through a renderer before a texture output can display it.
 
@@ -150,7 +152,7 @@ void main() {
 
 Use the complete fixture for the target blend states and non-resolve branch. Compare with `layer-oit-gr.fs`, which reverses the draw order. Weighted transparency approximates overlapping surfaces; it does not reconstruct exact sorted colors. For a simpler overlay, `layer-quads-layer.fs` uses one private layer rather than accumulation/revealage.
 
-Current headers use `QUEUE` and `LAYER`, **not the historical `TRANSPARENCY` block**. Layer targets are private, unlike public `OUTPUTS`. Current parser constraints include single-invocation execution, no `OUTPUTS`, no multiview, at most eight targets, and one-to-one matching fragment outputs. Hardware limits may be lower. See [[Render Pipeline]] for resolve depth and composition settings.
+Current headers use `QUEUE` and `LAYER`, **not the historical `TRANSPARENCY` block**. Layer targets are private, unlike public `OUTPUTS`. Check the canonical [layer shader contract]({{ site.baseurl }}/reference/languages/raw-raster.html#layer-shaders) for execution, attachment, multiview, depth and composition constraints before adapting the fixture; hardware limits may be lower than parser limits.
 
 ## VSA: a three-vertex starting point
 
@@ -167,4 +169,4 @@ void main() {
 }
 ```
 
-Start here to check winding and visibility before importing a large point animation. VSA generates vertices and supplies a fixed fragment stage; it is not a replacement for a custom raster material. The runtime adapts VSA depth conventions to the backend, so do not add raw-raster initialization/finish calls. See [[Vertex Shader Art]] for time, resolution and audio inputs.
+Start here to check winding and visibility before importing a large point animation. VSA generates vertices and supplies a fixed fragment stage; it is not a replacement for a custom raster material. The runtime adapts VSA depth conventions to the backend, so do not add raw-raster initialization/finish calls. See the [VSA shader variables]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#shader-variables) and [ISF audio inputs]({{ site.baseurl }}/reference/languages/isf.html#audio-textures).

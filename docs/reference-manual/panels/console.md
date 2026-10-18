@@ -37,6 +37,6 @@ The prompt offers completion for `Score`, `Util` and `Device`; Ctrl+Space reques
 
 Use `Score.withMacro(function() { ... })` to group document changes into one undo step; inspect `Score.canUndo()` and `Score.undoText()` before undoing. Device writes, filesystem operations and shell commands are not automatically undoable. Console scripts have the application's permissions: paste only trusted code.
 
-See [Scripting]({{ site.baseurl }}/in-depth/scripting.html) for library scripts, startup scripts and menu actions, and the [Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html) for `Score`, `Util`, `View`, devices and protocols. The [Javascript process]({{ site.baseurl }}/processes/javascript.html) uses a separate execution engine, so a console variable is not automatically available in its `tick`.
+See [Scripting]({{ site.baseurl }}/in-depth/scripting.html) for library scripts, startup scripts and menu actions, and the [editor scripting reference]({{ site.baseurl }}/reference/languages/javascript-editor.html) for `Score`, `Util`, `View`, devices and protocols. The [Javascript process]({{ site.baseurl }}/processes/javascript.html) uses a separate execution engine, so a console variable is not automatically available in its `tick`. The [JavaScript/QML language overview]({{ site.baseurl }}/reference/languages/javascript.html) explains the runtime differences.
 
 ![Console]({{ site.img }}/reference/panels/console.png "Console")
