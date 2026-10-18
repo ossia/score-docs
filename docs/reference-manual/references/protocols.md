@@ -43,7 +43,7 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 The optional [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html) is a separate integration from the scriptable [Mapper device]({{ site.baseurl }}/devices/mapper-device.html). Its current source integration has a build-interface mismatch; do not treat it as an available working protocol in an ordinary installation.
 
-[Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) records the TUIO, PSN, RTTrP, OpenTrackIO and optional OpenXR implementations. The tracking add-on is disabled, so these devices are unavailable unless the add-on is explicitly enabled at build time.
+[Tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) records the TUIO, PSN, RTTrP, OpenTrackIO and optional OpenXR implementations. They are included in desktop builds since 3.9.0, in the **Tracking** category of the Add device dialog. [Depth cameras]({{ site.baseurl }}/devices/depth-camera-device.html) stream color, depth, point clouds and IMU data from Orbbec, Kinect, Azure Kinect, RealSense and Luxonis OAK cameras.
 
 # Lighting protocols
 
