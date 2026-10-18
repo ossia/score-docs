@@ -40,6 +40,8 @@ A few processes in score use textual scripts:
 - [[Faust]]
 - [C++ JIT]({{ site.baseurl }}/processes/cpp_jit.html)
 
+For syntax, standard functions and score-specific APIs, use [Reference → Languages]({{ site.baseurl }}/reference/languages.html). It covers these languages as well as ExprTK, compute shaders, raw raster shaders and rule-based graphics.
+
 ![Live coding processes]({{ site.img }}/common-practices/live-coding-scripts.png "Live coding processes")
 
 Open the code editor using the editor button on the process header or in its inspector. Processes that provide a custom UI have a separate UI toggle.

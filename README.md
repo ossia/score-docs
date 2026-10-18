@@ -4,6 +4,63 @@
 $ bundle exec jekyll serve  --config _config.yml,_local_config.yml
 ```
 
+## Release archive
+
+GitHub releases from `ossia/score` are synchronized into `_data/releases.json`.
+The original Markdown and a sanitized HTML rendering are retained. Embedded
+images, GIFs and videos are mirrored as content-addressed files in
+`assets/releases/`. Videos play inline, without extra download links. Installer
+binaries remain links to GitHub. Jekyll generates the changelog index and
+individual release pages from this snapshot without network access.
+Silent videos up to 60 seconds loop while visible, with a small play/pause button.
+Reduced-motion users get a still frame until they press play. Videos with audio
+or longer durations retain native controls; leaving the viewport pauses playback.
+Without JavaScript, all videos retain native controls.
+
+To update the archive, install/authenticate the GitHub CLI (`gh auth login`),
+have `curl` and FFmpeg (`ffprobe` for synchronization, `ffmpeg` for the importer
+tests) available, and use the repository's bundled Ruby environment:
+
+```sh
+bundle exec ruby script/releases/sync.rb
+bundle exec ruby script/releases/sync.rb --check
+bundle exec ruby script/releases/sync_test.rb
+bundle exec ruby script/releases/pages_test.rb
+```
+
+The importer follows every API page, includes published prereleases and releases
+without notes, and keeps `continuous` separate in the index. It also picks up
+edits to old release notes. Repeating a sync without upstream changes leaves the
+snapshot untouched. Existing media are reused after hash verification; use
+`--refresh-media` to refresh mutable images such as badges. Successful downloads
+are staged outside the site in the system temporary directory's
+`score-release-media` cache (`--cache-dir` overrides it).
+Video audio-track presence and duration are inspected with `ffprobe` during sync
+and retained in the snapshot. Video files are not transcoded.
+
+An unavailable media file fails synchronization without replacing the previous
+snapshot. The sole approved omission is the defunct `i-score.org`
+`score-logo64.png` in v1.0.0-b32; its original Markdown remains in the snapshot.
+Do not silently substitute artwork or delete notes to make an import pass.
+
+For a saved API response, use `--source-json FILE`; the expected format is the
+output of `gh api --paginate --slurp -H 'Accept: application/vnd.github.full+json'
+'repos/ossia/score/releases?per_page=100'`. `--check` verifies all archived media
+hashes and references offline. Imported HTML bypasses Liquid and wiki-link
+processing; local media URLs work with both an empty base path and `/score-docs`.
+
+Commit the snapshot and `assets/releases/` together. The initial media archive is
+about 305 MiB; ordinary Git stores the actual files, not Git LFS pointers.
+The `Synchronize release archive` workflow runs daily, on manual dispatch, or on
+a `score-release` repository dispatch. It validates and builds the result, then
+opens an update PR limited to the snapshot and media. It requires Actions to
+have permission to create pull requests. Application releases in the separate
+`ossia/score` repository are discovered by the schedule unless their workflow
+explicitly sends that dispatch.
+
+Generated pages live at `/reference/changelog/<tag>.html` (unusual or colliding
+tags receive safe slugs). Edit release notes on GitHub, not generated pages.
+
 
 <p align="right">
     <a href="https://badge.fury.io/rb/just-the-docs"><img src="https://badge.fury.io/rb/just-the-docs.svg" alt="Gem version"></a> <a href="https://github.com/pmarsceill/just-the-docs/actions?query=workflow%3A%22Master+branch+CI%22"><img src="https://github.com/pmarsceill/just-the-docs/workflows/Master%20branch%20CI/badge.svg" alt="Build status"></a>

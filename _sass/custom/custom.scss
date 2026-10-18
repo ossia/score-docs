@@ -9,3 +9,64 @@
 video {
     max-width: 100%;
 }
+
+.release-content {
+    overflow-wrap: anywhere;
+
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    audio {
+        max-width: 100%;
+    }
+
+    .release-animation {
+        display: inline-block;
+        position: relative;
+        max-width: 100%;
+
+        video {
+            display: block;
+        }
+
+        button {
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid white;
+            border-radius: 0.25rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font: inherit;
+            font-size: 0.875rem;
+            cursor: pointer;
+
+            &:focus-visible {
+                outline: 3px solid #1684b5;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+.release-list {
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    time {
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-size: 0.875em;
+    }
+}

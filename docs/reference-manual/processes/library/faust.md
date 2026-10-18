@@ -18,6 +18,8 @@ permalink: /processes/faust.html
 
 It is mainly developed at [Grame](https://grame.fr), with an international community of contributors.
 
+For syntax, signal composition, controls and the standard DSP library, see the [Faust language reference]({{ site.baseurl }}/reference/languages/faust.html). This page covers the score process workflow, setup and project packaging.
+
 Faust DSP files can be drag'n'dropped directly inside a score. This will compile the DSP and embed it as a signal processor in the score.
 Additionally, any `.dsp` file found recursively in the library folder will be detected and added under the `Faust` section in the [[Library|process library]].
 
@@ -26,6 +28,8 @@ Faust code can be edited directly from within the user interface, by clicking on
 ## Ports and controls
 
 The DSP determines the number of audio channels. Faust sliders, numeric entries, buttons and checkboxes become score controls, so the process interface changes with the compiled program. A synthesizer using the conventional `freq`, `gain` and `gate` controls is detected as MIDI-driven; a normal effect processes its audio input instead.
+
+See the [score integration contract]({{ site.baseurl }}/reference/languages/faust.html#score-integration-contract) and [control syntax]({{ site.baseurl }}/reference/languages/faust.html#controls) for the distinction between Faust language primitives and score's host interface.
 
 ## Imports and portable projects
 

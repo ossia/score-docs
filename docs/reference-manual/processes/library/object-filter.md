@@ -13,103 +13,27 @@ permalink: /processes/object-filter.html
 
 ![Object filter]({{ site.img }}/reference/processes/object-filter.png "Object filter")
 
-This object implements a subset of the [jq](https://stedolan.github.io/jq/) syntax, which is a small and very straightfoward language to filter objects in a complex hierarchy involving lists, dictionaries (maps), strings, numbers, etc.
+Object filter selects and reshapes structured values using **Jk**, a subset of the jq query language. Use it to extract a tracked coordinate, route an object by its state, or turn a list of records into the values needed by another process.
 
-For instance: given this object (using Javascript syntax: `[1, 4, "foo"]` is a list, `{ "a": 123, "b": 456 }` is a map):
+The canonical syntax and compatibility reference is [jq and Jk]({{ site.baseurl }}/reference/languages/jq-jk.html).
 
-```js
-[
-  1, 
-  2, 
-  sl.value, 
-  [ 
-    [ sl.value, 0.6 ], 
-    "foo", 
-    [ true, false, true, false ]
-  ],
-  "hiii",
-  ["hello", 123, "foo", 456],
-  { "test": 123, "another": "variant"}
-]
-```
+## Using the process
 
-The jq program: `.[6].test` will give `123`.
+1. Install the Jk add-on through [[Add-ons]] if Object filter is not available in the process library.
+2. Connect a map, array or other score value to **Input**.
+3. Enter a query in **Filter**. Start with `.` to pass through the input, then select a field such as `.position[0]`.
+4. Connect the output to the process or device parameter that should receive the result.
 
-Given:
+Each query result produces a separate output event. For example, `.[]` emits the elements of an input array individually, while `[.[] | .name]` collects names into one array. `select(.state == "confirmed")` passes through matching objects and emits nothing for other states.
 
-```js
-{
-    "foo": [
-      { "bar": 1 },
-      { "bar": 3 },
-      { "bar": 4 },
-      { "bar": 2 },
-      { "bar": 5 },
-      { "bar": 2 }
-     ]
-}
-```
-
-Then `[ .foo[2:5].bar ]` will give as output the list `[4, 2, 5]`.
+Strings containing JSON are not automatically decoded. Use [[Value serialization]] upstream when the source sends serialized text instead of a map or array. An invalid filter disables output; a runtime error stops the remaining results for that message without retracting values already emitted. See the [runtime limits]({{ site.baseurl }}/reference/languages/jq-jk.html#errors-and-compatibility-limits) before using large queries during playback.
 
 ## Supported syntax and example programs
 
-```ruby
-## The dot just copies the entire input to the output
-# Example: [ 123, "foo" ] -> [ 123, "foo" ]
+The syntax tables, corrected slice examples, built-in functions and compatibility limits now live in the [jq and Jk language reference]({{ site.baseurl }}/reference/languages/jq-jk.html).
 
-.
+- [Navigation and slices]({{ site.baseurl }}/reference/languages/jq-jk.html#navigation-and-slices): fields, indices, ranges and nested objects.
+- [Construction and selection]({{ site.baseurl }}/reference/languages/jq-jk.html#construction-arithmetic-and-selection): arrays, objects, arithmetic and conditional filtering.
+- [Supported built-ins]({{ site.baseurl }}/reference/languages/jq-jk.html#supported-built-ins): functions available in Jk, rather than the full jq language.
 
-## Iterates through all the values of an array or map
-# Example: [ 123, "foo" ] -> first the value 123 is output, then the value "foo"
-# Example: { "a": 123, "b": 456 } -> first the value 123 is output, then the value 456
-
-.[]
-
-## Selects an element of an array
-# Example: [ 123, 456 ] -> 123
-.[0]
-
-# Example: [ 123, 456 ] -> 456
-.[1]
-
-
-## Selects multiple elements of an array
-# Example: [ 123, 456, 789 ] -> [123, 789]
-[ .[0, 2] ]
-
-## Selects a range of elements of an array
-# Example: [ 123, 456, 789, 10 ] -> [456, 789, 10]
-[ .[1:3] ]
-
-## Put the values in an array
-[ (expression) ]
-
-# Example: [ 123, 456 ] -> [ [ 123, 456] ]
-[ . ]
-
-# Example: [ 123, 456 ] -> [ 123, 456 ]
-[ .[] ]
-
-# Example: { "a": 123, "b": 456 } -> [ 123, 456 ]
-[ .[] ]
-
-## Select a member of an object
-.member_name
-
-# Example: { "a": 123, "b": 456 } -> 456
-.b
-
-# Example: { "a": 123, "b": [ { "foo": "x", "bar": "y" } ] } -> "x"
-.b[0].foo
-
-
-## Sequence operations one after each other
-(expression 1) | (expression 2)
-
-# Example: 
-# [ { "name": "Shashimi", "age": 6 }, { "name": "Flocky", "age": 3 } ] 
-# -> ["Shashimi", "Flocky"]
-[ .[] | .name ]
-
-```
+For a working score, see [Math expressions and structured objects]({{ site.baseurl }}/examples/data/maths-and-objects.html).

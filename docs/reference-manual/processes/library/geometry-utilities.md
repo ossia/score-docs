@@ -25,6 +25,8 @@ Use these tools at the boundaries between value arrays, GPU buffers, geometry an
 
 Keep resource boundaries explicit: value arrays live on the CPU, buffers contain typed-by-convention bytes, geometry adds a draw description, and scenes carry hierarchy and resources. The individual references above are the canonical control and port manuals; the sections below locate them within a workflow.
 
+To change vertex attributes in code rather than convert their representation, use the [Geometry filter shader interface]({{ site.baseurl }}/reference/languages/geometry-filter.html). For explicit GPU buffer processing, see the [CSF language reference]({{ site.baseurl }}/reference/languages/csf.html).
+
 ## Array to buffer and Buffer to array
 
 **Array to buffer** accepts a numeric array or string on **Input** and exposes it as **Output** buffer data. **Type** selects Float32, Float64, signed/unsigned 32-bit, 16-bit or 8-bit elements. Numeric values are converted to that type; strings supply bytes.

@@ -1,0 +1,9 @@
+<ul class="release-list">
+  {% for release in include.releases %}
+  <li{% if release.legacy_anchor %} id="{{ release.legacy_anchor }}"{% endif %}>
+    <a href="{{ release.url | relative_url }}">{{ release.tag_name | escape }}{% if release.name != empty and release.name != release.tag_name %} — {{ release.name | escape }}{% endif %}</a>
+    <time datetime="{{ release.published_at | escape }}">{{ release.published_at | date: "%Y-%m-%d" }}</time>
+    {% if release.development %}<span class="label label-yellow">Development build</span>{% elsif release.prerelease %}<span class="label label-purple">Prerelease</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

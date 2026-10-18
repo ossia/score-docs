@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="release-page">
+  <h1>{{ page.title | escape }}</h1>
+  <p class="release-meta">
+    <strong>{{ page.release.tag_name | escape }}</strong>
+    &middot; <time datetime="{{ page.release.published_at | escape }}">{{ page.release.published_at | date: "%B %-d, %Y" }}</time>
+    {% if page.release.development %}<span class="label label-yellow">Development build</span>{% elsif page.release.prerelease %}<span class="label label-purple">Prerelease</span>{% endif %}
+  </p>
+  <p>
+    <a href="{{ '/reference/changelog.html' | relative_url }}">All releases</a>
+    &middot; <a href="{{ page.release.html_url | escape }}">Original release on GitHub</a>
+    &middot; <a href="{{ page.release.html_url | escape }}#assets">Downloads on GitHub</a>
+  </p>
+  {% if page.release.development %}<p>Development build. The GitHub download may be newer than these notes.</p>{% endif %}
+  <div class="release-content">
+    {% assign release_notes = page.release_body_html | strip %}
+    {% if release_notes == empty %}
+      <p>No release notes.</p>
+    {% else %}
+      {{ page.release_body_html }}
+    {% endif %}
+  </div>
+</article>
+<script src="{{ '/assets/js/release-videos.js' | relative_url }}" defer></script>

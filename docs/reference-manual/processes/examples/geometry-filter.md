@@ -23,7 +23,7 @@ Start playback and open the Window output. Disconnect the filter's intensity cab
 
 The shape and texture are generated in the score; no mesh or image download is required.
 
-See [[Model display]] for rendering the resulting geometry.
+See the [Geometry filter shader reference]({{ site.baseurl }}/reference/languages/geometry-filter.html) for the deformation callback and [[Model display]] for rendering the resulting geometry.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

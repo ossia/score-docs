@@ -14,6 +14,8 @@ permalink: /devices/http-device.html
 
 The HTTP device maps score parameters to HTTP requests using QML. It is an **outgoing API client**, not the HTTP server used by score's remote-control interface.
 
+The canonical [HTTP device callback reference]({{ site.baseurl }}/reference/languages/qml-devices.html#http-device-api) documents request construction, response handling and streaming callbacks. Shared tree metadata and value types are in the [QML device API]({{ site.baseurl }}/reference/languages/qml-devices.html#device-trees).
+
 ![Device setup window]({{ site.img }}/reference/devices/http-device.png "score device setup")
 
 ## Setup
@@ -46,12 +48,9 @@ This expects an HTTP service at the given URL. Send an impulse to `deviceName:/r
 
 ## Request and response options
 
-- A string `request` may contain `$val`, replaced by the sent value. A function `request(value)` receives a typed object such as `{ type: Ossia.Type.Int, value: 123 }`; construct a URL using `value.value` and escape query components with `encodeURIComponent`.
-- Requests are GET by default. Set `method: "post"` and `requestData` (a string or function) for a POST body. This device's tree API is not a generic arbitrary-method/header client.
-- `onRead(bytes)` or `onReadString(text)` receives chunks as they arrive. Chunk boundaries are not message boundaries, and these callbacks consume reply data; do not assume a subsequent `answer` also receives the complete body.
-- No automatic polling interval is implied by a tree entry. Schedule requests from the score or your script when required.
+For URL substitution, function arguments, POST bodies and streaming-response caveats, see the [HTTP device API]({{ site.baseurl }}/reference/languages/qml-devices.html#http-device-api). Tree entries do not poll automatically; trigger requests from the score or your script.
 
-For arbitrary HTTP methods, custom headers, status-code handling or bearer authorization, use the object form of `Protocols.http` in a [Mapper device]({{ site.baseurl }}/devices/mapper-device.html), documented in [QML protocols]({{ site.baseurl }}/in-depth/qml-protocols.html#http-requests). Keep credentials out of shared scores.
+For arbitrary HTTP methods, custom headers, status-code handling or bearer authorization, use the object form of `Protocols.http` in a [Mapper device]({{ site.baseurl }}/devices/mapper-device.html), documented in the [QML transport API]({{ site.baseurl }}/reference/languages/qml-protocols.html#http-requests). Keep credentials out of shared scores.
 
 If nothing arrives, check the server URL and method independently of QML validation, then inspect script/network diagnostics. This device does not expose a listening HTTP endpoint. To serve a browser operator interface, see [Remote Control]({{ site.baseurl }}/in-depth/remote.html).
 

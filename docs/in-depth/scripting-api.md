@@ -12,42 +12,16 @@ permalink: /in-depth/scripting-api.html
 
 # Scripting API
 
-The console and editor scripts operate on the current document; a JavaScript process runs in a separate execution context.
+This reference now lives under **Reference → Languages**. Open the [complete Scripting API]({{ site.baseurl }}/reference/languages/javascript-editor.html) for API details, examples and runtime restrictions.
 
-| Object / module | Purpose |
-|---|---|
-| `Score` in the console | Document editing, transport, devices and undo. In QML, `import Score as Score` exposes the editor singleton as `Score.Editor`. |
-| `Controls`, `Triggers`, `Conditions` from `import Score` | Named, published controls and scenario conditions/triggers. The console exposes the same namespaces as `Score.Controls`, `Score.Triggers`, `Score.Conditions`. |
-| `Device` | Live device values. Available in the console and execution scripts; Mapper devices provide additional tree-editing operations. |
-| `Util` | Files, paths, time conversions and other helpers. Native dialogs belong on the GUI thread, not in a process's `tick`. |
-| `View` | Editor navigation and captures; requires a GUI. |
-| `Protocols` | Raw transport connections and HTTP requests in the console and Mapper scripts. |
-| `System`, `Library` | System queries and package operations, subject to the installed build. |
+For console setup, library scripts and menu actions, use the [Scripting tutorial]({{ site.baseurl }}/in-depth/scripting.html).
 
-## Examples
+Go directly to a relocated section:
 
-[Scripting API examples]({{ site.baseurl }}/in-depth/scripting-api/examples.html) walks through document editing, ports, triggers and conditions, devices, files and network connections.
-
-## Score object
-
-[Document, process and cable editing]({{ site.baseurl }}/in-depth/scripting-api/score.html) covers lookup, creation, controls, triggers, durations, presets, metadata and undo. Prefer the command-based `Score` functions for edits that should be undoable: assigning a QObject property directly does not automatically create an undo command.
-
-## Functions operating on devices
-
-[Devices and discovery]({{ site.baseurl }}/in-depth/scripting-api/devices.html) covers protocol enumeration, saved device settings and live values. [QML protocols]({{ site.baseurl }}/in-depth/qml-protocols.html) covers raw sockets, framing, encoding, HTTP and OAuth.
-
-## Util object
-
-[Files, time and utilities]({{ site.baseurl }}/in-depth/scripting-api/utilities.html) documents file operations, asynchronous pickers, environment variables and time units.
-
-## UI
-
-[View and interface automation]({{ site.baseurl }}/in-depth/scripting-api/view.html) documents captures, selection, prompts and process editor placement. See [Custom UI]({{ site.baseurl }}/custom-ui.html) for QML interfaces, imported forms and texture previews.
-
-## Execution scripts
-
-The [Javascript process]({{ site.baseurl }}/processes/javascript.html) reference describes ports, `tick`, execution state and GPU graphics. Editor APIs are not a real-time execution API: do not change the document or open dialogs from an audio-thread callback.
-
-## Source reference
-
-The authoritative declarations are [`EditContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/EditContext.hpp), [`Utils.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/Utils.hpp) and [`ViewContext.hpp`](https://github.com/ossia/score/blob/master/src/plugins/score-plugin-js/JS/Qml/ViewContext.hpp). C++ implementation classes are not themselves JavaScript processes.
+- <a id="examples"></a>[Examples]({{ site.baseurl }}/reference/languages/javascript-editor.html#examples)
+- <a id="score-object"></a>[Score object]({{ site.baseurl }}/reference/languages/javascript-editor.html#score-object)
+- <a id="functions-operating-on-devices"></a>[Functions operating on devices]({{ site.baseurl }}/reference/languages/javascript-editor.html#functions-operating-on-devices)
+- <a id="util-object"></a>[Util object]({{ site.baseurl }}/reference/languages/javascript-editor.html#util-object)
+- <a id="ui"></a>[UI]({{ site.baseurl }}/reference/languages/javascript-editor.html#ui)
+- <a id="execution-scripts"></a>[Execution scripts]({{ site.baseurl }}/reference/languages/javascript-editor.html#execution-scripts)
+- <a id="source-reference"></a>[Source reference]({{ site.baseurl }}/reference/languages/javascript-editor.html#source-reference)

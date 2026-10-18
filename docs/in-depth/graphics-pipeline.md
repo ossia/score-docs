@@ -13,7 +13,7 @@ permalink: /in-depth/video.html
 
 *score* has a patchable GPU graph for video, textures, compute, and 3D scenes. The graph runs on a dedicated rendering thread and uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-3d). OpenGL, Vulkan, Metal, and Direct3D have different feature and format limits; using RHI does not make every shader supported on every backend.
 
-The important rule for authors is: use the *score* / ISF helpers instead of backend-specific GLSL assumptions. Coordinate origins, clip-space conventions, alpha representation, texture formats, and resource bindings are normalized by the runtime.
+The important rule for authors is: use the *score* / ISF helpers instead of backend-specific GLSL assumptions. Coordinate origins, clip-space conventions, alpha representation, texture formats, and resource bindings are normalized by the runtime. The [GLSL runtime reference]({{ site.baseurl }}/reference/languages/glsl.html) explains the language and generated interface; this page explains how processes fit together.
 
 ## Data types in the graph
 
@@ -42,7 +42,7 @@ For the scene-building path, see [[3D scene pipeline]]: it distinguishes native 
 | [[Vertex Shader Art]] | Vertex Shader Art-compatible procedural vertex shader | Point / line based generative visuals |
 | [[Model Display]] | Built-in renderer | Quick display of geometry with standard controls and texture projection |
 
-These processes share the same parser family and many header fields: controls, texture inputs, sampler settings, output declarations, alpha / compositing policy, time uniforms, and resource expressions.
+These processes share a parser family, but not every field belongs to every format. The canonical contracts are [ISF]({{ site.baseurl }}/reference/languages/isf.html), [CSF]({{ site.baseurl }}/reference/languages/csf.html), [raw raster]({{ site.baseurl }}/reference/languages/raw-raster.html), and [VSA]({{ site.baseurl }}/reference/languages/vertex-shader-art.html). Standard ISF and score extensions are distinguished in the ISF reference.
 
 ## Rendering model
 
@@ -57,51 +57,19 @@ A process can publish more than one output:
 
 ## Coordinates and portability
 
-Graphics APIs disagree on texture origin and clip-space orientation. *score* hides most of this, but shader authors must use the provided helpers:
-
-- In fragment shaders, sample 2D textures with `IMG_NORM_PIXEL`, `IMG_PIXEL`, `IMG_THIS_NORM_PIXEL`, `IMG_THIS_PIXEL`, or `IMG_TEXEL` rather than hand-coded `texture()` / `gl_FragCoord` math.
-- In compute shaders, use `IMG_LOAD`, `IMG_STORE`, and `IMG_STORE_LAYER` for image resources when image origin matters.
-- In raw raster vertex shaders, call `isf_vertShaderInit()` at the start of `main()` and `isf_vertShaderFinish()` at the end. This keeps multiview data and clip-space Y correction consistent.
-- Multiply clip-space positions by `clipSpaceCorrMatrix` and use `VIEWPROJECTION_MATRIX` / `MODEL_MATRIX` when rendering geometry with the raw raster pipeline.
+Graphics APIs disagree on texture origin and clip-space orientation. *score* hides most of this through image sampling/store helpers and vertex-stage initialization and finalization. Treat texture lookup coordinates separately from clip-space positions: an unconditional Y flip is not a portable solution. Follow the [stage-specific coordinate conventions]({{ site.baseurl }}/reference/languages/glsl.html#coordinates-and-stage-conventions), including the distinct raw-raster and VSA contracts.
 
 ## Alpha and compositing
 
-The renderer supports both straight and premultiplied alpha. Header fields let a shader state its contract instead of relying on implicit blending:
+Straight alpha stores color independently of coverage; premultiplied alpha stores color already multiplied by coverage. Mixing these without declaring the convention can create dark fringes or incorrect overlays. Shader headers state the output convention and intended composition.
 
-```json
-{
-  "ALPHA": "premultiplied",
-  "COMPOSITE": "over"
-}
-```
-
-`ALPHA` can be `"straight"` or `"premultiplied"`. `COMPOSITE` can be `"over"`, `"add"`, `"multiply"`, `"screen"`, or `"replace"`. These can be declared globally or per output where supported.
-
-If a shader declares explicit `PIPELINE_STATE.BLEND`, that blend state wins over `COMPOSITE`.
-
-For raw raster transparency, current shaders use `QUEUE` and `LAYER`. The historical `TRANSPARENCY` block is not a current parser field: do not copy it from an older development example. See [[Render Pipeline]] for private targets, resolve shaders and depth policies.
+See [ISF alpha and compositing]({{ site.baseurl }}/reference/languages/isf.html#alpha-and-compositing) for the shared policy and [raw-raster transparency]({{ site.baseurl }}/reference/languages/raw-raster.html#alpha-compositing-and-transparency) for explicit blending, draw queues and private layers. Explicit raster blend state takes precedence over the composition policy.
 
 ## Depth, layers, cubemaps, and MSAA
 
-Raw raster and ISF outputs can declare richer render targets:
+An output is more than a color image: a render target may include depth, multiple color attachments, array layers, cubemap faces, mip levels or multisampling. These enable shadow maps, environment probes, layered effects and later depth-aware composition.
 
-```json
-"OUTPUTS": [
-  { "NAME": "color", "TYPE": "color", "FORMAT": "rgba16f", "SAMPLES": 4 },
-  { "NAME": "depth", "TYPE": "depth", "FORMAT": "d32f" }
-]
-```
-
-Additional output fields include:
-
-- `WIDTH`, `HEIGHT`: fixed or expression-sized offscreen targets.
-- `LAYERS`: texture array outputs.
-- `DEPTH`: 3D texture outputs.
-- `CUBEMAP`: cubemap outputs.
-- `GENERATE_MIPS`: automatic mip generation after rendering.
-- `SAMPLES`: per-output MSAA sample count.
-
-Raw raster execution models can render per mip, per layer, per cubemap face, or a manual number of times. This is how environment precomputation, shadow cascades, layered effects, and probe rendering are built.
+Outputs sharing a framebuffer must have compatible dimensions and supported formats. A two-dimensional preview does not show every layer or cubemap face. Raw raster can repeat draws per mip, layer or face; true volumetric writes use compute. Allocation fields belong to the [ISF output reference]({{ site.baseurl }}/reference/languages/isf.html#outputs) and [raw-raster output and execution contracts]({{ site.baseurl }}/reference/languages/raw-raster.html#fragment-outputs-and-render-targets).
 
 ## 3D and scene path
 
@@ -110,27 +78,11 @@ There are two common 3D paths:
 1. **Geometry path**: mesh / point / primitive geometry flows directly into [[Model Display]] or [[Render Pipeline]]. `MODEL_MATRIX` contains the upstream transform.
 2. **Scene path**: a scene is flattened by the scene preprocessor. Raw raster shaders read scene auxiliary buffers such as `per_draws`, `scene_counts`, `camera`, and material textures. Per-object transforms come from the per-draw data, not from `MODEL_MATRIX`.
 
-Raw raster shaders automatically get a `camera` uniform auxiliary when they do not declare one. The helper macros are:
-
-```glsl
-VIEW_MATRIX
-PROJECTION_MATRIX
-VIEWPROJECTION_MATRIX
-CAMERA_POSITION
-```
-
-If a raw raster shader declares camera access, *score* adds a `Camera` geometry inlet so a camera or camera array can drive those matrices.
+The runtime can supply a camera interface and a **Camera** geometry inlet to shaders using the built-in camera. See [raw-raster camera uniforms]({{ site.baseurl }}/reference/languages/raw-raster.html#built-in-uniforms-and-macros) and the [geometry versus scene contract]({{ site.baseurl }}/reference/languages/raw-raster.html#geometry-path-vs-scene-path) before choosing a transform.
 
 ## Expressions
 
-Many size and dispatch fields accept expressions:
-
-- scalar inputs: `$size`, `$iterations`
-- texture dimensions: `$WIDTH_input`, `$HEIGHT_input`, `$DEPTH_input`, `$LAYERS_input`
-- geometry counts: `$VERTEX_COUNT`, `$INSTANCE_COUNT`, `$VERTEX_COUNT_geo`
-- user slider: `$USER`
-
-Expressions support arithmetic, comparisons, and common math functions such as `min`, `max`, `sqrt`, `ceil`, `floor`, `pow`, `sin`, `cos`, `clamp`, `step`, and `smoothstep`.
+Image sizes and dispatch counts can depend on controls and upstream resource dimensions instead of fixed constants. This lets a filter follow its input resolution or a geometry pass follow its upstream vertex count. The exact variables and operators belong to [ISF size expressions]({{ site.baseurl }}/reference/languages/isf.html#size-expressions) and [CSF expressions]({{ site.baseurl }}/reference/languages/csf.html#expressions); these header expressions are evaluated by the runtime, not GLSL expressions in the shader body.
 
 ## Live editing and library scan
 

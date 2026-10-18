@@ -18,11 +18,9 @@ Shell command launches **Script** once when its process starts executing. It can
 
 ## Interpreter and inputs
 
-**Interpreter** selects System, Bash, Zsh, Fish, Sh, Python, PowerShell, Cmd or Custom. Write Script in the language of the selected interpreter; a shell pipeline is not automatically Python code.
+**Interpreter** selects System, Bash, Zsh, Fish, Sh, Python, PowerShell, Cmd or Custom. Write **Script** in the language of the selected interpreter; a shell pipeline is not automatically Python code.
 
-- **System** uses the operating system's command interpreter.
-- The named interpreters invoke their corresponding executable. Python uses `python3`; PowerShell uses `powershell` on Windows and `pwsh` elsewhere.
-- **Custom command** supplies the executable and arguments for Custom. `%s` is replaced with the complete Script text. If absent, the script is appended as a final argument. Quote the custom command's arguments as required by its interpreter.
+The [external script language reference]({{ site.baseurl }}/reference/languages/external-scripts.html) links each language's manual and explains executable selection, the **Custom command** `%s` substitution and quoting. These interpreters run outside score; they do not provide its embedded JavaScript API.
 
 The chosen executable must be installed and discoverable on the machine running score. Selecting Cmd on a non-Windows machine does not install Windows command support. This process is not available in the WebAssembly build and has no output ports for stdout or exit status.
 

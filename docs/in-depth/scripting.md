@@ -14,7 +14,7 @@ permalink: /in-depth/scripting.html
 
 The console runs JavaScript through Qt's QML engine. Use it for editor automation; use a [Javascript process]({{ site.baseurl }}/processes/javascript.html) for scheduled execution, audio, MIDI or graphics. These are different engines: console variables and functions are not automatically shared with executing processes.
 
-Start with the [Scripting API]({{ site.baseurl }}/in-depth/scripting-api.html), then choose its document editing, device, utility or view reference. Editor functions are exposed as `Score` in the console and as `Score.Editor` after `import Score as Score` in QML interfaces. Additional helpers are available as `Util`.
+Start with the [JavaScript editor API]({{ site.baseurl }}/reference/languages/javascript-editor.html), then choose its document editing, device, utility or view reference. Editor functions are exposed as `Score` in the console and as `Score.Editor` after `import Score as Score` in QML interfaces. Additional helpers are available as `Util`. The [JavaScript and QML language guide]({{ site.baseurl }}/reference/languages/javascript.html) distinguishes language syntax and the APIs available in each execution context; this page focuses on using scripts in the editor.
 
 ```js
 let data = Util.readFile("/Users/me/foo.txt");

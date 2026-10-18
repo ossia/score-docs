@@ -63,7 +63,7 @@ A typical custom renderer uses these stages:
 
 Flattened scenes provide auxiliary buffers and textures to raw raster shaders, including per-draw transforms, material indices, material texture pools, scene counts, lights, camera data, environment maps, and shadow data depending on the patch.
 
-For a scene raw raster shader, do not use `MODEL_MATRIX` for per-object placement. Read the per-draw model matrix from the scene auxiliary buffer. See [[Render Pipeline]] for the raw raster scene-path example.
+For a scene raw raster shader, do not use `MODEL_MATRIX` for per-object placement. Read the per-draw model matrix from the scene auxiliary buffer. See the [raw-raster scene-path reference]({{ site.baseurl }}/reference/languages/raw-raster.html#scene-path) for the complete example.
 
 ## Materials and textures
 
