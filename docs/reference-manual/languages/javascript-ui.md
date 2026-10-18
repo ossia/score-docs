@@ -4,6 +4,7 @@ title: QML custom UI API
 description: "QML port bindings, ScriptUI messages and state, imported forms and texture previews"
 parent: Languages
 grand_parent: Reference
+nav_order: 9
 permalink: /reference/languages/javascript-ui.html
 ---
 

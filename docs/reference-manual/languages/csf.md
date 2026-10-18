@@ -3,6 +3,7 @@ layout: default
 title: CSF language reference
 parent: Languages
 grand_parent: Reference
+nav_order: 22
 permalink: /reference/languages/csf.html
 ---
 
@@ -171,7 +172,7 @@ Fields:
 | `SIZE` | Flexible array length when needed. |
 | `PERSISTENT` | Ping-pong buffer history; previous frame is `<name>_prev`. |
 | `VISIBILITY` | Graphics-stage visibility when shared: `compute`, `fragment`, `vertex`, `vertex+fragment`, or `none`. |
-| `BUFFER_USAGE` | Special usage: `indirect_draw`, `indirect_draw_indexed`, or `dispatch_args`. Allows empty `LAYOUT`. |
+| `BUFFER_USAGE` | Special usage: `indirect_draw` or `indirect_draw_indexed`. Allows empty `LAYOUT`. Indirect dispatch needs no special usage: point `EXECUTION_MODEL` `TYPE: "INDIRECT"` at an ordinary storage buffer (see [Indirect dispatch](#indirect-dispatch)). |
 
 Access fields as members:
 

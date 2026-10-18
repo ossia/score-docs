@@ -15,7 +15,7 @@ score: /examples/devices/gamepad.zip
 
 ![Gamepad button and stick mappings for drums, bitcrushing and delay]({{ site.img }}/examples/devices/gamepad.png "Gamepad controller setup in ossia score")
 
-Play a rhythm with the buttons and reshape it with the sticks. A gamepad puts two kinds of musical action under your thumbs: deliberate drum attacks and continuous changes to the sound between them. The same small controller can act as both percussion instrument and effects surface.
+Play a rhythm with the buttons and reshape it with the sticks. The buttons trigger drum attacks; the sticks change the sound continuously between them.
 
 ## Prepare the controller and samples
 
@@ -25,9 +25,9 @@ Play a rhythm with the buttons and reshape it with the sticks. A gamepad puts tw
 
 ## Play the patch
 
-Press A and B during playback to play two drum sounds. Alternate them until you have a repeatable rhythm, then keep that rhythm steady while exploring one stick at a time. This makes the effect of each gesture easier to hear.
+Press A and B during playback to play two drum sounds. Alternate them until you have a repeatable rhythm, then keep that rhythm steady while moving one stick at a time.
 
-The left stick controls Bitcrush: horizontal movement changes Rate, and vertical movement changes Crush. Move along one axis first, then diagonally. Compare changes in grain and roughness without changing the drum pattern.
+The left stick controls Bitcrush: horizontal movement changes Rate, and vertical movement changes Crush. Move along one axis first, then diagonally: the drums get grainier and rougher while the pattern stays the same.
 
 The right stick controls delay time and feedback. Begin with low feedback and try short repeats, then lengthen the delay to fill the space between hits. Raise feedback cautiously and leave pauses to hear the echoes decay; changing both axes at once can make a familiar rhythm much denser.
 

@@ -4,6 +4,7 @@ title: QML transport API
 description: "Protocols sockets, framing, encoding, HTTP, OAuth, OSC and MIDI"
 parent: Languages
 grand_parent: Reference
+nav_order: 11
 permalink: /reference/languages/qml-protocols.html
 ---
 

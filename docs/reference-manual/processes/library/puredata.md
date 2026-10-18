@@ -41,7 +41,7 @@ For now do not use the "Parallel" execution mode when running Pd patches.
 
 Patch objects determine the audio, MIDI and value ports exposed in score. Set the required audio channel counts in the inspector, then connect the resulting process ports to the rest of the score.
 
-See [Audio, MIDI and message ports]({{ site.baseurl }}/reference/languages/puredata.html#audio-midi-and-message-ports) for the recognized Pd objects, and [Receive annotations and controls]({{ site.baseurl }}/reference/languages/puredata.html#receive-annotations-and-controls) for the optional control metadata previously documented here. Annotation support is still work in progress.
+See [Audio, MIDI and message ports]({{ site.baseurl }}/reference/languages/puredata.html#audio-midi-and-message-ports) for the recognized Pd objects, and [Receive annotations and controls]({{ site.baseurl }}/reference/languages/puredata.html#receive-annotations-and-controls) for the optional control metadata. Annotation support is still work in progress.
 
 ## Editing the patch
 

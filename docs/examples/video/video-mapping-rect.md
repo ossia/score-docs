@@ -14,7 +14,7 @@ score: /examples/video/video-mapping-rect.score
 
 Fit moving patterns to a set of shapes instead of filling a rectangular screen. Editable corners, polygons and freehand outlines let you sketch a projection composition around objects or architectural details, with soft edges and blending where shapes overlap.
 
-## Compose before output
+## Mapping interface
 
 Three generated patterns feed a mapping interface that places them within one viewport. One source rotates and another responds to the pointer, so you can see how motion behaves inside a deformed shape. The mapper produces a composed texture; splitting that image across physical displays is a separate output step.
 
@@ -25,10 +25,10 @@ Use a build with JavaScript/QML and Qt Quick 3D, and install the default preset 
 ## Try it
 
 - Start playback and click rect-mapper's **Show/hide UI** button in its process header. Assign a texture to a quad and move its corners; use the checkerboard to see where the image stretches.
-- Compare hard boundaries with soft edges, then change blend or mask settings where shapes overlap.
-- Double-click the background to start a polygon, or hold Alt/Option while drawing in the background for a freehand shape. Compare these outlines with a four-corner mapping.
+- Soften a shape's edges, then change blend or mask settings where shapes overlap.
+- Double-click the background to start a polygon, or hold Alt/Option while drawing in the background for a freehand shape; both can follow outlines a four-corner quad cannot.
 
-Reduce Subdivisions from 32 if deformation is too costly, comparing the visual result as you do. For projection across several displays, send the composed texture to the Window device's Multi-window mode.
+Reduce Subdivisions from 32 if deformation is too costly; strongly deformed shapes show visible facets at low values. For projection across several displays, send the composed texture to the Window device's Multi-window mode.
 
 {% include try-on-web.html %}
 

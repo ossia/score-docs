@@ -5,6 +5,7 @@ title: JavaScript files and utilities API
 description: "Filesystem helpers, time conversions, dialogs and environment access"
 parent: Languages
 grand_parent: Reference
+nav_order: 7
 nav_exclude: true
 permalink: /reference/languages/javascript/utilities.html
 ---

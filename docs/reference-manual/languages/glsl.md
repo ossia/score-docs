@@ -3,6 +3,7 @@ layout: default
 title: GLSL runtime reference
 parent: Languages
 grand_parent: Reference
+nav_order: 20
 permalink: /reference/languages/glsl.html
 ---
 

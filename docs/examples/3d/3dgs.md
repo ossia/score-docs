@@ -18,7 +18,7 @@ The native scene pipeline loads the asset and camera, selects the splat data, th
 
 ## Try it
 
-Open the ZIP directly in score and start playback. Vary `scaleMod` to compare smaller and larger splats, then change `coverageThreshold` to see how the renderer's coverage cutoff affects the image. Use Camera's Eye and Target controls to inspect it from another viewpoint.
+Open the ZIP directly in score and start playback. Lower `scaleMod` to shrink the splats until details separate, raise it to merge them, then change `coverageThreshold` to drop or keep faint splats. Use Camera's Eye and Target controls to inspect it from another viewpoint.
 
 The archive includes the splat asset, and the decoding and rendering shaders are embedded. Use a graphics backend with compute-shader support.
 

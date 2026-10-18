@@ -102,7 +102,7 @@ The **Limiter** is a lookahead, sample-peak limiter. Its **Audio** input is dela
 
 The effective Attack ramp cannot exceed the Lookahead duration plus one sample. Choosing a long note value for Attack therefore does not produce a beat-long ramp. Release is useful for tempo-related recovery through the [time chooser]({{ site.baseurl }}/reference/time-chooser.html).
 
-This is a sample-peak ceiling, not a claim of inter-sample true-peak protection or a substitute for safe monitoring levels. The current implementation uses peak-based gain reduction and a final ceiling clamp, not the previously described hyperbolic-tangent soft saturation.
+This is a sample-peak ceiling, not a claim of inter-sample true-peak protection or a substitute for safe monitoring levels. The implementation uses peak-based gain reduction and a final ceiling clamp, not hyperbolic-tangent soft saturation.
 
 **Limiter (old)** remains loadable with its earlier plain timing controls and **Relase** spelling. It also uses the current peak-limiter engine; retaining a saved process identity does not mean every historical DSP implementation is frozen. To use the new timing controls, insert the current Limiter explicitly.
 

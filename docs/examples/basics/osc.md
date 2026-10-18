@@ -27,12 +27,12 @@ The score has no internal sound or image output. Use an OSC monitor to see the e
 
 The saved `OSC` device listens on UDP `0.0.0.0:9997` and sends to `127.0.0.1:9996`. Run an OSC monitor on port 9996 to see output, and send to the computer's port 9997 to drive the input examples. Change the remote host if your receiving application is on another computer.
 
-Once the monitor receives messages, replace the example destinations with parameters understood by your receiving application. Match each parameter's type and expected range before letting an automation control it.
+The device tree holds example addresses: the float `/my_float`, the integer `/my_int`, the impulse `/my_impulse`, and `/instances/foo.1` to `/instances/foo.5`. Once the monitor receives messages, replace these example destinations with parameters understood by your receiving application. Match each parameter's type and expected range before letting an automation control it.
 
 ## Exercise the timeline
 
-1. Start playback and watch the device tree or external monitor. Compare a cue's immediate value change with an automation's succession of values: one recalls a setting, the other performs a gesture.
-2. Set the controlled value manually, then compare `Tween` with `Automation`. Tween begins from the current value instead of jumping to a predetermined start, which is useful when two performers share control.
+1. Start playback and watch the device tree or external monitor. A cue sends one value immediately; an automation sends a succession of values along its curve.
+2. Set the controlled value manually, then play `Tween` and `Automation`. Tween begins from the current value instead of jumping to a predetermined start, so a manual change is not overwritten by a jump.
 3. Send an OSC impulse to `/my_impulse` to release the waiting trigger, then set `/my_int` to 5 to continue the branch. The sender now controls when the composition advances.
 4. Try the standalone float cues before triggering the conditional branch. Watch the comparison select a fade in or fade out; changing an input can choose a different response without rebuilding the timeline.
 

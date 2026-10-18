@@ -5,6 +5,7 @@ title: Time Chooser
 description: "Choose free durations or tempo-synchronized note values"
 
 parent: Reference
+nav_order: 7
 
 permalink: /reference/time-chooser.html
 ---

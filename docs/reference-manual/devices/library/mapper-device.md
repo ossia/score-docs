@@ -321,9 +321,34 @@ For devices whose APIs need custom transports, keep a raw socket in a QML proper
 
 ## Reference
 
-The embedded API manual has moved under **Reference → Languages**:
+The complete API reference is under **Reference → Languages**:
 
 - [Context objects]({{ site.baseurl }}/reference/languages/qml-devices.html#available-context-objects) and [Device operations]({{ site.baseurl }}/reference/languages/qml-devices.html#device-object).
 - [Tree node properties]({{ site.baseurl }}/reference/languages/qml-devices.html#tree-node-properties) and [value types]({{ site.baseurl }}/reference/languages/qml-devices.html#value-types).
 - [Mapper callback signatures]({{ site.baseurl }}/reference/languages/qml-devices.html#callback-signatures).
 - [Transport factories]({{ site.baseurl }}/reference/languages/qml-protocols.html#transport-selection) and [socket callbacks]({{ site.baseurl }}/reference/languages/qml-protocols.html#socket-callbacks).
+
+Go directly to a relocated section:
+
+- <a id="writing-to-the-mappers-own-nodes"></a>[Writing to the mapper's own nodes]({{ site.baseurl }}/reference/languages/qml-devices.html#writing-to-the-mappers-own-nodes)
+- <a id="writing-to-other-devices"></a>[Writing to other devices]({{ site.baseurl }}/reference/languages/qml-devices.html#writing-to-other-devices)
+- <a id="reading-from-other-devices"></a>[Reading from other devices]({{ site.baseurl }}/reference/languages/qml-devices.html#reading-from-other-devices)
+- <a id="combining-device-reads-and-writes"></a>[Combining Device reads and writes]({{ site.baseurl }}/reference/languages/qml-devices.html#combining-device-reads-and-writes)
+- <a id="reacting-to-incoming-network-data-and-dispatching-to-multiple-devices"></a>[Reacting to incoming network data and dispatching to multiple devices]({{ site.baseurl }}/reference/languages/qml-devices.html#reacting-to-incoming-network-data-and-dispatching-to-multiple-devices)
+- <a id="udp-sockets"></a>[UDP sockets]({{ site.baseurl }}/reference/languages/qml-protocols.html#udp-sockets)
+- <a id="tcp-sockets"></a>[TCP sockets]({{ site.baseurl }}/reference/languages/qml-protocols.html#tcp-sockets)
+- <a id="websockets"></a>[WebSockets]({{ site.baseurl }}/reference/languages/qml-protocols.html#websockets)
+- <a id="unix-sockets-linux--macos"></a>[Unix sockets (Linux / macOS)]({{ site.baseurl }}/reference/languages/qml-protocols.html#unix-sockets)
+- <a id="http-requests"></a>[HTTP requests]({{ site.baseurl }}/reference/languages/qml-protocols.html#http-requests)
+- <a id="osc-message-parsing"></a>[OSC message parsing]({{ site.baseurl }}/reference/languages/qml-protocols.html#osc-message-parsing)
+- <a id="midi"></a>[MIDI]({{ site.baseurl }}/reference/languages/qml-protocols.html#midi)
+- <a id="common-socket-callbacks"></a>[Common socket callbacks]({{ site.baseurl }}/reference/languages/qml-protocols.html#socket-callbacks)
+- <a id="available-context-objects"></a>[Available context objects]({{ site.baseurl }}/reference/languages/qml-devices.html#available-context-objects)
+- <a id="device-object"></a>[Device object]({{ site.baseurl }}/reference/languages/qml-devices.html#device-object)
+- <a id="protocols-object"></a>[Protocols object]({{ site.baseurl }}/reference/languages/qml-protocols.html#transport-selection)
+- <a id="socket-functions"></a>[Socket functions]({{ site.baseurl }}/reference/languages/qml-protocols.html#transport-selection)
+- <a id="midi-functions"></a>[MIDI functions]({{ site.baseurl }}/reference/languages/qml-protocols.html#midi)
+- <a id="other-functions"></a>[Other functions: HTTP requests and OSC parsing]({{ site.baseurl }}/reference/languages/qml-protocols.html#http-requests)
+- <a id="tree-node-properties"></a>[Tree node properties]({{ site.baseurl }}/reference/languages/qml-devices.html#tree-node-properties)
+- <a id="value-types-ossiatype"></a>[Value types (`Ossia.Type`)]({{ site.baseurl }}/reference/languages/qml-devices.html#value-types)
+- <a id="callback-signatures"></a>[Callback signatures]({{ site.baseurl }}/reference/languages/qml-devices.html#callback-signatures)

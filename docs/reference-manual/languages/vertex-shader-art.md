@@ -3,6 +3,7 @@ layout: default
 title: Vertex Shader Art reference
 parent: Languages
 grand_parent: Reference
+nav_order: 24
 permalink: /reference/languages/vertex-shader-art.html
 ---
 

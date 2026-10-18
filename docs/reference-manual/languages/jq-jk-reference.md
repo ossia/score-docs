@@ -4,6 +4,7 @@ title: jq and Jk
 description: "Jk's jq-style query language for selecting, transforming and collecting structured values."
 parent: Languages
 grand_parent: Reference
+nav_order: 13
 permalink: /reference/languages/jq-jk.html
 ---
 
@@ -55,7 +56,7 @@ For input `[123, 456, 789, 10]`:
 [.[1:3][]]    → [456, 789]
 ```
 
-These slice semantics correct the earlier Object filter example: a slice does not emit its elements individually, and index 3 is not included in `.[1:3]`.
+A slice does not emit its elements individually, and index 3 is not included in `.[1:3]`.
 
 For a nested input:
 

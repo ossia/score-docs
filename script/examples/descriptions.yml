@@ -10,15 +10,15 @@
 # takes the description from the page's front matter instead.
 
 common-practices/3d/generative-3d: >-
-  Animate a procedural 3D form by combining deformation, colour and repeating
+  Animate a procedural 3D form by combining deformation, color and repeating
   motion. Explore how a few control signals can give a shape its character.
 
 common-practices/led-design/led-combination: >-
-  Compose an LED display from several moving colour patterns and preview how
+  Compose an LED display from several moving color patterns and preview how
   they fit together before sending them to physical lights.
 
 common-practices/led-design/led-with-arrays: >-
-  Build an LED colour pattern from separate red, green and blue sequences,
+  Build an LED color pattern by joining three numerical sequences end to end,
   exploring how numerical values become light without writing a shader.
 
 common-practices/sound-spatialization/spat-example-dbap: >-
@@ -95,8 +95,8 @@ examples/devices/synths: >-
   filtering, exploring how effects change the character of an instrument.
 
 examples/video/ffmpeg-streaming: >-
-  Send and receive video over a network with FFMPEG, connecting a visual
-  patch to another machine through UDP streaming.
+  Receive and send video over UDP with FFMPEG, connecting a visual patch to
+  another application on the same machine through local streaming.
 
 examples/video/video-mapping-multi-projector: >-
   Extend one image across several projectors and blend their overlaps,
@@ -135,7 +135,7 @@ reference/processes/hdf5: >-
   for data-driven visuals.
 
 reference/processes/led-view: >-
-  Preview a generated colour sequence as an LED strip, checking a lighting
+  Preview a generated color sequence as an LED strip, checking a lighting
   pattern on screen before working with physical lights.
 
 reference/processes/mapping-tool: >-

@@ -5,6 +5,7 @@ title: Command line API
 description: "Options for the score start-up"
 
 parent: Reference
+nav_order: 12
 
 permalink: /reference/commandline.html
 ---

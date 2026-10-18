@@ -17,11 +17,10 @@ score: /examples/basics/all-media.zip
     <source src="{{ site.img }}/examples/basics/all-media.mp4" type="video/mp4">
 </video>
 
-A textured goblet moves and changes treatment under the influence of sound, MIDI patterns and automation. The patch brings these different kinds of material into one composition: musical activity becomes visual motion, while composed curves provide another layer of control.
-
+A textured goblet moves and changes treatment under the influence of sound, MIDI patterns and automation.
 ## Connect media through control
 
-Audio analysis converts sound into values that can animate geometry and influence video effects. MIDI patterns create the musical activity, and smoothing shapes how quickly the resulting visual response changes. Colour and rotation automations add gestures that do not depend on the audio.
+Audio analysis converts sound into values that can animate geometry and influence video effects. MIDI patterns create the musical activity, and smoothing shapes how quickly the resulting visual response changes. Color and rotation automations add movement that does not depend on the audio.
 
 The transferable idea is not that every cable carries the same thing. Audio, MIDI, textures and geometry retain their roles, while analysis and control values connect them. Rendering uses score's native geometry processes.
 
@@ -29,9 +28,9 @@ The transferable idea is not that every cable carries the same thing. Audio, MID
 
 Open the ZIP directly in score. Use a build with Deuterium, Faust and Airwindows support, configure an audio output, and begin at a low listening level.
 
-- Start playback and watch the model and effects respond. Change an analyzer's gain to compare small and exaggerated visual gestures.
-- Alter the smoothing and compare immediate accents with gradual movement.
-- Edit the colour or rotation automation, then change a MIDI pattern. Notice which gestures are composed directly and which follow the changed musical activity.
+- Start playback and watch the model and effects respond. Raise an analyzer's gain to exaggerate the visual response.
+- Lower the smoothing to make the image jump on each accent; raise it for gradual movement.
+- Edit the color or rotation automation, then change a MIDI pattern. The automation changes exactly as drawn; the audio-driven movement follows the new pattern.
 
 Sound serves two roles here: it provides audible material and control signals for the image. The Dirt effect is routed to the parent audio mix, while other branches feed analysis. When adapting the patch, decide which branches should be heard as well as measured.
 

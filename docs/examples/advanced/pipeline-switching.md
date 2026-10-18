@@ -18,11 +18,11 @@ Let a generative performance alternate between contrasting treatments: chorus an
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/pipeline-switching.score)
 
-## Switch on musical boundaries
+## How the switching works
 
 Internal LFOs write control values that scenario conditions compare around a threshold of 0.5. Quantization places the resulting changes on musical boundaries: the score labels the visual changes as beat switching and the audio changes as bar switching.
 
-This separates three decisions: the source material, the treatment applied to it, and the moment at which that treatment changes. Changing an effect parameter alters its sound or appearance; changing the switching control determines when that effect runs.
+Sources, treatments and switch times are set in different places. Changing an effect parameter alters its sound or appearance; changing the switching control determines when that effect runs.
 
 ## Setup
 
@@ -32,7 +32,7 @@ The saved switching is generated inside the patch, not by an external controller
 
 ## Try it
 
-- Start playback and watch the active intervals while listening. Compare the timing of the visual switches with the longer audio changes.
-- Change an LFO's rhythm and observe when its crossings become effective at the next quantized boundary.
-- Change a condition's threshold to compare how long each treatment remains selected.
+- Start playback and watch the active intervals while listening. The visual treatment can switch on any beat; the audio treatment only on a bar.
+- Change an LFO's rhythm: each threshold crossing takes effect at the next quantized boundary.
+- Move a condition's threshold away from 0.5 to keep one treatment selected longer than the other.
 - Move the output-window cursor to influence ParticleZoom without changing the selected effect pipeline.

@@ -12,17 +12,17 @@ score: /examples/video/compute-image.score
 
 ![Slow modulation controlling an accumulating Clifford attractor image]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-compute-image.png)
 
-An accumulating field of points reveals a Clifford attractor as its shape slowly changes. This gives you a visual source made from computation rather than footage or a mesh: the image records both the current mathematical form and traces of where it has been.
+An accumulating field of points reveals a Clifford attractor as its shape slowly changes. The image shows both the current form and traces of earlier ones.
 
-## Balance change and persistence
+## Modulation and fading
 
-Slow LFOs vary the attractor parameters while the compute shader draws points into the image. Brightness shapes their visibility, and fading determines how much of the earlier drawing remains. The balance between modulation and persistence determines whether you perceive a distinct form or a layered history.
+Slow LFOs vary the attractor parameters while the compute shader draws points into the image. Brightness shapes their visibility, and fading determines how much of the earlier drawing remains. Fast fading with slow modulation shows one distinct form; slow fading with faster modulation layers several.
 
 ## Try it
 
-- Start playback and observe a full sweep of the slow modulation before changing it. Alter the LFOs rather than manually adjusting an inlet they already drive.
-- Compare brightness and `fadeRate`: make the new points more visible, then change how quickly the old ones disappear.
-- Change `pointsPerThread` and compare the drawing density with responsiveness. More work is not automatically a more useful image.
+- Start playback and observe a full sweep of the slow modulation before changing it. Alter the LFOs instead of manually adjusting an inlet they already drive.
+- Raise brightness to make new points more visible, then change `fadeRate` to set how quickly old ones disappear.
+- Raise `pointsPerThread` for a denser drawing; past a point, the image barely improves while the frame rate drops.
 
 Use a graphics backend with compute support. No external image or geometry is needed; this patch is a visual experiment, not a performance benchmark.
 

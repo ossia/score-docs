@@ -12,9 +12,9 @@ score: /examples/devices/http-llm.score
 
 ![Rendered chat response behind the prompt-string processing nodes and text animation timeline]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-http-llm.png)
 
-Type a prompt and let a local language model supply text for the screen. When the answer arrives, score reveals it over time. The interaction joins an unpredictable response with a controlled visual rhythm, useful when exploring generated text as performance material rather than simply displaying a chat log.
+Type a prompt and let a local language model supply text for the screen. When the answer arrives, score reveals it over time at a pace you set.
 
-## Request first, reveal second
+## Request and display
 
 The HTTP device manages prompts and conversation history; the visual processes render the question and answer. The client requests a complete response from the OpenAI-compatible `/v1/chat/completions` endpoint. The gradual appearance of the answer is score's animation, not a stream of arriving tokens.
 
@@ -29,9 +29,9 @@ This separation lets you change how the text is presented without changing the c
 
 ## Try it
 
-Ask a short question, then a follow-up that depends on its answer. Clear the history and repeat the follow-up to compare the context available to the model. Clearing the conversation is a different action from merely asking a new question.
+Ask a short question, then a follow-up that depends on its answer. Clear the history and repeat the follow-up: without the earlier exchange, the model no longer knows what it refers to.
 
-Keep the prompt fixed and change the ten-second Write On automation. Compare a quick reveal with a slow one, then try a longer answer: the same reveal duration gives different amounts of text a different reading pace.
+Keep the prompt fixed and shorten or lengthen the ten-second Write On automation, then try a longer answer: the same reveal duration gives different amounts of text a different reading pace.
 
 Sampling controls are available on the device if you want to vary generation. For diagnosing a reply that stops unexpectedly, inspect `/chat/finish_reason` and the token counts under `/chat/usage`. The separate `/completion/prompt` request has no conversation history and does not feed this display.
 

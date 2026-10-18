@@ -5,6 +5,7 @@ title: Supported protocols and formats
 description: "With which protocols, files, software, hardware is score compatible ?"
 
 parent: Reference
+nav_order: 5
 
 permalink: /reference/protocols-and-formats.html
 ---

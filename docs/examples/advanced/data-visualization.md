@@ -12,15 +12,15 @@ score: /examples/advanced/data-visualization.zip
 
 ![A data curve connected to synthesized sound and a growing visual history]({{ site.baseurl }}/assets/scores/thumbnails/examples-advanced-data-visualization.png)
 
-Follow the same data by eye and ear: a changing curve builds a history of points on screen while controlling synthesized sound. This is a way to explore whether a trend or fluctuation becomes more apparent as motion, as a musical gesture or through the contrast between them.
+Follow the same data by eye and ear: a changing curve builds a history of points on screen while controlling synthesized sound.
 
 {% include try-on-web.html %}
 
 [Download the example]({{ site.baseurl }}/assets/scores/examples/advanced/data-visualization.zip)
 
-## From measurements to gestures
+## From data to control values
 
-An imported greenhouse-gas data column plays as an Automation. Statistics expose its mean, variance and consecutive differences, while smoothing turns variation into a more gradual control gesture. Calibrators map statistical changes into useful ranges for colour and delay settings.
+An imported greenhouse-gas data column plays as an Automation. Statistics expose its mean, variance and consecutive differences, while smoothing turns variation into a more gradual control signal. Calibrators map statistical changes onto the ranges of the color and delay settings.
 
 The GPU history retains earlier points through a delayed feedback connection. The sound is synthesized from the curve, not a recording of the phenomenon being measured: both sound and image are interpretations shaped by the chosen mappings.
 
@@ -30,9 +30,9 @@ Open the ZIP directly in score. The data curve is already imported, so the origi
 
 ## Try it
 
-- Start at a low listening level. Watch the history grow while comparing changes in the sound with the curve and statistical displays.
-- Adjust smoothing to compare short fluctuations with a steadier musical gesture. Notice which variations become less prominent.
-- Change point size or the colour treatment to compare individual points with the overall shape of the history.
+- Start at a low listening level. Watch the history grow and match changes in the sound to the curve and statistical displays.
+- Increase smoothing: short fluctuations fade from the sound, leaving the slower trend.
+- Lower point size to pick out individual points, or raise it to see the overall shape of the history.
 - Import your own data as a replacement curve and reconsider its mappings: a meaningful range for one dataset need not reveal another.
 
 Keep the delayed feedback connection when adapting the visual history; it carries the past values that make the accumulating view possible.

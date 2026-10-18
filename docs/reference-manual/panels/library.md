@@ -99,7 +99,7 @@ Here is an example of saving and loading a whole score as a preset, to embed it 
 <video src="{{ site.img }}/reference/panels/library-presets.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Saving and loading presets" title="Library presets"></video>
 
 ### Important folders in the default library
-- `Skins`: contains skins which can be changed in the settings. The currently provided screens are adaptations for various colour-blindness schemes.
+- `Skins`: contains skins which can be changed in the settings. The currently provided screens are adaptations for various color-blindness schemes.
 
 - `Util/metro_tick.wav` and `Util/metro_tock.wav`: replace these if you want to change the sound of the metronome.
 

@@ -12,7 +12,7 @@ score: /examples/ai/pose-detection.zip
 
 ![Facial keypoint filters connected to a radial blur over the camera image]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-pose-detection.png)
 
-Move your head and the center of a radial blur follows your nose across the camera image. This is a small, direct visual instrument: one tracked point gives the performer control over where an effect acts, while the blur amount determines how strongly the gesture changes the image.
+Move your head and the center of a radial blur follows your nose across the camera image. The tracked point sets where the effect acts; the blur amount sets how strong it is.
 
 {% include try-on-web.html %}
 
@@ -26,8 +26,8 @@ Select a working camera for `Camera:/`, grant camera access if prompted, and sta
 
 ## Try it
 
-Keep the blur amount fixed and move your head slowly from side to side. Then increase the amount: the same gesture should become easier to see in the image. This separates the mapping's position control from the effect's intensity.
+Keep the blur amount fixed and move your head slowly from side to side. Then increase the amount: the blur center still follows the same path, but the effect becomes stronger.
 
-The Object filter extracts the nose with `.keypoints[2]` and flips its vertical coordinate to match the effect. Try another of the five landmarks and compare where the blur settles on your face. A separate plot follows the first landmark's horizontal position; it is a useful reference when checking whether motion is being detected.
+The Object filter extracts the nose with `.keypoints[2]` and flips its vertical coordinate to match the effect. Change the index to another of the five landmarks to move the blur to an eye or a corner of the mouth. A separate plot follows the first landmark's horizontal position; check it to confirm that motion is being detected.
 
-If the camera image appears but the effect does not follow you, check the detection count and Landmark Model selection first. If movement is detected but appears inverted, inspect the coordinate conversion rather than changing the model.
+If the camera image appears but the effect does not follow you, check the detection count and Landmark Model selection first. If movement is detected but appears inverted, inspect the coordinate conversion before changing the model.

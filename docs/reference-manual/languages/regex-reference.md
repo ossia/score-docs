@@ -4,6 +4,7 @@ title: RE2 regular expressions
 description: "Pattern syntax, capture groups and replacement expressions for text processing."
 parent: Languages
 grand_parent: Reference
+nav_order: 15
 permalink: /reference/languages/regex.html
 ---
 

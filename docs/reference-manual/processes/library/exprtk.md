@@ -77,11 +77,25 @@ See [ExprTK and score-provided functions]({{ site.baseurl }}/reference/languages
 
 The [canonical expression examples]({{ site.baseurl }}/reference/languages/exprtk.html#examples) preserve the Logistic, Noisify, Sine, Square, Wobbly and distortion expressions, together with links to all expression preset folders in the user library.
 
-The following former example anchors lead to their new reference sections:
+Go directly to a relocated section:
 
-* <span id="value-generator"></span><span id="logistic-function"></span>[Value generator: Logistic function]({{ site.baseurl }}/reference/languages/exprtk.html#logistic-function).
-* <span id="value-mapper"></span><span id="add-noise"></span>[Value mapper: Add noise]({{ site.baseurl }}/reference/languages/exprtk.html#add-noise).
-* <span id="audio-generator"></span><span id="sine-wave"></span>[Audio generator: Sine wave]({{ site.baseurl }}/reference/languages/exprtk.html#sine-wave).
-* <span id="square-wave"></span>[Square wave]({{ site.baseurl }}/reference/languages/exprtk.html#square-wave).
-* <span id="wobbly-synth"></span>[Wobbly synth]({{ site.baseurl }}/reference/languages/exprtk.html#wobbly-synth).
-* <span id="audio-filter"></span><span id="crude-distortion"></span>[Audio filter: Crude distortion]({{ site.baseurl }}/reference/languages/exprtk.html#crude-distortion).
+- <a id="everywhere"></a>[Variables available everywhere]({{ site.baseurl }}/reference/languages/exprtk.html#everywhere)
+- <a id="value-filter-value-generator-audio-filter-audio-generator"></a>[Variables for Value filter, Value generator, Audio filter, Audio generator]({{ site.baseurl }}/reference/languages/exprtk.html#value-filter-value-generator-audio-filter-audio-generator)
+- <a id="value-filter-micromap-arraymap"></a>[Variables for Value filter, Micromap, Arraymap]({{ site.baseurl }}/reference/languages/exprtk.html#value-filter-micromap-arraymap)
+- <a id="value-filter-micromap"></a>[Variables for Value filter, Micromap]({{ site.baseurl }}/reference/languages/exprtk.html#value-filter-micromap)
+- <a id="value-generator"></a>[Value generator variables]({{ site.baseurl }}/reference/languages/exprtk.html#value-generator)
+- <a id="audio-filter"></a>[Audio filter variables]({{ site.baseurl }}/reference/languages/exprtk.html#audio-filter)
+- <a id="audio-generator"></a>[Audio generator variables]({{ site.baseurl }}/reference/languages/exprtk.html#audio-generator)
+- <a id="arraymap-arraygen"></a>[Variables for Arraymap, Arraygen]({{ site.baseurl }}/reference/languages/exprtk.html#arraymap-arraygen)
+- <a id="exprtk-provided-functionshttpwwwpartownetprogrammingexprtk"></a>[ExprTK-provided functions]({{ site.baseurl }}/reference/languages/exprtk.html#exprtk-provided-functions)
+- <a id="score-provided-functions"></a>[score-provided functions]({{ site.baseurl }}/reference/languages/exprtk.html#score-provided-functions)
+- <a id="value-generator-1"></a>[Value generator examples]({{ site.baseurl }}/reference/languages/exprtk.html#value-generator-1)
+- <a id="logistic-function"></a>[Logistic function]({{ site.baseurl }}/reference/languages/exprtk.html#logistic-function)
+- <a id="value-mapper"></a>[Value mapper examples]({{ site.baseurl }}/reference/languages/exprtk.html#value-mapper)
+- <a id="add-noise"></a>[Add noise]({{ site.baseurl }}/reference/languages/exprtk.html#add-noise)
+- <a id="audio-generator-1"></a>[Audio generator examples]({{ site.baseurl }}/reference/languages/exprtk.html#audio-generator-1)
+- <a id="sine-wave"></a>[Sine wave]({{ site.baseurl }}/reference/languages/exprtk.html#sine-wave)
+- <a id="square-wave"></a>[Square wave]({{ site.baseurl }}/reference/languages/exprtk.html#square-wave)
+- <a id="wobbly-synth"></a>[Wobbly synth]({{ site.baseurl }}/reference/languages/exprtk.html#wobbly-synth)
+- <a id="audio-filter-1"></a>[Audio filter examples]({{ site.baseurl }}/reference/languages/exprtk.html#audio-filter-1)
+- <a id="crude-distortion"></a>[Crude distortion]({{ site.baseurl }}/reference/languages/exprtk.html#crude-distortion)

@@ -4,6 +4,7 @@ title: EisenScript
 description: "Rules, transformations and termination in Structure Synth's geometry language."
 parent: Languages
 grand_parent: Reference
+nav_order: 26
 permalink: /reference/languages/eisenscript.html
 ---
 
@@ -17,7 +18,7 @@ The [upstream EisenScript reference](https://structuresynth.sourceforge.net/refe
 
 A program contains top-level actions and named `rule` blocks. Calling a rule at the top level starts generation; there is no separate `startshape` directive as in [Context Free]({{ site.baseurl }}/reference/languages/context-free.html).
 
-This example, previously on the Structure Synth process page, grows a chain of flattened boxes with two equally weighted ways to turn:
+This example, which can be run in the [Structure Synth]({{ site.baseurl }}/processes/structure-synth.html) process, grows a chain of flattened boxes with two equally weighted ways to turn:
 
 ```text
 set maxdepth 200
@@ -51,7 +52,7 @@ rule R1 w 10 {
 | `rule name w weight { ... }` | Give an alternative rule a relative selection weight. |
 | `count * { ... } shape` | Repeat an invocation with an accumulated transformation. |
 
-Transformation order matters: the upstream language applies transformations from the rightmost one. Rotation followed by translation is not generally interchangeable with translation followed by rotation. Use the upstream reference for matrix transforms, reflections and the full colour vocabulary.
+Transformation order matters: the upstream language applies transformations from the rightmost one. Rotation followed by translation is not generally interchangeable with translation followed by rotation. Use the upstream reference for matrix transforms, reflections and the full color vocabulary.
 
 ## Termination and reproducibility
 

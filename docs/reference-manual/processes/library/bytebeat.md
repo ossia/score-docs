@@ -30,6 +30,6 @@ This process compiles native C++ expressions, not JavaScript. It requires the [C
 (((t<<1)^((t<<1)+(t>>7)&t>>12))|t>>(4-(1^7&(t>>19)))|t>>7)
 ```
 
-More examples and their original source attribution have moved to the [historical formula collection]({{ site.baseurl }}/reference/languages/bytebeat.html#historical-formula-collection). Some require adaptation before use in score.
+More examples and their original source attribution are in the [historical formula collection]({{ site.baseurl }}/reference/languages/bytebeat.html#historical-formula-collection). Some require adaptation before use in score.
 
 

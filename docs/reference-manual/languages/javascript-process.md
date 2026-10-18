@@ -4,6 +4,7 @@ title: JavaScript Process API
 description: "Execution callbacks, ports, timing and textures for JavaScript/QML processes"
 parent: Languages
 grand_parent: Reference
+nav_order: 2
 nav_exclude: true
 permalink: /reference/languages/javascript-process.html
 ---

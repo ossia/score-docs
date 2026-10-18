@@ -3,6 +3,7 @@ layout: default
 title: Bytebeat expressions
 parent: Languages
 grand_parent: Reference
+nav_order: 19
 permalink: /reference/languages/bytebeat.html
 ---
 
@@ -55,9 +56,9 @@ A simple yet efficient tune, also used by the process example:
 
 ## Historical formula collection
 
-The complete formula collection previously shown on the Bytebeat process page is preserved below with its original comments and attribution. It is an archive of community formulas, **not a list of verified C++ expressions**: JavaScript arrays, undeclared variables, escaped punctuation and sample-rate annotations are retained as published in the old documentation. In particular, the archived `\?` spelling must be adapted to `?` for a C++ conditional expression. Review the semantic differences above before using a formula; examples credited to tejeez and mu6k retain those credits in their comments.
+The formula collection below keeps its original comments and attribution. It is an archive of community formulas, **not a list of verified C++ expressions**: JavaScript arrays, undeclared variables, escaped punctuation and sample-rate annotations are kept as originally published. In particular, the archived `\?` spelling must be adapted to `?` for a C++ conditional expression. Review the semantic differences above before using a formula; examples credited to tejeez and mu6k retain those credits in their comments.
 
-These formulas were collected from the community's [“Cool equations” thread](https://www.reddit.com/r/bytebeat/comments/20km9l/cool_equations/), of which the old process page preserved a partial backup. Consult that source for the original discussion and contributors.
+These formulas were collected from the community's [“Cool equations” thread](https://www.reddit.com/r/bytebeat/comments/20km9l/cool_equations/); this is a partial copy. Consult that source for the original discussion and contributors.
 
 ```cpp
 (t%255&t)-(t>>13&t)

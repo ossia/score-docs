@@ -5,6 +5,7 @@ title: Editing workflow
 description: "Timeline navigation, patch editing, live changes and editor placement"
 
 parent: Reference
+nav_order: 6
 
 permalink: /reference/editing-workflow.html
 ---

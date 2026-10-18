@@ -4,6 +4,7 @@ title: ExprTK language
 description: "ExprTK syntax, process variables, functions and examples"
 parent: Languages
 grand_parent: Reference
+nav_order: 12
 permalink: /reference/languages/exprtk.html
 ---
 
@@ -56,7 +57,7 @@ tanh(x + 1)
 will process a single float as input, while:
 
 ```matlab
-return [ xv[0] cos(xv[1]), xv[0] sin(xv[1]) ];
+return [ xv[0] * cos(xv[1]), xv[0] * sin(xv[1]) ];
 ```
 
 will take a vec2 that contains polar coordinates `[r, theta]` and convert it into cartesian coordinates `[x, y]`.
@@ -139,7 +140,7 @@ See the [upstream function library](https://www.partow.net/programming/exprtk/in
   * `t` should be something that increases ; `pos` is generally a good candidate.
   * `octaves`: the higher this is, the more detailed the noise is. 2 would be smooth, 7 very detailed but more computationally intensive. Between 1 and 10.
   * `persistence`: how much each octave fades. 1: no fade, very noisy. 0: very smooth.
-  * `5 * (noise(pos * 100, 4, 0.5) - 0.5)` gives a convincing fairly dynamic noise between -1 and 1.
+  * `2 * (noise(pos * 100, 4, 0.5) - 0.5)` gives a convincing fairly dynamic noise between -1 and 1.
   * `noise(pos * 10, 3, 0.1)` gives a very smooth evolution between 0 and 1.
 
 ![ExprTK]({{ site.img }}/reference/processes/exprtk/noises.png)
@@ -160,7 +161,7 @@ Contributing useful functions to the library is also very welcome.
 
 ### Value generator
 
-### Logistic function
+#### Logistic function
 
 Implemented as a preset (`Logistic`):
 ```matlab
@@ -175,7 +176,7 @@ m2 := r * m2 * (1 - m2)
 
 ### Value mapper
 
-### Add noise
+#### Add noise
 Implemented as a preset (`Noisify`):
 ```matlab
 var rnd_m := pow(2, 31);
@@ -194,7 +195,7 @@ x + a * r / (2^33);
 
 ### Audio generator
 
-### Sine wave
+#### Sine wave
 Implemented as a preset (`Sine`):
 ```matlab
 var phi := 2 * pi * (20 + a * 500) / fs;
@@ -205,7 +206,7 @@ out[0] := b * cos(m1[0]);
 out[1] := b * cos(m1[0]);
 ```
 
-### Square wave
+#### Square wave
 Implemented as a preset (`Square`):
 
 ```matlab
@@ -218,7 +219,7 @@ out[0] := f;
 out[1] := f;
 ```
 
-### Wobbly synth
+#### Wobbly synth
 Implemented as a preset (`Wobbly`):
 
 ```matlab
@@ -226,7 +227,7 @@ var freq_l := 225 +  cos(t/(100*(a+0.1)));
 freq_l := 2 * pi * m1[0] *  freq_l * b / fs;
 
 var freq_r := 215 +  sin(t/(100*(a+0.1)));
-freq_r := 2 * pi * m1[0] *  freq_l * b / fs;
+freq_r := 2 * pi * m1[0] *  freq_r * b / fs;
 
 m1[0] += 1;
 
@@ -236,12 +237,12 @@ out[1] := b * cos( freq_r );
 
 ### Audio filter
 
-### Crude distortion
+#### Crude distortion
 
 2-channel version:
 ```matlab
-out[0] := clamp(0,  tan(x[0]*log(1 + 200 * a)), 1);
-out[1] := clamp(0,  tan(x[1]*log(1 + 200 * a)), 1);
+out[0] := clamp(-1, tan(x[0]*log(1 + 200 * a)), 1);
+out[1] := clamp(-1, tan(x[1]*log(1 + 200 * a)), 1);
 ```
 
 Any number of channel version:

@@ -5,6 +5,7 @@ title: Processes
 description: "Reference of ossia score processes"
 
 parent: Reference
+nav_order: 1
 has_children: true
 
 permalink: /processes.html

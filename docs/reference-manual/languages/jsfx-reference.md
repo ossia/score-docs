@@ -4,6 +4,7 @@ title: JSFX and EEL2
 description: "JSFX and EEL2 language references, with score's YSFX hosting context."
 parent: Languages
 grand_parent: Reference
+nav_order: 17
 permalink: /reference/languages/jsfx.html
 ---
 

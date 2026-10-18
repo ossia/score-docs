@@ -20,7 +20,7 @@ Three native Camera processes feed Camera Switch. Nodes converts the position of
 
 Open the ZIP directly in score; the chess model is included. Start playback and move Nodes' Input Point toward each of its three nodes, then travel slowly between them. Watch both the viewing angle and framing change.
 
-Compare this continuous motion with Camera Switch's selection mode and Index for a direct cut. If you replace the model, adjust all three cameras' Eye and Target values to its scale. The model and rendering shader are included; this uses the native scene pipeline, not a Qt Quick 3D controller.
+For a direct cut instead of a continuous move, use Camera Switch's selection mode and Index. If you replace the model, adjust all three cameras' Eye and Target values to its scale. The model and rendering shader are included; this uses the native scene pipeline, not a Qt Quick 3D controller.
 
 {% include try-on-web.html %}
 

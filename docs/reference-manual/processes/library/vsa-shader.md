@@ -23,6 +23,12 @@ Use VSA for lightweight point clouds, line art, particle-like procedural visuals
 
 Use the [Vertex Shader Art reference]({{ site.baseurl }}/reference/languages/vertex-shader-art.html) for header fields, vertex outputs, time and resolution variables, and a complete [rotating spiral]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#example). Begin with the three-vertex recipe in [[Shader cookbook]] to see how positions and colors form the image. Connect the resulting texture to a video output. Point and line sizes depend on the GPU/backend.
 
+Go directly to a relocated section:
+
+- <a id="header"></a>[Header]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#header)
+- <a id="shader-variables"></a>[Shader variables]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#shader-variables)
+- <a id="example"></a>[Example]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#example)
+
 ## Related Processes
 
 - [[ISF Shaders]]: Fullscreen fragment shaders.
@@ -33,6 +39,6 @@ Use the [Vertex Shader Art reference]({{ site.baseurl }}/reference/languages/ver
 
 ## Try it
 
-For a more elaborate moving point cloud, download the [example score]({{ site.scores }}{{ page.score }}). Its shader calculates the points' positions and colors and sends the resulting image directly to a window. Reduce the vertex count from the saved 99,999 to see how a sparser set of points changes the image. This download uses a point-cloud-and-spheres shader, not the simpler spiral printed above.
+For a more elaborate moving point cloud, download the [example score]({{ site.scores }}{{ page.score }}). Its shader calculates the points' positions and colors and sends the resulting image directly to a window. Reduce the vertex count from the saved 99,999 to see how a sparser set of points changes the image. This download uses a point-cloud-and-spheres shader, not the simpler spiral from the reference example.
 
 {% include try-on-web.html %}

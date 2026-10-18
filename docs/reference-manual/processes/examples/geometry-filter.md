@@ -13,7 +13,7 @@ score: "/reference/processes/geometry-filter.score"
 
 ![Sphere and Geometry filter connected to Model Display, with separate LFO controls and a Checkerboard texture branch.]({{ site.baseurl }}/assets/scores/thumbnails/reference-processes-geometry-filter.png)
 
-A checkerboard sphere turns while its surface swells and distorts. Two independent controls let you separate movement of the whole object from movement within its shape—a useful distinction when designing an animated form rather than merely moving an image around.
+A checkerboard sphere turns while its surface swells and distorts. One control rotates the whole object; another, independent one deforms its shape.
 
 **Geometry filter** displaces the sphere's vertices with a time-varying sine function. One slow LFO changes the strength of that displacement; another rotates the sphere. The checkerboard makes surface changes easier to follow, and **Model Display** renders the result before a glow effect softens it.
 
