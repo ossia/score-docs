@@ -108,7 +108,7 @@ score supplies floating-point audio at the audio engine's sample rate. The `audi
 3. In OBS, add a Spout2 Input source and select score's output.
 4. For audio, use score's WASAPI output and an Audio Output Capture source in OBS. ASIO output may not be available through loopback capture.
 
-![Livestream to OBS from Win32]({{ site.img }}/common-practices/livestream-win32.gif "OBS studio")
+![Livestream to OBS from Win32]({{ site.img }}/common-practices/livestream-win32.avif "OBS studio")
 
 ### macOS
 

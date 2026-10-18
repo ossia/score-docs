@@ -26,4 +26,4 @@ arduinos:/led.4
 
 which are the brightness of some LEDs, then the Sweeper process receiving an LFO signal as input will periodically distribute it across the LEDs, to create a sweeping motion, with the pattern: `arduinos:/led.*`.
 
-![Sweeper]({{ site.img }}/reference/processes/sweeper-example.gif "Sweeper")
+![Sweeper]({{ site.img }}/reference/processes/sweeper-example.avif "Sweeper")

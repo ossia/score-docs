@@ -12,7 +12,7 @@ score: /reference/processes/teleplot.score
 ---
 # Teleplot
 
-![Teleplot]({{ site.img }}/reference/processes/teleplot.gif "Teleplot")
+![Teleplot]({{ site.img }}/reference/processes/teleplot.avif "Teleplot")
 
 Send data to remote plotting applications for real-time visualization and analysis. Teleplot streams parameter data over network connections, allowing you to monitor and analyze your *score* project's behavior using external visualization tools.
 

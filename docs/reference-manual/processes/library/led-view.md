@@ -11,7 +11,7 @@ permalink: /processes/led-view.html
 ---
 # LED View
 
-![LED View]({{ site.img }}/reference/processes/led-view.gif "LED View")
+![LED View]({{ site.img }}/reference/processes/led-view.avif "LED View")
 
 Visualize control signals in real-time for monitoring, debugging, and performance feedback. 
 LED View previews a numerical array as colored cells. **Mode** selects RGB, RGBW, RGB01, Lightness01 or Lightness8bit. RGB01 and Lightness01 use normalized values; the corresponding 8-bit modes use 0–255 values. RGBW's fourth component is white, not alpha.

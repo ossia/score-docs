@@ -9,6 +9,8 @@ require "tmpdir"
 require "fileutils"
 require "tempfile"
 require "timeout"
+require "set"
+require_relative "score_media"
 
 module ScoreReleases
   REPOSITORY = "ossia/score"
@@ -21,7 +23,7 @@ module ScoreReleases
   # Only passive HTML is retained. Imported HTML is never a Liquid template.
   TAGS = %w[p br hr h1 h2 h3 h4 h5 h6 ul ol li dl dt dd blockquote pre code tt strong b em i del s strike sub sup a img video audio source track picture details summary table thead tbody tfoot tr th td div span kbd samp var abbr].freeze
   DROP = %w[script style iframe object embed svg math form input button textarea select template link meta base].freeze
-  ATTRIBUTES = %w[href src poster alt title width height colspan rowspan start reversed open datetime kind srclang label type controls preload loading decoding].freeze
+  ATTRIBUTES = %w[href src poster alt title aria-label width height colspan rowspan start reversed open datetime kind srclang label type controls preload loading decoding].freeze
   TYPES = { "image/png" => "png", "image/jpeg" => "jpg", "image/gif" => "gif", "image/webp" => "webp", "image/svg+xml" => "svg", "image/avif" => "avif", "image/x-icon" => "ico", "video/mp4" => "mp4", "video/webm" => "webm", "video/quicktime" => "mov", "audio/mpeg" => "mp3", "audio/mp4" => "m4a", "audio/ogg" => "ogg", "video/ogg" => "ogv", "audio/wav" => "wav", "audio/x-wav" => "wav", "audio/flac" => "flac", "text/vtt" => "vtt" }.freeze
 
   def self.absolute(value, base)
@@ -55,6 +57,7 @@ module ScoreReleases
       @media = {}
       @staged = {}
       @video_info = {}
+      @animations = Set.new
     end
 
     def sync(raw)
@@ -100,6 +103,11 @@ module ScoreReleases
         original = node["data-canonical-src"] || node["data-src"] || node["src"]
         if original && !original.empty?
           node["src"] = mirror(original, base, alternate: node["src"])
+          if node.name == "img" && @animations.include?(node["src"]) && node["src"].end_with?(".webm")
+            node.name = "video"
+            node["aria-label"] = node["alt"] if node["alt"] && !node["alt"].empty?
+            node.remove_attribute("alt")
+          end
         end
         node["poster"] = mirror(node["poster"], base) if node["poster"]
         # srcset candidates are mirrored even though the archive uses a single local source.
@@ -121,6 +129,10 @@ module ScoreReleases
           node.remove_attribute("href")
         end
       end
+      # GitHub links every image to itself; a link around a player would swallow its controls.
+      doc.css("a[href] > video").each do |node|
+        node.parent.replace(node.parent.children) if node.parent["href"] == node["src"]
+      end
       doc.css("video, audio").each do |node|
         node["controls"] = "controls"
         node["preload"] = "none"
@@ -132,11 +144,22 @@ module ScoreReleases
         node.remove_attribute("poster") unless node.name == "video"
         node.remove_attribute("href") unless node.name == "a"
       end
+      # Release pages can carry tens of megabytes of screenshots: load them as they scroll
+      # into view, and reserve their space so the page does not jump as they arrive.
+      by_path = @media.values.to_h { |metadata| [metadata["path"], metadata] }
+      doc.css("img[src]").each do |node|
+        node["loading"] = "lazy"
+        node["decoding"] = "async"
+        metadata = by_path[node["src"]]
+        next unless metadata && metadata["width"] && !node["width"] && !node["height"]
+        node["width"] = metadata["width"].to_s
+        node["height"] = metadata["height"].to_s
+      end
       doc.css("video").each do |node|
         sources = [node["src"], *node.css("source[src]").map { |source| source["src"] }].compact
-        if !sources.empty? && sources.all? { |source| (info = @video_info[source]) && !info["has_audio"] && info["duration"] <= 60 }
+        if !sources.empty? && sources.all? { |source| @animations.include?(source) || ((info = @video_info[source]) && !info["has_audio"] && info["duration"] <= 60) }
           # Native controls remain usable without JavaScript; enhancement respects reduced motion.
-          node["data-release-loop"] = ""
+          node["data-loop"] = ""
         end
       end
       doc.to_html
@@ -159,9 +182,9 @@ module ScoreReleases
       return @media[url]["path"] if @media.key?(url)
       previous = @previous.fetch("media", {})[url]
       if !@refresh && valid_file?(previous)
-        @media[url] = previous
-        record_video(previous, File.join(root, previous["path"].delete_prefix("/")))
-        return previous["path"]
+        metadata = convert(previous, File.join(root, previous["path"].delete_prefix("/")))
+        @media[url] = metadata
+        return metadata["path"]
       end
       FileUtils.mkdir_p(@cache)
       key = Digest::SHA256.hexdigest(url)
@@ -192,10 +215,66 @@ module ScoreReleases
         end
         raise Error, "Cannot mirror media (snapshot unchanged):\n#{errors.join("\n")}\nRestore source availability and rerun; cached successful downloads are retained in #{@cache}." unless metadata
       end
-      record_video(metadata, bytes_path)
       @staged[metadata["path"]] = bytes_path
+      metadata = convert(metadata, bytes_path)
       @media[url] = metadata
       metadata["path"]
+    end
+
+    # Publishes an animated GIF as AVIF or WebM (see ScoreMedia) instead of the
+    # GIF itself, and records video properties. Conversions are cached by the
+    # GIF's hash, so a sync never re-encodes media it already converted.
+    def convert(metadata, path)
+      if metadata["content_type"] == "image/gif"
+        converted = converted_gif(metadata, path)
+        if converted
+          @staged.delete(metadata["path"])
+          metadata, path = converted
+          @staged[metadata["path"]] = path
+        end
+      end
+      @animations << metadata["path"] if metadata["converted_from"]
+      record_video(metadata, path)
+      record_dimensions(metadata, path)
+      metadata
+    end
+
+    def record_dimensions(metadata, path)
+      type = metadata.fetch("content_type")
+      return if metadata.key?("width") || !type.start_with?("image/") || type == "image/svg+xml"
+      out, _, status = Open3.capture3("ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", path)
+      stream = status.success? && JSON.parse(out).dig("streams", 0)
+      return unless stream && stream["width"].to_i.positive? && stream["height"].to_i.positive?
+      metadata["width"] = stream["width"].to_i
+      metadata["height"] = stream["height"].to_i
+    rescue Errno::ENOENT, JSON::ParserError
+      nil
+    end
+
+    def converted_gif(metadata, path)
+      FileUtils.mkdir_p(@cache)
+      key = File.join(@cache, "gif-#{metadata.fetch('sha256')}")
+      cached = JSON.parse(File.read("#{key}.json")) if File.file?("#{key}.json")
+      if cached
+        return nil if cached["still"]
+        file = "#{key}.#{cached['path'].split('.').last}"
+        return [cached, file] if File.file?(file) && Digest::SHA256.file(file).hexdigest == cached["sha256"]
+      end
+      result = ScoreMedia.convert_gif(path, key)
+      unless result
+        File.write("#{key}.json", JSON.generate("still" => true))
+        return nil
+      end
+      sha = Digest::SHA256.file(result.path).hexdigest
+      converted = metadata.slice("fetched_from").merge(
+        "path" => "/assets/releases/#{sha}.#{result.extension}", "sha256" => sha,
+        "content_type" => result.content_type, "bytes" => File.size(result.path),
+        "converted_from" => metadata.slice("content_type", "sha256", "bytes")
+      )
+      File.write("#{key}.json", JSON.pretty_generate(converted) + "\n")
+      [converted, result.path]
+    rescue ScoreMedia::Error => e
+      raise Error, e.message
     end
 
     def record_video(metadata, path)
@@ -268,9 +347,17 @@ module ScoreReleases
           raise Error, "Unrecorded linked media: #{node['href']}" unless paths.include?(node["href"])
         end
       end
+      orphans = archived_files - paths
+      raise Error, "Unreferenced media in assets/releases: #{orphans.first(5).join(', ')}" unless orphans.empty?
       data
     rescue Errno::ENOENT => e
       raise Error, e.message
+    end
+
+    # Every content-addressed file under assets/releases/, as a snapshot path.
+    def archived_files
+      Dir[File.join(root, "assets/releases/*")].map { |file| "/assets/releases/#{File.basename(file)}" }
+        .grep(%r{\A/assets/releases/[0-9a-f]{64}\.[a-z0-9]+\z})
     end
 
     def publish(snapshot)
@@ -286,7 +373,14 @@ module ScoreReleases
         end
       end
       content = JSON.pretty_generate(snapshot) + "\n"
-      return if File.file?(@snapshot) && File.binread(@snapshot) == content
+      write_snapshot(content) unless File.file?(@snapshot) && File.binread(@snapshot) == content
+      # Media no longer referenced (replaced, converted or removed upstream) is deleted after the commit point.
+      (archived_files - snapshot["media"].values.map { |m| m["path"] }).each do |orphan|
+        File.delete(File.join(root, orphan.delete_prefix("/")))
+      end
+    end
+
+    def write_snapshot(content)
       FileUtils.mkdir_p(File.dirname(@snapshot))
       Tempfile.create(".releases-", File.dirname(@snapshot)) do |file|
         file.write(content)

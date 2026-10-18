@@ -20,12 +20,12 @@ The Multi-Cursor manager is a process for generating an array of XY points in 2D
 
 - Points can be dragged with the mouse.
   
-  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_move.gif" alt="" width="480">
+  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_move.avif" alt="" width="480">
 
 - To create a new point, click on an empty space.
   
-  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_add.gif" alt="" width="480">
+  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_add.avif" alt="" width="480">
 
 - To delete a point, right-click on it.
   
-  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_remove.gif" alt="" width="480">
+  <img title="" src="{{ site.img }}/reference/processes/multi-cursor/multicursor_remove.avif" alt="" width="480">

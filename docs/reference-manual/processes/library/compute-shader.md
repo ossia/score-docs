@@ -12,7 +12,7 @@ permalink: /processes/compute-shaders.html
 
 # CSF Compute Shaders
 
-![Shader]({{ site.img }}/reference/processes/compute-shader.gif "Shader Example")
+<video src="{{ site.img }}/reference/processes/compute-shader.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Shader" title="Shader Example"></video>
 
 The Compute Shader process runs CSF shaders: *score*'s compute-shader extension of ISF. Use CSF when a fullscreen fragment pass is not the right model: image processing, storage images, GPU simulations, particle systems, geometry generation, geometry filters, buffer writes, volume generation, and indirect draw preparation.
 

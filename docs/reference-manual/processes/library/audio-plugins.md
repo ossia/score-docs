@@ -67,7 +67,7 @@ will be checked for changes: whenever a value changes, it will appear in the sco
 
 Here is the complete procedure:
 
-![Controlling VST parameters]({{ site.img }}/reference/processes/vst-params.gif "VST parameters")
+<video src="{{ site.img }}/reference/processes/vst-params.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Controlling VST parameters" title="VST parameters"></video>
 
 This parameter-exposure workflow applies to VST2. Other integrations expose
 controls according to their own port models.

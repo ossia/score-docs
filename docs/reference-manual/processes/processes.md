@@ -87,7 +87,7 @@ The `Device explorer` selection may contain one or several parameters. When mult
 
 Processes can also be created by drag & dropping the desired process from the `Process library` or the `User library` in the scenario. When doing so, *score* automatically creates the interval to which process will get attached.
 
-![Dropping processes]({{ site.img }}/reference/processes/dragging-processes.gif "Dropping processes")
+![Dropping processes]({{ site.img }}/reference/processes/dragging-processes.avif "Dropping processes")
 
 You may as well drop a process onto an existing interval.
 
@@ -97,7 +97,7 @@ Audio, video and script files (Faust DSP, GLSL fragment shader, JS script...) ca
 By default, dropping several processes at the same time stacks them in the same interval.
 Holding the Maj key while dropping will create sequential intervals for each item in the selection.
 
-![Parallel or serial processes]({{ site.img }}/reference/processes/parallel-or-serial-processes.gif "Parallel or serial processes")
+![Parallel or serial processes]({{ site.img }}/reference/processes/parallel-or-serial-processes.avif "Parallel or serial processes")
 
 If a process is currently selected in the score, it is also possible to create a new process afterwards by double-clicking on it in the library.
 This will only work if the processes are compatible: the first output port of the selected process must be of the same type than the first 
@@ -105,7 +105,7 @@ input port of the process double-clicked in the library. A connection between th
 
 Likewise, if an output port is currently selected in the score, double-clicking on a process in the list will create and connect it afterwards if compatible.
 
-![Chain processes from the library]({{ site.img }}/reference/processes/create-processes-library.gif "Chain processes from the library")
+<video src="{{ site.img }}/reference/processes/create-processes-library.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Chain processes from the library" title="Chain processes from the library"></video>
 
 ## Create processes on a state
 
@@ -113,7 +113,7 @@ Adding processes on a state is a way to run a computation at a single, precise p
 
 It is done by right-clicking on the state in the object inspector, and selecting the `Add process` option.
 
-![Adding a state process]({{ site.img }}/reference/processes/state-process.gif "State processes")
+<video src="{{ site.img }}/reference/processes/state-process.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding a state process" title="State processes"></video>
 
 <!-- ### TODO Object menu -->
 
@@ -142,14 +142,14 @@ To display the process in full size, double-click on the interval the process is
 
 To exit full size mode (go back to parent scenario), click the desired node of the path displayed at the top or use the {% include shortcut.html content="Ctrl+Alt+↑" %} shortcut.
 
-![Edit process in full size]({{ site.img }}/reference/processes/process-fullsize-edit.gif "Edit process in full size")
+![Edit process in full size]({{ site.img }}/reference/processes/process-fullsize-edit.avif "Edit process in full size")
 
 ## Process Loops
 
 Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel
 or by clicking on process header, the loop option will appear in the `Inspector`.
 
-![Process looping]({{ site.img }}/reference/common-practices/loopProcess.gif "Process looping")
+<video src="{{ site.img }}/reference/common-practices/loopProcess.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Process looping" title="Process looping"></video>
 
 # Manage processes
 
@@ -159,7 +159,7 @@ Processes attached to an interval can easily be fold/unfold. This comes up espec
 
 To do so, click the blue arrow on top of the processes to fold/unfold.
 
-![Fold/unfold processes]({{ site.img }}/reference/processes/fold-unfold-processes.gif "Fold/unfold processes")
+![Fold/unfold processes]({{ site.img }}/reference/processes/fold-unfold-processes.avif "Fold/unfold processes")
 
 When selecting an interval, attached processes can also be fold/unfold using the `Show processes` & `Hide processes` entries from the `Object` menu.
 
@@ -184,7 +184,7 @@ To change which process to display top-most, mouse over to the top of the proces
 
 Processes can also be juxtaposed in several slots rather than stacked on top of the other. Grab the handle at the top left corner of the slot and drag & drop it on another slot to move it above another process or between different slots to insert it.
 
-![Moving processes]({{ site.img }}/reference/processes/moving-processes.gif "Moving processes")
+![Moving processes]({{ site.img }}/reference/processes/moving-processes.avif "Moving processes")
 
 
 > Processes can also be dragged & attached to a new interval

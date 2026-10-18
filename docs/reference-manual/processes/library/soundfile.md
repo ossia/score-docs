@@ -16,7 +16,7 @@ permalink: /processes/soundfile.html
 To add a sound file, the easiest way is to drag'n'drop it either from the operating system, or from 
 the library.
 
-![Soundfile drop]({{ site.img }}/reference/processes/soundfile-drop.gif "Sound file example")
+<video src="{{ site.img }}/reference/processes/soundfile-drop.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Soundfile drop" title="Sound file example"></video>
 
 ## Timestretching
 

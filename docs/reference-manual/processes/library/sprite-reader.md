@@ -12,7 +12,7 @@ score: /reference/processes/sprite-reader.zip
 ---
 # Sprite Reader
 
-![Sprite Reader]({{ site.img }}/reference/processes/sprite-reader.gif "Sprite Reader") 
+![Sprite Reader]({{ site.img }}/reference/processes/sprite-reader.avif "Sprite Reader") 
 
 The Sprite Reader process extracts individual sprites from sprite sheets, enabling retro-style animations and efficient texture usage. Perfect for game development aesthetics, pixel art animations, and nostalgic visual effects.
 

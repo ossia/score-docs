@@ -39,4 +39,4 @@ For a rhythmic gated modulation, connect the output to a gain or filter paramete
 
 **ADSR (old)** remains separately registered for older scores. It retains plain second-based stage knobs and its previous defaults; it is not automatically migrated to the new chooser controls. Insert a current ADSR and explicitly copy the intended durations and connections when updating a score.
 
-![ADSR]({{ site.img }}/reference/processes/adsr.gif "ADSR") 
+<video src="{{ site.img }}/reference/processes/adsr.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="ADSR" title="ADSR"></video> 

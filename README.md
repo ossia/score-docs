@@ -12,14 +12,17 @@ images, GIFs and videos are mirrored as content-addressed files in
 `assets/releases/`. Videos play inline, without extra download links. Installer
 binaries remain links to GitHub. Jekyll generates the changelog index and
 individual release pages from this snapshot without network access.
-Silent videos up to 60 seconds loop while visible, with a small play/pause button.
+Animated GIFs are not published as GIFs: animations up to 10 seconds become
+animated AVIF images, longer ones silent looping WebM (VP9) videos, using the
+same conversion as documentation pages (see below). Still GIFs are kept.
+Silent videos up to 60 seconds, and every converted animation, loop while
+visible, with a small play/pause button.
 Reduced-motion users get a still frame until they press play. Videos with audio
 or longer durations retain native controls; leaving the viewport pauses playback.
 Without JavaScript, all videos retain native controls.
 
 To update the archive, install/authenticate the GitHub CLI (`gh auth login`),
-have `curl` and FFmpeg (`ffprobe` for synchronization, `ffmpeg` for the importer
-tests) available, and use the repository's bundled Ruby environment:
+have `curl` and FFmpeg (with the libaom and libvpx encoders) available, and use the repository's bundled Ruby environment:
 
 ```sh
 bundle exec ruby script/releases/sync.rb
@@ -36,7 +39,10 @@ snapshot untouched. Existing media are reused after hash verification; use
 are staged outside the site in the system temporary directory's
 `score-release-media` cache (`--cache-dir` overrides it).
 Video audio-track presence and duration are inspected with `ffprobe` during sync
-and retained in the snapshot. Video files are not transcoded.
+and retained in the snapshot. Video files are not transcoded; GIF conversions
+are cached by the GIF's hash, and the snapshot records the original under
+`converted_from`. Files in `assets/releases/` that the snapshot no longer
+references are deleted by a sync and rejected by `--check`.
 
 An unavailable media file fails synchronization without replacing the previous
 snapshot. The sole approved omission is the defunct `i-score.org`
@@ -49,8 +55,8 @@ output of `gh api --paginate --slurp -H 'Accept: application/vnd.github.full+jso
 hashes and references offline. Imported HTML bypasses Liquid and wiki-link
 processing; local media URLs work with both an empty base path and `/score-docs`.
 
-Commit the snapshot and `assets/releases/` together. The initial media archive is
-about 305 MiB; ordinary Git stores the actual files, not Git LFS pointers.
+Commit the snapshot and `assets/releases/` together. Ordinary Git stores the
+actual files, not Git LFS pointers.
 The `Synchronize release archive` workflow runs daily, on manual dispatch, or on
 a `score-release` repository dispatch. It validates and builds the result, then
 opens an update PR limited to the snapshot and media. It requires Actions to
@@ -60,6 +66,26 @@ explicitly sends that dispatch.
 
 Generated pages live at `/reference/changelog/<tag>.html` (unusual or colliding
 tags receive safe slugs). Edit release notes on GitHub, not generated pages.
+
+## Animations and example media
+
+Add screen recordings as GIFs under `assets/images/` and reference them as usual,
+then convert them before committing:
+
+```sh
+ruby script/media/convert_gifs.rb                      # every GIF a page references
+ruby script/media/convert_gifs.rb assets/images/x.gif  # or specific files
+```
+
+Animations up to 10 seconds become AVIF and keep their Markdown image; longer
+ones become WebM and the reference is rewritten to a `<video data-loop>`, which
+`assets/js/looping-videos.js` plays while visible with a pause button (a still
+frame under reduced motion). The GIF is deleted once nothing references it.
+
+The media vendored beside the example scores under `assets/scores/` stays in Git
+so the examples can be edited in place, but a file that is identical to a member
+of a published `.zip` is not published separately: `_plugins/score_archive_media.rb`
+leaves it out of the site unless a standalone `.score` or a page links to it.
 
 
 <p align="right">

@@ -38,6 +38,13 @@ class ReleaseSyncTest < Minitest::Test
     File.binread(path)
   end
 
+  def gif_bytes(duration)
+    path = File.join(@root, "anim-#{duration}.gif")
+    _, error, status = Open3.capture3("ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc=s=96x96:r=10:d=#{duration}", "-y", path)
+    raise error unless status.success?
+    File.binread(path)
+  end
+
   def release(html = "", **attributes)
     { "id" => 10, "tag_name" => "v1.0", "name" => "First", "body" => "original {{ text }} [[link]]", "body_html" => html,
       "published_at" => "2024-01-01T00:00:00Z", "updated_at" => "2024-01-02T00:00:00Z", "html_url" => "https://github.com/ossia/score/releases/tag/v1.0" }.merge(attributes.transform_keys(&:to_s))
@@ -78,13 +85,51 @@ class ReleaseSyncTest < Minitest::Test
       @responses["https://example.org/#{name}"] = [video_bytes(audio: audio, duration: duration), "video/mp4"]
     end
     html = clips.map { |name, _, _| "<video src='https://example.org/#{name}'></video>" }.join
-    html += "<video data-release-loop><source src='https://example.org/silent'><source src='https://example.org/audio'></video>"
+    html += "<video data-loop><source src='https://example.org/silent'><source src='https://example.org/audio'></video>"
     records = [release(html)]
     data = importer.sync(records)
     videos = Nokogiri::HTML.fragment(data["releases"][0]["body_html"]).css("video")
-    assert_equal [true, true, false, false, false], videos.map { |video| video.key?("data-release-loop") }
+    assert_equal [true, true, false, false, false], videos.map { |video| video.key?("data-loop") }
     assert_equal [false, false, false, true], clips.map { |name, _, _| data["media"]["https://example.org/#{name}"]["has_audio"] }
     assert_equal data, importer.sync(records)
+  end
+
+  def test_animated_gifs_become_avif_or_looping_webm_and_stills_stay_gifs
+    @responses["https://example.org/short.gif"] = [gif_bytes(0.5), "image/gif"]
+    @responses["https://example.org/long.gif"] = [gif_bytes(ScoreMedia::AVIF_MAX_SECONDS + 1), "image/gif"]
+    @responses["https://example.org/still.gif"] = [gif_bytes(0.1), "image/gif"]
+    records = [release('<a href="https://example.org/short.gif"><img src="https://example.org/short.gif" alt="Short"></a>' \
+                       '<a href="https://example.org/long.gif"><img src="https://example.org/long.gif" alt="Long clip"></a>' \
+                       '<img src="https://example.org/still.gif">')]
+    data = importer.sync(records)
+    doc = Nokogiri::HTML.fragment(data["releases"][0]["body_html"])
+    short, still = doc.css("img")
+    assert_match(/\.avif\z/, short["src"])
+    assert_equal "Short", short["alt"]
+    assert_equal %w[lazy async 96 96], %w[loading decoding width height].map { |a| short[a] }
+    assert_match(/\.gif\z/, still["src"])
+    video = doc.at_css("video")
+    assert_match(/\.webm\z/, video["src"])
+    assert_equal "Long clip", video["aria-label"]
+    assert video.key?("data-loop")
+    assert_nil video.at_xpath("ancestor::a")
+    assert_equal %w[image/avif video/webm image/gif], %w[short long still].map { |n| data["media"]["https://example.org/#{n}.gif"]["content_type"] }
+    assert_equal "image/gif", data["media"]["https://example.org/long.gif"]["converted_from"]["content_type"]
+    assert_equal data, importer.sync(records)
+    assert_equal 3, @calls.length
+    assert importer.check
+  end
+
+  def test_unreferenced_media_is_removed_and_rejected_by_check
+    @responses["https://example.org/one"] = [PNG, "image/png"]
+    records = [release('<img src="https://example.org/one">')]
+    importer.sync(records)
+    stray = File.join(@root, "assets/releases/#{'0' * 64}.png")
+    File.binwrite(stray, PNG)
+    assert_raises(ScoreReleases::Error) { importer.check }
+    importer.sync(records)
+    refute File.exist?(stray)
+    assert importer.check
   end
 
   def test_sanitization_keeps_passive_formatting_and_does_not_interpret_source_text

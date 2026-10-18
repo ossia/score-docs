@@ -102,7 +102,7 @@ Right-click on a scenario and choose "Play from here" to start or seek to the cl
 
 You can also use the "Play" tool: 
 
-![Play tool]({{ site.img }}/common-practices/seek/pfh.gif "Play tool")
+![Play tool]({{ site.img }}/common-practices/seek/pfh.avif "Play tool")
 
 Double-clicking the time ruler also plays from that position. Keep the second click held and drag to scrub: dragging backwards can run the interval backwards, rather than merely moving a stopped cursor. On release the previous speed is restored and playback continues from near the release point.
 
@@ -142,7 +142,7 @@ It is possible to set a start marker by right-clicking into the musical metrics 
 
 When a start marker is set, play / pause will always start from this point: this is mainly useful to play a specific part of a score quickly in succession.
 
-![Start marker]({{ site.img }}/common-practices/seek/start-marker.gif "Start marker")
+<video src="{{ site.img }}/common-practices/seek/start-marker.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Start marker" title="Start marker"></video>
 
 ## Starting playback while recording waits
 

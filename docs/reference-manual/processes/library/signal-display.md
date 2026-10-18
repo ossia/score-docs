@@ -12,7 +12,7 @@ score: /reference/processes/signal-display.score
 ---
 # Signal Display
 
-![Signal Display]({{ site.img }}/reference/processes/signal-display.gif "Signal Display")
+![Signal Display]({{ site.img }}/reference/processes/signal-display.avif "Signal Display")
 
 Visualize control signals in real-time for monitoring, debugging, and performance feedback. Signal Display shows you exactly what's happening with your parameter data, making it easy to understand signal flow and troubleshoot issues.
 

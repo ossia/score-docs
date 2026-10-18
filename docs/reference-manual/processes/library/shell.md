@@ -12,7 +12,7 @@ score: /reference/processes/shell-command.score
 ---
 # Shell command
 
-![Shell command]({{ site.img }}/reference/processes/shell-command.gif "Shell command")
+<video src="{{ site.img }}/reference/processes/shell-command.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Shell command" title="Shell command"></video>
 
 Shell command launches **Script** once when its process starts executing. It can also be placed in a state to run a command as a cue. The external command is detached: ending the interval does not manage its lifetime. Use [[Process Launcher]] when process lifetime and communication need explicit control.
 
