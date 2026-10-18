@@ -4,6 +4,7 @@ title: Faust language
 description: "Faust syntax, signal composition, libraries and score integration"
 parent: Languages
 grand_parent: Reference
+nav_order: 16
 permalink: /reference/languages/faust.html
 ---
 

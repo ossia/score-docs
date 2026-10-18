@@ -2,7 +2,7 @@
 layout: default
 
 title: Device Examples
-description: "Choose how to perform a score: play notes, shape visuals with gestures, send network controls, or connect a service to timeline cues."
+description: "Choose how to perform a score: play notes, shape visuals with controllers, send network controls, or connect a service to timeline cues."
 
 parent: Examples
 has_children: true
@@ -12,15 +12,15 @@ permalink: /examples/devices
 
 # Device Examples
 
-A controller does more than supply numbers: it determines what a performer can do deliberately, continuously or at a particular moment. Start with the kind of relationship you want between an action and its result.
+Choose an example by what the performer does: play notes, change sound or image continuously, or trigger a cue.
 
 ## Play and shape sound
 
-- [Gamepad control]({{ site.baseurl }}/examples/devices/gamepad.html) pairs button-triggered drums with stick-controlled degradation and echoes. Start here for a compact instrument with both discrete and continuous gestures.
+- [Gamepad control]({{ site.baseurl }}/examples/devices/gamepad.html) pairs button-triggered drums with stick-controlled degradation and echoes. Start here for a compact instrument with both discrete and continuous controls.
 - [MIDI notes, controls and timeline triggers]({{ site.baseurl }}/examples/devices/midi.html) moves beyond playing notes: use a keyboard to start, stop and choose sections of a scenario.
 - [Playing synths on channels 1 and 10]({{ site.baseurl }}/examples/devices/midi-to-synths.html) separates lead and drums so one MIDI source can address two instruments.
 - [MIDI synth and drum effects patch]({{ site.baseurl }}/examples/devices/synths.html) explores contrasting treatments of those instruments, with a different saved drum sound.
-- [Soundfonts, drum kits and a single-file sampler]({{ site.baseurl }}/examples/devices/samplers.html) compares playing an instrument live with sequencing and layering recorded sounds.
+- [Soundfonts, drum kits and a single-file sampler]({{ site.baseurl }}/examples/devices/samplers.html) plays an instrument live and sequences and layers recorded sounds.
 
 ## Perform visuals
 

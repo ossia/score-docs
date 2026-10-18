@@ -12,7 +12,7 @@ score: /examples/ai/tracking-to-geometry.zip
 
 ![Facial tracking over a camera image alongside the particle-trail rendering controls]({{ site.baseurl }}/assets/scores/thumbnails/examples-ai-tracking-to-geometry.png)
 
-A motion trail makes the recent path of a gesture visible, rather than merely marking where the performer is now. Here, facial landmarks feed a particle renderer and the resulting trace is mixed with the camera image. Use it to explore movement as drawing, after matching the particle settings to the detector as described below.
+Facial landmarks feed a particle renderer that draws the recent path of your head, and the trace is mixed with the camera image. Match the particle settings to the detector first, as described below.
 
 {% include try-on-web.html %}
 
@@ -24,11 +24,11 @@ Open the ZIP directly in score; it includes the RetinaFace model selected by the
 
 Select your camera in the saved `Logitech BRIO` device, retaining its name so that the detector stays connected. Alternatively, rebind the detector's camera input. Grant camera access if prompted and check the point display before troubleshooting the trail.
 
-## From a gesture to a trace
+## From positions to a trace
 
-The detector supplies normalized positions. Smoothing reduces small fluctuations, and a mapping recenters and enlarges the coordinates before uploading them to the GPU. A compute shader keeps a circular history of points; the renderer turns that history into visible particles. The important distinction is between the camera's current measurement and the accumulated marks it leaves behind.
+The detector supplies normalized positions. Smoothing reduces small fluctuations, and a mapping recenters and enlarges the coordinates before uploading them to the GPU. A compute shader keeps a circular history of points; the renderer turns that history into visible particles, so the image shows past positions as well as the current one.
 
-Once the counts below are coherent, compare a slow head movement with a quick sweep. Adjust ParticleTrail's startSize to change the weight of the marks and tailColor to distinguish older parts of the gesture. Changing SphereSplat's cameraPos changes the viewpoint of the generated geometry, not the physical camera.
+Once the counts below are coherent, move your head slowly, then sweep it quickly: a quick sweep spreads the same number of marks over a longer path. Adjust ParticleTrail's startSize to change the weight of the marks and tailColor to set the color of older parts of the trail. Changing SphereSplat's cameraPos changes the viewpoint of the generated geometry, not the physical camera.
 
 ## Match the buffer to the detector
 
@@ -36,4 +36,4 @@ Once the counts below are coherent, compare a slow head movement with a quick sw
 
 Set newPointCount to the actual number of XY pairs and change the write-head multiplier to that same number: five for one five-keypoint face. Otherwise the shader can read past the supplied positions. Keep the test to a stable, single-face input while making this adjustment; a detector with a variable number of points needs corresponding count handling.
 
-The history holds 2048 particles, and totalWritten is saved at 2048, treating it as full from the start. These are history settings, not the number of landmarks. A longer history and a larger number of points per update are different design choices: one preserves more of the past, while the other adds more marks for each new detection.
+The history holds 2048 particles, and totalWritten is saved at 2048, treating it as full from the start. These are history settings, not the number of landmarks. A longer history preserves more of the past; more points per update add more marks for each new detection.

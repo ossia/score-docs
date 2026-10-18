@@ -3,6 +3,7 @@ layout: default
 title: C++ native code
 parent: Languages
 grand_parent: Reference
+nav_order: 14
 permalink: /reference/languages/cpp.html
 ---
 

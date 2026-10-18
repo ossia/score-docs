@@ -12,15 +12,15 @@ score: /examples/3d/audioreactive-geometry.score
 
 ![RMS and smoothing connected to NoiseField, followed by AddColor and the PointCloud3D renderer.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-audioreactive-geometry.png)
 
-A point cloud expands into noisy deformation as the sound level changes. Smoothing lets the movement follow a gradual envelope rather than jump at every fluctuation, giving you a way to tune the visual response for a concert or sound installation.
+A point cloud expands into noisy deformation as the sound level changes. Smoothing makes the movement follow a gradual envelope instead of jumping at every fluctuation.
 
-RMS measures the audio input's level. Its smoothed output drives NoiseField's deformation amplitude; separate LFO modulation keeps the noise evolving. A colour stage makes the generated positions visible in the native point-cloud renderer.
+RMS measures the audio input's level. Its smoothed output drives NoiseField's deformation amplitude; separate LFO modulation keeps the noise evolving. A color stage makes the generated positions visible in the native point-cloud renderer.
 
 ## Try it
 
 Select a working input in score's audio settings, allow microphone access if prompted, and start playback. Make a short sound, then hold a steady one. Adjust RMS Gain and Gate so the deformation responds to the levels you intend to use.
 
-Change Exp Smoothing Alpha and compare how quickly the cloud reacts and settles. The slow noise evolution can continue even when the audio response is quiet, so listen and watch for those two sources of motion separately.
+Lower Exp Smoothing Alpha: the cloud reacts and settles more slowly. The slow noise evolution can continue even when the audio response is quiet, so listen and watch for those two sources of motion separately.
 
 No recording is included. If you do not have a microphone, connect a sound-file process to RMS instead. Compute-shader support is required; increase `gridSize` cautiously because it increases the generated geometry.
 

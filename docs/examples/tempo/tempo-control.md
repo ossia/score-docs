@@ -15,23 +15,21 @@ score: /examples/tempo/tempo.zip
 
 ![Metronome layers followed by re-pitching, time-stretching and speed-control sections]({{ site.img }}/examples/tempo/tempo.png "Tempo manipulation in ossia score")
 
-Speed up a recorded rhythm and decide whether its pitch should rise with it. This score compares re-pitching with time-stretching, then lets a changing control signal drive the tempo. Before the loop begins, two metronomes show how different metres can coexist inside a shared timeline.
+Speed up a recorded rhythm and decide whether its pitch should rise with it. This score plays a loop with re-pitching and with time-stretching, then lets a changing control signal drive the tempo. Before the loop begins, two metronomes show how different metres can coexist inside a shared timeline.
 
-## Treat timing as musical material
+## Tempo curves and stretching modes
 
-A Tempo curve shapes the speed of its interval. The sound file's stretching mode determines how the recording responds, so a similar timing gesture can produce either a pitch sweep or a duration change with pitch preserved. A later section replaces the drawn tempo with an LFO-driven value: the timing itself becomes a modulated parameter.
-
-These are useful contrasts for a performance transition. You might want the audible lift of re-pitching in one passage and a steadier pitch in another, or let one layer retain its metre while the surrounding music changes.
+A Tempo curve shapes the speed of its interval. The sound file's stretching mode determines how the recording responds, so the same tempo curve can produce either a pitch sweep or a duration change with pitch preserved. A later section replaces the drawn tempo with an LFO-driven value.
 
 ## Try it
 
 Open the ZIP directly in score; the drum recording is included. Configure audio output at a low level. No external controller is required.
 
-1. Start playback and compare `Parent signature` with `Custom signature`. One metronome follows the parent's changes; the other retains its local 4/4 during the parent's 3/4 section. Follow the signature tracks to connect the changing accents with the two metres.
-2. Listen to `Re-pitching`, then `Time-stretching`. Both use the same recording, but different stretching modes. Compare what happens to pitch during the tempo changes, not just how quickly the drum hits arrive.
-3. Reshape one Tempo curve to make an acceleration gentler or more abrupt. Listen to how the timing gesture affects the phrase before changing the sound file's stretching mode for another comparison.
-4. In `Speed`, the LFO drives tempo between 20 and 120 BPM. Change its rate to compare a slow rise and fall with rapid fluctuations. The connected BPM input takes precedence over the drawn tempo curve.
-5. In `Free scrubbing`, select the Play tool with **P** and drag in the score background. Use your hand to explore playback position instead of accepting the forward motion of the timeline.
+1. Start playback and listen to `Parent signature` and `Custom signature`. One metronome follows the parent's changes; the other retains its local 4/4 during the parent's 3/4 section. Follow the signature tracks to connect the changing accents with the two metres.
+2. Listen to `Re-pitching`, then `Time-stretching`. Both use the same recording with different stretching modes: in the first the pitch rises with the tempo, in the second it stays put.
+3. Reshape one Tempo curve to make an acceleration gentler or more abrupt, then change the sound file's stretching mode and play it again.
+4. In `Speed`, the LFO drives tempo between 20 and 120 BPM. Lower its rate for a slow rise and fall, or raise it for rapid fluctuations. The connected BPM input takes precedence over the drawn tempo curve.
+5. In `Free scrubbing`, select the Play tool with **P** and drag in the score background. The playback position follows the mouse instead of moving forward on its own.
 
 The loop's displayed process name differs from the bundled recording's name; use the file inspector if you need to replace it. The LFO interval has an interactive end, so stop the transport when finished.
 

@@ -86,7 +86,7 @@ Add `TOPOLOGY: "triangles"` to state the intended primitive explicitly, and sele
 
 [syn-indirect-nocount.cs](https://github.com/ossia/score/blob/master/tests/gfx/corpus/syn-indirect-nocount.cs) is a compact three-stage example of indirect dispatch and drawing:
 
-1. A one-workgroup `MANUAL` pass writes a `dispatch_args` storage buffer and zeroes all eight indirect draw slots.
+1. A one-workgroup `MANUAL` pass writes the dispatch arguments into an ordinary storage buffer (no `BUFFER_USAGE` needed) and zeroes all eight indirect draw slots.
 2. An `INDIRECT` pass targeting that buffer fills the live command slots. Its `WORKGROUPS: [8, 1, 1]` also supplies a bounded fallback; `if (gl_WorkGroupID.x >= args.xyz[0]) return;` protects unused work.
 3. A `PER_VERTEX` pass fills the geometry. Draw commands determine which strips are visible.
 

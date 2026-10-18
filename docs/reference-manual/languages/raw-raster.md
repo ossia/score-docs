@@ -3,6 +3,7 @@ layout: default
 title: Raw raster shader reference
 parent: Languages
 grand_parent: Reference
+nav_order: 23
 permalink: /reference/languages/raw-raster.html
 ---
 

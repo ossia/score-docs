@@ -10,7 +10,7 @@ score: /examples/advanced/cpu-data-bending.score
 
 # CPU data bending
 
-Turn a live camera feed into visibly damaged imagery while keeping the original beside it for comparison. Three Bendage treatments expose different ways to break up the same picture, useful when choosing a glitch vocabulary for a performer or installation visitor.
+Turn a live camera feed into visibly damaged imagery while keeping the original beside it for comparison. Three Bendage treatments break up the same picture in different ways.
 
 {% include try-on-web.html %}
 
@@ -18,8 +18,8 @@ Turn a live camera feed into visibly damaged imagery while keeping the original 
 
 ## Try it
 
-Install the Bendage add-on, select an available camera in the Camera device settings, and grant capture permission where required. Start playback to compare JPeg, Safe Word and Xlippy with the original image.
+Install the Bendage add-on, select an available camera in the Camera device settings, and grant capture permission where required. Start playback: JPeg, Safe Word and Xlippy appear next to the original image.
 
-Move in front of the camera and watch how the same gesture survives or disappears in each treatment. Adjust an undriven effect control manually to establish its character, then change the LFO frequency to compare slow deformation with rhythmic disturbance. Micromaps set how far that modulation travels through the effect controls; narrowing their ranges can preserve more of the source image.
+Move in front of the camera: your movement stays readable in some treatments and disappears in others. Adjust an undriven effect control by hand, then lower the LFO frequency for slow deformation or raise it for rhythmic disturbance. Micromaps set how far that modulation travels through the effect controls; narrowing their ranges can preserve more of the source image.
 
 These effects process images on the CPU, so keep the input resolution modest. Without a camera, connect a movie or generated texture to all three effects and Grid's first input so the comparison still uses one shared source.

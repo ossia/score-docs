@@ -12,17 +12,17 @@ score: /examples/video/shader-texture-feedback.score
 
 ![A glowing curved trail built from the previous frame's image]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-shader-texture-feedback.png)
 
-A moving dot leaves a trail that twists and distorts as its earlier image returns. This is a compact way to build evolving visual material: a simple source becomes complex because each frame inherits the marks made before it.
+A moving dot leaves a trail that twists and distorts as its earlier image returns. Each frame inherits the marks made before it, so a simple source becomes complex.
 
-## What accumulates?
+## The feedback loop
 
 The delayed texture connection brings the previous image back into DotTrail. Twirl and analog-style distortion act again on that history as it recirculates. Bloom is applied only after the feedback loop, so it adds glow to the displayed result without being accumulated on the next frame.
 
 ## Try it
 
-- Start playback and move Twirl's amount toward zero. Compare recursive warping with the path left by the moving source itself.
-- Change DotTrail decay to compare a brief trace with a longer visual memory; change speed to alter how much distance the source covers during that memory.
-- Adjust Bloom intensity and compare its immediate glow with a change made inside the loop, which develops through repeated frames.
+- Start playback and move Twirl's amount toward zero: the recursive warping disappears, leaving the plain path of the moving dot.
+- Lower DotTrail decay for a brief trace or raise it for a longer one; change speed to alter how far the dot travels while its trace persists.
+- Adjust Bloom intensity: its glow changes immediately, while a change made inside the loop develops over several frames.
 
 No movie or camera is needed. Preserve the delayed cable from Passthrough to DotTrail when rebuilding the graph; an immediate connection does not provide the previous-frame history.
 

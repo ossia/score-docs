@@ -5,6 +5,7 @@ title: Score preferences
 description: "User preferences and settings of ossia score"
 
 parent: Reference
+nav_order: 9
 
 permalink: /reference/preferences.html
 ---
@@ -19,7 +20,7 @@ See [Working with audio]({{ site.baseurl }}/quick-start/working-with-audio.html)
 
 ## User interface
 
-This section is split into **Interface** and **Skin** tabs. See [Appearance and skins]({{ site.baseurl }}/reference/appearance.html) for presets, colour and font roles, per-role hinting, automatic saving and resetting. There is no separate global `FontHinting` preference.
+This section is split into **Interface** and **Skin** tabs. See [Appearance and skins]({{ site.baseurl }}/reference/appearance.html) for presets, color and font roles, per-role hinting, automatic saving and resetting. There is no separate global `FontHinting` preference.
 
 The **Interface** tab includes:
 

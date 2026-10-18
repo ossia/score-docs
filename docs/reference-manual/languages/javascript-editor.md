@@ -7,6 +7,7 @@ description: "JavaScript and QML editor API reference"
 parent: Languages
 
 grand_parent: Reference
+nav_order: 3
 permalink: /reference/languages/javascript-editor.html
 ---
 

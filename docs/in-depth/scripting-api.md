@@ -5,7 +5,6 @@ title: Scripting API
 description: "JavaScript and QML editor API reference"
 
 parent: In depth
-has_children: true
 
 permalink: /in-depth/scripting-api.html
 ---

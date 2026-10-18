@@ -12,15 +12,15 @@ permalink: /examples/video
 
 # Video Examples
 
-Start with the kind of image you want to make: footage that reacts to a performer, patterns that grow from their own history, or a composition that spans a physical space. These patches let you isolate one technique before bringing it into a larger performance.
+Start with the kind of image you want to make: footage that reacts to a performer, patterns that grow from their own history, or a composition that spans a physical space. Each patch isolates one technique.
 
 ## Make an image respond
 
 For a first patch, open [Video manipulation]({{ site.baseurl }}/examples/video/video-basics.html): a looping movie becomes patterned traces controlled by sound. Then choose where your image and its control should come from:
 
-- [Camera input]({{ site.baseurl }}/examples/video/camera.html) keeps a live subject visible while sound changes its colour, blur and distortion.
+- [Camera input]({{ site.baseurl }}/examples/video/camera.html) keeps a live subject visible while sound changes its color, blur and distortion.
 - [Audio-reactive visuals]({{ site.baseurl }}/examples/video/audioreactive.html) combines generated percussion and live sound to animate a geometric pattern.
-- [Camera blobs, contours and tracking]({{ site.baseurl }}/examples/video/traditional-computer-vision.html) reduces the camera view to regions, outlines and tracked positions, ready for exploring camera-based interaction.
+- [Camera blobs, contours and tracking]({{ site.baseurl }}/examples/video/traditional-computer-vision.html) reduces the camera view to regions, outlines and tracked positions for camera-based interaction.
 
 ## Compose motion and timing
 
@@ -36,7 +36,7 @@ Begin with [Delayed shader texture feedback]({{ site.baseurl }}/examples/video/s
 - [Layered analog-style effects]({{ site.baseurl }}/examples/video/analog-effects.html) mixes fresh procedural patterns with distressed image history.
 - [Reaction-diffusion geometry feedback]({{ site.baseurl }}/examples/video/2d-geometry-feedback-reaction-diffusion.html) grows organic structures by retaining simulation state instead of an image.
 - [Compute-rendered Clifford attractor]({{ site.baseurl }}/examples/video/compute-image.html) accumulates points into a slowly changing mathematical form.
-- [Multiple shader render targets]({{ site.baseurl }}/examples/video/multi-render-target.html) compares colour, image-derived normals and edges from the same changing source.
+- [Multiple shader render targets]({{ site.baseurl }}/examples/video/multi-render-target.html) produces color, image-derived normals and edges from the same changing source.
 
 ## Fit the work to a space
 

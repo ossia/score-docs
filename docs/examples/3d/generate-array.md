@@ -17,11 +17,11 @@ score: /examples/3d/generate-array.score
     <source src="{{ site.img }}/examples/3d/generate-array.mp4" type="video/mp4">
 </video>
 
-A sequence of numbers becomes a rotating line drawing in space. Glow and a long exposure turn its changing geometry into luminous traces—a useful way to explore mathematical patterns as moving images.
+A sequence of numbers becomes a rotating line drawing in space. Glow and a long exposure turn its changing geometry into luminous traces.
 
 [[Math expressions|Arraygen]] evaluates an expression on the CPU, using `i` for each array element and `pos` for playback position. The 300 resulting values describe 100 XYZ vertices. Array to buffer transfers those values to the GPU, and Pointcloud to mesh makes geometry that [[Model display]] draws in Lines mode.
 
-A procedural gradient colours the drawing. An [[LFO]] rotates it, while bloom brightens its highlights and Long Exposure retains earlier images. The visible trail therefore contains previous rendered frames, not additional vertices in the current mesh.
+A procedural sine warp gradient colors the drawing. An [[LFO]] rotates it, while bloom brightens its highlights and Long Exposure retains earlier images. The visible trail therefore contains previous rendered frames, not additional vertices in the current mesh.
 
 ## Try it
 
@@ -29,7 +29,7 @@ Start playback and edit the expression to change the distribution of points. Kee
 
 Slow the LFO, then vary Long Exposure's discharge rate. One changes how fast the drawing moves; the other changes how long the image remembers it.
 
-No external asset is required. The saved Window uses an HDR swapchain format: use a compatible HDR output, or change the Window format and adapt the final image for an SDR display.
+No external asset is required. This is native Model display rendering, not Qt Quick 3D. The saved Window uses an HDR swapchain format: use a compatible HDR output, or change the Window format and adapt the final image for an SDR display.
 
 {% include try-on-web.html %}
 

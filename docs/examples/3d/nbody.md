@@ -12,13 +12,13 @@ score: /examples/3d/nbody.score
 
 ![Blue sphere particles behind the RandomScatter, VortexForce, BasicForces and NBodyGravity process chain.]({{ site.baseurl }}/assets/scores/thumbnails/examples-3d-nbody.png)
 
-A cloud of particles swirls and gathers under competing forces. Instead of choreographing every point, you shape the conditions of its movement—a useful approach for evolving swarms and fields in performance visuals.
+A cloud of particles swirls and gathers under competing forces. You set the forces, not the path of each point.
 
-RandomScatter initializes 1,024 particles. Vortex, basic and gravitational forces contribute to their motion, then Integrate updates the simulation over time. The resulting points are converted to sphere splats for native rendering.
+RandomScatter initializes 1,024 particles. Vortex, basic and gravitational forces contribute to their motion, then Integrate updates the simulation over time. The resulting points are converted to sphere splats for native rendering, not Qt Quick 3D.
 
 ## Try it
 
-Start playback and lower Integrate's `timeScale` to inspect the motion. Change vortex strength first, then `gravitationalConstant`, to see how the balance changes. Compare either with drag, which affects how motion is damped.
+Start playback and lower Integrate's `timeScale` to inspect the motion. Raise vortex strength to make the cloud swirl, then raise `gravitationalConstant` to pull it into clumps. Increase drag to damp the motion.
 
 RandomScatter has `once` enabled: changing a force during playback is not the same as initializing a different cloud. This is a visual simulation, not a reference scientific integrator. It requires compute-shader support but no external particle data or model.
 

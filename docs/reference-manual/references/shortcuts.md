@@ -5,6 +5,7 @@ title: Shortcuts
 description: "Default keyboard shortcuts in ossia score"
 
 parent: Reference
+nav_order: 8
 
 permalink: /reference/shortcuts.html
 ---

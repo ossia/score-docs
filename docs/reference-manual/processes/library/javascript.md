@@ -49,7 +49,7 @@ GPU scripts use the graphics execution path; CPU scripts run with execution, not
 
 ## Language and API reference
 
-The former reference sections have moved to **Reference → Languages**. Existing section links below lead to their canonical content.
+The detailed language and API reference is under **Reference → Languages**. Go directly to a relocated section:
 
 - <a id="general-syntax"></a>[General syntax]({{ site.baseurl }}/reference/languages/javascript-process.html#general-syntax): `import Score`, the `Script` object and execution callbacks.
 - <a id="available-functions"></a>[Available functions]({{ site.baseurl }}/reference/languages/javascript-process.html#available-functions): `Device.read` and `Device.write`.

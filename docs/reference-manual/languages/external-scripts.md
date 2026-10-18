@@ -4,6 +4,7 @@ title: External script languages
 description: "Interpreter references for Python, shell languages and commands launched outside score."
 parent: Languages
 grand_parent: Reference
+nav_order: 28
 permalink: /reference/languages/external-scripts.html
 ---
 

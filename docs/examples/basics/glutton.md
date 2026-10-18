@@ -2,7 +2,7 @@
 layout: default
 
 title: Temporal patching (glutton)
-description: "Bring effects into a running sound texture so each processes the source as it plays now, rather than replaying earlier material."
+description: "Bring effects into a running sound texture so each processes the source as it plays now, without replaying earlier material."
 
 parent: Basics
 grand_parent: Examples
@@ -15,7 +15,7 @@ score: /examples/basics/glutton.score
 
 ![Glutton Patching Mode]({{ site.img }}/examples/basics/glutton.png "Glutton temporal patching in ossia score")
 
-Build a changing sound texture by bringing effects in after the source has already begun. Each new effect hears the source playing **now**, not a replay from its beginning. This suits a performance in which the sound continues while its treatment changes around it.
+Build a changing sound texture by bringing effects in after the source has already begun. Each new effect hears the source playing **now**, not a replay from its beginning.
 
 ## Overview
 
@@ -29,7 +29,7 @@ Listen as the Low, Medium and High effect intervals join the source. End them on
 
 All four ends are interactive; their drawn positions do not stop them automatically. Leave one effect running longer, then use its end trigger to decide where the passage closes.
 
-Compare the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), where later effects receive earlier source material. Live input is optional through the saved audio input binding; use headphones if adding a microphone to avoid feedback.
+See the [delayed example]({{ site.baseurl }}/examples/basics/delayed.html), where later effects receive earlier source material. Live input is optional through the saved audio input binding; use headphones if adding a microphone to avoid feedback.
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

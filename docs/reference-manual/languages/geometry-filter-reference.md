@@ -4,6 +4,7 @@ title: Geometry filter shaders
 description: "The ISF-derived vertex transformation callback used by Geometry filter."
 parent: Languages
 grand_parent: Reference
+nav_order: 25
 permalink: /reference/languages/geometry-filter.html
 ---
 
@@ -47,11 +48,11 @@ The body follows the deformation in the supplied sphere example. This is a callb
 | `normal` | `inout vec3` | Surface normal used for shading. |
 | `uv` | `inout vec2` | Texture coordinates. |
 | `tangent` | `inout vec3` | Tangent attribute. |
-| `color` | `inout vec4` | Vertex colour. |
+| `color` | `inout vec4` | Vertex color. |
 
 Arguments are mutable: leaving one unchanged preserves the value supplied to the callback. Displacing a position does not automatically give the corresponding deformed normal; update the normal as part of the transformation when the intended lighting requires it. The source mesh and renderer still determine which attributes are available and how they are used.
 
-Access header controls through `this_filter`, as in `this_filter.intensity`. `TIME` is available for animation. Do not copy ISF fragment output code into this callback: it changes vertex attributes, not a pixel colour attachment. Do not add the raw-raster `main()` prologue or epilogue around it; that enclosing shader belongs to the renderer.
+Access header controls through `this_filter`, as in `this_filter.intensity`. `TIME` is available for animation. Do not copy ISF fragment output code into this callback: it changes vertex attributes, not a pixel color attachment. Do not add the raw-raster `main()` prologue or epilogue around it; that enclosing shader belongs to the renderer.
 
 For GLSL types and portable arithmetic, see the [GLSL runtime reference]({{ site.baseurl }}/reference/languages/glsl.html). For explicit geometry buffers, generated topology or compute feedback, use the [CSF geometry reference]({{ site.baseurl }}/reference/languages/csf.html#geometry-resources).
 

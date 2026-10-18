@@ -3,6 +3,7 @@ layout: default
 title: ISF language reference
 parent: Languages
 grand_parent: Reference
+nav_order: 21
 permalink: /reference/languages/isf.html
 ---
 
@@ -16,7 +17,7 @@ This is the canonical shader contract for the [[ISF Shaders]] process. For GLSL 
 
 The standard input vocabulary is `event`, `bool`, `long`, `float`, `point2D`, `color`, `image`, `audio`, and `audioFFT`. Standard multipass declarations include `TARGET`, `PERSISTENT`, `FLOAT`, `WIDTH`, and `HEIGHT`. Standard shader variables include `TIME`, `TIMEDELTA`, `DATE`, `FRAMEINDEX`, `PASSINDEX`, `RENDERSIZE`, and `isf_FragNormCoord`; the pixel/normalized image sampling helpers are part of ISF.
 
-Do not assume another ISF host supports score's `point3D`, `audioHist`, cubemaps, volume inputs, depth companions, explicit sampler-state fields, `OUTPUTS`, `ALPHA`, `COMPOSITE`, or the additional pass fields `LAYER`, `Z`, `FORMAT`, and `PIPELINE_STATE`. Likewise, `PROGRESS`, `SAMPLERATE`, `isf_FragCoord`, `clipSpaceCorrMatrix`, `MSAA_SAMPLES`, `IMG_TEXEL`, `TEX_DIMENSIONS`, `IMG_CUBE`, and `ISF_STRAIGHT_NORM_PIXEL` are score runtime conveniences rather than a portable ISF baseline. `MODE` selects score shader families; [CSF]({{ site.baseurl }}/reference/languages/csf.html), [raw raster]({{ site.baseurl }}/reference/languages/raw-raster.html), and [VSA integration]({{ site.baseurl }}/reference/languages/vertex-shader-art.html) are not standard ISF rendering modes.
+Do not assume another ISF host supports score's `point3D`, `audioHist`, cubemaps, volume inputs, depth companions, explicit sampler-state fields, `OUTPUTS`, `ALPHA`, `COMPOSITE`, or the additional pass fields `LAYER`, `Z`, `FORMAT`, and `PIPELINE_STATE`. Likewise, `PROGRESS`, `SAMPLERATE`, `isf_FragCoord`, `clipSpaceCorrMatrix`, `MSAA_SAMPLES`, `IMG_TEXEL`, `TEX_DIMENSIONS`, and `IMG_CUBE` are score runtime conveniences rather than a portable ISF baseline. `MODE` selects score shader families; [CSF]({{ site.baseurl }}/reference/languages/csf.html), [raw raster]({{ site.baseurl }}/reference/languages/raw-raster.html), and [VSA integration]({{ site.baseurl }}/reference/languages/vertex-shader-art.html) are not standard ISF rendering modes.
 
 Header names become generated shader declarations. Use valid, distinct GLSL identifiers and do not redeclare generated uniforms, samplers or outputs in the body. Compatibility acceptance of `gl_FragColor` is score preprocessing, not Vulkan GLSL syntax.
 
@@ -158,10 +159,11 @@ Use the helpers instead of raw `gl_FragCoord` coordinate math. They keep orienta
 | `IMG_SIZE(tex)` / `TEX_DIMENSIONS(tex)` | Texture size in pixels. |
 | `IMG_CUBE(tex, dir)` | Cubemap sample. |
 
-Straight-alpha helpers are available when a source must be unpremultiplied before math:
+Textures coming from other nodes' render targets are premultiplied. There is no straight-alpha sampling macro: when a source must be unpremultiplied before color math, sample it normally and divide by alpha yourself:
 
 ```glsl
-vec4 c = ISF_STRAIGHT_NORM_PIXEL(inputImage, isf_FragNormCoord);
+vec4 c = IMG_NORM_PIXEL(inputImage, isf_FragNormCoord);
+if (c.a > 0.0) c.rgb /= c.a;
 ```
 
 ## Built-in uniforms

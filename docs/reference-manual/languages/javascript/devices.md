@@ -5,6 +5,7 @@ title: JavaScript devices and discovery API
 description: "Protocol discovery, device settings and live parameter access"
 parent: Languages
 grand_parent: Reference
+nav_order: 6
 nav_exclude: true
 permalink: /reference/languages/javascript/devices.html
 ---

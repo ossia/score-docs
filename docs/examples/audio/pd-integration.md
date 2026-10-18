@@ -15,11 +15,11 @@ score: /examples/audio/puredata.zip
 
 ![Automation curves shaping a Pure Data noise generator and its lowpass filter]({{ site.img }}/examples/audio/puredata.png "PureData patch running in ossia score")
 
-Build a passage from noise rather than notes: rough, fine and darker textures can rise and recede as separate layers. Here, timeline curves shape a Pure Data sound generator, turning an existing patch into material that can be arranged alongside the rest of a performance.
+Build a passage from noise instead of notes: rough, fine and darker textures rise and recede as separate layers, shaped by timeline curves that control a Pure Data sound generator.
 
-## From patch to passage
+## How the patch is controlled
 
-The `noisebank` patch generates the sound. Automation changes four of its texture controls, while a separate lowpass curve reveals or softens the higher-frequency detail. The division is useful when adapting your own Pd work: keep sound generation in Pd and compose its larger gestures in score. This example controls parameters, not MIDI notes.
+The `noisebank` patch generates the sound. Automation changes four of its texture controls, while a separate lowpass curve reveals or softens the higher-frequency detail. Sound generation stays in Pd; score handles the timing and shape of each change. This example controls parameters, not MIDI notes.
 
 ## Setup
 
@@ -28,9 +28,9 @@ Open the ZIP directly in a score build with Pure Data support; the Pd patch is i
 ## Try it
 
 1. Start playback. After the initial two-second interval, listen to the noise texture while following the curves for white, dark, fizzle and crk.
-2. Edit one curve at a time. Compare a slow increase with short bursts to hear how the same noise layer can behave as a background or an accent.
-3. Reshape the lowpass automation without changing the noise controls. Listen to the difference between changing the texture itself and filtering the combined sound.
-4. Use the interval's end trigger to stop the patch. Its drawn 17-second endpoint is interactive, so you can hold the passage rather than accepting a fixed ending.
+2. Edit one curve at a time. A slow rise turns a noise layer into a background; short bursts turn it into accents.
+3. Reshape the lowpass automation without changing the noise controls: this filters the combined sound instead of changing any one texture.
+4. Use the interval's end trigger to stop the patch. Its drawn 17-second endpoint is interactive, so the passage lasts until you trigger it.
 5. With Pure Data installed, choose **Open external window** to inspect or edit `noisebank.pd`. For an adaptation, expose controls in your own Pd generator and shape them with the same timeline approach.
 
 [Download this example]({{ site.scores }}{{ page.score }})

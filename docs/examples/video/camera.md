@@ -2,7 +2,7 @@
 layout: default
 
 title: Camera input
-description: "Make a live camera image change colour, blur and distortion in response to sound."
+description: "Make a live camera image change color, blur and distortion in response to sound."
 
 parent: Video Examples
 grand_parent: Examples
@@ -15,9 +15,9 @@ score: /examples/video/camera.score
 
 ![Live camera processing with audio-controlled effects]({{ site.img }}/examples/video/camera.png "Camera input in ossia score")
 
-Keep a performer or installation visitor visible while sound changes the colour, blur and distortion of their live image. Rather than generating an unrelated animation, this patch makes the treatment of the camera feed part of the performance.
+Keep a performer or installation visitor visible while sound changes the color, blur and distortion of their live image.
 
-## Two kinds of motion
+## Image and treatment
 
 Audio analysis turns microphone level into controls for the shader pipeline. Smoothing makes some changes gradual; peak detection resets the distortion on sharper accents. Movement in front of the camera changes the source picture, while sound changes what happens to it.
 
@@ -27,9 +27,9 @@ Select an available camera in the Camera device settings and a working audio inp
 
 ## Try it
 
-- Start playback and move silently in front of the camera, then make sound while staying still. Compare changes in the source image with changes in its treatment.
-- Adjust RMS Gain to suit your input, then alter the smoothing to compare abrupt responses with lingering transitions.
-- Change peak detection's trigger and reload thresholds. Try isolated claps followed by sustained sound and observe when the distortion resets.
+- Start playback and move silently in front of the camera, then make sound while staying still: movement changes the picture, sound changes the effects applied to it.
+- Adjust RMS Gain to suit your input, then lower the smoothing for abrupt responses or raise it for lingering transitions.
+- Change peak detection's trigger and reload thresholds. Clap a few times, then make a sustained sound, and watch when the distortion resets.
 
 Without a microphone, connect a sound-file process to RMS. The recording replaces the analysis source, not the camera.
 

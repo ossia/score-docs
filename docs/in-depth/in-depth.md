@@ -19,7 +19,7 @@ This chapter describes various advanced use cases for *ossia score*, and explain
 ## Guides by workflow
 
 - **Graphics:** [[Graphics pipeline]], [[Shader cookbook]] and [[3D scene pipeline]] explain texture processing, custom shaders and scene rendering.
-- **Video:** [[Video formats and color]] separates codecs, pixel conversion, hardware decoding and colour handling.
+- **Video:** [[Video formats and color]] separates codecs, pixel conversion, hardware decoding and color handling.
 - **Scripting:** [[Scripting]], [[Custom UI]] and [[Remote Control]] cover document automation and interactive interfaces. [Reference → Languages]({{ site.baseurl }}/reference/languages.html) contains the language manuals and complete scripting and shader APIs.
 - **Timing and capture:** [[Musical metrics]] and [[Recording]] explain musical grids and recording behavior.
 - **Reusable projects:** [[Media management]], [[Presets]] and [[Package manager]] cover assets, saved process configurations and installable content.

@@ -2,7 +2,7 @@
 layout: default
 
 title: Structure Synth Example
-description: "Build a recursive structure, then bring it to life with rotation and changing colour."
+description: "Build a recursive structure, then bring it to life with rotation and changing color."
 
 parent: 3D Graphics
 grand_parent: Examples
@@ -17,9 +17,9 @@ score: /examples/3d/ssynth.score
     <source src="{{ site.img }}/examples/3d/ssynth.mp4" type="video/mp4">
 </video>
 
-Build an intricate structure from a short set of rules, then let colour and rotation reveal its repeating forms. The saved NablaSystem is useful as a starting point for generative sculptures whose construction and performance can be designed separately.
+Build an intricate structure from a short set of rules, then let color and rotation reveal its repeating forms. The saved program is NablaSystem.
 
-[[Structure Synth]] creates the mesh on the CPU. The resulting geometry is sent to native Model Display with a changing gradient texture; an LFO rotates it slowly. Editing the grammar or requesting Regenerate changes the structure itself, whereas the texture and rotation can keep changing during playback without rebuilding the mesh.
+[[Structure Synth]] creates the mesh on the CPU. The resulting geometry is sent to native Model Display (not Qt Quick 3D) with a changing gradient texture; an LFO rotates it slowly. Editing the grammar or requesting Regenerate changes the structure itself, whereas the texture and rotation can keep changing during playback without rebuilding the mesh.
 
 ## Changing the structure
 
@@ -36,7 +36,7 @@ This fragment describes a spiral of boxes when invoked. A runnable program also 
 
 ## Try it
 
-Start playback and change the LFO speed to see how rotation reveals the structure. Edit the colour automation to change its palette without changing its geometry. Then modify the saved grammar and request Regenerate to compare a structural change with those surface and movement changes.
+Start playback and change the LFO speed to see how rotation reveals the structure. Edit the color automation to change its palette without changing its geometry. Then modify the saved grammar and request Regenerate: only this step changes the shape itself.
 
 The program and shaders are embedded; no external model is needed.
 

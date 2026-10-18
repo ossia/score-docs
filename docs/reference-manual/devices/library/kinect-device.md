@@ -11,4 +11,7 @@ permalink: /devices/kinect-device.html
 ---
 
 
-Reference is not yet available. Feel more than welcome to ask for help on the [ossia.io forum](https://forum.ossia.io) or send a message on [ossia score Gitter channel](https://gitter.im/ossia/score) where you will most likely find a handful of *score* users and developers.
+# Kinect
+
+Kinect v1 (Xbox 360), Kinect v2 (Xbox One) and the Azure Kinect DK are supported by the [Depth cameras]({{ site.baseurl }}/devices/depth-camera-device.html) device,
+since ossia score 3.9.0. It provides their colour, infrared and depth images, point clouds, inertial sensors and, on the Kinect v1, the tilt motor and LED.

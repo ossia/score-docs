@@ -17,13 +17,13 @@ score: /examples/3d/threedim.score
     <source src="{{ site.img }}/examples/3d/threedim.mp4" type="video/mp4">
 </video>
 
-A rotating icosahedron becomes a surface for an animated, pointer-responsive pattern. Start here if you want to combine shape, movement and texture without preparing a model or image file.
+A rotating icosahedron carries an animated, pointer-responsive pattern. No model or image file is needed.
 
 The primitive supplies geometry to [[Model display]], while the Oblivion shader supplies its texture. An [[LFO]] drives rotation independently: the image on the surface and the object carrying it can move at different speeds. This is direct native mesh rendering, not a Qt Quick 3D scene.
 
 ## Try it
 
-Start playback and slow the LFO to make the rotation easier to follow. Move the pointer in the output window to change the shader pattern. Then compare the shader's `iZoom` with the primitive's Scale: one changes the texture, the other changes the silhouette. Adjust `iSteps` to explore the pattern's detail.
+Start playback and slow the LFO to make the rotation easier to follow. Move the pointer in the output window to change the shader pattern. Then change the shader's `iZoom` to rescale the texture, and the primitive's Scale to resize the silhouette. Adjust `iSteps` to explore the pattern's detail.
 
 {% include try-on-web.html %}
 

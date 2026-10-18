@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sensors2OSC phone control
-description: "Use phone rotation and multitouch as a handheld visual instrument, balancing responsive gestures with stable motion."
+description: "Use phone rotation and multitouch as a handheld visual instrument, with smoothing to balance responsiveness and stability."
 parent: Device Examples
 grand_parent: Examples
 permalink: /examples/devices/sensors2osc.html
@@ -12,9 +12,9 @@ score: /examples/devices/sensors2osc.score
 
 ![Character-textured cube preview beneath Model Display, with touch filtering and mapping nodes]({{ site.baseurl }}/assets/scores/thumbnails/examples-devices-sensors2osc.png)
 
-Turn an Android phone into a handheld visual instrument: rotating it moves a character-textured cube and changes its hue, while touch gestures distort the image. Rotation gives the performer a broad physical action; touch provides a second layer of control without needing another device.
+Turn an Android phone into a handheld visual instrument: rotating it moves a character-textured cube and changes its hue, while touching the screen distorts the image.
 
-This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html) adds displays for comparing raw touch input with mapped values. Use those displays to understand the response before adjusting it to your own gestures.
+This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.html) adds displays of raw touch input next to the mapped values.
 
 ## Connect the phone
 
@@ -24,11 +24,11 @@ This variant of the [OSC scene example]({{ site.baseurl }}/examples/devices/osc.
 4. Start playback and rotate the phone. One Euro smoothing reduces fluctuations, then the components are multiplied by 360 and used directly as the cube's rotation angles. This is not a quaternion-to-Euler conversion: do not expect an exact digital copy of the phone's orientation.
 5. Use the app's multitouch surface. Each `/touch` message contains `[finger index, x, y]`. Fingers 0 and 1 control the two displacement directions; finger 2 is displayed but does not drive an effect.
 
-## Find a comfortable gesture range
+## Tune smoothing and ranges
 
-Rotate slowly, pause, then make a quick movement. Adjust the One Euro smoothing settings and compare how still the cube appears during the pause with how promptly it follows the quick gesture. The goal is a deliberate balance between suppressing sensor fluctuations and preserving the performer's timing.
+Rotate slowly, pause, then make a quick movement. Adjust the One Euro smoothing settings until the cube stays still during the pause but still follows the quick movement promptly.
 
-Move one finger at a time, then combine two fingers. Compare the raw and mapped Value displays: a small touch movement can produce a large visual change if the mapping scales it strongly. Try changing one touch mapping while keeping the other fixed, so you can judge the new range without changing the whole instrument at once.
+Move one finger at a time, then combine two fingers. The raw and mapped Value displays show how strongly each mapping scales a touch: a small movement can produce a large visual change. Change one touch mapping at a time, keeping the other fixed.
 
 The cube and texture are generated internally with native Model Display and ISF effects; no image or 3D model is needed. Object filter support is required to separate touch messages. The saved remote destination `127.0.0.1:9996` is unused by these incoming controls, so it does not need to match the phone.
 

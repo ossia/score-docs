@@ -5,6 +5,7 @@ title: Add-ons
 description: "Optional extensions, native dependencies and availability"
 
 parent: Reference
+nav_order: 13
 
 permalink: /reference/add-ons.html
 ---

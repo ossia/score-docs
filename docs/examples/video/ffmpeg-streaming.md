@@ -10,11 +10,11 @@ score: /examples/video/ffmpeg-streaming.score
 
 # FFmpeg input and output streams
 
-![Separate local distortion and outgoing colour-adjustment paths for a live stream]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-ffmpeg-streaming.png)
+![Separate local distortion and outgoing color-adjustment paths for a live stream]({{ site.baseurl }}/assets/scores/thumbnails/examples-video-ffmpeg-streaming.png)
 
-Receive a live video stream, transform it in score and send a treated image to another application without recording an intermediate file. A separate local view lets you explore a different treatment from the one your receiver sees—a useful distinction when building a performance pipeline.
+Receive a live video stream, transform it in score and send a treated image to another application without recording an intermediate file. A separate local view shows a different treatment from the one your receiver sees.
 
-## Two destinations, two treatments
+## Local and outgoing paths
 
 The incoming UDP video splits into two paths. Hyperspace creates the scrolling treatment in score's output window; Color Controls changes the image sent to the external receiver. Adjusting the local Hyperspace effect does not change the outgoing picture.
 
@@ -34,7 +34,7 @@ Open the score and start playback. Run a receiver for its processed output:
 ffplay udp://127.0.0.1:5001
 ```
 
-Change Color Controls brightness or saturation and compare the receiver with the local Hyperspace window. Then change the LFO driving Hyperspace: only the local treatment should change. This separates a shared source from the processing chosen for each destination.
+Change Color Controls brightness or saturation: only the receiver's image changes. Then change the LFO driving Hyperspace: only the local window changes.
 
 The saved output is video-only: MJPEG encoding with the MJPEG muxer at 1280×720, 30 fps. It is not MPEG-TS like the test input, and the test tone is not forwarded. Stop the external sender and receiver when finished.
 

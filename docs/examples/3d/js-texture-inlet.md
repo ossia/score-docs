@@ -17,11 +17,11 @@ score: /examples/3d/js-texture-inlet.score
     <source src="{{ site.img }}/examples/3d/js-texture-inlet.mp4" type="video/mp4">
 </video>
 
-A bouncing, rotating sphere carries a live shader pattern while a red cylinder and moving light give it a simple stage. The useful connection is from a score texture into a QML material: the same approach can put generated images or video onto objects in a scripted scene.
+A bouncing, rotating sphere carries a live shader pattern while a red cylinder and moving light give it a simple stage. The pattern travels from a score texture into a QML material; the same connection can put generated images or video onto any object in a scripted scene.
 
-[[ISF Shaders|Kaleidolines]] produces the pattern, and a [[Javascript|JavaScript/QML]] process receives it through a texture inlet. Inside Qt Quick 3D, a Texture uses that inlet's `item` as its `sourceItem`, then supplies the sphere's base-colour map. The image on the object can change independently of the object's motion.
+[[ISF Shaders|Kaleidolines]] produces the pattern, and a [[Javascript|JavaScript/QML]] process receives it through a texture inlet. Inside Qt Quick 3D, a Texture uses that inlet's `item` as its `sourceItem`, then supplies the sphere's base-color map. The image on the object can change independently of the object's motion.
 
-The sphere's bounce and rotation are scripted. A separate [[LFO]] controls the directional light and cylinder rotation, giving you another layer of movement to compare with the texture.
+The sphere's bounce and rotation are scripted. A separate [[LFO]] controls the directional light and cylinder rotation.
 
 ## Wiring the texture
 
@@ -46,13 +46,13 @@ These are the two relevant declarations, not a complete stand-alone scene. `Text
 
 Use a desktop build with GPU JavaScript and Qt Quick 3D support; the current WebAssembly build does not execute JavaScript processes. No model file is needed because the sphere and cylinder are QML primitives. If the image is blank, check that the texture source, scripted scene and output are all executing.
 
-The texture's render resolution is separate from the QML item's logical dimensions. When adapting the patch, change the texture inlet's render resolution rather than expecting a QML item resize to supply more image detail.
+The texture's render resolution is separate from the QML item's logical dimensions. When adapting the patch, change the texture inlet's render resolution rather than expecting a QML item resize to supply more image detail. An editor script can set it after looking up the right texture inlet: `Score.inlet(process, index).renderSize = Qt.size(640, 360)`. Resizing preserves the interactive QML scene; persistent state across save/load still requires the script state API.
 
 To preview an already-rendered outlet in a custom control interface, use `Score.UI.TextureSource` instead. It selects an existing process and port; it does not replace the cabled texture inlet used here.
 
 ## Try it
 
-Start playback and change Kaleidolines' controls to alter the pattern on the sphere. Then slow the LFO and compare the light and cylinder movement with the sphere's scripted motion. Finally, replace Kaleidolines with another shader or video source to change the surface image without rebuilding the scene.
+Start playback and change Kaleidolines' controls to alter the pattern on the sphere. Then slow the LFO: the light and cylinder slow down while the sphere keeps its scripted bounce. Finally, replace Kaleidolines with another shader or video source to change the surface image without rebuilding the scene.
 
 {% include try-on-web.html %}
 

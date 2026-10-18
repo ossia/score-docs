@@ -4,6 +4,7 @@ title: JavaScript and QML
 description: "JavaScript language, QML imports and scripting contexts in ossia score"
 parent: Languages
 grand_parent: Reference
+nav_order: 1
 permalink: /reference/languages/javascript.html
 ---
 

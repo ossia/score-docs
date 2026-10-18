@@ -5,6 +5,7 @@ title: JavaScript editor examples
 description: "Console examples for editing scores, devices and network connections"
 parent: Languages
 grand_parent: Reference
+nav_order: 4
 nav_exclude: true
 permalink: /reference/languages/javascript/examples.html
 ---

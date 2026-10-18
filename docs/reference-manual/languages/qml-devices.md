@@ -4,6 +4,7 @@ title: QML device API
 description: "QML device roots, parameter trees, Mapper globals and HTTP, WebSocket and Serial callbacks"
 parent: Languages
 grand_parent: Reference
+nav_order: 10
 permalink: /reference/languages/qml-devices.html
 ---
 

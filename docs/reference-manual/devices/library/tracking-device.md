@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tracking protocols
-description: "Tracking protocol source inventory and current add-on availability"
+description: "Receive tracking data from TUIO, PosiStageNet, RTTrP, OpenTrackIO and OpenXR sources"
 parent: Devices
 grand_parent: Reference
 permalink: /devices/tracking-device.html
@@ -9,26 +9,36 @@ permalink: /devices/tracking-device.html
 
 # Tracking protocols
 
-Tracking data describes moving objects, performers, touch contacts or cameras. It can drive score parameters, but the presence of a protocol implementation in the source tree does not mean it is available in an installed build.
+Tracking data describes moving objects, performers, touch contacts or cameras. With the tracking devices, positions, orientations and
+other tracking data become parameters of the device explorer: they can drive automations, mappings, shaders, 3D scenes or spatialization like any other address.
 
-## Current availability
+## Availability
 
-**The tracking-protocols add-on is disabled.** Its `CMakeLists.txt` returns before creating the plug-in. The protocols below therefore do not appear in **Add device** unless the add-on is explicitly enabled at build time; installing unrelated tracking hardware does not enable them.
+The tracking protocols are included in the desktop builds of ossia score since **3.9.0** (Windows, macOS and Linux). They are not available in the
+WebAssembly (browser) build.
 
-The add-on's factory list contains **TUIO**, **PSN**, **RTTrP** and **OpenTrackIO**, plus **OpenXR** behind an additional build condition. This is the source inventory, not a claim of a currently shipped or hardware-tested integration. There are no additional tracking protocols implied by this list.
+Add them from **Add device**, in the **Tracking** category: **TUIO**, **PSN**, **RTTrP**, **OpenTrackIO** and **OpenXR**.
 
-## Source-defined interfaces
+## Protocols
 
-These settings describe the existing source implementations and help identify which integration a tracker would require in a separately enabled build.
-
-| Protocol | Data and connection | Source-defined settings |
+| Protocol | Data and connection | Settings |
 |---|---|---|
-| **TUIO** | Touch cursors, tangible objects and blobs over UDP. The selector distinguishes TUIO 1.1 and 2.0. | UDP port (3333 by default); fixed object, cursor and blob slot counts; protocol version. |
-| **PSN (PosiStageNet)** | Tracker position and optional motion/orientation data over UDP multicast. | Multicast address (`236.10.10.10`), port (56565), tracker count, velocity, acceleration, orientation and target-position switches. |
-| **RTTrP** | Trackable poses, LED markers and zone information over UDP. | Port (24002), trackable count, maximum LEDs and zones, quaternion/Euler, velocity, acceleration and zone switches. |
-| **OpenTrackIO** | On-set camera/lens/timing metadata over UDP multicast, with an `OTrk` header and JSON or CBOR payload. | Multicast base (`239.135.1`), port (55555), minimum/maximum source numbers, camera/lens/timing/global-stage fields and accepted payload formats. One multicast group is selected per source number. |
-| **OpenXR** | Tracking through an OpenXR runtime rather than an incoming UDP tracker stream. | Additionally conditional on OpenXR being found at build time and the `SCORE_HAS_OPENXR` registration gate. A compatible runtime and hardware are separate requirements. |
+| **TUIO** | Touch cursors, tangible objects and blobs over UDP, as sent by multitouch tables, reacTIVision and many computer vision tools. TUIO 1.1 and 2.0 are supported. | UDP port (3333 by default); number of object, cursor and blob slots; protocol version. |
+| **PSN (PosiStageNet)** | Tracker positions, and optionally speed, acceleration, orientation and target positions, over UDP multicast, as sent by stage tracking systems and media servers. | Multicast address (`236.10.10.10`), port (56565), number of trackers, and switches for velocity, acceleration, orientation and target position. |
+| **RTTrP** | Trackable poses, LED markers and zone information over UDP, as sent by BlackTrax and compatible systems. | Port (24002), number of trackables, maximum LEDs and zones, quaternion or Euler orientation, velocity, acceleration and zones. |
+| **OpenTrackIO** | Camera, lens and timing metadata from virtual production and on-set tracking systems, over UDP multicast, with JSON or CBOR payloads. | Multicast base (`239.135.1`), port (55555), minimum and maximum source numbers (one multicast group per source), and the camera, lens, timing and global stage fields to receive. |
+| **OpenXR** | Head and controller tracking from an OpenXR runtime, rather than from a network stream. | Requires an OpenXR runtime (for instance SteamVR or Monado) and compatible hardware. |
 
-In slot-based trackers, a slot is not inherently a permanent performer identity. Check the sender's IDs and the enabled implementation's slot assignment before binding critical cues. Network port numbers alone do not make these protocols interchangeable with generic OSC.
+## Slots and identities
 
-For currently available alternatives, consult the [Devices reference]({{ site.baseurl }}/devices.html) and the [OSC device]({{ site.baseurl }}/devices/osc-device.html) if the tracking software can explicitly publish OSC addresses.
+TUIO, PSN and RTTrP devices expose a fixed number of **slots** in the device tree. A slot is not necessarily a permanent identity for a performer or an object:
+check how the sender assigns its IDs before binding critical cues to a given slot, and size the number of slots for the maximum number of simultaneous objects.
+
+Network port numbers alone do not make these protocols interchangeable with generic OSC. If a tracking system can publish OSC directly,
+the [OSC device]({{ site.baseurl }}/devices/osc-device.html) is an alternative.
+
+## See also
+
+- [Depth cameras]({{ site.baseurl }}/devices/depth-camera-device.html), for skeleton-free point clouds and depth images from Orbbec, Kinect, RealSense and OAK cameras.
+- [Leap Motion]({{ site.baseurl }}/devices/leapmotion-device.html) for hand tracking.
+- [Spatialization]({{ site.baseurl }}/common-practices/14-spatial-audio.html), which tracked positions often drive.

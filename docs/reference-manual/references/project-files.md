@@ -3,6 +3,7 @@ layout: default
 title: Project files
 description: "Collect, relink, archive and clean up a score project's media"
 parent: Reference
+nav_order: 11
 permalink: /reference/project-files.html
 ---
 

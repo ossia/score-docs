@@ -14,7 +14,7 @@ permalink: /examples/tempo
 
 Changing time can reshape a passage as much as changing its notes. A loop can accelerate with or without a pitch shift, and two layers can keep different metres while playing together.
 
-Start with [Tempo manipulation]({{ site.baseurl }}/examples/tempo/tempo-control.html) to hear these contrasts in one score. Compare the same drum recording in re-pitching and time-stretching sections, then try a tempo driven by a changing control signal. It is a useful starting point for composed accelerations or a performance in which playback speed becomes a gesture.
+Start with [Tempo manipulation]({{ site.baseurl }}/examples/tempo/tempo-control.html) to hear these in one score: the same drum recording plays in re-pitching and time-stretching sections, then with a tempo driven by a changing control signal.
 
 ## Choose the right timing tool
 

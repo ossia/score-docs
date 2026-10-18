@@ -17,13 +17,13 @@ score: /examples/video/audioreactive.score
     <source src="{{ site.img }}/examples/video/audioreactive.mp4" type="video/mp4">
 </video>
 
-Generated percussion and live sound animate a geometric pattern, while echo and analog-style distortion turn its movement into trails. The patch offers two kinds of musical response: a smoothed zoom that follows an envelope, and a trace threshold that reacts separately to the microphone.
+Generated percussion and live sound animate a geometric pattern, while echo and analog-style distortion turn its movement into trails. A smoothed zoom follows the overall envelope, and a trace threshold reacts separately to the microphone.
 
-## Shape the response
+## Two analysis paths
 
 A Stereo Mixer combines the synthesized percussion with live audio for level analysis. RMS converts that sound into a control signal, and OneEuro smoothing makes the zoom follow it more gradually. A second RMS analyzes the microphone independently to control the trace threshold.
 
-Separating these paths is useful for a performance in which a steady rhythmic source shapes the overall motion while a voice or instrument interrupts the image. Turning down the microphone in the mixer does not silence its separate trace-control path.
+The steady rhythm shapes the overall motion while a voice or instrument interrupts the image. Turning down the microphone in the mixer does not silence its separate trace-control path.
 
 ## Setup
 
@@ -31,9 +31,9 @@ Use a build with Faust and its standard physical-modeling library for DjembeMIDI
 
 ## Try it
 
-- Start playback and compare Stereo Mixer inputs 1 and 2 separately. Listen to or watch the rhythm of the source you are analyzing before increasing RMS Gain.
-- Change OneEuro smoothing and compare a zoom that follows individual accents with a more gradual movement.
-- Adjust the second RMS's Gate while making quiet and loud sounds. Observe when the microphone begins to affect the trace threshold, independently of the mixed envelope.
+- Start playback and turn Stereo Mixer inputs 1 and 2 down one at a time to hear each source being analyzed, then increase RMS Gain.
+- Adjust OneEuro smoothing until the zoom follows individual accents, then until it moves gradually.
+- Adjust the second RMS's Gate while making quiet and loud sounds: below the gate, the microphone no longer affects the trace threshold.
 
 To use recorded audio instead, connect a sound-file process to the microphone paths you want to replace.
 

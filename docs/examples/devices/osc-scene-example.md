@@ -10,7 +10,7 @@ score: /examples/devices/osc.score
 
 # OSC values controlling a native 3D scene
 
-Rotate a textured cube and pull its image apart with networked gestures. Rotation steers both orientation and hue, while two indexed touch inputs control distortion in different directions. The patch is a useful starting point for a visual instrument whose controller runs on another device or in another application.
+Rotate a textured cube and pull its image apart from another device or application over OSC. Rotation steers both orientation and hue, while two indexed touch inputs control distortion in different directions.
 
 ## Setup
 
@@ -19,18 +19,18 @@ The `sensors2OSC` device listens for OSC on UDP port **9000** on all local inter
 ## Send control data
 
 1. Point your OSC sender at the computer's reachable IP address and port 9000. Allow incoming UDP traffic through the firewall.
-2. Start playback and send `/rotationvector` with numeric components. They are smoothed and multiplied by 360 before controlling the cube's rotation. This is a direct component-to-angle mapping, not a quaternion-to-Euler conversion, so treat it as an expressive mapping rather than an exact reconstruction of a sensor's orientation.
+2. Start playback and send `/rotationvector` with numeric components. They are smoothed and multiplied by 360 before controlling the cube's rotation. This is a direct component-to-angle mapping, not a quaternion-to-Euler conversion, so the cube does not reproduce the sensor's orientation exactly.
 3. Send `/touch` as `[index, x, y]`. Indices 0 and 1 drive horizontal and vertical image displacement; index 2 is displayed but does not alter the image.
 
 ## Shape the response
 
-Change rotation slowly, then abruptly. Adjust the One Euro filter settings and compare steadiness with responsiveness: a controller that feels calm when held still may respond differently to a fast gesture.
+Change rotation slowly, then abruptly. Adjust the One Euro filter settings: stronger smoothing steadies the cube when the input is still, but makes it lag behind fast changes.
 
-Vary the two touch inputs separately before combining them. Their first coordinates are mapped by `0.05(x+1)` and `0.2(x+1)`. Change one factor and repeat the same input range to see how scaling changes the intensity of a gesture without changing its source.
+Vary the two touch inputs separately before combining them. Their first coordinates are mapped by `0.05(x+1)` and `0.2(x+1)`. Change one factor and send the same input range again: the distortion becomes stronger or weaker.
 
-Rotation's first component also controls hue through `sensors2OSC:/rotationvector@[0]`. Watch the color while rotating: one incoming message can coordinate several visible changes, but each mapping can have its own range and filtering.
+Rotation's first component also controls hue through `sensors2OSC:/rotationvector@[0]`, so the color changes while rotating. Each of these mappings has its own range and filtering.
 
-The cube and its character texture are generated internally through native Model Display and ISF rendering. You need graphics rendering and Object filter support, but no external model or image. For phone setup and displays comparing raw and mapped touch values, use [Sensors2OSC phone control]({{ site.baseurl }}/examples/devices/sensors2osc.html).
+The cube and its character texture are generated internally through native Model Display and ISF rendering. You need graphics rendering and Object filter support, but no external model or image. For phone setup and displays of raw and mapped touch values, use [Sensors2OSC phone control]({{ site.baseurl }}/examples/devices/sensors2osc.html).
 
 [Download this example]({{ site.scores }}{{ page.score }})
 

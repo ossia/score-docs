@@ -4,6 +4,7 @@ title: Pure Data patch language
 description: "Pure Data's visual language and the audio, MIDI and message interface exposed by score."
 parent: Languages
 grand_parent: Reference
+nav_order: 18
 permalink: /reference/languages/puredata.html
 ---
 
@@ -23,7 +24,7 @@ For an individual object, open its **Help** patch in Pure Data. A library instal
 
 ## Audio, MIDI and message ports
 
-The following is score's host interface, relocated from the [Pure Data process page]({{ site.baseurl }}/processes/puredata.html):
+The [Pure Data process]({{ site.baseurl }}/processes/puredata.html) maps these Pd objects to score's host interface:
 
 | Pd objects | score interface |
 |---|---|

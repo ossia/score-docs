@@ -5,6 +5,7 @@ title: JavaScript document and process API
 description: "Find and edit score objects, ports, cables, triggers and presets"
 parent: Languages
 grand_parent: Reference
+nav_order: 5
 nav_exclude: true
 permalink: /reference/languages/javascript/score.html
 ---
