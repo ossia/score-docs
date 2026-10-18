@@ -36,7 +36,7 @@ The device dialog separates Protocols from saved Presets, with filters for findi
 
 Some protocols offer a **Default** entry. Its meaning depends on the protocol; for example, a default joystick picks available hardware instead of fixing the project to one controller. Use a named selection where a show depends on a particular unit.
 
-The available protocol list depends on the build, platform and installed dependencies. See [CAN]({{ site.baseurl }}/devices/can-device.html), [Companion modules]({{ site.baseurl }}/devices/companion-device.html) and [GPhoto2 DSLR]({{ site.baseurl }}/devices/gphoto-device.html) for setup and capabilities. The [tracking protocols reference]({{ site.baseurl }}/devices/tracking-device.html) explicitly distinguishes source implementations from a disabled add-on.
+The available protocol list depends on the build, platform and installed dependencies. See [CAN]({{ site.baseurl }}/devices/can-device.html), [Companion modules]({{ site.baseurl }}/devices/companion-device.html) and [GPhoto2 DSLR]({{ site.baseurl }}/devices/gphoto-device.html) for setup and capabilities. Since 3.9.0, desktop builds also include [tracking protocols]({{ site.baseurl }}/devices/tracking-device.html) (TUIO, PSN, RTTrP, OpenTrackIO, OpenXR) and [depth cameras]({{ site.baseurl }}/devices/depth-camera-device.html).
 
 *Score* currently supports the following devices types:
 
