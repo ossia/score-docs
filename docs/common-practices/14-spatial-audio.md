@@ -85,7 +85,7 @@ Gain, RollOff and Normalize adjust the resulting weights. GBAP produces control 
 
 Use XY for DBAP (2D), and XYZ for DBAP (3D). Path Generator outputs a list of positions, one per trajectory: flatten a single trajectory's output as above, or extract the position needed for each DBAP. The speaker positions must have the same number of coordinates as the source. [[2D Spline]] provides another way to draw a trajectory on the timeline. Sensor values or OSC messages can also control the source position.
 
-![Complex trajectories]({{ site.img }}/common-practices/spatialization/complex-paths.gif)
+![Complex trajectories]({{ site.img }}/common-practices/spatialization/complex-paths.avif)
 
 ## Faust spatialization
 

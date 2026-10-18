@@ -12,7 +12,7 @@ score: /reference/processes/process-launcher.score
 ---
 # Process Launcher
 
-![Process Launcher]({{ site.img }}/reference/processes/process-launcher.gif "Process Launcher Process")
+<video src="{{ site.img }}/reference/processes/process-launcher.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Process Launcher" title="Process Launcher Process"></video>
 
 The Process Launcher allows you to launch and manage external system processes directly from your ossia score timeline. This powerful utility lets you integrate external scripts, commands, or applications into your interactive performances.
 

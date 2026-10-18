@@ -62,7 +62,7 @@ To allow easy experimentation, double-clicking on a process or preset will
 add it and connect it, if possible, to the currently selected process in the score,
 or to the currently selected port if a port is selected.
 
-![Adding processes]({{ site.img }}/reference/panels/process-add.gif "Processes adding")
+<video src="{{ site.img }}/reference/panels/process-add.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding processes" title="Processes adding"></video>
 
 If nothing is selected, the process will be added to the currently displayed interval.
 
@@ -96,7 +96,7 @@ Various actions are possible:
 
 Here is an example of saving and loading a whole score as a preset, to embed it recursively in itself. 
 
-![Saving and loading presets]({{ site.img }}/reference/panels/library-presets.gif "Library presets")
+<video src="{{ site.img }}/reference/panels/library-presets.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Saving and loading presets" title="Library presets"></video>
 
 ### Important folders in the default library
 - `Skins`: contains skins which can be changed in the settings. The currently provided screens are adaptations for various colour-blindness schemes.
@@ -109,4 +109,4 @@ This pane displays the content of the current project folder: this is simply the
 ## Preview
 For now, sound files are previewed when clicking on them ; playback can be started and stopped with the little play / stop button at the bottom-left.
 
-![Audio preview]({{ site.img }}/reference/panels/library-play.gif "Audio preview")
+![Audio preview]({{ site.img }}/reference/panels/library-play.avif "Audio preview")

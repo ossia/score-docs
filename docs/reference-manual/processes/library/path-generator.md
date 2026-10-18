@@ -20,11 +20,11 @@ Path Generator moves positions along predefined curves. Each source has two hand
 
 Click and drag in an empty area to create a source and separate its two handles. Drag an existing handle to move it. Right-click either handle to remove the source.
 
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_move.gif" alt="Moving a handle" width="521">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_move.avif" alt="Moving a handle" width="521">
 
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_add.gif" alt="Adding a trajectory" width="521">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_add.avif" alt="Adding a trajectory" width="521">
 
-<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_remove.gif" alt="Removing a trajectory" width="521">
+<img title="" src="{{ site.img }}/reference/processes/pathgenerator/pathgenerator_remove.avif" alt="Removing a trajectory" width="521">
 
 ## Controls
 

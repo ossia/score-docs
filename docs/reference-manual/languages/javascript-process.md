@@ -451,7 +451,7 @@ Script {
 }
 ```
 
-![Texture Outlet example]({{ site.img }}/reference/processes/javascript/textureoutlet.gif "Rendering with QtQuick") 
+![Texture Outlet example]({{ site.img }}/reference/processes/javascript/textureoutlet.avif "Rendering with QtQuick") 
 
 When using Qt Quick Controls, it is better to use explicit namespaces as some objects have the same type name between Score and QtQuick.Controls modules.
 

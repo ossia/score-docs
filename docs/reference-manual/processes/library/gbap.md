@@ -47,7 +47,7 @@ System Number must select an existing Input Weights entry. Otherwise the output 
 
 Drag the cursor in the grid, click a new position, or automate Position.
 
-<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_move.gif" alt="Moving the source" width="682">
+<img title="" src="{{ site.img }}/reference/processes/gbap/gbap_move.avif" alt="Moving the source" width="682">
 
 For external positions, connect [[Multi-Cursor Manager]] or [[Path Generator]] in XY output mode to Input Multicursor.
 

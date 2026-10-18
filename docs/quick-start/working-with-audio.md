@@ -38,7 +38,7 @@ Audio files can easily be integrated to your scenario. Just grab your file on yo
 
 > By default, *score* will use the main stereo output of your audio interface. Be sure to read the [audio routing]({{ site.baseurl }}/in-depth/audio-routing.html "Audio routing") section for more information.
 
-![Playing audio files]({{ site.img }}/quick-start/working-with-audio/reading-audio-file.gif "Playing audio files")
+<video src="{{ site.img }}/quick-start/working-with-audio/reading-audio-file.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Playing audio files" title="Playing audio files"></video>
 
 The [Soundfiles reference]({{ site.baseurl }}/processes/soundfile.html) explains
 automatic disk/RAM selection. Large files need not be decoded entirely into RAM:
@@ -57,7 +57,7 @@ In the example below, we just want to play one audio file synchronously with som
 
 In this particular case, you may notice though that the dropped sound file is shorter than the full length of the automation. Just bring the audio file inspector and toggle the loop mode. Now when playing the scenario, the audio file will loop as long as the automation is playing.
 
-![Audio file and other processes]({{ site.img }}/quick-start/working-with-audio/combining-audio-and-other-processes.gif "Audio files and other processes")
+<video src="{{ site.img }}/quick-start/working-with-audio/combining-audio-and-other-processes.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Audio file and other processes" title="Audio files and other processes"></video>
 
 ## Adding audio effects
 
@@ -67,7 +67,7 @@ As illustrated below, you can easily add some FX, either from the built-in libra
 
 For demonstration purpose here, we will just add a simple gain controller. Below the sound file waveform, you can note a red dot. This actually is the audio output. We can just drag a cable from this red dot down to the red circle (its input) at the left of the gain FX. When playing the scenario, audio file will now play through this simple FX and go out to the main output. Again, when the play-head gets beyond the automation's slot, audio will get fully bypassed (hence preventing from any CPU drain).
 
-![Adding FX]({{ site.img }}/quick-start/working-with-audio/simple-audio-fx.gif)
+<video src="{{ site.img }}/quick-start/working-with-audio/simple-audio-fx.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding FX"></video>
 
 Feel free to get familiar with this patch workspace using other audio FX or VST of your own collection.
 

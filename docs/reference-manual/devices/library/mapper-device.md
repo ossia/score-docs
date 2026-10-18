@@ -85,7 +85,7 @@ Ossia.Mapper
 ```
 Which gives: 
 
-![Mapper example]({{ site.img }}/reference/devices/mapper/mapper1.gif "Mapper binding")
+![Mapper example]({{ site.img }}/reference/devices/mapper/mapper1.avif "Mapper binding")
 
 The mapping is bidirectional: 
 
@@ -134,7 +134,7 @@ This example will scale the 0-127 integer values of the MIDI CC to 0-1 floating 
 
 Example:
 
-![Mapper example]({{ site.img }}/reference/devices/mapper/mapper2.gif "Mapper binding with transforms")
+![Mapper example]({{ site.img }}/reference/devices/mapper/mapper2.avif "Mapper binding with transforms")
 
 ## Binding to multiple parameters
 

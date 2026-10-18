@@ -26,7 +26,7 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
-      - name: Install video inspection tools
+      - name: Install FFmpeg for video inspection and GIF conversion
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Mirror release notes and media
         run: bundle exec ruby script/releases/sync.rb

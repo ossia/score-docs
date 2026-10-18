@@ -66,7 +66,7 @@ $ ./score --ui custom-ui.qml custom-ui.score
 
 The interface starts playback automatically. Open the score's Window output and turn the first dial to change the shader's zoom. The labels read a changing LFO amplitude, a monitored output value and a device address, so you can compare direct control with feedback from the running score.
 
-![Custom control panel with dials and live value readouts.]({{ site.img }}/in-depth/custom-ui.gif)
+![Custom control panel with dials and live value readouts.]({{ site.img }}/in-depth/custom-ui.avif)
 
 The last dial writes to `OSC:/bar`, configured to send to a receiver on the local machine at UDP port 9996. Use an OSC monitor or another application listening on that port to observe it; the dial does not control the shader. No OSC receiver is needed for the shader and local readouts. Change the device's destination if your receiver is elsewhere, and allow local UDP traffic if required.
 

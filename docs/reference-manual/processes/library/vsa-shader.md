@@ -13,7 +13,7 @@ score: /reference/processes/vertex-shader-art.score
 
 # Vertex Shader Art
 
-![Vertex Shader Art]({{ site.img }}/reference/processes/vsa.gif "VSA shader")
+![Vertex Shader Art]({{ site.img }}/reference/processes/vsa.avif "VSA shader")
 
 The Vertex Shader Art process runs shaders based on the [Vertex Shader Art](https://www.vertexshaderart.com) convention. A VSA shader generates vertices procedurally in the vertex stage; the fragment stage only displays the color produced by the vertex shader.
 
