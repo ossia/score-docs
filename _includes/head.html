@@ -13,14 +13,13 @@
   <link rel="shortcut icon" href="{{ 'favicon.png' | relative_url }}" type="image/png">
 
   <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:regular,bold">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCNDFW0NH6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GCNDFW0NH6');
-  </script>
+  <!-- Fonts and cookie consent come from the main ossia.io website, so that the
+       choice made there also applies here (same origin). Google Analytics is only
+       loaded after consent: see /js/consent-head.js and /js/consent.js on ossia.io. -->
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/consent.css">
+  <script src="/js/consent-head.js"></script>
+  <script defer src="/js/consent.js"></script>
   
 
   {% if site.search_enabled != false %}
