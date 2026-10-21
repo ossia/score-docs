@@ -1,9 +1,18 @@
-package.json
-package-lock.json
-_site
-assets/css/just-the-docs-default.scss
-assets/css/just-the-docs-light.scss
-assets/css/just-the-docs-dark.scss
-assets/js/vendor/lunr.min.js
-assets/js/search-data.json
-assets/js/just-the-docs.js
+# Only the code we write is formatted. Pages (Markdown with Liquid), the
+# just-the-docs theme files and vendored libraries are left alone.
+*
+!*/
+!assets/js/looping-videos.js
+!assets/js/enhancements.js
+!.github/**/*.mjs
+!.github/**/*.json
+!.github/**/*.yml
+!package.json
+!eslint.config.mjs
+!renovate.json5
+!.htmlvalidate.json
+!.prettierrc
+_site/
+node_modules/
+vendor/
+.claude/

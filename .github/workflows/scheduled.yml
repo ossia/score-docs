@@ -1,0 +1,65 @@
+name: Scheduled checks
+
+# Things that change outside this repository: external pages move, and the
+# release archive must follow new score releases. A failure opens (or updates)
+# an issue, so that it is seen instead of staying red in a tab nobody opens.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  external-links:
+    name: Links
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - run: bundle exec jekyll build -d _site/score-docs
+        env:
+          JEKYLL_ENV: production
+      - name: Internal and external links
+        shell: bash
+        run: |
+          bundle exec htmlproofer ./_site \
+            --checks Links \
+            --ignore-status-codes "403,429,999" \
+            --no-enforce-https \
+            --hydra '{"max_concurrency": 4}' \
+            --typhoeus '{"followlocation": true, "connecttimeout": 20, "timeout": 30}' \
+            --ignore-urls "/^\/(css|js)\//,/^https?:\/\/ossia\.io\/(?!score-docs)/,/web\.archive\.org/,/github\.com\/ossia\/score-docs\/edit\//" \
+            --swap-urls "^https\://ossia\.io/score-docs:/score-docs" \
+            2>&1 | tee htmlproofer.log
+      - name: Open or update an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./.github/scripts/report-issue.sh "Broken links in the documentation" htmlproofer.log
+
+  latest-release:
+    name: Release archive is up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Latest ossia/score release is in _data/releases.json
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .github/scripts/check-latest-release.mjs 2>&1 | tee release.log
+      - name: Open or update an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./.github/scripts/report-issue.sh "The release archive is behind the latest score release" release.log

@@ -19,7 +19,7 @@ or pre-recorded audio signal.
 Here is a video example of their usage:
 
 <div class="videoWrapper">
-<iframe src="https://player.vimeo.com/video/659142817?h=d98d5c8721" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<button type="button" class="video-facade"><span class="video-facade-title">Analysis objects in use</span><span class="video-facade-note">Play · loads Vimeo</span></button><template class="video-facade-embed"><iframe title="Video: analysis objects in use" src="https://player.vimeo.com/video/659142817?h=d98d5c8721&amp;dnt=1" width="640" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></template>
 </div>
 
 ## Envelope

@@ -19,7 +19,7 @@ layout: default
     {% if release_notes == empty %}
       <p>No release notes.</p>
     {% else %}
-      {{ page.release_body_html }}
+      {{ page.release_body_html | replace: "<tt>", "<code>" | replace: "</tt>", "</code>" }}
     {% endif %}
   </div>
 </article>

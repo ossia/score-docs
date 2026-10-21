@@ -3,7 +3,7 @@ name: Synchronize release archive
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 4 * * *'
+    - cron: "17 4 * * *"
   repository_dispatch:
     types: [score-release]
 
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: "3.3"
           bundler-cache: true
       - name: Install FFmpeg for video inspection and GIF conversion
         run: sudo apt-get update && sudo apt-get install -y ffmpeg

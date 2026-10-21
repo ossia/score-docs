@@ -76,3 +76,81 @@ video[data-loop] {
         }
     }
 }
+
+// Click-to-load YouTube and Vimeo embeds (assets/js/enhancements.js):
+// nothing reaches the video site before the visitor presses play.
+.video-facade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 1em;
+    border: 0;
+    border-radius: 6px;
+    background: #1d1f21;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.videoWrapper .video-facade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 0;
+}
+
+.video-facade-title {
+    font-weight: 700;
+    text-align: center;
+}
+
+.video-facade-note {
+    padding: 0.3em 1em;
+    border-radius: 999px;
+    background: #c00;
+    font-size: 0.9em;
+}
+
+.video-facade-note::before {
+    content: "▶ ";
+}
+
+.video-facade:hover .video-facade-note,
+.video-facade:focus-visible .video-facade-note {
+    background: #f00;
+}
+
+// Contrast in the content area (WCAG AA): the light blue of the sidebar links
+// is too pale on the light page background, so content links use a darker shade
+// of the same colour, and links inside text are underlined.
+.main-content-wrap {
+    a:not(.btn) {
+        color: #00727f;
+    }
+
+    // !important: the theme removes underlines with more specific selectors
+    :is(p, td, dd, footer) a:not(.btn) {
+        text-decoration: underline !important;
+        text-underline-offset: 2px;
+    }
+
+    .text-grey-dk-000 {
+        color: #6a676c !important;
+    }
+}
+
+// Sidebar footer ("This site uses Just the Docs")
+.site-footer a {
+    text-decoration: underline !important;
+}
+
+// Green labels: white text needs a darker green for AA contrast
+// (:not(g) only raises specificity above the theme rule)
+.label-green:not(g) {
+    background-color: #007f64;
+}

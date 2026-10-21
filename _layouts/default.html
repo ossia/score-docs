@@ -43,11 +43,11 @@ layout: table_wrappers
   <div class="side-bar">
     <div class="site-header">
       <a href="{{ '/' | absolute_url }}" class="site-title lh-tight">{% include title.html %}</a>
-      <a href="#" id="menu-button" class="site-button">
+      <a href="#" id="menu-button" class="site-button" aria-label="Menu">
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>
     </div>
-    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+    <nav aria-label="Main" id="site-nav" class="site-nav">
       {% if site.just_the_docs.collections %}
         {% assign collections_size = site.just_the_docs.collections | size %}
         {% for collection_entry in site.just_the_docs.collections %}
@@ -104,17 +104,17 @@ layout: table_wrappers
           <nav aria-label="Breadcrumb" class="breadcrumb-nav">
             <ol class="breadcrumb-nav-list">
               {% if page.grand_parent %}
-                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.grand_parent }}</a></li>
-                <li class="breadcrumb-nav-list-item"><a href="{{ second_level_url }}">{{ page.parent }}</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.grand_parent | escape }}</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="{{ second_level_url }}">{{ page.parent | escape }}</a></li>
               {% else %}
-                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.parent }}</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="{{ first_level_url }}">{{ page.parent | escape }}</a></li>
               {% endif %}
-              <li class="breadcrumb-nav-list-item"><span>{{ page.title }}</span></li>
+              <li class="breadcrumb-nav-list-item"><span>{{ page.title | escape }}</span></li>
             </ol>
           </nav>
         {% endif %}
       {% endunless %}
-      <div id="main-content" class="main-content" role="main">
+      <main id="main-content" class="main-content">
         {% if site.heading_anchors != false %}
           {% include vendor/anchor_headings.html html=content beforeHeading="true" anchorBody="<svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><use xlink:href=\"#svg-link\"></use></svg>" anchorClass="anchor-heading" anchorAttrs="aria-labelledby=\"%html_id%\"" %}
         {% else %}
@@ -128,7 +128,7 @@ layout: table_wrappers
             {%- assign children_list = pages_list | where: "parent", page.title | where: "grand_parent", page.parent -%}
             {% for child in children_list %}
               <li>
-                <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>{% if child.summary %} - {{ child.summary }}{% endif %}
+                <a href="{{ child.url | absolute_url }}">{{ child.title | escape }}</a>{% if child.summary %} - {{ child.summary }}{% endif %}
               </li>
             {% endfor %}
           </ul>
@@ -160,12 +160,12 @@ layout: table_wrappers
           </footer>
         {% endif %}
 
-      </div>
+      </main>
     </div>
 
     {% if site.search_enabled != false %}
       {% if site.search.button %}
-        <a href="#" id="search-button" class="search-button">
+        <a href="#" id="search-button" class="search-button" aria-label="Search">
           <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-search"></use></svg>
         </a>
       {% endif %}

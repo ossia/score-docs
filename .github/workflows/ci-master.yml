@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+  # Manual deploy, e.g. when GitHub drops a push event during an incident
+  workflow_dispatch:
 name: Master branch CI
 
 jobs:
@@ -7,35 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v6
-    - run: git config --global --add safe.directory '*'
+      - uses: actions/checkout@v6
+      - run: git config --global --add safe.directory '*'
 
-    - name: Bundler Cache
-      uses: actions/cache@v4
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+      - name: Bundler Cache
+        uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
-    - name: Build & Deploy to GitHub Pages
-      uses: jcelerier/jekyll4-deploy-gh-pages@master
-      if: ${{ contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
-        GITHUB_REPOSITORY: ossia/score-docs
-        GITHUB_ACTOR: oscar
+      - name: Build & Deploy to GitHub Pages
+        uses: jcelerier/jekyll4-deploy-gh-pages@master
+        if: ${{ contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+          GITHUB_REPOSITORY: ossia/score-docs
+          GITHUB_ACTOR: oscar
 
-    - name: Set up Ruby
-      if: ${{ !contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.3'
+      - name: Set up Ruby
+        if: ${{ !contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
 
-    - name: Build
-      if: ${{ !contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
-      run: |
-        bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
-        JEKYLL_ENV=production NODE_ENV=production bundle exec jekyll build
-
+      - name: Build
+        if: ${{ !contains('refs/heads/dev refs/heads/staging refs/heads/production refs/heads/main refs/heads/master', github.ref) }}
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+          JEKYLL_ENV=production NODE_ENV=production bundle exec jekyll build
