@@ -16,8 +16,12 @@
   <!-- Fonts and cookie consent come from the main ossia.io website, so that the
        choice made there also applies here (same origin). Google Analytics is only
        loaded after consent: see /js/consent-head.js and /js/consent.js on ossia.io. -->
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/consent.css">
+  <!-- Neither blocks the first render: the font is preloaded and swaps in, and the
+       banner only appears once /js/consent.js has run. -->
+  <link rel="preload" href="/assets/fonts/catamaran-100-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css" media="print" onload="this.media = 'all'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
+  <link rel="stylesheet" href="/css/consent.css" media="print" onload="this.media = 'all'">
   <script defer src="/js/consent-head.js"></script>
   <script defer src="/js/consent.js"></script>
   
