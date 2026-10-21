@@ -1,0 +1,3 @@
+# Pages of individual releases: their content is the GitHub release notes,
+# mirrored by the release-archive sync, not markup we write.
+**/reference/changelog/v*.html

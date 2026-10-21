@@ -1,0 +1,93 @@
+name: Docs checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # The built documentation is about 1 GB: everything that needs it runs in this job
+  # instead of passing it between jobs as an artifact.
+  build-and-check:
+    name: Build, HTML, privacy, accessibility, Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      # Built under _site/score-docs/ so that URLs match the site's baseurl
+      - name: Build
+        run: bundle exec jekyll build -d _site/score-docs
+        env:
+          JEKYLL_ENV: production
+
+      # Markup validity and accessibility rules (.htmlvalidate.json)
+      - name: HTML validation
+        run: npm run check:html
+
+      - run: npx playwright install --with-deps chromium
+
+      # Nothing may leave the site, and no cookie may be set, before consent
+      - name: Privacy scan
+        run: npm run check:privacy
+
+      # axe-core, WCAG 2.0-2.2 A and AA, every page
+      - name: Accessibility audit
+        run: npm run check:a11y
+
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./.github/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  lint:
+    name: Prettier, ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      # False positives are listed with their reason in .gitleaksignore
+      - name: gitleaks (whole history)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITLEAKS_VERSION: 8.30.1
+        run: |
+          gh release download "v$GITLEAKS_VERSION" -R gitleaks/gitleaks \
+            -p "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -p "gitleaks_${GITLEAKS_VERSION}_checksums.txt" -D /tmp/gitleaks
+          cd /tmp/gitleaks
+          grep "linux_x64.tar.gz" "gitleaks_${GITLEAKS_VERSION}_checksums.txt" | sha256sum -c -
+          tar xzf "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" gitleaks
+          cd "$GITHUB_WORKSPACE"
+          /tmp/gitleaks/gitleaks git . --no-banner --redact --verbose

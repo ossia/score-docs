@@ -49,7 +49,7 @@ Keep local Faust libraries with the project, or install them as a score package 
 # Video tutorial
 
 <div class="videoWrapper">
-    <iframe src="https://www.youtube.com/embed/yvTjJMrFxR0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <button type="button" class="video-facade"><span class="video-facade-title">Faust in ossia score: video tutorial</span><span class="video-facade-note">Play · loads YouTube</span></button><template class="video-facade-embed"><iframe title="Video: Faust in ossia score" src="https://www.youtube-nocookie.com/embed/yvTjJMrFxR0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></template>
 </div>
 
 

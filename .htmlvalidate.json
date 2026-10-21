@@ -1,0 +1,24 @@
+{
+  "extends": ["html-validate:recommended", "html-validate:a11y"],
+  "rules": {
+    "no-inline-style": "off",
+    "void-style": "off",
+    "no-trailing-whitespace": "off",
+    "attr-quotes": "off",
+    "valid-id": [
+      "error",
+      {
+        "relaxed": true
+      }
+    ],
+    "attribute-boolean-style": "off",
+    "long-title": [
+      "error",
+      {
+        "maxlength": 90
+      }
+    ],
+    "void-content": "off",
+    "wcag/h30": "off"
+  }
+}

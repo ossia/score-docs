@@ -1,0 +1,5 @@
+# False positives of the generic-api-key rule.
+# TEXTBOX_KEY in tools/score-summary/summarize.js is the public UUID that
+# identifies the "Text box" process type in .score files, not a credential.
+187324a450a85ec32289f2667432ffa77ac8cc95:tools/score-summary/summarize.js:generic-api-key:18
+8799392f7c8c8755e1cc7603b0a8d78a95f80d05:tools/score-summary/summarize.js:generic-api-key:18

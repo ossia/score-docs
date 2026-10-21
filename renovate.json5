@@ -1,0 +1,31 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  // Same baseline as the other ossia repositories (see ossia/score)
+  extends: ["config:recommended", ":dependencyDashboard", ":semanticCommits"],
+  schedule: ["* * * * 1"],
+  dependencyDashboard: true,
+  prConcurrentLimit: 4,
+  labels: ["dependencies"],
+  packageRules: [
+    {
+      description: "One weekly PR for non-major updates of the site tooling and CI actions",
+      matchUpdateTypes: ["minor", "patch"],
+      groupName: "non-major dependencies",
+    },
+    {
+      description: "The browser checks need the Playwright browsers that match the npm package",
+      matchPackageNames: ["playwright", "@axe-core/playwright"],
+      groupName: "playwright",
+    },
+    {
+      description: "Jekyll and its plugins in one PR",
+      matchManagers: ["bundler"],
+      groupName: "jekyll and gems",
+    },
+  ],
+  osvVulnerabilityAlerts: true,
+  vulnerabilityAlerts: {
+    enabled: true,
+    labels: ["security"],
+  },
+}
