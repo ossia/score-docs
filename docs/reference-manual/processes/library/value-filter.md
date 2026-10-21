@@ -12,7 +12,7 @@ permalink: /processes/value-filter.html
 
 # Value Filter
 
-<video src="{{ site.img }}/reference/processes/value-filter.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Value Filter" title="Value Filter in operation"></video>
+<video src="{{ site.img }}/reference/processes/value-filter.webm" data-loop controls muted loop playsinline preload="none" aria-label="Value Filter" title="Value Filter in operation"></video>
 
 Value filter is a toolkit for letting incoming values go through according to multiple parameters:
 

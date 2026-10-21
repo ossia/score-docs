@@ -34,13 +34,13 @@ To add a video file to the timeline, just grab your file on disk or in the proje
 
 When done, a slot containing the video file gets created on the timeline. This creates a [[Video]] process. You can adjust the length of the slot to fit the part of the video file to play following the different key frames of the video.
 
-<video src="{{ site.img }}/quick-start/working-with-video/adding-video-file.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Add video file"></video>
+<video src="{{ site.img }}/quick-start/working-with-video/adding-video-file.webm" data-loop controls muted loop playsinline preload="none" aria-label="Add video file"></video>
 
 We now need to route our video file to our video window so it gets displayed when execution the scenario. Just as with other processes used so far (automation as well as audio), the video slot has an output port at the bottom: the white filled circle.
 
 Click on the output port to bring its inspector. From there, select your window video device in the dedicated menu. Now when executing your scenario, video file will get properly displayed in window.
 
-<video src="{{ site.img }}/quick-start/working-with-video/video-routing.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Video routing"></video>
+<video src="{{ site.img }}/quick-start/working-with-video/video-routing.webm" data-loop controls muted loop playsinline preload="none" aria-label="Video routing"></video>
 
 ## Adding video effects
 
@@ -48,7 +48,7 @@ Again, similarly to audio files, you can easily drag some effects. From the `Pro
 
 We now need to route our video file to the video effect rather than directly to the window. Drag a cable from the video output port (the white filled circle) to the effect input port (the white framed circle), as shown below. Then select the window device as the destination in the shader's texture output inspector (`GFX` is the window's name in this example).
 
-<video src="{{ site.img }}/quick-start/working-with-video/video-effect-routing.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Video effect routing"></video>
+<video src="{{ site.img }}/quick-start/working-with-video/video-effect-routing.webm" data-loop controls muted loop playsinline preload="none" aria-label="Video effect routing"></video>
 
 You may now play with the shader parameters using its UI as the scenario is executed or write some automations.
 

@@ -27,4 +27,4 @@ instead is used as source for the parent interval's tempo.
 
 # Example
 
-<video src="{{ site.img }}/reference/processes/tempo.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Tempo" title="Tempo example"></video>
+<video src="{{ site.img }}/reference/processes/tempo.webm" data-loop controls muted loop playsinline preload="none" aria-label="Tempo" title="Tempo example"></video>

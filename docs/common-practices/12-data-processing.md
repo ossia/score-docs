@@ -48,4 +48,4 @@ To have mappings that run permanently, add a [[Breaking the timeline|trigger]] t
 
 The inputs and outputs of the mapping curve can be adjusted by dropping the addresses on the ports from the explorer: 
 
-<video src="{{ site.img }}/common-practices/data-processing/map.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Mapping" title="Mappings"></video>
+<video src="{{ site.img }}/common-practices/data-processing/map.webm" data-loop controls muted loop playsinline preload="none" aria-label="Mapping" title="Mappings"></video>

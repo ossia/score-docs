@@ -142,7 +142,7 @@ It is possible to set a start marker by right-clicking into the musical metrics 
 
 When a start marker is set, play / pause will always start from this point: this is mainly useful to play a specific part of a score quickly in succession.
 
-<video src="{{ site.img }}/common-practices/seek/start-marker.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Start marker" title="Start marker"></video>
+<video src="{{ site.img }}/common-practices/seek/start-marker.webm" data-loop controls muted loop playsinline preload="none" aria-label="Start marker" title="Start marker"></video>
 
 ## Starting playback while recording waits
 

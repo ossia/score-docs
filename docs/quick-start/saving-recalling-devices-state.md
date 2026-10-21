@@ -30,7 +30,7 @@ You can store at one place all parameters of a device or only part of, as well a
 
 In the illustration below, we will select just the `gain` parameters from our ossia compatible Max synth patch and store their current value at the 5th bar of our scenario. As you drop these `gain` parameters on the timeline, you can see a blue disc circled in white gets created. Clicking this `state` icon, you can see in the inspector panel both parameters and their value listed as a tree-like view.
 
-<video src="{{ site.img }}/quick-start/score-authoring/storing-states.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Storing your device's current state"></video>
+<video src="{{ site.img }}/quick-start/score-authoring/storing-states.webm" data-loop controls muted loop playsinline preload="none" aria-label="Storing your device's current state"></video>
 
 If you start playing your scenario using the play button from the transport ({% include shortcut.html content="space" %} key), this state will get recalled and sent to your device as the play-head crosses its position on the timeline. Should you need this state to be recalled earlier or later, just stop execution of the scenario (using stop button from the transport bar or {% include shortcut.html content="↵" %} key), then select and drag it along the timeline.
 

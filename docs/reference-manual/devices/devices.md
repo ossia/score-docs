@@ -32,7 +32,7 @@ For custom script-defined network namespaces, see the [QML device API]({{ site.b
 
 From *score* main window, right-click in the `Device explorer` on the left of window and choose `Add device` from the `Device explorer` contextual menu. This brings *score*'s device setup window.
 
-<video src="{{ site.img }}/reference/devices/add-device.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Device setup window" title="score device setup"></video>
+<video src="{{ site.img }}/reference/devices/add-device.webm" data-loop controls muted loop playsinline preload="none" aria-label="Device setup window" title="score device setup"></video>
 
 In the Device setup window, in the left column, select the desired device type.
 

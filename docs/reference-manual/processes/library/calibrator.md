@@ -28,4 +28,4 @@ To get its output, simply connect to the "Scaled" output.
 In this example, the input of the calibrator is connected to the `sensors:/temperature` sensor, which has a range of 0-100°.
 But if the inputs of the process only vary between 10° and 30° while the installation is runnning, the scaled output will be 0 for 10° and 1 for 30°.
 
-<video src="{{ site.img }}/reference/processes/calibrator-example.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Calibrator" title="Calibrator"></video>
+<video src="{{ site.img }}/reference/processes/calibrator-example.webm" data-loop controls muted loop playsinline preload="none" aria-label="Calibrator" title="Calibrator"></video>

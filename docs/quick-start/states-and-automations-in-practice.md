@@ -37,7 +37,7 @@ What's happening here is twofold:
 
 > You may also store a new state by dragging from the blue `+` icon *without* `auto-sequence` mode activated. In that case, *score* will still use the previous namespace selection to store parameters values but no automation will get created for changed parameters.
 
-<video src="{{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-mode.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Using auto-sequence mode" title="Using auto-sequence mode"></video>
+<video src="{{ site.img }}/quick-start/states-and-automations-in-practice/auto-sequence-mode.webm" data-loop controls muted loop playsinline preload="none" aria-label="Using auto-sequence mode" title="Using auto-sequence mode"></video>
 
 Of course, once these automations get auto-magically created, you can still edit their behavior over time and make any pleasing changes to their curve. You may also remove an automation should you want not to include a parameter continuous change.
 
@@ -47,7 +47,7 @@ In the example above, you can see multiple automation slots actually got superpo
 
 > When multiple automations are stacked, the frontmost one is drawn with a red line, while the ones behind are drawn with a greyed out line
 
-<video src="{{ site.img }}/quick-start/states-and-automations-in-practice/stacked-slots.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Select from stack" title="Select from stack"></video>
+<video src="{{ site.img }}/quick-start/states-and-automations-in-practice/stacked-slots.webm" data-loop controls muted loop playsinline preload="none" aria-label="Select from stack" title="Select from stack"></video>
 
 You can also remove an automation from the stack by clicking on a slot background. Bring up the contextual menu using right-click and select `remove`.
 
