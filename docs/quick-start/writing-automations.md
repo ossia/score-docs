@@ -18,7 +18,7 @@ permalink: /quick-start/writing-automations.html
 
 In the example below, we will just create a basic breakpoint function-based automation for one of our device's parameters by selecting the `automation (float)` in the Process library, then dragging & dropping it where we want it on the timeline. 
 
-<video src="{{ site.img }}/quick-start/score-authoring/create_automation.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Creating automation"></video>
+<video src="{{ site.img }}/quick-start/score-authoring/create_automation.webm" data-loop controls muted loop playsinline preload="none" aria-label="Creating automation"></video>
 
 When done, you will see on the timeline a simple 1 segment linear default automation. Let's now assign our device parameter as a destination for this simple automation process.
 
@@ -34,7 +34,7 @@ Of course, you may refine your automation function by double-clicking in the aut
 
 When further precision is required to edit your automation, you can double-click the name above the automation slot (here "automation (float)" to zoom in the slot and edit the automation in full size.
 
-<video src="{{ site.img }}/quick-start/score-authoring/fullsize-edit.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Full size edit"></video>
+<video src="{{ site.img }}/quick-start/score-authoring/fullsize-edit.webm" data-loop controls muted loop playsinline preload="none" aria-label="Full size edit"></video>
 
 When done editing, you can go back to your scenario full view using {% include shortcut.html content="Cmd+↑" %} or clicking on your scenario name beneath the time ruler.
 

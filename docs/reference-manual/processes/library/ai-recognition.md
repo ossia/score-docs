@@ -77,7 +77,7 @@ For other models like [RTMPose](https://github.com/open-mmlab/mmpose/tree/main/p
 
 Once keypoints are extracted, you can connect them to any parameter in score for interactive control.
 
-<video src="{{ site.img }}/reference/processes/ai-recognition/parameter-mapping.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Use keypoints example"></video>
+<video src="{{ site.img }}/reference/processes/ai-recognition/parameter-mapping.webm" data-loop controls muted loop playsinline preload="none" aria-label="Use keypoints example"></video>
 
 [Download score]({{ site.scores }}{{ page.score }})
 

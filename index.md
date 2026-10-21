@@ -8,7 +8,7 @@ permalink: /
 
 # Score documentation
 
-![score window]({{ site.baseurl }}/assets/images/score-2.png)
+<img src="{{ site.baseurl }}/assets/images/score-2.webp" width="1600" height="900" alt="score window" fetchpriority="high">
 
 This is the documentation for *ossia score* 3.
 Some features require an optional add-on; check the requirements on each page.

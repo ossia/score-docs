@@ -26,7 +26,7 @@ These devices can be freely added to your current score project from the [[Devic
 
 Right-click on the `Device explorer` panel and choose **Add device** (or use {% include shortcut.html content="Ctrl+B" %} while the panel is active). Select the communication protocol, choose a discovered device or library definition if offered, and review its connection settings before accepting.
 
-<video src="{{ site.img }}/quick-start/working-with-devices/add-device.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding a device to *score* project" title="Adding a device to *score* project"></video>
+<video src="{{ site.img }}/quick-start/working-with-devices/add-device.webm" data-loop controls muted loop playsinline preload="none" aria-label="Adding a device to *score* project" title="Adding a device to *score* project"></video>
 
 > To edit an existing device's settings, stop playback, then right-click its root and choose **Edit**. Adding or importing a new device is allowed during playback, but removal and edits to existing device structures remain restricted.
 
@@ -50,7 +50,7 @@ The `Device explorer` provides a unified view of your device's parameters as a t
 
 From there you can freely browse your distant devices for monitoring or more importantly to select the parameters you want to control from *score*, as detailed in the next topic of this [Quick start]({{ site.baseurl }}/quick-start/saving-and-recalling-devices-state.html "Scenario authoring").
 
-<video src="{{ site.img }}/quick-start/working-with-devices/de-browsing.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Device's namespace browsing" title="Device's namespace browsing"></video>
+<video src="{{ site.img }}/quick-start/working-with-devices/de-browsing.webm" data-loop controls muted loop playsinline preload="none" aria-label="Device's namespace browsing" title="Device's namespace browsing"></video>
 
 ## Monitor & remote control of parameters
 
@@ -58,7 +58,7 @@ The `Device explorer` also provides detailed information about your device param
 
 You may also use this inspector to remotely change the value of a parameter (e.g. for testing purpose).
 
-<video src="{{ site.img }}/quick-start/working-with-devices/bi-directionnal.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Device's parameter inspector" title="Device's parameter inspector"></video>
+<video src="{{ site.img }}/quick-start/working-with-devices/bi-directionnal.webm" data-loop controls muted loop playsinline preload="none" aria-label="Device's parameter inspector" title="Device's parameter inspector"></video>
 
 ## Reuse a device setup
 

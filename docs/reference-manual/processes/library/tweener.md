@@ -12,7 +12,7 @@ score: /reference/processes/tweener.score
 ---
 # Tweener
 
-<video src="{{ site.img }}/reference/processes/tweener.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Tweener" title="Tweener"></video>
+<video src="{{ site.img }}/reference/processes/tweener.webm" data-loop controls muted loop playsinline preload="none" aria-label="Tweener" title="Tweener"></video>
 
 Create smooth transitions between values with professional easing curves. Instead of abrupt parameter changes, Tweener provides fluid, organic movement that feels natural and polished.
 

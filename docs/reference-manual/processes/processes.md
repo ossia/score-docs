@@ -106,7 +106,7 @@ input port of the process double-clicked in the library. A connection between th
 
 Likewise, if an output port is currently selected in the score, double-clicking on a process in the list will create and connect it afterwards if compatible.
 
-<video src="{{ site.img }}/reference/processes/create-processes-library.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Chain processes from the library" title="Chain processes from the library"></video>
+<video src="{{ site.img }}/reference/processes/create-processes-library.webm" data-loop controls muted loop playsinline preload="none" aria-label="Chain processes from the library" title="Chain processes from the library"></video>
 
 ## Create processes on a state
 
@@ -114,7 +114,7 @@ Adding processes on a state is a way to run a computation at a single, precise p
 
 It is done by right-clicking on the state in the object inspector, and selecting the `Add process` option.
 
-<video src="{{ site.img }}/reference/processes/state-process.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding a state process" title="State processes"></video>
+<video src="{{ site.img }}/reference/processes/state-process.webm" data-loop controls muted loop playsinline preload="none" aria-label="Adding a state process" title="State processes"></video>
 
 <!-- ### TODO Object menu -->
 
@@ -150,7 +150,7 @@ To exit full size mode (go back to parent scenario), click the desired node of t
 Time-based processes such as automations, media and sub-scenarios can be looped for as long as their parent interval is active. When selecting a process, either from the object panel
 or by clicking on process header, the loop option will appear in the `Inspector`.
 
-<video src="{{ site.img }}/reference/common-practices/loopProcess.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Process looping" title="Process looping"></video>
+<video src="{{ site.img }}/reference/common-practices/loopProcess.webm" data-loop controls muted loop playsinline preload="none" aria-label="Process looping" title="Process looping"></video>
 
 # Manage processes
 

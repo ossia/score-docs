@@ -22,7 +22,7 @@ The `Automation (float)` process allows to control single value parameter using 
 
 Multiple points can be added on an automation. To add a point, double-click in the automation slot to create a point under the mouse cursor.
 
-<video src="{{ site.img }}/reference/processes/automation_float/create-points.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Automation create point" title="Create new points"></video>
+<video src="{{ site.img }}/reference/processes/automation_float/create-points.webm" data-loop controls muted loop playsinline preload="none" aria-label="Automation create point" title="Create new points"></video>
 
 You can also create a new point using {% include shortcut.html content="Ctrl+click" %} in the automation's slot.
 
@@ -103,7 +103,7 @@ When off, moved point will get inserted at its new position without removing oth
 
 ![Suppress overlapping points]({{ site.img }}/reference/processes/automation_float/unlocked-between-points.avif)
 
-<video src="{{ site.img }}/reference/processes/automation_float/dont-suppress-points.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Preserve overlapping points"></video>
+<video src="{{ site.img }}/reference/processes/automation_float/dont-suppress-points.webm" data-loop controls muted loop playsinline preload="none" aria-label="Preserve overlapping points"></video>
 
 ## Tween mode
 

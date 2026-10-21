@@ -62,7 +62,7 @@ To allow easy experimentation, double-clicking on a process or preset will
 add it and connect it, if possible, to the currently selected process in the score,
 or to the currently selected port if a port is selected.
 
-<video src="{{ site.img }}/reference/panels/process-add.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Adding processes" title="Processes adding"></video>
+<video src="{{ site.img }}/reference/panels/process-add.webm" data-loop controls muted loop playsinline preload="none" aria-label="Adding processes" title="Processes adding"></video>
 
 If nothing is selected, the process will be added to the currently displayed interval.
 
@@ -96,7 +96,7 @@ Various actions are possible:
 
 Here is an example of saving and loading a whole score as a preset, to embed it recursively in itself. 
 
-<video src="{{ site.img }}/reference/panels/library-presets.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Saving and loading presets" title="Library presets"></video>
+<video src="{{ site.img }}/reference/panels/library-presets.webm" data-loop controls muted loop playsinline preload="none" aria-label="Saving and loading presets" title="Library presets"></video>
 
 ### Important folders in the default library
 - `Skins`: contains skins which can be changed in the settings. The currently provided screens are adaptations for various color-blindness schemes.

@@ -99,6 +99,9 @@ function initSearch() {
       });
 
       searchLoaded(index, docs);
+      var pending = document.getElementById('search-input');
+      // typed before the index arrived: run the theme's keyup handler once
+      if (pending && pending.value) pending.dispatchEvent(new Event('keyup'));
     } else {
       console.log('Error loading ajax request. Request status:' + request.status);
     }
@@ -462,7 +465,22 @@ jtd.setTheme = function(theme) {
 jtd.onReady(function(){
   initNav();
   {%- if site.search_enabled != false %}
-  initSearch();
+  // The search index (search-data.json, a large download, then a lunr index
+  // built in the browser) is only loaded when someone is about to search:
+  // building it on every page load blocked the main thread for over a second.
+  var searchInput = document.getElementById('search-input');
+  var searchStarted = false;
+  var startSearch = function() {
+    if (searchStarted) return;
+    searchStarted = true;
+    initSearch();
+  };
+  if (searchInput) {
+    ['focus', 'pointerenter', 'touchstart'].forEach(function(ev) {
+      searchInput.addEventListener(ev, startSearch, { once: true, passive: true });
+    });
+  }
+  // The keyboard shortcut and the search button focus the input, which starts it too
   {%- endif %}
 });
 

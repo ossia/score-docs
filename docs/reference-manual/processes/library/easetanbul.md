@@ -14,7 +14,7 @@ score: /reference/processes/easetanbul.score
 
 # Easetanbul
 
-<video src="{{ site.img }}/reference/processes/easetanbul.webm" data-loop controls muted loop playsinline preload="metadata" aria-label="Easetanbul" title="Easetanbul"></video>
+<video src="{{ site.img }}/reference/processes/easetanbul.webm" data-loop controls muted loop playsinline preload="none" aria-label="Easetanbul" title="Easetanbul"></video>
 
 Create smooth transitions between values with professional easing curves. Instead of abrupt parameter changes, Easetanbul provides fluid, organic movement that feels natural and polished.
 
