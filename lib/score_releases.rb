@@ -70,7 +70,7 @@ module ScoreReleases
         slug = "release-#{release.fetch('id')}" if slug.empty?
         html = release["body_html"]
         raise Error, "#{tag}: body_html missing; fetch with Accept: application/vnd.github.full+json" if html.nil? && !release["body"].to_s.empty?
-        result = %w[id tag_name name published_at updated_at prerelease html_url].to_h { |key| [key, release[key]] }
+        result = %w[id tag_name name published_at prerelease html_url].to_h { |key| [key, release[key]] }
         result.merge("slug" => slug, "body" => release["body"].to_s, "body_html" => render(html.to_s, release), "prerelease" => !!release["prerelease"])
       rescue Error => e
         raise Error, "Release #{tag}: #{e.message}"
