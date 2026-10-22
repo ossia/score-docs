@@ -1,0 +1,2568 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="icon" href="/score-docs/assets/images/favicon-48.png" type="image/png" sizes="48x48">
+
+  <link rel="stylesheet" href="/score-docs/assets/css/just-the-docs-default.css">
+  <!-- Fonts and cookie consent come from the main ossia.io website, so that the
+       choice made there also applies here (same origin). Google Analytics is only
+       loaded after consent: see /js/consent-head.js and /js/consent.js on ossia.io. -->
+  <!-- Neither blocks the first render: the font is preloaded and swaps in, and the
+       banner only appears once /js/consent.js has run. -->
+  <link rel="preload" href="/assets/fonts/catamaran-100-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css" media="print" onload="this.media = 'all'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
+  <link rel="stylesheet" href="/css/consent.css" media="print" onload="this.media = 'all'">
+  <script defer src="/js/consent-head.js"></script>
+  <script defer src="/js/consent.js"></script>
+  
+
+  
+    <script src="/score-docs/assets/js/vendor/lunr.min.js" defer></script>
+  
+  <script src="/score-docs/assets/js/just-the-docs.js" defer></script>
+  <script src="/score-docs/assets/js/looping-videos.js" defer></script>
+  <script src="/score-docs/assets/js/enhancements.js" defer></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.1 -->
+<title>Changelog | score documentation</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Changelog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ossia score release notes" />
+<meta name="twitter:description" property="og:description" content="ossia score release notes" />
+<link rel="canonical" href="https://ossia.io/score-docs/reference/changelog.html" />
+<meta property="og:url" content="https://ossia.io/score-docs/reference/changelog.html" />
+<meta property="og:site_name" content="score documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Changelog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ossia score release notes","headline":"Changelog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ossia.io/score-docs/assets/images/score-logo.png"}},"url":"https://ossia.io/score-docs/reference/changelog.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://ossia.io/score-docs/" class="site-title lh-tight">
+  <div class="site-logo">
+  </div>
+  <h2 class="software">ossia</h2>
+
+</a>
+      <a href="#" id="menu-button" class="site-button" aria-label="Menu">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://ossia.io/score-docs/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Quick start"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/quick-start" class="nav-list-link">Quick start</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/installation.html" class="nav-list-link">Installation</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/what-is-score.html" class="nav-list-link">What is score ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/interface-overview.html" class="nav-list-link">Interface overview</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-devices.html" class="nav-list-link">Working with devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/saving-and-recalling-devices-state.html" class="nav-list-link">Saving &amp; recalling devices&#39; state</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/writing-automations.html" class="nav-list-link">Writing automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/states-and-automations-in-practice.html" class="nav-list-link">States &amp; automations in practice</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-audio.html" class="nav-list-link">Working with audio</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-video.html" class="nav-list-link">Working with video</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/breaking-the-timeline.html" class="nav-list-link">Breaking the timeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/non-linear-timelines.html" class="nav-list-link">Non-linear timeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/using-score-in-the-browser.html" class="nav-list-link">Using score in the browser</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Common practices"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/common-practices" class="nav-list-link">Common practices</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/1-looping.html" class="nav-list-link">Looping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/2-switches.html" class="nav-list-link">Switches</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/3-out-of-time.html" class="nav-list-link">Out-of-time triggering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/6-scenes.html" class="nav-list-link">Scenes</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/4-audio.html" class="nav-list-link">Audio techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/5-video.html" class="nav-list-link">Video techniques</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/7-start-stop-cues.html" class="nav-list-link">Start/stop cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/8-live-coding.html" class="nav-list-link">Live coding</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/9-seek-and-transport.html" class="nav-list-link">Seek and transport</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/10-livestreaming.html" class="nav-list-link">Livestreaming</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/11-video-mixing-and-mapping.html" class="nav-list-link">Video mixing and mapping</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/12-data-processing.html" class="nav-list-link">Data processing and filtering</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/13-led-design.html" class="nav-list-link">LED design</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/14-spatial-audio.html" class="nav-list-link">Spatial audio techniques</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under In depth"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth" class="nav-list-link">In depth</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/3d-scene-pipeline.html" class="nav-list-link">3D scene pipeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/unit-system.html" class="nav-list-link">Address system</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/audio-routing.html" class="nav-list-link">Audio routing</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/automations.html" class="nav-list-link">Automations</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/cues.html" class="nav-list-link">Cues</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/custom-ui.html" class="nav-list-link">Custom UI</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/embedded.html" class="nav-list-link">Embedded devices</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/execution.html" class="nav-list-link">Execution engine</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/video.html" class="nav-list-link">Graphics pipeline</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/midi.html" class="nav-list-link">MIDI support</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/media.html" class="nav-list-link">Media management</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/modular-workflow.html" class="nav-list-link">Modular workflow</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/musical.html" class="nav-list-link">Musical metrics</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/package-manager.html" class="nav-list-link">Package manager</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/pattern-matching.html" class="nav-list-link">Pattern matching</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/polyphony.html" class="nav-list-link">Polyphonic behaviours</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/presets.html" class="nav-list-link">Presets</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/puredata.html" class="nav-list-link">Pure Data (redirect)</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/recording.html" class="nav-list-link">Recording</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/remote.html" class="nav-list-link">Remote Control</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Scripting"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth/scripting.html" class="nav-list-link">Scripting</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/in-depth/qml-protocols.html" class="nav-list-link">QML protocols</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/scripting-api.html" class="nav-list-link">Scripting API</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/shader-cookbook.html" class="nav-list-link">Shader cookbook</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Reference"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference" class="nav-list-link">Reference</a><ul class="nav-list "><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Processes"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/processes.html" class="nav-list-link">Processes</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/2Dspline.html" class="nav-list-link">2D Spline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/3d-text.html" class="nav-list-link">3D text</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/adsr.html" class="nav-list-link">ADSR</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-composer.html" class="nav-list-link">AI Prompt Composer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-interpolator.html" class="nav-list-link">AI Prompt Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-recognition.html" class="nav-list-link">AI Recognition</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/accumulator.html" class="nav-list-link">Accumulator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/analysis.html" class="nav-list-link">Analysis</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/arpeggiator.html" class="nav-list-link">Arpeggiator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-to-mesh.html" class="nav-list-link">Array to mesh</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-to-texture.html" class="nav-list-link">Array to texture</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-utilities.html" class="nav-list-link">Array utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/asset-loader.html" class="nav-list-link">Asset Loader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-effects.html" class="nav-list-link">Audio Effects</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-particles.html" class="nav-list-link">Audio Particles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-looper.html" class="nav-list-link">Audio looper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-plugins.html" class="nav-list-link">Audio plugins</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-recorder.html" class="nav-list-link">Audio recorder</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-utilities.html" class="nav-list-link">Audio utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/automation_float.html" class="nav-list-link">Automation (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/barrverb.html" class="nav-list-link">BarrVerb</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/beat-tracker.html" class="nav-list-link">Beat Tracker</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/buffer-queue.html" class="nav-list-link">Buffer queue</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/buffers-to-geometry.html" class="nav-list-link">Buffers to geometry</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/bytebeat.html" class="nav-list-link">Bytebeat</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/cpp_jit.html" class="nav-list-link">C++ JIT</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/csv-recorder.html" class="nav-list-link">CSV recorder</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/calibrator.html" class="nav-list-link">Calibrator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-camera-light.html" class="nav-list-link">Cameras and lighting</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/classifier.html" class="nav-list-link">Classifier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/compute-shaders.html" class="nav-list-link">Compute Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/computer-vision-utilities.html" class="nav-list-link">Computer Vision utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/context-free-art.html" class="nav-list-link">Context-Free Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/controlsurface.html" class="nav-list-link">Control surface</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/control-utilities.html" class="nav-list-link">Control utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/dbap.html" class="nav-list-link">DBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/display-utilities.html" class="nav-list-link">Display Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/easetanbul.html" class="nav-list-link">Easetanbul</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/entity-to-midi.html" class="nav-list-link">Entity To MIDI</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/envelope-follower.html" class="nav-list-link">Envelope Follower</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-environment.html" class="nav-list-link">Environments and cubemaps</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/extract-buffer.html" class="nav-list-link">Extract buffer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/faust.html" class="nav-list-link">Faust</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/metronome.html" class="nav-list-link">Free Metronome</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gbap.html" class="nav-list-link">GBAP</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geo-zones.html" class="nav-list-link">Geo Zones</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geometry-info.html" class="nav-list-link">Geometry Info</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geometry-utilities.html" class="nav-list-link">Geometry and buffer utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gestures.html" class="nav-list-link">Gestures</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient.html" class="nav-list-link">Gradient</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient-scrubber.html" class="nav-list-link">Gradient Scrubber</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/graphics-utilities.html" class="nav-list-link">Graphics Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/hdf5.html" class="nav-list-link">HDF5 Support</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shaders.html" class="nav-list-link">ISF Shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/image.html" class="nav-list-link">Image process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-instancing-materials.html" class="nav-list-link">Instancing and materials</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/interpolator.html" class="nav-list-link">Interpolator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/javascript.html" class="nav-list-link">Javascript</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/led-view.html" class="nav-list-link">LED View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/lfo.html" class="nav-list-link">LFO</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ltc-generator.html" class="nav-list-link">LTC Generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ltc-input.html" class="nav-list-link">LTC Input</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-envelope.html" class="nav-list-link">MIDI Envelope</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-reader.html" class="nav-list-link">MIDI File Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scaler.html" class="nav-list-link">MIDI File Scaler</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scroller.html" class="nav-list-link">MIDI File Scroller</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-filter.html" class="nav-list-link">MIDI Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-humanize.html" class="nav-list-link">MIDI Humanize</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-timecode-input.html" class="nav-list-link">MIDI Sync In</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-sync.html" class="nav-list-link">MIDI Sync Out</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-display.html" class="nav-list-link">MIDI display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-utilities.html" class="nav-list-link">MIDI utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping.html" class="nav-list-link">Mapping (float)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-curve.html" class="nav-list-link">Mapping Curve</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-tool.html" class="nav-list-link">Mapping tool</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-utilities.html" class="nav-list-link">Mapping utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/exprtk.html" class="nav-list-link">Math expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix.html" class="nav-list-link">Matrix</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix-spatialization.html" class="nav-list-link">Matrix Spatialization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/melodial.html" class="nav-list-link">Melodial</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/meshes.html" class="nav-list-link">Mesh generators and splats</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-quantify.html" class="nav-list-link">Midi Quantify</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/model-display.html" class="nav-list-link">Model display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multicursor.html" class="nav-list-link">Multi-Cursor Manager</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multi-choice.html" class="nav-list-link">Multi-choice</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/nodes.html" class="nav-list-link">Nodes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-filter.html" class="nav-list-link">Object filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-loader.html" class="nav-list-link">Object loader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pathgenerator.html" class="nav-list-link">Path Generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-applier.html" class="nav-list-link">Pattern Applier</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-combiner.html" class="nav-list-link">Pattern Combiner</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternal.html" class="nav-list-link">Patternal</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternist.html" class="nav-list-link">Patternist</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/piano-roll.html" class="nav-list-link">Piano roll</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pixel-utilities.html" class="nav-list-link">Pixel Utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point-tracker.html" class="nav-list-link">Point Tracker</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point2d-view.html" class="nav-list-link">Point2D View</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/poles.html" class="nav-list-link">Poles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/process-launcher.html" class="nav-list-link">Process Launcher</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/puredata.html" class="nav-list-link">Pure Data integration</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/qwen-llm.html" class="nav-list-link">Qwen LLM</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/range-filter.html" class="nav-list-link">Range filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rate-limiter.html" class="nav-list-link">Rate Limiter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regex.html" class="nav-list-link">Regex</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regressor.html" class="nav-list-link">Regressor</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/render-pipeline.html" class="nav-list-link">Render Pipeline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rendezvous.html" class="nav-list-link">Rendezvous</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/repack-attributes.html" class="nav-list-link">Repack attributes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scenario.html" class="nav-list-link">Scenario</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-preprocessor.html" class="nav-list-link">Scene Preprocessor</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-animation.html" class="nav-list-link">Scene animation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-tools.html" class="nav-list-link">Scene tools</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shell-command.html" class="nav-list-link">Shell command</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/signal-display.html" class="nav-list-link">Signal Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sink.html" class="nav-list-link">Sink</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/smooth.html" class="nav-list-link">Smooth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/soundfile.html" class="nav-list-link">Soundfiles</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/spammer.html" class="nav-list-link">Spammer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sprite-reader.html" class="nav-list-link">Sprite Reader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/step.html" class="nav-list-link">Step sequencer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/streamdiffusion.html" class="nav-list-link">StreamDiffusion</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/string-bytes.html" class="nav-list-link">String / byte conversion</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/structure-synth.html" class="nav-list-link">Structure Synth</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sweeper.html" class="nav-list-link">Sweeper</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/switch.html" class="nav-list-link">Switch</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/synthimi.html" class="nav-list-link">Synthimi</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/table.html" class="nav-list-link">Tables</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/teleplot.html" class="nav-list-link">Teleplot</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tempo.html" class="nav-list-link">Tempo</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text-box.html" class="nav-list-link">Text Box</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text.html" class="nav-list-link">Text process</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texgen.html" class="nav-list-link">Texture generator</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texture-to-buffer.html" class="nav-list-link">Texture to buffer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/timecode-synchronizer.html" class="nav-list-link">Timecode Synchronizer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/trigger.html" class="nav-list-link">Trigger</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tweener.html" class="nav-list-link">Tweener</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vu-meter.html" class="nav-list-link">VU Meter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-display.html" class="nav-list-link">Value Display</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-filter.html" class="nav-list-link">Value Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-delay.html" class="nav-list-link">Value delay</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-serialization.html" class="nav-list-link">Value serialization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video.html" class="nav-list-link">Video</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video-formats-color.html" class="nav-list-link">Video formats and color</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/wavecycle.html" class="nav-list-link">Wavecycle</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/xwax-dvs.html" class="nav-list-link">XWax DVS</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Devices"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/devices.html" class="nav-list-link">Devices</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/artnet-device.html" class="nav-list-link">Art-Net device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/audio-device.html" class="nav-list-link">Audio device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ble-device.html" class="nav-list-link">BLE device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/companion-device.html" class="nav-list-link">Bitfocus Companion Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/can-device.html" class="nav-list-link">CAN device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/camera-device.html" class="nav-list-link">Camera device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/coap-device.html" class="nav-list-link">CoAP Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/depth-camera-device.html" class="nav-list-link">Depth cameras</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/evdev-device.html" class="nav-list-link">Evdev device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gps-device.html" class="nav-list-link">GPS device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gphoto-device.html" class="nav-list-link">GPhoto2 DSLR device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gstreamer-device.html" class="nav-list-link">GStreamer device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/http-device.html" class="nav-list-link">HTTP device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/joystick-device.html" class="nav-list-link">Joystick device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/kinect-device.html" class="nav-list-link">Kinect device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/led-device.html" class="nav-list-link">LED device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/lsl-device.html" class="nav-list-link">LSL device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/leapmotion-device.html" class="nav-list-link">Leapmotion device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libav-device.html" class="nav-list-link">Libav device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libmapper-device.html" class="nav-list-link">Libmapper client</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/local-device.html" class="nav-list-link">Local device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midi-controller-device.html" class="nav-list-link">MIDI Controller device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiin-device.html" class="nav-list-link">MIDI input device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiout-device.html" class="nav-list-link">MIDI output device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mqtt-device.html" class="nav-list-link">MQTT Device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mapper-device.html" class="nav-list-link">Mapper device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/minuit-device.html" class="nav-list-link">Minuit device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ndi-device.html" class="nav-list-link">NDI devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/osc-device.html" class="nav-list-link">OSC device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/oscquery-device.html" class="nav-list-link">OSCQuery device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/phidgets-device.html" class="nav-list-link">Phidgets device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/pipewire-device.html" class="nav-list-link">PipeWire video devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/rawio-device.html" class="nav-list-link">Raw I/O device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/serial-device.html" class="nav-list-link">Serial device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/sh4lt-device.html" class="nav-list-link">Sh4lt devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/shmdata-device.html" class="nav-list-link">Shmdata devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spatgris-device.html" class="nav-list-link">Spatialization device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spout-device.html" class="nav-list-link">Spout devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/syphon-device.html" class="nav-list-link">Syphon devices</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/tracking-device.html" class="nav-list-link">Tracking protocols</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ws-device.html" class="nav-list-link">WebSocket device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/wiimote-device.html" class="nav-list-link">Wiimote device</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/window-device.html" class="nav-list-link">Window device</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Languages"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference/languages.html" class="nav-list-link">Languages</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript.html" class="nav-list-link">JavaScript and QML</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript-editor.html" class="nav-list-link">JavaScript editor API</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript-ui.html" class="nav-list-link">QML custom UI API</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/qml-devices.html" class="nav-list-link">QML device API</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/qml-protocols.html" class="nav-list-link">QML transport API</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/exprtk.html" class="nav-list-link">ExprTK language</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/jq-jk.html" class="nav-list-link">jq and Jk</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/cpp.html" class="nav-list-link">C++ native code</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/regex.html" class="nav-list-link">RE2 regular expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/faust.html" class="nav-list-link">Faust language</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/jsfx.html" class="nav-list-link">JSFX and EEL2</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/puredata.html" class="nav-list-link">Pure Data patch language</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/bytebeat.html" class="nav-list-link">Bytebeat expressions</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/glsl.html" class="nav-list-link">GLSL runtime reference</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/isf.html" class="nav-list-link">ISF language reference</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/csf.html" class="nav-list-link">CSF language reference</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/raw-raster.html" class="nav-list-link">Raw raster shader reference</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art reference</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/geometry-filter.html" class="nav-list-link">Geometry filter shaders</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/eisenscript.html" class="nav-list-link">EisenScript</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/context-free.html" class="nav-list-link">Context Free and CFDG</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/external-scripts.html" class="nav-list-link">External script languages</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Panels"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/panels.html" class="nav-list-link">Panels</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/console.html" class="nav-list-link">Console</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/explorer.html" class="nav-list-link">Device explorer</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/inspector.html" class="nav-list-link">Inspector</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/library.html" class="nav-list-link">Library</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/mixer.html" class="nav-list-link">Mixer</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/protocols-and-formats.html" class="nav-list-link">Supported protocols and formats</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/editing-workflow.html" class="nav-list-link">Editing workflow</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/time-chooser.html" class="nav-list-link">Time Chooser</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/shortcuts.html" class="nav-list-link">Shortcuts</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/preferences.html" class="nav-list-link">Score preferences</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/appearance.html" class="nav-list-link">Appearance and skins</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/project-files.html" class="nav-list-link">Project files</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/commandline.html" class="nav-list-link">Command line API</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/add-ons.html" class="nav-list-link">Add-ons</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item  active"><a href="https://ossia.io/score-docs/reference/changelog.html" class="nav-list-link active">Changelog</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Examples"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples" class="nav-list-link">Examples</a><ul class="nav-list "><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under 3D Graphics"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/3d" class="nav-list-link">3D Graphics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/threedim.html" class="nav-list-link">3D meshes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/array-to-mesh.html" class="nav-list-link">Array to triangle mesh</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/audioreactive-geometry.html" class="nav-list-link">Audio-reactive point geometry</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/audioreactive-volumetric.html" class="nav-list-link">Audio-reactive volume</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/camera-switching.html" class="nav-list-link">Blending native scene cameras</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-rendering-pipelines.html" class="nav-list-link">Comparing native render pipelines</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/curl-noise.html" class="nav-list-link">Curl Noise Geometry Filter</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/voxels.html" class="nav-list-link">Deforming a voxel model</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-depth-effects.html" class="nav-list-link">Depth halftone and neon outlines</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/extract-attribute.html" class="nav-list-link">Extract Attribute</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-graph-filter.html" class="nav-list-link">Filtering imported scene nodes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/nbody.html" class="nav-list-link">GPU particle forces</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/3d-point-trail.html" class="nav-list-link">GPU point trail</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/3dgs.html" class="nav-list-link">Gaussian splat scene</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generate-array.html" class="nav-list-link">Generate Array</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generative-3d.html" class="nav-list-link">Generative arc sphere</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/volumetric-texture-to-points.html" class="nav-list-link">Heat volume to point cloud</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/image-to-pointcloud.html" class="nav-list-link">Image to point cloud</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/maxicube.html" class="nav-list-link">Massive Particle System</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/math-to-geometry.html" class="nav-list-link">Math arrays to GPU geometry</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza-dof.html" class="nav-list-link">Native Sponza with depth of field</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/instancing-full.html" class="nav-list-link">Native instancing gallery</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-gltf-instancing.html" class="nav-list-link">Orbiting glTF instances</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/custom-pbr.html" class="nav-list-link">Procedural PBR material</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sphere-splat-feedback.html" class="nav-list-link">Sphere splats with texture feedback</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza.html" class="nav-list-link">Sponza Palace</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/ssynth.html" class="nav-list-link">Structure Synth Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/text-to-mesh.html" class="nav-list-link">Text to deformed mesh</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/js-texture-inlet.html" class="nav-list-link">Texture Inlet in Qt Quick 3D</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/volumetric-textures.html" class="nav-list-link">Volumetric texture viewers</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/voxel-loader-and-sky.html" class="nav-list-link">Voxels with procedural sky</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/gltf-checkers.html" class="nav-list-link">glTF Scene with Effects</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under AI and tracking"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/ai" class="nav-list-link">AI and tracking</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/pose-detection.html" class="nav-list-link">Face landmarks and radial blur</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/tracking-to-geometry.html" class="nav-list-link">Face tracking to native geometry</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/tracking-to-midi.html" class="nav-list-link">Tracking zones to MIDI</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Advanced"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/advanced" class="nav-list-link">Advanced</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/cpu-data-bending.html" class="nav-list-link">CPU data bending</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/data-visualization.html" class="nav-list-link">Data visualization and sonification</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/files-and-strings.html" class="nav-list-link">Files, strings and serialization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/gpu-data-bending.html" class="nav-list-link">GPU data bending</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/livecoding.html" class="nav-list-link">Livecoding processes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/pipeline-switching.html" class="nav-list-link">Switch audio and video pipelines</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Audio"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/audio" class="nav-list-link">Audio</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/synths.html" class="nav-list-link">Arranging synth patterns with triggers</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/audiofx.html" class="nav-list-link">Audio Effects Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/faust-synthesis.html" class="nav-list-link">Faust Synthesis example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/granular.html" class="nav-list-link">Granular synthesis approaches</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/looper.html" class="nav-list-link">Live audio looper with drum backing</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/midi-fx.html" class="nav-list-link">MIDI effects and arpeggiation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/polyphony.html" class="nav-list-link">Multichannel audio and per-channel controls</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/pd-integration.html" class="nav-list-link">PureData Example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/scales.html" class="nav-list-link">Scala tuning and Wavecycle</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/more-audiofx.html" class="nav-list-link">Sequencing audio effects</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Automation"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/automation" class="nav-list-link">Automation</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/modulation.html" class="nav-list-link">Device modulation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/smoothing.html" class="nav-list-link">Smoothing and filtering</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Basics"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/basics" class="nav-list-link">Basics</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/osc.html" class="nav-list-link">Basic OSC example</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeflo.html" class="nav-list-link">Basic timeline</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/combine-spread-mux-demux.html" class="nav-list-link">Combining lists and selecting routes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/cues.html" class="nav-list-link">Cues, loops and exclusive playback</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/monitoring.html" class="nav-list-link">Monitoring values, MIDI, audio and textures</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/all-media.html" class="nav-list-link">Multi-media patching</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/process-cues-and-automations.html" class="nav-list-link">Process presets, cues and automations</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/recording.html" class="nav-list-link">Recording sensor messages and automations</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/delayed.html" class="nav-list-link">Temporal patching (delayed)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/glutton.html" class="nav-list-link">Temporal patching (glutton)</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel-patterns.html" class="nav-list-link">Temporal patterns and synchronization</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel.html" class="nav-list-link">Time model</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeline-and-patches.html" class="nav-list-link">Timeline and patches</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/interpolation.html" class="nav-list-link">Weighted and time-based interpolation</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Data processing"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/data" class="nav-list-link">Data processing</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/address-tools.html" class="nav-list-link">Address pattern tools</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/value-feedback.html" class="nav-list-link">Delayed value feedback</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/mapping-overview.html" class="nav-list-link">Mapping and event utilities</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/maths-and-objects.html" class="nav-list-link">Math expressions and structured objects</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Device Examples"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/devices" class="nav-list-link">Device Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/gamepad.html" class="nav-list-link">Gamepad control</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/http-llm.html" class="nav-list-link">HTTP chat API and rendered text</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi-mapping.html" class="nav-list-link">MIDI controls for a shader</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi.html" class="nav-list-link">MIDI notes, controls and timeline triggers</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/synths.html" class="nav-list-link">MIDI synth and drum effects patch</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/osc.html" class="nav-list-link">OSC values controlling a native 3D scene</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi-to-synths.html" class="nav-list-link">Playing synths on MIDI channels 1 and 10</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/sensors2osc.html" class="nav-list-link">Sensors2OSC phone control</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/slack.html" class="nav-list-link">Slack messages through Companion</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/samplers.html" class="nav-list-link">Soundfonts, drum kits and a single-file sampler</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Tempo Examples"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/tempo" class="nav-list-link">Tempo Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/tempo/tempo-control.html" class="nav-list-link">Tempo manipulation</a>
+                  </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Video Examples"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/video" class="nav-list-link">Video Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/audioreactive.html" class="nav-list-link">Audio-reactive visuals</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/traditional-computer-vision.html" class="nav-list-link">Camera blobs, contours and tracking</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/camera.html" class="nav-list-link">Camera input</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/compute-image.html" class="nav-list-link">Compute-rendered Clifford attractor</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/shader-texture-feedback.html" class="nav-list-link">Delayed shader texture feedback</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/ffmpeg-streaming.html" class="nav-list-link">FFmpeg input and output streams</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/analog-effects.html" class="nav-list-link">Layered analog-style effects</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-mapping-rect.html" class="nav-list-link">Mapping textures to editable shapes</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-mapping-multi-projector.html" class="nav-list-link">Multi-projector output mapping</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/multi-render-target.html" class="nav-list-link">Multiple shader render targets</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/2d-geometry-feedback-reaction-diffusion.html" class="nav-list-link">Reaction-diffusion geometry feedback</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-time-jamming.html" class="nav-list-link">Scrubbing video and scenario time</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/sound-and-image.html" class="nav-list-link">Timed sound and image effects</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-basics.html" class="nav-list-link">Video manipulation</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-scale.html" class="nav-list-link">Video transforms and fitting</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Integrations"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/integrations" class="nav-list-link">Integrations</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/integrations/blender.html" class="nav-list-link">Integrating with Blender</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Development"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development" class="nav-list-link">Development</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/development/architecture.html" class="nav-list-link">Architecture</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Building from source"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/build-from-source.html" class="nav-list-link">Building from source</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/wasm.html" class="nav-list-link">Building for WebAssembly</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/hacking.html" class="nav-list-link">Hacking</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/packaging.html" class="nav-list-link">Packaging</a>
+                  </li><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/release.html" class="nav-list-link">Release build</a>
+                  </li></ul></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/development/custom-apps.html" class="nav-list-link">Custom applications</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Plug-ins"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/plug-ins.html" class="nav-list-link">Plug-ins</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" class="nav-list-link">Plug-ins with Avendish</a>
+                  </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="Show or hide the pages under FAQ"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/faq.html" class="nav-list-link">FAQ</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/controlling-score-with-oscquery.html" class="nav-list-link">Controlling score with OSCQuery</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/monitor-activity.html" class="nav-list-link">How to monitor activity ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/nogui.html" class="nav-list-link">How to run score without GUI ?</a></li><li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/linux.html" class="nav-list-link">Running on Linux</a></li></ul></li><li class="nav-list-item"><a href="https://ossia.io/score-docs/troubleshooting.html" class="nav-list-link">Troubleshooting</a></li></ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search score documentation" aria-label="Search score documentation" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/reference">Reference</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>Changelog</span></li>
+            </ol>
+          </nav>
+        
+      
+      <main id="main-content" class="main-content">
+        
+          <h1 id="changelog">
+        
+        
+          <a href="#changelog" class="anchor-heading" aria-labelledby="changelog"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Changelog
+        
+        
+      </h1>
+    
+
+<p><strong>280 releases.</strong> <a href="https://github.com/ossia/score/releases" class="web-link">Downloads on GitHub</a>.</p>
+
+<p>For an overview of the current version, see [[What is score ?]]. To download and install the latest release, see <a class="wiki-link" href="/score-docs/quick-start/installation.html">Installation</a>.</p>
+      <h2 id="version-3x-current">
+        
+        
+          <a href="#version-3x-current" class="anchor-heading" aria-labelledby="version-3x-current"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Version 3.x
+        
+        
+      </h2>
+    
+<ul class="release-list">
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.9.0.html" class="web-link">v3.9.0</a>
+    <time datetime="2026-10-15T20:33:28Z">2026-10-15</time>
+    
+  </li>
+  
+  <li id="38">
+    <a href="/score-docs/reference/changelog/v3.8.2.html" class="web-link">v3.8.2</a>
+    <time datetime="2026-03-27T08:08:41Z">2026-03-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.8.1.html" class="web-link">v3.8.1</a>
+    <time datetime="2026-03-25T12:03:38Z">2026-03-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.8.0.html" class="web-link">v3.8.0</a>
+    <time datetime="2026-02-03T16:15:27Z">2026-02-03</time>
+    
+  </li>
+  
+  <li id="37">
+    <a href="/score-docs/reference/changelog/v3.7.1.html" class="web-link">v3.7.1</a>
+    <time datetime="2025-09-22T11:17:37Z">2025-09-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.7.0.html" class="web-link">v3.7.0</a>
+    <time datetime="2025-09-20T18:52:13Z">2025-09-20</time>
+    
+  </li>
+  
+  <li id="36">
+    <a href="/score-docs/reference/changelog/v3.6.1.html" class="web-link">v3.6.1</a>
+    <time datetime="2025-08-11T23:59:28Z">2025-08-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.6.0.html" class="web-link">v3.6.0</a>
+    <time datetime="2025-08-07T16:34:49Z">2025-08-07</time>
+    
+  </li>
+  
+  <li id="35">
+    <a href="/score-docs/reference/changelog/v3.5.3.html" class="web-link">v3.5.3</a>
+    <time datetime="2025-07-07T13:44:34Z">2025-07-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.5.2.html" class="web-link">v3.5.2</a>
+    <time datetime="2025-05-06T00:30:43Z">2025-05-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.5.1.html" class="web-link">v3.5.1</a>
+    <time datetime="2025-04-19T17:56:59Z">2025-04-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.5.0.html" class="web-link">v3.5.0</a>
+    <time datetime="2025-04-18T00:18:54Z">2025-04-18</time>
+    
+  </li>
+  
+  <li id="34">
+    <a href="/score-docs/reference/changelog/v3.4.1.html" class="web-link">v3.4.1</a>
+    <time datetime="2025-01-16T18:13:40Z">2025-01-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.4.0.html" class="web-link">v3.4.0</a>
+    <time datetime="2025-01-10T00:29:23Z">2025-01-10</time>
+    
+  </li>
+  
+  <li id="33">
+    <a href="/score-docs/reference/changelog/v3.3.2.html" class="web-link">v3.3.2</a>
+    <time datetime="2024-11-17T23:07:35Z">2024-11-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.3.1.html" class="web-link">v3.3.1</a>
+    <time datetime="2024-11-16T04:24:00Z">2024-11-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.3.0.html" class="web-link">v3.3.0</a>
+    <time datetime="2024-11-12T15:50:15Z">2024-11-12</time>
+    
+  </li>
+  
+  <li id="32">
+    <a href="/score-docs/reference/changelog/v3.2.4.html" class="web-link">v3.2.4</a>
+    <time datetime="2024-07-08T23:06:31Z">2024-07-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.3-3.html" class="web-link">v3.2.3-3</a>
+    <time datetime="2024-07-04T09:17:39Z">2024-07-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.3-2.html" class="web-link">v3.2.3-2</a>
+    <time datetime="2024-07-02T21:53:08Z">2024-07-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.3-1.html" class="web-link">v3.2.3-1</a>
+    <time datetime="2024-07-02T17:07:40Z">2024-07-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.3.html" class="web-link">v3.2.3</a>
+    <time datetime="2024-07-01T23:56:31Z">2024-07-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.2.html" class="web-link">v3.2.2</a>
+    <time datetime="2024-06-28T13:59:10Z">2024-06-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.1.html" class="web-link">v3.2.1</a>
+    <time datetime="2024-06-17T13:01:12Z">2024-06-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.2.0.html" class="web-link">v3.2.0</a>
+    <time datetime="2024-05-27T00:31:38Z">2024-05-27</time>
+    
+  </li>
+  
+  <li id="31">
+    <a href="/score-docs/reference/changelog/v3.1.14.html" class="web-link">v3.1.14</a>
+    <time datetime="2024-04-14T22:19:36Z">2024-04-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.13.html" class="web-link">v3.1.13</a>
+    <time datetime="2024-02-05T20:22:36Z">2024-02-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.12.html" class="web-link">v3.1.12</a>
+    <time datetime="2023-10-30T14:55:10Z">2023-10-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.11.html" class="web-link">v3.1.11</a>
+    <time datetime="2023-06-23T21:17:08Z">2023-06-23</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.10.html" class="web-link">v3.1.10</a>
+    <time datetime="2023-05-07T03:08:29Z">2023-05-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.9.html" class="web-link">v3.1.9</a>
+    <time datetime="2023-04-25T15:59:26Z">2023-04-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.8.html" class="web-link">v3.1.8</a>
+    <time datetime="2023-03-05T21:08:20Z">2023-03-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.7.html" class="web-link">v3.1.7</a>
+    <time datetime="2023-02-24T20:47:12Z">2023-02-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.6.html" class="web-link">v3.1.6</a>
+    <time datetime="2023-01-09T15:11:59Z">2023-01-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.5.html" class="web-link">v3.1.5</a>
+    <time datetime="2022-11-30T00:31:55Z">2022-11-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.4.html" class="web-link">v3.1.4</a>
+    <time datetime="2022-11-09T15:59:44Z">2022-11-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.3.html" class="web-link">v3.1.3</a>
+    <time datetime="2022-09-29T01:12:08Z">2022-09-29</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.2.html" class="web-link">v3.1.2</a>
+    <time datetime="2022-09-22T14:19:09Z">2022-09-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.1.html" class="web-link">v3.1.1</a>
+    <time datetime="2022-08-23T08:41:57Z">2022-08-23</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.1.0.html" class="web-link">v3.1.0</a>
+    <time datetime="2022-07-30T18:13:21Z">2022-07-30</time>
+    
+  </li>
+  
+  <li id="30">
+    <a href="/score-docs/reference/changelog/v3.0.12.html" class="web-link">v3.0.12</a>
+    <time datetime="2022-07-17T20:51:38Z">2022-07-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.11.html" class="web-link">v3.0.11</a>
+    <time datetime="2022-06-13T22:38:36Z">2022-06-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.10.html" class="web-link">v3.0.10</a>
+    <time datetime="2022-06-05T19:44:43Z">2022-06-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.9.html" class="web-link">v3.0.9</a>
+    <time datetime="2022-05-21T17:51:01Z">2022-05-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.8.html" class="web-link">v3.0.8</a>
+    <time datetime="2022-04-19T12:42:55Z">2022-04-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.7.html" class="web-link">v3.0.7</a>
+    <time datetime="2022-04-17T10:16:18Z">2022-04-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.6.html" class="web-link">v3.0.6</a>
+    <time datetime="2022-03-24T18:32:50Z">2022-03-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.5.html" class="web-link">v3.0.5</a>
+    <time datetime="2022-03-08T23:57:03Z">2022-03-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.4.html" class="web-link">v3.0.4</a>
+    <time datetime="2022-02-24T15:08:28Z">2022-02-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.3.html" class="web-link">v3.0.3</a>
+    <time datetime="2022-02-12T10:22:27Z">2022-02-12</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.2.html" class="web-link">v3.0.2</a>
+    <time datetime="2022-02-05T14:24:09Z">2022-02-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.1.html" class="web-link">v3.0.1</a>
+    <time datetime="2022-01-14T10:40:54Z">2022-01-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0.html" class="web-link">v3.0.0</a>
+    <time datetime="2022-01-05T13:58:49Z">2022-01-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc7.html" class="web-link">v3.0.0-rc7</a>
+    <time datetime="2021-12-29T13:15:06Z">2021-12-29</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc6.html" class="web-link">v3.0.0-rc6</a>
+    <time datetime="2021-12-09T04:36:39Z">2021-12-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc5.html" class="web-link">v3.0.0-rc5</a>
+    <time datetime="2021-11-30T16:12:25Z">2021-11-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc4.html" class="web-link">v3.0.0-rc4</a>
+    <time datetime="2021-11-20T12:06:01Z">2021-11-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc3.html" class="web-link">v3.0.0-rc3</a>
+    <time datetime="2021-11-19T23:58:28Z">2021-11-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc2.html" class="web-link">v3.0.0-rc2</a>
+    <time datetime="2021-11-18T17:55:34Z">2021-11-18</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-rc1.html" class="web-link">v3.0.0-rc1</a>
+    <time datetime="2021-09-30T13:53:36Z">2021-09-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b9.html" class="web-link">v3.0.0-b9</a>
+    <time datetime="2021-09-25T16:00:50Z">2021-09-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b8.html" class="web-link">v3.0.0-b8</a>
+    <time datetime="2021-09-14T23:12:09Z">2021-09-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b7.html" class="web-link">v3.0.0-b7</a>
+    <time datetime="2021-09-06T16:04:44Z">2021-09-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b6.html" class="web-link">v3.0.0-b6</a>
+    <time datetime="2021-09-03T21:52:03Z">2021-09-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b5.html" class="web-link">v3.0.0-b5</a>
+    <time datetime="2021-09-01T22:00:19Z">2021-09-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b4.html" class="web-link">v3.0.0-b4</a>
+    <time datetime="2021-08-25T18:20:34Z">2021-08-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b3.html" class="web-link">v3.0.0-b3</a>
+    <time datetime="2021-08-22T22:23:14Z">2021-08-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b2.html" class="web-link">v3.0.0-b2</a>
+    <time datetime="2021-08-17T18:22:12Z">2021-08-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-b1.html" class="web-link">v3.0.0-b1</a>
+    <time datetime="2021-08-15T22:49:42Z">2021-08-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a43.html" class="web-link">v3.0.0-a43</a>
+    <time datetime="2021-08-05T09:19:14Z">2021-08-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a42.html" class="web-link">v3.0.0-a42</a>
+    <time datetime="2021-08-03T21:14:45Z">2021-08-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a41.html" class="web-link">v3.0.0-a41</a>
+    <time datetime="2021-07-29T08:31:10Z">2021-07-29</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a40.html" class="web-link">v3.0.0-a40</a>
+    <time datetime="2021-07-25T09:56:50Z">2021-07-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a39.html" class="web-link">v3.0.0-a39</a>
+    <time datetime="2021-06-06T14:28:57Z">2021-06-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a38.html" class="web-link">v3.0.0-a38</a>
+    <time datetime="2021-06-04T14:51:16Z">2021-06-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a37.html" class="web-link">v3.0.0-a37</a>
+    <time datetime="2021-06-01T20:00:51Z">2021-06-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a36.html" class="web-link">v3.0.0-a36</a>
+    <time datetime="2021-05-26T08:52:52Z">2021-05-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a35.html" class="web-link">v3.0.0-a35</a>
+    <time datetime="2021-05-23T16:40:10Z">2021-05-23</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a34.html" class="web-link">v3.0.0-a34</a>
+    <time datetime="2021-05-03T23:36:15Z">2021-05-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a33.html" class="web-link">v3.0.0-a33</a>
+    <time datetime="2021-04-21T12:24:40Z">2021-04-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a31.html" class="web-link">v3.0.0-a31</a>
+    <time datetime="2021-04-20T19:25:10Z">2021-04-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a30.html" class="web-link">v3.0.0-a30</a>
+    <time datetime="2021-04-09T23:13:05Z">2021-04-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a29.html" class="web-link">v3.0.0-a29</a>
+    <time datetime="2021-04-09T20:59:36Z">2021-04-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a28.html" class="web-link">v3.0.0-a28</a>
+    <time datetime="2021-04-06T18:31:34Z">2021-04-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a27.html" class="web-link">v3.0.0-a27</a>
+    <time datetime="2021-04-06T10:17:25Z">2021-04-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a26.html" class="web-link">v3.0.0-a26</a>
+    <time datetime="2021-04-05T21:30:38Z">2021-04-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a25.html" class="web-link">v3.0.0-a25</a>
+    <time datetime="2021-04-01T09:32:31Z">2021-04-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a24.html" class="web-link">v3.0.0-a24</a>
+    <time datetime="2021-03-09T09:44:08Z">2021-03-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a22.html" class="web-link">v3.0.0-a22</a>
+    <time datetime="2021-02-01T15:03:34Z">2021-02-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a21.html" class="web-link">v3.0.0-a21</a>
+    <time datetime="2020-11-30T23:40:05Z">2020-11-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a20.html" class="web-link">v3.0.0-a20</a>
+    <time datetime="2020-11-24T21:26:28Z">2020-11-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a19.html" class="web-link">v3.0.0-a19</a>
+    <time datetime="2020-10-23T19:27:27Z">2020-10-23</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a18.html" class="web-link">v3.0.0-a18</a>
+    <time datetime="2020-10-22T23:25:18Z">2020-10-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a17.html" class="web-link">v3.0.0-a17</a>
+    <time datetime="2020-10-22T10:17:03Z">2020-10-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a16.html" class="web-link">v3.0.0-a16</a>
+    <time datetime="2020-10-20T11:04:02Z">2020-10-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a15.html" class="web-link">v3.0.0-a15</a>
+    <time datetime="2020-10-05T23:07:54Z">2020-10-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a14-1.html" class="web-link">v3.0.0-a14-1</a>
+    <time datetime="2020-10-04T23:03:44Z">2020-10-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a14.html" class="web-link">v3.0.0-a14</a>
+    <time datetime="2020-10-04T21:05:57Z">2020-10-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a13-2.html" class="web-link">v3.0.0-a13-2</a>
+    <time datetime="2020-09-20T09:08:30Z">2020-09-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a13-1.html" class="web-link">v3.0.0-a13-1 — </a>
+    <time datetime="2020-09-20T07:58:31Z">2020-09-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-a13.html" class="web-link">v3.0.0-a13</a>
+    <time datetime="2020-09-19T22:40:44Z">2020-09-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha10.html" class="web-link">v3.0.0-alpha10 — </a>
+    <time datetime="2020-09-16T18:44:42Z">2020-09-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha9.html" class="web-link">v3.0.0-alpha9</a>
+    <time datetime="2020-09-15T20:16:20Z">2020-09-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha8.html" class="web-link">v3.0.0-alpha8</a>
+    <time datetime="2020-09-03T14:01:18Z">2020-09-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha7.html" class="web-link">v3.0.0-alpha7 — </a>
+    <time datetime="2020-09-02T09:10:30Z">2020-09-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha6.html" class="web-link">v3.0.0-alpha6 — </a>
+    <time datetime="2020-09-01T22:35:20Z">2020-09-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha5.html" class="web-link">v3.0.0-alpha5</a>
+    <time datetime="2020-05-28T12:05:17Z">2020-05-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha4.html" class="web-link">v3.0.0-alpha4</a>
+    <time datetime="2020-05-18T00:15:21Z">2020-05-18</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha3.html" class="web-link">v3.0.0-alpha3</a>
+    <time datetime="2020-05-16T09:58:36Z">2020-05-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha2.html" class="web-link">v3.0.0-alpha2</a>
+    <time datetime="2020-05-14T23:55:03Z">2020-05-14</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha1.html" class="web-link">v3.0.0-alpha1 — Version 3.0 Alpha 1</a>
+    <time datetime="2020-03-08T18:12:00Z">2020-03-08</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v3.0.0-alpha0.html" class="web-link">v3.0.0-alpha0</a>
+    <time datetime="2020-02-09T23:41:48Z">2020-02-09</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+</ul>
+      <h2 id="version-2x-legacy">
+        
+        
+          <a href="#version-2x-legacy" class="anchor-heading" aria-labelledby="version-2x-legacy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Version 2.x
+        
+        
+      </h2>
+    
+<ul class="release-list">
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.5.2.html" class="web-link">v2.5.2 — Bugfix release</a>
+    <time datetime="2019-08-26T06:08:57Z">2019-08-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.5.1.html" class="web-link">v2.5.1</a>
+    <time datetime="2019-08-22T20:12:43Z">2019-08-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.5.0.html" class="web-link">v2.5.0 — </a>
+    <time datetime="2019-08-22T18:59:19Z">2019-08-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.4.1.html" class="web-link">v2.4.1</a>
+    <time datetime="2019-05-30T14:36:41Z">2019-05-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.4.0.html" class="web-link">v2.4.0</a>
+    <time datetime="2019-05-15T21:50:21Z">2019-05-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.3.1.html" class="web-link">v2.3.1</a>
+    <time datetime="2019-05-08T09:47:02Z">2019-05-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.3.0.html" class="web-link">v2.3.0 — Improve soundness</a>
+    <time datetime="2019-05-07T16:05:02Z">2019-05-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.2.3.html" class="web-link">v2.2.3</a>
+    <time datetime="2019-05-02T21:25:54Z">2019-05-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.2.2.html" class="web-link">v2.2.2 — </a>
+    <time datetime="2019-05-02T21:00:54Z">2019-05-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.2.1.html" class="web-link">v2.2.1</a>
+    <time datetime="2019-04-10T08:28:48Z">2019-04-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.2.0.html" class="web-link">v2.2.0</a>
+    <time datetime="2019-04-07T15:24:59Z">2019-04-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.1.3.html" class="web-link">v2.1.3</a>
+    <time datetime="2019-02-21T21:08:30Z">2019-02-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.1.2.html" class="web-link">v2.1.2 — </a>
+    <time datetime="2019-01-26T14:17:05Z">2019-01-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.1.1.html" class="web-link">v2.1.1</a>
+    <time datetime="2019-01-20T22:22:49Z">2019-01-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.1.0.html" class="web-link">v2.1.0</a>
+    <time datetime="2019-01-19T10:27:33Z">2019-01-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a25.html" class="web-link">v2.0.0-a25 — Calm before the storm</a>
+    <time datetime="2018-11-28T16:35:23Z">2018-11-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a24.html" class="web-link">v2.0.0-a24</a>
+    <time datetime="2018-10-10T11:59:43Z">2018-10-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a23.html" class="web-link">v2.0.0-a23</a>
+    <time datetime="2018-09-25T22:25:54Z">2018-09-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a22.html" class="web-link">v2.0.0-a22</a>
+    <time datetime="2018-09-23T21:19:29Z">2018-09-23</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a21.html" class="web-link">v2.0.0-a21 — </a>
+    <time datetime="2018-09-22T13:15:40Z">2018-09-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a20.html" class="web-link">v2.0.0-a20</a>
+    <time datetime="2018-09-14T21:09:17Z">2018-09-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a19.html" class="web-link">v2.0.0-a19</a>
+    <time datetime="2018-09-14T19:15:31Z">2018-09-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a18.html" class="web-link">v2.0.0-a18</a>
+    <time datetime="2018-09-13T18:21:38Z">2018-09-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a17.html" class="web-link">v2.0.0-a17</a>
+    <time datetime="2018-09-11T20:01:06Z">2018-09-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a16.html" class="web-link">v2.0.0-a16</a>
+    <time datetime="2018-09-09T20:13:07Z">2018-09-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a15.html" class="web-link">v2.0.0-a15</a>
+    <time datetime="2018-09-09T17:11:26Z">2018-09-09</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a14.html" class="web-link">v2.0.0-a14</a>
+    <time datetime="2018-09-02T17:06:04Z">2018-09-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a13.html" class="web-link">v2.0.0-a13</a>
+    <time datetime="2018-09-02T12:20:36Z">2018-09-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a12.html" class="web-link">v2.0.0-a12</a>
+    <time datetime="2018-08-31T22:37:26Z">2018-08-31</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a11.html" class="web-link">v2.0.0-a11</a>
+    <time datetime="2018-08-30T18:56:25Z">2018-08-30</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a10.html" class="web-link">v2.0.0-a10</a>
+    <time datetime="2018-08-12T22:31:01Z">2018-08-12</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a9.html" class="web-link">v2.0.0-a9 — v2.0.0-a9 - Bugfix release</a>
+    <time datetime="2018-07-25T13:00:08Z">2018-07-25</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a8.html" class="web-link">v2.0.0-a8</a>
+    <time datetime="2018-07-24T20:47:32Z">2018-07-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a7.html" class="web-link">v2.0.0-a7 — v2.0.0-a7: Bugfix release</a>
+    <time datetime="2018-07-05T12:35:11Z">2018-07-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a6.html" class="web-link">v2.0.0-a6</a>
+    <time datetime="2018-06-26T08:15:45Z">2018-06-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a4.html" class="web-link">v2.0.0-a4</a>
+    <time datetime="2018-06-14T00:25:34Z">2018-06-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a3.html" class="web-link">v2.0.0-a3 — Bugfix release</a>
+    <time datetime="2018-04-28T22:14:20Z">2018-04-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a2.html" class="web-link">v2.0.0-a2</a>
+    <time datetime="2018-04-26T23:08:58Z">2018-04-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v2.0.0-a1.html" class="web-link">v2.0.0-a1</a>
+    <time datetime="2018-04-25T13:47:11Z">2018-04-25</time>
+    
+  </li>
+  
+</ul>
+      <h2 id="version-1x-legacy">
+        
+        
+          <a href="#version-1x-legacy" class="anchor-heading" aria-labelledby="version-1x-legacy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Version 1.x
+        
+        
+      </h2>
+    
+<ul class="release-list">
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b40.html" class="web-link">v1.0.0-b40</a>
+    <time datetime="2017-12-28T14:45:57Z">2017-12-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b39.html" class="web-link">v1.0.0-b39</a>
+    <time datetime="2017-10-13T10:18:15Z">2017-10-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b38.html" class="web-link">v1.0.0-b38 — </a>
+    <time datetime="2017-10-11T12:00:53Z">2017-10-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b37.html" class="web-link">v1.0.0-b37</a>
+    <time datetime="2017-09-16T23:23:35Z">2017-09-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b36.html" class="web-link">v1.0.0-b36</a>
+    <time datetime="2017-09-16T15:45:27Z">2017-09-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b35.html" class="web-link">v1.0.0-b35</a>
+    <time datetime="2017-09-15T02:01:04Z">2017-09-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b34.html" class="web-link">v1.0.0-b34</a>
+    <time datetime="2017-09-15T00:48:24Z">2017-09-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b33.html" class="web-link">v1.0.0-b33</a>
+    <time datetime="2017-09-14T15:58:22Z">2017-09-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b32.html" class="web-link">v1.0.0-b32</a>
+    <time datetime="2017-09-13T01:04:40Z">2017-09-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b31.html" class="web-link">v1.0.0-b31</a>
+    <time datetime="2017-08-10T20:14:09Z">2017-08-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b30.html" class="web-link">v1.0.0-b30</a>
+    <time datetime="2017-08-08T11:09:36Z">2017-08-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b29.html" class="web-link">v1.0.0-b29</a>
+    <time datetime="2017-07-19T10:27:29Z">2017-07-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b28.html" class="web-link">v1.0.0-b28</a>
+    <time datetime="2017-07-02T22:11:48Z">2017-07-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b27.html" class="web-link">v1.0.0-b27</a>
+    <time datetime="2017-06-24T17:35:17Z">2017-06-24</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b25.html" class="web-link">v1.0.0-b25 — i-skøll</a>
+    <time datetime="2017-06-22T07:02:48Z">2017-06-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b23.html" class="web-link">v1.0.0-b23</a>
+    <time datetime="2017-06-20T00:26:56Z">2017-06-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b22.html" class="web-link">v1.0.0-b22</a>
+    <time datetime="2017-06-15T15:54:32Z">2017-06-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b21-1.html" class="web-link">v1.0.0-b21-1</a>
+    <time datetime="2017-06-14T01:04:14Z">2017-06-14</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b20.html" class="web-link">v1.0.0-b20</a>
+    <time datetime="2017-06-06T07:46:48Z">2017-06-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b17.html" class="web-link">v1.0.0-b17</a>
+    <time datetime="2017-05-31T19:28:29Z">2017-05-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b16.html" class="web-link">v1.0.0-b16</a>
+    <time datetime="2017-05-17T23:28:00Z">2017-05-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b15.html" class="web-link">v1.0.0-b15 — </a>
+    <time datetime="2017-05-14T22:11:05Z">2017-05-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b14.html" class="web-link">v1.0.0-b14</a>
+    <time datetime="2017-05-11T08:27:57Z">2017-05-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b12.html" class="web-link">v1.0.0-b12</a>
+    <time datetime="2017-05-06T23:53:51Z">2017-05-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b11.html" class="web-link">v1.0.0-b11 — </a>
+    <time datetime="2017-05-04T16:10:36Z">2017-05-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b10.html" class="web-link">v1.0.0-b10 — </a>
+    <time datetime="2017-05-01T17:45:07Z">2017-05-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b9.html" class="web-link">v1.0.0-b9</a>
+    <time datetime="2017-05-01T14:06:30Z">2017-05-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b8.html" class="web-link">v1.0.0-b8</a>
+    <time datetime="2017-03-26T22:39:56Z">2017-03-26</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b7.html" class="web-link">v1.0.0-b7</a>
+    <time datetime="2017-02-27T12:55:34Z">2017-02-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b6.html" class="web-link">v1.0.0-b6</a>
+    <time datetime="2017-02-26T14:33:45Z">2017-02-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b5-1.html" class="web-link">v1.0.0-b5-1</a>
+    <time datetime="2017-02-20T11:18:58Z">2017-02-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b5.html" class="web-link">v1.0.0-b5 — Disregard this release</a>
+    <time datetime="2017-02-20T11:02:57Z">2017-02-20</time>
+    <span class="label label-purple">Prerelease</span>
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b4.html" class="web-link">v1.0.0-b4</a>
+    <time datetime="2017-02-20T00:47:02Z">2017-02-20</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b3.html" class="web-link">v1.0.0-b3</a>
+    <time datetime="2017-01-31T22:43:16Z">2017-01-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b2.html" class="web-link">v1.0.0-b2</a>
+    <time datetime="2017-01-17T02:06:40Z">2017-01-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-b1.html" class="web-link">v1.0.0-b1</a>
+    <time datetime="2016-12-04T19:29:02Z">2016-12-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a78.html" class="web-link">v1.0.0-a78</a>
+    <time datetime="2016-11-17T16:19:40Z">2016-11-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a77.html" class="web-link">v1.0.0-a77</a>
+    <time datetime="2016-11-16T01:21:49Z">2016-11-16</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a76.html" class="web-link">v1.0.0-a76</a>
+    <time datetime="2016-11-13T11:29:19Z">2016-11-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a75-osx.html" class="web-link">v1.0.0-a75-osx</a>
+    <time datetime="2016-11-01T10:03:32Z">2016-11-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a75.html" class="web-link">v1.0.0-a75</a>
+    <time datetime="2016-10-31T18:41:33Z">2016-10-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a74.html" class="web-link">v1.0.0-a74</a>
+    <time datetime="2016-10-26T12:35:13Z">2016-10-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a73.html" class="web-link">v1.0.0-a73 — </a>
+    <time datetime="2016-09-12T23:30:58Z">2016-09-12</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a72.html" class="web-link">v1.0.0-a72</a>
+    <time datetime="2016-08-31T22:43:50Z">2016-08-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a71-2.html" class="web-link">v1.0.0-a71-2</a>
+    <time datetime="2016-08-01T14:00:45Z">2016-08-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a70.html" class="web-link">v1.0.0-a70</a>
+    <time datetime="2016-06-28T18:02:13Z">2016-06-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a69.html" class="web-link">v1.0.0-a69 — </a>
+    <time datetime="2016-06-03T16:29:17Z">2016-06-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a68.html" class="web-link">v1.0.0-a68</a>
+    <time datetime="2016-05-17T08:32:05Z">2016-05-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a67.html" class="web-link">v1.0.0-a67</a>
+    <time datetime="2016-04-27T16:20:34Z">2016-04-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a66.html" class="web-link">v1.0.0-a66</a>
+    <time datetime="2016-04-13T14:17:02Z">2016-04-13</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a65.html" class="web-link">v1.0.0-a65 — </a>
+    <time datetime="2016-04-09T15:38:22Z">2016-04-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a64.html" class="web-link">v1.0.0-a64</a>
+    <time datetime="2016-04-08T23:25:23Z">2016-04-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a63.html" class="web-link">v1.0.0-a63 — **README**</a>
+    <time datetime="2016-04-08T18:00:33Z">2016-04-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a62.html" class="web-link">v1.0.0-a62 — </a>
+    <time datetime="2016-04-07T09:18:56Z">2016-04-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a61.html" class="web-link">v1.0.0-a61</a>
+    <time datetime="2016-04-06T15:51:40Z">2016-04-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a60.html" class="web-link">v1.0.0-a60</a>
+    <time datetime="2016-04-06T15:11:12Z">2016-04-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a59.html" class="web-link">v1.0.0-a59</a>
+    <time datetime="2016-04-06T13:24:52Z">2016-04-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a58.html" class="web-link">v1.0.0-a58</a>
+    <time datetime="2016-03-29T23:57:18Z">2016-03-29</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a57.html" class="web-link">v1.0.0-a57 — </a>
+    <time datetime="2016-03-27T12:56:13Z">2016-03-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a55.html" class="web-link">v1.0.0-a55</a>
+    <time datetime="2016-03-26T20:13:48Z">2016-03-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a54.html" class="web-link">v1.0.0-a54</a>
+    <time datetime="2016-03-26T13:19:38Z">2016-03-26</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a53.html" class="web-link">v1.0.0-a53 — </a>
+    <time datetime="2016-03-21T12:21:04Z">2016-03-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a52.html" class="web-link">v1.0.0-a52 — </a>
+    <time datetime="2016-03-15T14:51:07Z">2016-03-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a51.html" class="web-link">v1.0.0-a51 — </a>
+    <time datetime="2016-02-22T13:51:41Z">2016-02-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a50.html" class="web-link">v1.0.0-a50</a>
+    <time datetime="2016-02-22T13:42:58Z">2016-02-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a49.html" class="web-link">v1.0.0-a49 — </a>
+    <time datetime="2016-02-19T15:07:36Z">2016-02-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a48.html" class="web-link">v1.0.0-a48 — </a>
+    <time datetime="2016-02-19T11:45:33Z">2016-02-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a46.html" class="web-link">v1.0.0-a46 — </a>
+    <time datetime="2016-02-12T22:33:36Z">2016-02-12</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a44.html" class="web-link">v1.0.0-a44</a>
+    <time datetime="2016-02-10T22:04:32Z">2016-02-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a45.html" class="web-link">v1.0.0-a45 — </a>
+    <time datetime="2016-02-10T21:54:16Z">2016-02-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a43.html" class="web-link">v1.0.0-a43 — </a>
+    <time datetime="2016-02-10T15:03:37Z">2016-02-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a42.html" class="web-link">v1.0.0-a42 — </a>
+    <time datetime="2016-02-02T16:18:41Z">2016-02-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a41.html" class="web-link">v1.0.0-a41</a>
+    <time datetime="2016-01-30T12:36:18Z">2016-01-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a40.html" class="web-link">v1.0.0-a40</a>
+    <time datetime="2016-01-30T09:31:24Z">2016-01-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a39.html" class="web-link">v1.0.0-a39 — </a>
+    <time datetime="2016-01-28T16:16:31Z">2016-01-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a38.html" class="web-link">v1.0.0-a38</a>
+    <time datetime="2016-01-28T15:21:20Z">2016-01-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a37.html" class="web-link">v1.0.0-a37 — [broken do not use]</a>
+    <time datetime="2016-01-28T00:03:36Z">2016-01-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a36.html" class="web-link">v1.0.0-a36 — </a>
+    <time datetime="2016-01-03T17:35:26Z">2016-01-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a35.html" class="web-link">v1.0.0-a35 — </a>
+    <time datetime="2016-01-02T17:15:56Z">2016-01-02</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a34.html" class="web-link">v1.0.0-a34 — </a>
+    <time datetime="2015-12-28T14:35:52Z">2015-12-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a33.html" class="web-link">v1.0.0-a33 — </a>
+    <time datetime="2015-12-27T17:09:13Z">2015-12-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a32.html" class="web-link">v1.0.0-a32 — </a>
+    <time datetime="2015-12-27T13:32:21Z">2015-12-27</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a31.html" class="web-link">v1.0.0-a31 — </a>
+    <time datetime="2015-12-05T22:23:18Z">2015-12-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a30.html" class="web-link">v1.0.0-a30</a>
+    <time datetime="2015-11-19T13:01:02Z">2015-11-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a29.html" class="web-link">v1.0.0-a29 — </a>
+    <time datetime="2015-11-18T13:04:48Z">2015-11-18</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a28.html" class="web-link">v1.0.0-a28 — </a>
+    <time datetime="2015-11-18T08:24:10Z">2015-11-18</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a27.html" class="web-link">v1.0.0-a27 — </a>
+    <time datetime="2015-11-17T18:59:22Z">2015-11-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a25.html" class="web-link">v1.0.0-a25 — </a>
+    <time datetime="2015-11-17T17:06:35Z">2015-11-17</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a24.2.html" class="web-link">v1.0.0-a24.2</a>
+    <time datetime="2015-11-11T16:03:52Z">2015-11-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a24.1.html" class="web-link">v1.0.0-a24.1</a>
+    <time datetime="2015-11-11T14:59:42Z">2015-11-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a24.3.html" class="web-link">v1.0.0-a24.3 — </a>
+    <time datetime="2015-11-11T14:14:57Z">2015-11-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a24.html" class="web-link">v1.0.0-a24</a>
+    <time datetime="2015-11-11T13:53:13Z">2015-11-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a23.html" class="web-link">v1.0.0-a23 — </a>
+    <time datetime="2015-11-10T17:40:51Z">2015-11-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a22.html" class="web-link">v1.0.0-a22 — </a>
+    <time datetime="2015-11-10T07:42:08Z">2015-11-10</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a21.html" class="web-link">v1.0.0-a21</a>
+    <time datetime="2015-11-09T23:02:31Z">2015-11-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a20.html" class="web-link">v1.0.0-a20 — </a>
+    <time datetime="2015-11-09T21:42:16Z">2015-11-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a19.html" class="web-link">v1.0.0-a19 — </a>
+    <time datetime="2015-11-09T20:05:31Z">2015-11-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/v1.0.0-a18.html" class="web-link">v1.0.0-a18 — </a>
+    <time datetime="2015-11-08T23:22:28Z">2015-11-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a17.html" class="web-link">1.0.0-a17</a>
+    <time datetime="2015-11-08T18:10:59Z">2015-11-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a16.html" class="web-link">1.0.0-a16</a>
+    <time datetime="2015-10-29T09:22:21Z">2015-10-29</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a15.html" class="web-link">1.0.0-a15</a>
+    <time datetime="2015-10-22T19:18:50Z">2015-10-22</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a14.html" class="web-link">1.0.0-a14</a>
+    <time datetime="2015-10-21T17:27:32Z">2015-10-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a13.html" class="web-link">1.0.0-a13 — </a>
+    <time datetime="2015-10-19T15:29:15Z">2015-10-19</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a9.html" class="web-link">1.0.0-a9</a>
+    <time datetime="2015-10-07T15:21:14Z">2015-10-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a8.html" class="web-link">1.0.0-a8</a>
+    <time datetime="2015-10-07T12:12:05Z">2015-10-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a7.html" class="web-link">1.0.0-a7</a>
+    <time datetime="2015-10-06T22:54:14Z">2015-10-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a6.html" class="web-link">1.0.0-a6</a>
+    <time datetime="2015-10-06T20:24:00Z">2015-10-06</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a5.html" class="web-link">1.0.0-a5</a>
+    <time datetime="2015-10-05T18:17:46Z">2015-10-05</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a4.html" class="web-link">1.0.0-a4 — </a>
+    <time datetime="2015-10-04T20:33:48Z">2015-10-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a3.html" class="web-link">1.0.0-a3 — </a>
+    <time datetime="2015-09-21T16:55:51Z">2015-09-21</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a2.html" class="web-link">1.0.0-a2 — </a>
+    <time datetime="2015-09-15T07:09:42Z">2015-09-15</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a1.html" class="web-link">1.0.0-a1</a>
+    <time datetime="2015-09-14T12:58:22Z">2015-09-14</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/1.0.0-a0.html" class="web-link">1.0.0-a0 — </a>
+    <time datetime="2015-09-11T16:45:13Z">2015-09-11</time>
+    
+  </li>
+  
+</ul>
+      <h2 id="version-0">
+        
+        
+          <a href="#version-0" class="anchor-heading" aria-labelledby="version-0"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Version 0.x
+        
+        
+      </h2>
+    
+<ul class="release-list">
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a14.html" class="web-link">0.3a14 — </a>
+    <time datetime="2015-09-11T15:50:26Z">2015-09-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a13.html" class="web-link">0.3a13 — </a>
+    <time datetime="2015-09-11T14:42:05Z">2015-09-11</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a12.html" class="web-link">0.3a12 — </a>
+    <time datetime="2015-09-09T16:45:46Z">2015-09-09</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a11.html" class="web-link">0.3a11 — </a>
+    <time datetime="2015-09-08T15:40:37Z">2015-09-08</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a10.html" class="web-link">0.3a10 — </a>
+    <time datetime="2015-09-07T15:02:43Z">2015-09-07</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a9.html" class="web-link">0.3a9 — </a>
+    <time datetime="2015-09-04T16:33:26Z">2015-09-04</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a8.html" class="web-link">0.3a8 — </a>
+    <time datetime="2015-09-03T10:56:03Z">2015-09-03</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a7.html" class="web-link">0.3a7 — </a>
+    <time datetime="2015-09-01T11:32:37Z">2015-09-01</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a6.html" class="web-link">0.3a6 — </a>
+    <time datetime="2015-08-31T10:58:10Z">2015-08-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a5.html" class="web-link">0.3a5</a>
+    <time datetime="2015-08-31T08:01:14Z">2015-08-31</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a4.html" class="web-link">0.3a4</a>
+    <time datetime="2015-08-30T13:00:07Z">2015-08-30</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a3.html" class="web-link">0.3a3 — </a>
+    <time datetime="2015-08-28T12:43:13Z">2015-08-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a2.html" class="web-link">0.3a2 — </a>
+    <time datetime="2015-08-28T08:02:04Z">2015-08-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a1.html" class="web-link">0.3a1 — </a>
+    <time datetime="2015-07-28T15:43:06Z">2015-07-28</time>
+    
+  </li>
+  
+  <li>
+    <a href="/score-docs/reference/changelog/0.3a0.html" class="web-link">0.3a0</a>
+    <time datetime="2015-07-20T09:47:24Z">2015-07-20</time>
+    
+  </li>
+  
+</ul>
+      <h2 id="continuous-builds">
+        
+        
+          <a href="#continuous-builds" class="anchor-heading" aria-labelledby="continuous-builds"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Continuous builds
+        
+        
+      </h2>
+    
+
+<p>Development builds, updated between releases.</p>
+
+<ul class="release-list">
+  
+  <li>
+    <a href="/score-docs/reference/changelog/continuous.html" class="web-link">continuous — Continuous</a>
+    <time datetime="2021-06-04T23:37:24Z">2021-06-04</time>
+    <span class="label label-yellow">Development build</span>
+  </li>
+  
+</ul>
+
+        
+
+        
+
+        
+          <hr>
+          <footer>
+            
+            <p style="text-align: left;" class="main-content">See an issue on this page ? Help us by fixing it <a href="https://github.com/ossia/score-docs/edit/master/docs/reference-manual/references/changelog.md">here</a> !</p>
+            
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+            
+              <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="https://ossia.io">ossia.io</a> © ossia 2021</p>
+            
+            <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="/privacy.html">Privacy policy</a> · <button type="button" data-consent-settings hidden>Cookie settings</button></p>
+
+            
+              <div class="d-flex mt-2">
+                
+              </div>
+            
+          </footer>
+        
+
+      </main>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
+

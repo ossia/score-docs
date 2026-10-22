@@ -1,0 +1,1895 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="icon" href="/score-docs/assets/images/favicon-48.png" type="image/png" sizes="48x48">
+
+  <link rel="stylesheet" href="/score-docs/assets/css/just-the-docs-default.css">
+  <!-- Fonts and cookie consent come from the main ossia.io website, so that the
+       choice made there also applies here (same origin). Google Analytics is only
+       loaded after consent: see /js/consent-head.js and /js/consent.js on ossia.io. -->
+  <!-- Neither blocks the first render: the font is preloaded and swaps in, and the
+       banner only appears once /js/consent.js has run. -->
+  <link rel="preload" href="/assets/fonts/catamaran-100-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css" media="print" onload="this.media = 'all'">
+  <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
+  <link rel="stylesheet" href="/css/consent.css" media="print" onload="this.media = 'all'">
+  <script defer src="/js/consent-head.js"></script>
+  <script defer src="/js/consent.js"></script>
+  
+
+  
+    <script src="/score-docs/assets/js/vendor/lunr.min.js" defer></script>
+  
+  <script src="/score-docs/assets/js/just-the-docs.js" defer></script>
+  <script src="/score-docs/assets/js/looping-videos.js" defer></script>
+  <script src="/score-docs/assets/js/enhancements.js" defer></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.1 -->
+<title>v3.9.0 | score documentation</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="v3.9.0" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ossia score v3.9.0 release notes" />
+<meta name="twitter:description" property="og:description" content="ossia score v3.9.0 release notes" />
+<link rel="canonical" href="https://ossia.io/score-docs/reference/changelog/v3.9.0.html" />
+<meta property="og:url" content="https://ossia.io/score-docs/reference/changelog/v3.9.0.html" />
+<meta property="og:site_name" content="score documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="v3.9.0" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ossia score v3.9.0 release notes","headline":"v3.9.0","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ossia.io/score-docs/assets/images/score-logo.png"}},"url":"https://ossia.io/score-docs/reference/changelog/v3.9.0.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewbox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewbox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewbox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://ossia.io/score-docs/" class="site-title lh-tight">
+  <div class="site-logo">
+  </div>
+  <h2 class="software">ossia</h2>
+
+</a>
+      <a href="#" id="menu-button" class="site-button" aria-label="Menu">
+        <svg viewbox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list">
+<li class="nav-list-item"><a href="https://ossia.io/score-docs/" class="nav-list-link">Home</a></li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Quick start"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/quick-start" class="nav-list-link">Quick start</a><ul class="nav-list ">
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/installation.html" class="nav-list-link">Installation</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/what-is-score.html" class="nav-list-link">What is score ?</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/interface-overview.html" class="nav-list-link">Interface overview</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-devices.html" class="nav-list-link">Working with devices</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/saving-and-recalling-devices-state.html" class="nav-list-link">Saving &amp; recalling devices' state</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/writing-automations.html" class="nav-list-link">Writing automations</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/states-and-automations-in-practice.html" class="nav-list-link">States &amp; automations in practice</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-audio.html" class="nav-list-link">Working with audio</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/working-with-video.html" class="nav-list-link">Working with video</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/breaking-the-timeline.html" class="nav-list-link">Breaking the timeline</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/non-linear-timelines.html" class="nav-list-link">Non-linear timeline</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/quick-start/using-score-in-the-browser.html" class="nav-list-link">Using score in the browser</a></li>
+</ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Common practices"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/common-practices" class="nav-list-link">Common practices</a><ul class="nav-list ">
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/1-looping.html" class="nav-list-link">Looping</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/2-switches.html" class="nav-list-link">Switches</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/3-out-of-time.html" class="nav-list-link">Out-of-time triggering</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/6-scenes.html" class="nav-list-link">Scenes</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/4-audio.html" class="nav-list-link">Audio techniques</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/5-video.html" class="nav-list-link">Video techniques</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/7-start-stop-cues.html" class="nav-list-link">Start/stop cues</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/8-live-coding.html" class="nav-list-link">Live coding</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/9-seek-and-transport.html" class="nav-list-link">Seek and transport</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/10-livestreaming.html" class="nav-list-link">Livestreaming</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/11-video-mixing-and-mapping.html" class="nav-list-link">Video mixing and mapping</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/12-data-processing.html" class="nav-list-link">Data processing and filtering</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/13-led-design.html" class="nav-list-link">LED design</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/common-practices/14-spatial-audio.html" class="nav-list-link">Spatial audio techniques</a></li>
+</ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under In depth"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth" class="nav-list-link">In depth</a><ul class="nav-list ">
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/3d-scene-pipeline.html" class="nav-list-link">3D scene pipeline</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/unit-system.html" class="nav-list-link">Address system</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/audio-routing.html" class="nav-list-link">Audio routing</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/automations.html" class="nav-list-link">Automations</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/cues.html" class="nav-list-link">Cues</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/custom-ui.html" class="nav-list-link">Custom UI</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/embedded.html" class="nav-list-link">Embedded devices</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/execution.html" class="nav-list-link">Execution engine</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/video.html" class="nav-list-link">Graphics pipeline</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/midi.html" class="nav-list-link">MIDI support</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/media.html" class="nav-list-link">Media management</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/modular-workflow.html" class="nav-list-link">Modular workflow</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/musical.html" class="nav-list-link">Musical metrics</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/package-manager.html" class="nav-list-link">Package manager</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/pattern-matching.html" class="nav-list-link">Pattern matching</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/polyphony.html" class="nav-list-link">Polyphonic behaviours</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/presets.html" class="nav-list-link">Presets</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/docs/advanced/puredata.html" class="nav-list-link">Pure Data (redirect)</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/recording.html" class="nav-list-link">Recording</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/remote.html" class="nav-list-link">Remote Control</a></li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Scripting"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/in-depth/scripting.html" class="nav-list-link">Scripting</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/in-depth/qml-protocols.html" class="nav-list-link">QML protocols</a>
+                  </li></ul>
+</li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/scripting-api.html" class="nav-list-link">Scripting API</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/in-depth/shader-cookbook.html" class="nav-list-link">Shader cookbook</a></li>
+</ul>
+</li>
+<li class="nav-list-item active">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Reference"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference" class="nav-list-link">Reference</a><ul class="nav-list ">
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Processes"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/processes.html" class="nav-list-link">Processes</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/2Dspline.html" class="nav-list-link">2D Spline</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/3d-text.html" class="nav-list-link">3D text</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/adsr.html" class="nav-list-link">ADSR</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-composer.html" class="nav-list-link">AI Prompt Composer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-prompt-interpolator.html" class="nav-list-link">AI Prompt Interpolator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ai-recognition.html" class="nav-list-link">AI Recognition</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/accumulator.html" class="nav-list-link">Accumulator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/analysis.html" class="nav-list-link">Analysis</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/arpeggiator.html" class="nav-list-link">Arpeggiator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-to-mesh.html" class="nav-list-link">Array to mesh</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-to-texture.html" class="nav-list-link">Array to texture</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/array-utilities.html" class="nav-list-link">Array utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/asset-loader.html" class="nav-list-link">Asset Loader</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-effects.html" class="nav-list-link">Audio Effects</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-particles.html" class="nav-list-link">Audio Particles</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-looper.html" class="nav-list-link">Audio looper</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-plugins.html" class="nav-list-link">Audio plugins</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-recorder.html" class="nav-list-link">Audio recorder</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/audio-utilities.html" class="nav-list-link">Audio utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/automation_float.html" class="nav-list-link">Automation (float)</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/barrverb.html" class="nav-list-link">BarrVerb</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/beat-tracker.html" class="nav-list-link">Beat Tracker</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/buffer-queue.html" class="nav-list-link">Buffer queue</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/buffers-to-geometry.html" class="nav-list-link">Buffers to geometry</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/bytebeat.html" class="nav-list-link">Bytebeat</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/cpp_jit.html" class="nav-list-link">C++ JIT</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/csv-recorder.html" class="nav-list-link">CSV recorder</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/calibrator.html" class="nav-list-link">Calibrator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-camera-light.html" class="nav-list-link">Cameras and lighting</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/classifier.html" class="nav-list-link">Classifier</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/compute-shaders.html" class="nav-list-link">Compute Shaders</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/computer-vision-utilities.html" class="nav-list-link">Computer Vision utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/context-free-art.html" class="nav-list-link">Context-Free Art</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/controlsurface.html" class="nav-list-link">Control surface</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/control-utilities.html" class="nav-list-link">Control utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/dbap.html" class="nav-list-link">DBAP</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/display-utilities.html" class="nav-list-link">Display Utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/easetanbul.html" class="nav-list-link">Easetanbul</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/entity-to-midi.html" class="nav-list-link">Entity To MIDI</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/envelope-follower.html" class="nav-list-link">Envelope Follower</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-environment.html" class="nav-list-link">Environments and cubemaps</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/extract-buffer.html" class="nav-list-link">Extract buffer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/faust.html" class="nav-list-link">Faust</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/metronome.html" class="nav-list-link">Free Metronome</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gbap.html" class="nav-list-link">GBAP</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geo-zones.html" class="nav-list-link">Geo Zones</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geometry-info.html" class="nav-list-link">Geometry Info</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/geometry-utilities.html" class="nav-list-link">Geometry and buffer utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gestures.html" class="nav-list-link">Gestures</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient.html" class="nav-list-link">Gradient</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/gradient-scrubber.html" class="nav-list-link">Gradient Scrubber</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/graphics-utilities.html" class="nav-list-link">Graphics Utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/hdf5.html" class="nav-list-link">HDF5 Support</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shaders.html" class="nav-list-link">ISF Shaders</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/image.html" class="nav-list-link">Image process</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-instancing-materials.html" class="nav-list-link">Instancing and materials</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/interpolator.html" class="nav-list-link">Interpolator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/javascript.html" class="nav-list-link">Javascript</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/led-view.html" class="nav-list-link">LED View</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/lfo.html" class="nav-list-link">LFO</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ltc-generator.html" class="nav-list-link">LTC Generator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/ltc-input.html" class="nav-list-link">LTC Input</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-envelope.html" class="nav-list-link">MIDI Envelope</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-reader.html" class="nav-list-link">MIDI File Reader</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scaler.html" class="nav-list-link">MIDI File Scaler</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-file-scroller.html" class="nav-list-link">MIDI File Scroller</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-filter.html" class="nav-list-link">MIDI Filter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-humanize.html" class="nav-list-link">MIDI Humanize</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-timecode-input.html" class="nav-list-link">MIDI Sync In</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-sync.html" class="nav-list-link">MIDI Sync Out</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-display.html" class="nav-list-link">MIDI display</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-utilities.html" class="nav-list-link">MIDI utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping.html" class="nav-list-link">Mapping (float)</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-curve.html" class="nav-list-link">Mapping Curve</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-tool.html" class="nav-list-link">Mapping tool</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/mapping-utilities.html" class="nav-list-link">Mapping utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/exprtk.html" class="nav-list-link">Math expressions</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix.html" class="nav-list-link">Matrix</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/matrix-spatialization.html" class="nav-list-link">Matrix Spatialization</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/melodial.html" class="nav-list-link">Melodial</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/meshes.html" class="nav-list-link">Mesh generators and splats</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/midi-quantify.html" class="nav-list-link">Midi Quantify</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/model-display.html" class="nav-list-link">Model display</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multicursor.html" class="nav-list-link">Multi-Cursor Manager</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/multi-choice.html" class="nav-list-link">Multi-choice</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/nodes.html" class="nav-list-link">Nodes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-filter.html" class="nav-list-link">Object filter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/object-loader.html" class="nav-list-link">Object loader</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pathgenerator.html" class="nav-list-link">Path Generator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-applier.html" class="nav-list-link">Pattern Applier</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pattern-combiner.html" class="nav-list-link">Pattern Combiner</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternal.html" class="nav-list-link">Patternal</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/patternist.html" class="nav-list-link">Patternist</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/piano-roll.html" class="nav-list-link">Piano roll</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/pixel-utilities.html" class="nav-list-link">Pixel Utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point-tracker.html" class="nav-list-link">Point Tracker</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/point2d-view.html" class="nav-list-link">Point2D View</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/poles.html" class="nav-list-link">Poles</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/process-launcher.html" class="nav-list-link">Process Launcher</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/puredata.html" class="nav-list-link">Pure Data integration</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/qwen-llm.html" class="nav-list-link">Qwen LLM</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/range-filter.html" class="nav-list-link">Range filter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rate-limiter.html" class="nav-list-link">Rate Limiter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regex.html" class="nav-list-link">Regex</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/regressor.html" class="nav-list-link">Regressor</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/render-pipeline.html" class="nav-list-link">Render Pipeline</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/rendezvous.html" class="nav-list-link">Rendezvous</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/repack-attributes.html" class="nav-list-link">Repack attributes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scenario.html" class="nav-list-link">Scenario</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-preprocessor.html" class="nav-list-link">Scene Preprocessor</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-animation.html" class="nav-list-link">Scene animation</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/scene-tools.html" class="nav-list-link">Scene tools</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/shell-command.html" class="nav-list-link">Shell command</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/signal-display.html" class="nav-list-link">Signal Display</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sink.html" class="nav-list-link">Sink</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/smooth.html" class="nav-list-link">Smooth</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/soundfile.html" class="nav-list-link">Soundfiles</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/spammer.html" class="nav-list-link">Spammer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sprite-reader.html" class="nav-list-link">Sprite Reader</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/step.html" class="nav-list-link">Step sequencer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/streamdiffusion.html" class="nav-list-link">StreamDiffusion</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/string-bytes.html" class="nav-list-link">String / byte conversion</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/structure-synth.html" class="nav-list-link">Structure Synth</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/sweeper.html" class="nav-list-link">Sweeper</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/switch.html" class="nav-list-link">Switch</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/synthimi.html" class="nav-list-link">Synthimi</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/table.html" class="nav-list-link">Tables</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/teleplot.html" class="nav-list-link">Teleplot</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tempo.html" class="nav-list-link">Tempo</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text-box.html" class="nav-list-link">Text Box</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/text.html" class="nav-list-link">Text process</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texgen.html" class="nav-list-link">Texture generator</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/texture-to-buffer.html" class="nav-list-link">Texture to buffer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/timecode-synchronizer.html" class="nav-list-link">Timecode Synchronizer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/trigger.html" class="nav-list-link">Trigger</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/tweener.html" class="nav-list-link">Tweener</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vu-meter.html" class="nav-list-link">VU Meter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-display.html" class="nav-list-link">Value Display</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-filter.html" class="nav-list-link">Value Filter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-delay.html" class="nav-list-link">Value delay</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/value-serialization.html" class="nav-list-link">Value serialization</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video.html" class="nav-list-link">Video</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/video-formats-color.html" class="nav-list-link">Video formats and color</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/wavecycle.html" class="nav-list-link">Wavecycle</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/processes/xwax-dvs.html" class="nav-list-link">XWax DVS</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Devices"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/devices.html" class="nav-list-link">Devices</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/artnet-device.html" class="nav-list-link">Art-Net device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/audio-device.html" class="nav-list-link">Audio device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ble-device.html" class="nav-list-link">BLE device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/companion-device.html" class="nav-list-link">Bitfocus Companion Device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/can-device.html" class="nav-list-link">CAN device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/camera-device.html" class="nav-list-link">Camera device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/coap-device.html" class="nav-list-link">CoAP Device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/depth-camera-device.html" class="nav-list-link">Depth cameras</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/evdev-device.html" class="nav-list-link">Evdev device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gps-device.html" class="nav-list-link">GPS device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gphoto-device.html" class="nav-list-link">GPhoto2 DSLR device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/gstreamer-device.html" class="nav-list-link">GStreamer device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/http-device.html" class="nav-list-link">HTTP device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/joystick-device.html" class="nav-list-link">Joystick device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/kinect-device.html" class="nav-list-link">Kinect device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/led-device.html" class="nav-list-link">LED device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/lsl-device.html" class="nav-list-link">LSL device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/leapmotion-device.html" class="nav-list-link">Leapmotion device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libav-device.html" class="nav-list-link">Libav device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/libmapper-device.html" class="nav-list-link">Libmapper client</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/local-device.html" class="nav-list-link">Local device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midi-controller-device.html" class="nav-list-link">MIDI Controller device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiin-device.html" class="nav-list-link">MIDI input device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/midiout-device.html" class="nav-list-link">MIDI output device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mqtt-device.html" class="nav-list-link">MQTT Device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/mapper-device.html" class="nav-list-link">Mapper device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/minuit-device.html" class="nav-list-link">Minuit device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ndi-device.html" class="nav-list-link">NDI devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/osc-device.html" class="nav-list-link">OSC device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/oscquery-device.html" class="nav-list-link">OSCQuery device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/phidgets-device.html" class="nav-list-link">Phidgets device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/pipewire-device.html" class="nav-list-link">PipeWire video devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/rawio-device.html" class="nav-list-link">Raw I/O device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/serial-device.html" class="nav-list-link">Serial device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/sh4lt-device.html" class="nav-list-link">Sh4lt devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/shmdata-device.html" class="nav-list-link">Shmdata devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spatgris-device.html" class="nav-list-link">Spatialization device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/spout-device.html" class="nav-list-link">Spout devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/syphon-device.html" class="nav-list-link">Syphon devices</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/tracking-device.html" class="nav-list-link">Tracking protocols</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/ws-device.html" class="nav-list-link">WebSocket device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/wiimote-device.html" class="nav-list-link">Wiimote device</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/devices/window-device.html" class="nav-list-link">Window device</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Languages"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/reference/languages.html" class="nav-list-link">Languages</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript.html" class="nav-list-link">JavaScript and QML</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript-editor.html" class="nav-list-link">JavaScript editor API</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/javascript-ui.html" class="nav-list-link">QML custom UI API</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/qml-devices.html" class="nav-list-link">QML device API</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/qml-protocols.html" class="nav-list-link">QML transport API</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/exprtk.html" class="nav-list-link">ExprTK language</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/jq-jk.html" class="nav-list-link">jq and Jk</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/cpp.html" class="nav-list-link">C++ native code</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/regex.html" class="nav-list-link">RE2 regular expressions</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/faust.html" class="nav-list-link">Faust language</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/jsfx.html" class="nav-list-link">JSFX and EEL2</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/puredata.html" class="nav-list-link">Pure Data patch language</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/bytebeat.html" class="nav-list-link">Bytebeat expressions</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/glsl.html" class="nav-list-link">GLSL runtime reference</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/isf.html" class="nav-list-link">ISF language reference</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/csf.html" class="nav-list-link">CSF language reference</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/raw-raster.html" class="nav-list-link">Raw raster shader reference</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/vertex-shader-art.html" class="nav-list-link">Vertex Shader Art reference</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/geometry-filter.html" class="nav-list-link">Geometry filter shaders</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/eisenscript.html" class="nav-list-link">EisenScript</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/context-free.html" class="nav-list-link">Context Free and CFDG</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/reference/languages/external-scripts.html" class="nav-list-link">External script languages</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Panels"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/panels.html" class="nav-list-link">Panels</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/console.html" class="nav-list-link">Console</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/explorer.html" class="nav-list-link">Device explorer</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/inspector.html" class="nav-list-link">Inspector</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/library.html" class="nav-list-link">Library</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/panels/mixer.html" class="nav-list-link">Mixer</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/protocols-and-formats.html" class="nav-list-link">Supported protocols and formats</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/editing-workflow.html" class="nav-list-link">Editing workflow</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/time-chooser.html" class="nav-list-link">Time Chooser</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/shortcuts.html" class="nav-list-link">Shortcuts</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/preferences.html" class="nav-list-link">Score preferences</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/appearance.html" class="nav-list-link">Appearance and skins</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/project-files.html" class="nav-list-link">Project files</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/commandline.html" class="nav-list-link">Command line API</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/add-ons.html" class="nav-list-link">Add-ons</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/reference/glossary.html" class="nav-list-link">Glossary</a></li>
+<li class="nav-list-item  active"><a href="https://ossia.io/score-docs/reference/changelog.html" class="nav-list-link">Changelog</a></li>
+</ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Examples"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples" class="nav-list-link">Examples</a><ul class="nav-list ">
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under 3D Graphics"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/3d" class="nav-list-link">3D Graphics</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/threedim.html" class="nav-list-link">3D meshes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/array-to-mesh.html" class="nav-list-link">Array to triangle mesh</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/audioreactive-geometry.html" class="nav-list-link">Audio-reactive point geometry</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/audioreactive-volumetric.html" class="nav-list-link">Audio-reactive volume</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/camera-switching.html" class="nav-list-link">Blending native scene cameras</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-rendering-pipelines.html" class="nav-list-link">Comparing native render pipelines</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/curl-noise.html" class="nav-list-link">Curl Noise Geometry Filter</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/voxels.html" class="nav-list-link">Deforming a voxel model</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-depth-effects.html" class="nav-list-link">Depth halftone and neon outlines</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/extract-attribute.html" class="nav-list-link">Extract Attribute</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-graph-filter.html" class="nav-list-link">Filtering imported scene nodes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/nbody.html" class="nav-list-link">GPU particle forces</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/3d-point-trail.html" class="nav-list-link">GPU point trail</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/3dgs.html" class="nav-list-link">Gaussian splat scene</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generate-array.html" class="nav-list-link">Generate Array</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/generative-3d.html" class="nav-list-link">Generative arc sphere</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/volumetric-texture-to-points.html" class="nav-list-link">Heat volume to point cloud</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/image-to-pointcloud.html" class="nav-list-link">Image to point cloud</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/maxicube.html" class="nav-list-link">Massive Particle System</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/math-to-geometry.html" class="nav-list-link">Math arrays to GPU geometry</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza-dof.html" class="nav-list-link">Native Sponza with depth of field</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/instancing-full.html" class="nav-list-link">Native instancing gallery</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/scene-gltf-instancing.html" class="nav-list-link">Orbiting glTF instances</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/custom-pbr.html" class="nav-list-link">Procedural PBR material</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sphere-splat-feedback.html" class="nav-list-link">Sphere splats with texture feedback</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/sponza.html" class="nav-list-link">Sponza Palace</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/ssynth.html" class="nav-list-link">Structure Synth Example</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/text-to-mesh.html" class="nav-list-link">Text to deformed mesh</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/js-texture-inlet.html" class="nav-list-link">Texture Inlet in Qt Quick 3D</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/volumetric-textures.html" class="nav-list-link">Volumetric texture viewers</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/voxel-loader-and-sky.html" class="nav-list-link">Voxels with procedural sky</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/3d/gltf-checkers.html" class="nav-list-link">glTF Scene with Effects</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under AI and tracking"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/ai" class="nav-list-link">AI and tracking</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/pose-detection.html" class="nav-list-link">Face landmarks and radial blur</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/tracking-to-geometry.html" class="nav-list-link">Face tracking to native geometry</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/ai/tracking-to-midi.html" class="nav-list-link">Tracking zones to MIDI</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Advanced"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/advanced" class="nav-list-link">Advanced</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/cpu-data-bending.html" class="nav-list-link">CPU data bending</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/data-visualization.html" class="nav-list-link">Data visualization and sonification</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/files-and-strings.html" class="nav-list-link">Files, strings and serialization</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/gpu-data-bending.html" class="nav-list-link">GPU data bending</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/livecoding.html" class="nav-list-link">Livecoding processes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/advanced/pipeline-switching.html" class="nav-list-link">Switch audio and video pipelines</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Audio"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/audio" class="nav-list-link">Audio</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/synths.html" class="nav-list-link">Arranging synth patterns with triggers</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/audiofx.html" class="nav-list-link">Audio Effects Example</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/faust-synthesis.html" class="nav-list-link">Faust Synthesis example</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/granular.html" class="nav-list-link">Granular synthesis approaches</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/looper.html" class="nav-list-link">Live audio looper with drum backing</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/midi-fx.html" class="nav-list-link">MIDI effects and arpeggiation</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/polyphony.html" class="nav-list-link">Multichannel audio and per-channel controls</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/pd-integration.html" class="nav-list-link">PureData Example</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/scales.html" class="nav-list-link">Scala tuning and Wavecycle</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/audio/more-audiofx.html" class="nav-list-link">Sequencing audio effects</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Automation"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/automation" class="nav-list-link">Automation</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/modulation.html" class="nav-list-link">Device modulation</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/automation/smoothing.html" class="nav-list-link">Smoothing and filtering</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Basics"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/basics" class="nav-list-link">Basics</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/osc.html" class="nav-list-link">Basic OSC example</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeflo.html" class="nav-list-link">Basic timeline</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/combine-spread-mux-demux.html" class="nav-list-link">Combining lists and selecting routes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/cues.html" class="nav-list-link">Cues, loops and exclusive playback</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/monitoring.html" class="nav-list-link">Monitoring values, MIDI, audio and textures</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/all-media.html" class="nav-list-link">Multi-media patching</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/process-cues-and-automations.html" class="nav-list-link">Process presets, cues and automations</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/recording.html" class="nav-list-link">Recording sensor messages and automations</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/delayed.html" class="nav-list-link">Temporal patching (delayed)</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/glutton.html" class="nav-list-link">Temporal patching (glutton)</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel-patterns.html" class="nav-list-link">Temporal patterns and synchronization</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timemodel.html" class="nav-list-link">Time model</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/timeline-and-patches.html" class="nav-list-link">Timeline and patches</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/basics/interpolation.html" class="nav-list-link">Weighted and time-based interpolation</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Data processing"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/data" class="nav-list-link">Data processing</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/address-tools.html" class="nav-list-link">Address pattern tools</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/value-feedback.html" class="nav-list-link">Delayed value feedback</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/mapping-overview.html" class="nav-list-link">Mapping and event utilities</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/data/maths-and-objects.html" class="nav-list-link">Math expressions and structured objects</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Device Examples"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/devices" class="nav-list-link">Device Examples</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/gamepad.html" class="nav-list-link">Gamepad control</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/http-llm.html" class="nav-list-link">HTTP chat API and rendered text</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi-mapping.html" class="nav-list-link">MIDI controls for a shader</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi.html" class="nav-list-link">MIDI notes, controls and timeline triggers</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/synths.html" class="nav-list-link">MIDI synth and drum effects patch</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/osc.html" class="nav-list-link">OSC values controlling a native 3D scene</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/midi-to-synths.html" class="nav-list-link">Playing synths on MIDI channels 1 and 10</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/sensors2osc.html" class="nav-list-link">Sensors2OSC phone control</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/slack.html" class="nav-list-link">Slack messages through Companion</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/devices/samplers.html" class="nav-list-link">Soundfonts, drum kits and a single-file sampler</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Tempo Examples"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/tempo" class="nav-list-link">Tempo Examples</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/tempo/tempo-control.html" class="nav-list-link">Tempo manipulation</a>
+                  </li></ul>
+</li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Video Examples"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/examples/video" class="nav-list-link">Video Examples</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/audioreactive.html" class="nav-list-link">Audio-reactive visuals</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/traditional-computer-vision.html" class="nav-list-link">Camera blobs, contours and tracking</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/camera.html" class="nav-list-link">Camera input</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/compute-image.html" class="nav-list-link">Compute-rendered Clifford attractor</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/shader-texture-feedback.html" class="nav-list-link">Delayed shader texture feedback</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/ffmpeg-streaming.html" class="nav-list-link">FFmpeg input and output streams</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/analog-effects.html" class="nav-list-link">Layered analog-style effects</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-mapping-rect.html" class="nav-list-link">Mapping textures to editable shapes</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-mapping-multi-projector.html" class="nav-list-link">Multi-projector output mapping</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/multi-render-target.html" class="nav-list-link">Multiple shader render targets</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/2d-geometry-feedback-reaction-diffusion.html" class="nav-list-link">Reaction-diffusion geometry feedback</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-time-jamming.html" class="nav-list-link">Scrubbing video and scenario time</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/sound-and-image.html" class="nav-list-link">Timed sound and image effects</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-basics.html" class="nav-list-link">Video manipulation</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/examples/video/video-scale.html" class="nav-list-link">Video transforms and fitting</a>
+                  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Integrations"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/integrations" class="nav-list-link">Integrations</a><ul class="nav-list "><li class="nav-list-item "><a href="https://ossia.io/score-docs/integrations/blender.html" class="nav-list-link">Integrating with Blender</a></li></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Development"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development" class="nav-list-link">Development</a><ul class="nav-list ">
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/development/architecture.html" class="nav-list-link">Architecture</a></li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Building from source"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/build-from-source.html" class="nav-list-link">Building from source</a><ul class="nav-list">
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/wasm.html" class="nav-list-link">Building for WebAssembly</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/hacking.html" class="nav-list-link">Hacking</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/packaging.html" class="nav-list-link">Packaging</a>
+                  </li>
+<li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/build/release.html" class="nav-list-link">Release build</a>
+                  </li>
+</ul>
+</li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/development/custom-apps.html" class="nav-list-link">Custom applications</a></li>
+<li class="nav-list-item ">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under Plug-ins"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/development/plug-ins.html" class="nav-list-link">Plug-ins</a><ul class="nav-list"><li class="nav-list-item ">
+                    <a href="https://ossia.io/score-docs/development/plugins/plugins-with-avendish.html" class="nav-list-link">Plug-ins with Avendish</a>
+                  </li></ul>
+</li>
+</ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander" aria-label="Show or hide the pages under FAQ"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://ossia.io/score-docs/faq.html" class="nav-list-link">FAQ</a><ul class="nav-list ">
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/controlling-score-with-oscquery.html" class="nav-list-link">Controlling score with OSCQuery</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/monitor-activity.html" class="nav-list-link">How to monitor activity ?</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/nogui.html" class="nav-list-link">How to run score without GUI ?</a></li>
+<li class="nav-list-item "><a href="https://ossia.io/score-docs/faq/linux.html" class="nav-list-link">Running on Linux</a></li>
+</ul>
+</li>
+<li class="nav-list-item"><a href="https://ossia.io/score-docs/troubleshooting.html" class="nav-list-link">Troubleshooting</a></li>
+</ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search score documentation" aria-label="Search score documentation" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/reference">Reference</a></li>
+                <li class="breadcrumb-nav-list-item"><a href="https://ossia.io/score-docs/reference/changelog.html">Changelog</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>v3.9.0</span></li>
+            </ol>
+          </nav>
+        
+      
+      <main id="main-content" class="main-content">
+        
+          <article class="release-page">
+      <h1>
+        
+        
+          v3.9.0
+        
+        
+      </h1>
+    
+  <p class="release-meta">
+    <strong>v3.9.0</strong>
+    · <time datetime="2026-10-15T20:33:28Z">October 15, 2026</time>
+    
+  </p>
+  <p>
+    <a href="/score-docs/reference/changelog.html">All releases</a>
+    · <a href="https://github.com/ossia/score/releases/tag/v3.9.0">Original release on GitHub</a>
+    · <a href="https://github.com/ossia/score/releases/tag/v3.9.0#assets">Downloads on GitHub</a>
+  </p>
+  
+  <div class="release-content">
+    
+    
+      <p><a href="https://discord.gg/8Hzm4UduaS"><img src="/score-docs/assets/releases/4a700c69d9ea21dcf96ed628a94a900df1e245176b01502a3755faada96c2f54.svg" alt="Discord" loading="lazy" decoding="async"></a>  <a href="https://opencollective.com/ossia"><img src="/score-docs/assets/releases/499d673e561fd0ad93d0d7dd86ab0ccb0bf8f35e17c905f576f723181a1e5595.svg" alt="Open Collective backers and sponsors" loading="lazy" decoding="async"></a> <a href="https://github.com/sponsors/jcelerier"><img src="/score-docs/assets/releases/08e669210a94c7c0f5cae32c0a20e365009c383b8cfa303426ad132faaa3f184.svg" alt="GitHub Sponsors" loading="lazy" decoding="async"></a></p>
+<p><a href="https://ossia.io/">ossia score</a> is a sequencer for audio-visual artists, designed to create interactive shows.</p>
+<p>Sequence OSC, MIDI, DMX, sound, video and more, between multiple software and hardware. Create interactive and intermedia scores, script and live-code with JavaScript, <a href="https://isf.video/">ISF Shaders</a>, <a href="https://faust.grame.fr/">Faust</a>, PureData or C++. Leverage IoT protocols such as CoAP or MQTT, interact with joysticks, Wiimotes, Leapmotions, Web APIs and BLE sensors and integrate programs from a wealth of creative programming languages such as <a href="https://structuresynth.sourceforge.net/">Structure Synth</a>, <a href="https://www.contextfreeart.org/">Context-Free Art</a> and <a href="https://dollchan.net/bytebeat/">Bytebeat</a>. Load any kind of audio or video format and process visuals through Spout, Syphon, NDI, Shmdata or Sh4lt ; sonify large datasets with CSV and HDF5 support.</p>
+<p>ossia score 3.9.0 is a large release: highlights are a complete 3D pipeline, new video capture, streaming and tracking devices, advances on custom user interfaces, a more customizable look, along with dozens of new protocols, synthesizers and objects.</p>
+<p>Thanks to <a href="https://github.com/edumeneses">@edumeneses</a> <a href="https://github.com/bltzr">@bltzr</a> <a href="https://github.com/ogauthiersat">@ogauthiersat</a> <a href="https://github.com/cbicari">@cbicari</a> <a href="https://github.com/samamou">@samamou</a> <a href="https://github.com/darioriccio">@darioriccio</a> <a href="https://github.com/thibaudk">@thibaudk</a> <a href="https://github.com/aklevy">@aklevy</a> for the major contributions!</p>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/ossia/score/compare/v3.8.2...v3.9.0"><code>v3.8.2...v3.9.0</code></a></p>
+<p>This release has been mainly developed thanks to projects happening at the <a href="https://github.com/ossia/score/blob/v3.9.0/sat.qc.ca">Société des Arts Technologiques</a>. It is part of the <a href="https://suite.sat.qc.ca">Suite SAT</a>.<br>
+This release has benefited from a load-bearing sponsorship from Anthropic, granting free access to a Claude Max 20x plan during its development.</p>
+      <h1>
+        
+        
+          New features
+        
+        
+      </h1>
+    
+<ul>
+<li>3d: a complete 3D scene pipeline, not based on Qt Quick 3D. An Asset Loader reads glTF/GLB, FBX, STL, OFF and MagicaVoxel .vox (alongside OBJ and PLY) with their lights, cameras, glTF animations and skins, and FBX node animation. Scene-graph processes filter, tag, group, switch, duplicate and transform a scene, with material overrides and everything driven from the device tree.</li>
+<li>3d: new objects include Camera, Camera Array, Camera Switch, Light, Environment, PBR Mesh, Material Override, Transform 3D, Instancer, Text to Mesh, Text to Texture, Cubemap Loader and Composer, Animation Player, and Scene Inspector, with point clouds and gaussian splats supported throughout.</li>
+</ul>
+<details open="">
+  <summary>
+    
+    <span>3d-2026-10-15_22.07.49.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/65db4a1c7fc44bfcc63d9fc42c8103fb35587d18b95faceea152af3fbf3d023a.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>Instancing is supportd, including of glTF:</p>
+<details open="">
+  <summary>
+    
+    <span>instancing.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/dfb93fafb4b6802b19e76fd807a8a478d2e637a7969fc85c12c0d520ae8a1417.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>The entire pipeline runs on GPU, with zero CPU readback or processing, to enable massive instanced scenes that leverage compute shaders for generation and customizable render pipelines for rendering.</p>
+<details open="">
+  <summary>
+    
+    <span>particles.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/f8908df31560a53aa0d6d1401a12e17469402c39ff66157e45b05185e2a1373c.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>Support for volumetric (3D) textures is extensive:</p>
+<details open="">
+  <summary>
+    
+    <span>volumetric.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/fc30346085b711a5079d8ae82d0838a9a7c06d43e4057f6c1a84aa77b634101b.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>as well as for custom PBR materials.</p>
+<details open="">
+  <summary>
+    
+    <span>3d-2026-10-15_23.23.18.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/ee2331838dc9e6048154aa705ada21a560cccff3c5654e93792b48b198b407c4.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>The rendering system allows to render scenes with entirely user-defined scene processors: a single score can combine deferred, forward rendering, clustered forward, etc. : the engine doesn't impose or implement any specific rendering technique, they are all shader-based and part of the scores. This has been developed to enable computer graphics research in new rendering techniques, and opens the door to e.g. studies on spectral rendering, etc. Or, for more fun stuff, implementing PS1 or N64 rendering pipelines:</p>
+<details open="">
+  <summary>
+    
+    <span>3d-2026-10-15_23.24.44.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/75c0ffa642769dd0d26dde42c187e344598f7b06da5b60f71e4b7e0322e6457d.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<p>or gaussian splats, including less standard formats than traditional 3DGS (for instanc 2DGS etc.):</p>
+<details open="">
+  <summary>
+    
+    <span>splats.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/1d83ef46fb68e80cc663e79e4723962399017313d4b10d5e07ca59f7f6f60361.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<ul>
+<li>
+<p>about: the displayed version shows how many commits it is past the release and the branch, for example 3.8.2+42.</p>
+</li>
+<li>
+<p>ai: librediffusion adds StreamV2V and Flux.2 Klein (with inpainting and image editing), multi-step SDXL, img2img-turbo, ControlNet, IP-Adapter, a runtime LoRA scale, and multi-step CUDA graphs with DMD2, NitroFusion and RIFE presets (shipped in the future). See <a href="https://github.com/jcelerier/librediffusion#base-models">https://github.com/jcelerier/librediffusion#base-models</a> to convert models on your own machine at the right format. Requires a NVidia GPU.</p>
+</li>
+<li>
+<p>ai: onnx: the pose detector tracks several people, with smoothing, box modes, RTMO, YOLO-pose models and an OpenPose palette. Also new: generic nodes for any ONNX model, Vocos vocoders, separation into stems, MHR body meshes and InstantHMR, SmolVLM, Gemma 3 and more LLMs and VLMs, tokenizers read from tokenizer.json, and WebNN in the web build.</p>
+</li>
+<li>
+<p>audio: a WASAPI driver through miniaudio, now the default on Windows and following the system's default devices. Thanks <a href="https://github.com/ogauthiersat">@ogauthiersat</a>!</p>
+</li>
+<li>
+<p>automation: points snap to the timeline's magnetism (the musical grid and the points of nearby processes) while dragged or created; Ctrl disables it.</p>
+</li>
+<li>
+<p>avnd API: section, table and strip/detail layouts, envelope editors, folder ports, folder-backed or runtime-filled comboboxes (thanks <a href="https://github.com/bltzr">@bltzr</a>!), geometry auxiliary buffers and textures, per-instance semantics, keyed string lists, file and save-path pickers with host-expanded placeholders, xyzw spin boxes, cubemap and render-target texture ports, and tensor ports.</p>
+</li>
+<li>
+<p>avnd: new objects: Point Tracker (2D and 3D), Beat Tracker, Entity To MIDI, Midi Humanize, Midi Envelope, Regex, Enumerator, Array Best Match, Color display, Control to CV, Switch, Rendezvous, Serialize and Deserialize (JSON, CBOR, text, binary), String tool, Split string, Join strings, String to and from Bytes, Read File, Read File Line, Write File, and the utilities Spigot, Repeat, Mux inlets, Demux outlets, Flip Flop, Bang and Button.</p>
+</li>
+</ul>
+<a href="/score-docs/assets/releases/38c53b01f4ec611cc802f88c48d045f3efd8e5488b746ec7a6418be15664d725.png"><img width="1114" height="449" alt="image" src="/score-docs/assets/releases/38c53b01f4ec611cc802f88c48d045f3efd8e5488b746ec7a6418be15664d725.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>avnd: the LED view has an RGB01 mode, taking colours as floats between 0 and 1.</li>
+<li>cables: feedback is now supported in all modes, through delayed connections in the same graph: a cable that closes a loop is made a delayed cable automatically, and graphics feedback cycles render one frame late instead of blanking the output. Only a cable from a node to itself is refused. A cable's type also shows in how it is drawn, and a cable can be dragged from a port's name.</li>
+</ul>
+<a href="/score-docs/assets/releases/4433d8feb9fac9a7b1986c217f56df709991bc09f0129055aef016e0d9aaa6ac.png"><img width="1230" height="567" alt="image" src="/score-docs/assets/releases/4433d8feb9fac9a7b1986c217f56df709991bc09f0129055aef016e0d9aaa6ac.png" loading="lazy" decoding="async"></a>
+<p>Example: reaction-diffusion, an effect implemented with compute shader geometry feedback.</p>
+<ul>
+<li>can: new DBC-driven CAN device, browsing the .dbc databases of the library and enumerating the machine's real interfaces.</li>
+<li>clap: plug-ins are also searched in CLAP_PATH, and a plug-in that marks its state dirty has it saved.</li>
+<li>comment box: an Auto-reflow option wraps the text to the box's width instead of growing it sideways.</li>
+<li>custom apps: generated launchers accept --debug (?debug on the web) to show the score editor next to the custom UI, and SCORE_VIDEO_DECODING_METHOD selects the video decoder.</li>
+<li>devices: MIDI Controller devices build their tree from a device description, to be able to address knobs and faders directly instead of looking up MIDI CCs.</li>
+</ul>
+<a href="/score-docs/assets/releases/bd9a188148d1a3fdf7c3565003791ffefcacf29d153a850df0c1f7f96fe795ad.png"><img width="1017" height="530" alt="image" src="/score-docs/assets/releases/bd9a188148d1a3fdf7c3565003791ffefcacf29d153a850df0c1f7f96fe795ad.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>devices: new depth camera add-on: colour, infrared, depth and point clouds from Orbbec Femto, Gemini and Astra (also over Ethernet), Kinect v1 and v2, Azure Kinect, Intel RealSense and Luxonis OAK cameras, installable as one Depth cameras package from the package manager.</li>
+<li>devices: new openzen device: LP-Research LPMS IMUs over serial and USB.</li>
+<li>devices: new sysinfo device, exposing the local machine (CPU, GPU, memory, disks, battery, network, open file handles) as an ossia device with a settable refresh rate.</li>
+</ul>
+<a href="/score-docs/assets/releases/f56b5e2ec02da10ed0918a4b5715d59043010becf728ea5f4d0ef3541b862094.png"><img width="255" height="424" alt="image" src="/score-docs/assets/releases/f56b5e2ec02da10ed0918a4b5715d59043010becf728ea5f4d0ef3541b862094.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>devices: new trackingprotocols add-on: OpenTrackIO, OpenXR, PosiStageNet, RTTrP and TUIO devices.</li>
+<li>devices: new videoio add-on: one video input and output device for capture and playout cards, GPU-direct where the card allows it. AJA cards and V4L2 capture on Linux are built in; Blackmagic DeckLink, Magewell and NVIDIA Jetson cameras work when score is built with their respective SDKs. Deltacast, Bluefish444 will be supported later. For AJA up to 8k 60 FPs on Kona 5 has been validated.</li>
+<li>devices/processes: processes now have a "Scriptable" mode which makes their parameters accessible through custom addresses in the Local device. This is <em>by far</em> the most important feature of this release, check the "Process cues and automations" example to learn how to use it!</li>
+</ul>
+<a href="/score-docs/assets/releases/d651079e8ee08d204ea8f8aca2a3b044e9d0991aee2709dbfee9415e31acbc72.png"><img width="1077" height="650" alt="image" src="/score-docs/assets/releases/d651079e8ee08d204ea8f8aca2a3b044e9d0991aee2709dbfee9415e31acbc72.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>embedded: Yocto support with the new <a href="https://github.com/ossia/meta-ossia">meta-ossia</a> repo. Enjoy ossia score as PID1!</li>
+<li>fx: new versions of LFO (phase and jitter in degrees, cycles that can lock to the bars), Arpeggiator, Midi quantify, Free metronome, Rate Limiter, ADSR, Flanger, Compressor and Limiter (a lookahead brickwall peak limiter), with times set by the time chooser and able to follow the tempo. The time chooser widget has been reworked to be simpler to use: click on the indicator to switch between time in milliseconds versus beat-clock.</li>
+</ul>
+<a href="/score-docs/assets/releases/84624b20853e697c15d00736e2de73926d56499108e328352796c749a7567e60.png"><img width="543" height="241" alt="image" src="/score-docs/assets/releases/84624b20853e697c15d00736e2de73926d56499108e328352796c749a7567e60.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>gfx: a script can render an exact number of frames, set the frame-step rate and grab frames to files, for repeatable headless renders.</li>
+<li>gfx: a new Sink process runs its input at a set rate without displaying it, so a chain whose result is data, such as an AI model's output, is computed.</li>
+<li>gfx: cubemap render targets and multiview rendering.</li>
+<li>gfx: for capture and SDI rigs: NVIDIA GPUDirect for Video, zero-copy Vulkan capture upload, high-bit-depth planar and packed GPU encoders and a V210 decoder, GPU demosaicing of Bayer sensors, cross-stream frame correlation, bt2020-10 colorimetry, and work towards genlock support.</li>
+<li>gfx: new video devices: PipeWire video input and output with zero-copy DMA-BUF, window and screen capture, GStreamer pipelines as input or output (video and audio), and gphoto2 cameras when the library is installed. The FFmpeg device (formerly Libav Output) also reads streams (RTSP, SRT), files, image sequences, cameras and screen capture, records to MP4, MKV, ProRes, DNxHD, AV1, WAV and Opus, and comes with presets.</li>
+<li>gfx: shader previews can be toggled at runtime from a new Graphics toolbar.</li>
+</ul>
+<a href="/score-docs/assets/releases/2e99a02736b3e81fc492341565fa50ef5c188762b3096f7fd60f09b06b9efd32.png"><img width="582" height="310" alt="image" src="/score-docs/assets/releases/2e99a02736b3e81fc492341565fa50ef5c188762b3096f7fd60f09b06b9efd32.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>gfx: window devices expose the cursor position in GL coordinates, next to the scaled and absolute ones.</li>
+<li>gfx: with vsync off, a Rate of 0 (set in the config file, not through the UI to prevent GPUs to inadvertentyl burn) renders frames back to back as fast as the GPU allows. Useful for benchmarking!</li>
+</ul>
+<a href="/score-docs/assets/releases/98ef614732b608931b4c99e6a461a3a87f0ba4c07f4384d2c2d5339bf6b47d46.png"><img width="354" height="189" alt="image" src="/score-docs/assets/releases/98ef614732b608931b4c99e6a461a3a87f0ba4c07f4384d2c2d5339bf6b47d46.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>js: a much larger API: cables, path lookup, process controls, document metadata, presets carrying a script's program and state, object colours and comments, undo stack and macros, device settings read-back, Score.select(), Score.Editor, a View object for automation and screenshots, and Util.listFiles, listDirectories, openFileDialog, saveFileDialog and removeFile.</li>
+<li>js: QML scripts can read and write local files through XMLHttpRequest.</li>
+<li>js: Score.Controls, Score.Triggers and Score.Conditions expose a document-wide namespace of controls, triggers and conditions, including those of child processes, also sent to remote control clients; states can address them.</li>
+<li>js: Score.Editor gains hasProcessUI, showProcessUI and libraryEntries; createProcess resolves the : and : prefixes; a device's connected() can be called from QML.</li>
+<li>js: scripts can build persistent, interactive QML interfaces from native score widgets and Canvas2D painting, with undoable state. Custom UIs can be docked, placed by script, or shown in a window, the side panel or the central view.</li>
+<li>library: packages can ship native libraries that load on Linux, macOS and Windows.</li>
+<li>midi: new MIDI display process.</li>
+<li>osc: COBS framing, alongside the other framings found in the wild.</li>
+<li>processes: file and folder controls save : and : relative paths, and a Faust import folder is saved relative to the library or the project.</li>
+<li>processes: new carto-tcp process, receiving the point clouds that <a href="https://suite.sat.qc.ca/tools/">Carto</a> from the Suite SAT streams over TCP.</li>
+<li>processes: new cv add-on: computer vision objects ported from traditional Max/MSP cv.jit, rewritten without OpenCV: GPU filters (threshold, morphology, chroma key, frame difference, optical flow) and analyses (centroid, moments, histogram, corners, Hough lines), and CPU objects for 2D blobs, contours, homography and Kalman filtering.</li>
+</ul>
+<a href="/score-docs/assets/releases/68d5687ffc8bb7a710491d636aa4219ea8a87f9af81da5a1c737e7c0592d717f.png"><img width="622" height="309" alt="image" src="/score-docs/assets/releases/68d5687ffc8bb7a710491d636aa4219ea8a87f9af81da5a1c737e7c0592d717f.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>processes: new FFmpeg Filter process: run any FFmpeg filter graph on audio and video, with ports and controls taken from the graph, analyzer metadata as an output, live editing, presets, and filtering kept on the GPU when on the Vulkan backend.</li>
+</ul>
+<a href="/score-docs/assets/releases/6949af84ad544d4d9be8026895ce846acc33b99bb91b1109e8c60a67dadbb44d.png"><img width="829" height="248" alt="image" src="/score-docs/assets/releases/6949af84ad544d4d9be8026895ce846acc33b99bb91b1109e8c60a67dadbb44d.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>processes: path generator gets its own UI drawing the trajectories and the playing position, more trajectories, and a choice of what its output carries.</li>
+<li>processes: puara: Leaky Integrator and Avalanches objects.</li>
+<li>project: collect a document's media into its own folder, find missing files with an exhaustive, cancellable search, archive a project to a zip, trim media and remove the files a project no longer uses; a document can declare the platforms it runs on.</li>
+<li>project: a project with missing media will allow to locate them when opening.</li>
+</ul>
+<a href="/score-docs/assets/releases/000fe2cbe7546af649e6f3d7cbc714946da28465d8ecfb1a03507d545bc8579a.png"><img width="906" height="515" alt="image" src="/score-docs/assets/releases/000fe2cbe7546af649e6f3d7cbc714946da28465d8ecfb1a03507d545bc8579a.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>protocols: QML protocols gain Bluetooth, NFC and serial bindings, sender information on received UDP messages so replies are possible, automatic deserialization of encodings such as base64, and the OSC type tags a script asks for.</li>
+<li>protocols: QML scripts can talk to SocketCAN buses, classic and FD, with Protocols.can(), and list the interfaces with Protocols.canInterfaces() (Linux).</li>
+<li>protocols: QML sockets and serial ports gain STX/ETX, 1-, 2- and 4-byte little- and big-endian size prefixes and fixed-length framings, and Protocols.http() takes a full request object.</li>
+<li>remote control: an HTTP server, with configurable port, address and path, serving a WebAssembly remote. Thanks <a href="https://github.com/thibaudk">@thibaudk</a>!</li>
+<li>skin: more complete skinning support, with about thirty bundled skins: editor themes (Catppuccin, Dracula, Nord, Solarized, Gruvbox, Tokyo Night...), light, greyscale and high-contrast skins, colour-blind-safe skins and skins with beautiful tight pixel fonts. A skin carries its fonts and its widget palette.</li>
+</ul>
+<a href="/score-docs/assets/releases/d03f3aa09ba43d278d5a1ca966a1f5fa060e98b44a25ca963c59e278aa719c9d.png"><img width="1502" height="720" alt="image" src="/score-docs/assets/releases/d03f3aa09ba43d278d5a1ca966a1f5fa060e98b44a25ca963c59e278aa719c9d.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>sound: the Sound process plays the audio track of video files (thanks <a href="https://github.com/ogauthiersat">@ogauthiersat</a> !), and reads AIFC and CAF files.</li>
+<li>synths: FoMo, an FM synthesizer, and Kaboom, an electronic drum machine.</li>
+</ul>
+<a href="/score-docs/assets/releases/6c998c4922634bf8f0452fbb4dc044b96c5d695da088155b2be77b73825b3309.png"><img width="855" height="526" alt="image" src="/score-docs/assets/releases/6c998c4922634bf8f0452fbb4dc044b96c5d695da088155b2be77b73825b3309.png" loading="lazy" decoding="async"></a>
+<a href="/score-docs/assets/releases/c2b0444534e40ce639fb2e869b18edf11f145ae262feebc57097f44cc52e50d0.png"><img width="818" height="428" alt="image" src="/score-docs/assets/releases/c2b0444534e40ce639fb2e869b18edf11f145ae262feebc57097f44cc52e50d0.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>synths: granola: polyphonic MIDI grain spawning, velocity-driven grain amplitude, a MIDI listening toggle and an active grain count output.</li>
+<li>synths: the Deuterium drum machine becomes a multi-format sampler reading GIG, DLS, SF2, KORG KMP/KSF and plain audio files, with complete sampler control, trigger pads and keyboard, legato, a note-off mode and a MIDI channel filter.</li>
+</ul>
+<a href="/score-docs/assets/releases/669aaacf1f77d8a5feb8acd34bee4e088496ebf98627a52eb132a9bc84cdf885.png"><img width="635" height="360" alt="image" src="/score-docs/assets/releases/669aaacf1f77d8a5feb8acd34bee4e088496ebf98627a52eb132a9bc84cdf885.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>ui: --vector-gui / --no-vector-gui for higher-quality rendering, a configurable base font size, and the Phosphor icon fonts shipped for custom UIs.</li>
+<li>ui: a central view stack with a navigation bar per document, and reworked the address bar to be available in every view.</li>
+<li>ui: code editors can now be docked or also used as central view.</li>
+</ul>
+<a href="/score-docs/assets/releases/a33b27f92cf467b2345f713b6a74578daba8ac892fa7011e3e936a80df55f31b.png"><img width="1914" height="1077" alt="image" src="/score-docs/assets/releases/a33b27f92cf467b2345f713b6a74578daba8ac892fa7011e3e936a80df55f31b.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>ui: right-clicking the XY pad opens spin boxes, so a coordinate can be typed or pasted.</li>
+<li>ui: scoring internal processes now behaves exactly like scoring device tree parameters, including support for tweening, etc. Simply drag a parameter to a state, etc.</li>
+<li>wasm: the LTC, Granola, bendage, Airwindows, cv, ONNX and Deuterium add-ons are available in the web build.</li>
+<li>wasm: the web build gets camera input (getUserMedia and WebCodecs), audio input, drag-and-drop media import, asynchronous Load and Save As, documents opened from the page URL, zip project archives, persisted settings and local-storage backups, and the start screen with its online examples.</li>
+<li>windows: a Windows arm64 build.</li>
+<li>ysfx: a JSFX in the library is described by its own header: description, author, tags and license.</li>
+</ul>
+      <h1>
+        
+        
+          Improvements
+        
+        
+      </h1>
+    
+<ul>
+<li>3d: fulldome output offers the four fisheye projections: equidistant, equisolid, stereographic and orthographic.</li>
+<li>bendage: the JPEG node uses libjpeg-turbo, about five times faster at 1080p; Airwindows plug-ins get proper parameter widgets.</li>
+<li>jk: jk filters understand jq literals, arithmetic, comparisons, //, ? and the builtins, with jq's operator precedence.</li>
+<li>ndi: NDI sends every format it can encode from the GPU without a copy. A source is chosen by name and previewed before connecting, with colour, receive format and deinterlacing settings; all eleven receive formats are decoded, including the alpha of UYVA and PA16. NDI performanc is greatly improved and has been tested for instance transmitting 8K video.</li>
+<li>ndi: the newest NDI runtime installed is loaded. It used to mistakenly be the oldest.</li>
+<li>ai: onnx models load and run on a worker thread instead of the audio thread, a frame that fails no longer disables the node, and a model that cannot be built does not take the others down.</li>
+<li>spat: SpatGRIS, SPAT and ADM-OSC devices take a source index offset.</li>
+<li>leapmotion: one Leap Motion device per sensor.</li>
+<li>data: large HDF5 and CSV columns are imported as one sampled curve segment.</li>
+<li>lsl: LSL outlets are named after their UID.</li>
+<li>GBAP: in Voronoi mode a node fades in at the edge of its zone, instead of a sharp jump.</li>
+<li>synths: Synthimi and Kabang envelope times are time choosers, and Kabang's UI is redesigned with drum strips.</li>
+<li>3d: the Model Display light no longer moves with the transport, and models whose normals face away from the light are lit.</li>
+<li>app: --script starts on a document with nothing modal in the way.</li>
+<li>app: a redesigned start screen with templates, examples (including those published on the documentation site), project info, archives and an about page listing the license of every bundled component. It covers the main window, returns when the last document closes and is reachable from the Help menu. Thanks <a href="https://github.com/samamou">@samamou</a> !</li>
+</ul>
+<a href="/score-docs/assets/releases/7fbf482d9754e9d4fa9cb9f647b5a63a0c38c5924b84a2fcb1c1fde32e835f5e.png"><img width="1922" height="1080" alt="image" src="/score-docs/assets/releases/7fbf482d9754e9d4fa9cb9f647b5a63a0c38c5924b84a2fcb1c1fde32e835f5e.png" loading="lazy" decoding="async"></a>
+<a href="/score-docs/assets/releases/ea078e9b599cbae7d1d139600d46f80a94fcaf785c9554ea530dc1236c1cb8ea.png"><img width="1917" height="1076" alt="image" src="/score-docs/assets/releases/ea078e9b599cbae7d1d139600d46f80a94fcaf785c9554ea530dc1236c1cb8ea.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>audio: a sound file at a different rate than the device, or above 4GB, is streamed instead of decoded entirely into memory, and plays at the right pitch; a document's master volume is applied when it is opened.</li>
+<li>audio: the audio engine stays alive across documents, which should reduce errors about audio devices, and a soundcard change while a document is loaded is survived.</li>
+<li>audio: the PipeWire back-end adapts to graph quantum and rate changes instead of skipping cycles, and detects a graph that schedules nothing.</li>
+<li>automation: resizing an interval with many automations no longer rebuilds every state on each mouse move (0.5 to 1.4 s per move before).</li>
+<li>avnd: a Bang or a Button drives any toggle for one tick, and toggles accept numbers.</li>
+<li>avnd: an enum control set by name or number from a state or a script takes that value, enum ports start at their declared default, and a name received by message stays a name.</li>
+<li>avnd: every built-in object has a functional category and a description, and every port has a name.</li>
+<li>avnd: Prompt Composer's keywords are a list, and each weight port follows its keyword when the list is reordered.</li>
+</ul>
+<a href="/score-docs/assets/releases/715ffd0c0ca4da9ecf013251f7f763a69df33564dc8632c87937f9211f04c197.png"><img width="352" height="369" alt="image" src="/score-docs/assets/releases/715ffd0c0ca4da9ecf013251f7f763a69df33564dc8632c87937f9211f04c197.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>avnd: two-, three- and four-component and colour controls carry their unit (cart2D, cart3D, rgb).</li>
+<li>dataflow: a single number sent to a vector or colour control is rescaled into the control's range.</li>
+<li>devices: the device dialog is sorted, with Video in, Video out and Media categories, and joysticks plugged in while it is open appear.</li>
+<li>explorer: large and small numbers are no longer shown in scientific notation.</li>
+<li>flatpak: Wayland support.</li>
+<li>gfx: ISF event inputs and Faust buttons fire on impulses from cables and messages.</li>
+<li>gfx: resizing an output or inserting a node keeps feedback, simulations and persistent passes instead of restarting the graph.</li>
+<li>gfx: selecting a shader in the library no longer freezes the GUI for about 200 ms.</li>
+<li>gfx: shaders using names that HLSL, MSL or NVIDIA's GL compiler reserve (lerp, frac, new...) are renamed instead of refused.</li>
+<li>joystick: game-controller triggers range from 0 to 1. Thanks <a href="https://github.com/edumeneses">@edumeneses</a> !</li>
+<li>js: script durations accept flicks, 500ms, 2s, 1min and clock times; --script reads a path as a file and exits non-zero on errors.</li>
+<li>icons: a new icon for the Synths process category. Thanks <a href="https://github.com/aklevy">@aklevy</a> !</li>
+</ul>
+<a href="/score-docs/assets/releases/5920e57c2685f952783bbb697a82508e964034469f4bc82aad8980fc4d9388cf.png"><img width="182" height="121" alt="image" src="/score-docs/assets/releases/5920e57c2685f952783bbb697a82508e964034469f4bc82aad8980fc4d9388cf.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>library: a shader is credited to its own CREDIT, and a Faust DSP to its declared author.</li>
+<li>library: the Add process dialog hides deprecated processes.</li>
+<li>library: the out-of-date packages notice moved into the library panel, packages can be filtered by kind, and a failed install keeps the previous version.</li>
+<li>linux: the startup check lists the packages to install, checks AVX2 and group membership, and can be dismissed on Wayland.</li>
+<li>lv2: when a plug-in has several UIs, score picks an installed one, and refuses UIs built for another Qt version instead of crashing.</li>
+<li>mapper: nodes start at zero instead of NaN, follow their sources without echoing values back, and show the script being edited.</li>
+<li>media: a camera that cannot be started says so in the Messages panel; on Windows, DirectShow camera formats are named by codec and many more codecs are recognised.</li>
+<li>multicursor: a cursor can be grabbed anywhere in its node.</li>
+<li>nodal: a node dropped in the view stays where it was dropped without zooming, a node added outside the canvas brings everything into view, a node added to a chain goes next to its neighbour, and a node with only outlets draws them on its right edge.</li>
+<li>nodal: a node with hundreds of controls pages through them; folded, it shows only its routing and the controls in use, and folding is saved and undoable. VST and LV2 controls use the control grid.</li>
+</ul>
+<a href="/score-docs/assets/releases/42c85095889ada2249f308de3c465a7b3e83983c48e93cdb7b10cb9ef23a0738.png"><img width="1170" height="235" alt="image" src="/score-docs/assets/releases/42c85095889ada2249f308de3c465a7b3e83983c48e93cdb7b10cb9ef23a0738.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>processes: Value delay takes any value, with feedback, mix, freeze and smoothing</li>
+<li>processes: the array combiner gains similarity, distance, arithmetic and comparison modes</li>
+<li>processes: the accumulator and counter choose when they send and get an Output bang</li>
+<li>processes: Buffer queue gets a manual output mode</li>
+<li>procsses: Wavecycle glides between frequencies and plays chords; the shell command object takes an interpreter.</li>
+<li>bitfocus: Companion modules run as they do in Companion: their saved configuration is kept, shared UDP sockets and binary payloads work, and a crashed module is restarted.</li>
+<li>camera: each resolution offers its fastest rate, rather than dozens of slower duplicates.</li>
+<li>clap: the song position is sent in the right unit, non-note MIDI and sysex reach plug-ins and come back out, parameter edits from the plug-in are picked up, automation is sample-accurate, and plug-ins share score's audio thread pool.</li>
+<li>curve: edition scales to more than 100k points, with sampled segments and waveform rendering; segments can be dragged in the select tool.</li>
+<li>custom apps: create-app packages for the web and Windows on ARM64, takes a per-OS environment overlay, and branded apps no longer carry ossia score's icon and branding.</li>
+<li>dataflow: binding a control to an address no longer overwrites the control's own unit: a colour or a gain keeps converting correctly.</li>
+<li>dataflow: port addresses are picked in an editable combo box that only lists the devices carrying the right kind; the cable drag line follows its port, scrolling continues past the view's edge, and port hit zones are circular.</li>
+<li>devices: any device can be exported and imported, the device dialog has a preset view, and device lists have (fuzzy) search boxes and follow the keyboard</li>
+</ul>
+<a href="/score-docs/assets/releases/9485bd4ee71f8aeba2b0caa00d4b5678b8def857022a5b3eb54fcea2242397d7.png"><img width="897" height="580" alt="image" src="/score-docs/assets/releases/9485bd4ee71f8aeba2b0caa00d4b5678b8def857022a5b3eb54fcea2242397d7.png" loading="lazy" decoding="async"></a>
+<a href="/score-docs/assets/releases/e20ed6a816e916e8ba32d6df0daafce4fc2969625d2a678b03b6cff4d09273f3.png"><img width="1057" height="557" alt="image" src="/score-docs/assets/releases/e20ed6a816e916e8ba32d6df0daafce4fc2969625d2a678b03b6cff4d09273f3.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>devices: the Artnet device is renamed DMX (thanks Maude-Antoine), as it also speaks sACN and DMX USB.</li>
+<li>explorer: per-type value editors in the tree and in the address panel, with a form for every value type, multi-line strings, and lists and maps edited as lists and maps.</li>
+</ul>
+<details open="">
+  <summary>
+    
+    <span>xplorr.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/9951f17bebb701ad9d5eb3bf0d1cc1b1cbe0d37daec575453acea5fb75faf7af.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<ul>
+<li>explorer: values of an unfolded node keep updating after a reconnect or refresh, and a device tree is no longer emptied by a failed exploration.</li>
+<li>fx, gfx: expressions stop runaway loops instead of hanging the engine.</li>
+<li>fx: the Looper's passthrough can be None, Record-only or Always, a change of mode carries on through the loop instead of rewinding, and quantized actions land on bar lines; Pulse to Midi schedules notes causally with minimum and maximum lengths.</li>
+<li>gfx: colour pads open the colour dialog on right-click</li>
+<li>gfx: D3D12 can use shader model 6, its compiler now shipping with the Windows build; shader includes are found in packages installed while score runs.</li>
+<li>gfx: full-range video no longer comes out slightly too bright, high-bit-depth video is scaled exactly, and direct video playback applies the output's colour conversion.</li>
+<li>gfx: multi-window rendering reworked around one texture feeding all windows, with finer mapping, border lock and off-origin outputs; the window's title is in the device tree, and the mapping grid shows coordinates.</li>
+<li>graphics: knobs, sliders, spin boxes, the minimap and the note chooser scroll infinitely using the platform's relative motion APIs instead of a bespoke hack, and behave on multi-screen HiDPI setups.</li>
+<li>jit: JIT-compiled add-ons on Windows get C++ exceptions, native TLS and a correct runtime; LLVM 22 and 23 are supported. JIT can finally be considered fully stable, after eight years!</li>
+<li>js: a script taken from the library follows the library file instead of a copy frozen into the document, and the inspector offers to update it when the file has changed; scripts edited on disk are picked up.</li>
+<li>library: greatly improved scan times, with much more of the scan moved off the main thread; hierarchic preset categories with an optional description; the package manager says what went wrong when a download fails.</li>
+<li>linux: OpenGL prefers EGL over GLX on X11</li>
+<li>SCORE_OPENGL_FORMAT=gl|gles picks desktop GL or GLES, and on Wayland rendering no longer stalls waiting for the compositor.</li>
+<li>local device: its OSC and WebSocket ports can be set at launch with --local-osc-port and --local-ws-port, and score says when one is already taken. Thanks <a href="https://github.com/bltzr">@bltzr</a>!</li>
+<li>lv2, vst, vst3: plug-ins get the real playhead position and also play when the timeline runs backwards; LV2 plug-ins hear transport start and stop, CV ports work as audio, atom ports get the buffer size they ask for, and control values are restored when a document is reopened.</li>
+<li>media: more advanced probing reads semi-broken media, such as files with no duration in the header. Thanks <a href="https://github.com/guillaumeriousat">@guillaumeriousat</a> for the help and weird video files!</li>
+<li>midi: device scans also list network MIDI ports, and hardware, software and network ports are grouped the same way on every back-end.</li>
+<li>nodal: a cable's end can be dragged to another port, with every selected cable following; a node dropped on a cable is inserted into it; a new cable connects to the first port of a matching type.</li>
+</ul>
+<details open="">
+  <summary>
+    
+    <span>cables.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/adf05bf0ae2af0bfad8937591f3f146221a3df3896bdc51e4ac8147426f0a21f.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<ul>
+<li>nodal: rubber-band box selection and Ctrl+click multi-selection, with the zoom level and canvas position kept across navigation and reload. Thanks <a href="https://github.com/edumeneses">@edumeneses</a> !</li>
+<li>piano roll: keyboard-coloured rows, Up and Down transpose the selection (Shift for an octave), and moving notes past the range grows it.</li>
+<li>playback: running backwards now reaches MIDI (notes sound in reverse, transport resumes), video (frame-exact seeking, HAP and DXV included) and Faust.</li>
+<li>plug-ins: VST, VST3, CLAP and LV2 scans no longer list a plug-in many times over or mark working ones invalid after false time-outs; LV2 is now scanned out of process too, and each format has its own settings.</li>
+<li>quantification: quantized starts and metronome clicks land on the right beats: the subdivision grid restarts at every bar line, and positions are right when the timeline runs backwards.</li>
+<li>scenario: a multi-selection of processes can be deleted, and Del removes a state message like Backspace.</li>
+<li>scenario: a new document lasts eight bars by default (always configurable in the settings), a paste lands where the user is working, nested or not, and a document reopens at the zoom it was saved with.</li>
+<li>scenario: a preset dropped on a state creates a box after it, and an Alt-drop of a sound, video, layer, preset or port into empty space makes a box that starts on play.</li>
+<li>scenario: dragging inside a process snaps to the time syncs of the sibling processes, and in a child interval's full view the ruler, time signatures and magnetism count from the start of the score.</li>
+<li>scenario: states are drawn above their intervals, and a double-click selects the state it creates.</li>
+<li>scenario: the state editor uses the device explorer's per-type value editors.</li>
+<li>shaders: compute shaders take general geometry, vertices and instances, with multipass at distinct local sizes; ISF gains DIMENSIONS, COPY_FROM, ISF_READ / ISF_WRITE, IMG_* accessors for raw rasters, ISF v1 persistent buffers, name_prev for persistent storage, and a Geometry mode and TRANSPARENCY block for raw rasters; draw counts can come from a GPU buffer.</li>
+<li>skin: idle, running and failed intervals are no longer confusable, every skin's contrast is kept within reach of the default, and the last hardcoded colours are gone from the chrome.</li>
+<li>sound: tempo-aligned drop-in on running intervals, seeking to where a running copy actually is.</li>
+<li>state: a string containing quotes, backslashes or line breaks survives copy and paste and the address dialog.</li>
+<li>step sequencer: several sequences, a Duration port, quantized switching, and the playing step is lit; the pattern sequencer gets ports to select the pattern and quantize the switch.</li>
+</ul>
+<details open="">
+  <summary>
+    
+    <span>stp.webm</span>
+    <span></span>
+  </summary>
+
+  <video src="/score-docs/assets/releases/8e6e94db6920246b80c1a1aadc1ab5126acc6960e0d996d11720708a2863cb45.webm" controls="controls" preload="none" data-loop="">
+
+  </video>
+</details>
+
+<ul>
+<li>ui: a new knob design, a light on value displays when values arrive, a Pretty toggle on the Value display, a fixed range for Signal display, +/- buttons on integer spin boxes, and Shift to move a vector's components together.</li>
+<li>ui: a port's description shows when hovering its label and its control, not only the port.</li>
+<li>ui: enumerated device parameters (OSCQuery RANGE.VALS, DMX modes) get a combo box, which accepts typed values not in its list; long combo box lists in the scene scroll.</li>
+<li>ui: file and folder pickers open next to the current file, else in the project folder.</li>
+<li>ui: fonts are sized in pixels rather than points, so macOS matches everywhere else, and the whole widget UI uses score's font rather than the platform theme's.</li>
+<li>ui: hitboxes and interaction areas are larger for core elements, and double-clicking a slider returns it to its default.</li>
+<li>ui: selecting and dragging thousands of notes or objects stays fast.</li>
+<li>ui: the time chooser is a compact time bar and a knob with a full division table, longer sync durations and a readout cycling free, straight, dotted and triplet; short times get most of the travel.</li>
+<li>video: Auto playback picks the renderer from the file's keyframe layout rather than a codec flag and a 1080p cap.</li>
+<li>video: direct-mode playback of long-GOP files is about 3x faster (4K H.264 goes from 22 to 72 fps, <em>when doing a seek operation for each individual frame to enable smooth scrubbing</em>), seeking backwards shows the right frame, and the last B-frames of a file are kept.</li>
+<li>video: general improvements on playback performance and H.265 support (thanks <a href="https://github.com/darioriccio">@darioriccio</a> !!)</li>
+<li>video: GPU decoding of DCI X'Y'Z' 12-bit, half-float planar RGB as in EXR files, and the other pixel formats that still went through swscale; raw elementary streams play. We're almost cinema-ready, with a good JPEG2000 decoder we can read DCPs!</li>
+<li>video: ProRes and FFV1 no longer go to the Vulkan compute decoders, which got about 2% of every frame wrong. Will be reinstated for the next FFMPEG release which will have this bug fixed.</li>
+<li>video: thumbnails are decoded at the height of their slot.</li>
+</ul>
+<a href="/score-docs/assets/releases/eb173ed64e950918e764f38b37fb066b9ffb8c0cf1b5b5a466f38aa8bc6589c9.png"><img width="1109" height="482" alt="image" src="/score-docs/assets/releases/eb173ed64e950918e764f38b37fb066b9ffb8c0cf1b5b5a466f38aa8bc6589c9.png" loading="lazy" decoding="async"></a>
+<ul>
+<li>vst3: CC, pitch bend and aftertouch are delivered to the plug-in; the VST3 SDK is updated to 3.8.1.</li>
+<li>windows: file names and text with non-ASCII characters work on every build.</li>
+<li>ysfx: presets starting with tags are categorized.</li>
+</ul>
+      <h1>
+        
+        
+          Bugfixes
+        
+        
+      </h1>
+    
+<ul>
+<li>granola: granola's trigger rate no longer depends on pitch, the interpolation setting takes effect, and output channels are filled when the source has a different channel count.</li>
+<li>deuterium: Hydrogen kits whose instruments share a MIDI note are mapped by instrument order instead of stacking on one key.</li>
+<li>kabang: Kabang's pitch envelope applies, a negative Vel-&gt;Pitch no longer pins the pitch, and Minibang no longer crashes on a note that arrives before its sample is loaded.</li>
+<li>leapmotion: Leap Motion hands are cleared when tracking stops.</li>
+<li>GBAP: a GBAP node can be grabbed anywhere on its circle.</li>
+<li>synthimi: switching synthimi between poly and mono no longer leaves a stuck note.</li>
+<li>bendage: the bendage nodes no longer read or write past their buffers on adversarial images.</li>
+<li>airwindows: creating an airwindows process without a plug-in name no longer crashes.</li>
+<li>3d: a Splat process gained one extra inlet every time its document was reloaded.</li>
+<li>analysis: the stereo pitch and onset objects analysed the left channel for the right one.</li>
+<li>app: --help or --version left the next launch in failsafe mode, with OpenGL turned off.</li>
+<li>audio: on ALSA, input and output card names were swapped, and a card that cannot record stopped the engine from starting even with no inputs.</li>
+<li>automation: two automations of one address meeting at a state recursed until the stack overflowed, crashing the document on load.</li>
+<li>avnd: Audio Particles in sync mode triggered at twice the chosen note value, and its position overflowed after about 12 hours.</li>
+<li>avnd: event value ports re-read their value at every tick, so Repetition Filter saw repeats.</li>
+<li>avnd: impulse buttons were pressed once when an object was created, so a Counter, Accumulator or Buffer queue in manual mode sent at start.</li>
+<li>avnd: in objects that also have curve ports, a UI edit could reach the wrong control.</li>
+<li>avnd: lists of named float structs arrived as zeros, Array Combiner's Median sorted NaN, and the Device Recorder's Timestamped toggle defaults to on.</li>
+<li>avnd: reloading a file or sound file port left dangling data or freed memory on the audio thread, and control outputs nobody reads grew memory without bound.</li>
+<li>avnd: the Lightness Sampler read past the image's edge, and the Lightness Computer crashed on Windows.</li>
+<li>bitfocus: Companion module processes stop when score quits or is killed.</li>
+<li>camera: removing a camera node did not close the device; a camera's compressed mode was ignored on Windows; DirectShow YV12 and YVU9 and V4L2 RGB32 cameras had red and blue swapped; an H.264 DirectShow camera was given the MJPEG decoder.</li>
+<li>clap: a CLAP process with no plug-in chosen crashed.</li>
+<li>clap: plug-ins without MIDI inputs receive parameter and transport events; event times are rebased and clamped to the tick's buffer span.</li>
+<li>core: a second exit request no longer re-enters document teardown; restoring a backup after Save As no longer crashes, and the restored document shows its saved name.</li>
+<li>core: plug-ins are torn down in reverse creation order when a document closes, and devices are disconnected before documents are destroyed.</li>
+<li>core: quitting crashed when documents were destroyed after the main window, and on NVIDIA Linux drivers when the Vulkan instance was destroyed; a failing background task or a missing library folder aborted the application.</li>
+<li>csv: the CSV player and recorder wrote the header twice or crashed on playback.</li>
+<li>curve: an automation starting after zero keeps its first segment.</li>
+<li>curve: power and easing segments not starting at 0 gave wrong values; the curve tool could stay stuck on the pen; Shift+Alt bends every selected segment.</li>
+<li>curve: the crashes and corruptions of curve edition are fixed.</li>
+<li>dataflow: a looping process at speed 0 still runs at its place in the loop.</li>
+<li>dataflow: chaining after an audio outlet keeps its propagation setting, and removing a cable or undoing restores it.</li>
+<li>dataflow: loading a preset now updates curve controls, so the next edit no longer reverts it.</li>
+<li>dataflow: sample-accurate value outputs were moved to the start of the tick.</li>
+<li>devices: a device refreshed after it disconnected no longer crashes, and cancelling a Learn no longer rebuilds the device and drops its MIDI cables.</li>
+<li>devices: opening a document replayed phantom impulses into the explorer, the message recorder and remote control.</li>
+<li>effects: resizing the control column left ports hidden and disabled.</li>
+<li>engine: --no-gui runs, headless remote play, pause and stop, and --script runs aborted at the end.</li>
+<li>execution: a crash lurking in execution cleanup since 2018 is fixed.</li>
+<li>execution: play from here in a child interval moves that interval, and an interval played again afterwards starts from its beginning.</li>
+<li>execution: pressing play before a large document finished loading crashed; editing a trigger, condition or quantization while a time sync was torn down could crash; closing a document whose triggers watch a destroyed device read freed memory.</li>
+<li>execution: the timer that resets a stopped document no longer resets, or crashes on, another document.</li>
+<li>execution: triggers and conditions on a missing device no longer hold, and an edit command that throws no longer aborts the application.</li>
+<li>explorer: an OSCQuery device showed an empty tree when added; changing a device's camera, joystick or MIDI port kept the old name and broke references; audio gains were not editable in the tree.</li>
+<li>expressions: the Expression Value Filter and Micromap used only the first element of x[1] and x[] vectors, and kept the variables of the previous expression.</li>
+<li>faust: on Apple Silicon the JIT compiles for the host instead of for Linux.</li>
+<li>ffmpeg: audio recorded by the FFmpeg output overran the frame or repeated stale samples.</li>
+<li>fx: ADSR jumped back to the sustain level, hid envelopes shorter than a buffer, never settled at zero, and fired on load.</li>
+<li>fx: in the Compressor and Limiter, a ratio of 0 divided by zero, and a lookahead of 0 or above 100 ms read the wrong sample.</li>
+<li>fx: MathAudioFilter's x/px buffer swap corrupted odd samples.</li>
+<li>fx: Midi scale stops every note it starts, and the free metronome ticks every period.</li>
+<li>fx: the Envelope RMS was sqrt(sum)/N instead of sqrt(sum/N).</li>
+<li>fx: the Limiter squashed everything to about plus or minus 0.02 around a DC offset at its default threshold; it is now a lookahead brickwall peak limiter.</li>
+<li>fx: the Looper wrote the wrong span on every tick that did not start at zero, and looped, overdubbed and narrowed its channels out of bounds.</li>
+<li>general: many memory leaks and data races found with LeakSanitizer and ThreadSanitizer are fixed.</li>
+<li>gfx: a bang on a graphics node fired every frame, and Structure Synth regenerated every frame.</li>
+<li>gfx: a colour arriving without its alpha was drawn invisible or black.</li>
+<li>gfx: a mirrored vertex Y flipped the winding, so Direct3D culled the wrong faces.</li>
+<li>gfx: a preset loaded during playback drew nothing; a .fs and .vs pair dropped together made two processes; compute, geometry-filter and VSA shaders could not be dragged from the library.</li>
+<li>gfx: a render target the backend refuses, or a video device created from a script with incomplete settings, aborted the application.</li>
+<li>gfx: an exception during a render no longer leaves the frame open for the rest of the session, and a lost Direct3D device is reported by every output.</li>
+<li>gfx: an output window could stop drawing when moved to another screen, and a failed graphics backend creation left the output black without a word.</li>
+<li>gfx: GPU objects' controls did not convert units and ranges, so an LFO on a Primitive's rotation did not make a full turn.</li>
+<li>gfx: ISF shaders sampling a pass target crashed on Vulkan; gl_FragDepth, depth-less targets and six Vertex Shader Art presets failed on Metal; an ISF long input's DEFAULT was read as an index; persistent passes lagged one or two frames behind VVISF; audio FFT and histogram inputs were NaN at sizes that are not a power of two.</li>
+<li>gfx: many crashes on document close, device loss and graph mutation during rendering.</li>
+<li>gfx: multi-window output was flipped on Vulkan, its soft-edge blend left a bright fringe, cancelling its settings while playing crashed, and a full-screen output on Windows landed at an offset.</li>
+<li>gfx: QSG_RHI_BACKEND is no longer set, as it broke VST plug-ins that also use Qt such as Kontakt 8.</li>
+<li>gfx: Text node edges were too dark, and an unconfigured Text node was drawn off-screen.</li>
+<li>gfx: the Images process did not show its image at start, and crashed when its list shrank during playback.</li>
+<li>gfx: Vulkan Video zero-copy decoding works on Windows; an unknown pixel format rendered undefined content.</li>
+<li>gfx: window outputs on macOS OpenGL could crash on present.</li>
+<li>graph: a cycle of immediate edges is reported instead of silently running nothing.</li>
+<li>graphics: an item deleted while it held the mouse grab is deleted later instead of corrupting the grab stack.</li>
+<li>gstreamer: little-endian 10-bit 4:4:4 with alpha was decoded as big-endian in the GStreamer, Sh4lt and Shmdata inputs, and caps written without type annotations stayed black.</li>
+<li>jit: --compile-node builds again.</li>
+<li>js: a QML DeviceEnumerator hung startup on Windows; --script could not run .mjs modules; a GPU script lost its controls on resize, so rect-mapper shapes vanished; a document opened from the command line did not find the library's QML modules.</li>
+<li>js: deleting a texture source from QML aborted the application.</li>
+<li>js: lists in UI messages did not reach scripts as arrays; Windows file paths bound to QML url properties did not load; Qt.vector2d, vector3d, vector4d, quaternion and matrix4x4 returned empty values; removing a device from a script during playback crashed.</li>
+<li>js: MIDI bytes were dropped, audio outlets were never cleared, and four calls aborted the application.</li>
+<li>js: QML processes with a UI would only load the second time.</li>
+<li>linux: the AppImage segfaulted at startup on hosts with a newer libxcb, and Wayland sessions without XWayland did not start.</li>
+<li>media: a camera with no signal no longer hangs its own shutdown; v4l2 cameras reporting a rate range no longer come out at 1 fps.</li>
+<li>media: a soundfile control opened the path the document stored rather than the file; drag-and-drop of audio files behind symlinks works.</li>
+<li>media: sws_scale read a one-element destination plane array out of bounds.</li>
+<li>media: video thumbnails had the wrong aspect ratio and garbage columns, and a mid-stream resolution change read past the frame.</li>
+<li>midi: a MIDI input nobody reads grew memory without bound.</li>
+<li>midi: a MIDI outlet addressed to a MIDI channel node sent nothing, or sent on the wrong channel.</li>
+<li>midi: a missing ALSA sequencer no longer crashes, and the bytes of incoming messages are no longer trusted.</li>
+<li>midi: computer keyboard input was broken on X11.</li>
+<li>midi: note-offs were dropped for short and adjacent notes; a document naming a MIDI back-end this build lacks no longer aborts.</li>
+<li>midi: on ALSA raw, opening an output port already in use hung instead of failing.</li>
+<li>midi: on Windows (MME), Start, Stop, Continue, Tune Request and Reset messages were dropped, and closing an input could corrupt the heap.</li>
+<li>midi: PipeWire MIDI ports could crash when created before being opened, and could not be reopened.</li>
+<li>midi: the computer keyboard could produce notes above 127; in Patternist, HC is the hi conga (note 66).</li>
+<li>model display: the projections read textures upside down on Vulkan, and an untextured mesh was not drawn white.</li>
+<li>osc: an address first learned as a bang stayed a bang; an OSC receiver on port 0 crashed when stopped on macOS.</li>
+<li>patternist: held notes are released when stopping, note-offs reach the output, and every step a tick covers is played.</li>
+<li>pd: a Pd process with no patch read out of bounds.</li>
+<li>piano roll: undoing a resize of notes did not redraw them.</li>
+<li>process: a time chooser's declared default was read as quarter notes instead of seconds.</li>
+<li>process: an unknown uuid no longer loses the process and its cables.</li>
+<li>process: file chooser ports lost their file-type filter when a document was reopened.</li>
+<li>process: rebuilding a drifted process's ports dropped every control value; saved ports are matched by name when a process changed.</li>
+<li>protocols: in QML protocol scripts, line framing dropped all but the first line of a read, a remote close and onFail were ignored, inboundWS did not listen, the HTTP client dropped query strings, WebSocket callbacks ran off-thread, and Device.addNode and removeNode corrupted memory or left stale addresses.</li>
+<li>protocols: removing a network device during a pending read used freed memory; the WebSocket device's host is filled from its script again; mapper devices no longer crash at teardown.</li>
+<li>recording: playback started while a recording waits starts the recording.</li>
+<li>scenario: dragging a brace snapped a duration as if it were a date.</li>
+<li>scenario: going back from the nodal view kept a partial zoom, and the play bar could crash after entering and leaving a sub-interval while playing.</li>
+<li>scenario: in an interval with a tempo but no time signature, Patternist and sound files followed different clocks.</li>
+<li>scenario: jumping back while playing left finished intervals marked as ended, so they stopped as soon as they started.</li>
+<li>scenario: pasting multiple processes into a scenario crashed or silently failed.</li>
+<li>scenario: processes added while an interval is already executing are started, and process order survives a save and load round-trip.</li>
+<li>scenario: resizing a playing interval reaches the engine.</li>
+<li>scenario: the Shift lock and Ctrl scale modes could stay on after the key was released over another widget.</li>
+<li>sdk: the published Windows and macOS SDKs, and run-time add-ons, can build and load add-ons again.</li>
+<li>serial: a line delimiter longer than seven characters corrupted memory.</li>
+<li>sound: an interval starting or ending in the middle of an audio buffer overwrote the next interval's samples and drifted; off-grid starts left a one-sample gap.</li>
+<li>sound: changing the tempo during raw playback made the read position jump and click; the repitch mode padded small buffers with silence.</li>
+<li>sound: dragging a sound before the start of the timeline crashed, and looping from a negative position read out of bounds.</li>
+<li>sound: full-scale samples wrapped to the opposite polarity at 24 and 32 bits.</li>
+<li>sound: RubberBand's start delay is trimmed, so stretched sounds are not late.</li>
+<li>sound: seeking in a file decoded through FFmpeg went back to the start of the file.</li>
+<li>sound: the waveform could stay blank after zooming or panning.</li>
+<li>spout, syphon: Spout follows GL sender changes and registers D3D senders correctly; a Syphon texture survives its sender quitting.</li>
+<li>startscreen: HiDPI rendering and cursor behaviour on Wayland.</li>
+<li>startscreen: the initial network request could hang it on misconfigured Windows machines.</li>
+<li>step sequencer: synced steps count from the start of the process; a pattern with a rejected lane no longer loses its length.</li>
+<li>syphon: an input on Metal with no server advertised built the OpenGL decoder and dropped every draw.</li>
+<li>ui: Value display dropped values when its log was longer than 1; on X11 HiDPI or with UI zoom the cursor was drawn offset from the pointer.</li>
+<li>video: closing or seeking an image sequence no longer crashes.</li>
+<li>video: playback of decoders without pkt_dts and of thread-sliced codecs in direct mode.</li>
+<li>video: truncated files and files without a duration no longer spin or abort, and formats libswscale cannot handle are refused.</li>
+<li>vst, vst3, clap, ysfx: MIDI landing in a tick shorter than one sample is sent with the next block.</li>
+<li>vst: a document whose VST is not installed no longer segfaults when its UI is built.</li>
+<li>vst: plug-in libraries are no longer unloaded, since many crash when unloaded.</li>
+<li>wasm: gfx output windows recover from permanent black after hide and show, and no longer steal the keyboard.</li>
+<li>wasm: OSC devices can be created, gamepads deliver values, and Web MIDI inputs no longer abort when closed and have correct timestamps.</li>
+<li>widgets: range sliders did not drag unless their domain was 0 to 1; a momentary button press is one undo step; a second click on a file control opened a second dialog.</li>
+<li>windows: an absolute path became a UNC share path.</li>
+<li>ysfx: copy-paste and undo/redo are fixed.</li>
+<li>ysfx: the tick offset was ignored, so a tick starting mid-buffer read and wrote at the wrong position.</li>
+</ul>
+    
+  </div>
+</article>
+
+        
+
+        
+
+        
+          <hr>
+          <footer>
+            
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+            
+              <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="https://ossia.io">ossia.io</a> © ossia 2021</p>
+            
+            <p style="text-align: center;" class="text-small text-grey-dk-000 mb-0"><a href="/privacy.html">Privacy policy</a> · <button type="button" data-consent-settings hidden>Cookie settings</button></p>
+
+            
+              <div class="d-flex mt-2">
+                
+              </div>
+            
+          </footer>
+        
+
+      </main>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
+
