@@ -63,7 +63,7 @@ level = hslider("level", 0.5, 0, 1, 0.01);
 process = _ * level;
 ```
 
-Related primitives include `vslider`, `nentry`, `button` and `checkbox`. Labels name the controls; Faust also supports label metadata and grouping primitives. See the [user-interface primitives](https://faustdoc.grame.fr/manual/syntax/#user-interface-primitives) for the language-level contract. A host chooses how to expose these controls: a Faust UI declaration does not itself create a score QML interface.
+Related primitives include `vslider`, `nentry`, `button` and `checkbox`. Labels name the controls; Faust also supports label metadata and grouping primitives. See the [user-interface primitives](https://faustdoc.grame.fr/manual/syntax/#user-interface-primitives-and-configuration) for the language-level contract. A host chooses how to expose these controls: a Faust UI declaration does not itself create a score QML interface.
 
 ## Standard library
 

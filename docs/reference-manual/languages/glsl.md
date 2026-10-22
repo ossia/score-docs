@@ -92,4 +92,4 @@ When adapting a shader, first establish a constant color or minimal geometry res
 - [Khronos Vulkan GLSL semantics](https://github.com/KhronosGroup/GLSL/blob/main/extensions/khr/GL_KHR_vulkan_glsl.txt): differences from OpenGL GLSL.
 - [Qt Shader Tools QSB manual](https://doc.qt.io/qt-6/qtshadertools-qsb.html): Vulkan-style input, SPIR-V and target translation.
 - [Qt RHI overview](https://doc.qt.io/qt-6/qrhi.html): graphics backend abstraction and capabilities.
-- [ISF JSON](https://docs.isf.video/ref_json.html) and [ISF GLSL](https://docs.isf.video/ref_glsl.html): portable ISF declarations and functions, distinct from score extensions.
+- [ISF JSON](https://docs.isf.video/ref_json.html) and [ISF GLSL](https://docs.isf.video/ref_functions.html): portable ISF declarations and functions, distinct from score extensions.

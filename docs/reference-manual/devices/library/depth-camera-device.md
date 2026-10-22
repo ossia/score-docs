@@ -124,4 +124,4 @@ Choosing an explicit color resolution is the simplest way to reduce the cost of 
 
 Set the environment variable `SCORE_DEPTHCAM_DEBUG=1` to log, every second, how many frames each point cloud receives.
 
-More details are in the [add-on's README](https://github.com/ossia/score-addon-orbbec#readme).
+More details are in the [add-on's README](https://github.com/ossia/score-addon-orbbec).

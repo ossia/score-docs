@@ -82,7 +82,7 @@ export QT_QPA_EGLFS_KMS_CONFIG=$PWD/config.json
 ## Building for the Raspberry Pi (Raspbian)
 
 - *ossia score* build scripts: [https://github.com/ossia/score/tree/master/ci](https://github.com/ossia/score/tree/master/ci)
-- *ossia* SDK build scripts (building latest Qt, FFMPEG, etc): [https://github.com/ossia/sdk/tree/master/ARM/RPi4](https://github.com/ossia/sdk/tree/master/ARM/RPi4)
+- *ossia* SDK build scripts (building latest Qt, FFMPEG, etc): [https://github.com/ossia/sdk/tree/master/ARM](https://github.com/ossia/sdk/tree/master/ARM)
 
 They will produce binaries optimized for Pi 4, and that will also work on Pi 3.
 

@@ -27,16 +27,25 @@ jobs:
       - run: bundle exec jekyll build -d _site/score-docs
         env:
           JEKYLL_ENV: production
+      # Not checked:
+      # - root links outside /score-docs/ (fonts, consent script, privacy policy):
+      #   they are served by the main ossia.io website, not by this build;
+      # - the release notes (reference/changelog/), copied from the GitHub
+      #   releases by sync-releases.yml: they keep the links of their time;
+      # - temporary server errors (418, 5xx) of external sites.
+      # Named anchors (<a id="..."></a>) have no href on purpose.
       - name: Internal and external links
         shell: bash
         run: |
           bundle exec htmlproofer ./_site \
             --checks Links \
-            --ignore-status-codes "403,429,999" \
+            --allow-missing-href \
+            --ignore-status-codes "403,418,429,500,502,503,504,999" \
             --no-enforce-https \
             --hydra '{"max_concurrency": 4}' \
             --typhoeus '{"followlocation": true, "connecttimeout": 20, "timeout": 30}' \
-            --ignore-urls "/^\/(css|js)\//,/^https?:\/\/ossia\.io\/(?!score-docs)/,/web\.archive\.org/,/github\.com\/ossia\/score-docs\/edit\//" \
+            --ignore-files "/\/reference\/changelog\//" \
+            --ignore-urls "/^\/(?!score-docs\/)/,/^https?:\/\/ossia\.io\/(?!score-docs)/,/web\.archive\.org/,/github\.com\/ossia\/score-docs\/edit\//" \
             --swap-urls "^https\://ossia\.io/score-docs:/score-docs" \
             2>&1 | tee htmlproofer.log
       - name: Open or update an issue

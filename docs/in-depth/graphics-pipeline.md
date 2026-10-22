@@ -11,7 +11,7 @@ permalink: /in-depth/video.html
 
 # Graphics pipeline
 
-*score* has a patchable GPU graph for video, textures, compute, and 3D scenes. The graph runs on a dedicated rendering thread and uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-3d). OpenGL, Vulkan, Metal, and Direct3D have different feature and format limits; using RHI does not make every shader supported on every backend.
+*score* has a patchable GPU graph for video, textures, compute, and 3D scenes. The graph runs on a dedicated rendering thread and uses [Qt RHI](https://www.qt.io/blog/graphics-in-qt-6.0-qrhi-qt-quick-qt-quick-3d). OpenGL, Vulkan, Metal, and Direct3D have different feature and format limits; using RHI does not make every shader supported on every backend.
 
 The important rule for authors is: use the *score* / ISF helpers instead of backend-specific GLSL assumptions. Coordinate origins, clip-space conventions, alpha representation, texture formats, and resource bindings are normalized by the runtime. The [GLSL runtime reference]({{ site.baseurl }}/reference/languages/glsl.html) explains the language and generated interface; this page explains how processes fit together.
 

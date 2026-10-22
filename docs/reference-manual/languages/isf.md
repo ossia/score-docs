@@ -13,7 +13,7 @@ This is the canonical shader contract for the [[ISF Shaders]] process. For GLSL 
 
 ## Standard ISF and score extensions
 
-[Interactive Shader Format](https://isf.video) combines GLSL with a JSON description. The upstream [JSON reference](https://docs.isf.video/ref_json.html) and [GLSL reference](https://docs.isf.video/ref_glsl.html) define the portable ISF interface; the tables below describe score's runtime, including extensions.
+[Interactive Shader Format](https://isf.video) combines GLSL with a JSON description. The upstream [JSON reference](https://docs.isf.video/ref_json.html) and [GLSL reference](https://docs.isf.video/ref_functions.html) define the portable ISF interface; the tables below describe score's runtime, including extensions.
 
 The standard input vocabulary is `event`, `bool`, `long`, `float`, `point2D`, `color`, `image`, `audio`, and `audioFFT`. Standard multipass declarations include `TARGET`, `PERSISTENT`, `FLOAT`, `WIDTH`, and `HEIGHT`. Standard shader variables include `TIME`, `TIMEDELTA`, `DATE`, `FRAMEINDEX`, `PASSINDEX`, `RENDERSIZE`, and `isf_FragNormCoord`; the pixel/normalized image sampling helpers are part of ISF.
 

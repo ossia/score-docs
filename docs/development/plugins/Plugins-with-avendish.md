@@ -22,7 +22,7 @@ Use the [score Avendish template](https://github.com/ossia-templates/score-avnd-
 
 ![Github template creation]({{ site.img }}/development/plugins/avendish/template.png "Github template")
 
-The template's [SDK workflow](https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds-sdk.yaml) builds the platform packages. Install the generated package and manifest in the Packages directory configured in score, usually `Documents/ossia/score/packages/<your-addon>`.
+The template's [SDK workflow](https://github.com/ossia-templates/score-avnd-simple-template/blob/main/.github/workflows/builds.yaml) builds the platform packages. Install the generated package and manifest in the Packages directory configured in score, usually `Documents/ossia/score/packages/<your-addon>`.
 
 ## Build against a matching SDK
 
