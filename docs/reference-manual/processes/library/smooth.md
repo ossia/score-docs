@@ -27,7 +27,7 @@ This allows to transform a signal with a slow data rate, for instance with a new
 ## Type
 
 There are 4 different filters available: 
-* _OneEuro_ for the [1€ filter](https://cristal.univ-lille.fr/~casiez/1euro/).
+* _OneEuro_ for the [1€ filter](https://gery.casiez.net/1euro/).
 * _LowPass_ that only uses the low pass implementation from the one euro filter.
 * _Average_ for a floating average.
 * _Median_ for a floating median.

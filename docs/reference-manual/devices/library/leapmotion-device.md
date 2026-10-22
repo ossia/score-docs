@@ -15,7 +15,7 @@ permalink: /devices/leapmotion-device.html
 ossia supports using the Leapmotion. Right now only one sensor at a time is supported, this limit will soon be lifted.
 Every UltraLeap device recognized by the Gemini or Hyperion drivers are supported.
 
-- On Windows and macOS the UltraLeap drivers (Gemini or Hyperion) must be installed : [https://leap2.ultraleap.com/downloads/haptics-development-kit/](https://leap2.ultraleap.com/downloads/haptics-development-kit/). Both AppleSilicon and Intel Macs are supported.
+- On Windows and macOS the UltraLeap drivers (Gemini or Hyperion) must be installed : [https://leap2.ultraleap.com/downloads/](https://leap2.ultraleap.com/downloads/). Both AppleSilicon and Intel Macs are supported.
 
 - On Linux, ossia will be looking for the following Ultraleap binaries: 
 
