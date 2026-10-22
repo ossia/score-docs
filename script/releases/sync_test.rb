@@ -190,4 +190,13 @@ class ReleaseSyncTest < Minitest::Test
     assert_equal "", data["releases"].last["body_html"]
     assert_equal true, data["releases"].first["prerelease"]
   end
+
+  # The continuous pre-release gets new binaries on every build of score, which
+  # only changes its updated_at: that alone must not change the archive.
+  def test_updated_at_alone_does_not_change_the_archive
+    first = importer.sync([[release("", tag_name: "continuous", prerelease: true)]])
+    second = importer.sync([[release("", tag_name: "continuous", prerelease: true, updated_at: "2030-01-01T00:00:00Z")]])
+    assert_equal first, second
+    refute first["releases"].first.key?("updated_at")
+  end
 end
