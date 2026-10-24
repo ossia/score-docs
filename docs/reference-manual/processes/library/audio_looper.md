@@ -34,7 +34,7 @@ Every control is a port with an address, so the looper can be driven by OSC, MID
 
 **Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. Whole is a bar; None changes at once. See [quantization]({{ site.baseurl }}/in-depth/musical.html#quantization).
 
-**Bars** and **Post-action** make a recording end on its own: after Bars bars, recording gives way to the post-action, Play or Overdub. With Bars at 0, a recording lasts until the mode is changed by hand.
+**Bars** and **Post-action** make a recording end on its own: after Bars bars, recording gives way to the post-action, Play or Overdub. With Bars at 0, a recording lasts as long as wanted, until the mode is changed.
 
 **Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. The default is 120 ms; 0 turns it off.
 
@@ -48,6 +48,8 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 - **Redo** brings back the last pass undone. A new overdub after an undo replaces what redo would have brought back.
 - **Clear** empties the loop and forgets every pass.
 - **Feedback** is how much of the loop is kept each time an overdub goes round it. At 1 nothing fades; below 1, older passes fade a little more at each round. Undoing a pass gives the passes under it back the level it took from them.
+
+**Past the end** chooses what an overdub does when it reaches the end of the loop: **Wrap** goes round the loop again; **Extend** makes the loop longer by its length, each time the end is reached, and the passes under it play again over the new part. The extended loop ends when overdubbing stops: on a one-bar loop, overdubbing for four bars makes a four-bar loop, and a shorter overdub after that leaves it as it is. Stopping just after the loop grew, within Late stop, does not add the last length. Undo gives the loop its length back.
 
 **Max layers**, 2 to 32, is the number of passes kept apart. When it is reached, the two oldest passes are merged into one, and that undo step is lost.
 
