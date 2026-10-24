@@ -34,6 +34,10 @@ routing. The running-note collection is indexed by pitch rather than by
 channel/pitch, so identical pitches from multiple channels are not tracked
 independently.
 
+A note-off always goes to the outlet its note-on went to, so that a note that
+was kept is always ended. When note-offs are selected, the note-offs of notes
+that were rejected only for their kind go to the MIDI outlet as well.
+
 Because Index 0 means “all”, this control cannot isolate only CC 0 or note 0.
 
 ## Outputs

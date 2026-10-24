@@ -38,6 +38,8 @@ score interval to external MIDI equipment.
 Clock expresses musical tempo; MTC expresses a time position. They are different
 protocols, so enabling both is only useful when the receiver understands both.
 The output controls start disabled until enabled by the user.
+When playback starts on a clock pulse, the first clock goes out together with
+Start, so that the receiver counts its first beat from there.
 
 ## Limitations
 
