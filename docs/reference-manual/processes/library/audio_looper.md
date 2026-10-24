@@ -98,7 +98,15 @@ The memory for these is reserved when playback starts, so changes to Max length,
 
 ## Tempo changes
 
-A loop keeps the speed it was recorded at: after a tempo change it plays as before, and no longer falls on the bars. Mode changes and the post-action follow the new tempo. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
+**Follow tempo** chooses how a loop follows the tempo of the score, with the same methods as sound files:
+
+| Choice | Behavior |
+|---|---|
+| **Off** (default) | The loop keeps the speed it was recorded at, and no longer falls on the bars after a tempo change. |
+| **Repitch**, **Repitch fast** | The loop is resampled: it keeps to the bars, and its pitch goes up and down with the tempo. |
+| **Timestretch**, **Timestretch percussive** | The loop is time-stretched: it keeps to the bars and to its pitch. |
+
+Following applies to a loop that is playing. A loop being recorded or overdubbed plays at its own speed, and a tempo change is heard from the next round of the loop. Mode changes and the post-action always follow the tempo of the score. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
 
 ## Outputs
 
