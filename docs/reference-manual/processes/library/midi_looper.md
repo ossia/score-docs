@@ -55,7 +55,9 @@ Overdubbing an empty loop records it, as with the audio looper.
 
 ## Tempo changes
 
-A loop keeps the speed and the beats it was recorded at: after a tempo change, the quantize grid stays on the loop's own beats, and its takes have its own tempo.
+With **Follow tempo**, on by default, the loop plays at the tempo of the score: a loop recorded over two bars lasts two bars whatever the tempo becomes. Off, it keeps the speed it was recorded at. Either way the quantize grid stays on the loop's own beats, and its takes have the tempo it was recorded at.
+
+**Past the end** works as for the audio looper: an overdub can make the loop longer, the passes under it repeating.
 
 ## Takes and the timeline
 
