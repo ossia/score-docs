@@ -51,9 +51,15 @@ A note held on the input is never sent twice when the loop plays the same note.
 
 Changing the transposition or the output channel, stopping, undoing or clearing ends the notes the loop was playing.
 
+Overdubbing an empty loop records it, as with the audio looper.
+
+## Tempo changes
+
+A loop keeps the speed and the beats it was recorded at: after a tempo change, the quantize grid stays on the loop's own beats, and its takes have its own tempo.
+
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor.
+When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; each file becomes a clip on a lane of its own.
 
 ## Capture
 

@@ -25,7 +25,7 @@ The [MIDI looper]({{ site.baseurl }}/processes/midi-looper.html) works the same 
 |---|---|
 | **Play** | Plays the loop. |
 | **Record** | Records a new loop, replacing the current one and all its layers. |
-| **Overdub** | Records a new layer on top of the loop while it plays. |
+| **Overdub** | Records a new layer on top of the loop while it plays. On an empty loop, records the loop first: until the mode changes, or for Bars bars after which overdubbing starts. |
 | **Stop** | Outputs no loop. The loop is kept. |
 
 Every control is a port with an address, so the looper can be driven by OSC, MIDI or a footswitch mapping as well as by the mouse.
@@ -56,6 +56,8 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. **Send** in the view, or the **Send to timeline** control, places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
 
 The take can also be dragged from the looper's view into the timeline, or anywhere a sound file can be dropped.
+
+**Takes** chooses what a take is written as: **Mix**, the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending or dragging a take places every one of its files, each on a lane of its own.
 
 Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it; **File > Project files > Remove unused files...** sets aside the takes in the score's folder that it no longer uses.
 
@@ -91,6 +93,10 @@ Capture needs **Keep last (s)**, the number of seconds of input the looper keeps
 - **Engine latency** adds the input and output latency the audio driver reports, for a performer playing from the sound card along with the loop. JACK and PortAudio report it; with other drivers, set Latency by hand. Leave it off for input made inside score, which has no such delay.
 
 The memory for these is reserved when playback starts, so changes to Max length, Max layers, Channels and Keep last apply from the next start.
+
+## Tempo changes
+
+A loop keeps the speed it was recorded at: after a tempo change it plays as before, and no longer falls on the bars. Mode changes and the post-action follow the new tempo. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
 
 ## Outputs
 
