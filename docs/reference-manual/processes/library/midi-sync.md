@@ -47,8 +47,17 @@ This process sends synchronization; it does not make score a slave to an externa
 transport. Use [MIDI Sync In]({{ site.baseurl }}/processes/midi-timecode-input.html)
 to extract incoming timing values. MIDI transmission and receiver behavior add
 latency and jitter; test the actual devices rather than assuming sample-accurate
-lock. The current explicit seek/transport callback does not send a relocation
-message, so verify seeking and restart behavior with the receiver.
+lock.
+
+## Seeking and looping
+
+After a seek, a loop or a resume in the middle of the score, MIDI Sync Out sends
+Stop, a Song Position and Continue. A Song Position counts 16th notes, so the
+clock starts again on the first 16th note at or after the new position, and
+nothing is sent until then: the receiver's first clock is where the score is.
+With a clock rate other than x1, the 16th notes are the receiver's: at x2, a
+score quarter is two quarters for the receiver. Positions past 1024 bars of 4/4
+cannot be sent as a Song Position.
 
 In the current implementation the displayed 29.97/30 choices use the opposite
 numerical rates for frame calculation; use 24 or 25 fps when possible, and do not
