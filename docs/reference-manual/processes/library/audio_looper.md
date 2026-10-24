@@ -84,6 +84,7 @@ Capture needs **Keep last (s)**, the number of seconds of input the looper keeps
 - **Max length (s)**, default 60, is the longest loop. A recording that reaches it ends, and the post-action takes over; the view shows the loop as full.
 - **Channels**, default 2, is the number of channels recorded.
 - **Latency (ms)** moves what is recorded earlier in the loop, to make up for the time the input takes to reach the looper.
+- **Engine latency** adds the input and output latency the audio driver reports, for a performer playing from the sound card along with the loop. JACK and PortAudio report it; with other drivers, set Latency by hand. Leave it off for input made inside score, which has no such delay.
 
 The memory for these is reserved when playback starts, so changes to Max length, Max layers, Channels and Keep last apply from the next start.
 
