@@ -49,7 +49,7 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 - **Clear** empties the loop and forgets every pass.
 - **Feedback** is how much of the loop is kept each time an overdub goes round it. At 1 nothing fades; below 1, older passes fade a little more at each round. Undoing a pass gives the passes under it back the level it took from them.
 
-**Max layers** is the number of passes kept apart. When it is reached, the two oldest passes are merged into one, and that undo step is lost.
+**Max layers**, 2 to 32, is the number of passes kept apart. When it is reached, the two oldest passes are merged into one, and that undo step is lost.
 
 ## Takes and the timeline
 
@@ -58,6 +58,10 @@ When a recording or an overdub ends, the loop is written to a WAV file: 32-bit f
 The take can also be dragged from the looper's view into the timeline, or anywhere a sound file can be dropped.
 
 Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it; **File > Project files > Remove unused files...** sets aside the takes in the score's folder that it no longer uses.
+
+## Loading a file
+
+Dropping a sound file on the looper, or choosing it in **Loop file**, replaces the loop with it, up to Max length, and plays it. A file at another sample rate is converted. A mono file goes to every channel.
 
 ## Capture
 
