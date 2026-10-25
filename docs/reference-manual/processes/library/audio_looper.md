@@ -53,6 +53,17 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 
 **Max layers**, 2 to 32, is the number of passes kept apart. When it is reached, the two oldest passes are merged into one, and that undo step is lost.
 
+### Erasing a pass
+
+Any pass can be taken out of the loop while it plays, not only the last one:
+
+- in the view, with the **x** at the right of its lane. The view shows up to eight lanes; with more passes than that, the oldest share the first lane, which has no **x**.
+- with **Layer** and **Erase layer**: Layer says which pass, counting from the oldest one, and Erase layer erases it. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
+
+The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
+
+Erasing the pass being overdubbed is the same as Undo: the pass is dropped and overdubbing carries on in a new one. Erasing the only pass empties the loop, as Clear does.
+
 ## Takes and the timeline
 
 When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. **Send** in the view, or the **Send to timeline** control, places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
