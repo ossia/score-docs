@@ -30,13 +30,19 @@ Each recording or overdub is a pass. **Undo** hides the last pass, **Redo** show
 
 Controllers always replace their own earlier values over the part of the loop a pass went through: a pass that moves CC 74 replaces the earlier CC 74 curve there, and leaves CC 1 and pitch bend alone. Two curves of one controller never fight.
 
+## Comp mode and the Switches tab
+
+**Loop** has a **Comp** mode, and the **Switches** tab has the actions made for footswitches, with **After record**, **After overdub** and **Stop at**, all as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#footswitches): see there for why actions rather than values of Loop, and what each one does.
+
+With After record set to Overdub or Comp, the overdub starts on the very frame the recording ends on. A note held across the end of the recording is one note of the recording, which wraps round the end of the loop to where it was let go; a note played on the first frame of the overdub is the first note of the new layer.
+
 ## The view
 
 The view shows one lane per pass, as the audio looper does: up to eight lanes, the oldest passes sharing the first lane when there are more. Each lane is a small piano roll of its own pass, over the pitches that pass played. Notes a later pass replaced are drawn dimmed.
 
 ## Erasing a pass
 
-As with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#erasing-a-pass), any pass can be erased while the loop plays, with the **x** of its lane or with **Layer** and **Erase layer**. Its notes and controllers go; the passes over it stay where they are, and the loop keeps its length. Erasing the pass being overdubbed is the same as Undo, and erasing the only pass empties the loop. The notes the loop was playing end, as with Undo.
+As with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#erasing-a-pass), any pass can be erased while the loop plays, with the **x** of its lane or with **Layer** and **Erase layer**, or the newest one with **Erase last**. Its notes and controllers go; the passes over it stay where they are, and the loop keeps its length. Erasing the pass being overdubbed is the same as Undo, and erasing the only pass empties the loop. The notes the loop was playing end, as with Undo.
 
 What only the erased pass replaced is heard again. What a later pass replaced as well stays replaced: if the second pass and the third both played a C over the C of the first one, erasing the second leaves the first one's C silent, because the third still replaces it.
 
@@ -88,7 +94,7 @@ The notes the loop was playing end when it turns round.
 
 **Passes**, in the Comp tab, makes a pass of each round of an overdub with **Per cycle**, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#comping). A note held across the start of the loop belongs to the round it started in.
 
-The **m** of a lane, or **Mute layer** with **Layer**, mutes a pass: its notes and controllers are not heard, and it replaces nothing, so with Replace the notes it replaced are heard again while it is muted, unless a later pass replaces them as well. Muted passes are left out of the mix of a take, and still have their own file in a take written as layers. The notes the loop was playing end when a pass is muted or unmuted.
+**Comp next** starts a new pass at each press without stopping, as for the audio looper. The **m** of a lane, **Mute layer** with **Layer**, or **Mute last**, mutes a pass, and **Solo layer** mutes all but one: its notes and controllers are not heard, and it replaces nothing, so with Replace the notes it replaced are heard again while it is muted, unless a later pass replaces them as well. Muted passes are left out of the mix of a take, and still have their own file in a take written as layers. The notes the loop was playing end when a pass is muted or unmuted.
 
 ## Restart In phase
 

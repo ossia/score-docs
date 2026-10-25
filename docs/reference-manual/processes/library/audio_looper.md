@@ -27,6 +27,9 @@ The [MIDI looper]({{ site.baseurl }}/processes/midi-looper.html) works the same 
 | **Record** | Records a new loop, replacing the current one and all its layers. |
 | **Overdub** | Records a new layer on top of the loop while it plays. On an empty loop, records the loop first: until the mode changes, or for Bars bars after which overdubbing starts. |
 | **Stop** | Outputs no loop. The loop is kept. |
+| **Comp** | Overdubs as Overdub does, but taking it up always starts a new layer, even from Overdub. Leaving it ends the layer, as leaving Overdub does. See [Comping](#comping). |
+
+Loop always shows what the looper is asked to do: when an action of the Switches tab, the post-action or a full loop changes the mode, Loop changes with it.
 
 Every control is a port with an address, so the looper can be driven by OSC, MIDI or a footswitch mapping as well as by the mouse.
 
@@ -39,6 +42,37 @@ Every control is a port with an address, so the looper can be driven by OSC, MID
 **Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. When it gives way to an overdub, what was played since the grid point is the start of the overdub. The default is 120 ms; 0 turns it off.
 
 **Restart** chooses where playback starts after a mode change: from the beginning of the loop (Always), or, except after a recording, from where it was (Recording). **In phase** keeps the loop on the timeline, see [Restart In phase](#restart-in-phase).
+
+## Footswitches
+
+Loop is a value: setting it to the mode it already has does nothing. A footswitch mapped to Loop can say "overdub" but not "overdub again in a new layer", "go back to the start" or "end this recording into the post-action". The **Switches** tab has actions for that: buttons that act each time they are pressed, made to be mapped to footswitches, MIDI notes or OSC messages. What they change waits for the next point of the grid, as a change of Loop does, and Late stop applies to them; the controls they change (Loop, Layer, Reverse, Speed) show what they changed them to.
+
+| Action | What it does |
+|---|---|
+| **Rec / Play / Dub** | One button for everything: records an empty loop; while recording, ends the recording into what **After record** says; overdubs a playing loop; while overdubbing or comping, does what **After overdub** says; plays a stopped loop. |
+| **Play / Stop** | Plays a stopped loop; stops it in any other mode. Does nothing on an empty loop. |
+| **Record** | Records a new loop, in place of the one there is, from any mode. While recording, ends the recording into what After record says. |
+| **Overdub** | Overdubs, from any mode. Pressed while overdubbing, does nothing: the layer goes on. |
+| **Comp next** | Ends the layer being overdubbed and starts a new one, without stopping. From Play or Stop, starts comping; while recording, ends the recording and starts the first layer over it. |
+| **Play**, **Stop** | Play or stop, from any mode. |
+| **Restart loop** | Goes back to the start of the loop and stays in the same mode. An overdub goes on from the start in the same layer; a recording starts again. |
+| **Undo**, **Redo**, **Clear** | As described in [Layers](#layers). |
+| **Erase last** | Erases the newest layer. While overdubbing, that is the layer being overdubbed: as with Undo, it is dropped and overdubbing goes on in a new one. |
+| **Mute last** | Mutes the newest layer, or unmutes it. |
+| **Previous layer**, **Next layer** | Change **Layer**, the selected layer, at once, from the oldest to the newest. The view outlines the selected lane. |
+| **Mute layer**, **Erase layer** | Mute or erase the selected layer, at once. |
+| **Solo layer** | Mutes every layer but the selected one. Pressed again, the layers get back the mutes they had, unless a mute or an erase changed them in between. |
+| **Toggle reverse** | Turns **Reverse** on or off. |
+| **Half speed**, **Double speed** | Set **Speed** to x1/2 or x2, or back to x1 when it already is. |
+| **Capture** | See [Capture](#capture). |
+
+Three settings choose what the actions do:
+
+| Setting | Choices |
+|---|---|
+| **After record** | What Rec / Play / Dub and Record go to when they end a recording. **Play** (default) hears the loop at once, the usual choice. **Overdub** goes on overdubbing from the very frame the recording ends on: nothing played across the end of the loop is cut, for pads and sustained textures. **Comp** does the same in a layer of its own each time. A recording that ends on its own after Bars goes to **Post-action** instead. |
+| **After overdub** | What Rec / Play / Dub does while overdubbing. **Play** (default) goes back to playing, as single-switch loopers do. **New layer** goes on overdubbing in a new layer, as Comp next does, for building a loop layer by layer with one switch. |
+| **Stop at** | When Stop, Play / Stop and Loop set to Stop stop the loop. **Grid** (default) waits for the next point of the grid, as any change of mode. **Loop end** lets the loop play to its end, for ending a song on a whole loop. **Now** stops at once, ignoring the grid, for a stop that must not wait. |
 
 ## Layers
 
@@ -58,7 +92,7 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 Any pass can be taken out of the loop while it plays, not only the last one:
 
 - in the view, with the **x** at the right of its lane. The view shows up to eight lanes; with more passes than that, the oldest share the first lane, which has no **x**.
-- with **Layer** and **Erase layer**: Layer says which pass, counting from the oldest one, and Erase layer erases it. **Mute layer** mutes it instead, see [Comping](#comping). Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
+- with **Layer** and **Erase layer**, in the Switches tab: Layer says which pass, counting from the oldest one, and Erase layer erases it. **Mute layer** mutes it instead, see [Comping](#comping). Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
 
 The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
 
@@ -145,7 +179,9 @@ The view's playhead has an arrow pointing the way the loop plays, and the header
 
 A pass per cycle is a pass like any other: it has its own lane, and can be undone or erased on its own. Rounds follow each other without a fade, so all of them together sound as one long overdub would, Feedback included. An overdub that goes round after a recording, with the post-action Overdub or when Overdub was asked on an empty loop, makes a pass per round as well.
 
-To keep the best round, mute the others: the **m** left of the **x** of a lane mutes its pass, and pressing it again unmutes it. **Mute layer**, in the Comp tab, does the same for the pass **Layer** says, from a port. A muted pass is kept but not heard, as if it were erased: it takes nothing from the passes under it with its feedback, and it is drawn dimmed. Muted passes are left out of the mix of a take; a take written as layers still has a file for every pass, the muted ones included, as they would be heard, so that the rounds can be spliced in the timeline.
+**Comp**, the mode, and **Comp next**, in the Switches tab, are for keeping the best of several takes played one after the other: each press of Comp next ends the layer being overdubbed and starts a new one on the next grid point, without stopping, so three presses leave three layers. Entering Comp starts a new layer whatever the mode was, Overdub included. Undo while comping drops the layer in progress, and comping goes on in a new one.
+
+To keep the best round, mute the others: the **m** left of the **x** of a lane mutes its pass, and pressing it again unmutes it. **Mute layer**, in the Switches tab, does the same for the pass **Layer** says, from a port; **Solo layer** mutes all the others at once. A muted pass is kept but not heard, as if it were erased: it takes nothing from the passes under it with its feedback, and it is drawn dimmed. Muted passes are left out of the mix of a take; a take written as layers still has a file for every pass, the muted ones included, as they would be heard, so that the rounds can be spliced in the timeline.
 
 When the two oldest passes are merged to make room, past **Max layers**, a muted one is left out of the merged pass, and lost.
 
