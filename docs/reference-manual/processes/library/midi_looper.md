@@ -71,7 +71,7 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; each file becomes a clip on a lane of its own.
+When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
 
 ## Capture
 
