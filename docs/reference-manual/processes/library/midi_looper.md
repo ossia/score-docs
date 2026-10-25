@@ -19,7 +19,7 @@ The recording keeps its own timing: quantize, transpose and channel changes only
 
 ## Passes and overdubs
 
-Each recording or overdub is a pass. **Undo** hides the last pass, **Redo** shows it again, **Clear** forgets everything.
+Each recording or overdub is a pass. **Undo** hides the last pass, **Redo** shows it again, **Clear** forgets everything. **Restart** is in the Play tab, with Follow tempo.
 
 **Overdub** chooses what a pass does to the notes of the passes under it:
 
@@ -72,6 +72,27 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 ## Takes and the timeline
 
 When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+
+## Reverse and speed
+
+**Reverse** and **Speed**, in the Play tab, work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#reverse-and-speed).
+
+- Played backwards, a note plays where it ended: a note over the first quarter of a one-bar loop plays over its last quarter. A note held across the end of the loop wraps or is truncated as it was forwards: truncated, what was heard of it at the end of the loop is heard at its start. A controller, pitch bend or pressure goes back the way it came: going back over a point where it changed, it takes the value it had before, so a sustain pedal held over a part of the loop is held over that part backwards.
+- **Speed** plays the loop at x1/4 to x4: at x2, a phrase takes half as long. With **Follow tempo**, Speed applies on top of the tempo.
+
+An overdub records where the playhead goes. A phrase played over the reversed loop plays reversed when the loop goes forwards again, its notes starting where they were let go; a phrase played at x1/2 plays twice as fast at x1. A recording is always made forwards at x1.
+
+The notes the loop was playing end when it turns round.
+
+## Comping
+
+**Passes**, in the Comp tab, makes a pass of each round of an overdub with **Per cycle**, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#comping). A note held across the start of the loop belongs to the round it started in.
+
+The **m** of a lane, or **Mute layer** with **Layer**, mutes a pass: its notes and controllers are not heard, and it replaces nothing, so with Replace the notes it replaced are heard again while it is muted, unless a later pass replaces them as well. Muted passes are left out of the mix of a take, and still have their own file in a take written as layers. The notes the loop was playing end when a pass is muted or unmuted.
+
+## Restart In phase
+
+**Restart** set to **In phase** keeps the loop in phase with the timeline, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#restart-in-phase). With Follow tempo, on by default, the position is counted in quarter notes, so the loop comes back on its bars after a tempo change.
 
 ## Capture
 

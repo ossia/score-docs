@@ -38,7 +38,7 @@ Every control is a port with an address, so the looper can be driven by OSC, MID
 
 **Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. The default is 120 ms; 0 turns it off.
 
-**Restart** chooses where playback starts after a mode change: from the beginning of the loop (Always), or, except after a recording, from where it was (Recording).
+**Restart** chooses where playback starts after a mode change: from the beginning of the loop (Always), or, except after a recording, from where it was (Recording). **In phase** keeps the loop on the timeline, see [Restart In phase](#restart-in-phase).
 
 ## Layers
 
@@ -58,7 +58,7 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 Any pass can be taken out of the loop while it plays, not only the last one:
 
 - in the view, with the **x** at the right of its lane. The view shows up to eight lanes; with more passes than that, the oldest share the first lane, which has no **x**.
-- with **Layer** and **Erase layer**: Layer says which pass, counting from the oldest one, and Erase layer erases it. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
+- with **Layer** and **Erase layer**: Layer says which pass, counting from the oldest one, and Erase layer erases it. **Mute layer** mutes it instead, see [Comping](#comping). Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
 
 The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
 
@@ -118,6 +118,46 @@ The memory for these is reserved when playback starts, so changes to Max length,
 | **Timestretch**, **Timestretch percussive** | The loop is time-stretched: it keeps to the bars and to its pitch. |
 
 Following applies to a loop that is playing. A loop being recorded or overdubbed plays at its own speed, and a tempo change is heard from the next round of the loop. Mode changes and the post-action always follow the tempo of the score. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
+
+## Reverse and speed
+
+**Reverse** and **Speed**, in the Play tab, play the loop as a tape would be.
+
+- **Reverse** plays the loop backwards, from where the playhead is. Turned off, the loop plays forwards again from there. Nothing is changed in the loop: reversing is only how it is read.
+- **Speed** plays the loop at x1/4, x1/2, x1, x2 or x4. The pitch follows the speed: at x1/2 the loop is an octave down and takes twice as long, at x2 an octave up and half as long.
+
+An overdub writes where the playhead goes, as on tape. What is played over the reversed loop sounds reversed once the loop plays forwards again; what is played at x1/2 sounds an octave up, and twice as fast, at x1; at x2, an octave down.
+
+Speed and Reverse change how the loop is read, not the score's time: Quantif, Bars and the post-action, Late stop and sync groups go by the score as before, and a loop keeps its length. A recording is always made forwards at x1: it is what makes the loop. With **Follow tempo**, Speed applies on top of the tempo: at x2, a loop recorded over two bars plays in one bar whatever the tempo, its pitch up an octave even when time-stretched.
+
+**Past the end** set to Extend only extends an overdub going forwards: backwards, the playhead reaches the start of the loop and goes round.
+
+The view's playhead has an arrow pointing the way the loop plays, and the header says when it plays backwards or at another speed than x1. **Phase** goes down from 1 to 0 while the loop plays backwards.
+
+## Comping
+
+**Passes**, in the Comp tab, is for keeping the best of several rounds of an overdub:
+
+| Choice | Behavior |
+|---|---|
+| **Whole** (default) | An overdub is one pass, from when it starts to when it stops. |
+| **Per cycle** | An overdub that goes round the loop several times makes a pass of each round, each starting at the start of the loop. |
+
+A pass per cycle is a pass like any other: it has its own lane, and can be undone or erased on its own. Rounds follow each other without a fade, so all of them together sound as one long overdub would, Feedback included. An overdub that goes round after a recording, with the post-action Overdub or when Overdub was asked on an empty loop, makes a pass per round as well.
+
+To keep the best round, mute the others: the **m** left of the **x** of a lane mutes its pass, and pressing it again unmutes it. **Mute layer**, in the Comp tab, does the same for the pass **Layer** says, from a port. A muted pass is kept but not heard, as if it were erased: it takes nothing from the passes under it with its feedback, and it is drawn dimmed. Muted passes are left out of the mix of a take; a take written as layers still has a file for every pass, the muted ones included, as they would be heard, so that the rounds can be spliced in the timeline.
+
+When the two oldest passes are merged to make room, past **Max layers**, a muted one is left out of the merged pass, and lost.
+
+## Restart In phase
+
+With **Restart** set to **In phase**, the loop stays in phase with the timeline. Playing and overdubbing carry on from where they were, as with Recording; and whenever the loop is heard again after being stopped, it starts where it would be had it kept playing since it was recorded:
+
+- after Stop, then Play or Overdub;
+- when the score is played again, from wherever it starts;
+- when the score jumps to another date while the loop plays.
+
+The position comes from where the loop was recorded on the timeline. Without Follow tempo, it is counted in the score's time: a loop of a second stopped for half a second comes back half a loop on. With Follow tempo, it is counted in quarter notes, so the loop comes back on the bars it was recorded on even after a tempo change. Speed and Reverse are taken into account: the loop comes back where it would be at its speed, going its way.
 
 ## Outputs
 
