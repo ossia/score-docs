@@ -104,6 +104,10 @@ When a recording or an overdub ends, the loop is written to a WAV file: 32-bit f
 
 The take can also be dragged from the looper's view into the timeline, or anywhere a sound file can be dropped.
 
+While a recording or an overdub goes on, the last take does not have it yet. Send, or a press in the view that starts a drag, then asks for a take of the loop as it is heard at that moment, the pass in progress included as far as it went, without stopping it; the Send button says **Saving** until the take is written. Send places it as soon as it is there. A drag starts with the next move of the mouse once it is there, if the button is still held; let go before, the take is the one the next drag or Send gives.
+
+When the score stops while a recording or an overdub goes on, the loop as it is heard is written as a take of its own, its mix only, even if the looper is removed right after.
+
 **Takes** chooses what a take is written as: **Mix**, the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it drops them all.
 
 Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it; **File > Project files > Remove unused files...** sets aside the takes in the score's folder that it no longer uses.

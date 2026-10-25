@@ -21,7 +21,7 @@ The recording keeps its own timing: quantize, transpose and channel changes only
 
 Each recording or overdub is a pass. **Undo** hides the last pass, **Redo** shows it again, **Clear** forgets everything. **Restart** is in the Play tab, with Follow tempo.
 
-**Overdub** chooses what a pass does to the notes of the passes under it:
+**Overdub mode**, in the Overdub tab, chooses what a pass does to the notes of the passes under it:
 
 | Choice | Behavior |
 |---|---|
@@ -56,7 +56,7 @@ A note held on the input is never sent twice when the loop plays the same note.
 
 ## Quantize
 
-**Grid** and **Quantize** pull the notes towards a grid when they are played back. At a Quantize of 0 the notes play as recorded; at 1 they play on the grid. **Quantize ends** pulls the ends of the notes too.
+**Grid** and **Quantize** pull the notes towards a grid when they are played back. At a Quantize of 0 the notes play as recorded; at 1 they play on the grid. **Quantize ends** pulls the ends of the notes too. A note sounding when one of them changes ends where it was going to: the change applies from its next start, and a note moved to where the playhead has yet to go plays there once it has ended.
 
 ## Notes and channels
 
@@ -78,6 +78,8 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 ## Takes and the timeline
 
 When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send** in the looper's view, or a drag from it, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+
+While a recording or an overdub goes on, Send or a drag asks for a take of the loop as it is heard at that moment, the pass in progress included, a key still held lasting up to the playhead; the Send button says **Saving** until it is written, as for the audio looper. When the score stops while a pass is taken in, the loop as it is heard is written as a take of its own, its mix only.
 
 ## Reverse and speed
 
