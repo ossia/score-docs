@@ -30,6 +30,16 @@ Each recording or overdub is a pass. **Undo** hides the last pass, **Redo** show
 
 Controllers always replace their own earlier values over the part of the loop a pass went through: a pass that moves CC 74 replaces the earlier CC 74 curve there, and leaves CC 1 and pitch bend alone. Two curves of one controller never fight.
 
+## The view
+
+The view shows one lane per pass, as the audio looper does: up to eight lanes, the oldest passes sharing the first lane when there are more. Each lane is a small piano roll of its own pass, over the pitches that pass played. Notes a later pass replaced are drawn dimmed.
+
+## Erasing a pass
+
+As with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#erasing-a-pass), any pass can be erased while the loop plays, with the **x** of its lane or with **Layer** and **Erase layer**. Its notes and controllers go; the passes over it stay where they are, and the loop keeps its length. Erasing the pass being overdubbed is the same as Undo, and erasing the only pass empties the loop. The notes the loop was playing end, as with Undo.
+
+What only the erased pass replaced is heard again. What a later pass replaced as well stays replaced: if the second pass and the third both played a C over the C of the first one, erasing the second leaves the first one's C silent, because the third still replaces it.
+
 ## Notes at the edges of the loop
 
 **Held notes** chooses what a note held across the end of the loop does: **Wrap** (default) carries it on from the start of the loop, **Truncate** ends it with the loop.
@@ -49,7 +59,7 @@ A note held on the input is never sent twice when the loop plays the same note.
 - **Out channel** plays the loop on one channel; 0 keeps the recorded ones.
 - **Passthrough** chooses when the input is heard, as for the audio looper. It is Full by default.
 
-Changing the transposition or the output channel, stopping, undoing or clearing ends the notes the loop was playing.
+Changing the transposition or the output channel, stopping, undoing, erasing a pass or clearing ends the notes the loop was playing.
 
 Overdubbing an empty loop records it, as with the audio looper.
 
