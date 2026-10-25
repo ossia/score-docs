@@ -36,7 +36,7 @@ Every control is a port with an address, so the looper can be driven by OSC, MID
 
 **Bars** and **Post-action** make a recording end on its own: after Bars bars, recording gives way to the post-action, Play or Overdub. With Bars at 0, a recording lasts as long as wanted, until the mode is changed.
 
-**Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. The default is 120 ms; 0 turns it off.
+**Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. When it gives way to an overdub, what was played since the grid point is the start of the overdub. The default is 120 ms; 0 turns it off.
 
 **Restart** chooses where playback starts after a mode change: from the beginning of the loop (Always), or, except after a recording, from where it was (Recording). **In phase** keeps the loop on the timeline, see [Restart In phase](#restart-in-phase).
 
@@ -66,7 +66,7 @@ Erasing the pass being overdubbed is the same as Undo: the pass is dropped and o
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. **Send** in the view, or the **Send to timeline** control, places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
+When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. **Send** in the looper's view places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
 
 The take can also be dragged from the looper's view into the timeline, or anywhere a sound file can be dropped.
 

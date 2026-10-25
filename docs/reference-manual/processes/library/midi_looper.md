@@ -44,7 +44,7 @@ What only the erased pass replaced is heard again. What a later pass replaced as
 
 **Held notes** chooses what a note held across the end of the loop does: **Wrap** (default) carries it on from the start of the loop, **Truncate** ends it with the loop.
 
-**Grace (ms)**, default 60, is for a note played slightly before a recording or an overdub starts: it is recorded on the first beat instead of being lost.
+**Grace (ms)**, default 60, is for a note played slightly before a recording or an overdub starts: it is recorded on the first beat instead of being lost. The other way round, a recording asked to stop a little after a grid point, within **Late stop (ms)**, ends on that point; when it gives way to an overdub, the notes played since the point are the overdub's, where they were played.
 
 A note held on the input is never sent twice when the loop plays the same note.
 
@@ -71,7 +71,7 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send**, **Send to timeline**, or a drag from the view places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send** in the looper's view, or a drag from it, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
 
 ## Reverse and speed
 
