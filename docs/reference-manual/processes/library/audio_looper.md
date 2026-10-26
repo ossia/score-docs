@@ -15,7 +15,7 @@ permalink: /processes/audio-looper.html
 
 The process named **Looper (audio)** records the audio it receives at **in** into a loop and plays it back at **out**. Each overdub is kept as a layer of its own, so it can be undone, and every take is written to a file that can be placed in the timeline as a regular sound clip.
 
-The [MIDI looper]({{ site.baseurl }}/processes/midi-looper.html) works the same way with notes and controllers.
+The [MIDI looper]({{ site.baseurl }}/processes/midi-looper.html) works the same way with notes and controllers, and the [value looper]({{ site.baseurl }}/processes/value-looper.html) with any stream of values.
 
 ## Modes
 
