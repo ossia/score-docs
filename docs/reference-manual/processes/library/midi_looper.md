@@ -124,7 +124,7 @@ As for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#presets
 
 | Preset | What it is for |
 |---|---|
-| **Song form** | Record, Play, Overdub and Play again; a stop lets the loop play to its end. |
+| **Song form** | Record, Play, Overdub and Play again. Quantif is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
 | **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms. |
 | **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. |
 | **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; once there are 16, a new take replaces a muted one. |
