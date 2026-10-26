@@ -237,7 +237,7 @@ The library has presets for the usual ways of looping. Each one sets every setti
 
 | Preset | What it is for |
 |---|---|
-| **Song form** | Record, Play, Overdub and Play again, for verses and choruses; a stop lets the loop play to its end. |
+| **Song form** | Record, Play, Overdub and Play again, for verses and choruses. Quantif is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
 | **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms for a foot that is a little late on the downbeat. |
 | **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. Play / Stop stops. |
 | **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; mute the ones to drop, and once there are 16, a new take replaces a muted one. |
