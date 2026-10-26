@@ -31,6 +31,8 @@ The most important processes are:
 
 Simply drag'n'drop a MIDI file in the score, either on a scenario or on the interval, from the user library or from your file explorer !
 
+A MIDI file is placed by its beats: a file of two bars lasts two bars of the score whatever tempo it was saved at, and plays at the tempo of the score.
+
 # MIDI processing
 
 * See [[MIDI utilities]] for a list of processes that can alter MIDI data: arpeggiator, etc.
