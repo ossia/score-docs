@@ -19,32 +19,32 @@ The [MIDI looper]({{ site.baseurl }}/processes/midi-looper.html) works the same 
 
 ## Modes
 
-**Loop** chooses what the looper does:
+**Mode** chooses what the looper does:
 
 | Mode | Behavior |
 |---|---|
 | **Play** | Plays the loop. |
-| **Record** | Records a new loop, replacing the current one and all its layers. |
+| **Record** | Records an empty loop. On a loop that has something in it, overdubs it, as on a looper pedal: to record a new loop, **Clear** it first. |
 | **Overdub** | Records a new layer on top of the loop while it plays. On an empty loop, it is a recording, as Record makes, which then gives way to overdubbing. |
 | **Stop** | Outputs no loop. The loop is kept. |
 
-Loop is the state of the looper: it always shows what the looper is doing, or what it is about to do on the next grid point, whatever changed it: an action of the Switches tab, a recording ending after its bars, a full loop, Capture, a file loaded.
+Mode is the state of the looper: it always shows what the looper is doing, or what it is about to do on the next grid point, whatever changed it: an action of the Switches tab, a recording ending after its bars, a full loop, Capture, a file loaded.
 
-Every control is a port with an address, so the looper can be driven by OSC, MIDI or a footswitch mapping as well as by the mouse. A cable or an automation that sends the same mode on every tick asks for it once, when it changes: when the looper changes Loop itself, at the end of a recording for instance, the cable does not ask again and the mode does not flip back.
+Every control is a port with an address, so the looper can be driven by OSC, MIDI or a footswitch mapping as well as by the mouse. A cable or an automation that sends the same mode on every tick asks for it once, when it changes: when the looper changes Mode itself, at the end of a recording for instance, the cable does not ask again and the mode does not flip back.
 
 ## Record, Overdub and layers
 
 | | What it is for | What it does to the loop | How layers are cut |
 |---|---|---|---|
-| **Record** | Making a loop, or making it again. | Replaces the loop and every layer; the loop is as long as the recording, or **Bars** bars. | The recording is the first layer. |
+| **Record** | Making a loop. | Makes the loop: it is as long as the recording, or **Record bars** bars. On a loop that has something in it, Record overdubs: Clear first to make the loop again. | The recording is the first layer. |
 | **Overdub** | Playing over the loop. | Adds what is played on top of the loop, each round fading the layers under it by **Feedback**; with **Past the end** on Extend, makes it longer. | One layer from when it starts to when it stops; with **Passes** on Per cycle, one each time round; **New layer** cuts one where it is pressed. |
 | **Play**, **Stop** | Listening, or not. | Nothing. | None. |
 
-A recording ends in one of three ways, and **After record** says what it gives way to whichever it is: its **Bars** running out, the loop reaching **Max length**, or **Rec / Play / Dub**. Setting Loop to another mode during a recording ends it into that mode.
+A recording ends in one of three ways, and **After record** says what it gives way to whichever it is: its **Record bars** running out, the loop reaching **Max length**, or **Rec / Play / Dub**. Setting Mode to another mode during a recording ends it into that mode.
 
 ## Timing
 
-**Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer. Dragging the knob goes through the values of a unit; clicking its readout chooses the unit:
+**Quantize** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer. Dragging the knob goes through the values of a unit; clicking its readout chooses the unit:
 
 | Unit | Values | The grid |
 |---|---|---|
@@ -53,9 +53,9 @@ A recording ends in one of three ways, and **After record** says what it gives w
 | **Bars** | 1 to 16 bars | Whole bars of the current signature: **3 bars** is a phrase of three bars. |
 | **Loop** | 1/4 loop to 8x loop | The loop itself: **Loop** waits for the loop to come round to its start, **2x loop** for every other time, **1/2 loop** for its start and its middle. |
 
-**Loop** follows the loop as it plays: its length whatever it is, on the bar grid or not, its speed and its direction. An overdub that makes the loop longer waits for the end of the loop as long as it is so far. A stopped loop goes by where it would be had it kept playing since it was recorded. Before there is a loop, while it is empty or being recorded, Loop waits for the length the recording will have: **Bars** bars, or one bar when Bars is 0 (2x loop is twice that). In a sync group, Loop is still the looper's own loop.
+**Loop** follows the loop as it plays: its length whatever it is, on the bar grid or not, its speed and its direction. An overdub that makes the loop longer waits for the end of the loop as long as it is so far. A stopped loop goes by where it would be had it kept playing since it was recorded. Before there is a loop, while it is empty or being recorded, Loop waits for the length the recording will have: **Record bars** bars, or one bar when Record bars is 0 (2x loop is twice that).
 
-**Bars** makes a recording end on its own after that many bars, into what **After record** says. With Bars at 0, a recording lasts as long as wanted, until the mode is changed.
+**Record bars** makes a recording end on its own after that many bars, into what **After record** says. With Record bars at 0, a recording lasts as long as wanted, until the mode is changed.
 
 **Late stop (ms)** handles a recording that is asked to stop a little after a grid point, for example a footswitch pressed just after the downbeat: the recording ends on that grid point instead of a whole grid step later, and playback carries on in time. When it gives way to an overdub, what was played since the grid point is the start of the overdub. The default is 120 ms; 0 turns it off.
 
@@ -71,13 +71,13 @@ A recording always starts at the loop's start.
 
 ## Footswitches
 
-The **Switches** tab has buttons made to be mapped to footswitches, MIDI notes or OSC messages. Play, Stop, Record and Overdub set Loop, exactly as setting it by hand does. The others say what Loop cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Loop does, and Late stop applies to them; the controls they change (Loop, Layer, Reverse, Speed) show what they changed them to.
+The **Switches** tab has buttons made to be mapped to footswitches, MIDI notes or OSC messages. Play, Stop, Record and Overdub set Mode, exactly as setting it by hand does. The others say what Mode cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Mode does, and Late stop applies to them; the controls they change (Mode, Layer, Reverse, Speed) show what they changed them to.
 
 | Action | What it does |
 |---|---|
 | **Rec / Play / Dub** | One button for everything: records an empty loop; while recording, ends the recording into what **After record** says; overdubs a playing loop; while overdubbing, does what **After overdub** says; plays a stopped loop. |
 | **Play / Stop** | Plays a stopped loop; stops it in any other mode. Does nothing on an empty loop. |
-| **Play**, **Stop**, **Record**, **Overdub** | Set Loop to that mode. Record while recording, or Overdub while overdubbing, does nothing. |
+| **Play**, **Stop**, **Record**, **Overdub** | Set Mode to that mode. Record on a loop that has something in it overdubs it, and Mode shows Overdub. Record while recording, or Overdub while overdubbing, does nothing. |
 | **New layer** | While overdubbing, ends the layer and goes on overdubbing in a new one on the grid, without the playhead moving. Does nothing otherwise. |
 | **Retrigger** | Goes back to the start of the loop on the grid, in the same mode: an overdub goes on from the start in the same layer. While recording, starts the recording again, its bars and its tempo counted from there. |
 | **Undo**, **Redo**, **Clear** | At once, see [Layers](#layers). |
@@ -90,7 +90,7 @@ The **Switches** tab has buttons made to be mapped to footswitches, MIDI notes o
 
 **Layer** moves to each new layer as it is added, so Mute layer, Erase layer and Solo layer act on the newest layer unless Previous layer stepped back. When layers are merged, erased or brought back, Layer keeps naming the layer it named: the merged one when it named one of the two merged.
 
-Rec / Play / Dub and Play / Stop act on the mode the looper will be in once what waits for the grid is taken up. Pressed twice before the grid point, each press is taken up on a grid point of its own: on an empty loop, two presses of Rec / Play / Dub record one grid step and play it. Setting Loop, or pressing Play, Stop, Record or Overdub, replaces whatever was waiting.
+Rec / Play / Dub and Play / Stop act on the mode the looper will be in once what waits for the grid is taken up. Pressed twice before the grid point, each press is taken up on a grid point of its own: on an empty loop, two presses of Rec / Play / Dub record one grid step and play it. Setting Mode, or pressing Play, Stop, Record or Overdub, replaces whatever was waiting.
 
 Three settings choose what the one-button actions do:
 
@@ -140,7 +140,7 @@ The take can also be dragged from the looper's view into the timeline, or anywhe
 
 While a recording or an overdub goes on, the last take does not have it yet. Send, or a press in the view that starts a drag, then asks for a take of the loop as it is heard at that moment, the pass in progress included as far as it went, without stopping it; the Send button says **Saving** until the take is written. Send places it as soon as it is there. A drag starts with the next move of the mouse once it is there, if the button is still held; let go before, the take is the one the next drag or Send gives.
 
-When the score stops while a recording or an overdub goes on, the overdub's layer is closed as any, and the loop as it is heard is written as a take of its own, its mix only, even if the looper is removed right after.
+When the score stops while a recording or an overdub goes on, the overdub's layer is closed as any, and the loop as it is heard is written as a take of its own, its mix only, even if the looper is removed right after. Mode then shows Play: when the score plays again, the loop plays, and nothing is recorded over it until Record or Overdub is asked for again.
 
 **Export** chooses what a take writes: **Mix** (default), the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it drops them all.
 
@@ -148,17 +148,13 @@ Takes of a saved score go into a **Takes** folder next to the score. Takes of a 
 
 ## Loading a file
 
-Dropping a sound file on the looper replaces the loop with it, up to Max length, and plays it: Loop shows Play. **Loop file** is the port this sets: it is not in the looper's own view, but it is in the inspector, and a file path sent to it, by a cable or an address, loads the file the same way. A file at another sample rate is converted. A mono file goes to every channel.
+Dropping a sound file on the looper replaces the loop with it, up to Max length, and plays it: Mode shows Play. **Loop file** is the port this sets: it is not in the looper's own view, but it is in the inspector, and a file path sent to it, by a cable or an address, loads the file the same way. A file at another sample rate is converted. A mono file goes to every channel.
 
 ## Capture
 
-**Capture** makes a loop out of what was just played, even when the looper was not recording. It takes the last **Capture bars** bars of the input and plays them at once, ending on the last grid point when that was just passed, like a late stop. Loop shows Play, so Stop stops it.
+**Capture** makes a loop out of what was just played, even when the looper was not recording. It takes the last **Capture bars** bars of the input and plays them at once, ending on the last grid point when that was just passed, like a late stop. Mode shows Play, so Stop stops it.
 
 Capture needs **Keep last (s)**, the number of seconds of input the looper keeps at all times. It is 0 by default, which keeps nothing and uses no memory.
-
-## Sync groups
-
-**Sync** puts loopers in a group, A to D. The first looper of a group to record sets the group's loop. The loops recorded after it are rounded to a whole number of that loop, or to a half, a quarter or an eighth of it, and play in phase with it. Clearing the looper that set the loop frees the group.
 
 ## Monitoring
 
@@ -200,7 +196,7 @@ A change of Follow tempo applies from the next start of playback, as the time-st
 
 An overdub writes where the playhead goes, as on tape. What is played over the reversed loop sounds reversed once the loop plays forwards again; what is played at x1/2 sounds an octave up, and twice as fast, at x1; at x2, an octave down.
 
-Speed and Reverse change how the loop is read, not the score's time: Quantif, Bars, Late stop and sync groups go by the score as before, and a loop keeps its length. A recording is always made forwards at x1: it is what makes the loop. With **Follow tempo**, Speed applies on top of the tempo: at x2, a loop recorded over two bars plays in one bar whatever the tempo, its pitch up an octave even when time-stretched.
+Speed and Reverse change how the loop is read, not the score's time: Quantize, Record bars and Late stop go by the score as before, and a loop keeps its length. A recording is always made forwards at x1: it is what makes the loop. With **Follow tempo**, Speed applies on top of the tempo: at x2, a loop recorded over two bars plays in one bar whatever the tempo, its pitch up an octave even when time-stretched.
 
 **Past the end** set to Extend only extends an overdub going forwards: backwards, the playhead reaches the start of the loop and goes round.
 
@@ -237,14 +233,14 @@ The library has presets for the usual ways of looping. Each one sets every setti
 
 | Preset | What it is for |
 |---|---|
-| **Song form** | Record, Play, Overdub and Play again, for verses and choruses. Quantif is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
+| **Song form** | Record, Play, Overdub and Play again, for verses and choruses. Quantize is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
 | **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms for a foot that is a little late on the downbeat. |
 | **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. Play / Stop stops. |
 | **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; mute the ones to drop, and once there are 16, a new take replaces a muted one. |
 | **Comping, a layer per round** | One overdub, a layer each time round the loop, for trying a part again and again; takes are written as a mix and as layers, to splice the rounds in the timeline. |
 | **Four bars, then play** | A recording of four bars, then plays it. |
 | **Four bars, then overdub** | A recording of four bars, then goes on overdubbing. |
-| **Free loop** | No grid, no Bars, no Late stop: the loop is as long as it was played for. |
+| **Free loop** | No grid, no Record bars, no Late stop: the loop is as long as it was played for. |
 | **Ambient decay** | Four bars, then overdubbing with no gap and Feedback at 0.7, so that older layers fade away; the input is always heard. |
 | **Half speed** | The loop plays an octave down and twice as long; what is overdubbed sounds an octave up once played at x1. |
 | **Played backwards** | The loop plays backwards, and overdubs over it sound reversed once it plays forwards. |
@@ -252,7 +248,6 @@ The library has presets for the usual ways of looping. Each one sets every setti
 | **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
 | **Capture what I played** | Keeps the last minute of input, for Capture to make a loop of its last four bars. |
 | **Takes for editing** | **Export** on Both: takes are written as a mix and as a file for each layer. |
-| **Second loop of group A** | Sync group A, for a loop recorded after another one of the group. |
 
 ## Outputs
 
@@ -260,13 +255,24 @@ The library has presets for the usual ways of looping. Each one sets every setti
 
 ## Older scores
 
-Scores made before the layers keep their looper and the settings they had: Loop, Passthrough and Bars mean what they meant. Post-action is now **After record**, with the same choices, and Restart is now **Start from**: Always is Loop start, Recording is Where it was. A score older than Restart gets Start from's default, Where it was, where the looper of the time read the loop from its start on every change of mode: set Loop start for that. The settings added since come up at their defaults, and these change what such a looper does:
+Scores and presets made with older versions of the looper load with the settings they had. Controls renamed since keep their values:
 
+- **Loop** is now **Mode**, **Quantif** is now **Quantize**, and **Bars** is now **Record bars**.
+- **Post-action** is now **After record**, with the same choices, and **Restart** is now **Start from**: Always is Loop start, Recording is Where it was. A score older than Restart gets Start from's default, Where it was, where the looper of the time read the loop from its start on every change of mode: set Loop start for that.
+- **Takes** is now **Export**.
+- **Quantif** was a list of note values, read as fractions of a bar: a score or a preset made with it gets the grid it waited for. **None** is None, **Whole** is **1 bar**, and the other values are the same note values: **4th** is **1/4**, **Dotted 8th** is **1/8.** In a signature other than 4/4, these note values are now note values, a quarter being a quarter, where they used to divide the bar.
+- **Sync** is gone: a looper saved in a sync group plays on its own, and keeps its other settings and its cables.
+
+These change what an older looper does:
+
+- **Record on a loop** that has something in it overdubs it. It used to record a new loop in its place: clear the loop first for that.
+- **Stopping the process or the score** stops the looper: what was being recorded or overdubbed is closed as a pass and written as a take, the playhead goes back to the loop's start, and a recording or an overdub gives way to Play, which Mode shows; any other mode is taken up again when the score plays again. The looper used to stay in the mode it was in, the playhead where it was.
 - **Overdub on an empty loop** records it, then goes on overdubbing; it used to only pass the input through.
+
+The settings added since come up at their defaults, and these change what such a looper does:
+
 - **Layers**: each overdub is a layer of its own, with undo. Past 8 layers (**Max layers**), a pass is merged into the newest layer when it ends.
 - **Channels** is 2: a looper used to record as many channels as its input had. Set it for an input of more channels.
 - **Max length (s)** is 60: a recording that reaches it ends into what After record says. The looper used to grow its buffer for as long as it recorded.
 - **Take files**: every recording and every overdub writes a WAV file, in a Takes folder next to the score, see [Takes and the timeline](#takes-and-the-timeline).
-- **Quantif** was a list of note values, read as fractions of a bar: a score or a preset made with it gets the grid it waited for. **None** is None, **Whole** is **1 bar**, and the other values are the same note values: **4th** is **1/4**, **Dotted 8th** is **1/8.** In a signature other than 4/4, these note values are now note values, a quarter being a quarter, where they used to divide the bar.
 - **Late stop (ms)** is 120: a recording asked to stop within 120 ms after a grid point ends on that point. Set it to 0 to end on the next point, as before.
-- **Stopping the process or the score** stops the looper: what was being recorded or overdubbed is closed as a pass and written as a take, the playhead goes back to the loop's start, and the mode Loop shows is taken up again when the score plays again. It used to stay in the mode it was in, the playhead where it was.

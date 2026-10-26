@@ -21,7 +21,7 @@ The Looper captures the main audio input, not the internally generated drums, so
 1. Open the ZIP directly in a score build with Kaboom support. The current score uses synthesized drums and needs no sample kit. Configure a working audio input and output.
 2. Use headphones or isolated monitoring to avoid feeding loudspeaker output back into a microphone. Begin at a low listening level.
 3. Start playback and supply audio to the input. The initial cue requests `Stop`, the cue at 4 seconds requests `Record`, and the cue at 12 seconds requests `Play`.
-4. Listen for the captured phrase repeating against the drums. Quantif is set to 1, so mode changes wait for the next quantized boundary instead of switching freely between beats.
+4. Listen for the captured phrase repeating against the drums. Quantize is set to one bar, so mode changes wait for the next bar line instead of switching freely between beats.
 5. Trigger the end of `Loop`, drawn at 14.5 seconds, or stop the transport. The end is interactive: its position is not an automatic stop.
 
 ## Shape the phrase

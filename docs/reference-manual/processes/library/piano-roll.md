@@ -18,6 +18,8 @@ The piano roll allows to output MIDI notes according to a score.
 
 MIDI files can be loaded by drag'n'drop, either on a scenario, interval, or on the piano roll process directly.
 
+A MIDI file is placed by its beats, not by its duration in seconds: two bars of the file are two bars of the score, whatever tempo the file was saved at, and the score's own tempo sets how fast they play. Dropped on an existing piano roll, the notes are placed the same way from its start.
+
 Adding a note is done by double-clicking ; the note can be stretched with the mouse.
 
 When dropping a MIDI file, if {% include shortcut.html content="Shift" %} is held, the tracks are put in sequence instead of in parallel.
