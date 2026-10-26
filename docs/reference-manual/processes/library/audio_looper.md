@@ -222,6 +222,29 @@ With **Start from** set to **In phase**, the loop stays in phase with the timeli
 
 The position comes from where the loop was recorded on the timeline. Without Follow tempo, it is counted in the score's time: a loop of a second stopped for half a second comes back half a loop on. With Follow tempo, it is counted in quarter notes, so the loop comes back on the bars it was recorded on even after a tempo change. Speed and Reverse are taken into account: the loop comes back where it would be at its speed, going its way.
 
+## Presets
+
+The library has presets for the usual ways of looping. Each one sets every setting of the looper, so loading one after another leaves nothing of the one before. They are quantized to the bar unless said otherwise.
+
+| Preset | What it is for |
+|---|---|
+| **Song form** | Record, Play, Overdub and Play again, for verses and choruses; a stop lets the loop play to its end. |
+| **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms for a foot that is a little late on the downbeat. |
+| **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. Play / Stop stops. |
+| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; mute the ones to drop, and once there are 16, a new take replaces a muted one. |
+| **Comping, a layer per round** | One overdub, a layer each time round the loop, for trying a part again and again; takes are written as a mix and as layers, to splice the rounds in the timeline. |
+| **Four bars, then play** | A recording of four bars, then plays it. |
+| **Four bars, then overdub** | A recording of four bars, then goes on overdubbing. |
+| **Free loop** | No grid, no Bars, no Late stop: the loop is as long as it was played for. |
+| **Ambient decay** | Four bars, then overdubbing with no gap and Feedback at 0.7, so that older layers fade away; the input is always heard. |
+| **Half speed** | The loop plays an octave down and twice as long; what is overdubbed sounds an octave up once played at x1. |
+| **Played backwards** | The loop plays backwards, and overdubs over it sound reversed once it plays forwards. |
+| **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
+| **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
+| **Capture what I played** | Keeps the last minute of input, for Capture to make a loop of its last four bars. |
+| **Takes for editing** | Takes are written as a mix and as a file for each layer. |
+| **Second loop of group A** | Sync group A, for a loop recorded after another one of the group. |
+
 ## Outputs
 
 **Phase** goes from 0 to 1 as the loop plays, to drive anything that should follow the loop, such as video.
