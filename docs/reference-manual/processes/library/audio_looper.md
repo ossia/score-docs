@@ -44,7 +44,7 @@ A recording ends in one of three ways, and **After record** says what it gives w
 
 ## Timing
 
-**Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. Whole is a bar; None changes at once. See [quantization]({{ site.baseurl }}/in-depth/musical.html#quantization). Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer.
+**Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. The default is a quarter note (**4th**); Whole is a bar; None changes at once. See [quantization]({{ site.baseurl }}/in-depth/musical.html#quantization). Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer.
 
 **Bars** makes a recording end on its own after that many bars, into what **After record** says. With Bars at 0, a recording lasts as long as wanted, until the mode is changed.
 
@@ -79,7 +79,7 @@ The **Switches** tab has buttons made to be mapped to footswitches, MIDI notes o
 | **Half speed**, **Double speed** | Set **Speed** to x1/2 or x2, or back to x1 when it already is, on the grid. |
 | **Capture** | See [Capture](#capture). |
 
-**Layer** moves to each new layer as it is added, so Mute layer, Erase layer and Solo layer act on the newest layer unless Previous layer stepped back.
+**Layer** moves to each new layer as it is added, so Mute layer, Erase layer and Solo layer act on the newest layer unless Previous layer stepped back. When layers are merged, erased or brought back, Layer keeps naming the layer it named: the merged one when it named one of the two merged.
 
 Rec / Play / Dub and Play / Stop act on the mode the looper will be in once what waits for the grid is taken up. Pressed twice before the grid point, each press is taken up on a grid point of its own: on an empty loop, two presses of Rec / Play / Dub record one grid step and play it. Setting Loop, or pressing Play, Stop, Record or Overdub, replaces whatever was waiting.
 
@@ -108,7 +108,7 @@ Each overdub pass is a layer of its own. The view shows one lane per layer.
 |---|---|
 | **Merge into newest** (default) | The pass is merged into the newest layer when it ends: the oldest layers stay as they are. Undo right after takes the pass out of the newest layer again; once another pass starts, the merge is final. |
 | **Merge oldest** | The two oldest layers are merged into one, and that undo step is lost. |
-| **Replace a muted layer** | The pass takes the place of the oldest muted layer, or of the newest layer when none is muted. The layer it replaces is gone: undo removes the pass, not the replacement. |
+| **Replace a muted layer** | The pass takes the place of the oldest muted layer, or of the newest layer when none is muted. Undo right after takes the pass out and puts the replaced layer back where it was, muted as it was; Redo replaces it again. Once another pass starts, the replacement is final. |
 
 A muted layer that is merged is left out of the merged one, and lost.
 
@@ -133,13 +133,13 @@ While a recording or an overdub goes on, the last take does not have it yet. Sen
 
 When the score stops while a recording or an overdub goes on, the overdub's layer is closed as any, and the loop as it is heard is written as a take of its own, its mix only, even if the looper is removed right after.
 
-**Takes** chooses what a take is written as: **Mix**, the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it drops them all.
+**Export** chooses what a take writes: **Mix** (default), the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it drops them all.
 
-Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it; **File > Project files > Remove unused files...** sets aside the takes in the score's folder that it no longer uses.
+Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it. **File > Project files > Remove unused files...** finds the takes the score no longer uses only with **Look through the whole project folder** checked: by default it looks only in the folders score sorts media into (Audio, Video, ...), and the Takes folder is not one of them. It then moves them to an Unused folder of the project, or deletes them.
 
 ## Loading a file
 
-Dropping a sound file on the looper, or choosing it in **Loop file**, replaces the loop with it, up to Max length, and plays it: Loop shows Play. A file at another sample rate is converted. A mono file goes to every channel.
+Dropping a sound file on the looper replaces the loop with it, up to Max length, and plays it: Loop shows Play. **Loop file** is the port this sets: it is not in the looper's own view, but it is in the inspector, and a file path sent to it, by a cable or an address, loads the file the same way. A file at another sample rate is converted. A mono file goes to every channel.
 
 ## Capture
 
@@ -158,7 +158,7 @@ Capture needs **Keep last (s)**, the number of seconds of input the looper keeps
 | Choice | Behavior |
 |---|---|
 | **None** | The input is never heard. |
-| **Record** | The input is heard while recording and overdubbing only. |
+| **Record** (default) | The input is heard while recording and overdubbing only. |
 | **Full** | The input is always heard, mixed over the loop. |
 
 ## Memory and latency
@@ -180,7 +180,7 @@ The memory for these is reserved when playback starts, so changes to Max length,
 | **Repitch**, **Repitch fast** | The loop is resampled: it keeps to the bars, and its pitch goes up and down with the tempo. |
 | **Timestretch**, **Timestretch percussive** | The loop is time-stretched: it keeps to the bars and to its pitch. |
 
-Following applies to a loop that is playing. A loop being recorded or overdubbed plays at its own speed, and a tempo change is heard from the next round of the loop. Mode changes and the end of a recording after its bars always follow the tempo of the score. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
+A change of Follow tempo applies from the next start of playback, as the time-stretching is set up then. Following applies to a loop that is playing. A loop being recorded or overdubbed plays at its own speed, and a tempo change is heard from the next round of the loop. Mode changes and the end of a recording after its bars always follow the tempo of the score. A take is written with the tempo the loop was recorded at, so a clip made from it follows the tempo of the score like any sound file.
 
 ## Reverse and speed
 
@@ -242,7 +242,7 @@ The library has presets for the usual ways of looping. Each one sets every setti
 | **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
 | **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
 | **Capture what I played** | Keeps the last minute of input, for Capture to make a loop of its last four bars. |
-| **Takes for editing** | Takes are written as a mix and as a file for each layer. |
+| **Takes for editing** | **Export** on Both: takes are written as a mix and as a file for each layer. |
 | **Second loop of group A** | Sync group A, for a loop recorded after another one of the group. |
 
 ## Outputs
@@ -251,4 +251,12 @@ The library has presets for the usual ways of looping. Each one sets every setti
 
 ## Older scores
 
-Scores made before the layers keep their looper and its settings. Their Loop, Quantif, Passthrough and Bars behave as before; Post-action is now **After record**, with the same choices, and Restart is now **Start from**: Always is Loop start, Recording is Where it was, In phase is In phase.
+Scores made before the layers keep their looper and the settings they had: Loop, Quantif, Passthrough and Bars mean what they meant. Post-action is now **After record**, with the same choices, and Restart is now **Start from**: Always is Loop start, Recording is Where it was. A score older than Restart gets Start from's default, Where it was, where the looper of the time read the loop from its start on every change of mode: set Loop start for that. The settings added since come up at their defaults, and these change what such a looper does:
+
+- **Overdub on an empty loop** records it, then goes on overdubbing; it used to only pass the input through.
+- **Layers**: each overdub is a layer of its own, with undo. Past 8 layers (**Max layers**), a pass is merged into the newest layer when it ends.
+- **Channels** is 2: a looper used to record as many channels as its input had. Set it for an input of more channels.
+- **Max length (s)** is 60: a recording that reaches it ends into what After record says. The looper used to grow its buffer for as long as it recorded.
+- **Take files**: every recording and every overdub writes a WAV file, in a Takes folder next to the score, see [Takes and the timeline](#takes-and-the-timeline).
+- **Late stop (ms)** is 120: a recording asked to stop within 120 ms after a grid point ends on that point. Set it to 0 to end on the next point, as before.
+- **Stopping the process or the score** stops the looper: what was being recorded or overdubbed is closed as a pass and written as a take, the playhead goes back to the loop's start, and the mode Loop shows is taken up again when the score plays again. It used to stay in the mode it was in, the playhead where it was.

@@ -19,14 +19,14 @@ permalink: /processes/midi-utilities.html
 The classic arpeggiator effect. Play a chord on your keyboard and let the process create
 new notes from it.
 
-The currently implemented modes are:
+Some of its patterns:
 - Forward: plays the notes in order (1-2-3-1-2-3)
-- Backwards: plays the notes in reverse order (3-2-1-3-2-1)
+- Backward: plays the notes in reverse order (3-2-1-3-2-1)
 - F->B: first forward then backwards (1-2-3-3-2-1)
 - B->F: first backwards then forward (3-2-1-1-2-3)
 - Chord: repeats the chord currently being held
 
-See [Arpeggiator]({{ site.baseurl }}/processes/arpeggiator.html) for its current timing and pattern controls.
+See [Arpeggiator]({{ site.baseurl }}/processes/arpeggiator.html) for all its patterns and its timing, velocity and latch controls.
 
 ## Chord
 
