@@ -13,7 +13,7 @@ permalink: /processes/midi-looper.html
 
 ![MIDI looper]({{ site.img }}/reference/processes/midi_looper.png "The MIDI looper playing a two bar phrase")
 
-The process named **Looper (MIDI)** records the notes, controllers, pitch bend and pressure it receives at **in** into a loop, and plays them back at **out**. It shares its transport, timing, undo, capture and timeline features with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html); this page describes what is particular to MIDI.
+The process named **Looper (MIDI)** records the notes, controllers, pitch bend and pressure it receives at **in** into a loop, and plays them back at **out**. It shares its transport, timing, undo, capture and timeline features with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html) and the [value looper]({{ site.baseurl }}/processes/value-looper.html); this page describes what is particular to MIDI.
 
 The recording keeps its own timing: quantize, transpose and channel changes only apply on playback, and can be changed at any time without losing anything. A take is what the loop plays with the quantize of the moment, but not transposed and on the recorded channels, see [Takes and the timeline](#takes-and-the-timeline).
 
