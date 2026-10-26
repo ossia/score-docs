@@ -32,7 +32,7 @@ Controllers always replace their own earlier values over the part of the loop a 
 
 ## Record, Overdub and the Switches tab
 
-**Mode**, the **Switches** tab and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers): Mode is the state of the looper, Play, Stop, Record and Overdub set it, and Rec / Play / Dub, Play / Stop, New layer, Retrigger and the layer actions do what no value of Mode can. Record on a loop that has something in it overdubs it, as on a looper pedal: **Clear** the loop first to record a new phrase. See there for what each one does and when it is taken up.
+**Mode**, the **Switches** and **Layers** tabs and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers): Mode is the state of the looper, Play, Stop, Record and Overdub set it, and Rec / Play / Dub, Play / Stop, New layer, Retrigger and the layer actions do what no value of Mode can. Record on a loop that has something in it overdubs it, as on a looper pedal: **Clear** the loop first to record a new phrase. See there for what each one does and when it is taken up.
 
 | | What it is for | What it does to the loop | How layers are cut |
 |---|---|---|---|

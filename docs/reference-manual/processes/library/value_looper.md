@@ -49,7 +49,7 @@ When nothing changes, nothing is sent: stopping and playing again from where it 
 
 ## Record, Overdub and the Switches tab
 
-**Mode**, the **Switches** tab and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers). Record on a loop that has something in it overdubs it: **Clear** the loop first to record a new one. **Late stop (ms)** works as for the other loopers: a recording asked to stop a little after a grid point ends on that point, and what came in since belongs to the overdub that follows.
+**Mode**, the **Switches** and **Layers** tabs and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers). Record on a loop that has something in it overdubs it: **Clear** the loop first to record a new one. **Late stop (ms)** works as for the other loopers: a recording asked to stop a little after a grid point ends on that point, and what came in since belongs to the overdub that follows.
 
 ## Passthrough
 

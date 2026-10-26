@@ -71,7 +71,7 @@ A recording always starts at the loop's start.
 
 ## Footswitches
 
-The **Switches** tab has buttons made to be mapped to footswitches, MIDI notes or OSC messages. Play, Stop, Record and Overdub set Mode, exactly as setting it by hand does. The others say what Mode cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Mode does, and Late stop applies to them; the controls they change (Mode, Layer, Reverse, Speed) show what they changed them to.
+The **Switches** and **Layers** tabs have buttons made to be mapped to footswitches, MIDI notes or OSC messages: Switches holds the transport and play actions, Layers holds Undo, Redo, Clear, Layer and what acts on the selected layer. Play, Stop, Record and Overdub set Mode, exactly as setting it by hand does. The others say what Mode cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Mode does, and Late stop applies to them; the controls they change (Mode, Layer, Reverse, Speed) show what they changed them to.
 
 | Action | What it does |
 |---|---|
@@ -126,7 +126,7 @@ A muted layer that is merged is left out of the merged one, and lost.
 Any pass can be taken out of the loop while it plays, not only the last one:
 
 - in the view, with the **x** at the right of its lane, on the next grid point. The view shows up to eight lanes; with more passes than that, the oldest share the first lane, which has no **x**.
-- with **Layer** and **Erase layer**, in the Switches tab: Layer says which pass, counting from the oldest one, and Erase layer erases it on the grid. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
+- with **Layer** and **Erase layer**, in the Layers tab: Layer says which pass, counting from the oldest one, and Erase layer erases it on the grid. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
 
 The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
 
