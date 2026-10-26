@@ -71,7 +71,7 @@ A recording always starts at the loop's start.
 
 ## Footswitches
 
-The **Switches** and **Layers** tabs have buttons made to be mapped to footswitches, MIDI notes or OSC messages: Switches holds the transport and play actions, Layers holds Undo, Redo, Clear, Layer and what acts on the selected layer. Play, Stop, Record and Overdub set Mode, exactly as setting it by hand does. The others say what Mode cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Mode does, and Late stop applies to them; the controls they change (Mode, Layer, Reverse, Speed) show what they changed them to.
+The **Switches**, **Layers** and **Speed** tabs have buttons made to be mapped to footswitches, MIDI notes or OSC messages: Switches holds the one-button actions and the transport, Layers holds Undo, Redo, Clear, Layer and what acts on the selected layer, and Speed holds Speed, Reverse and Follow tempo with Toggle reverse, Half speed and Double speed. **Capture** is in the Length tab, next to Capture bars. Play, Stop, Record and Overdub set Mode, exactly as setting it by hand does. The others say what Mode cannot: "the next thing", "a new layer", "from the start", "this layer". What they change waits for the next point of the grid, as a change of Mode does, and Late stop applies to them; the controls they change (Mode, Layer, Reverse, Speed) show what they changed them to.
 
 | Action | What it does |
 |---|---|
@@ -125,7 +125,7 @@ A muted layer that is merged is left out of the merged one, and lost.
 
 Any pass can be taken out of the loop while it plays, not only the last one:
 
-- in the view, with the **x** at the right of its lane, on the next grid point. The view shows up to eight lanes; with more passes than that, the oldest share the first lane, which has no **x**.
+- in the view, with the **x** at the right of its lane, on the next grid point. The view shows a lane per pass, up to 32, sharing its height between them; with more passes than that, the oldest share the first lane, which has no **x**.
 - with **Layer** and **Erase layer**, in the Layers tab: Layer says which pass, counting from the oldest one, and Erase layer erases it on the grid. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
 
 The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
@@ -134,17 +134,17 @@ Erasing the pass being overdubbed is the same as Undo: the pass is dropped and o
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. **Send** in the looper's view places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
+When a recording or an overdub ends, the loop is written to a WAV file: 32-bit float, with its tempo and length in bars stored in the file, and marked as a loop. A click on **Send**, the button at the top right of the looper's view, places the last take in the timeline as a looping sound file, in a new box starting where the take was recorded, below the looper's box. This is one undoable action.
 
-The take can also be dragged from the looper's view into the timeline, or anywhere a sound file can be dropped.
+The take can also be dragged into the timeline, or anywhere a sound file can be dropped: dragging from the Send button, which has a grip for it, drags the whole take, all its files. Dragging a lane drags that layer alone, its own file, which lands as a box of its own. A muted layer is dragged as well: it was chosen. When the last take has no file of that layer, because Export is Mix or the layers changed since, the file is written when the drag starts: the lane says **Preparing** meanwhile, and the drag goes on as soon as it is there.
 
-Sent or dragged, the sound file plays the way the loop did when the take was made: its stretch mode follows the **Follow tempo** the looper was playing with. **Timestretch** gives the take the melodic time-stretch mode, **Timestretch percussive** the rhythmic one, **Repitch** and **Repitch fast** the matching repitch modes. With **Off**, the take is not stretched: it plays at the speed it was recorded at, and its box and its loop are as long as the recording itself, at the tempo where it is placed. A change of Follow tempo applies to the loop from the next start, and so to the takes made after that. The stretch mode can be changed afterwards in the sound file's inspector. A take dropped from a file browser has no such information, and gets a stretch mode chosen from its name, as any sound file.
+Sent or dragged, a take or a layer plays the way the loop did when it was written: its stretch mode follows the **Follow tempo** the looper was playing with. **Timestretch** gives the take the melodic time-stretch mode, **Timestretch percussive** the rhythmic one, **Repitch** and **Repitch fast** the matching repitch modes. With **Off**, the take is not stretched: it plays at the speed it was recorded at, and its box and its loop are as long as the recording itself, at the tempo where it is placed. A change of Follow tempo applies to the loop from the next start, and so to the takes made after that. The stretch mode can be changed afterwards in the sound file's inspector. A take dropped from a file browser has no such information, and gets a stretch mode chosen from its name, as any sound file.
 
-While a recording or an overdub goes on, the last take does not have it yet. Send, or a press in the view that starts a drag, then asks for a take of the loop as it is heard at that moment, the pass in progress included as far as it went, without stopping it; the Send button says **Saving** until the take is written. Send places it as soon as it is there. A drag starts with the next move of the mouse once it is there, if the button is still held; let go before, the take is the one the next drag or Send gives.
+While a recording or an overdub goes on, the last take does not have it yet. A press on Send then asks for a take of the loop as it is heard at that moment, the pass in progress included as far as it went, without stopping it; the button says **Saving** until the take is written. A click places it as soon as it is there. A drag from the button starts with the next move of the mouse once it is there, if the button is still held; let go before, the take is the one the next drag or Send gives. A lane dragged meanwhile gives its layer as far as it went. When the score is paused or stopped, nothing is being taken in any more, and Send and the drags give the last take there is.
 
 When the score stops while a recording or an overdub goes on, the overdub's layer is closed as any, and the loop as it is heard is written as a take of its own, its mix only, even if the looper is removed right after. Mode then shows Play: when the score plays again, the loop plays, and nothing is recorded over it until Record or Overdub is asked for again.
 
-**Export** chooses what a take writes: **Mix** (default), the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it drops them all.
+**Export** chooses what a take writes: **Mix** (default), the loop as it is heard; **Layers**, each pass in a file of its own, as it is heard in the loop; or **Both**. Sending a take places all its files in one box named after the take, a slot each, the mix first; dragging it from the Send button drops them all.
 
 Takes of a saved score go into a **Takes** folder next to the score. Takes of a score that has not been saved yet go into score's data folder, where they stay until removed. **File > Project files > Consolidate project...** copies the takes a score uses next to it. **File > Project files > Remove unused files...** finds the takes the score no longer uses only with **Look through the whole project folder** checked: by default it looks only in the folders score sorts media into (Audio, Video, ...), and the Takes folder is not one of them. It then moves them to an Unused folder of the project, or deletes them.
 
@@ -156,7 +156,7 @@ Dropping a sound file on the looper replaces the loop with it, up to Max length,
 
 **Capture** makes a loop out of what was just played, even when the looper was not recording. It takes the last **Capture bars** bars of the input and plays them at once, ending on the last grid point when that was just passed, like a late stop. Mode shows Play, so Stop stops it.
 
-Capture needs **Keep last (s)**, the number of seconds of input the looper keeps at all times. It is 0 by default, which keeps nothing and uses no memory.
+Capture and Capture bars are in the Length tab. Capture needs **Keep last (s)**, in the Memory tab, the number of seconds of input the looper keeps at all times. It is 0 by default, which keeps nothing and uses no memory.
 
 ## Monitoring
 
@@ -179,7 +179,7 @@ The memory for these is reserved when playback starts, so changes to Max length,
 
 ## Tempo changes
 
-**Follow tempo** chooses how a loop follows the tempo of the score, with the same methods as sound files:
+**Follow tempo**, in the Speed tab, chooses how a loop follows the tempo of the score, with the same methods as sound files:
 
 | Choice | Behavior |
 |---|---|
@@ -191,7 +191,7 @@ A change of Follow tempo applies from the next start of playback, as the time-st
 
 ## Reverse and speed
 
-**Reverse** and **Speed**, in the Play tab, play the loop as a tape would be.
+**Reverse** and **Speed**, in the Speed tab, play the loop as a tape would be.
 
 - **Reverse** plays the loop backwards, from where the playhead is. Turned off, the loop plays forwards again from there. Nothing is changed in the loop: reversing is only how it is read.
 - **Speed** plays the loop at x1/4, x1/2, x1, x2 or x4. The pitch follows the speed: at x1/2 the loop is an octave down and takes twice as long, at x2 an octave up and half as long.

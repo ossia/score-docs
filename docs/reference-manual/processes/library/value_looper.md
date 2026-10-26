@@ -35,6 +35,8 @@ Impulses of every pass are heard: an overdub adds its impulses to the ones under
 
 An overdub that goes round the loop more than once writes over what it recorded the round before, as a tape would: the second time round, the value it holds is the value of the input, whether it moves or not. With **Passes** on **Per cycle**, each round is a layer of its own instead.
 
+An overdub pass becomes a layer when its first value comes in, not when the overdub starts: until then the overdub runs but there is no new layer, no lane for it in the view, and Undo still takes out the last layer there is. The layer starts where the overdub began. An overdub that gets nothing writes no take, adds no layer and merges nothing; with Per cycle, a round that gets nothing is no layer either. Past Max layers, the room for the new layer is made when its first value comes in.
+
 **Max layers**, 2 to 32, default 8, and **At max layers**, in the Overdub tab, work as for the other loopers. Two merged passes are heard as they were: the newer one still holds the value where it did, and the older one elsewhere.
 
 ## Chasing
@@ -49,7 +51,7 @@ When nothing changes, nothing is sent: stopping and playing again from where it 
 
 ## Record, Overdub and the Switches tab
 
-**Mode**, the **Switches** and **Layers** tabs and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers). Record on a loop that has something in it overdubs it: **Clear** the loop first to record a new one. **Late stop (ms)** works as for the other loopers: a recording asked to stop a little after a grid point ends on that point, and what came in since belongs to the overdub that follows.
+**Mode**, the **Switches**, **Layers** and **Speed** tabs and the settings **Quantize**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers). Record on a loop that has something in it overdubs it: **Clear** the loop first to record a new one. **Late stop (ms)** works as for the other loopers: a recording asked to stop a little after a grid point ends on that point, and what came in since belongs to the overdub that follows.
 
 ## Passthrough
 
@@ -57,9 +59,9 @@ When nothing changes, nothing is sent: stopping and playing again from where it 
 
 ## The view
 
-The view shows one lane per pass, as the other loopers do: up to eight lanes, the oldest passes sharing the first lane when there are more. Each lane draws what its pass holds:
+The view shows one lane per pass, as the other loopers do: up to 32 lanes, sharing the height of the view, the oldest passes sharing the first lane when there are more. Each lane draws what its pass holds:
 
-- numbers and booleans as steps, scaled to the numbers that lane holds; a vector by its first number;
+- numbers and booleans as steps, scaled to the numbers that lane holds; a vector, or a list of numbers, by its first number;
 - text, lists and maps as a line across the middle of the lane, a tick where each one starts;
 - impulses as ticks across the lane.
 
@@ -69,25 +71,27 @@ What the loop does not play there, e.g. what a later pass holds over, is dimmed.
 
 When a recording or an overdub ends, what is heard of the loop is written to a small file of its own, a `.values` file, which keeps every value where it is heard, with its type. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both.
 
-When every value of a take is a number, a boolean, or a vector of as many numbers, **Send** in the view, or a drag from it, places it in the timeline as automations: one for each number of the values, so three for a vector of three, in one box, where the take was recorded. Each automation holds each value until the next, in steps, its minimum and maximum those of the take; it loops as the box is made longer, and can be edited, given an address or cabled as any automation. One undo removes the box.
+When every value of a take is a number, a boolean, a vector, or a list of numbers and booleans, a click on **Send** in the view, or a drag from that button, places it in the timeline as automations: one for each number of the values, so three for a vector of three, four for lists of four floats such as Arraygen sends, in one box, where the take was recorded. Values of different sizes can be mixed: the take has as many automations as the longest value has numbers, at most 32. A value that has fewer numbers leaves the others where they were, and before an index first has a number, its first number holds. The automations of a vector are named by its axes, x, y, z and w; those of lists by their index, from 0. Each automation holds each value until the next, in steps, its minimum and maximum those of the take; it loops as the box is made longer, and can be edited, given an address or cabled as any automation. One undo removes the box.
 
-A take with impulses, text, lists or maps is kept as a file only: the button of the view says **File** instead of Send, and nothing is placed in the timeline. The file is plain JSON, and can be read by any other tool.
+Dragging a lane places that layer alone, as automations in a box of its own, when its values are all numbers as above; its file is written when the drag starts if the take has none, the lane saying **Preparing** meanwhile.
 
-While a recording or an overdub goes on, Send or a drag asks for a take of the loop as it is at that moment; the Send button says **Saving** until it is written. When the score stops while a pass is taken in, the pass is closed as any, and the loop as it is heard is written as a take of its own.
+A take with impulses, text, maps, lists holding anything but numbers and booleans, or more than 32 numbers, is kept as a file only: the button of the view says **File** instead of Send, nothing is placed in the timeline, and its lanes drag nothing. The file is plain JSON, and can be read by any other tool.
+
+While a recording or an overdub goes on, Send or a drag from it asks for a take of the loop as it is at that moment; the Send button says **Saving** until it is written. When the score stops while a pass is taken in, the pass is closed as any, and the loop as it is heard is written as a take of its own.
 
 ## Reverse and speed
 
-**Reverse** and **Speed**, in the Play tab, work as for the other loopers. Played backwards, a value goes back to the one it had before: going back over a point where the value changed, the loop sends the value it held before that point. Impulses fire where they came. At **Speed** x2, the values come twice as often.
+**Reverse** and **Speed**, in the Speed tab, work as for the other loopers. Played backwards, a value goes back to the one it had before: going back over a point where the value changed, the loop sends the value it held before that point. Impulses fire where they came. At **Speed** x2, the values come twice as often.
 
 An overdub records where the playhead goes: what is played over the reversed loop plays reversed when it goes forwards again.
 
 ## Tempo changes
 
-With **Follow tempo**, on by default, the loop plays at the tempo of the score: a loop recorded over two bars lasts two bars whatever the tempo becomes. Off, it keeps the speed it was recorded at. **Past the end** works as for the other loopers: an overdub can make the loop longer, the passes under it repeating.
+With **Follow tempo**, on by default and in the Speed tab, the loop plays at the tempo of the score: a loop recorded over two bars lasts two bars whatever the tempo becomes. Off, it keeps the speed it was recorded at. **Past the end** works as for the other loopers: an overdub can make the loop longer, the passes under it repeating.
 
 ## Capture
 
-**Capture** makes a loop out of the last **Capture bars** bars of values that came in, recorded or not, and plays it at once; Mode shows Play. The loop starts with the value the input held just before those bars. The value looper always keeps the last few thousand values it received, so there is nothing to set up.
+**Capture**, in the Length tab next to **Capture bars**, makes a loop out of the last Capture bars bars of values that came in, recorded or not, and plays it at once; Mode shows Play. The loop starts with the value the input held just before those bars. The value looper always keeps the last few thousand values it received, so there is nothing to set up.
 
 ## Comping and Start from In phase
 
