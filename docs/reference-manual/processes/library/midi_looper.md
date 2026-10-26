@@ -15,7 +15,7 @@ permalink: /processes/midi-looper.html
 
 The process named **Looper (MIDI)** records the notes, controllers, pitch bend and pressure it receives at **in** into a loop, and plays them back at **out**. It shares its transport, timing, undo, sync groups, capture and timeline features with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html); this page describes what is particular to MIDI.
 
-The recording keeps its own timing: quantize, transpose and channel changes only apply on playback, and can be changed at any time without losing anything.
+The recording keeps its own timing: quantize, transpose and channel changes only apply on playback, and can be changed at any time without losing anything. A take is what the loop plays with the quantize of the moment, but not transposed and on the recorded channels, see [Takes and the timeline](#takes-and-the-timeline).
 
 ## Passes and overdubs
 
@@ -42,7 +42,7 @@ Controllers always replace their own earlier values over the part of the loop a 
 
 With After record set to Overdub, or with Overdub on an empty loop, the overdub starts on the very frame the recording ends on. A note held across the end of the recording is one note of the recording, which wraps round the end of the loop to where it was let go; a note played on the first frame of the overdub is the first note of the new layer.
 
-**Max layers**, 2 to 32, default 8, and **At max layers**, in the Overdub tab, work as for the audio looper: past Max layers, a pass is merged into the newest layer when it ends (the default, which undo can take out again until the next pass), the two oldest layers are merged, or the pass replaces the oldest muted layer, else the newest. Merging moves the notes and controllers of a layer into the other; what either of them replaced stays replaced, muted or erased as the merged layer.
+**Max layers**, 2 to 32, default 8, and **At max layers**, in the Overdub tab, work as for the audio looper: past Max layers, a pass is merged into the newest layer when it ends (the default, which undo can take out again until the next pass), the two oldest layers are merged, or the pass replaces the oldest muted layer, else the newest (which undo puts back, and redo replaces again, until the next pass). Merging moves the notes and controllers of a layer into the other; what either of them replaced stays replaced, muted or erased as the merged layer.
 
 ## The view
 
@@ -64,7 +64,7 @@ A note held on the input is never sent twice when the loop plays the same note.
 
 ## Quantize
 
-**Grid** and **Quantize** pull the notes towards a grid when they are played back. At a Quantize of 0 the notes play as recorded; at 1 they play on the grid. **Quantize ends** pulls the ends of the notes too. A note sounding when one of them changes ends where it was going to: the change applies from its next start, and a note moved to where the playhead has yet to go plays there once it has ended.
+**Grid** (default a quarter note, **4th**) and **Quantize** (default 0) pull the notes towards a grid when they are played back. At a Quantize of 0 the notes play as recorded; at 1 they play on the grid. **Quantize ends** pulls the ends of the notes too. A note sounding when one of them changes ends where it was going to: the change applies from its next start, and a note moved to where the playhead has yet to go plays there once it has ended.
 
 ## Notes and channels
 
@@ -85,7 +85,9 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send** in the looper's view, or a drag from it, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Takes** writes what is heard of the whole loop (**Mix**), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at 120 BPM so that a quarter note is half a second of score's time, and ending exactly at the end of the loop. **Send** in the looper's view, or a drag from it, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. The file can also be opened in any other MIDI editor. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+
+A take has the notes where the loop plays them: **Quantize**, **Grid** and **Quantize ends** are applied to it, and so is **Held notes**. **Transpose** and **Out channel** are not: the notes are at the pitch and on the channel they were played, so that the clip can be transposed or routed again in the timeline.
 
 While a recording or an overdub goes on, Send or a drag asks for a take of the loop as it is heard at that moment, the pass in progress included, a key still held lasting up to the playhead; the Send button says **Saving** until it is written, as for the audio looper. When the score stops while a pass is taken in, the pass is closed as any, and the loop as it is heard is written as a take of its own, its mix only.
 
@@ -137,7 +139,7 @@ As for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#presets
 | **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
 | **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
 | **Capture what I played** | Capture makes a loop of the last four bars played. |
-| **Takes for editing** | Takes are written as a mix and as a MIDI file for each layer. |
+| **Takes for editing** | **Export** on Both: takes are written as a mix and as a MIDI file for each layer. |
 | **Second loop of group A** | Sync group A, for a loop recorded after another one of the group. |
 
 ## Capacity
