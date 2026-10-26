@@ -114,6 +114,32 @@ A muted layer's notes and controllers are not heard, and it replaces nothing, so
 
 **Capture** makes a loop out of the last **Capture bars** bars played, recorded or not, and plays it at once; Loop shows Play. The MIDI looper always keeps the last few thousand events it received, so there is nothing to set up.
 
+## Presets
+
+As for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#presets), each preset sets every setting, quantized to the bar unless said otherwise, and what is played is always heard.
+
+| Preset | What it is for |
+|---|---|
+| **Song form** | Record, Play, Overdub and Play again; a stop lets the loop play to its end. |
+| **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms. |
+| **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. |
+| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; once there are 16, a new take replaces a muted one. |
+| **Comping, a layer per round** | One overdub, a layer each time round the loop; takes are written as a mix and as layers. |
+| **Four bar phrase** | A recording of four bars, then plays it. |
+| **Four bars, then overdub** | A recording of four bars, then goes on overdubbing: a chord held across the end of the loop is not cut. |
+| **Free phrase** | No grid, no Bars, no Late stop: the loop is as long as it was played for. |
+| **Overdub drums** | Two bars, then overdubbing; notes end with the loop. |
+| **Drum pattern on channel 10** | Records channel 10 only, two bars then overdubbing; a hit replaces the hits of that pitch under it, notes end with the loop, and play back on the sixteenth. |
+| **Replace as you play** | Four bars, then overdubbing, a pitch played replacing that pitch in the passes under it. |
+| **Sixteenths, 70 percent** | Notes pulled 70 percent of the way to the sixteenth on playback; mode changes on the quarter note. |
+| **Octave up** | The loop plays an octave above what was played. |
+| **Half speed** | The loop plays twice as slow; what is overdubbed plays twice as fast at x1. |
+| **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
+| **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
+| **Capture what I played** | Capture makes a loop of the last four bars played. |
+| **Takes for editing** | Takes are written as a mix and as a MIDI file for each layer. |
+| **Second loop of group A** | Sync group A, for a loop recorded after another one of the group. |
+
 ## Capacity
 
 A loop holds up to 4096 notes and 8192 controller values. When it is full, the view says so and further events are not recorded.
