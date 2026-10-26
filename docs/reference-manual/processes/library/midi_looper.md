@@ -32,7 +32,7 @@ Controllers always replace their own earlier values over the part of the loop a 
 
 ## Record, Overdub and the Switches tab
 
-**Loop**, the **Switches** tab and the settings **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers): Loop is the state of the looper, Play, Stop, Record and Overdub set it, and Rec / Play / Dub, Play / Stop, New layer, Retrigger and the layer actions do what no value of Loop can. See there for what each one does and when it is taken up.
+**Loop**, the **Switches** tab and the settings **Quantif**, **After record**, **After overdub**, **Start from** and **Stop at** work as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#record-overdub-and-layers): Loop is the state of the looper, Play, Stop, Record and Overdub set it, and Rec / Play / Dub, Play / Stop, New layer, Retrigger and the layer actions do what no value of Loop can. See there for what each one does and when it is taken up.
 
 | | What it is for | What it does to the loop | How layers are cut |
 |---|---|---|---|
@@ -63,6 +63,8 @@ What only the erased pass replaced is heard again. What a later pass replaced as
 A note held on the input is never sent twice when the loop plays the same note.
 
 ## Quantize
+
+**Quantif** is when a mode change is taken up: a time, a note value, a number of bars, or the loop itself, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#timing). With **Loop**, a change waits for the loop to come round to its start, wherever that falls in the bar; before there is a loop, it waits for **Bars** bars, or one bar when Bars is 0. A score or a preset made when Quantif was a list of note values gets the grid it waited for: Whole is **1 bar**, None is None, and the others are the same note values. The rest of this section is about the notes, not the mode changes.
 
 **Grid** (default a quarter note, **4th**) and **Quantize** (default 0) pull the notes towards a grid when they are played back. At a Quantize of 0 the notes play as recorded; at 1 they play on the grid. **Quantize ends** pulls the ends of the notes too. A note sounding when one of them changes ends where it was going to: the change applies from its next start, and a note moved to where the playhead has yet to go plays there once it has ended.
 
