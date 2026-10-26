@@ -44,7 +44,16 @@ A recording ends in one of three ways, and **After record** says what it gives w
 
 ## Timing
 
-**Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. The default is a quarter note (**4th**); Whole is a bar; None changes at once. See [quantization]({{ site.baseurl }}/in-depth/musical.html#quantization). Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer.
+**Quantif** makes a mode change wait for the next point of a grid, so that a loop starts and ends in time. Every action waits for it as well, except Undo, Redo and Clear, which act at once, and selecting a layer. Dragging the knob goes through the values of a unit; clicking its readout chooses the unit:
+
+| Unit | Values | The grid |
+|---|---|---|
+| **Free time** | None, or up to 8 seconds | Every that many seconds, counted from the loop's start once there is a loop. **None** changes at once. |
+| **Note value** | 1/64 to 4/1, straight, dotted or triplet | A note value, whatever the signature: **1/4** is a quarter note (the default), **1/1** a whole note, four quarters, which is not a bar in 3/4. Shorter than a bar, the grid starts again on every bar line. See [quantization]({{ site.baseurl }}/in-depth/musical.html#quantization). |
+| **Bars** | 1 to 16 bars | Whole bars of the current signature: **3 bars** is a phrase of three bars. |
+| **Loop** | 1/4 loop to 8x loop | The loop itself: **Loop** waits for the loop to come round to its start, **2x loop** for every other time, **1/2 loop** for its start and its middle. |
+
+**Loop** follows the loop as it plays: its length whatever it is, on the bar grid or not, its speed and its direction. An overdub that makes the loop longer waits for the end of the loop as long as it is so far. A stopped loop goes by where it would be had it kept playing since it was recorded. Before there is a loop, while it is empty or being recorded, Loop waits for the length the recording will have: **Bars** bars, or one bar when Bars is 0 (2x loop is twice that). In a sync group, Loop is still the looper's own loop.
 
 **Bars** makes a recording end on its own after that many bars, into what **After record** says. With Bars at 0, a recording lasts as long as wanted, until the mode is changed.
 
@@ -251,12 +260,13 @@ The library has presets for the usual ways of looping. Each one sets every setti
 
 ## Older scores
 
-Scores made before the layers keep their looper and the settings they had: Loop, Quantif, Passthrough and Bars mean what they meant. Post-action is now **After record**, with the same choices, and Restart is now **Start from**: Always is Loop start, Recording is Where it was. A score older than Restart gets Start from's default, Where it was, where the looper of the time read the loop from its start on every change of mode: set Loop start for that. The settings added since come up at their defaults, and these change what such a looper does:
+Scores made before the layers keep their looper and the settings they had: Loop, Passthrough and Bars mean what they meant. Post-action is now **After record**, with the same choices, and Restart is now **Start from**: Always is Loop start, Recording is Where it was. A score older than Restart gets Start from's default, Where it was, where the looper of the time read the loop from its start on every change of mode: set Loop start for that. The settings added since come up at their defaults, and these change what such a looper does:
 
 - **Overdub on an empty loop** records it, then goes on overdubbing; it used to only pass the input through.
 - **Layers**: each overdub is a layer of its own, with undo. Past 8 layers (**Max layers**), a pass is merged into the newest layer when it ends.
 - **Channels** is 2: a looper used to record as many channels as its input had. Set it for an input of more channels.
 - **Max length (s)** is 60: a recording that reaches it ends into what After record says. The looper used to grow its buffer for as long as it recorded.
 - **Take files**: every recording and every overdub writes a WAV file, in a Takes folder next to the score, see [Takes and the timeline](#takes-and-the-timeline).
+- **Quantif** was a list of note values, read as fractions of a bar: a score or a preset made with it gets the grid it waited for. **None** is None, **Whole** is **1 bar**, and the other values are the same note values: **4th** is **1/4**, **Dotted 8th** is **1/8.** In a signature other than 4/4, these note values are now note values, a quarter being a quarter, where they used to divide the bar.
 - **Late stop (ms)** is 120: a recording asked to stop within 120 ms after a grid point ends on that point. Set it to 0 to end on the next point, as before.
 - **Stopping the process or the score** stops the looper: what was being recorded or overdubbed is closed as a pass and written as a take, the playhead goes back to the loop's start, and the mode Loop shows is taken up again when the score plays again. It used to stay in the mode it was in, the playhead where it was.
