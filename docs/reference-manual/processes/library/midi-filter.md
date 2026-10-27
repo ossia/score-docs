@@ -34,6 +34,24 @@ routing. The running-note collection is indexed by pitch rather than by
 channel/pitch, so identical pitches from multiple channels are not tracked
 independently.
 
+## Selecting messages
+
+The **Select** tab keeps or rejects messages; what is rejected goes to the
+**Rejected** outlet, so the filter also splits a stream.
+
+| Control | Meaning |
+| --- | --- |
+| **Types** | One toggle per kind of message: Note on, Note off, CC, Program, Bend, Pressure (channel aftertouch), Poly, Sysex, MTC, SPP, Song, Tune, Clock, Start, Continue, Stop, Sensing (active sensing) and Reset. With every toggle off, **Filter type** decides. Messages of no kind (undefined status bytes) are kept only when every toggle is on. |
+| **Channels** | One toggle per channel; all on selects nothing. |
+| **Notes** | Rows of note ranges, **From** and **To** (60 is C4). **+** adds a row, **x** removes one. No rows: every note. |
+| **CCs** | Rows of controller number ranges. No rows: every controller. |
+| **Invert ranges** | Reject what Channels, Notes and CCs match instead of keeping it. |
+| **Value range** / **Value mode** | Keep second data bytes inside or outside a range such as `1-63`. |
+
+A right-click on Types or Channels sets all, none, or inverts them, and edits
+them as text. Scores and presets saved when Types, Notes and CCs were typed as
+text (`note, cc, -sysex`, `C-1-B2, C4`, `64-69`) load with the same selection.
+
 A note-off always goes to the outlet its note-on went to, so that a note that
 was kept is always ended. When note-offs are selected, the note-offs of notes
 that were rejected only for their kind go to the MIDI outlet as well.
@@ -58,6 +76,11 @@ the receiving hardware requires that wire representation.
 
 For a CC control, use **CC**, **Channel 0**, **Index 74** and **Mode Value**.
 Cable **Normalized value** to a suitable parameter or a mapping process.
+
+To extract a pitch bend or channel aftertouch, set **Filter type** to
+PitchBend or AfterTouch the same way. [Midi transform]({{ site.baseurl }}/processes/midi-utilities.html#midi-transform)
+and [Midi value shaper]({{ site.baseurl }}/processes/midi-utilities.html#midi-value-shaper)
+also give the value of each message they produce, on their **Value** outlet.
 
 For a single-channel chord stream, use **NoteRunning** and **Mode Both** to obtain
 held note/velocity pairs. Enable **Zero to note off** if the source encodes
