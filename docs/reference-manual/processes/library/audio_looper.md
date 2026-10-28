@@ -154,9 +154,16 @@ Dropping a sound file on the looper replaces the loop with it, up to Max length,
 
 ## Capture
 
-**Capture** makes a loop out of what was just played, even when the looper was not recording. It takes the last **Capture bars** bars of the input and plays them at once, ending on the last grid point when that was just passed, like a late stop. Mode shows Play, so Stop stops it.
+**Record** starts taking in when it is pressed, or on the next grid point. **Capture** works backwards: it takes what was already played, recorded or not, from the input the looper keeps. You play first, and decide afterwards that it was worth keeping.
 
-Capture and Capture bars are in the Length tab. Capture needs **Keep last (s)**, in the Memory tab, the number of seconds of input the looper keeps at all times. It is 0 by default, which keeps nothing and uses no memory.
+- **With no loop**, Capture makes one: the last **Capture bars** bars of the input become the loop, and it plays at once. Mode shows Play, so Stop stops it.
+- **Over a loop**, Capture adds what was played over the last round of the loop as a new layer on top, as if that round had been an overdub pass. Each part of it lands where it was played in the loop, and the loop keeps its length: Capture bars does not apply, one round is taken. A stopped loop is taken as going round where it would be had it kept playing, as In phase has it, and it plays from there. The layer is like any other: Max layers and At max layers make room for it as for an overdub pass, the layers that are muted stay muted, it is faded at its ends, moved by the latency, and the layers under it fade by the Feedback once, as for one round of overdub. A take is written as for any pass that closes.
+
+Capture is undone like a pass: **Undo** takes the captured layer out, **Redo** brings it back. On an empty loop, Undo empties the loop as it does after a first recording, and Redo brings it back.
+
+Pressed shortly after a point of the grid, within **Late stop**, Capture ends on that point, as a late stop would. Capture does nothing while a recording or an overdub is going on.
+
+Capture and Capture bars are in the Length tab. Capture needs **Keep last (s)**, in the Memory tab, the number of seconds of input the looper keeps at all times. It is 0 by default, which keeps nothing and uses no memory: Capture then does nothing. It also takes no more than Keep last holds, so a loop longer than Keep last is captured in part.
 
 ## Monitoring
 
@@ -231,14 +238,14 @@ The position comes from where the loop was recorded on the timeline. Without Fol
 
 ## Presets
 
-The library has presets for the usual ways of looping. Each one sets every setting of the looper, so loading one after another leaves nothing of the one before. They are quantized to the bar unless said otherwise.
+The library has presets for the usual ways of looping. Each one sets every setting of the looper but **Channels**, which is the input's, so loading one after another leaves nothing of the one before. They are quantized to the bar unless said otherwise.
 
 | Preset | What it is for |
 |---|---|
 | **Song form** | Record, Play, Overdub and Play again, for verses and choruses. Quantize is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
-| **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms for a foot that is a little late on the downbeat. |
+| **One footswitch, song form** | The same from Rec / Play / Dub alone, a stop also letting the loop play to its end, with a Late stop of 250 ms for a foot that is a little late on the downbeat. |
 | **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. Play / Stop stops. |
-| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; mute the ones to drop, and once there are 16, a new take replaces a muted one. |
+| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; mute the ones to drop, and once there are 16, a new take replaces a muted one; takes are written as a mix and as layers. |
 | **Comping, a layer per round** | One overdub, a layer each time round the loop, for trying a part again and again; takes are written as a mix and as layers, to splice the rounds in the timeline. |
 | **Four bars, then play** | A recording of four bars, then plays it. |
 | **Four bars, then overdub** | A recording of four bars, then goes on overdubbing. |
@@ -248,7 +255,7 @@ The library has presets for the usual ways of looping. Each one sets every setti
 | **Played backwards** | The loop plays backwards, and overdubs over it sound reversed once it plays forwards. |
 | **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
 | **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
-| **Capture what I played** | Keeps the last minute of input, for Capture to make a loop of its last four bars. |
+| **Capture what I played** | Keeps the last minute of input, which Capture needs: press it to make a loop of the last four bars played, or, over a loop, to add its last round as a layer. |
 | **Takes for editing** | **Export** on Both: takes are written as a mix and as a file for each layer. |
 
 ## Outputs

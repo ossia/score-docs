@@ -89,7 +89,7 @@ With **Follow tempo**, on by default, the loop plays at the tempo of the score: 
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at the tempo and in the time signature it was recorded in, and ending exactly at the end of the loop. score places a MIDI file by its beats, so a take of two bars is a clip of two bars whatever its tempo. A click on **Send** in the looper's view, or a drag from that button, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. Dragging a lane drops that layer alone, as a clip in a box of its own, muted or not; when the take has no file of that layer, it is written when the drag starts, the lane saying **Preparing** until it is there, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#takes-and-the-timeline). The file can also be opened in any other MIDI editor. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
+When a recording or an overdub ends, what is heard of the loop is written to a Standard MIDI File, at the tempo and in the time signature it was recorded in, and ending exactly at the end of the loop. score places a MIDI file by its beats, so a take of two bars is a clip of two bars whatever its tempo. A click on **Send** in the looper's view, or a drag from that button, places it in the timeline as a MIDI clip that holds the notes, where the take was recorded. Dragging a lane drops that layer alone, as a clip in a box of its own, muted or not. A take is a loop wherever it goes: its clip loops at the length of the loop, so that a take of four bars is a box of four bars, and making the box longer plays it round again. Dropped on a box that is already there, the looper's own box for instance, the clip is as long as that box and plays the loop round over it. A MIDI file dragged from a file browser is not a take, and is not looped. When the take has no file of the layer dragged, it is written when the drag starts, the lane saying **Preparing** until it is there, as for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#takes-and-the-timeline). The file can also be opened in any other MIDI editor. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both; the files go in one box, a looping clip each, the mix first.
 
 A take has the notes where the loop plays them: **Note grid**, **Strength** and **Note ends** are applied to it, and so is **Held notes**. **Transpose** and **Out channel** are not: the notes are at the pitch and on the channel they were played, so that the clip can be transposed or routed again in the timeline.
 
@@ -118,7 +118,16 @@ A muted layer's notes and controllers are not heard, and it replaces nothing, so
 
 ## Capture
 
-**Capture**, in the Length tab next to **Capture bars**, makes a loop out of the last Capture bars bars played, recorded or not, and plays it at once; Mode shows Play. The MIDI looper always keeps the last few thousand events it received, so there is nothing to set up.
+**Record** starts taking in when it is pressed, or on the next grid point. **Capture**, in the Length tab next to **Capture bars**, works backwards: it takes what was already played, recorded or not. You play first, and decide afterwards that it was worth keeping.
+
+- **With no loop**, the last Capture bars bars played become the loop, and it plays at once; Mode shows Play.
+- **Over a loop**, what was played over the last round of the loop becomes a new layer on top, as if that round had been an overdub pass: each note lands where it was played in the loop, and the loop keeps its length. Capture bars does not apply, one round is taken. A stopped loop is taken as going round where it would be had it kept playing, as In phase has it, and it plays from there. Max layers and At max layers make room for the layer as for an overdub pass, muted layers stay muted, Overdub mode applies to what it plays over, and a take is written as for any pass that closes. When nothing was played over that round, no layer is made, as for an overdub that gets nothing.
+
+**Undo** takes the captured layer out and **Redo** brings it back, as for any pass. On an empty loop, Undo empties the loop as it does after a first recording.
+
+Pressed shortly after a point of the grid, within **Late stop**, Capture ends on that point, as a late stop would: a note held across that point ends there. Capture does nothing while a recording or an overdub is going on.
+
+The MIDI looper always keeps the last 8192 messages it received, so there is nothing to set up; a busy input only lets Capture look back as far as those messages go.
 
 ## Presets
 
@@ -127,22 +136,21 @@ As for the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#presets
 | Preset | What it is for |
 |---|---|
 | **Song form** | Record, Play, Overdub and Play again. Quantize is Loop: the first recording ends on a bar, then every change waits for the loop to come round, and a stop lets it play to its end. |
-| **One footswitch, song form** | The same from Rec / Play / Dub alone, with a Late stop of 250 ms. |
+| **One footswitch, song form** | The same from Rec / Play / Dub alone, a stop also letting the loop play to its end, with a Late stop of 250 ms. |
 | **One footswitch, layering** | Rec / Play / Dub records, goes straight on overdubbing, and each press after that starts a new layer. |
-| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; once there are 16, a new take replaces a muted one. |
+| **Comping, a layer per press** | Each press of Rec / Play / Dub while overdubbing starts a new take in a layer of its own; once there are 16, a new take replaces a muted one; takes are written as a mix and as layers. |
 | **Comping, a layer per round** | One overdub, a layer each time round the loop; takes are written as a mix and as layers. |
-| **Four bar phrase** | A recording of four bars, then plays it. |
+| **Four bars, then play** | A recording of four bars, then plays it. |
 | **Four bars, then overdub** | A recording of four bars, then goes on overdubbing: a chord held across the end of the loop is not cut. |
-| **Free phrase** | No grid, no Record bars, no Late stop: the loop is as long as it was played for. |
+| **Free loop** | No grid, no Record bars, no Late stop: the loop is as long as it was played for. |
 | **Overdub drums** | Two bars, then overdubbing; notes end with the loop. |
 | **Drum pattern on channel 10** | Records channel 10 only, two bars then overdubbing; a hit replaces the hits of that pitch under it, notes end with the loop, and play back on the sixteenth. |
-| **Replace as you play** | Four bars, then overdubbing, a pitch played replacing that pitch in the passes under it. |
+| **Replace as you play** | Four bars, then overdubbing, a layer each time round the loop: a pitch played replaces that pitch in the rounds before it, so each round played over replaces the one before. |
 | **Sixteenths, 70 percent** | Notes pulled 70 percent of the way to the sixteenth on playback; mode changes on the quarter note. |
 | **Octave up** | The loop plays an octave above what was played. |
 | **Half speed** | The loop plays twice as slow; what is overdubbed plays twice as fast at x1. |
 | **Grows as you overdub** | A bar long recording, and Past the end on Extend: overdubbing over several bars makes the loop that long. |
 | **In phase with the timeline** | Start from In phase: a loop played again after a stop, or when the score starts or jumps, is where it would be had it kept playing. |
-| **Capture what I played** | Capture makes a loop of the last four bars played. |
 | **Takes for editing** | **Export** on Both: takes are written as a mix and as a MIDI file for each layer. |
 
 ## Older scores
