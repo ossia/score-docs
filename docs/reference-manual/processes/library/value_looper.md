@@ -69,7 +69,7 @@ What the loop does not play there, e.g. what a later pass holds over, is dimmed.
 
 ## Takes and the timeline
 
-When a recording or an overdub ends, what is heard of the loop is written to a small file of its own, a `.values` file, which keeps every value where it is heard, with its type. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both.
+When a recording or an overdub ends, what is heard of the loop is written to a small file of its own, a `.values` file, which keeps every value where it is heard, with its type. **Export** chooses what Send, and a drag from its button, place, and the files the take written when a recording or an overdub ends has: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both, a box for each file. A take that Send or a drag asks for, or that the score's stop leaves, has all of them, so that Export can be changed afterwards.
 
 When every value of a take is a number, a boolean, a vector, or a list of numbers and booleans, a click on **Send** in the view, or a drag from that button, places it in the timeline as automations: one for each number of the values, so three for a vector of three, four for lists of four floats such as Arraygen sends, in one box, where the take was recorded. Values of different sizes can be mixed: the take has as many automations as the longest value has numbers, at most 32. A value that has fewer numbers leaves the others where they were, and before an index first has a number, its first number holds. The automations of a vector are named by its axes, x, y, z and w; those of lists by their index, from 0. Each automation holds each value until the next, in steps, its minimum and maximum those of the take; the box is as long as the loop, in bars, whatever the tempo it was played at, and the automations loop as the box is made longer; dropped on a box that is already there, they are as long as that box and play the loop round over it. They can be edited, given an address or cabled as any automation. One undo removes the box.
 
@@ -77,7 +77,7 @@ Dragging a lane places that layer alone, as automations in a box of its own, whe
 
 A take with impulses, text, maps, lists holding anything but numbers and booleans, or more than 32 numbers, is kept as a file only: the button of the view says **File** instead of Send, nothing is placed in the timeline, and its lanes drag nothing. The file is plain JSON, and can be read by any other tool.
 
-While a recording or an overdub goes on, Send or a drag from it asks for a take of the loop as it is at that moment; the Send button says **Saving** until it is written. When the score stops while a pass is taken in, the pass is closed as any, and the loop as it is heard is written as a take of its own.
+While a recording or an overdub goes on, Send or a drag from it asks for a take of the loop as it is at that moment; the Send button says **Saving** until it is written. When the score stops while a pass is taken in, the pass is closed as any. The score's stop leaves a take with the mix and a file for each layer whenever the last take does not have them all as the loop is, even though the looper is gone by then: the view, saying **Stopped with the score**, still drags each lane's layer, and Send still places what Export says, Export being changed once the score is stopped too.
 
 ## Reverse and speed
 
