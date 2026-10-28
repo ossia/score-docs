@@ -57,7 +57,7 @@ The scene path preserves information that plain geometry cannot express: hierarc
 A typical custom renderer uses these stages:
 
 1. **Asset Loader** reads the file and outputs a scene.
-2. **Scene Filter** keeps visible nodes, while **Scene Graph Filter** and related [[Scene tools]] select by node paths, names, components and material properties. Use separate transform and material processes to modify those properties.
+2. **Scene Filter** keeps visible nodes or nodes whose name matches a pattern, while **Scene Graph Filter** and related [[Scene tools]] select by node paths, names, components and material properties. Use separate transform and material processes to modify those properties.
 3. **Scene Preprocessor** flattens the scene into GPU-resident geometry and auxiliary data.
 4. **Render Pipeline** draws the flattened scene with a raw raster shader.
 
