@@ -32,7 +32,7 @@ Use [[Render Pipeline]] instead when you need custom vertex / fragment shaders, 
 | Position | Camera position. Default looks from `(-1, -1, -1)` toward the center. |
 | Center | Camera look-at target. |
 | FOV | Field of view in degrees. |
-| Near / Far | Near and far clipping planes. |
+| Near / Far | Near and far clipping planes. Near: 0.001 to 1000, default 0.001. Far: 0.001 to 100000, default 1000. |
 | Camera | Projection model: Perspective, Fulldome equidistant, Fulldome equisolid, Fulldome stereographic, or Fulldome orthographic. |
 
 Fulldome modes render fisheye-style output for dome projection workflows.
@@ -43,7 +43,7 @@ Fulldome modes render fisheye-style output for dome projection workflows.
 |---|---|
 | Tex. Proj. | Texture projection mode. |
 | Mode | Triangles, Points, or Lines. |
-| Enable blend and blend factors | Optional fixed-function alpha blending. |
+| Enable blend, Src Color, Dst Color, Op Color, Src Alpha, Dst Alpha, Op Alpha | Optional fixed-function blending. The operations are Add, Subtract, Reverse Subtract, Min and Max. |
 
 Texture projection modes include:
 
