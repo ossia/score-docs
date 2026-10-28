@@ -31,6 +31,18 @@ Maps which scale degrees appear on which MIDI keys, allowing complex retuning sc
 
 **Frequency scale** (0.5x to 2.0x) - Global frequency scaling for transposition
 
+## MIDI output
+
+Besides the frequencies, the notes come out retuned on the **MIDI** output, in one of two ways chosen with **MIDI output**:
+
+**Pitch bend** - Each note gets a channel of its own and a pitch bend that moves it to its tuned pitch. Set **Bend range** to the pitch bend range of the receiving synth (2 for most synths, 48 for MPE synths). Works with any synth that responds to pitch bend.
+
+**MTS sysex** - The notes pass unchanged, and the tuning of the 128 keys is sent as MIDI Tuning Standard messages (real-time single note tuning change, tuning program 0, 32 messages of 4 keys each). A synth applies a tuning only to the channels that selected it, so every tuning send is followed, on all 16 channels, by the tuning bank select (RPN 0 4) and the tuning program select (RPN 0 3), both set to 0, then by the null RPN (controllers 101 and 100 set to 127) so that later data entry changes nothing.
+
+The tuning is sent when it changes (a new SCL or KBM file, **Frequency adjust**, **Frequency scale**), when playback starts, and when **Send tuning** is pressed. Press **Send tuning** when the synth was started, reset or connected after playback began: score does not know when a destination connects.
+
+FluidSynth, and plug-ins that read MIDI Tuning Standard messages, retune with **MTS sysex**. The messages reach a MIDI output device, and VST, VST 3, CLAP (MIDI dialect) and LV2 plug-ins, as complete system-exclusive messages.
+
 ## Understanding Scala files
 
 **SCL files** define scales as mathematical relationships:
