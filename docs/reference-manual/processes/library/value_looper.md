@@ -71,7 +71,7 @@ What the loop does not play there, e.g. what a later pass holds over, is dimmed.
 
 When a recording or an overdub ends, what is heard of the loop is written to a small file of its own, a `.values` file, which keeps every value where it is heard, with its type. **Export** chooses what a take writes: what is heard of the whole loop (**Mix**, the default), each pass in a file of its own (**Layers**), or both.
 
-When every value of a take is a number, a boolean, a vector, or a list of numbers and booleans, a click on **Send** in the view, or a drag from that button, places it in the timeline as automations: one for each number of the values, so three for a vector of three, four for lists of four floats such as Arraygen sends, in one box, where the take was recorded. Values of different sizes can be mixed: the take has as many automations as the longest value has numbers, at most 32. A value that has fewer numbers leaves the others where they were, and before an index first has a number, its first number holds. The automations of a vector are named by its axes, x, y, z and w; those of lists by their index, from 0. Each automation holds each value until the next, in steps, its minimum and maximum those of the take; it loops as the box is made longer, and can be edited, given an address or cabled as any automation. One undo removes the box.
+When every value of a take is a number, a boolean, a vector, or a list of numbers and booleans, a click on **Send** in the view, or a drag from that button, places it in the timeline as automations: one for each number of the values, so three for a vector of three, four for lists of four floats such as Arraygen sends, in one box, where the take was recorded. Values of different sizes can be mixed: the take has as many automations as the longest value has numbers, at most 32. A value that has fewer numbers leaves the others where they were, and before an index first has a number, its first number holds. The automations of a vector are named by its axes, x, y, z and w; those of lists by their index, from 0. Each automation holds each value until the next, in steps, its minimum and maximum those of the take; the box is as long as the loop, in bars, whatever the tempo it was played at, and the automations loop as the box is made longer; dropped on a box that is already there, they are as long as that box and play the loop round over it. They can be edited, given an address or cabled as any automation. One undo removes the box.
 
 Dragging a lane places that layer alone, as automations in a box of its own, when its values are all numbers as above; its file is written when the drag starts if the take has none, the lane saying **Preparing** meanwhile.
 
@@ -91,7 +91,16 @@ With **Follow tempo**, on by default and in the Speed tab, the loop plays at the
 
 ## Capture
 
-**Capture**, in the Length tab next to **Capture bars**, makes a loop out of the last Capture bars bars of values that came in, recorded or not, and plays it at once; Mode shows Play. The loop starts with the value the input held just before those bars. The value looper always keeps the last few thousand values it received, so there is nothing to set up.
+**Record** starts taking in when it is pressed, or on the next grid point. **Capture**, in the Length tab next to **Capture bars**, works backwards: it takes the values that already came in, recorded or not. You move things first, and decide afterwards that it was worth keeping.
+
+- **With no loop**, the last Capture bars bars of values become the loop, and it plays at once; Mode shows Play. The loop starts with the value the input held just before those bars.
+- **Over a loop**, the values that came in over the last round of the loop become a new layer on top, as if that round had been an overdub pass: each value lands where it came in the loop, and holds from its first new value to where the round ended. The loop keeps its length: Capture bars does not apply, one round is taken. A stopped loop is taken as going round where it would be had it kept playing, as In phase has it, and it plays from there. Max layers and At max layers make room for the layer as for an overdub pass, muted layers stay muted, and a take is written as for any pass that closes. When no new value came in over that round, no layer is made, as for an overdub that gets nothing.
+
+**Undo** takes the captured layer out and **Redo** brings it back, as for any pass. On an empty loop, Undo empties the loop as it does after a first recording.
+
+Pressed shortly after a point of the grid, within **Late stop**, Capture ends on that point, as a late stop would. Capture does nothing while a recording or an overdub is going on.
+
+The value looper always keeps the last 4096 values it received, so there is nothing to set up; a busy input only lets Capture look back as far as those values go.
 
 ## Comping and Start from In phase
 
@@ -106,7 +115,6 @@ Each preset sets every setting; mode changes wait for the bar unless said otherw
 | **Two bar gesture** | A recording of two bars, then plays it. |
 | **Free gesture** | No grid, no Record bars, no Late stop: the loop is as long as it was played for. |
 | **A layer per round** | Two bars, then one overdub, a layer each time round the loop; once there are 16, a new layer replaces a muted one. |
-| **Capture what moved** | Capture makes a loop of the last four bars of values. |
 | **Takes for automation** | Four bars; **Export** on Both: takes are written as a mix and as a file for each layer, to place them in the timeline as automations. |
 
 ## What it does not have
