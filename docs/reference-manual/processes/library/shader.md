@@ -31,11 +31,13 @@ Use ISF when the shader renders a fullscreen image pass. Use a different process
 
 ## Files and live editing
 
-An ISF shader is usually a `.fs` or `.frag` file with a JSON header followed by GLSL. A custom vertex shader can be paired with the fragment shader; the editor can live-code both stages.
+An ISF shader is a `.fs` or `.frag` file with a JSON header followed by GLSL. A custom vertex shader can be paired with the fragment shader: a `.vs` / `.vert` file with the same name next to it is used as its vertex stage. The editor can live-code both stages. A `.glsl` file dropped in the score is not an ISF shader: it is handled as a [geometry filter]({{ site.baseurl }}/reference/languages/geometry-filter.html), and an include file that is not one makes no process.
 
 Press {% include shortcut.html content="Ctrl+Enter" %} in the shader editor to recompile during playback. For production authoring, the official ISF editor remains useful, but *score* supports the runtime-specific features documented here.
 
-Shader sources can use `#include`; include paths are resolved before parsing.
+Shader sources can use `#include`; include paths are resolved before parsing. Compiling a shader again picks up the changes of the files it includes.
+
+When a shader process loads a shader that cannot be used — a header or GLSL error — it has no ports, and a warning naming the process and the error is shown in the **Messages** panel. The editor shows the same error while typing.
 
 ## Language reference
 
@@ -69,7 +71,21 @@ Go directly to a relocated section:
 
 ## Connecting and previewing
 
-Connect a video or image producer to the generated image inlet, adjust the controls, and connect the shader output to a video output or another effect. Generators need no image inlet. The texture inlet inspector provides an explicit size checkbox with width and height controls; uncheck it for **Auto** sizing. The **Show shader previews** toolbar action controls library and inspector previews. See [[Graphics pipeline]] for sizing and backend limits.
+Connect a video or image producer to the generated image inlet, adjust the controls, and connect the shader output to a video output or another effect. Generators need no image inlet. The **Show shader previews** toolbar action controls library and inspector previews. See [[Graphics pipeline]] for sizing and backend limits.
+
+The texture inlet inspector has these rows:
+
+| Row | Description |
+|---|---|
+| Size | Explicit render size of the input, with width and height controls; uncheck it for **Auto** sizing. |
+| Format | Render target format: **Auto** (RGBA8, or the texture the upstream process publishes when the inlet can read it directly), RGBA8, RGBA16F, RGBA32F, R8, R16, R16F or R32F. |
+| Filter | Nearest or Linear. |
+| Address mode | Repeat, Clamp to edge or Mirror. |
+| Mipmaps | None, Nearest or Linear. A mipmap mode gives the input a mip chain. |
+
+The first entry of Filter, Address mode and Mipmaps leaves the field to the shader: it reads **Shader: …** when the shader's JSON declares that field, **Default: …** otherwise, with the value it resolves to. A value picked in the inspector takes precedence over the shader's. When the shader samples the input with a depth comparison (`COMPARE`), these three rows are disabled. See [ISF sampler state]({{ site.baseurl }}/reference/languages/isf.html#sampler-state).
+
+An input whose name the shader reserves for pointers (`mouse`, `iMouse`, `touch`) is bound to the window device's mouse and touch addresses by default; see [ISF pointer inputs]({{ site.baseurl }}/reference/languages/isf.html#pointer-inputs).
 
 ## Related Processes
 
