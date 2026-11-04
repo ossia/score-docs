@@ -104,8 +104,9 @@ Three settings choose what the one-button actions do:
 
 Each overdub pass is a layer of its own. The view shows one lane per layer.
 
-- **Undo** removes the last pass. Pressed during an overdub, it drops the pass in progress and overdubbing carries on in a new one. Pressed during a recording, or **Clear**, starts the recording again at once, its bars and tempo counted from there. Undoing the first recording empties the loop.
-- **Redo** brings back the last pass undone. A new overdub after an undo replaces what redo would have brought back.
+- **Undo** takes back what was done to the layers, the last first: a pass, an erased layer, which comes back where it was with its audio, or a mute (a solo is taken back at once). Pressed during an overdub, it drops the pass in progress and overdubbing carries on in a new one, unless a layer was erased or muted since the pass started: that is taken back first. Pressed during a recording, or **Clear**, starts the recording again at once, its bars and tempo counted from there. Undoing the first recording empties the loop.
+- **Redo** does again what Undo took back last. Anything new done after an undo, a pass, an erase or a mute, replaces what redo would have done.
+- A merge past Max layers, a layer replaced past Max layers, and Clear change the layers in a way the actions before them cannot be taken back over: from there, Undo takes out passes from the newest. Up to 8 erased layers are kept for undo; past that, or when the memory of the oldest one is needed for a new pass, it goes for good.
 - **Clear** empties the loop and forgets every pass.
 - **Feedback** is how much of the loop is kept each time an overdub goes round it. At 1 nothing fades; below 1, older passes fade a little more at each round. Undoing a pass gives the passes under it back the level it took from them.
 
@@ -125,10 +126,10 @@ A muted layer that is merged is left out of the merged one, and lost.
 
 Any pass can be taken out of the loop while it plays, not only the last one:
 
-- in the view, with the **x** at the right of its lane, on the next grid point. The view shows a lane per pass, up to 32, sharing its height between them; with more passes than that, the oldest share the first lane, which has no **x**.
+- in the view, with the **x** at the right of its lane, on the next grid point. The lane is dimmed and its **x** lit at once, until the grid point comes; the **m** next to it shows the mute it asked for the same way, with a ring until the grid point. Pressing the **m** again before then asks for the other. The view shows a lane per pass, up to 32, sharing its height between them; with more passes than that, the oldest share the first lane, which has no **x**. A looper stopped with the score has no **m** and **x**: its layers went with it, and only its last take is left.
 - with **Layer** and **Erase layer**, in the Layers tab: Layer says which pass, counting from the oldest one, and Erase layer erases it on the grid. Layer 1 is the top lane of the view when every pass has a lane of its own, and the file ending in `-layer1` of a take written as layers. Both are ports, so a footswitch or an OSC message can erase a pass.
 
-The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo and Redo go on with the passes left, and what Redo would bring back is kept. Erasing is not itself undone by Undo.
+The passes over the erased one stay where they are and the loop keeps its length, even when the erased pass had extended it. The passes under it get back the level its feedback took from them, as when it is undone. Undo brings the erased pass back, where it was and as it was heard; Redo erases it again.
 
 Erasing the pass being overdubbed is the same as Undo: the pass is dropped and overdubbing carries on in a new one. Erasing the only pass empties the loop, as Clear does.
 
