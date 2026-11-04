@@ -27,7 +27,7 @@ A recording starts with the value the input held when it starts: a value that do
 
 ## Passes and overdubs
 
-Each recording or overdub is a pass, kept as a layer of its own. **Undo** hides the last pass, **Redo** shows it again, **Clear** forgets everything; Undo or Clear during a recording starts it again at once.
+Each recording or overdub is a pass, kept as a layer of its own. **Undo** takes back the last thing done to the layers, a pass, an erase or a mute, as for the audio looper, **Redo** does it again, **Clear** forgets everything; Undo or Clear during a recording starts it again at once.
 
 An overdub **holds** the value from its first new value to its end: before it is touched, the passes under it are heard; from the first new value on, what the overdub recorded is heard instead, and the value it holds while nothing new comes in is the last one it recorded; after the end of the pass, the passes under it are heard again, from the value they hold there. An overdub that only listens, without the input moving, leaves the loop as it was.
 
