@@ -40,6 +40,8 @@ As *score* is built with [Qt](https://qt-project.org), it should be portable to 
 
 * [Bitfocus Companion modules]({{ site.baseurl }}/devices/companion-device.html) expose supported module controls through a device; the module's own dependencies and configuration still apply.
 * [Spatialization]({{ site.baseurl }}/devices/spatgris-device.html), provided by the SpatGRIS add-on, is a device integration for external spatial-audio software.
+* [HID]({{ site.baseurl }}/devices/hid-device.html): generic USB HID devices.
+* [Stream Deck]({{ site.baseurl }}/devices/streamdeck-device.html), through the Stream Deck add-on: Elgato Stream Deck and Mirabox / Ajazz Stream Dock keypads.
 
 The optional [Libmapper client]({{ site.baseurl }}/devices/libmapper-device.html) is a separate integration from the scriptable [Mapper device]({{ site.baseurl }}/devices/mapper-device.html). Its current source integration has a build-interface mismatch; do not treat it as an available working protocol in an ordinary installation.
 
