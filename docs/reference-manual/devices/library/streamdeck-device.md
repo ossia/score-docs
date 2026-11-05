@@ -31,7 +31,7 @@ score talks to the deck directly. Elgato's software is not needed, and it must n
 ## Device setup
 
 1. In the **Device Explorer**, click **+** and choose **Hardware ▸ Stream Deck**.
-2. Pick the deck from the list. The **Any <model>** entries lay out a deck that is not plugged in: score uses the first deck of that model that gets connected.
+2. Pick the deck from the list. The **Any** entries, such as **Any Stream Deck XL**, lay out a deck that is not plugged in: score uses the first deck of that model that gets connected.
 3. **Mode**: **Buttons** runs the layout made in the editor. **Remote control** shows score's transport and the controls of the selected process; see [Remote control mode](#remote-control-mode).
 
 The device exists whether or not the deck is plugged in. The layout runs either way, and the deck picks it up when it is connected, or connected again.
