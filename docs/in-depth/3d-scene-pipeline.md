@@ -14,7 +14,7 @@ score offers a native 3D scene pipeline alongside the Qt Quick 3D renderer avail
 
 | Representation | Carries | Typical source and destination |
 |---|---|---|
-| Scene | Hierarchy, transforms, meshes, materials, animation, cameras, lights and environment | [[Asset Loader]] → scene tools → [[Scene Preprocessor]] |
+| Scene | Hierarchy, transforms, meshes, materials, animation, cameras, lights and environment | [[Asset Loader]] or [[glTF Live Link]] → scene tools → [[Scene Preprocessor]] |
 | Geometry | Vertex/index buffers, attributes, draw ranges and optional auxiliary resources | [[Object loader]] or a primitive → [[Model display]] or [[Render Pipeline]] |
 | Buffer | Typed bytes, without a complete mesh description | Array or compute output → geometry conversion or shader input |
 | Texture | Image data or a GPU image resource | Image/video/shader → material, renderer or post-processing |
