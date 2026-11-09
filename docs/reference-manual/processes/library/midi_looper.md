@@ -19,7 +19,7 @@ The recording keeps its own timing: quantize, transpose and channel changes only
 
 ## Passes and overdubs
 
-Each recording or overdub is a pass, kept as a layer of its own. **Undo** takes back the last thing done to the layers, a pass, an erase or a mute, as for the audio looper, **Redo** does it again, **Clear** forgets everything; Undo or Clear during a recording starts it again at once, its bars counted from there. **Start from** is in the Play tab; Follow tempo is in the Speed tab.
+Each recording or overdub is a pass, kept as a layer of its own. **Undo** takes back the last thing done to the layers, a pass, an erase or a mute, as for the audio looper, **Redo** does it again, **Clear** forgets everything; Undo or Clear during a recording starts it again at once, its bars counted from there. An **m** or **x**, or a Mute layer or Erase layer, still waiting for the grid point is taken back first: the layer stays as it was, its lane no longer dimmed, and Redo asks for it again on the grid. **Start from** is in the Play tab; Follow tempo is in the Speed tab.
 
 **Overdub mode**, in the Overdub tab, chooses what a pass does to the notes of the passes under it:
 
@@ -52,7 +52,7 @@ The view shows one lane per pass, as the audio looper does: up to 32 lanes, shar
 
 ## Erasing a pass
 
-As with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#erasing-a-pass), any pass can be erased while the loop plays, with the **x** of its lane or with **Layer** and **Erase layer**, on the grid. Layer is on the newest layer unless it was stepped back. Its notes and controllers go, until Undo brings them back with it; the passes over it stay where they are, and the loop keeps its length. Erasing the pass being overdubbed is the same as Undo, and erasing the only pass empties the loop. The notes the loop was playing end, as with Undo.
+As with the [audio looper]({{ site.baseurl }}/processes/audio-looper.html#erasing-a-pass), any pass can be erased while the loop plays, with the **x** of its lane or with **Layer** and **Erase layer**, on the grid. Layer is on the newest layer unless it was stepped back. Its notes and controllers go, until Undo brings them back with it; the passes over it stay where they are, and the loop keeps its length. Erasing the pass being overdubbed is the same as Undo, and erasing the only pass, the first recording included, empties the loop, which Undo does not bring back. The notes the loop was playing end, as with Undo.
 
 What only the erased pass replaced is heard again. What a later pass replaced as well stays replaced: if the second pass and the third both played a C over the C of the first one, erasing or muting the second leaves the first one's C silent, because the third still replaces it.
 
