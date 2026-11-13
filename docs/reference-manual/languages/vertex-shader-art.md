@@ -25,13 +25,17 @@ Common VSA fields:
 
 | Field | Description |
 |---|---|
-| `POINT_COUNT` | Number of vertices to generate. |
-| `PRIMITIVE_MODE` | `POINTS`, `LINES`, `LINE_STRIP`, or compatible VSA primitive mode. |
+| `POINT_COUNT` | Default of the **Vertex Count** control (3 to 100000). Without a positive `POINT_COUNT` it is 3: one triangle. |
+| `PRIMITIVE_MODE` | Default of the **Primitive Type** control: `POINTS`, `LINE_STRIP`, `LINE_LOOP`, `LINES`, `TRI_STRIP`, `TRI_FAN` or `TRIANGLES`, in any case. Without one, or with an unknown one (which prints a message), `TRIANGLES`. |
 | `LINE_SIZE` | Line / point sizing policy used by imported VSA shaders. |
 | `BACKGROUND_COLOR` | Clear color. |
-| `INPUTS` | ISF-style controls, textures, and audio inputs. |
+| `INPUTS` | ISF-style controls, images, and audio inputs. |
 
-The process also supports the standard ISF metadata fields such as `DESCRIPTION`, `CREDIT`, `CATEGORIES`, and `ISFVSN`.
+The process also supports the standard ISF metadata fields such as `DESCRIPTION`, `CREDIT`, `CATEGORIES`, and `ISFVSN`; without a `DESCRIPTION`, the description is "Vertex Shader Art". The header follows the [ISF header syntax]({{ site.baseurl }}/reference/languages/isf.html#header-syntax) and [input name rules]({{ site.baseurl }}/reference/languages/isf.html#input-names); `vertexCount` and `primitiveType` are the names of the two controls above.
+
+`LINE_LOOP` draws a closed polyline through the vertices, the last one joined to the first. `TRI_FAN` draws a fan; on backends without triangle fans (Direct3D, Metal), the same triangles are drawn as a list.
+
+VSA has no storage buffers, uniform blocks, geometry or storage images: such entries in `INPUTS` are ignored, with a message, and create no port. `event` inputs fire for one frame, as in ISF. `DATE`, `SAMPLERATE` and the other ISF built-in uniforms are available.
 
 ## Shader variables
 
@@ -52,6 +56,35 @@ resolution  // render size
 ```
 
 ISF-style controls declared in `INPUTS` are available as uniforms.
+
+Image inputs can be read with the WebGL functions VSA art uses, `texture()`, `textureLod()` and `texelFetch()`, as well as with the ISF `IMG_*` macros. On a 2D image input, these raw reads are oriented like `IMG_NORM_PIXEL`: `v = 0` is the bottom of the image on every backend. A `v` on the edge between two rows, such as `n / 240.0`, reads the same row on every backend: the row above the edge, `floor(v * height)`. Other sampling functions (`textureGrad`, `textureOffset`, `textureProj`...) are left as written.
+
+### Mouse and touch
+
+Two inputs reproduce the `mouse` and `touch` of [vertexshaderart.com](https://www.vertexshaderart.com):
+
+```json
+"INPUTS": [
+  { "NAME": "mouse", "TYPE": "point2D" },
+  { "NAME": "touch", "TYPE": "image" }
+]
+```
+
+| Input | Default binding | Content |
+|---|---|---|
+| `mouse` | `cursor/clip` of the first [[Window device]] | Mouse position in clip space, x and y in `[-1, 1]`, y up. |
+| `touch` | `touch/history` of the first window device | The last 240 frames of the window's pointers, a 32 × 240 RGBA float texture read with nearest filtering and clamp to edge. |
+
+In the touch history, column *c* is pointer *c*: column 0 is the mouse or the first finger, the next columns the further fingers in the order they came down. Row 0, at `v = 0`, is the newest frame; `v = 1` is 239 frames ago. Each texel is `(x, y, pressure, time)`: the position in clip space, y up, the pressure (1 while the mouse button is pressed; a released pointer keeps its position with pressure 0), and the time of the row, in seconds since the history started.
+
+```glsl
+// Pointer 0, five frames ago.
+vec4 t = texture(touch, vec2(0.5 / 32.0, (5.0 + 0.5) / 240.0));
+vec2 position = t.xy;
+float pressure = t.z;
+```
+
+These bindings are set on the inlets, where they show and can be changed: rebind them to another address, or cable a texture into `touch`. They are made the same way in ISF and render pipeline shaders, see [ISF pointer inputs]({{ site.baseurl }}/reference/languages/isf.html#pointer-inputs). Without a window device, nothing is bound: an unconnected `touch` reads an empty texture.
 
 VSA clip-space depth follows its original OpenGL-style convention; the runtime maps it to the backend's clip range. Do not add the raw-raster `isf_vertShaderInit()` / `isf_vertShaderFinish()` sequence or a second backend depth correction to a VSA shader.
 

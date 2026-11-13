@@ -18,6 +18,19 @@ Use it when you need explicit control over vertex attributes, uniforms, buffers,
 
 For a cabled geometry's own topology, select **Geometry** in the **Mode** control. **Triangles**, **Points**, and **Lines** deliberately override it. A shader's explicit `PIPELINE_STATE.TOPOLOGY` takes precedence over the control. This matters particularly for CSF-generated point clouds and line strips.
 
+Every Render Pipeline has these controls besides the ones its shader declares:
+
+| Control | Description |
+|---|---|
+| Mode | Triangles, Points, Lines or Geometry, as above. |
+| Enable blend | Turns on the blend below. Off by default. |
+| Src Color, Dst Color | Color blend factors (Zero, One, SrcColor, OneMinusSrcColor, DstColor, OneMinusDstColor, SrcAlpha, OneMinusSrcAlpha, DstAlpha, OneMinusDstAlpha, the constant factors and SrcAlphaSaturate). Default SrcAlpha and OneMinusSrcAlpha. |
+| Op Color | Add, Subtract, Reverse Subtract, Min or Max. Default Add. |
+| Src Alpha, Dst Alpha | Alpha blend factors. Default One and OneMinusSrcAlpha. |
+| Op Alpha | As Op Color, for alpha. Default Add. |
+
+Image inputs named `touch` and `point2D` inputs named like `mouse` are bound to the window device's pointer addresses by default, as in ISF; see [ISF pointer inputs]({{ site.baseurl }}/reference/languages/isf.html#pointer-inputs).
+
 ## Files
 
 A raw raster pipeline uses two files with the same base name:

@@ -31,11 +31,13 @@ Only the controls relevant to the selected mode are used. Start with Inspector o
 
 ## Scene Filter
 
-This smaller filter exposes only **pass through** and **keep visible only**. It is not a script editor and does not have the path/material selection controls of Scene Graph Filter. Its ports are **Scene In** and **Scene Out**.
+This smaller filter has three modes: **pass through**, **keep visible only** and **keep matching names**. The last keeps the subtrees whose node name matches the **Name** pattern, written like an OSC address part — `*` and `?` wildcards, `[0-9]` ranges and `{wheel,door}` alternatives — and matched against the whole name. A matching node is kept with everything under it; its parents stay, so that it keeps its place and transform, but lose their own meshes and other components. An empty pattern keeps everything. It does not have the path/material selection controls of Scene Graph Filter. Its ports are **Scene In** and **Scene Out**.
 
 ## Flattened Scene Filter
 
 Place this process **after Scene Preprocessor**. It accepts **Geometry In** and emits **Geometry Out**, selecting flattened draws by equality or inequality of tag, material index, blend, depth-write, cull mode or topology. Set the integer **Match** for those modes. The format-ID modes instead compare the **Format ID** string. Use two branches to separate render passes without re-importing an asset.
+
+The Scene Preprocessor merges the regular draws of a scene into one geometry. The tag, material index and format-ID modes select individual draws inside it: each draw is judged on its own `per_draws` record (its material tag and its `material_index` slot), and the kept draws are drawn from a command list. An instanced draw carries the tag of its prototype's material. The other modes keep or drop whole geometries. Filters can be chained.
 
 ## Scene Selector
 

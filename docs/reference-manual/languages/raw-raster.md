@@ -11,7 +11,7 @@ permalink: /reference/languages/raw-raster.html
 
 This is the canonical shader contract for the [[Render Pipeline]] process. For GLSL syntax, generated declarations and portability, see [GLSL runtime reference]({{ site.baseurl }}/reference/languages/glsl.html). For worked tasks, see [[Shader cookbook]].
 
-`RAW_RASTER_PIPELINE` is a score-specific format, not standard ISF. The fragment file contains the JSON header; the vertex file has the same stem (`.fs` / `.vs` or `.frag` / `.vert`). Declare resources and stage interfaces in the header rather than duplicating generated GLSL declarations. Shared controls and sampling helpers follow the [ISF runtime contract]({{ site.baseurl }}/reference/languages/isf.html); the raster interface below adds geometry, state and scene resources.
+`RAW_RASTER_PIPELINE` is a score-specific format, not standard ISF. The fragment file contains the JSON header; the vertex file has the same stem (`.fs` / `.vs` or `.frag` / `.vert`). Declare resources and stage interfaces in the header rather than duplicating generated GLSL declarations. Shared controls and sampling helpers follow the [ISF runtime contract]({{ site.baseurl }}/reference/languages/isf.html), including its [header syntax]({{ site.baseurl }}/reference/languages/isf.html#header-syntax) and [input name rules]({{ site.baseurl }}/reference/languages/isf.html#input-names); the raster interface below adds geometry, state and scene resources.
 
 ## Minimal geometry shader
 
@@ -73,7 +73,7 @@ void main() {
 | `MULTIVIEW` | Number of views for multiview rendering. |
 | `EXECUTION_MODEL` | Repeated raster invocation: per mip, per layer, per cubemap face, manual. |
 | `ALPHA`, `COMPOSITE`, `QUEUE`, `LAYER` | Alpha and compositing / transparent layering controls. |
-| `EXTENSIONS` | GLSL extensions to require. |
+| `EXTENSIONS` | GLSL extension names to require; see [ISF common fields]({{ site.baseurl }}/reference/languages/isf.html#common-fields). `GL_ARB_shader_draw_parameters`, and `GL_EXT_multiview` with `MULTIVIEW`, are always required. |
 | `CLIP_DISTANCES`, `CULL_DISTANCES`, `DEPTH_LAYOUT`, `PRIMITIVE_DATA` | Advanced raster features. |
 
 ## Vertex inputs
@@ -144,8 +144,8 @@ Output fields:
 | `LAYERS` | Texture array layer count. |
 | `DEPTH` | 3D texture depth. |
 | `CUBEMAP` | Allocate as cubemap. |
-| `GENERATE_MIPS` | Generate mipmaps after rendering. |
-| `SAMPLES` | MSAA sample count. |
+| `GENERATE_MIPS` | Allocate a mip chain and generate it after rendering. Color outputs only: refused on a depth output, which no backend can generate. |
+| `SAMPLES` | MSAA sample count. The output is rendered multisampled and resolved into the texture, with a depth buffer at the same count. |
 | `ALPHA`, `COMPOSITE` | Per-output alpha / compositing policy. |
 
 3D texture outputs cannot currently be written directly by raw raster; use [[Compute Shaders]] with `EXECUTION_MODEL: 3D_IMAGE` for true volumetric writes.
@@ -180,6 +180,10 @@ vec4 t = IMG_TEXEL(albedo, ivec2(10, 20));
 vec4 e = IMG_CUBE(env, reflectDir);
 ```
 
+Sampler fields resolve as in ISF, see [ISF sampler state]({{ site.baseurl }}/reference/languages/isf.html#sampler-state); an `image` with `ACCESS` or `FORMAT` is a storage image, whose sampled reads are refused as in ISF. A storage image the shader writes is allocated at its `WIDTH` / `HEIGHT`, literal or expression, and reallocated when they resolve to another size. Without a `VISIBILITY`, a storage image is visible to the fragment stage.
+
+A writable `storage` input whose `LAYOUT` ends in a flexible array gets a **`<name> size`** control (default 1024), and is allocated with the std430 size of its fixed part plus that many elements.
+
 ### Storage and uniform buffers
 
 ```json
@@ -203,6 +207,10 @@ vec4 e = IMG_CUBE(env, reflectDir);
 
 `storage` uses SSBOs. `uniform` uses std140 UBOs. `VISIBILITY` controls which shader stages can access the binding.
 
+A buffer cabled into one of these inputs, or matched by name from the upstream geometry, is bound at the range its producer publishes. A `uniform` block needs a buffer with uniform usage holding at least its fixed part plus one element of a trailing array; a `storage` block needs a buffer with storage usage; the offset must be a multiple of the device's buffer offset alignment. A buffer that does not qualify is not bound: the block reads zeros from its own placeholder, and a warning is printed once per change of reason.
+
+The process adds the **Mode** and blend controls (see [[Render Pipeline]]) to every raw raster shader: an input named `Mode`, `EnableBlend`, `SrcColor`, `DstColor`, `OpColor`, `SrcAlpha`, `DstAlpha` or `OpAlpha` is refused.
+
 ## Built-in uniforms and macros
 
 | Name | Type | Description |
@@ -216,7 +224,7 @@ vec4 e = IMG_CUBE(env, reflectDir);
 | `CAMERA_POSITION` | `vec3` | Active camera world position. |
 | `VIEW_INDEX` | `int` | Multiview view index. `0` when not multiview. |
 | `NUM_VIEWS` | `int` | Multiview count when multiview is enabled. |
-| `MSAA_SAMPLES` | `int` | Active MSAA sample count. |
+| `MSAA_SAMPLES` | `int` | Sample count of the render target this pass draws into: its output's `SAMPLES`, an iteration's own count, or the renderer's. |
 
 When a raw raster shader uses the built-in camera and does not declare its own `camera` binding, *score* injects a camera uniform block. The process gets a `Camera` geometry inlet when camera data can be connected.
 
@@ -271,13 +279,26 @@ Top-level `AUXILIARY` declares buffers and textures that are resolved from upstr
   { "NAME": "scene_counts", "TYPE": "uniform",
     "LAYOUT": [ { "NAME": "drawCount", "TYPE": "uint" } ] },
   { "NAME": "base_color", "TYPE": "texture", "FILTER": "linear" },
-  { "NAME": "shadow_atlas", "TYPE": "image", "DEPTH": true, "COMPARE": "less" },
+  { "NAME": "shadow_atlas", "TYPE": "image", "IS_DEPTH": true, "COMPARE": "less" },
   { "NAME": "history", "TYPE": "storage_image", "FORMAT": "rgba16f", "ACCESS": "read_write",
     "WIDTH": 1024, "HEIGHT": 1024 }
 ]
 ```
 
-Auxiliary buffer entries default to SSBOs. Use `TYPE: "uniform"` for UBOs. Auxiliary texture types include `image`, `texture`, `cubemap`, `image_cube`, `storage_image`, `storage_cube`, `storage_image_array`, and `storage_3d`.
+Auxiliary buffer entries default to SSBOs. Use `TYPE: "uniform"` for UBOs. Auxiliary texture types include `image`, `texture`, `cubemap`, `image_cube`, `storage_image`, `storage_cube`, `storage_image_array`, and `storage_3d`. A texture is a storage image only when its `TYPE` is one of the `storage_*` ones; a `FORMAT` alone does not make it one, and a `"STORAGE"` key is refused. `IS_DEPTH: true` marks a texture that holds depth (sampled with `COMPARE` for shadows); `DEPTH` is the depth of a volume.
+
+A writable storage image that nothing upstream provides belongs to the node: it is allocated at its `WIDTH` / `HEIGHT` (and `DEPTH` or `LAYERS`), resolved like the node's other size expressions, the render size filling a missing side.
+
+### Scene texture pool
+
+Behind a [[Scene Preprocessor]], the material textures travel as one shared pool, declared as auxiliary textures by name:
+
+| Name | Content |
+|---|---|
+| `materialArray0` … `materialArray7` | Texture arrays of the pool, one per texture size bucket. |
+| `materialDyn0` … `materialDyn7` | Dynamic texture slots. |
+
+The per-channel names `baseColorArray<k>`, `metalRoughArray<k>`, `normalArray<k>`, `emissiveArray<k>`, `occlusionArray<k>` and `baseColorDyn<s>`, `metalRoughDyn<s>`... are aliases of the same pool, kept for existing documents. They are deprecated: an input using one prints a warning once, naming `materialArray<k>` / `materialDyn<s>`.
 
 ## Pipeline state
 
@@ -308,20 +329,35 @@ Common fields:
 
 | Field | Description |
 |---|---|
-| `DEPTH_TEST`, `DEPTH_WRITE`, `DEPTH_COMPARE` | Depth state. |
-| `DEPTH_BIAS`, `SLOPE_SCALED_DEPTH_BIAS` | Depth bias. |
+| `DEPTH_TEST`, `DEPTH_WRITE`, `DEPTH_COMPARE` | Depth state. An unknown `DEPTH_COMPARE` is read as `greater` (reverse-Z), with a warning. |
+| `DEPTH_BIAS`, `SLOPE_SCALED_DEPTH_BIAS` | Depth bias. `DEPTH_BIAS` is a whole number of depth units; use `SLOPE_SCALED_DEPTH_BIAS` for a fractional bias. |
 | `CULL_MODE` | `none`, `front`, or `back`. |
 | `FRONT_FACE` | `ccw` or `cw`. |
 | `POLYGON_MODE` | `fill` or `line`. |
 | `LINE_WIDTH` | Line width where supported. |
-| `TOPOLOGY` | `triangles`, `triangle_strip`, `triangle_fan`, `lines`, `line_strip`, `points`. |
-| `VERTEX_COUNT`, `INSTANCE_COUNT` | Procedural draw counts. |
+| `TOPOLOGY` | `triangles` (or `triangle_list`), `triangle_strip`, `triangle_fan`, `lines` (or `line_list`), `line_strip`, `points`. |
+| `VERTEX_COUNT`, `INSTANCE_COUNT` | Draw counts: non-negative integers or expressions, see [Draw counts](#draw-counts). |
 | `BLEND` | One blend state for all outputs, or boolean shortcut. |
-| `BLEND_PER_ATTACHMENT` | Per-output blend states. |
-| `STENCIL_TEST` and stencil masks / ops | Stencil state. |
+| `BLEND_PER_ATTACHMENT` | Per-output blend states: exactly one entry per `FRAGMENT_OUTPUTS` entry (one for a shader without `FRAGMENT_OUTPUTS`). Another count is refused; use `BLEND` for a blend shared by every output. |
+| `STENCIL_TEST` and stencil masks / ops | Stencil state. Masks are non-negative integers. |
 | `SHADING_RATE` | Variable-rate shading `[w, h]` where supported. |
 
-If `VERTEX_COUNT` is set and `VERTEX_INPUTS` is empty, the pipeline performs a procedural draw driven by `gl_VertexIndex` / `gl_InstanceIndex`. If `VERTEX_INPUTS` is non-empty, the draw count is clamped to upstream geometry to avoid out-of-bounds reads.
+Value names are matched ignoring case, `_`, `-` and spaces: `triangle_strip`, `TriangleStrip` and `triangle-strip` are the same. A negative or fractional count or mask is refused with the key's name.
+
+A blend entry takes `ENABLE`, `SRC_COLOR`, `DST_COLOR`, `OP_COLOR`, `SRC_ALPHA`, `DST_ALPHA`, `OP_ALPHA` and `COLOR_WRITE`; any other key, `SRC` / `DST` / `OP` included, is refused.
+
+The 3D render targets of score have no stencil aspect: a pipeline with `STENCIL_TEST` drawn into a target without a stencil attachment runs without the stencil test, with a warning naming the shader.
+
+### Draw counts
+
+`VERTEX_COUNT` makes a procedural draw: `VERTEX_COUNT` vertices and `INSTANCE_COUNT` instances driven by `gl_VertexIndex` / `gl_InstanceIndex`, reading no mesh. It requires `"VERTEX_INPUTS": []`; next to vertex inputs it is refused.
+
+`INSTANCE_COUNT` alone, on a shader that draws the mesh, multiplies the instance count of each of the mesh's draws. It is not applied to GPU-indirect draws, whose counts the host never reads, nor to a mesh with per-instance attributes, whose data only covers its own instances; a warning says so.
+
+### Backend limits
+
+- Direct3D and Metal have no triangle fans. A fan whose vertex order the CPU knows (non-indexed, or with a CPU index buffer) is drawn as the equivalent triangle list, on every backend. A fan it cannot rewrite — a procedural `TOPOLOGY: "triangle_fan"`, a GPU index buffer, an indirect draw — is not drawn on those backends, with one warning per pipeline.
+- Metal has no cull distances: a shader declaring `CULL_DISTANCES` is not drawn on Metal, with one warning, and its consumers receive an empty texture.
 
 ## Alpha, compositing, and transparency
 
@@ -380,7 +416,9 @@ Raw raster normally draws once per frame. `EXECUTION_MODEL` repeats the raster p
 | `PER_LAYER` | Draw once per texture-array layer. |
 | `MANUAL` | Draw `COUNT` times; `COUNT` is an expression. |
 
-`MULTIVIEW` can render several layers / views in a single draw when the backend supports it. It is commonly used with `CUBEMAP: true` and `MULTIVIEW: 6` for camera-array or IBL passes.
+Each `PER_MIP`, `PER_LAYER` or `PER_CUBE_FACE` iteration draws into every output the shader declares: the iterated level, layer or face of `TARGET`; the matching level or layer of another output with the same shape; the whole output otherwise; or, when none fits, a scratch texture, with a warning. Iterations honour each output's `SAMPLES`: they render multisampled and resolve into their level, layer or face. A depth output is written by the iterations whose size, shape and sample count match it — level 0 of a `PER_MIP` pass for a 2D depth, layer *i* of a `PER_LAYER` pass for a depth array with as many layers (Qt 6.12 or newer) — and the other iterations use a scratch depth buffer, with a warning.
+
+`MULTIVIEW` can render several layers / views in a single draw when the backend supports it. It is commonly used with `CUBEMAP: true` and `MULTIVIEW: 6` for camera-array or IBL passes. `MULTIVIEW: N` needs at least `N` layers on every color output (a cubemap has 6); fewer is refused. Where the backend lowers multiview to one draw per view, the draw runs once per view. Multiview iterations render single-sampled.
 
 ## Primitive data
 
@@ -411,9 +449,9 @@ Advanced depth / culling fields:
 }
 ```
 
-- `CLIP_DISTANCES`: declares `gl_ClipDistance[N]` for user clip planes.
-- `CULL_DISTANCES`: declares `gl_CullDistance[N]` for per-primitive culling.
-- `DEPTH_LAYOUT`: conservative-depth qualifier for `gl_FragDepth`: `any`, `greater`, `less`, or `unchanged`.
+- `CLIP_DISTANCES`: declares `gl_ClipDistance[N]` for user clip planes, `N` from 1 to 8.
+- `CULL_DISTANCES`: declares `gl_CullDistance[N]` for per-primitive culling, `N` from 1 to 8. Not available on Metal, see [Backend limits](#backend-limits).
+- `DEPTH_LAYOUT`: conservative-depth qualifier for `gl_FragDepth`: `any`, `greater`, `less`, or `unchanged`, in any case. Another value is refused.
 
 ## Examples
 

@@ -21,7 +21,9 @@ Use VSA for lightweight point clouds, line art, particle-like procedural visuals
 
 ## Authoring a visual
 
-Use the [Vertex Shader Art reference]({{ site.baseurl }}/reference/languages/vertex-shader-art.html) for header fields, vertex outputs, time and resolution variables, and a complete [rotating spiral]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#example). Begin with the three-vertex recipe in [[Shader cookbook]] to see how positions and colors form the image. Connect the resulting texture to a video output. Point and line sizes depend on the GPU/backend.
+Use the [Vertex Shader Art reference]({{ site.baseurl }}/reference/languages/vertex-shader-art.html) for header fields, vertex outputs, time and resolution variables, and a complete [rotating spiral]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#example). Begin with the three-vertex recipe in [[Shader cookbook]] to see how positions and colors form the image. Connect the resulting texture to a video output. Point and line sizes depend on the GPU/backend. The process adds a **Vertex Count** and a **Primitive Type** control, whose defaults come from the shader's `POINT_COUNT` and `PRIMITIVE_MODE`.
+
+A shader's `mouse` and `touch` inputs follow vertexshaderart.com: they are bound by default to the window device's `cursor/clip` and `touch/history` addresses, shown on the inlets, where they can be changed or cabled. See [mouse and touch]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#mouse-and-touch).
 
 Go directly to a relocated section:
 

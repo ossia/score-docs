@@ -50,8 +50,23 @@ The following properties describe the single-window device:
 
 ## Mouse input
 
-* `/cursor/scaled`: mouse cursor position in the window scaled to `[0;1]` bounds.
+* `/cursor/scaled`: mouse cursor position in the window scaled to `[0;1]` bounds, y down.
+* `/cursor/gl`: the same with y up, as OpenGL texture coordinates.
+* `/cursor/clip`: mouse cursor position in clip space, x and y in `[-1;1]`, y up: the `mouse` of [vertexshaderart.com](https://www.vertexshaderart.com).
 * `/cursor/absolute`: mouse cursor position in the window in pixels.
+
+In **Multi-Window Mapping** mode, each window has these under its index prefix (`/0/cursor/clip`...).
+
+## Touch input
+
+In **Single Window** and **Background** modes:
+
+* `/touch/points`: the pointers, a list of 32 `[x, y, pressure]` in clip space, y up. Slot 0 is the mouse (pressure 1 while a button is pressed) or the first finger, then one slot per finger in the order they came down; a released slot keeps its position, with pressure 0. Writable: a value sent to it moves the pointers.
+* `/touch/history`: a texture, the last 240 frames of `/touch/points`: 32 × 240 RGBA float, one column per pointer, the newest frame in the row at `v = 0`, each texel `(x, y, pressure, time)`. This is the `touch` texture of vertexshaderart.com; route it to a texture inlet as any texture address.
+
+## Shader inputs
+
+Shader inputs named for the pointers are bound to these addresses of the first window device by default, in ISF, Vertex Shader Art and Render Pipeline shaders alike: a `point2D` named `iMouse` to `/cursor/absolute`, a `mouse` of a Vertex Shader Art shader to `/cursor/clip`, another `point2D` whose name contains `mouse` to `/cursor/gl`, and an image named `touch` to `/touch/history`. The address shows on the inlet, where it can be changed. See [ISF pointer inputs]({{ site.baseurl }}/reference/languages/isf.html#pointer-inputs) and [VSA mouse and touch]({{ site.baseurl }}/reference/languages/vertex-shader-art.html#mouse-and-touch).
 
 ## Tablet input
 

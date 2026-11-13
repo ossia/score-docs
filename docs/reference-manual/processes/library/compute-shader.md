@@ -20,7 +20,7 @@ A CSF file is a GLSL compute shader with a JSON header. It can be dropped from t
 
 ## Using the process
 
-Drop a CSF file into the score, connect its generated resource inlets, and send image outputs to a video output. Geometry outputs need [[Model Display]] or [[Render Pipeline]] before they can be displayed as an image. For geometry with its own topology, set the downstream Render Pipeline **Mode** to **Geometry**.
+Drop a CSF file into the score, connect its generated resource inlets, and send image outputs to a video output. A CSF declares its controls and resources in `RESOURCES`, where `image` is a storage image and `texture` a sampled one; a shader still using `INPUTS` works, with a deprecation warning. A writable buffer ending in a flexible array gets a **size** control, and a `long` control without `VALUES` is a spin box over its `MIN` / `MAX`. A shader that cannot be used leaves the process without ports and logs a warning naming the process in the **Messages** panel. Geometry outputs need [[Model Display]] or [[Render Pipeline]] before they can be displayed as an image. For geometry with its own topology, set the downstream Render Pipeline **Mode** to **Geometry**.
 
 The [CSF language reference]({{ site.baseurl }}/reference/languages/csf.html) contains a [minimal image filter]({{ site.baseurl }}/reference/languages/csf.html#minimal-file), every resource and pass field, buffer layouts, geometry macros, expressions and built-ins. [[Shader cookbook]] provides image, geometry, indirect-work and audio recipes.
 
@@ -59,7 +59,7 @@ Go directly to a relocated section:
 
 ## Runtime requirements
 
-Compute and storage images require a compatible device and backend. Integer storage formats require Qt 6.10 or newer as well as device support; earlier Qt versions can fall back to RGBA8 without preserving integer semantics. See [[Graphics pipeline]]. Keep the bounds checks in the reference examples when changing image dimensions or geometry counts.
+Compute and storage images require a compatible device and backend. Integer storage formats require Qt 6.10 or newer as well as device support; earlier Qt versions can fall back to RGBA8 without preserving integer semantics. A storage buffer can be as large as the device binds; a buffer that cannot be allocated, or a pass needing more workgroups than the device dispatches, is skipped with a warning rather than run partially. See [[Graphics pipeline]]. Keep the bounds checks in the reference examples when changing image dimensions or geometry counts.
 
 ## Related Processes
 
